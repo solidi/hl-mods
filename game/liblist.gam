@@ -1,0 +1,11 @@
+game "Cold Ice"
+url_info "http://members.xoom.com/Wolfpac_Clan/"
+version ".5 beta"
+size "4.8mb"
+svonly "0"
+hlversion "1010"
+cldll "cl_dlls\frozen.dll"
+type "multiplayer_only"
+mpentity "info_player_deathmatch"
+gamedll "dlls\ice.dll"
+
