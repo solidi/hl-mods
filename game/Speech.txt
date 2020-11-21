@@ -1,0 +1,23 @@
+//Weapon selection Indentifcation.
+
+
+//Rory, please say these lines each in its own  file and sample the wav at 8-bit, 22,000khz.
+
+12 inch combat knife
+Standard crowbar
+40 pound monkey wrench
+PPK, bond style
+Mag 60 automatic handgun
+m-16 machine gun
+12 gauage shotgun
+sawed off, automatic shotgun
+25 inch chaingun
+7.65 mm sinper rifle 
+50 pound automatic LAW rocket Launcher
+120 pound grenade launcher
+30mm assult cannon
+street sweeper
+6-pack cluster grenades
+female assassin decoy bombs
+invisible beam tripmines
+chumtoad

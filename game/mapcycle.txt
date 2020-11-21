@@ -1,3 +1,4 @@
+training
 boot_camp
 stalkyard
 lambda_bunker

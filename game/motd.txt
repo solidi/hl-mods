@@ -1,4 +1,6 @@
-Welcome To Cold Ice  Modification 1.5  Server
-http://www.halflife.org/coldice
+Welcome To Cold Ice  Modification 1.6  Server
+http://www.planethalflife.com/coldice/
+
+*** Smart Hud Notification System ***
 		
 Made By Clan Wolfpac

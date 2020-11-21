@@ -1,60 +1,41 @@
 ===================================================
 Cold Ice
 
-v 1.5 ---Turning Point Version---
+v 1.6
 
-http://www.halflife.org/coldice
+http://www.planethalflife.com/coldice/
 
-7/6/99
+8/4/99
 
 Cold Ice only runs on version 1010 of half-life or newer.
 ===================================================
 
 
 ---Description---
-Cold Ice is a Half-Life Deathmatch that changes all the weapons attritubes to make the game more enjoyable.
+Cold Ice is a Half-Life Deathmatch that changes all the weapons from the regular DM and replaces these with totally new weapons to make the game more enjoyable. It includes first ever (for HL DM) "Smart Hud Notification System" in which the client of the HEV is updated with all activities of his or her own weapons, deaths, other players, items and scoring points.
+Cold Ice includes a voice identification system witch both plays a wav file and displays text to its client on the hud.
 
-
-Cold Ice MOD Changes The Following in 1.5:
-
-This Version is considered a "Turning Point Version"
-This means we are going to keep these weapons and bulid apon them.
-No more Total weapon changes will be done.
+Cold Ice MOD Changes The Following in 1.6:
 
 ---Changes---
-*****All Weapon/Item Skins All replaced wih Blue Glossy Textures.*****
-***Weapons are totally balanced for excellent Teamplay.***
-**This MOD is now Converted into "FULL TEAMPLAY MODE". **
-Added Voice Player. (See Instructions entitled "Voice Instruction")
-New Colored Hud, Scoreboard, and Player Names.
-Officially copyrighted a text line in the HUD.
-Added 12" Combat Knife
-Added Crowbar in 2nd Position HUD.
-Added Weapon sound description...This MOD will be the FIRST with sound weapon description for Half Life.
-Added 2nd fire to the chaingun.
-Revived the Glock and its now a Silenced PP7.  (With Awesome Soundfx!)
-Added new crosshairs, sprites and HUD sprites and then some.
-Added Grenade Launcher and cacenled the egon.
-Added 30mm Assualt Cannon with Expolsive Shells and canceled the gauss gun.
-Added M-60 Automatic handgun and canceled the magnum.
-Added Sneaky Invisible Tripmines and canceled the cheesy barney mines.
-Added explosive buckshots to the shotgun and canceled the grenade launcher on it.
-And Aolt of Misc. Changes that are easily noticed.
-
-
-(Sorry about version's 1.1 map,  ci_massarce. It really sucked, and wasnt suppose to be there.)
+***Smart Hud Notification System***
+**Balanced out weapons**
+**MAX3 Intro Made by CoconutMonkey**
+*New weapon wrench*
+*New weapon M-16 machinegun*
+*New wepon 12 gauage shotgun*
+New map "Training" made by [Wolfpac]SlimShady
+New player model made by coconutmonkey
+Ammo type for every weapon
+Fixed most errors found in 1.5
 
 
 This MOD is not server sided. You have to have the newest client dll inorder to join  a Ice server.
                                                                                      (Which comes included)
 
 
-One other note. "Iceman and Icewoman" are models included with this MOD.
-
-
 ---Installation---
-Just unzip the files into the C:\SIERRA\Half-Life\ICE directory. Start up the Ice MOD through the Custom Game Menu. And Start up a server and play!
-
+Unzipp Cold Ice into a directory named "ice" under the sierra directory. PLEASE UNZIPP IT INTO "ICE" OR IT SCREWES UP EVERYONE ELSE
 
 ---Voice Instruction---
 To play sentences for the game half life,  simply type this in the console
@@ -73,7 +54,6 @@ The CL_DLL should always be placed in the  C:\SIERRA\Half-Life\ICE\cl_dlls direc
 
 ---Known Buggs---
 1) No onwer to the cluster grenades, so its a suicide.
-2) 30mm Cannon animation gets stuck when stopped in the middle of firing.
 
 Report the Buggs to Wolfpac_SlimShady. darcuri@optonline.net
 
@@ -81,48 +61,73 @@ Report the Buggs to Wolfpac_SlimShady. darcuri@optonline.net
 Programs Used.
 --------------------------------------------------------------
 MDL Viewer version 2.1
+3DS 3.x
+3DS 2.5x
 Creative Wave Studio 4.02
-Paint Shop Pro 5.03
+Paint Shop Pro 6.0
 Windows Paint  :)
 Sprite Wizard by Wavelength
 Sprite Viewer 1.05
 Microsoft Visual C++ 6.0
 Valves Standard SDK
-Milkshape 3D beta 1                                                           
+GFX.WAD Bulider                                                          
 --------------------------------------------------------------
 
 Please contact us with ideas, bug reports, or general fan mai l;-)
 
 Questions?  Comments?
 
-Wolfpac_SlimShady -              Founder of the MOD Cold Ice, Skinner, Main C++ Coder,  Sound Editor,  Webpage Design
+Wolfpac_SlimShady - C++ Coder, Founder of Cold Ice, Soundfx, Skinner, Page designer,
+Mapper
+Age - 16
+Exp. w/ cpu - 1 year
+System- 400mhz p2 224ram
+Connection - Cable
 Location -East Coast USA
 darcuri@optonline.net
 ICQ# 27868131
 
 
-Wolfpac_Sting -                        Founder of Wolfpac, C++ Coder, Mapper
+Wolfpac_Sting - Founder of Wolfpac, C++ Coder, Mapper
+Age - 13 : )
+Exp. w/ cpu - 3 years
+System- 400mhz KD6-2 128ram
+Connection - Cable
 Location - East Coast USA
 Sting1313@hotmail.com
 ICQ# 31008941
 
 
-Wolfpac_Babel -                     Main Text screen\Splash designer/ 2D art
+Wolfpac_Babel - Main Text screen\Splash designer
+Exp. w/ cpu - "I lost count" : )
+Age - 18
 Location- Germany
+Connection - 33.6K
+System-You dont want to know : )
 thebabel@hotmail.com
 ICQ# 41270531
 
 
-SSJ_MicroHack -                     Modeler
+CoconutMonkey- Modeler, Intro Producer
+Age - 15
+Exp. w/ cpu - 10 years
+System- 400mhz p2 64ram
+Connection - 56K
 Location- East Coast USA
-microhak@cherco.net
-ICQ# 32706009
+Coconutmonkey28@hotmail.com
+ICQ# 37380606
 
 
-HUDSON -                                   Mapper
-Location- Canada
-lawrence.laforce@sympatico.ca
-ICQ# 34987866
+Rory - Weapon selection voice recorder.
+Age - 14
+Exp. w/cpu - 5
+System- 450mhz p2 128ram
+Connection - 56k
+Location- New England USA
+rory@free.midcoast.com
+
+*** Special Thanks to WolfSinn. Thank you for all the coding suggestions and for the countless hours of testing cold ice with your LAN buddies  :)
+***We give FULL, thats right, FULL CREDIT to the Action Half Life team For the sniper rifle crosshair. (I hope they dont kill us for using it) :)
 
 --------------------------------------------------------------------------------------------------
 Hey, If it wasn't for Clan Wolfpac. This MOD would of never of happened.
@@ -132,4 +137,4 @@ Remember, This MOD was created inorder for you to enjoy HLDM to the fullest.
 
 
 
-Version 2.0  is Due early September '99 with all new models and animations.
+Version 2.0  is Due Late '99 with all new models and animations.
