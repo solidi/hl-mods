@@ -1,0 +1,49 @@
+=========================
+Black Mesa Training Facility
+=========================
+---General Information---
+Title			: Black Mesa training Facility
+Filename		                  : training.bsp
+Author			:  [Wolfpac]SlimShady (Douglas Arcuri)
+Other levels by author	:  None (Stalkyard 2 coming late august '99!)
+Email address 		: darcuri@optonline.net
+Home page		: http://www.planethalflife.com/coldice/
+
+This is the first map I have ever made, so go ez on the rating 8)
+
+---Play Information------
+Map Description		: A training facility complete with pool, restroom,shooting range and a whole lot more.
+Single Player		: Good for mastur.. err nevermind
+Deathmatch		:  yes
+Teamplay		                   : No. Basically for DM
+Recommended # of Players      : 6 to 8
+
+---Construction----------
+Base			:  scratch
+Editor(s) used                              :  Worldcraft 2.0 & 2.1
+Compiler		                   :  SHLCT
+Compile Machine		:  400mhz p2 w/ 224 SDram
+Date Started                                 : 7/06/99
+Date Completed                          : 7/25/99
+Compile time	                  :  around 2 hours
+
+---Special Thanks-------
+
+The Author Would Like to Thank. . .
+  
+>>>>>Basically my clan, Wolfpac. All those hours looking for every single error in the map.
+>>>>>And of course, myself.
+
+
+---Copyright-Permissions--------------------------------------------
+Authors MAY NOT use this level as a base to build additional levels. 
+
+You MUST NOT distribute this level UNLESS you INCLUDE THIS FILE WITH
+NO MODIFICATIONS!!!. If you don't co-operate, then DON'T DISTRIBUTE
+IT IN ANY FORM!!.
+
+This BSP may be distributed ONLY over the Internet and/or BBS systems.
+You are NOT authorized to put this BSP on any CD or distribute it in
+any way without my permission.
+
+Blah blah Blah blahBlah blahBlah blahBlah blahBlah blahBlah blah... hehehhe
