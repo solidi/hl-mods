@@ -1,12 +1,15 @@
+// Cold Ice Information file
+// SlimShady - darcuri@optonline.net
+
 game "Cold Ice"
 url_info "http://www.planethalflife.com/coldice"
 url_dl "http://www.planethalflife.com/coldice/downloads.shtml"
-version "1.61"
-size "668 Kilobytes"
+version "1.7"
+size "23.6 megabytes"
 svonly "0"
 cldll "1"
 hlversion "1010"
-dllversion "1.61"
+dllversion "1.7"
 type "multiplayer_only"
 mpentity "info_player_deathmatch"
 gamedll "dlls\mp.dll"

@@ -1,5 +1,6 @@
+stalkyard2
 training
-boot_camp
 stalkyard
-lambda_bunker
-crossfire
+coldice
+
+
