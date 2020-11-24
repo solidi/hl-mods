@@ -1,0 +1,54 @@
+**Map for ColdIce** www.planethalflife.com/coldice/
+
+------General Information--------------------------------------------
+
+Title		: SnowBase
+Filename	: ci_snow1.bsp
+Author		: Jouko "Rapturer" Karvinen
+Author Email	: jouko.karvinen@pp.inet.fi
+Home page	: http://members.xoom.com/lordhalflife/
+Description	: Map with snow theme.
+Previous Maps	: cs_underground, + some others
+
+
+------Additional Info + Bugs---------------------------------------------
+
+VERY IMPORTANT THINGS:
+This map isn't totally ready yet. Please, send feedback about this map to me.
+
+------Credits and Thanks---------------------------------------------
+
+Valve for Half-Life
+
+All the guys at Cold-Ice!
+
+------Map Information------------------------------------------------
+
+New Textures	: Yes
+New Sounds	: No
+
+------Construction---------------------------------------------------
+
+Base		: from scratch.
+Editor(s) used	: Worldcraft
+Compile Machine	: P2 333mhz, 64mb RAM
+Compile time	: -
+Playtest time	: MANY HOURS!
+
+
+------Map Instructions-----------------------------------------------
+
+Unzip the files in this archive to your half-life/ice/maps directory.
+
+
+------Copyright-Permissions------------------------------------------
+
+Authors MAY NOT use this level as a base to build additional levels. 
+
+You MUST NOT distribute this level UNLESS you INCLUDE THIS FILE WITH
+NO MODIFICATIONS!!!. If you don't co-operate, then DON'T DISTRIBUTE
+IT IN ANY FORM!!.
+
+This BSP may be distributed ONLY over the Internet and/or BBS systems.
+You are NOT authorized to put this BSP on any CD or distribute it in
+any way without my permission.
