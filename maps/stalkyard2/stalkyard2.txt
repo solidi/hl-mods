@@ -1,0 +1,60 @@
+=====================================================================
+Stalkyard 2, The Second Base
+=====================================================================
+------General Information--------------------------------------------
+
+Title		: Stalkyard 2, The Second Base
+Filename	                  : stalkyard2.bsp
+Author		: SlimShady
+Author Email	: darcuri@optonline.net
+Home page	: http://www.planethalflife.com/coldice
+Description	:This map is a brother of Stalkyard with a different texture sheme and different layout (sort of)
+Previous Maps	: training.bsp
+
+------Credits and Thanks---------------------------------------------
+I would Like to thank you friends who playtested the map with me. (Coconutmonkey and Kane!)
+
+
+------Additional Info, Tips, and Notes-------------------------------
+God damnnit, this map was built from nothing... so dont gimme the bullshit its the stalkyard base.. Cause it isnt!
+And i know its alot like Stalkyard.. but i want it like this!
+
+------Play Information-----------------------------------------------
+
+Deathmatch	: Yes
+Single Player	: No
+Map Description	: This map is a brother of Stalkyard with a different texture sheme and different layout (sort of)
+How Many Players    : 4-8
+
+------Map Information------------------------------------------------
+
+New Textures	: No
+New Sounds	: No
+
+------Construction---------------------------------------------------
+
+Base		: From Starch
+Editor(s) used	: WorldCraft 2.1
+Compile Machine	: 400mhz p2 224 RAM
+Compile time	: 15 minutes
+Playtest time	: 10 hours
+Date Started               : 7/16/99
+Date Completed        : 8/15/99
+
+------Map Instructions-----------------------------------------------
+
+Unzip the files in this archive.  Place the map, "stalkyard2.bsp" in
+your half-life/valve/maps directory. 
+
+------Copyright-Permissions------------------------------------------
+
+Authors MAY NOT use this level as a base to build additional levels. 
+
+You MUST NOT distribute this level UNLESS you INCLUDE THIS FILE WITH
+NO MODIFICATIONS!!!. If you don't co-operate, then DON'T DISTRIBUTE
+IT IN ANY FORM!!.
+
+This BSP may be distributed ONLY over the Internet and/or BBS systems.
+You are NOT authorized to put this BSP on any CD or distribute it in
+any way without my permission.
+
