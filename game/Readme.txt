@@ -1,11 +1,11 @@
 ===================================================
 Cold Ice
 
-v 1.7
+v 1.75
 
 http://www.planethalflife.com/coldice/
 
-8/21/99
+8/25/99
 
 Cold Ice only runs on version 1010 of half-life or newer.
 ===================================================
@@ -15,19 +15,21 @@ Cold Ice only runs on version 1010 of half-life or newer.
 Cold Ice is a Half-Life Deathmatch that changes all the weapons from the regular DM and replaces these with totally new weapons to make the game more enjoyable. It includes first ever (for HL DM) "Smart Hud Notification System" in which the client of the HEV is updated with all activities of his or her own weapons, deaths, other players, items and scoring points.
 Cold Ice includes a voice identification system witch both plays a wav file and displays text to its client on the hud.
 
-Cold Ice MOD Changes The Following in 1.7:
+Cold Ice MOD Changes The Following in 1.73:
 
 ---Changes---
-New weapon Grapple Hook! (isnt off-handed, thats way to chessy with these weapons =)
-New weapon USAS-12 auto Shotgun!
-New weapon Kamikaze Dynamite Vest!
-New weapon Air Compressed Auto Boltgun!
-2 New Maps! Cold Ice offical Map and Stalkyard2!
-Code optimized!
-Manual!
-A few NEW world weapon models and the first few 1st person models!
-Each weapon runs off a different ammo type. (ex. .32 ACP, .38 ACP, 5.56mm, 7.65mm, Buckshots, Buckshot slugs, Explosive shells, 30mm Shells, Contact grenades, Timed grenades ..etc.)
-Fixed most errors found in 1.61
+Off Hand Grapple Hook (Im sorry about the weapon grapple, it wasnt a good idea)
+Optimized Smart Hud system allowing the player to see more of the action.
+The long jump pack will be replace with a jet pack. (I would like to thank EvilClone for this)
+4 new world models. Chaingun, Sniper rifle, Grenade Launcher and Mag60
+9 new ammo models
+Optimized models in code and pack file.
+Fixes a system bug that causes the server to crash if impulse 101 is repeatly activitated
+A hud deathnotice fix of inivisible death sprite of train and skull.
+Configuration Support for special binds in the menu.
+More weapon slots (10)
+New version of the iceman model (KICK ASS!)
+Voice command doesnt work anymore. (Due to 1.0.1.3 patch)
 
 
 This MOD is not server sided. You have to have the newest client dll inorder to join  a Ice server.
@@ -35,14 +37,12 @@ This MOD is not server sided. You have to have the newest client dll inorder to 
 
 
 ---Installation---
-Unzipp Cold Ice into a directory named "ice" under the sierra directory. PLEASE UNZIPP IT INTO "ICE" OR IT SCREWES UP EVERYONE ELSE
+Simply Click on the exe file and it will guide you through the installation process.
 
----Voice Instruction---
-To play sentences for the game half life,  simply type this in the console
-
-say "%!XX_XXXX"
-
-The XX_XXX is from the sentences.txt file in the valves pak file. To play the ones you want just plugin the letters for the sentences.txt to the console.
+---Key Binding---
+There are currently 2 commands
+1) +hook -  This command lets you throw a grapple hook.
+2) +jetpack - If you have the jet pack, this command will let you fly.
 
 ---Version Confliction---
 If you get a message "Wrong DLL" or "Missing DLL", most likely you joined a earlier or newer version of Cold Ice on a server.
@@ -83,6 +83,9 @@ Questions?  Comments?
 ***And also a special thanks to:
 ITF-Clock Work Orange, ITF-Chaos, ITF-Camper, ITF-Sniper, ITF-Rat TraP , For letting us sample their sounds wavs for our weapons.
 
+***I would like to thank my beta testers
+-TCRCyberSpy
+-NuPe
 
 
 Remember, This MOD was created inorder for you to enjoy HLDM to the fullest.

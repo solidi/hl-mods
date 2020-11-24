@@ -1,0 +1,9 @@
+Impulse 101 has been broken up into 5 commands due to system crashes of sound overload.
+
+The commands are:
+impulse 10 //Manual weapons
+impulse11 //Handguns
+impulse12 //Machineguns
+impulse13 //Heavy weapons
+impulse14 //Carryable weapons
+impulse15 //Ammo and items
