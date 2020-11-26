@@ -1,0 +1,12 @@
+-Server Commands-
+mp_bots - bot support on or off
+mp_hook - hook on/ off
+addbot - add a AI player.
+
+-Client Commands-
+weaponmenu - display weapon selection
+ammomenu - display ammo selection
++hook - throw grapple
+-hook - deactive grapple
+
+

@@ -1,6 +1,6 @@
-stalkyard2
-training
-stalkyard
-coldice
+ci_ciarena
+ci_lostbase06
+ci_sandy
+ci_coldice
 
 
