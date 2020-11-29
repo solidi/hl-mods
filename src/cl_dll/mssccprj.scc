@@ -1,0 +1,4 @@
+SCC = This is a Source Code Control file
+
+[cl_dll.mak]
+SCC_Project_Name = "$/HLStandardSDK/SourceCode/cl_dll", NUWHAAAA
