@@ -87,7 +87,6 @@ public:
 	void TraceAttack( entvars_t *pevAttacker, float flDamage, Vector vecDir, TraceResult *ptr, int bitsDamageType);
 	void MakeDamageBloodDecal ( int cCount, float flNoise, TraceResult *ptr, const Vector &vecDir );
 	virtual BOOL	IsAlive( void ) { return (pev->deadflag != DEAD_DEAD); }
-	virtual int BloodColor( void ) { return m_bloodColor; }
 
 };
 

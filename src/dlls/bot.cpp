@@ -24,21 +24,22 @@ extern int gmsgSetFOV;
 int f_Observer = 0;  // flag to indicate if we are in observer mode
 
 ammo_check_t ammo_check[] = {
-//   {"ammo_glockclip", "9mm", _9MM_MAX_CARRY},
- //  {"ammo_9mmclip", "9mm", _9MM_MAX_CARRY},
- //  {"ammo_9mmAR", "9mm", _9MM_MAX_CARRY},
- //  {"ammo_mp5clip", "9mm", _9MM_MAX_CARRY},
- //  {"ammo_9mmbox", "9mm", _9MM_MAX_CARRY},
-//   {"ammo_chainboxclip", "9mm", _9MM_MAX_CARRY},
+/*   {"ammo_glockclip", "9mm", _9MM_MAX_CARRY},
+   {"ammo_9mmclip", "9mm", _9MM_MAX_CARRY},
+   {"ammo_9mmAR", "9mm", _9MM_MAX_CARRY},
+   {"ammo_mp5clip", "9mm", _9MM_MAX_CARRY},
+   {"ammo_9mmbox", "9mm", _9MM_MAX_CARRY},
+   {"ammo_chainboxclip", "9mm", _9MM_MAX_CARRY},
    {"ammo_mp5grenades", "ARgrenades", M203_GRENADE_MAX_CARRY},
    {"ammo_ARgrenades", "ARgrenades", M203_GRENADE_MAX_CARRY},
    {"ammo_buckshot", "buckshot", BUCKSHOT_MAX_CARRY},
- //  {"ammo_crossbow", "bolts", BOLT_MAX_CARRY},
- //  {"ammo_357", "357", _357_MAX_CARRY},
+   {"ammo_crossbow", "bolts", BOLTGUN_MAX_CARRY},
+   {"ammo_357", "357", _357_MAX_CARRY},
    {"ammo_rpgclip", "rockets", ROCKET_MAX_CARRY},
-//   {"ammo_egonclip", "uranium", URANIUM_MAX_CARRY},
-//   {"ammo_gaussclip", "uranium", URANIUM_MAX_CARRY},
-   {"", 0, 0}};
+   {"ammo_egonclip", "uranium", URANIUM_MAX_CARRY},
+   {"ammo_gaussclip", "uranium", URANIUM_MAX_CARRY},
+*/
+	{"", 0, 0}};
 
 LINK_ENTITY_TO_CLASS( bot, CBot );
 
@@ -185,7 +186,7 @@ void CBot::Spawn( )
    v_prev_origin = pev->origin;  // save previous position
    f_shoot_time = 0;
 
-   f_max_speed = CVAR_GET_FLOAT("sv_maxspeed") * .8;
+   f_max_speed = CVAR_GET_FLOAT("sv_maxspeed") * .60;
    f_speed_check_time = gpGlobals->time + 1.0;
    ladder_dir = 0;
 

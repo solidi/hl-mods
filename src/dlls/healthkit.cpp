@@ -1,17 +1,17 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
+
 #include "extdll.h"
 #include "util.h"
 #include "cbase.h"
@@ -29,12 +29,10 @@ class CHealthKit : public CItem
 	void Spawn( void );
 	void Precache( void );
 	BOOL MyTouch( CBasePlayer *pPlayer );
-
 };
 
 
 LINK_ENTITY_TO_CLASS( item_healthkit, CHealthKit );
-
 
 void CHealthKit :: Spawn( void )
 {
@@ -59,7 +57,6 @@ BOOL CHealthKit::MyTouch( CBasePlayer *pPlayer )
 		MESSAGE_END();
 
 		EMIT_SOUND(ENT(pPlayer->pev), CHAN_ITEM, "items/smallmedkit1.wav", 1, ATTN_NORM);
-//		ShowSmart (pPlayer, 0x7, 2, 0, "--Add On--\nObtained Health Pack\n +15 Health" );
 
 		if ( g_pGameRules->ItemShouldRespawn( this ) )
 		{
@@ -75,8 +72,6 @@ BOOL CHealthKit::MyTouch( CBasePlayer *pPlayer )
 
 	return FALSE;
 }
-
-
 
 //-------------------------------------------------------------
 // Wall mounted health kit
@@ -222,7 +217,7 @@ void CWallHealth::Recharge(void)
 {
 		EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/medshot4.wav", 1.0, ATTN_NORM );
 	m_iJuice = gSkillData.healthchargerCapacity;
-	pev->frame = 0;	
+	pev->frame = 0;			
 	SetThink( SUB_DoNothing );
 }
 

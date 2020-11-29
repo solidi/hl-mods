@@ -6,11 +6,183 @@
 --------------------Configuration: mp - Win32 Profile--------------------
 </h3>
 <h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSPB325.TMP" with contents
+[
+/nologo /G5 /MT /W3 /GX /Zi /O2 /I "..\engine" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "VALVE_DLL" /Fr".\Profilemp/" /Fp".\Profilemp/mp.pch" /YX /Fo".\Profilemp/" /Fd".\Profilemp/" /FD /c 
+"C:\My Documents\Dougs Files\Half Life\Cold Ice SCR\Revamped Cold Ice Code\dlls\runes.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSPB325.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSPB326.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\mp.def" /out:".\Profilemp/mp.dll" /implib:".\Profilemp/mp.lib" 
+".\Profilemp\animating.obj"
+".\Profilemp\animation.obj"
+".\Profilemp\ashotgun.obj"
+".\Profilemp\bmodels.obj"
+".\Profilemp\boltgun.obj"
+".\Profilemp\buttons.obj"
+".\Profilemp\cbase.obj"
+".\Profilemp\chaingun.obj"
+".\Profilemp\chumtoad.obj"
+".\Profilemp\client.obj"
+".\Profilemp\cluster_grenade.obj"
+".\Profilemp\combat.obj"
+".\Profilemp\crowbar.obj"
+".\Profilemp\doors.obj"
+".\Profilemp\double_uzi.obj"
+".\Profilemp\effects.obj"
+".\Profilemp\explode.obj"
+".\Profilemp\fragsforweapons_arena.obj"
+".\Profilemp\func_break.obj"
+".\Profilemp\func_tank.obj"
+".\Profilemp\game.obj"
+".\Profilemp\gamerules.obj"
+".\Profilemp\ggrenade.obj"
+".\Profilemp\globals.obj"
+".\Profilemp\grenadel.obj"
+".\Profilemp\h_ai.obj"
+".\Profilemp\h_battery.obj"
+".\Profilemp\h_cycler.obj"
+".\Profilemp\h_export.obj"
+".\Profilemp\healthkit.obj"
+".\Profilemp\items.obj"
+".\Profilemp\knife.obj"
+".\Profilemp\lights.obj"
+".\Profilemp\m16.obj"
+".\Profilemp\mac_10.obj"
+".\Profilemp\mag60.obj"
+".\Profilemp\maprules.obj"
+".\Profilemp\mortar.obj"
+".\Profilemp\mpstubb.obj"
+".\Profilemp\multiplay_gamerules.obj"
+".\Profilemp\nukelauncher.obj"
+".\Profilemp\pathcorner.obj"
+".\Profilemp\plane.obj"
+".\Profilemp\plats.obj"
+".\Profilemp\player.obj"
+".\Profilemp\ppk.obj"
+".\Profilemp\pulse_rifle.obj"
+".\Profilemp\railgun.obj"
+".\Profilemp\railgun_arena.obj"
+".\Profilemp\rifle.obj"
+".\Profilemp\rocket_arena.obj"
+".\Profilemp\rocketl.obj"
+".\Profilemp\runes.obj"
+".\Profilemp\singleplay_gamerules.obj"
+".\Profilemp\skill.obj"
+".\Profilemp\sound.obj"
+".\Profilemp\soundent.obj"
+".\Profilemp\spectator.obj"
+".\Profilemp\sshotgun.obj"
+".\Profilemp\subs.obj"
+".\Profilemp\sword.obj"
+".\Profilemp\teamplay_gamerules.obj"
+".\Profilemp\tnt.obj"
+".\Profilemp\triggers.obj"
+".\Profilemp\tripmine.obj"
+".\Profilemp\util.obj"
+".\Profilemp\uzi.obj"
+".\Profilemp\weapons.obj"
+".\Profilemp\world.obj"
+".\Profilemp\xen.obj"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPB326.TMP"
+Creating temporary file "C:\WINDOWS\TEMP\RSPB327.BAT" with contents
+[
+@echo off
+copy .\Profilemp\mp.dll \SIERRA\Half-Life\ice\dlls
+copy .\Profilemp\mp.map C:\SIERRA\Half-Life\ice\dlls
+]
+Creating command line "C:\WINDOWS\TEMP\RSPB327.BAT"
+Compiling...
+runes.cpp
+Linking...
+   Creating library .\Profilemp/mp.lib and object .\Profilemp/mp.exp
+<h3>Output Window</h3>
+Copying to \SIERRA\Half-Life\ice\dlls
+        1 file(s) copied
+        1 file(s) copied
+Creating temporary file "C:\WINDOWS\TEMP\RSPB380.TMP" with contents
+[
+/nologo /o".\Profilemp/mp.bsc" 
+".\Profilemp\animating.sbr"
+".\Profilemp\animation.sbr"
+".\Profilemp\ashotgun.sbr"
+".\Profilemp\bmodels.sbr"
+".\Profilemp\boltgun.sbr"
+".\Profilemp\buttons.sbr"
+".\Profilemp\cbase.sbr"
+".\Profilemp\chaingun.sbr"
+".\Profilemp\chumtoad.sbr"
+".\Profilemp\client.sbr"
+".\Profilemp\cluster_grenade.sbr"
+".\Profilemp\combat.sbr"
+".\Profilemp\crowbar.sbr"
+".\Profilemp\doors.sbr"
+".\Profilemp\double_uzi.sbr"
+".\Profilemp\effects.sbr"
+".\Profilemp\explode.sbr"
+".\Profilemp\fragsforweapons_arena.sbr"
+".\Profilemp\func_break.sbr"
+".\Profilemp\func_tank.sbr"
+".\Profilemp\game.sbr"
+".\Profilemp\gamerules.sbr"
+".\Profilemp\ggrenade.sbr"
+".\Profilemp\globals.sbr"
+".\Profilemp\grenadel.sbr"
+".\Profilemp\h_ai.sbr"
+".\Profilemp\h_battery.sbr"
+".\Profilemp\h_cycler.sbr"
+".\Profilemp\h_export.sbr"
+".\Profilemp\healthkit.sbr"
+".\Profilemp\items.sbr"
+".\Profilemp\knife.sbr"
+".\Profilemp\lights.sbr"
+".\Profilemp\m16.sbr"
+".\Profilemp\mac_10.sbr"
+".\Profilemp\mag60.sbr"
+".\Profilemp\maprules.sbr"
+".\Profilemp\mortar.sbr"
+".\Profilemp\mpstubb.sbr"
+".\Profilemp\multiplay_gamerules.sbr"
+".\Profilemp\nukelauncher.sbr"
+".\Profilemp\pathcorner.sbr"
+".\Profilemp\plane.sbr"
+".\Profilemp\plats.sbr"
+".\Profilemp\player.sbr"
+".\Profilemp\ppk.sbr"
+".\Profilemp\pulse_rifle.sbr"
+".\Profilemp\railgun.sbr"
+".\Profilemp\railgun_arena.sbr"
+".\Profilemp\rifle.sbr"
+".\Profilemp\rocket_arena.sbr"
+".\Profilemp\rocketl.sbr"
+".\Profilemp\runes.sbr"
+".\Profilemp\singleplay_gamerules.sbr"
+".\Profilemp\skill.sbr"
+".\Profilemp\sound.sbr"
+".\Profilemp\soundent.sbr"
+".\Profilemp\spectator.sbr"
+".\Profilemp\sshotgun.sbr"
+".\Profilemp\subs.sbr"
+".\Profilemp\sword.sbr"
+".\Profilemp\teamplay_gamerules.sbr"
+".\Profilemp\tnt.sbr"
+".\Profilemp\triggers.sbr"
+".\Profilemp\tripmine.sbr"
+".\Profilemp\util.sbr"
+".\Profilemp\uzi.sbr"
+".\Profilemp\weapons.sbr"
+".\Profilemp\world.sbr"
+".\Profilemp\xen.sbr"]
+Creating command line "bscmake.exe @C:\WINDOWS\TEMP\RSPB380.TMP"
+Creating browse info file...
+<h3>Output Window</h3>
 
 
 
 <h3>Results</h3>
-ice.dll - 0 error(s), 0 warning(s)
+mp.dll - 0 error(s), 0 warning(s)
 </pre>
 </body>
 </html>

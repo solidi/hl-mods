@@ -1,18 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
-#if !defined( OEM_BUILD ) && !defined( HLDEMO_BUILD )
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 
 #include "extdll.h"
 #include "util.h"
@@ -29,15 +27,14 @@
 enum grenadelauncher_e {
 	GL_IDLE1 = 0,
 	GL_IDLE2,
-	GL_FIRE1,
-	GL_FIRE2,
 	GL_RELOAD1,
 	GL_RELOAD2,
-	GL_RELOAD3,
-	GL_RELOAD4,
-	GL_DRAW,
-	GL_DRAW1,
+	GL_RELOAD3,	
+	GL_FIRE1,
+	GL_FIRE2,	
 	GL_HOLSTER,
+	GL_DRAW,
+
 
 };
 
@@ -56,8 +53,6 @@ public:
 	int AddToPlayer( CBasePlayer *pPlayer );
 
 	BOOL Deploy( void );
-	void Holster( void );
-
 	void PrimaryAttack( void );
 	void WeaponIdle( void );
 	void SecondaryAttack( void );
@@ -69,6 +64,7 @@ public:
 	float m_flPumpTime;
 };
 LINK_ENTITY_TO_CLASS( weapon_grenadel, CGrenadelauncher );
+LINK_ENTITY_TO_CLASS( weapon_egon, CGrenadelauncher );
 
 TYPEDESCRIPTION	CGrenadelauncher::m_SaveData[] = 
 {
@@ -81,21 +77,15 @@ IMPLEMENT_SAVERESTORE( CGrenadelauncher, CBasePlayerWeapon );
 
 void CGrenadelauncher::Spawn( )
 {
-	    if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )	
-	{
-		return;
-	}
-	else
-	{
+	pev->classname = MAKE_STRING("weapon_grenadel"); 
 	Precache( );
-	m_iId = WEAPON_EGON;
+	m_iId = WEAPON_GRENADEL;
 
 	SET_MODEL(ENT(pev), "models/wmodels/w_grenadel.mdl");
 
-	m_iDefaultAmmo = GL_DEFAULT_GIVE;
+	m_iDefaultAmmo = GRENADEL_DEFAULT_GIVE;
 
-	FallInit();// get ready to fall down.
-	}
+	FallInit();
 }
 
 
@@ -104,7 +94,6 @@ void CGrenadelauncher::Precache( void )
 	PRECACHE_MODEL("models/wmodels/w_grenadel.mdl");
 	PRECACHE_MODEL("models/vmodels/v_grenadel.mdl");
 	PRECACHE_MODEL("models/pmodels/p_grenadel.mdl");
-	PRECACHE_SOUND ("weapons/357_cock1.wav"); //empty?
 	PRECACHE_SOUND("weapons/glauncher.wav");
 	PRECACHE_SOUND("weapons/glauncher2.wav");
 	PRECACHE_SOUND("weapons/cannoncock.wav");
@@ -114,7 +103,7 @@ void CGrenadelauncher::Precache( void )
 
 BOOL CGrenadelauncher::Deploy( void )
 {
-	return DefaultDeploy( "models/vmodels/v_grenadel.mdl", "models/pmodels/p_grenadel.mdl", GL_DRAW, "egon" );
+	return DefaultDeploy( "models/vmodels/v_grenadel.mdl", "models/pmodels/p_grenadel.mdl", GL_DRAW, "rpg" );
 }
 
 int CGrenadelauncher::AddToPlayer( CBasePlayer *pPlayer )
@@ -130,34 +119,24 @@ int CGrenadelauncher::AddToPlayer( CBasePlayer *pPlayer )
 }
 
 
-
-void CGrenadelauncher::Holster( void )
-{
-	//ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "Switching Grenade Launcher\n");
-	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
-	SendWeaponAnim( GL_HOLSTER );
-}
-
 int CGrenadelauncher::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
-	p->pszAmmo1 = "ARgrenades";
-	p->iMaxAmmo1 = M203_GRENADE_MAX_CARRY;
-	p->pszAmmo2 = "Timed";
+	p->pszAmmo1 = "contact";
+	p->iMaxAmmo1 = GRENADEL_MAX_CARRY;
+	p->pszAmmo2 = "timed";
 	p->iMaxAmmo2 = TIMED_MAX_CARRY;
-	p->iMaxClip = GL_MAX_CLIP;
-	p->iSlot = 0;
-	p->iPosition = 14;
-	p->iId = m_iId = WEAPON_EGON;
+	p->iMaxClip = GRENADEL_MAX_CLIP;
+	p->iSlot = 3;
+	p->iPosition = 0;
+	p->iId = m_iId = WEAPON_GRENADEL;
 	p->iFlags = 0;
-	p->iWeight = GL_WEIGHT;
-	p->weaponName = "120 Pound Automatic Grenade Launcher";        
+	p->iWeight = GRENADEL_WEIGHT;     
 
 	return 1;
 }
 void CGrenadelauncher::PrimaryAttack( void )
 {
-	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/357_cock1.wav", 0.8, ATTN_NORM);
@@ -183,41 +162,33 @@ void CGrenadelauncher::PrimaryAttack( void )
 	  SendWeaponAnim( GL_FIRE1 );
 
 
-	// player "shoot" animation
 	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
-	if ( RANDOM_LONG(0,1) )
+	switch ( RANDOM_LONG(0,1) )
 	{
-		// play this sound through BODY channel so we can hear it if player didn't stop firing MP3
+	case 0:
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/glauncher.wav", 0.8, ATTN_NORM);
-	}
-	else
-	{
-		// play this sound through BODY channel so we can hear it if player didn't stop firing MP3
+		break;
+	case 1:
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/glauncher2.wav", 0.8, ATTN_NORM);
+		break;
 	}
  
 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
 
-	// Shoot an Contact Grenade. When touch surface, EXPLODE!
 	CGrenade::ShootContact ( m_pPlayer->pev, 
 							m_pPlayer->pev->origin + m_pPlayer->pev->view_ofs + gpGlobals->v_forward * 10, 
 							gpGlobals->v_forward * 1000 );
 	
 	m_flNextPrimaryAttack = gpGlobals->time + 1.0;
 	m_flNextSecondaryAttack = gpGlobals->time + 1.0;
-	m_flTimeWeaponIdle = gpGlobals->time + .6;// idle pretty soon after shooting.
-
-	if (!m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType])
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
+	m_flTimeWeaponIdle = gpGlobals->time + .6;
 
 	m_pPlayer->pev->punchangle.x -= 5;
 
 }
 void CGrenadelauncher::SecondaryAttack( void )
 {
-	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/357_cock1.wav", 0.8, ATTN_NORM);
@@ -240,24 +211,21 @@ void CGrenadelauncher::SecondaryAttack( void )
 
 	SendWeaponAnim( GL_FIRE2 );
 
-	// player "shoot" animation
 	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 
-	if ( RANDOM_LONG(0,1) )
+	switch ( RANDOM_LONG(0,1) )
 	{
-		// play this sound through BODY channel so we can hear it if player didn't stop firing MP3
+	case 0:
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/glauncher.wav", 0.8, ATTN_NORM);
-	}
-	else
-	{
-		// play this sound through BODY channel so we can hear it if player didn't stop firing MP3
+		break;
+	case 1:
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/glauncher2.wav", 0.8, ATTN_NORM);
+		break;
 	}
  
 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
 
-	//Shoot the Time  Grenade. Give the bitch a blast in 3.0 seconds.
 	CGrenade::ShootTimed  ( m_pPlayer->pev, 
 							m_pPlayer->pev->origin + m_pPlayer->pev->view_ofs + gpGlobals->v_forward * 10, 
 							gpGlobals->v_forward * 1000, 3.0 );
@@ -273,30 +241,23 @@ void CGrenadelauncher::SecondaryAttack( void )
 
 	m_fInReload = 0;
 
-	if (!m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
-
 	m_pPlayer->pev->punchangle.x -= 10;
 
 }
 void CGrenadelauncher::Reload( void )
 {
-	if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0 || m_iClip == GL_MAX_CLIP)
+	if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0 || m_iClip == GRENADEL_MAX_CLIP)
 		return;
 
 	if (m_flNextReload > gpGlobals->time)
 		return;
 
-	// don't reload until recoil is done
 	if (m_flNextPrimaryAttack > gpGlobals->time)
 		return;
 
-	// check to see if we're ready to reload
 	if (m_fInReload == 0)
 	{
 		SendWeaponAnim( GL_RELOAD1 );
-//		ShowSmart (m_pPlayer, 0x7, 2, 0, "--Reload--\nContact Grenade" );
 		m_fInReload = 1;
 		m_pPlayer->m_flNextAttack = gpGlobals->time + 0.1;
 		m_flTimeWeaponIdle = gpGlobals->time + 0.1;
@@ -308,7 +269,6 @@ void CGrenadelauncher::Reload( void )
 	{
 		if (m_flTimeWeaponIdle > gpGlobals->time)
 			return;
-		// was waiting for gun to move to side
 		m_fInReload = 2;
 
 		if (RANDOM_LONG(0,1))
@@ -323,7 +283,6 @@ void CGrenadelauncher::Reload( void )
 	}
 	else
 	{
-		// Add them to the clip
 		m_iClip += 1;
 		m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] -= 1;
 		m_fInReload = 1;
@@ -337,7 +296,6 @@ void CGrenadelauncher::WeaponIdle( void )
 
 	if (m_flPumpTime && m_flPumpTime < gpGlobals->time)
 	{
-		// play pumping sound
 		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/scock1.wav", 1, ATTN_NORM, 0, 95 + RANDOM_LONG(0,0x1f));
 		m_flPumpTime = 0;
 	}
@@ -356,10 +314,8 @@ void CGrenadelauncher::WeaponIdle( void )
 			}
 			else
 			{
-				// reload debounce has timed out
 				SendWeaponAnim( GL_IDLE1 );
 				
-				// play cocking sound
 				EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/cannoncock.wav", 1, ATTN_NORM, 0, 95 + RANDOM_LONG(0,0x1f));
 				m_fInReload = 0;
 				m_flTimeWeaponIdle = gpGlobals->time + 1.5;
@@ -372,7 +328,7 @@ void CGrenadelauncher::WeaponIdle( void )
 			if (flRand <= 0.8)
 			{
 				iAnim = GL_IDLE2;
-				m_flTimeWeaponIdle = gpGlobals->time + (60.0/12.0);// * RANDOM_LONG(2, 5);
+				m_flTimeWeaponIdle = gpGlobals->time + (60.0/12.0);
 			}
 			else if (flRand <= 0.95)
 			{
@@ -390,29 +346,22 @@ void CGrenadelauncher::WeaponIdle( void )
 }
 	
 
-class CGrenadelauncherAmmo : public CBasePlayerAmmo
+class CContactAmmo : public CBasePlayerAmmo
 {
 	void Spawn( void )
 	{ 
-		if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )
-	{
-	
-	}
-	 else
-	 {
 		Precache( );
-		SET_MODEL(ENT(pev), "models/ammo/w_ammo9.mdl");
+		SET_MODEL(ENT(pev), "models/w_9mmclip.mdl");
 		CBasePlayerAmmo::Spawn( );
-	 }
 	}
 	void Precache( void )
 	{
-		PRECACHE_MODEL ("models/ammo/w_ammo9.mdl");
+		PRECACHE_MODEL ("models/w_9mmclip.mdl");
 		PRECACHE_SOUND("items/9mmclip1.wav");
 	}
 	BOOL AddAmmo( CBaseEntity *pOther ) 
 	{ 
-		int bResult = (pOther->GiveAmmo( AMMO_CANNON_GIVE, "Shells", M203_GRENADE_MAX_CARRY ) != -1);
+		int bResult = (pOther->GiveAmmo( AMMO_CONTACT_GIVE, "contact", GRENADEL_MAX_CARRY ) != -1);
 
 		if (bResult)
 		{
@@ -421,6 +370,33 @@ class CGrenadelauncherAmmo : public CBasePlayerAmmo
 		return bResult;
 	}
 };
-LINK_ENTITY_TO_CLASS( ammo_egonclip, CGrenadelauncherAmmo );
+LINK_ENTITY_TO_CLASS( ammo_contact, CContactAmmo );
 
-#endif
+class CTimedAmmo : public CBasePlayerAmmo
+{
+	void Spawn( void )
+	{ 
+		Precache( );
+		SET_MODEL(ENT(pev), "models/w_9mmclip.mdl");
+		CBasePlayerAmmo::Spawn( );
+	}
+	void Precache( void )
+	{
+		PRECACHE_MODEL ("models/w_9mmclip.mdl");
+		PRECACHE_SOUND("items/9mmclip1.wav");
+	}
+	BOOL AddAmmo( CBaseEntity *pOther ) 
+	{ 
+		int bResult = (pOther->GiveAmmo( AMMO_TIMED_GIVE, "timed", TIMED_MAX_CARRY ) != -1);
+
+		if (bResult)
+		{
+			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+		}
+		return bResult;
+	}
+};
+LINK_ENTITY_TO_CLASS( ammo_timed, CTimedAmmo );
+
+
+

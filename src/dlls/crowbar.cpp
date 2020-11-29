@@ -1,17 +1,17 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
+
 
 #include "extdll.h"
 #include "util.h"
@@ -35,16 +35,20 @@ public:
 	void EXPORT SwingAgain( void );
 	void EXPORT Smack( void );
 	int GetItemInfo(ItemInfo *p);
+	int AddToPlayer( CBasePlayer *pPlayer );
+
+	int menu_on;
 
 	void PrimaryAttack( void );
 	int Swing( int fFirst );
 	BOOL Deploy( void );
 	void Holster( void );
 	int m_iSwing;
+
 	TraceResult m_trHit;
 };
 LINK_ENTITY_TO_CLASS( weapon_crowbar, CCrowbar );
-
+LINK_ENTITY_TO_CLASS( weapon_fwcrowbar, CCrowbar );
 
 
 enum gauss_e {
@@ -62,19 +66,12 @@ enum gauss_e {
 
 void CCrowbar::Spawn( )
 {
-	 if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )	
-	{
-		return;
-	}
-	else
-	{
 	Precache( );
 	m_iId = WEAPON_CROWBAR;
 	SET_MODEL(ENT(pev), "models/w_crowbar.mdl");
 	m_iClip = -1;
 
 	FallInit();// get ready to fall down.
-	}
 }
 
 
@@ -93,20 +90,30 @@ void CCrowbar::Precache( void )
 
 int CCrowbar::GetItemInfo(ItemInfo *p)
 {
-	p->pszName = STRING(pev->classname);
+	p->pszName = "weapon_crowbar";
 	p->pszAmmo1 = NULL;
 	p->iMaxAmmo1 = -1;
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
 	p->iMaxClip = WEAPON_NOCLIP;
 	p->iSlot = 0;
-	p->iPosition = 1;
+	p->iPosition = 0;
 	p->iId = WEAPON_CROWBAR;
 	p->iWeight = CROWBAR_WEIGHT;
-	p->weaponName = "Standard Crowbar";  
 	return 1;
 }
 
+int CCrowbar::AddToPlayer( CBasePlayer *pPlayer )
+{
+	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
+	{
+		MESSAGE_BEGIN( MSG_ONE, gmsgWeapPickup, NULL, pPlayer->pev );
+			WRITE_BYTE( m_iId );
+		MESSAGE_END();
+		return TRUE;
+	}
+	return FALSE;
+}
 
 
 BOOL CCrowbar::Deploy( )
@@ -116,7 +123,6 @@ BOOL CCrowbar::Deploy( )
 
 void CCrowbar::Holster( )
 {
-	//ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "Switching Crowbar\n");
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 	SendWeaponAnim( CROWBAR_HOLSTER );
 }
@@ -247,9 +253,9 @@ int CCrowbar::Swing( int fFirst )
 		switch( ((m_iSwing++) % 2) + 1 )
 		{
 		case 0:
-			SendWeaponAnim( CROWBAR_ATTACK1HIT );  break;
+			SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
 		case 1:
-			SendWeaponAnim( CROWBAR_ATTACK2HIT );  break;
+			SendWeaponAnim( CROWBAR_ATTACK2HIT ); break;
 		case 2:
 			SendWeaponAnim( CROWBAR_ATTACK3HIT ); break;
 		}
@@ -270,7 +276,7 @@ int CCrowbar::Swing( int fFirst )
 		}	
 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
 
-		m_flNextPrimaryAttack = gpGlobals->time + 0.5;
+		m_flNextPrimaryAttack = gpGlobals->time + 0.25;
 
 		// play thwack, smack, or dong sound
 		float flVol = 1.0;
@@ -295,7 +301,6 @@ int CCrowbar::Swing( int fFirst )
 					return TRUE;
 				else
 					flVol = 0.1;
-
 
 				fHitWorld = FALSE;
 			}

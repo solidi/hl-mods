@@ -440,7 +440,7 @@ Activity CBaseMonster :: GetDeathActivity ( void )
 	if ( deathActivity == ACT_DIEFORWARD )
 	{
 			// make sure there's room to fall forward
-			UTIL_TraceHull ( vecSrc, vecSrc + gpGlobals->v_forward * 228, dont_ignore_monsters, head_hull, edict(), &tr );
+			UTIL_TraceHull ( vecSrc, vecSrc + gpGlobals->v_forward * 64, dont_ignore_monsters, head_hull, edict(), &tr );
 
 			if ( tr.flFraction != 1.0 )
 			{
@@ -451,7 +451,7 @@ Activity CBaseMonster :: GetDeathActivity ( void )
 	if ( deathActivity == ACT_DIEBACKWARD )
 	{
 			// make sure there's room to fall backward
-			UTIL_TraceHull ( vecSrc, vecSrc - gpGlobals->v_forward * 228, dont_ignore_monsters, head_hull, edict(), &tr );
+			UTIL_TraceHull ( vecSrc, vecSrc - gpGlobals->v_forward * 64, dont_ignore_monsters, head_hull, edict(), &tr );
 
 			if ( tr.flFraction != 1.0 )
 			{
@@ -695,7 +695,7 @@ void CGib :: WaitTillLand ( void )
 		if ( m_bloodColor != DONT_BLEED )
 		{
 			// ok, start stinkin!
-			CSoundEnt::InsertSound ( bits_SOUND_MEAT, pev->origin, 384, 50 );
+			CSoundEnt::InsertSound ( bits_SOUND_MEAT, pev->origin, 384, 25 );
 		}
 	}
 	else
@@ -1435,7 +1435,18 @@ void CBaseEntity::FireBullets(ULONG cShots, Vector vecSrc, Vector vecDirShooting
 				MESSAGE_END();
 
 				break;
-		
+				/*
+			case BULLET_12MM:
+				WRITE_BYTE(MSG_BROADCAST, SVC_TEMPENTITY);
+				WRITE_BYTE(MSG_BROADCAST, TE_RAILTRAIL);
+				WRITE_COORD(MSG_BROADCAST, vecSrc.x);
+				WRITE_COORD(MSG_BROADCAST, vecSrc.y);
+				WRITE_COORD(MSG_BROADCAST, vecSrc.z);
+				WRITE_COORD(MSG_BROADCAST, tr.vecEndPos.x);
+				WRITE_COORD(MSG_BROADCAST, tr.vecEndPos.y);
+				WRITE_COORD(MSG_BROADCAST, tr.vecEndPos.z);
+				break;
+				*/
 			}
 		}
 		// do damage, paint decals
@@ -1466,7 +1477,15 @@ void CBaseEntity::FireBullets(ULONG cShots, Vector vecSrc, Vector vecDirShooting
 				pEntity->TraceAttack(pevAttacker, gSkillData.plrDmgMP5, vecDir, &tr, DMG_BULLET); 
 				if ( !tracer )
 				{
-					UTIL_Sparks( tr.vecEndPos );
+					TEXTURETYPE_PlaySound(&tr, vecSrc, vecEnd, iBulletType);
+					DecalGunshot( &tr, iBulletType );
+				}
+				break;
+			
+			case BULLET_PLAYER_765MM:		
+				pEntity->TraceAttack(pevAttacker, gSkillData.plrDmgRifle, vecDir, &tr, DMG_BULLET); 
+				if ( !tracer )
+				{
 					TEXTURETYPE_PlaySound(&tr, vecSrc, vecEnd, iBulletType);
 					DecalGunshot( &tr, iBulletType );
 				}
@@ -1478,25 +1497,6 @@ void CBaseEntity::FireBullets(ULONG cShots, Vector vecSrc, Vector vecDirShooting
 				if ( !tracer )
 				{
 					// TEXTURETYPE_PlaySound(&tr, vecSrc, vecEnd, iBulletType);
-					DecalGunshot( &tr, iBulletType );
-				}
-				break;
-
-			case BULLET_PLAYER_MINI:	//Minigun Bullets	
-				pEntity->TraceAttack(pevAttacker, gSkillData.plrDmgMini, vecDir, &tr, DMG_BULLET); 
-				if ( !tracer )
-				{
-					TEXTURETYPE_PlaySound(&tr, vecSrc, vecEnd, iBulletType);
-					DecalGunshot( &tr, iBulletType );
-				}
-				break;
-
-
-			case BULLET_PLAYER_765MM: //Sniper Rifle Bullets		
-				pEntity->TraceAttack(pevAttacker, gSkillData.plrDmg765mm, vecDir, &tr, DMG_BULLET); 
-				if ( !tracer )
-				{
-					TEXTURETYPE_PlaySound(&tr, vecSrc, vecEnd, iBulletType);
 					DecalGunshot( &tr, iBulletType );
 				}
 				break;

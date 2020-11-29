@@ -1,17 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 
 #include "extdll.h"
 #include "util.h"
@@ -23,8 +22,8 @@
 #include "gamerules.h"
 
 
-#define	CROWBAR_BODYHIT_VOLUME 128
-#define	CROWBAR_WALLHIT_VOLUME 512
+#define	KNIFE_BODYHIT_VOLUME 128
+#define	KNIFE_WALLHIT_VOLUME 512
 
 class CKnife : public CBasePlayerWeapon
 {
@@ -35,6 +34,9 @@ public:
 	void EXPORT SwingAgain( void );
 	void EXPORT Smack( void );
 	int GetItemInfo(ItemInfo *p);
+	int AddToPlayer( CBasePlayer *pPlayer );
+
+	int menu_on;
 
 	void PrimaryAttack( void );
 	int Swing( int fFirst );
@@ -47,48 +49,32 @@ LINK_ENTITY_TO_CLASS( weapon_knife, CKnife );
 
 
 
-enum gauss_e {
-	CROWBAR_IDLE = 0,
-	CROWBAR_DRAW,
-	CROWBAR_HOLSTER,
-	CROWBAR_ATTACK1HIT,
-	CROWBAR_ATTACK1MISS,
-	CROWBAR_ATTACK2MISS,
-	CROWBAR_ATTACK2HIT,
-	CROWBAR_ATTACK3MISS,
-	CROWBAR_ATTACK3HIT
+enum knife_e {
+	KNIFE_IDLE = 0,
+	KNIFE_IDLE1,
+	KNIFE_SLASH,
+	KNIFE_STAB,
+	KNIFE_DRAW,
+	KNIFE_HOLSTER,
 };
 
 
 void CKnife::Spawn( )
 {
-	  if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )
-	{
-		return;
-	}
-	else
-	{
 	Precache( );
 	m_iId = WEAPON_KNIFE;
-	SET_MODEL(ENT(pev), "models/w_crowbar.mdl");
+	SET_MODEL(ENT(pev), "models/wmodels/w_knife.mdl");
 	m_iClip = -1;
 
-	FallInit();// get ready to fall down.
-	}
+	FallInit();
 }
 
 
 void CKnife::Precache( void )
 {
 	PRECACHE_MODEL("models/vmodels/v_knife.mdl");
-	PRECACHE_MODEL("models/w_crowbar.mdl");
+	PRECACHE_MODEL("models/wmodels/w_knife.mdl");
 	PRECACHE_MODEL("models/pmodels/p_knife.mdl");
-	PRECACHE_SOUND("weapons/cbar_hit1.wav");
-	PRECACHE_SOUND("weapons/cbar_hit2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod1.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod3.wav");
-	PRECACHE_SOUND("weapons/knife_miss.wav");
 }
 
 int CKnife::GetItemInfo(ItemInfo *p)
@@ -100,39 +86,89 @@ int CKnife::GetItemInfo(ItemInfo *p)
 	p->iMaxAmmo2 = -1;
 	p->iMaxClip = WEAPON_NOCLIP;
 	p->iSlot = 0;
-	p->iPosition = 0;
+	p->iPosition = 1;
 	p->iId = WEAPON_KNIFE;
 	p->iWeight = KNIFE_WEIGHT;
-	p->weaponName = "12 Inch Combat Knife";   
 	return 1;
+}
+
+int CKnife::AddToPlayer( CBasePlayer *pPlayer )
+{
+	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
+	{
+		MESSAGE_BEGIN( MSG_ONE, gmsgWeapPickup, NULL, pPlayer->pev );
+			WRITE_BYTE( m_iId );
+		MESSAGE_END();
+		return TRUE;
+	}
+	return FALSE;
 }
 
 
 
 BOOL CKnife::Deploy( )
 {
-	return DefaultDeploy( "models/vmodels/v_knife.mdl", "models/pmodels/p_knife.mdl", CROWBAR_ATTACK1HIT, "crowbar" );
+	return DefaultDeploy( "models/vmodels/v_knife.mdl", "models/pmodels/p_knife.mdl", KNIFE_DRAW, "crowbar" );
 }
 
 void CKnife::Holster( )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
-	SendWeaponAnim( CROWBAR_ATTACK1MISS );
+	SendWeaponAnim( KNIFE_HOLSTER );
+}
+
+
+void FindHullIntersectionKnife( const Vector &vecSrc, TraceResult &tr, float *mins, float *maxs, edict_t *pEntity )
+{
+	int			i, j, k;
+	float		distance;
+	float		*minmaxs[2] = {mins, maxs};
+	TraceResult tmpTrace;
+	Vector		vecHullEnd = tr.vecEndPos;
+	Vector		vecEnd;
+
+	distance = 1e6f;
+
+	vecHullEnd = vecSrc + ((vecHullEnd - vecSrc)*2);
+	UTIL_TraceLine( vecSrc, vecHullEnd, dont_ignore_monsters, pEntity, &tmpTrace );
+	if ( tmpTrace.flFraction < 1.0 )
+	{
+		tr = tmpTrace;
+		return;
+	}
+
+	for ( i = 0; i < 2; i++ )
+	{
+		for ( j = 0; j < 2; j++ )
+		{
+			for ( k = 0; k < 2; k++ )
+			{
+				vecEnd.x = vecHullEnd.x + minmaxs[i][0];
+				vecEnd.y = vecHullEnd.y + minmaxs[j][1];
+				vecEnd.z = vecHullEnd.z + minmaxs[k][2];
+
+				UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, pEntity, &tmpTrace );
+				if ( tmpTrace.flFraction < 1.0 )
+				{
+					float thisDistance = (tmpTrace.vecEndPos - vecSrc).Length();
+					if ( thisDistance < distance )
+					{
+						tr = tmpTrace;
+						distance = thisDistance;
+					}
+				}
+			}
+		}
+	}
 }
 
 
 void CKnife::PrimaryAttack()
 {
-	if ( m_pPlayer->pev->frags == 2 )
-		{
-				ShowMenu(m_pPlayer, 0x3, 3, FALSE,"Frag Test");
-		}
 	if (! Swing( 1 ))
 	{
 		SetThink( SwingAgain );
-		pev->nextthink = gpGlobals->time + 0.5;
-
-		m_flTimeWeaponIdle = gpGlobals->time + 0.5;
+		pev->nextthink = gpGlobals->time + 0.1;
 	}
 }
 
@@ -169,7 +205,9 @@ int CKnife::Swing( int fFirst )
 			// Calculate the point of intersection of the line (or hull) and the object we hit
 			// This is and approximation of the "best" intersection
 			CBaseEntity *pHit = CBaseEntity::Instance( tr.pHit );
-				
+			if ( !pHit || pHit->IsBSPModel() )
+				FindHullIntersectionKnife( vecSrc, tr, VEC_DUCK_HULL_MIN, VEC_DUCK_HULL_MAX, m_pPlayer->edict() );
+			vecEnd = tr.vecEndPos;	// This is the point on the actual surface (the hull could have hit space)
 		}
 	}
 
@@ -181,15 +219,15 @@ int CKnife::Swing( int fFirst )
 			switch( (m_iSwing++) % 3 )
 			{
 			case 0:
-				SendWeaponAnim( CROWBAR_ATTACK1MISS); break;
+				SendWeaponAnim( KNIFE_SLASH ); break;
 			case 1:
-				SendWeaponAnim( CROWBAR_ATTACK1MISS); break;
+				SendWeaponAnim( KNIFE_STAB ); break;
 			case 2:
-				SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
+				SendWeaponAnim( KNIFE_SLASH ); break;
 			}
-			m_flNextPrimaryAttack = gpGlobals->time + 0.25;
+			m_flNextPrimaryAttack = gpGlobals->time + 0.5;
 			// play wiff or swish sound
-			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/knife_miss.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
 
 			// player "shoot" animation
 			m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -205,11 +243,11 @@ int CKnife::Swing( int fFirst )
 		switch( ((m_iSwing++) % 2) + 1 )
 		{
 		case 0:
-			SendWeaponAnim( CROWBAR_ATTACK1MISS); break;
+			SendWeaponAnim( KNIFE_STAB ); break;
 		case 1:
-			SendWeaponAnim( CROWBAR_ATTACK1HIT ); break;
+			SendWeaponAnim( KNIFE_SLASH ); break;
 		case 2:
-			SendWeaponAnim( CROWBAR_ATTACK1MISS ); break;
+			SendWeaponAnim( KNIFE_STAB ); break;
 		}
 
 		// player "shoot" animation
@@ -248,7 +286,7 @@ int CKnife::Swing( int fFirst )
 				case 2:
 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod3.wav", 1, ATTN_NORM); break;
 				}
-				m_pPlayer->m_iWeaponVolume = CROWBAR_BODYHIT_VOLUME;
+				m_pPlayer->m_iWeaponVolume = KNIFE_BODYHIT_VOLUME;
 				if (!pEntity->IsAlive() )
 					return TRUE;
 				else
@@ -290,9 +328,9 @@ int CKnife::Swing( int fFirst )
 		// delay the decal a bit
 		m_trHit = tr;
 		SetThink( Smack );
-		pev->nextthink = gpGlobals->time + 0.05;
+		pev->nextthink = gpGlobals->time + 0.2;
 
-		m_pPlayer->m_iWeaponVolume = flVol * CROWBAR_WALLHIT_VOLUME;
+		m_pPlayer->m_iWeaponVolume = flVol * KNIFE_WALLHIT_VOLUME;
 	}
 	return fDidHit;
 }

@@ -26,10 +26,10 @@
 #include "gamerules.h"
 
 
-#define	TASER_PRIMARY_CHARGE_VOLUME	256// how loud gauss is while charging
-#define TASER_PRIMARY_FIRE_VOLUME	450// how loud gauss is when discharged
+#define	GAUSS_PRIMARY_CHARGE_VOLUME	256// how loud gauss is while charging
+#define GAUSS_PRIMARY_FIRE_VOLUME	450// how loud gauss is when discharged
 
-enum taser_e {
+enum gauss_e {
 	GAUSS_IDLE = 0,
 	GAUSS_IDLE2,
 	GAUSS_FIDGET,
@@ -41,7 +41,7 @@ enum taser_e {
 	GAUSS_DRAW
 };
 
-class CLrifle : public CBasePlayerWeapon
+class CGauss : public CBasePlayerWeapon
 {
 public:
 	int		Save( CSave &save );
@@ -78,21 +78,21 @@ public:
 	// we need to know so we can pick the right set of effects. 
 	BOOL m_fPrimaryFire;
 };
-LINK_ENTITY_TO_CLASS( weapon_lrifle, CLrifle );
+LINK_ENTITY_TO_CLASS( weapon_gauss, CGauss );
 
 
-TYPEDESCRIPTION	CLrifle::m_SaveData[] = 
+TYPEDESCRIPTION	CGauss::m_SaveData[] = 
 {
-	DEFINE_FIELD( CLrifle, m_fInAttack, FIELD_INTEGER ),
-	DEFINE_FIELD( CLrifle, m_flStartCharge, FIELD_TIME ),
-	DEFINE_FIELD( CLrifle, m_flPlayAftershock, FIELD_TIME ),
-	DEFINE_FIELD( CLrifle, m_flNextAmmoBurn, FIELD_TIME ),
-	DEFINE_FIELD( CLrifle, m_fPrimaryFire, FIELD_BOOLEAN ),
+	DEFINE_FIELD( CGauss, m_fInAttack, FIELD_INTEGER ),
+	DEFINE_FIELD( CGauss, m_flStartCharge, FIELD_TIME ),
+	DEFINE_FIELD( CGauss, m_flPlayAftershock, FIELD_TIME ),
+	DEFINE_FIELD( CGauss, m_flNextAmmoBurn, FIELD_TIME ),
+	DEFINE_FIELD( CGauss, m_fPrimaryFire, FIELD_BOOLEAN ),
 };
-IMPLEMENT_SAVERESTORE( CLrifle, CBasePlayerWeapon );
+IMPLEMENT_SAVERESTORE( CGauss, CBasePlayerWeapon );
 
 
-float CLrifle::GetFullChargeTime( void )
+float CGauss::GetFullChargeTime( void )
 {
 	if ( g_pGameRules->IsMultiplayer() )
 	{
@@ -102,34 +102,25 @@ float CLrifle::GetFullChargeTime( void )
 	return 4;
 }
 
-void CLrifle::Spawn( )
+void CGauss::Spawn( )
 {
-		if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )
-	{
-		return;
-	}
-	else
-	{
 	Precache( );
-	m_iId = WEAPON_LRIFLE;
-	SET_MODEL(ENT(pev), "models/wmodels/w_lrifle.mdl");
+	m_iId = WEAPON_GAUSS;
+	SET_MODEL(ENT(pev), "models/w_gauss.mdl");
 
-	m_iDefaultAmmo = 0;
+	m_iDefaultAmmo = GAUSS_DEFAULT_GIVE;
 
 	FallInit();// get ready to fall down.
-	}
 }
 
 
-void CLrifle::Precache( void )
+void CGauss::Precache( void )
 {
-	PRECACHE_MODEL("models/wmodels/w_lrifle.mdl");
-	PRECACHE_MODEL("models/vmodels/v_lrifle.mdl");
-	PRECACHE_MODEL("models/pmodels/p_lrifle.mdl");
+	PRECACHE_MODEL("models/w_gauss.mdl");
+	PRECACHE_MODEL("models/v_gauss.mdl");
+	PRECACHE_MODEL("models/p_gauss.mdl");
 
 	PRECACHE_SOUND("items/9mmclip1.wav");
-
-	PRECACHE_SOUND("weapons/lrifle1.wav");
 
 	PRECACHE_SOUND("weapons/gauss2.wav");
 	PRECACHE_SOUND("weapons/electro4.wav");
@@ -142,7 +133,7 @@ void CLrifle::Precache( void )
 	m_iBeam = PRECACHE_MODEL( "sprites/smoke.spr" );
 }
 
-int CLrifle::AddToPlayer( CBasePlayer *pPlayer )
+int CGauss::AddToPlayer( CBasePlayer *pPlayer )
 {
 	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
 	{
@@ -154,55 +145,42 @@ int CLrifle::AddToPlayer( CBasePlayer *pPlayer )
 	return FALSE;
 }
 
-int CLrifle::GetItemInfo(ItemInfo *p)
+int CGauss::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
-	p->pszAmmo1 = NULL;
-	p->iMaxAmmo1 = -1;
+	p->pszAmmo1 = "uranium";
+	p->iMaxAmmo1 = URANIUM_MAX_CARRY;
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
 	p->iMaxClip = WEAPON_NOCLIP;
-	p->iSlot = 0;
-	p->iPosition = 16;
-	p->iId = m_iId = WEAPON_LRIFLE;
+	p->iSlot = 3;
+	p->iPosition = 1;
+	p->iId = m_iId = WEAPON_GAUSS;
 	p->iFlags = 0;
-	p->iWeight = -1;
-	p->weaponName = "High Energy Laser Rifle";
+	p->iWeight = GAUSS_WEIGHT;
 
 	return 1;
 }
 
 
-BOOL CLrifle::Deploy( )
+BOOL CGauss::Deploy( )
 {
-	return DefaultDeploy( "models/vmodels/v_lrifle.mdl", "models/pmodels/p_lrifle.mdl", GAUSS_DRAW, "gauss" );
+	return DefaultDeploy( "models/v_gauss.mdl", "models/p_gauss.mdl", GAUSS_DRAW, "gauss" );
 }
 
 
-void CLrifle::Holster( )
+void CGauss::Holster( )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
+	// m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 	SendWeaponAnim( GAUSS_HOLSTER );
 	m_fInAttack = 0;
 	EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "common/null.wav", 1.0, ATTN_NORM);
 }
 
 
-void CLrifle::PrimaryAttack()
+void CGauss::PrimaryAttack()
 {
-	if (m_pPlayer->pev->armorvalue <= 3)
-	{
-//		ShowSmart (m_pPlayer, 0x7, 2, 0, "--Low Energy--\n\n Cannot Use Laser Rifle.\n Cells have been used to max." );
-	
-		PlayEmptySound( );
-		m_pPlayer->m_flNextAttack = gpGlobals->time + .5;
-		return;
-	}
-	else
-	{
-		m_pPlayer->pev->armorvalue -= 1; //takes more battery power to turn on than off
-	}
-
 	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
@@ -218,19 +196,137 @@ void CLrifle::PrimaryAttack()
 		return;
 	}
 
-	m_pPlayer->m_iWeaponVolume = TASER_PRIMARY_FIRE_VOLUME;
+	m_pPlayer->m_iWeaponVolume = GAUSS_PRIMARY_FIRE_VOLUME;
 
 	m_fPrimaryFire = TRUE;
+
+	m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] -= 2;
 
 	StartFire();
 	m_fInAttack = 0;
 	m_flTimeWeaponIdle = gpGlobals->time + 1.0;
-	m_pPlayer->m_flNextAttack = gpGlobals->time + .1;
+	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.2;
 }
 
-void CLrifle::SecondaryAttack()
+void CGauss::SecondaryAttack()
 {
+	// don't fire underwater
+	if (m_pPlayer->pev->waterlevel == 3)
+	{
+		if ( m_fInAttack != 0 )
+		{
+			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/electro4.wav", 1.0, ATTN_NORM, 0, 80 + RANDOM_LONG(0,0x3f));
+			SendWeaponAnim( GAUSS_IDLE );
+			m_fInAttack = 0;
+		}
+		else
+		{
+			PlayEmptySound( );
+		}
 
+		m_flNextSecondaryAttack = m_flNextPrimaryAttack = gpGlobals->time + 0.5;
+		return;
+	}
+
+	if (m_fInAttack == 0)
+	{
+		if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
+		{
+			EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/357_cock1.wav", 0.8, ATTN_NORM);
+			m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
+			return;
+		}
+
+		m_fPrimaryFire = FALSE;
+
+		m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]--;// take one ammo just to start the spin
+		m_flNextAmmoBurn = gpGlobals->time;
+
+		// spin up
+		m_pPlayer->m_iWeaponVolume = GAUSS_PRIMARY_CHARGE_VOLUME;
+		
+		SendWeaponAnim( GAUSS_SPINUP );
+		m_fInAttack = 1;
+		m_flTimeWeaponIdle = gpGlobals->time + 0.5;
+		m_flStartCharge = gpGlobals->time;
+		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "ambience/pulsemachine.wav",1.0 , ATTN_NORM, 0, 110 );
+		m_iSoundState = SND_CHANGE_PITCH;
+	}
+	else if (m_fInAttack == 1)
+	{
+		if (m_flTimeWeaponIdle < gpGlobals->time)
+		{
+			SendWeaponAnim( GAUSS_SPIN );
+			m_fInAttack = 2;
+		}
+	}
+	else
+	{
+		if ( m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] == 0 )
+		{
+			// out of ammo! force the gun to fire
+			StartFire();
+			m_fInAttack = 0;
+			m_flTimeWeaponIdle = gpGlobals->time + 1.0;
+			m_pPlayer->m_flNextAttack = gpGlobals->time + 1;
+			return;
+		}
+
+		// during the charging process, eat one bit of ammo every once in a while
+		if ( gpGlobals->time > m_flNextAmmoBurn && m_flNextAmmoBurn != -1 )
+		{
+			if ( g_pGameRules->IsMultiplayer() )
+			{
+				m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]--;
+				m_flNextAmmoBurn = gpGlobals->time + 0.1;
+			}
+			else
+			{
+				m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]--;
+				m_flNextAmmoBurn = gpGlobals->time + 0.3;
+			}
+		}
+		
+		if ( gpGlobals->time - m_flStartCharge >= GetFullChargeTime() )
+		{
+			// don't eat any more ammo after gun is fully charged.
+			m_flNextAmmoBurn = -1;
+		}
+
+		int pitch = (gpGlobals->time - m_flStartCharge) * (150/GetFullChargeTime()) + 100;
+		if (pitch > 250) 
+			pitch = 250;
+		
+		// ALERT( at_console, "%d %d %d\n", m_fInAttack, m_iSoundState, pitch );
+
+		if (m_iSoundState == 0)
+			ALERT( at_console, "sound state %d\n", m_iSoundState );
+
+		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "ambience/pulsemachine.wav", 1.0, ATTN_NORM, m_iSoundState, pitch);
+		
+		m_iSoundState = SND_CHANGE_PITCH; // hack for going through level transitions
+
+		m_pPlayer->m_iWeaponVolume = GAUSS_PRIMARY_CHARGE_VOLUME;
+		
+		// m_flTimeWeaponIdle = gpGlobals->time + 0.1;
+		if (m_flStartCharge < gpGlobals->time - 10)
+		{
+			// Player charged up too long. Zap him.
+			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/electro4.wav", 1.0, ATTN_NORM, 0, 80 + RANDOM_LONG(0,0x3f));
+			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_ITEM,   "weapons/electro6.wav", 1.0, ATTN_NORM, 0, 75 + RANDOM_LONG(0,0x3f));
+			
+			m_fInAttack = 0;
+			m_flTimeWeaponIdle = gpGlobals->time + 1.0;
+			m_pPlayer->m_flNextAttack = gpGlobals->time + 1.0;
+			m_pPlayer->TakeDamage( VARS(eoNullEntity), VARS(eoNullEntity), 50, DMG_SHOCK );
+	
+			UTIL_ScreenFade( m_pPlayer, Vector(255,128,0), 2, 0.5, 128, FFADE_IN );
+			SendWeaponAnim( GAUSS_IDLE );
+			
+			// Player may have been killed and this weapon dropped, don't execute any more code after this!
+			return;
+		}
+	}
 }
 
 //=========================================================
@@ -239,7 +335,7 @@ void CLrifle::SecondaryAttack()
 // of weaponidle() and make its own function then to try to
 // merge this into Fire(), which has some identical variable names 
 //=========================================================
-void CLrifle::StartFire( void )
+void CGauss::StartFire( void )
 {
 	float flDamage;
 	
@@ -286,16 +382,16 @@ void CLrifle::StartFire( void )
 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 	}
 	STOP_SOUND( ENT(m_pPlayer->pev), CHAN_WEAPON, "ambience/pulsemachine.wav" );
-	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/lrifle1.wav", 0.5 + flDamage * (1.0 / 400.0), ATTN_NORM, 0, 85 + RANDOM_LONG(0,0x1f)); 
+	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/gauss2.wav", 0.5 + flDamage * (1.0 / 400.0), ATTN_NORM, 0, 85 + RANDOM_LONG(0,0x1f)); 
 	// time until aftershock 'static discharge' sound
 	m_flPlayAftershock = gpGlobals->time + RANDOM_FLOAT(0.3, 0.8);
 
 	Fire( vecSrc, vecAiming, flDamage );
 }
 
-void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
+void CGauss::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 {
-	m_pPlayer->m_iWeaponVolume = TASER_PRIMARY_FIRE_VOLUME;
+	m_pPlayer->m_iWeaponVolume = GAUSS_PRIMARY_FIRE_VOLUME;
 
 	Vector vecSrc = vecOrigSrc;
 	Vector vecDest = vecSrc + vecDir * 8192;
@@ -308,6 +404,14 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 	int	nMaxHits = 10;
 
 	pentIgnore = ENT( m_pPlayer->pev );
+
+	/*
+	ALERT( at_console, "%f %f %f\n%f %f %f\n", 
+		vecSrc.x, vecSrc.y, vecSrc.z, 
+		vecDest.x, vecDest.y, vecDest.z );
+	*/
+
+	// ALERT( at_console, "%f %f\n", tr.flFraction, flMaxFrac );
 
 	while (flDamage > 10 && nMaxHits > 0)
 	{
@@ -329,7 +433,7 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 			m_pPlayer->pev->effects |= EF_MUZZLEFLASH;
 			fFirstBeam = 0;
 
-			Vector tmpSrc = vecSrc + gpGlobals->v_up * -8 + gpGlobals->v_right * -2;
+			Vector tmpSrc = vecSrc + gpGlobals->v_up * -8 + gpGlobals->v_right * 3;
 
 			// don't draw beam until the damn thing looks like it's coming out of the barrel
 			// draw beam
@@ -346,7 +450,7 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 
 				if ( m_fPrimaryFire )
 				{
-					WRITE_BYTE( 15 );  // width
+					WRITE_BYTE( 10 );  // width
 				}
 				else
 				{
@@ -358,10 +462,10 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 				if ( m_fPrimaryFire )
 				{
 					WRITE_BYTE( 255 );   // r, g, b
-					WRITE_BYTE( 0 );   // r, g, b
+					WRITE_BYTE( 128 );   // r, g, b
 					WRITE_BYTE( 0 );   // r, g, b
 
-					WRITE_BYTE( 400 );	// brightness
+					WRITE_BYTE( 128 );	// brightness
 				}
 				else
 				{
@@ -396,7 +500,7 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 
 				if ( m_fPrimaryFire )
 				{
-					WRITE_BYTE( 15 );  // width
+					WRITE_BYTE( 10 );  // width
 				}
 				else
 				{
@@ -409,10 +513,10 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 				{
 					// primary shot always looks full intensity
 					WRITE_BYTE( 255 );   // r, g, b
-					WRITE_BYTE( 0 );   // r, g, b
+					WRITE_BYTE( 128 );   // r, g, b
 					WRITE_BYTE( 0 );   // r, g, b
 
-					WRITE_BYTE( 400 );	// brightness
+					WRITE_BYTE( 128 );	// brightness
 				}
 				else
 				{
@@ -436,6 +540,7 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 			ApplyMultiDamage(m_pPlayer->pev, m_pPlayer->pev);
 		}
 
+		// ALERT( at_console, "%s\n", STRING( pEntity->pev->classname ));
 
 		if ( pEntity->ReflectGauss() )
 		{
@@ -447,7 +552,8 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 
 			if (n < 0.5) // 60 degrees
 			{
-	
+				// ALERT( at_console, "reflect %f\n", n );
+				// reflect
 				Vector r;
 			
 				r = 2.0 * tr.vecPlaneNormal * n + vecDir;
@@ -610,7 +716,7 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 					{
 						// slug doesn't punch through ever with primary 
 						// fire, so leave a little glowy bit and make some balls
-					/*	MESSAGE_BEGIN( MSG_PAS, SVC_TEMPENTITY, tr.vecEndPos );
+						MESSAGE_BEGIN( MSG_PAS, SVC_TEMPENTITY, tr.vecEndPos );
 							WRITE_BYTE( TE_GLOWSPRITE );
 							WRITE_COORD( tr.vecEndPos.x);	// pos
 							WRITE_COORD( tr.vecEndPos.y);
@@ -637,7 +743,6 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 							WRITE_BYTE( 10 );				// amplitude * 0.1
 							WRITE_BYTE( 20 );				// speed * 100
 						MESSAGE_END();
-						*/
 					}
 
 					flDamage = 0;
@@ -657,7 +762,7 @@ void CLrifle::Fire( Vector vecOrigSrc, Vector vecDir, float flDamage )
 
 
 
-void CLrifle::WeaponIdle( void )
+void CGauss::WeaponIdle( void )
 {
 	ResetEmptySound( );
 
@@ -708,6 +813,44 @@ void CLrifle::WeaponIdle( void )
 		
 	}
 }
+
+
+
+
+
+
+class CGaussAmmo : public CBasePlayerAmmo
+{
+	void Spawn( void )
+	{ 
+		Precache( );
+		SET_MODEL(ENT(pev), "models/w_gaussammo.mdl");
+		CBasePlayerAmmo::Spawn( );
+	}
+	void Precache( void )
+	{
+		PRECACHE_MODEL ("models/w_gaussammo.mdl");
+		PRECACHE_SOUND("items/9mmclip1.wav");
+	}
+	BOOL AddAmmo( CBaseEntity *pOther ) 
+	{ 
+		if (pOther->GiveAmmo( AMMO_URANIUMBOX_GIVE, "uranium", URANIUM_MAX_CARRY ) != -1)
+		{
+			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+			return TRUE;
+		}
+		return FALSE;
+	}
+};
+LINK_ENTITY_TO_CLASS( ammo_gaussclip, CGaussAmmo );
+
+
+
+
+
+
+
+
 
 
 

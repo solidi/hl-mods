@@ -27,7 +27,6 @@ extern cvar_t	lservercfgfile;
 // multiplayer server rules
 extern cvar_t	fraglimit;
 extern cvar_t	timelimit;
-extern cvar_t	botplay;
 extern cvar_t	friendlyfir;
 extern cvar_t	falldamage;
 extern cvar_t	weaponstay;

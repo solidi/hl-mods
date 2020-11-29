@@ -312,11 +312,6 @@ called each time a player uses a "cmd" command
 */
 extern float g_flWeaponCheat;
 
-//START BOT
-void BotCreate(void);
-extern int f_Observer;  // flag for observer mode
-//END BOT
-
 // Use CMD_ARGV,  CMD_ARGV, and CMD_ARGC to get pointers the character string command.
 void ClientCommand( edict_t *pEntity )
 {
@@ -339,7 +334,7 @@ void ClientCommand( edict_t *pEntity )
 	}
 	else if ( FStrEq(pcmd, "give" ) )
 	{
-		if ( g_flWeaponCheat != 0.0)
+		if ( g_flWeaponCheat != 0.0 )
 		{
 			int iszItem = ALLOC_STRING( CMD_ARGV(1) );	// Make a copy of the classname
 			GetClassPtr((CBasePlayer *)pev)->GiveNamedItem( STRING(iszItem) );
@@ -362,6 +357,23 @@ void ClientCommand( edict_t *pEntity )
 			CLIENT_PRINTF( pEntity, print_console, UTIL_VarArgs( "\"fov\" is \"%d\"\n", (int)GetClassPtr((CBasePlayer *)pev)->m_iFOV ) );
 		}
 	}
+	else if ( FStrEq(pcmd, "mp_teamplay" ) )
+	{
+		 ALERT ( at_console, "Teamplay Does not Exist in Beta 1.\n" );
+	}
+    else if (FStrEq(pcmd, "+hook" ))
+    {
+		if ( CVAR_GET_FLOAT( "mp_hook" ) > 0 )
+		{
+			GetClassPtr((CBasePlayer *)pev)->FireHook(); 
+			GetClassPtr((CBasePlayer *)pev)->m_fHookButton = TRUE;
+		}
+    }   
+    else if (FStrEq(pcmd, "-hook" ))
+    {
+		if ( CVAR_GET_FLOAT( "mp_hook" ) > 0 )
+			GetClassPtr((CBasePlayer *)pev)->m_fHookButton = FALSE;
+    }
 	else if ( FStrEq(pcmd, "use" ) )
 	{
 		GetClassPtr((CBasePlayer *)pev)->SelectItem((char *)CMD_ARGV(1));
@@ -374,57 +386,20 @@ void ClientCommand( edict_t *pEntity )
 	{
 		GetClassPtr((CBasePlayer *)pev)->SelectLastItem();
 	}
-    else if (FStrEq(pcmd, "+hook" ))
-    {
-		if ( CVAR_GET_FLOAT( "mp_hook" ) == 0 )
-          return;
-        GetClassPtr((CBasePlayer *)pev)->FireHook(); 
-        GetClassPtr((CBasePlayer *)pev)->m_fHookButton = TRUE;
-    }   
-    else if (FStrEq(pcmd, "-hook" ))
-    {
-		if ( CVAR_GET_FLOAT( "mp_hook" ) == 0 )
-              return;
-        //keep track of weather we're pressing the button
-        GetClassPtr((CBasePlayer *)pev)->m_fHookButton = FALSE;
-	}
 	//Begin Runes
-    else if ( FStrEq(pcmd, "drop_rune" ) )
+	else if ( FStrEq(pcmd, "drop_rune" ) )
 	{
-       GetClassPtr((CBasePlayer *)pev)->DropRune( );
+		GetClassPtr((CBasePlayer *)pev)->DropRune( );
 	}
-//End Runes
-	else if (FStrEq(pcmd, "+jetpack" ))
-	{
-      UTIL_ClientPrintAll( HUD_PRINTNOTIFY, "JetPack Has been disabled due to being unstable.\n" );
-		//We are holding the key set this.
-		//GetClassPtr((CBasePlayer *)pev)->m_fFlyKeyDown = TRUE;
-	}
-		else if (FStrEq(pcmd, "-jetpack" ))
-	{
-		//We are not holding the key un-set this.
-	//	GetClassPtr((CBasePlayer *)pev)->m_fFlyKeyDown = FALSE;
-	}
-	//START BOT
+	//End Runes
 	else if (FStrEq(pcmd, "addbot" ))
 	{
-       	if ( CVAR_GET_FLOAT( "bot_arena" ) == 0 )
-              return;
-		BotCreate(); //If user types "addbot" in console, add a bot.
+		ALERT ( at_console, "\nBot Play has been taken out. Caused way too many crashes to be playable at this time.\n" );
 	}
-	else if ( FStrEq(pcmd, "observer" ) )
+	else if (FStrEq(pcmd, "mp_bots" ))
 	{
-		if (CMD_ARGC() > 1)
-		{
-         f_Observer = atoi( CMD_ARGV(1) );  // set observer flag
-			CLIENT_PRINTF( pEntity, print_console, UTIL_VarArgs("observer set to %d\n", (int)f_Observer) );
-		}
-		else
-		{
-			CLIENT_PRINTF( pEntity, print_console, UTIL_VarArgs("observer is %d\n", (int)f_Observer) );
-		}
+		ALERT ( at_console, "\nBot Play has been taken out.\n" );
 	}
-	//END BOT
 	else if ( g_pGameRules->ClientCommand( GetClassPtr((CBasePlayer *)pev), pcmd ) )
 	{
 		// MenuSelect returns true only if the command is properly handled,  so don't print a warning
@@ -550,45 +525,10 @@ void ParmsChangeLevel( void )
 //
 // GLOBALS ASSUMED SET:  g_ulFrameCount
 //
-//START BOT
-CBasePlayer	*CBasePlayerByIndex( int playerIndex )
-{
-	CBasePlayer *pPlayer = NULL;
-	entvars_t *pev;
-
-	if ( playerIndex > 0 && playerIndex <= gpGlobals->maxClients )
-	{
-		edict_t *pPlayerEdict = INDEXENT( playerIndex );
-		if ( pPlayerEdict && !pPlayerEdict->free && (pPlayerEdict->v.flags & FL_FAKECLIENT || pPlayerEdict->v.flags & FL_CLIENT) ) //fake
-		{
-			pev = &pPlayerEdict->v;
-			pPlayer = GetClassPtr((CBasePlayer *)pev);
-		}
-	}
-	
-	return pPlayer;
-}
-//END BOT
 
 void StartFrame( void )
 {
-	//START BOT
-   // loop through all the players...
-	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
-	{
-		CBasePlayer *pPlayer = CBasePlayerByIndex( i );
-
-      if (!pPlayer)  // if invalid then continue with next index...
-         continue;
-
-      // check if this is a FAKECLIENT (i.e. is it a bot?)
-      if (FBitSet(pPlayer->pev->flags, FL_FAKECLIENT))
-      {
-         // call the think function for the bot...
-         pPlayer->Think();
-		}
-	}
-	//END BOT
+	
 	if ( g_pGameRules )
 		g_pGameRules->Think();
 
@@ -605,6 +545,8 @@ void ClientPrecache( void )
 {
 	// setup precaches always needed
 	PRECACHE_SOUND("player/sprayer.wav");			// spray paint sound for PreAlpha
+	
+	// PRECACHE_SOUND("player/pl_jumpland2.wav");	// UNDONE: play 2x step sound
 	
 	PRECACHE_SOUND("player/pl_fallpain2.wav");		
 	PRECACHE_SOUND("player/pl_fallpain3.wav");		
@@ -671,8 +613,6 @@ void ClientPrecache( void )
 
 	PRECACHE_SOUND("plats/train_use1.wav");		// use a train
 
-	PRECACHE_SOUND("buttons/spark3.wav");
-	PRECACHE_SOUND("buttons/spark4.wav");
 	PRECACHE_SOUND("buttons/spark5.wav");		// hit computer texture
 	PRECACHE_SOUND("buttons/spark6.wav");
 	PRECACHE_SOUND("debris/glass1.wav");
@@ -682,46 +622,40 @@ void ClientPrecache( void )
 	PRECACHE_SOUND( SOUND_FLASHLIGHT_ON );
 	PRECACHE_SOUND( SOUND_FLASHLIGHT_OFF );
 
-    // player gib sounds
+	// player gib sounds
 	PRECACHE_SOUND("common/bodysplat.wav");		               
 
-    // player pain sounds
+	// player pain sounds
 	PRECACHE_SOUND("player/pl_pain2.wav");
 	PRECACHE_SOUND("player/pl_pain4.wav");
 	PRECACHE_SOUND("player/pl_pain5.wav");
 	PRECACHE_SOUND("player/pl_pain6.wav");
 	PRECACHE_SOUND("player/pl_pain7.wav");
 
-    //Fitted Player sounds here!
-	PRECACHE_SOUND ("player/headshot.wav");
-	PRECACHE_SOUND ("player/chestshot.wav");
-	PRECACHE_SOUND ("player/stomachshot.wav");
-	PRECACHE_SOUND ("player/limbshot.wav"); 
-
 	PRECACHE_MODEL("models/player.mdl");
 
 	// hud sounds
+
 	PRECACHE_SOUND("common/wpn_hudoff.wav");
 	PRECACHE_SOUND("common/wpn_hudon.wav");
 	PRECACHE_SOUND("common/wpn_moveselect.wav");
 	PRECACHE_SOUND("common/wpn_select.wav");
 	PRECACHE_SOUND("common/wpn_denyselect.wav");
-	PRECACHE_SOUND("houndeye/he_attack1.wav");
-    PRECACHE_SOUND("items/medshot4.wav");
 
-	//Begin Runes
-    PRECACHE_SOUND("items/protect.wav");
-    PRECACHE_SOUND("items/medshot4.wav");
-    //End Runes
 
-	
 	// geiger sounds
+
 	PRECACHE_SOUND("player/geiger6.wav");
 	PRECACHE_SOUND("player/geiger5.wav");
 	PRECACHE_SOUND("player/geiger4.wav");
 	PRECACHE_SOUND("player/geiger3.wav");
 	PRECACHE_SOUND("player/geiger2.wav");
 	PRECACHE_SOUND("player/geiger1.wav");
+
+	// rune sounds
+	PRECACHE_SOUND("houndeye/he_attack1.wav");
+	PRECACHE_SOUND("items/medshot4.wav");
+
 
 	if (giPrecacheGrunt)
 		UTIL_PrecacheOther("monster_human_grunt");
@@ -739,7 +673,7 @@ const char *GetGameDescription()
 	if ( g_pGameRules ) // this function may be called before the world has spawned, and the game rules initialized
 		return g_pGameRules->GetGameDescription();
 	else
-		return "Cold Ice Beta 1 2x";
+		return "Cold Ice";
 }
 
 /*

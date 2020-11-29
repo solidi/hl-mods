@@ -23,14 +23,14 @@
 #include "player.h"
 #include "gamerules.h"
 
-enum decoybomb_e {
+enum satchel_e {
 	SATCHEL_IDLE1 = 0,
 	SATCHEL_FIDGET1,
 	SATCHEL_DRAW,
 	SATCHEL_DROP
 };
 
-enum decoybomb_radio_e {
+enum satchel_radio_e {
 	SATCHEL_RADIO_IDLE1 = 0,
 	SATCHEL_RADIO_FIDGET1,
 	SATCHEL_RADIO_DRAW,
@@ -72,7 +72,7 @@ void CSatchelCharge :: Spawn( void )
 	pev->movetype = MOVETYPE_BOUNCE;
 	pev->solid = SOLID_BBOX;
 
-	SET_MODEL(ENT(pev), "models/hassassin.mdl");
+	SET_MODEL(ENT(pev), "models/w_satchel.mdl");
 	//UTIL_SetSize(pev, Vector( -16, -16, -4), Vector(16, 16, 32));	// Old box -- size of headcrab monsters/players get blocked by this
 	UTIL_SetSize(pev, Vector( -4, -4, -4), Vector(4, 4, 4));	// Uses point-sized, and can be stepped over
 	UTIL_SetOrigin( pev, pev->origin );
@@ -152,16 +152,18 @@ void CSatchelCharge :: SatchelThink( void )
 void CSatchelCharge :: Precache( void )
 {
 	PRECACHE_MODEL("models/grenade.mdl");
-	PRECACHE_SOUND("weapons/packdeploy.wav");
+	PRECACHE_SOUND("weapons/g_bounce1.wav");
+	PRECACHE_SOUND("weapons/g_bounce2.wav");
+	PRECACHE_SOUND("weapons/g_bounce3.wav");
 }
 
 void CSatchelCharge :: BounceSound( void )
 {
 	switch ( RANDOM_LONG( 0, 2 ) )
 	{
-	case 0:	EMIT_SOUND(ENT(pev), CHAN_VOICE, "weapons/packdeploy.wav", 1, ATTN_NORM);	break;
-	case 1:	EMIT_SOUND(ENT(pev), CHAN_VOICE, "weapons/packdeploy.wav", 1, ATTN_NORM);	break;
-	case 2:	EMIT_SOUND(ENT(pev), CHAN_VOICE, "weapons/packdeploy.wav", 1, ATTN_NORM);	break;
+	case 0:	EMIT_SOUND(ENT(pev), CHAN_VOICE, "weapons/g_bounce1.wav", 1, ATTN_NORM);	break;
+	case 1:	EMIT_SOUND(ENT(pev), CHAN_VOICE, "weapons/g_bounce2.wav", 1, ATTN_NORM);	break;
+	case 2:	EMIT_SOUND(ENT(pev), CHAN_VOICE, "weapons/g_bounce3.wav", 1, ATTN_NORM);	break;
 	}
 }
 
@@ -189,7 +191,7 @@ public:
 	void Throw( void );
 	int m_chargeReady;
 };
-LINK_ENTITY_TO_CLASS( weapon_decoybomb, CSatchel );
+LINK_ENTITY_TO_CLASS( weapon_satchel, CSatchel );
 
 TYPEDESCRIPTION	CSatchel::m_SaveData[] = 
 {
@@ -236,20 +238,13 @@ int CSatchel::AddToPlayer( CBasePlayer *pPlayer )
 
 void CSatchel::Spawn( )
 {
-		if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )
-	{
-		return;
-	}
-	else
-	{
 	Precache( );
 	m_iId = WEAPON_SATCHEL;
-	SET_MODEL(ENT(pev), "models/hassassin.mdl");
+	SET_MODEL(ENT(pev), "models/w_satchel.mdl");
 
 	m_iDefaultAmmo = SATCHEL_DEFAULT_GIVE;
 		
 	FallInit();// get ready to fall down.
-	}
 }
 
 
@@ -257,7 +252,7 @@ void CSatchel::Precache( void )
 {
 	PRECACHE_MODEL("models/v_satchel.mdl");
 	PRECACHE_MODEL("models/v_satchel_radio.mdl");
-	PRECACHE_MODEL("models/hassassin.mdl");
+	PRECACHE_MODEL("models/w_satchel.mdl");
 	PRECACHE_MODEL("models/p_satchel.mdl");
 	PRECACHE_MODEL("models/p_satchel_radio.mdl");
 
@@ -273,12 +268,11 @@ int CSatchel::GetItemInfo(ItemInfo *p)
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
 	p->iMaxClip = WEAPON_NOCLIP;
-	p->iSlot = 2;
-	p->iPosition = 2;
+	p->iSlot = 4;
+	p->iPosition = 1;
 	p->iFlags = ITEM_FLAG_SELECTONEMPTY | ITEM_FLAG_LIMITINWORLD | ITEM_FLAG_EXHAUSTIBLE;
 	p->iId = m_iId = WEAPON_SATCHEL;
 	p->iWeight = SATCHEL_WEIGHT;
-	p->weaponName = "Female Assassin Decoy Bombs";        
 
 	return 1;
 }
@@ -326,6 +320,7 @@ BOOL CSatchel::Deploy( )
 		m_pPlayer->pev->viewmodel = MAKE_STRING("models/v_satchel_radio.mdl");
 		m_pPlayer->pev->weaponmodel = MAKE_STRING("models/p_satchel_radio.mdl");
 		SendWeaponAnim( SATCHEL_RADIO_DRAW );
+		// use hivehand animations
 		strcpy( m_pPlayer->m_szAnimExtention, "hive" );
 	}
 	else
@@ -361,7 +356,6 @@ void CSatchel::Holster( )
 	{
 		m_pPlayer->pev->weapons &= ~(1<<WEAPON_SATCHEL);
 		SetThink( DestroyItem );
-		//ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "Switching Satchels\n");
 		pev->nextthink = gpGlobals->time + 0.1;
 	}
 }
@@ -375,18 +369,15 @@ void CSatchel::PrimaryAttack()
 	case 0:
 		{
 		Throw( );
-//		ShowSmart (m_pPlayer, 0x7, 2, 0, "--Action--\nDecoyBomb Deployed" );
 		}
 		break;
 	case 1:
 		{
 		SendWeaponAnim( SATCHEL_RADIO_FIRE );
-//		ShowSmart (m_pPlayer, 0x7, 2, 0, "--Action--\nDecoyBomb(s) Destroyed" );
 
 		edict_t *pPlayer = m_pPlayer->edict( );
 
 		CBaseEntity *pSatchel = NULL;
-		
 
 		while ((pSatchel = UTIL_FindEntityInSphere( pSatchel, m_pPlayer->pev->origin, 4096 )) != NULL)
 		{

@@ -46,7 +46,7 @@ void CShower::Spawn( void )
 	else
 		pev->velocity.z -= 200;
 	pev->movetype = MOVETYPE_BOUNCE;
-	pev->gravity = 0.0;
+	pev->gravity = 0.5;
 	pev->nextthink = gpGlobals->time + 0.1;
 	pev->solid = SOLID_NOT;
 	SET_MODEL( edict(), "models/grenade.mdl");	// Need a model, just use the grenade, we don't draw it anyway

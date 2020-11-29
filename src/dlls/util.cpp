@@ -93,7 +93,7 @@ TYPEDESCRIPTION	gEntvarsDescription[] =
 	DEFINE_ENTITY_FIELD( renderfx, FIELD_INTEGER ),
 
 	DEFINE_ENTITY_FIELD( health, FIELD_FLOAT ),
-	DEFINE_ENTITY_FIELD( frags, FIELD_FLOAT ),
+	DEFINE_ENTITY_FIELD( frags, FIELD_INTEGER ),
 	DEFINE_ENTITY_FIELD( weapons, FIELD_INTEGER ),
 	DEFINE_ENTITY_FIELD( takedamage, FIELD_FLOAT ),
 
@@ -718,7 +718,7 @@ void UTIL_SayText( const char *pText, CBaseEntity *pEntity )
 void UTIL_SayTextAll( const char *pText, CBaseEntity *pEntity )
 {
 	MESSAGE_BEGIN( MSG_ALL, gmsgSayText, NULL );
-	WRITE_BYTE( pEntity->entindex() );
+		WRITE_BYTE( pEntity->entindex() );
 		WRITE_STRING( pText );
 	MESSAGE_END();
 }
@@ -2348,4 +2348,3 @@ int	CRestore::BufferCheckZString( const char *string )
 	}
 	return 0;
 }
-

@@ -19,9 +19,9 @@
 struct skilldata_t
 {
 
-	int iSkillLevel; // game skill level
+	int iSkillLevel;				// game skill level
 
-// Monster Health & Damage
+    // Monster Health & Damage
 	float	agruntHealth;
 	float agruntDmgPunch;
 
@@ -91,57 +91,43 @@ struct skilldata_t
 	float sentryHealth;
 
 
-// Player Weapons
+	// Player Weapons
 	float plrDmgCrowbar;
-	float plrDmgKnife; //Knife Slice
-	float plrDmgWrench; //Wrench Smack
+    float plrDmgKnife;
+    float plrDmgSword;
 	float plrDmg9MM;
-	float plrDmg357;
 	float plrDmgMP5;
-	float plrDmgMini; //Minigun Round
-	float plrDmgM203Grenade;
-	float plrDmgTimedGrenade;//Timed
-	float plrDmgKamikaze;
+	float plrDmgRifle;
 	float plrDmgBuckshot;
-	float plrDmgPellet; //Pellet
-	float plrDmgCrossbowClient;
-	float plrDmgCrossbowMonster;
-	float plrDmg765mm; //Sniper Rifle Round
-    float plrDmgStreet; //Street Sweeper
-	float plrDmgRPG;
-	float plrDmgRocketTank; //Tank Rocket
-	float plrDmgGauss;
-	float plrDmg30mmshell; //30mm shell 
-	float plrDmgEgonNarrow;
-	float plrDmgEgonWide;
 	float plrDmgBoltgun;
-	float plrDmgHornet;
-	float plrDmgHandGrenade;
-	float plrDmgSatchel;
-	float plrDmgPipebomb;
+	float plrDmgContact;
+	float plrDmgClusterGrenade;
+	float plrDmgRocket;
+	float plrDmgRailgun;
+	float plrDmgPulse;
 	float plrDmgTripmine;
-
-// weapons shared by monsters
+	
+	// weapons shared by monsters
 	float monDmg9MM;
 	float monDmgMP5;
 	float monDmg12MM;
 	float monDmgHornet;
 
-// health/suit charge
+	// health/suit charge
 	float suitchargerCapacity;
 	float batteryCapacity;
 	float healthchargerCapacity;
 	float healthkitCapacity;
 	float scientistHeal;
 
-// monster damage adj
+	// monster damage adj
 	float monHead;
 	float monChest;
 	float monStomach;
 	float monLeg;
 	float monArm;
 
-// player damage adj
+	// player damage adj
 	float plrHead;
 	float plrChest;
 	float plrStomach;

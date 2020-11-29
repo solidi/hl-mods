@@ -1,17 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 
 #include "extdll.h"
 #include "util.h"
@@ -45,43 +44,34 @@ public:
 	int AddToPlayer( CBasePlayer *pPlayer );
 
 	void PrimaryAttack( void );
-	void SecondaryAttack( void );
-	int SecondaryAmmoIndex( void );
+	void ChaingunFire( float flSpread, float flCycleTime, BOOL fUseAutoAim ,int b_no);
 	BOOL Deploy( void );
 	void Reload( void );
-	void Holster( );
+	void BringUp( void );
 	void WeaponIdle( void );
-	float m_flNextAnimTime;
+	void slowdown();
+	void EXPORT firemore(void);
+	int phase;
+	float cycletime;
+	int fps;
 	int m_iShell;
-	int m_iShell2; //secondary fire shell
 };
 LINK_ENTITY_TO_CLASS( weapon_chaingun, CChaingun );
-
+LINK_ENTITY_TO_CLASS( weapon_9mmAR, CChaingun );
 
 //=========================================================
 //=========================================================
-int CChaingun::SecondaryAmmoIndex( void )
-{
-	return m_iSecondaryAmmoType;
-}
 
 void CChaingun::Spawn( )
-{
-		if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2 )
-	{
-		return;
-	}
-	else
-	{
-	pev->classname = MAKE_STRING("weapon_chaingun"); // hack to allow for old names
+{	 
+	pev->classname = MAKE_STRING("weapon_chaingun"); 
 	Precache( );
 	SET_MODEL(ENT(pev), "models/wmodels/w_mini.mdl");
-	m_iId = WEAPON_MP5;
+	m_iId = WEAPON_CHAINGUN;
 
-	m_iDefaultAmmo = CHAIN_MAX_CLIP;
+	m_iDefaultAmmo = CHAINGUN_DEFAULT_GIVE;
 
-	FallInit();// get ready to fall down.
-	}
+	FallInit();
 }
 
 
@@ -90,33 +80,27 @@ void CChaingun::Precache( void )
 	PRECACHE_MODEL("models/vmodels/v_mini.mdl");
 	PRECACHE_MODEL("models/wmodels/w_mini.mdl");
 	PRECACHE_MODEL("models/pmodels/p_mini.mdl");
+	m_iShell = PRECACHE_MODEL ("models/shell.mdl");
 
-	m_iShell = PRECACHE_MODEL ("models/shell.mdl");// brass shell
-	m_iShell2 = PRECACHE_MODEL ("models/shotgunshell.mdl");// shotgunshell for blast
-
-	PRECACHE_MODEL("models/w_9mmARclip.mdl");
-	PRECACHE_SOUND("items/9mmclip1.wav");              
-
-	PRECACHE_SOUND ("weapons/chaingun1.wav");
-	PRECACHE_SOUND ("weapons/chaingun2.wav");
-    PRECACHE_SOUND ("weapons/reloadchaingun.wav");
-
+	PRECACHE_SOUND("weapons/chaingun1.wav"); 
+	PRECACHE_SOUND("weapons/chaingun_spinup.wav"); 
+	PRECACHE_SOUND("weapons/chaingun_spindown.wav"); 
+    PRECACHE_SOUND("weapons/357_cock1.wav");
 }
 
 int CChaingun::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
 	p->pszAmmo1 = "chain";
-	p->iMaxAmmo1 = CHAIN_MAX_CARRY;
-	p->pszAmmo2 = "buckshot";
-	p->iMaxAmmo2 = BUCKSHOT_MAX_CARRY;
-	p->iMaxClip = CHAIN_MAX_CLIP;
-	p->iSlot = 0;
-	p->iPosition = 9;
+	p->iMaxAmmo1 = CHAINGUN_MAX_CARRY;
+	p->pszAmmo2 = NULL;
+	p->iMaxAmmo2 = -1;
+	p->iMaxClip = CHAINGUN_MAX_CLIP;
+	p->iSlot = 2;
+	p->iPosition = 5;
 	p->iFlags = 0;
-	p->iId = m_iId = WEAPON_MP5;
-	p->iWeight = CHAIN_WEIGHT;
-	p->weaponName = "25 Inch Chaingun";        
+	p->iId = m_iId = WEAPON_CHAINGUN;
+	p->iWeight = CHAINGUN_WEIGHT;
 
 	return 1;
 }
@@ -138,173 +122,143 @@ BOOL CChaingun::Deploy( )
 	return DefaultDeploy( "models/vmodels/v_mini.mdl", "models/pmodels/p_mini.mdl", CHAINGUN_DRAW, "mp5" );
 }
 
-void CChaingun::Holster( )
-{
-	m_fInReload = FALSE;// cancel any reload in progress.
-	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
-	SendWeaponAnim( CHAINGUN_HOLSTER );
-
-}
-
 
 void CChaingun::PrimaryAttack()
 {
-	// don't fire underwater
-	if (m_pPlayer->pev->waterlevel == 3)	
+	m_flNextPrimaryAttack = gpGlobals->time + 0.1;
+	
+	if( m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] == 0 && m_iClip == 0) 
 	{
-		PlayEmptySound( );
-		m_flNextPrimaryAttack = gpGlobals->time + 0.3;
+		PlayEmptySound();
+		RetireWeapon();
 		return;
 	}
+	
+	m_flTimeWeaponIdle = gpGlobals->time + 0.1;
+	
+	if((phase==0)&&(m_iClip > 0))
+	{
+		SendWeaponAnim( CHAINGUN_SPINUP );
+		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun_spinup.wav", RANDOM_FLOAT(0.92, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));	
+		m_flNextPrimaryAttack = gpGlobals->time + 0.4;
+		phase=1;
+		return;
+	}
+	
+	slowdown();
+	
+	if (fps == 0) 
+		fps = 5;
+	
+	if (fps < 22) 
+		fps++;
+	
+	if((phase = 1)&&(m_iClip > 0))	
+		ChaingunFire( 0.04, 1/(float) fps, TRUE ,1);
+}
 
+void CChaingun::ChaingunFire( float flSpread , float flCycleTime, BOOL fUseAutoAim,int bulletsno )
+{
 	if (m_iClip <= 0)
 	{
-		//ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "Out of 9mm ammo  Reload Weapon or Switch Weapon....\n");
 		SendWeaponAnim( CHAINGUN_IDLE );
 		PlayEmptySound();
 		m_flNextPrimaryAttack = gpGlobals->time + 0.3;
 		return;
 	}
 
-	m_pPlayer->m_iWeaponVolume = NORMAL_GUN_VOLUME;
-	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
+	
+	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
+
+	SendWeaponAnim( CHAINGUN_FIRE );
+	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
 	m_iClip--;
 
-	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
-	
-	SendWeaponAnim( CHAINGUN_FIRE );
-
-	// player "shoot" animation
-	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
-
-	switch( RANDOM_LONG(0,1) )
-	{
-	case 0: EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf)); break;
-	case 1: EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf)); break;
-	}
-
 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
-
+		
 	Vector	vecShellVelocity = m_pPlayer->pev->velocity 
-							 + gpGlobals->v_right * RANDOM_FLOAT(100,100) 
+							 + gpGlobals->v_right * RANDOM_FLOAT(50,70) 
 							 + gpGlobals->v_up * RANDOM_FLOAT(100,150) 
 							 + gpGlobals->v_forward * 25;
-	EjectBrass ( pev->origin + m_pPlayer->pev->view_ofs
-					+ gpGlobals->v_up * -12 
-					+ gpGlobals->v_forward * 25 
-					+ gpGlobals->v_right * 6, vecShellVelocity, pev->angles.y, m_iShell, TE_BOUNCE_SHELL); 
-	
+	EjectBrass ( pev->origin + m_pPlayer->pev->view_ofs + gpGlobals->v_up * -12 + gpGlobals->v_forward * 32 + gpGlobals->v_right * 6 , vecShellVelocity, pev->angles.y, m_iShell, TE_BOUNCE_SHELL ); 
+
+	m_pPlayer->m_iWeaponVolume = LOUD_GUN_VOLUME;
+	m_pPlayer->m_iWeaponFlash = BRIGHT_GUN_FLASH;
+	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun1.wav", RANDOM_FLOAT(0.92, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+
 	Vector vecSrc	 = m_pPlayer->GetGunPosition( );
-	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
+	Vector vecAiming;
+	
+	if ( fUseAutoAim )
+	{
+		vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
+	}
+	else
+	{
+		vecAiming = gpGlobals->v_forward;
+	}
 
-	m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_10DEGREES, 8192, 	BULLET_PLAYER_MINI, 0 );
+	m_pPlayer->FireBullets(bulletsno,  vecSrc, vecAiming, VECTOR_CONE_5DEGREES, 8192, BULLET_PLAYER_9MM, 0 );
+	m_flNextPrimaryAttack = gpGlobals->time + flCycleTime;
 
-	if (!m_iClip && m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] <= 0)
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
+	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 
-	m_flNextPrimaryAttack = m_flNextPrimaryAttack + .07;
-	if (m_flNextPrimaryAttack < gpGlobals->time)
-		m_flNextPrimaryAttack = gpGlobals->time + .07; 
-
-	m_flTimeWeaponIdle = gpGlobals->time + .6;
-
-	m_pPlayer->pev->punchangle.x = RANDOM_FLOAT( 1, 1 );
 }
 
 
-
-void CChaingun::SecondaryAttack( void )
+void CChaingun::slowdown()
 {
-	// don't fire underwater
-	if (m_pPlayer->pev->waterlevel == 3)	
+	if ( m_iClip != 0 )
 	{
-		PlayEmptySound( );
-		m_flNextSecondaryAttack = gpGlobals->time + 0.3;
-		return;
-	}
-
-	if (m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType] == 0)
-	{
-		SendWeaponAnim( CHAINGUN_IDLE );
-		PlayEmptySound();
-		m_flNextSecondaryAttack = gpGlobals->time + 0.3;
-		return;
-	}
-
-	m_pPlayer->m_iWeaponVolume = NORMAL_GUN_VOLUME;
-	m_pPlayer->m_iWeaponFlash = NORMAL_GUN_FLASH;
-
-	m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType]--;
-
-	m_pPlayer->pev->effects = (int)(m_pPlayer->pev->effects) | EF_MUZZLEFLASH;
-		
-	SendWeaponAnim( CHAINGUN_FIRE );
-
-	// player "shoot" animation
-	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
-
-	switch( RANDOM_LONG(0,1) )
-	{
-	case 0: EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun2.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf)); break;
-	case 1: EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun2.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf)); break;
-	}
-
-	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
-
-	Vector	vecShellVelocity = m_pPlayer->pev->velocity 
-							 + gpGlobals->v_right * RANDOM_FLOAT(300,100) 
-							 + gpGlobals->v_up * RANDOM_FLOAT(300,150) 
-							 + gpGlobals->v_forward * 25;
-	EjectBrass ( pev->origin + m_pPlayer->pev->view_ofs
-					+ gpGlobals->v_up * -12 
-					+ gpGlobals->v_forward * 25 
-					+ gpGlobals->v_right * 6, vecShellVelocity, pev->angles.y, m_iShell2, TE_BOUNCE_SHELL); 
+		Vector xy=Vector(m_pPlayer->pev->velocity.x,m_pPlayer->pev->velocity.y,0).Normalize();
 	
-	Vector vecSrc	 = m_pPlayer->GetGunPosition( );
-	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
-
-    m_pPlayer->FireBullets( 18, vecSrc, vecAiming, VECTOR_CONE_20DEGREES, 4096, BULLET_PLAYER_BUCKSHOT, 0 );
-
-     if (!m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
-		// HEV suit - indicate out of ammo condition
-		m_pPlayer->SetSuitUpdate("!HEV_AMO0", FALSE, 0);
-
-	m_flNextPrimaryAttack = m_flNextSecondaryAttack + 0.8;
-	if (m_flNextSecondaryAttack < gpGlobals->time)
-		m_flNextSecondaryAttack = gpGlobals->time + 0.8;
-
-	m_flTimeWeaponIdle = gpGlobals->time + .6;
-
-	m_pPlayer->pev->punchangle.x = RANDOM_FLOAT( 1, 1 );
+		if(m_pPlayer->pev->velocity.Length2D()>50)
+			m_pPlayer->pev->velocity=Vector(xy.x*50,xy.y*50,m_pPlayer->pev->velocity.z);
+	}
 }
-
 void CChaingun::Reload( void )
 {
-	int iResult;
-
-	if (m_iClip == 0)
-		iResult = DefaultReload( 60, CHAINGUN_IDLE, 2.6 );
-	else
-		iResult = DefaultReload( 60, CHAINGUN_IDLE, 2.6 );
-
-	if (iResult)
+	if ( m_iClip <= 99  )
 	{
-		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/reloadchaingun.wav", RANDOM_FLOAT(0.9, 1.0), ATTN_NORM);
-		m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
+		if ( m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType] < 0 )
+			return;
+
+		DefaultReload( CHAINGUN_MAX_CLIP, CHAINGUN_HOLSTER, 1.5 );
+		SetThink( BringUp );
+		pev->nextthink = gpGlobals->time + 1.5;
 	}
 }
+
+void CChaingun::BringUp( void )
+{
+	SendWeaponAnim( CHAINGUN_DRAW );
+	m_flNextPrimaryAttack = gpGlobals->time + 1.0; 
+}
+
 void CChaingun::WeaponIdle( void )
 {
-	ResetEmptySound( );
-
-	m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
-
+	cycletime=0;
+	fps=0;
+	
+	if(phase==1)
+	{
+		m_flTimeWeaponIdle = m_flNextPrimaryAttack = gpGlobals->time + 1;
+		SendWeaponAnim( CHAINGUN_SPINDOWN );
+		EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/chaingun_spindown.wav", RANDOM_FLOAT(0.92, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,3));
+		phase=0;
+		return;
+	}
+	
 	if (m_flTimeWeaponIdle > gpGlobals->time)
 		return;
+	
+	ResetEmptySound( );
+	
+	m_pPlayer->GetAutoaimVector( AUTOAIM_10DEGREES );
 
 	int iAnim;
+	
 	switch ( RANDOM_LONG( 0, 1 ) )
 	{
 	case 0:	
@@ -319,36 +273,27 @@ void CChaingun::WeaponIdle( void )
 
 	SendWeaponAnim( iAnim );
 
-	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
+	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 }
 
 
 
-class CChaingunAmmoClip : public CBasePlayerAmmo
+class CChaingunBox : public CBasePlayerAmmo
 {
 	void Spawn( void )
 	{ 
-		if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )
-				
-	{
-	
-	}
-	 else
-	 {
 		Precache( );
-		SET_MODEL(ENT(pev), "models/ammo/w_ammo4.mdl");
+		SET_MODEL(ENT(pev), "models/ammo/w_chain.mdl");
 		CBasePlayerAmmo::Spawn( );
-	 }
 	}
 	void Precache( void )
 	{
-		PRECACHE_MODEL ("models/ammo/w_ammo4.mdl");
+		PRECACHE_MODEL ("models/ammo/w_chain.mdl");
 		PRECACHE_SOUND("items/9mmclip1.wav");
 	}
 	BOOL AddAmmo( CBaseEntity *pOther ) 
 	{ 
-		int bResult = (pOther->GiveAmmo( 60, "chain", CHAIN_MAX_CARRY) != 0);
-		              (pOther->GiveAmmo( 30, "5.56mm", _556MM_MAX_CARRY) != -1);
+		int bResult = (pOther->GiveAmmo( AMMO_CHAINGUNBOX_GIVE, "chain", CHAINGUN_MAX_CARRY) != -1);
 		if (bResult)
 		{
 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
@@ -356,88 +301,4 @@ class CChaingunAmmoClip : public CBasePlayerAmmo
 		return bResult;
 	}
 };
-LINK_ENTITY_TO_CLASS( ammo_mp5clip, CChaingunAmmoClip );
-LINK_ENTITY_TO_CLASS( ammo_9mmAR, CChaingunAmmoClip );
-
-
-
-class CChaingunChainammo : public CBasePlayerAmmo
-{
-	void Spawn( void )
-	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
-		CBasePlayerAmmo::Spawn( );
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_chainammo.mdl");
-		PRECACHE_SOUND("items/9mmclip1.wav");
-	}
-	BOOL AddAmmo( CBaseEntity *pOther ) 
-	{ 
-		int bResult = (pOther->GiveAmmo( AMMO_CHAINBOX_GIVE, "chain", CHAIN_MAX_CARRY) != -1);
-		if (bResult)
-		{
-			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-		}
-		return bResult;
-	}
-};
-LINK_ENTITY_TO_CLASS( ammo_9mmbox, CChaingunChainammo );
-
-
-class CGrenadeLauncherAmmoGrenade : public CBasePlayerAmmo
-{
-	void Spawn( void )
-	{
-	   if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" ) > 0 )	
-	{
-	
-	}
-	 else
-	 {
-		Precache( );
-		SET_MODEL(ENT(pev), "models/ammo/w_ammo8.mdl");
-		CBasePlayerAmmo::Spawn( );
-	 }
-
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/ammo/w_ammo8.mdl");
-		PRECACHE_SOUND("items/9mmclip1.wav");
-	}
-	BOOL AddAmmo( CBaseEntity *pOther ) 
-	{ 
-
-		int bResult = (pOther->GiveAmmo( AMMO_M203BOX_GIVE, "ARgrenades", M203_GRENADE_MAX_CARRY ) != 0);
-                      (pOther->GiveAmmo( AMMO_TIMED_GIVE, "Timed", TIMED_MAX_CARRY ) != -1);
-		
-		if (bResult)
-		{
-			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-		}
-		return bResult;
-	}
-};
-LINK_ENTITY_TO_CLASS( ammo_mp5grenades, CGrenadeLauncherAmmoGrenade );
-LINK_ENTITY_TO_CLASS( ammo_ARgrenades, CGrenadeLauncherAmmoGrenade );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+LINK_ENTITY_TO_CLASS( ammo_chaingunbox, CChaingunBox );

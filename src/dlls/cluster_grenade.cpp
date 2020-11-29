@@ -1,17 +1,17 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
+
 #include "extdll.h"
 #include "util.h"
 #include "cbase.h"
@@ -23,15 +23,17 @@
 
 #define	CLUSTERGRENADE_PRIMARY_VOLUME		450
 
-enum handgrenade_e {
+enum cluster_e {
+/*
 	HANDGRENADE_IDLE = 0,
 	HANDGRENADE_FIDGET,
 	HANDGRENADE_PINPULL,
-	HANDGRENADE_THROW1,	// toss
-	HANDGRENADE_THROW2,	// medium
-	HANDGRENADE_THROW3,	// hard
+	HANDGRENADE_THROW1,	
+	HANDGRENADE_THROW2,	
+	HANDGRENADE_THROW3,	
 	HANDGRENADE_HOLSTER,
 	HANDGRENADE_DRAW
+*/
 };
 
 
@@ -50,86 +52,80 @@ public:
 	void WeaponIdle( void );
 	float m_flStartThrow;
 	float m_flReleaseThrow;
-	int   m_iPlayerRune;
 };
 LINK_ENTITY_TO_CLASS( weapon_clustergrenade, CClusterGrenade );
-
+LINK_ENTITY_TO_CLASS( weapon_handgrenade, CClusterGrenade );
 
 void CClusterGrenade::Spawn( )
 {
-	    if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2  ||  CVAR_GET_FLOAT( "automatic_arena" )  == 2  )	
-	{
-		return;
-	}
-	else
-	{
+	pev->classname = MAKE_STRING( "weapon_clustergrenade" ); 
+
 	Precache( );
-	m_iId = WEAPON_HANDGRENADE;
+	m_iId = WEAPON_CLUSTERGRENADE;
 	SET_MODEL(ENT(pev), "models/clustergrenade.mdl");
 
-	pev->dmg = gSkillData.plrDmgHandGrenade;
+	pev->dmg = gSkillData.plrDmgClusterGrenade;
 
-	m_iDefaultAmmo = HANDGRENADE_DEFAULT_GIVE;
+	m_iDefaultAmmo = CLUSTERGRENADE_DEFAULT_GIVE;
 
-	FallInit();// get ready to fall down.
-	}
+	FallInit();
 }
 
 
 void CClusterGrenade::Precache( void )
 {
-	PRECACHE_MODEL("models/clustergrenade.mdl");
-	PRECACHE_MODEL("models/v_grenade.mdl");
+	PRECACHE_MODEL("models/w_grenade.mdl");
+	PRECACHE_MODEL("models/vmodels/v_chumtoad.mdl");
 	PRECACHE_MODEL("models/p_grenade.mdl");
+
 	PRECACHE_SOUND("weapons/pinpull.wav");
 }
 
 int CClusterGrenade::GetItemInfo(ItemInfo *p)
 {
-	p->pszName = STRING(pev->classname); 
-	p->pszAmmo1 = "Hand Grenade"; 
-	p->iMaxAmmo1 = CLUSTERGRENADE_MAX_CARRY; 
-	p->pszAmmo2 = NULL; 
-	p->iMaxAmmo2 = -1; 
-	p->iMaxClip = WEAPON_NOCLIP; 
-	p->iSlot = 2; 
-	p->iPosition = 1; 
-	p->iId = m_iId = WEAPON_HANDGRENADE; 
-	p->iWeight = CLGRENADE_WEIGHT; 
-	p->iFlags = ITEM_FLAG_LIMITINWORLD | ITEM_FLAG_EXHAUSTIBLE; 
-	p->weaponName = "6-pack Cluster Grenades";   
+	p->pszName = STRING(pev->classname);
+	p->pszAmmo1 = "Cluster Grenade";
+	p->iMaxAmmo1 = CLUSTERGRENADE_MAX_CARRY;
+	p->pszAmmo2 = NULL;
+	p->iMaxAmmo2 = -1;
+	p->iMaxClip = WEAPON_NOCLIP;
+	p->iSlot = 4;
+	p->iPosition = 0;
+	p->iId = m_iId = WEAPON_CLUSTERGRENADE;
+	p->iWeight = CLUSTERGRENADE_WEIGHT;
+	p->iFlags = ITEM_FLAG_LIMITINWORLD | ITEM_FLAG_EXHAUSTIBLE;
+
 	return 1;
 }
 
 
 BOOL CClusterGrenade::Deploy( )
 {
-    m_flReleaseThrow = -1;
-	return DefaultDeploy( "models/v_grenade.mdl", "models/p_grenade.mdl", HANDGRENADE_DRAW, "crowbar" );
+	m_flReleaseThrow = -1;
+	return DefaultDeploy( "models/vmodels/v_chumtoad.mdl", "models/p_grenade.mdl", NULL, "crowbar" );
 }
 
 BOOL CClusterGrenade::CanHolster( void )
 {
-	// can only holster hand grenades when not primed!
 	return ( m_flStartThrow == 0 );
 }
 
 void CClusterGrenade::Holster( )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
+	
 	if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType])
 	{
-		SendWeaponAnim( HANDGRENADE_HOLSTER );
+		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/pinpull.wav", 1.0, ATTN_NORM);
+		//SendWeaponAnim( HANDGRENADE_HOLSTER );
 	}
 	else
 	{
-		// no more grenades!
-		m_pPlayer->pev->weapons &= ~(1<<WEAPON_HANDGRENADE);
+		m_pPlayer->pev->weapons &= ~(1<<WEAPON_CLUSTERGRENADE);
 		SetThink( DestroyItem );
 		pev->nextthink = gpGlobals->time + 0.1;
 	}
-    //ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "Switching Cluster Grenades\n");
-	EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "common/null.wav", 1.0, ATTN_NORM);
+
 }
 
 void CClusterGrenade::PrimaryAttack()
@@ -139,9 +135,7 @@ void CClusterGrenade::PrimaryAttack()
 		m_flStartThrow = gpGlobals->time;
 		m_flReleaseThrow = 0;
 
-		SendWeaponAnim( HANDGRENADE_PINPULL );
-		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/pinpull.wav", 1.0, ATTN_NORM);
-//		ShowSmart (m_pPlayer, 0x7, 2, 0, "--Action--\nPin Pulled..." );
+		//SendWeaponAnim( HANDGRENADE_PINPULL );
 		m_flTimeWeaponIdle = gpGlobals->time + 0.5;
 	}
 }
@@ -176,25 +170,10 @@ void CClusterGrenade::WeaponIdle( void )
 
 		// alway explode 3 seconds after the pin was pulled
 		float time = m_flStartThrow - gpGlobals->time + 3.0;
-
 		if (time < 0)
 			time = 0;
-//            ShowSmart (m_pPlayer, 0x7, 2, 0, "--Action--\nCluster Grenade Thorwn!" );
 
-		CGrenade::ShootTimedCluster( m_pPlayer->pev, vecSrc, vecThrow, time );
-
-		if (flVel < 500)
-		{
-			SendWeaponAnim( HANDGRENADE_THROW1 );
-		}
-		else if (flVel < 1000)
-		{
-			SendWeaponAnim( HANDGRENADE_THROW2 );
-		}
-		else
-		{
-			SendWeaponAnim( HANDGRENADE_THROW3 );
-		}
+		CGrenade::ShootClusterGrenade( m_pPlayer->pev, vecSrc, vecThrow, time );
 
 		// player "shoot" animation
 		m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -219,11 +198,7 @@ void CClusterGrenade::WeaponIdle( void )
 		// we've finished the throw, restart.
 		m_flStartThrow = 0;
 
-		if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType])
-		{
-			SendWeaponAnim( HANDGRENADE_DRAW );
-		}
-		else
+		if (!m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType])
 		{
 			RetireWeapon();
 			return;
@@ -236,23 +211,19 @@ void CClusterGrenade::WeaponIdle( void )
 
 	if (m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType])
 	{
-		int iAnim;
+		//int iAnim;
 		float flRand = RANDOM_FLOAT(0, 1);
 		if (flRand <= 0.75)
 		{
-			iAnim = HANDGRENADE_IDLE;
+			//iAnim = HANDGRENADE_IDLE;
 			m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
 		}
 		else 
 		{
-			iAnim = HANDGRENADE_FIDGET;
+			//iAnim = HANDGRENADE_FIDGET;
 			m_flTimeWeaponIdle = gpGlobals->time + 75.0 / 30.0;
 		}
 
-		SendWeaponAnim( iAnim );
+		//SendWeaponAnim( iAnim );
 	}
 }
-
-
-
-

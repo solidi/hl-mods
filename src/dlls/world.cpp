@@ -224,7 +224,7 @@ static void InitBodyQue(void)
 
 
 //
-// make a body que entry for the given ent so the ent can be respawned elsewhere
+// make a body que entry for the given ent so the ent can be reed elsewhere
 //
 // GLOBALS ASSUMED SET:  g_eoBodyQueueHead
 //
@@ -466,7 +466,6 @@ LINK_ENTITY_TO_CLASS( worldspawn, CWorld );
 #define SF_WORLD_TITLE		0x0002		// Display game title at startup
 #define SF_WORLD_FORCETEAM	0x0004		// Force teams
 
-
 extern DLL_GLOBAL BOOL		g_fGameOver;
 float g_flWeaponCheat; 
 
@@ -474,11 +473,8 @@ void CWorld :: Spawn( void )
 {
 	g_fGameOver = FALSE;
 	Precache( );
-	g_flWeaponCheat = CVAR_GET_FLOAT( "sv_cheats" );// Is the impulse 101 command allowed?
-	CWorldRunes *WorldRunes = CWorldRunes::Create( );
+	g_flWeaponCheat = CVAR_GET_FLOAT( "sv_cheats" );  // Is the impulse 101 command allowed?
 }
-
-
 
 void CWorld :: Precache( void )
 {
@@ -528,18 +524,24 @@ void CWorld :: Precache( void )
 
 // the area based ambient sounds MUST be the first precache_sounds
 
-// player precaches     
+// player precaches   
 	W_Precache ();									// get weapon precaches
+
+	// Create Some Runes
+	CWorldRunes *WorldRunes = CWorldRunes::Create( );
 
 	ClientPrecache();
 
 // sounds used from C physics code
 	PRECACHE_SOUND("common/null.wav");				// clears sound channels
 
-	PRECACHE_SOUND( "items/suitchargeok1.wav" );//!!! temporary sound for respawning weapons.
-	PRECACHE_SOUND( "items/gunpickup2.wav" );// player picks up a gun.
+	PRECACHE_SOUND( "items/suitchargeok1.wav" );   // temporary sound for respawning weapons.
+	PRECACHE_SOUND( "items/gunpickup2.wav" );      // player picks up a gun.
 
-	PRECACHE_SOUND( "common/bodydrop3.wav" );// dead bodies hitting the ground (animation events)
+	PRECACHE_SOUND("items/cliprelease1.wav");
+	PRECACHE_SOUND("items/clipinsert1.wav");
+
+	PRECACHE_SOUND( "common/bodydrop3.wav" );      // dead bodies hitting the ground (animation events)
 	PRECACHE_SOUND( "common/bodydrop4.wav" );
 	
 	g_Language = (int)CVAR_GET_FLOAT( "sv_language" );

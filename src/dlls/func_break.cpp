@@ -1,17 +1,18 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
+
+
 /*
 
 ===== bmodels.cpp ========================================================
@@ -34,31 +35,44 @@ extern DLL_GLOBAL Vector		g_vecAttackDir;
 // Just add more items to the bottom of this array and they will automagically be supported
 // This is done instead of just a classname in the FGD so we can control which entities can
 // be spawned, and still remain fairly flexible
-
 const char *CBreakable::pSpawnObjects[] =
 {
-	NULL,				// 0
-	"item_battery",		// 1
-	"item_healthkit",	// 2
-	"weapon_9mmhandgun",// 3
-	"ammo_9mmclip",		// 4	
-	"weapon_9mmAR",// 5
-	"ammo_9mmAR",		// 6
-	"ammo_ARgrenades",	// 7
-	"weapon_shotgun",	// 8
-	"ammo_buckshot",	// 9
-	"weapon_crossbow",	// 10
-	"ammo_crossbow",	// 11
-	"weapon_357",		// 12
-	"ammo_357",			// 13
-	"weapon_rpg",		// 14
-	"ammo_rpgclip",		// 15
-	"ammo_gaussclip",	// 16
-	"weapon_handgrenade",// 17
-	"weapon_tripmine",	// 18
-	"weapon_satchel",	// 19
-	"weapon_snark",		// 20
-	"weapon_hornetgun",	// 21
+	NULL,				
+	"item_battery",		
+	"item_healthkit",	
+	"weapon_crowbar",
+	"weapon_fwcrowbar",
+	"weapon_knife",
+	"weapon_sword",
+	"weapon_ppk",
+	"ammo_ppkclip",
+	"weapon_mag60",
+	"ammo_magclip",
+	"weapon_m16",
+    "ammo_m16clip",
+    "weapon_uzi",
+	"ammo_uziclip",
+	"weapon_ashotgun",
+	"ammo_buckshotbox",
+	"weapon_sshotgun",
+    "weapon_chaingun",
+	"ammo_chaingunbox",
+	"weapon_railgun",
+	"ammo_railslug",
+	"weapon_pulserifle",
+	"weapon_grenadel",
+	"ammo_contact",
+	"ammo_timed",
+    "weapon_boltgun",
+	"ammo_boltgun",
+	"weapon_chumtoad",
+	"weapon_rocketl",
+    "ammo_rocket",
+	"weapon_ifrtripmine",
+	"weapon_clustergrenade",
+	"weapon_tnt",
+	"weapon_nuke",
+	"ammo_nukeclip",
 };
 
 void CBreakable::KeyValue( KeyValueData* pkvd )

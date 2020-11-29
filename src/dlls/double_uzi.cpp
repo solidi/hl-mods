@@ -1,17 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 
 #include "extdll.h"
 #include "util.h"
@@ -50,8 +49,6 @@ public:
 
 	void PrimaryAttack( void );
 	int m_iShotCount; 
-	void SecondaryAttack( void );
-	int SecondaryAmmoIndex( void );
 	BOOL Deploy( void );
 	void Holster( );
 	void Reload( void );
@@ -62,65 +59,44 @@ public:
 	int m_iSideCount;
 };
 LINK_ENTITY_TO_CLASS( weapon_doubleuzi, CDoubleUzi );
-
-
-
+LINK_ENTITY_TO_CLASS( ammo_9mmclip, CDoubleUzi );
 //=========================================================
 //=========================================================
-int CDoubleUzi::SecondaryAmmoIndex( void )
-{
-	return m_iSecondaryAmmoType;
-}
 
 void CDoubleUzi::Spawn( )
 {
-		if ( CVAR_GET_FLOAT( "rocket_arena" )  == 2 )
-	{
-		return;
-	}
-	else
-	{
-	pev->classname = MAKE_STRING("weapon_doubleuzi"); // hack to allow for old names
+	pev->classname = MAKE_STRING("weapon_doubleuzi");
+
 	Precache( );
+
 	SET_MODEL(ENT(pev), "models/wmodels/w_uzi.mdl");
 	m_iId = WEAPON_DOUBLEUZI;
 
-	m_iDefaultAmmo = 50;
+	m_iDefaultAmmo = DOUBLEUZI_DEFAULT_GIVE;
 
-	FallInit();// get ready to fall down.
-	}
+	FallInit();
 }
 
 
 void CDoubleUzi::Precache( void )
 {
 	PRECACHE_MODEL("models/vmodels/v_doubleuzi.mdl");
-	PRECACHE_MODEL("models/wmodels/w_uzi.mdl");
-	PRECACHE_MODEL("models/pmodels/p_uzi.mdl");
-	m_iShell = PRECACHE_MODEL ("models/shell.mdl");// brass shellTE_MODEL
-	PRECACHE_MODEL("models/w_9mmARclip.mdl");
-	PRECACHE_SOUND("items/9mmclip1.wav");              
-	PRECACHE_SOUND("items/clipinsert1.wav");
-	PRECACHE_SOUND("items/cliprelease1.wav");
-	PRECACHE_SOUND ("weapons/uzi1.wav"); //1 shot
-    PRECACHE_SOUND ("weapons/357_cock1.wav");
+	m_iShell = PRECACHE_MODEL ("models/shell.mdl");
 }
 
 int CDoubleUzi::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
-	p->pszAmmo1 = "5.56mm";
-	p->iMaxAmmo1 = 250;
+	p->pszAmmo1 = "9mm";
+	p->iMaxAmmo1 = DOUBLEUZI_MAX_CARRY;
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
-	p->iMaxClip = 32;
-	p->iSlot = 0;
-	p->iPosition = 15;
+	p->iMaxClip = DOUBLEUZI_MAX_CLIP;
+	p->iSlot = 2;
+	p->iPosition = 4;
 	p->iFlags = 0;
 	p->iId = m_iId = WEAPON_DOUBLEUZI;
 	p->iWeight = DOUBLEUZI_WEIGHT;
-	p->weaponName = "Double Uzis";
-
 	return 1;
 }
 
@@ -143,20 +119,12 @@ BOOL CDoubleUzi::Deploy( )
 
 void CDoubleUzi::Holster( )
 {
-	m_fInReload = FALSE;// cancel any reload in progress.
-
-	if ( m_fInZoom )
-	{
-		SecondaryAttack( );
-	}
-	m_pPlayer->m_iFOV = 0;
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 }
 
 
 void CDoubleUzi::PrimaryAttack()
 {
-	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
 		PlayEmptySound( );
@@ -201,7 +169,7 @@ void CDoubleUzi::PrimaryAttack()
 	    Vector vecSrc	 = m_pPlayer->GetGunPosition( );
 	    Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
-	    m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_6DEGREES, 8192, BULLET_PLAYER_MP5, 0 );
+	    m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_8DEGREES, 8192, BULLET_PLAYER_MP5, 0 );
 	
 
 	}
@@ -218,7 +186,7 @@ void CDoubleUzi::PrimaryAttack()
 
 	    Vector	vecShellVelocity = m_pPlayer->pev->velocity 
 							 + gpGlobals->v_right * RANDOM_FLOAT(100,150) 
-							 + gpGlobals->v_up * RANDOM_FLOAT(100,150) //x,y values? 
+							 + gpGlobals->v_up * RANDOM_FLOAT(100,150) 
 							 + gpGlobals->v_forward * 35;
 
 		EjectBrass ( pev->origin + m_pPlayer->pev->view_ofs
@@ -229,7 +197,7 @@ void CDoubleUzi::PrimaryAttack()
 	    Vector vecSrc	 = m_pPlayer->GetGunPosition( );
 	    Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
-	    m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_6DEGREES, 8192, BULLET_PLAYER_MP5, 0 );
+	    m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_8DEGREES, 8192, BULLET_PLAYER_MP5, 0 );
 	
 	}
 
@@ -241,18 +209,15 @@ void CDoubleUzi::PrimaryAttack()
 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 	m_pPlayer->pev->punchangle.x = RANDOM_FLOAT( -2, 2 );
 }
-void CDoubleUzi::SecondaryAttack( void )
-{
-	
-}
+
 void CDoubleUzi::Reload( void )
 {
 	int iResult;
 
 	if (m_iClip == 0)
-		iResult = DefaultReload( 32, M16_RELOAD, 1.5 );
+		iResult = DefaultReload( 64, M16_RELOAD, 1.5 );
 	else
-		iResult = DefaultReload( 32, M16_RELOAD, 1.5 );
+		iResult = DefaultReload( 64, M16_RELOAD, 1.5 );
 
 	if (iResult)
 	{
@@ -283,7 +248,7 @@ void CDoubleUzi::WeaponIdle( void )
 
 	SendWeaponAnim( iAnim );
 
-	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );// how long till we do this again.
+	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 }
 
 

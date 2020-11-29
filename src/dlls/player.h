@@ -31,36 +31,10 @@
 #define		PFLAG_DUCKING		( 1<<3 )		// In the process of ducking, but totally squatted yet
 #define		PFLAG_USING			( 1<<4 )		// Using a continuous entity
 #define		PFLAG_OBSERVER		( 1<<5 )		// player is locked in stationary cam mode. Spectators can move, observers can't.
-//Begin Grapple
-#define     PFLAG_ON_GRAPPLE    ( 1<<6 )        //Added Physics flag for grapple
-//End Grapple
-
 
 //
 // generic player
 //
-#define RUNE_SPEED (1<<0)
-#define RUNE_STRENGTH (1<<1)
-#define RUNE_RESIST (1<<2)
-#define RUNE_HEALTH (1<<3)
-#define RUNE_FRAGS (1<<4)
-
-class CWorldRunes : public CBaseEntity
-
-{
-public:
-
-CBaseEntity *m_pSpot;
-void Spawn( );
-static CWorldRunes *Create( );
-void SpawnRunes( );
-void Precache( );
-void CreateRune(char *sz_RuneClass);
-CBaseEntity *SelectSpawnPoint(CBaseEntity *pSpot);
-
-};
-
-
 //-----------------------------------------------------
 //This is Half-Life player entity
 //-----------------------------------------------------
@@ -84,8 +58,6 @@ CBaseEntity *SelectSpawnPoint(CBaseEntity *pSpot);
 
 #define TEAM_NAME_LENGTH	16
 
-
-
 typedef enum
 {
 	PLAYER_IDLE,
@@ -96,43 +68,68 @@ typedef enum
 	PLAYER_ATTACK1,
 } PLAYER_ANIM;
 
-
-
 enum _Menu {
 	Menu_Spec,
-	Menu_Weap1,
-	Menu_Weap2,
-	Menu_Weap3,
-	Menu_Weap4,
-	Menu_Change1,
-	Menu_Change2,
-	Menu_Change3,
-	Menu_Change4,
-	Menu_AutoArena1,
-	Menu_AutoArena2,
-	Menu_AutoArena3,
+
+	Menu_WepSel,
+	Menu_WepMan,
+	Menu_WepHand,
+	Menu_WepAss,
+	Menu_WepShot,
+	Menu_WepExp,
+	Menu_WepEper,
+			
+	Menu_AmmoSel,
+	Menu_AmmoBul,
+	Menu_AmmoExp,
+	Menu_AmmoMisc,
+
+	Menu_Wep,
+	Menu_Change,
 };
 
+//=========================================================
+// Runes
+//=========================================================
+#define RUNE_SPEED         (1<<0)
+#define RUNE_STRENGTH      (1<<1)
+#define RUNE_RESIST        (1<<2)
+#define RUNE_HEALTH        (1<<3)
+#define RUNE_ROCKETARENA   (1<<4)
+
+class CWorldRunes : public CBaseEntity
+{
+public:
+	CBaseEntity *m_pSpot;
+	void Spawn( );
+	static CWorldRunes *Create( );
+	void SpawnRunes( );
+	void Precache( );
+	void CreateRune(char *sz_RuneClass);
+
+	CBaseEntity *SelectSpawnPoint(CBaseEntity *pSpot);
+};
+//=========================================================
+//=========================================================
 
 class CBasePlayer : public CBaseMonster
 {
 public:
-	int					m_iPlayerSound;// the index of the sound list slot reserved for this player
-	int					m_iTargetVolume;// ideal sound volume. 
-	int					m_iWeaponVolume;// how loud the player's weapon is right now.
-	int					m_iExtraSoundTypes;// additional classification for this weapon's sound
-	int					m_iWeaponFlash;// brightness of the weapon flash
+	int					m_iPlayerSound;		// the index of the sound list slot reserved for this player
+	int					m_iTargetVolume;	// ideal sound volume. 
+	int					m_iWeaponVolume;	// how loud the player's weapon is right now.
+	int					m_iExtraSoundTypes;	// additional classification for this weapon's sound
+	int					m_iWeaponFlash;		// brightness of the weapon flash
 	float				m_flStopExtraSoundTime;
-	
-	float				m_flFlashLightTime;	// Time until next battery draw/Recharge
-	int					m_iFlashBattery;		// Flashlight Battery Draw
 
 	float               m_fHookInWall;
 	float               m_fActiveHook;
 	float               m_fHookButton;
 	Vector              m_vVecDirHookMove;
-
 	
+	float				m_flFlashLightTime;		// Time until next battery draw/Recharge
+	int					m_iFlashBattery;		// Flashlight Battery Draw
+
 	int					m_afButtonLast;
 	int					m_afButtonPressed;
 	int					m_afButtonReleased;
@@ -151,7 +148,7 @@ public:
 	float				m_fNextSuicideTime; // the time after which the player can next use the suicide command
 
 
-// these are time-sensitive things that we keep track of
+	// these are time-sensitive things that we keep track of
 	float				m_flTimeStepSound;	// when the last stepping sound was made
 	float				m_flTimeWeaponIdle; // when to play another weapon idle animation.
 	float				m_flSwimTime;		// how long player has been underwater
@@ -186,17 +183,17 @@ public:
 	EHANDLE				m_pTank;				// the tank which the player is currently controlling,  NULL if no tank
 	float				m_fDeadTime;			// the time at which the player died  (used in PlayerDeathThink())
 
-	BOOL			m_fNoPlayerSound;	// a debugging feature. Player makes no sound if this is true. 
-	BOOL			m_fLongJump; // does this player have the longjump module?
+	BOOL				m_fNoPlayerSound;	// a debugging feature. Player makes no sound if this is true. 
+	BOOL				m_fLongJump; // does this player have the longjump module?
 
-	float       m_tSneaking;
-	int			m_iUpdateTime;		// stores the number of frame ticks before sending HUD update messages
-	int			m_iClientHealth;	// the health currently known by the client.  If this changes, send a new
-	int			m_iClientBattery;	// the Battery currently known by the client.  If this changes, send a new
-	int			m_iHideHUD;		// the players hud weapon info is to be hidden
-	int			m_iClientHideHUD;
-	int			m_iFOV;			// field of view
-	int			m_iClientFOV;	// client's known FOV
+	float				m_tSneaking;
+	int					m_iUpdateTime;		// stores the number of frame ticks before sending HUD update messages
+	int					m_iClientHealth;	// the health currently known by the client.  If this changes, send a new
+	int					m_iClientBattery;	// the Battery currently known by the client.  If this changes, send a new
+	int					m_iHideHUD;		// the players hud weapon info is to be hidden
+	int					m_iClientHideHUD;
+	int					m_iFOV;			// field of view
+	int					m_iClientFOV;	// client's known FOV
 	// usable player items 
 	CBasePlayerItem	*m_rgpPlayerItems[MAX_ITEM_TYPES];
 	CBasePlayerItem *m_pActiveItem;
@@ -218,51 +215,44 @@ public:
 
 	char m_szTeamName[TEAM_NAME_LENGTH];
 
-	//Begin Runes
-    int m_iPlayerRune;
-    void SpawnRunes( );
-    void RuneSpeed( );
-	void RuneFrags( );
-    float RuneDamage( entvars_t *, float );
-    float m_flRuneHealTime;
-    void RuneHeal( );
-    float RuneProtect(float);
-    void DropRune( );
-    //End Runes
+//=========================================================
+// Runes
+//=========================================================
+	int m_iPlayerRune;
+	void SpawnRunes( );
+	void RuneSpeed( );
+	float RuneDamage( entvars_t *, float );
+	float m_flRuneHealTime;
+	void RuneHeal( );
+	float RuneProtect(float);
+	void DropRune( );
+//=========================================================
+//=========================================================
 
-    //Begin grapple 
-    int m_iGrappleExists; 
-    CBaseEntity *m_MyGrapple; 
-    //End Grapple
-   
 	virtual void Spawn( void );
 	void Pain( void );
 
-	void JetPackFly( void ); //The Function called by PreThink to move us
-	BOOL m_fJetPack; //Do we have teh Jetpack?
-	BOOL m_fFlyKeyDown; // Are we holding the +jetpack key?
 
+	//-------------------------------
+	// Cold Ice Menu & Spectator Code
+	//-------------------------------
 	
 	_Menu m_nMenu;
 	BOOL m_fWantRespawn;
 
-	virtual void StartSpectator( void );
-	virtual void StartSpectatorMenu( void );
-	virtual void StopSpectator( void );
-	virtual void SpectatorMove( void );
-	virtual void StartMenu( void );
-
-	//saving weapons here....
-
 	char *m_cWeapon1;
-	char *m_cWeapon2;
-	char *m_cWeapon3;
-	char *m_cWeapon4;
-	char *m_cAmmo1;
 
+	virtual void StartSpectator( void );	
+	virtual void SpectatorMove( void );
+	virtual void StopSpectator( void );
+	virtual void StartMenu( void );
+	//-------------------------------
+
+
+//	virtual void Think( void );
 	virtual void Jump( void );
-	virtual void Duck( void );
 	virtual void FireHook( void );
+	virtual void Duck( void );
 	virtual void PreThink( void );
 	virtual void PostThink( void );
 	virtual Vector GetGunPosition( void );
@@ -278,6 +268,8 @@ public:
 	virtual BOOL ShouldFadeOnDeath( void ) { return FALSE; }
 	virtual	BOOL IsPlayer( void ) { return TRUE; }			// Spectators should return FALSE for this, they aren't "players" as far as game logic is concerned
 
+	virtual int BloodColor( void ) { return BLOOD_COLOR_RED;} // Bleed Baby!
+ 
 	virtual BOOL IsNetClient( void ) { return TRUE; }		// Bots should return FALSE for this, they can't receive NET messages
 															// Spectators should return TRUE for this
 	virtual const char *TeamID( void );
@@ -313,10 +305,10 @@ public:
 	// custom player functions
 	virtual void ImpulseCommands( void );
 	void CheatImpulseCommands( int iImpulse );
-  
+
 	void StartDeathCam( void );
 	void StartObserver( Vector vecPosition, Vector vecViewAngle );
-	
+
 	int observerflag;
 
 	void AddPoints( int score, BOOL bAllowNegativeScore );
@@ -335,7 +327,6 @@ public:
 	void ItemPostFrame( void );
 	void GiveNamedItem( const char *szName );
 	void EnableControl(BOOL fControl);
-
 
 	int  GiveAmmo( int iAmount, char *szName, int iMax );
 	void SendAmmoUpdate(void);
@@ -381,5 +372,8 @@ extern int	gmsgHudText;
 extern BOOL gInitHUD;
 
 #endif // PLAYER_H
+
+//----------------------------------------
+// Menu Declaration
+//----------------------------------------
 void ShowMenu (CBasePlayer *pPlayer, int bitsValidSlots, int nDisplayTime, BOOL fNeedMore, char *pszText);
-void ShowAllMenu ( CBasePlayer *pPlayer, int bitsValidSlots, int nDisplayTime, BOOL fNeedMore, const char *pszText);

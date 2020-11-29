@@ -12,6 +12,7 @@
 *   without written permission from Valve LLC.
 *
 ****/
+#if !defined( OEM_BUILD ) && !defined( HLDEMO_BUILD )
 
 #include "extdll.h"
 #include "util.h"
@@ -25,7 +26,7 @@
 #include "gamerules.h"
 
 #define	EGON_PRIMARY_VOLUME		450
-#define EGON_BEAM_SPRITE		"sprites/XSpark1.spr"
+#define EGON_BEAM_SPRITE		"sprites/xbeam1.spr"
 #define EGON_FLARE_SPRITE		"sprites/XSpark1.spr"
 #define EGON_SOUND_OFF			"weapons/egon_off1.wav"
 #define EGON_SOUND_RUN			"weapons/egon_run3.wav"
@@ -50,7 +51,7 @@ enum egon_e {
 };
 
 
-class CRaygun : public CBasePlayerWeapon
+class CEgon : public CBasePlayerWeapon
 {
 public:
 	int		Save( CSave &save );
@@ -76,8 +77,6 @@ public:
 	void WeaponIdle( void );
 	static int g_fireAnims1[];
 	static int g_fireAnims2[];
-
-	int m_iBeam;
 
 	float m_flAmmoUseTime;// since we use < 1 point of ammo per update, we subtract ammo on a timer.
 
@@ -107,7 +106,6 @@ public:
 private:
 	float				m_shootTime;
 	CBeam				*m_pBeam;
-	CBeam				*m_pBeam1;
 	CBeam				*m_pNoise;
 	CSprite				*m_pSprite;
 	EGON_FIRESTATE		m_fireState;
@@ -116,46 +114,39 @@ private:
 	BOOL				m_deployed;
 };
 
-LINK_ENTITY_TO_CLASS( weapon_raygun, CRaygun );
+LINK_ENTITY_TO_CLASS( weapon_egon, CEgon );
 
-int CRaygun::g_fireAnims1[] = { EGON_FIRE1, EGON_FIRE2, EGON_FIRE3, EGON_FIRE4 };
-int CRaygun::g_fireAnims2[] = { EGON_ALTFIRECYCLE };
+int CEgon::g_fireAnims1[] = { EGON_FIRE1, EGON_FIRE2, EGON_FIRE3, EGON_FIRE4 };
+int CEgon::g_fireAnims2[] = { EGON_ALTFIRECYCLE };
 
 
-TYPEDESCRIPTION	CRaygun::m_SaveData[] = 
+TYPEDESCRIPTION	CEgon::m_SaveData[] = 
 {
-	DEFINE_FIELD( CRaygun, m_pBeam, FIELD_CLASSPTR ),
-	DEFINE_FIELD( CRaygun, m_pNoise, FIELD_CLASSPTR ),
-	DEFINE_FIELD( CRaygun, m_pSprite, FIELD_CLASSPTR ),
-	DEFINE_FIELD( CRaygun, m_shootTime, FIELD_TIME ),
-	DEFINE_FIELD( CRaygun, m_fireState, FIELD_INTEGER ),
-	DEFINE_FIELD( CRaygun, m_fireMode, FIELD_INTEGER ),
-	DEFINE_FIELD( CRaygun, m_shakeTime, FIELD_TIME ),
-	DEFINE_FIELD( CRaygun, m_flAmmoUseTime, FIELD_TIME ),
+	DEFINE_FIELD( CEgon, m_pBeam, FIELD_CLASSPTR ),
+	DEFINE_FIELD( CEgon, m_pNoise, FIELD_CLASSPTR ),
+	DEFINE_FIELD( CEgon, m_pSprite, FIELD_CLASSPTR ),
+	DEFINE_FIELD( CEgon, m_shootTime, FIELD_TIME ),
+	DEFINE_FIELD( CEgon, m_fireState, FIELD_INTEGER ),
+	DEFINE_FIELD( CEgon, m_fireMode, FIELD_INTEGER ),
+	DEFINE_FIELD( CEgon, m_shakeTime, FIELD_TIME ),
+	DEFINE_FIELD( CEgon, m_flAmmoUseTime, FIELD_TIME ),
 };
-IMPLEMENT_SAVERESTORE( CRaygun, CBasePlayerWeapon );
+IMPLEMENT_SAVERESTORE( CEgon, CBasePlayerWeapon );
 
 
-void CRaygun::Spawn( )
+void CEgon::Spawn( )
 {
-		if ( CVAR_GET_FLOAT( "rocket_arena" ) == 2 ||  CVAR_GET_FLOAT( "automatic_arena" ) == 2 )	
-	{
-		return;
-	}
-	else
-	{
 	Precache( );
-	m_iId = WEAPON_RAYGUN;
+	m_iId = WEAPON_EGON;
 	SET_MODEL(ENT(pev), "models/w_egon.mdl");
 
-	m_iDefaultAmmo = 3;
+	m_iDefaultAmmo = EGON_DEFAULT_GIVE;
 
 	FallInit();// get ready to fall down.
-	}
 }
 
 
-void CRaygun::Precache( void )
+void CEgon::Precache( void )
 {
 	PRECACHE_MODEL("models/w_egon.mdl");
 	PRECACHE_MODEL("models/v_egon.mdl");
@@ -163,8 +154,6 @@ void CRaygun::Precache( void )
 
 	PRECACHE_MODEL("models/w_9mmclip.mdl");
 	PRECACHE_SOUND("items/9mmclip1.wav");
-
-	m_iBeam = PRECACHE_MODEL( "sprites/smoke.spr" );
 
 	PRECACHE_SOUND( EGON_SOUND_OFF );
 	PRECACHE_SOUND( EGON_SOUND_RUN );
@@ -177,13 +166,13 @@ void CRaygun::Precache( void )
 }
 
 
-BOOL CRaygun::Deploy( void )
+BOOL CEgon::Deploy( void )
 {
 	m_deployed = FALSE;
 	return DefaultDeploy( "models/v_egon.mdl", "models/p_egon.mdl", EGON_DRAW, "egon" );
 }
 
-int CRaygun::AddToPlayer( CBasePlayer *pPlayer )
+int CEgon::AddToPlayer( CBasePlayer *pPlayer )
 {
 	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
 	{
@@ -197,7 +186,7 @@ int CRaygun::AddToPlayer( CBasePlayer *pPlayer )
 
 
 
-void CRaygun::Holster( void )
+void CEgon::Holster( void )
 {
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
 	// m_flTimeWeaponIdle = gpGlobals->time + UTIL_RandomFloat ( 10, 15 );
@@ -207,19 +196,19 @@ void CRaygun::Holster( void )
 		EndAttack();
 }
 
-int CRaygun::GetItemInfo(ItemInfo *p)
+int CEgon::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
-	p->pszAmmo1 = "ARgrenades";
-	p->iMaxAmmo1 = M203_GRENADE_MAX_CARRY;
+	p->pszAmmo1 = "uranium";
+	p->iMaxAmmo1 = URANIUM_MAX_CARRY;
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
 	p->iMaxClip = WEAPON_NOCLIP;
 	p->iSlot = 3;
-	p->iPosition = 3;
-	p->iId = m_iId = WEAPON_RAYGUN;
+	p->iPosition = 2;
+	p->iId = m_iId = WEAPON_EGON;
 	p->iFlags = 0;
-	p->iWeight = 0;
+	p->iWeight = EGON_WEIGHT;
 
 	return 1;
 }
@@ -231,7 +220,7 @@ int CRaygun::GetItemInfo(ItemInfo *p)
 #define EGON_PULSE_INTERVAL			0.1
 #define EGON_DISCHARGE_INTERVAL		0.1
 
-float CRaygun::GetPulseInterval( void )
+float CEgon::GetPulseInterval( void )
 {
 	if ( g_pGameRules->IsMultiplayer() )
 	{
@@ -241,7 +230,7 @@ float CRaygun::GetPulseInterval( void )
 	return EGON_PULSE_INTERVAL;
 }
 
-float CRaygun::GetDischargeInterval( void )
+float CEgon::GetDischargeInterval( void )
 {
 	if ( g_pGameRules->IsMultiplayer() )
 	{
@@ -251,7 +240,7 @@ float CRaygun::GetDischargeInterval( void )
 	return EGON_DISCHARGE_INTERVAL;
 }
 
-void CRaygun::Attack( void )
+void CEgon::Attack( void )
 {
 	// don't fire underwater
 	if (m_pPlayer->pev->waterlevel == 3)
@@ -335,14 +324,14 @@ void CRaygun::Attack( void )
 	}
 }
 
-void CRaygun::PrimaryAttack( void )
+void CEgon::PrimaryAttack( void )
 {
 	m_fireMode = FIRE_WIDE;
 	Attack();
 
 }
 
-void CRaygun::Fire( const Vector &vecOrigSrc, const Vector &vecDir )
+void CEgon::Fire( const Vector &vecOrigSrc, const Vector &vecDir )
 {
 	Vector vecDest = vecOrigSrc + vecDir * 2048;
 	edict_t		*pentIgnore;
@@ -474,7 +463,7 @@ void CRaygun::Fire( const Vector &vecOrigSrc, const Vector &vecDir )
 }
 
 
-void CRaygun::UpdateEffect( const Vector &startPoint, const Vector &endPoint, float timeBlend )
+void CEgon::UpdateEffect( const Vector &startPoint, const Vector &endPoint, float timeBlend )
 {
 	if ( !m_pBeam )
 	{
@@ -483,18 +472,13 @@ void CRaygun::UpdateEffect( const Vector &startPoint, const Vector &endPoint, fl
 
 	m_pBeam->SetStartPos( endPoint );
 	m_pBeam->SetBrightness( 255 - (timeBlend*180) );
-	m_pBeam->SetWidth( 4 );
+	m_pBeam->SetWidth( 40 - (timeBlend*20) );
 
-	m_pBeam1->SetStartPos( endPoint );
-	m_pBeam1->SetBrightness( 255 - (timeBlend*180) );
-	m_pBeam1->SetWidth( 4 );
-
-	/*
 	if ( m_fireMode == FIRE_WIDE )
 		m_pBeam->SetColor( 30 + (25*timeBlend), 30 + (30*timeBlend), 64 + 80*fabs(sin(gpGlobals->time*10)) );
 	else
 		m_pBeam->SetColor( 60 + (25*timeBlend), 120 + (30*timeBlend), 64 + 80*fabs(sin(gpGlobals->time*10)) );
-*/
+
 
 	UTIL_SetOrigin( m_pSprite->pev, endPoint );
 	m_pSprite->pev->frame += 8 * gpGlobals->frametime;
@@ -505,68 +489,51 @@ void CRaygun::UpdateEffect( const Vector &startPoint, const Vector &endPoint, fl
 }
 
 
-void CRaygun::CreateEffect( void )
+void CEgon::CreateEffect( void )
 {
 	DestroyEffect();
 
-	m_pBeam = CBeam::BeamCreate( EGON_BEAM_SPRITE, 2 );
+	m_pBeam = CBeam::BeamCreate( EGON_BEAM_SPRITE, 40 );
 	m_pBeam->PointEntInit( pev->origin, m_pPlayer->entindex() );
 	m_pBeam->SetFlags( BEAM_FSINE );
 	m_pBeam->SetEndAttachment( 1 );
 	m_pBeam->pev->spawnflags |= SF_BEAM_TEMPORARY;	// Flag these to be destroyed on save/restore or level transition
 
-	m_pBeam1 = CBeam::BeamCreate( EGON_BEAM_SPRITE, 4 );
-	m_pBeam1->PointEntInit( pev->origin, m_pPlayer->entindex() );
-	m_pBeam1->SetFlags( BEAM_FSINE );
-	m_pBeam1->SetEndAttachment( 1 );
-	m_pBeam1->pev->spawnflags |= SF_BEAM_TEMPORARY;	// Flag these to be destroyed on save/restore or level transition
-
-	m_pNoise = CBeam::BeamCreate( EGON_BEAM_SPRITE, 40 );
+	m_pNoise = CBeam::BeamCreate( EGON_BEAM_SPRITE, 55 );
 	m_pNoise->PointEntInit( pev->origin, m_pPlayer->entindex() );
 	m_pNoise->SetScrollRate( 25 );
-	m_pNoise->SetBrightness( 400 );
+	m_pNoise->SetBrightness( 100 );
 	m_pNoise->SetEndAttachment( 1 );
 	m_pNoise->pev->spawnflags |= SF_BEAM_TEMPORARY;
 
 	m_pSprite = CSprite::SpriteCreate( EGON_FLARE_SPRITE, pev->origin, FALSE );
 	m_pSprite->pev->scale = 1.0;
-	m_pSprite->SetTransparency( kRenderGlow, 255, 0, 0, 255, kRenderFxNoDissipation );
+	m_pSprite->SetTransparency( kRenderGlow, 255, 255, 255, 255, kRenderFxNoDissipation );
 	m_pSprite->pev->spawnflags |= SF_SPRITE_TEMPORARY;
 
 	if ( m_fireMode == FIRE_WIDE )
 	{
-		m_pBeam->SetScrollRate( 400 );
-		m_pBeam->SetNoise( 10 );
-		m_pBeam1->SetScrollRate( 400 );
-		m_pBeam->SetColor( 255, 0 , 113 );
-		m_pBeam1->SetNoise( 15 );
-		m_pNoise->SetColor( 0, 113, 230 );
-		m_pNoise->SetNoise( 0 );
+		m_pBeam->SetScrollRate( 50 );
+		m_pBeam->SetNoise( 20 );
+		m_pNoise->SetColor( 50, 50, 255 );
+		m_pNoise->SetNoise( 8 );
 	}
 	else
 	{
-		m_pBeam->SetScrollRate( 300 );
-		m_pBeam->SetNoise( 10 );
-		m_pBeam1->SetScrollRate( 400 );
-		m_pBeam1->SetNoise( 15 );
-		m_pBeam->SetColor( 255, 0 , 113 );
-		m_pNoise->SetColor( 0, 113, 230 );
-		m_pNoise->SetNoise( 0 );
+		m_pBeam->SetScrollRate( 110 );
+		m_pBeam->SetNoise( 5 );
+		m_pNoise->SetColor( 80, 120, 255 );
+		m_pNoise->SetNoise( 2 );
 	}
 }
 
 
-void CRaygun::DestroyEffect( void )
+void CEgon::DestroyEffect( void )
 {
 	if ( m_pBeam )
 	{
 		UTIL_Remove( m_pBeam );
 		m_pBeam = NULL;
-	}
-	if ( m_pBeam1 )
-	{
-		UTIL_Remove( m_pBeam1 );
-		m_pBeam1 = NULL;
 	}
 	if ( m_pNoise )
 	{
@@ -576,12 +543,15 @@ void CRaygun::DestroyEffect( void )
 	if ( m_pSprite )
 	{
 		if ( m_fireMode == FIRE_WIDE )
-			m_pSprite->Expand( 10, 5 );
+			m_pSprite->Expand( 10, 500 );
+		else
+			UTIL_Remove( m_pSprite );
+		m_pSprite = NULL;
 	}
 }
 
 
-void CRaygun::WeaponIdle( void )
+void CEgon::WeaponIdle( void )
 {
 	ResetEmptySound( );
 
@@ -613,7 +583,7 @@ void CRaygun::WeaponIdle( void )
 
 
 
-void CRaygun::EndAttack( void )
+void CEgon::EndAttack( void )
 {
 	STOP_SOUND( ENT(m_pPlayer->pev), CHAN_STATIC, EGON_SOUND_RUN );
 	EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, EGON_SOUND_OFF, 0.98, ATTN_NORM, 0, 100); 
@@ -623,3 +593,31 @@ void CRaygun::EndAttack( void )
 	DestroyEffect();
 }
 
+
+
+class CEgonAmmo : public CBasePlayerAmmo
+{
+	void Spawn( void )
+	{ 
+		Precache( );
+		SET_MODEL(ENT(pev), "models/w_chainammo.mdl");
+		CBasePlayerAmmo::Spawn( );
+	}
+	void Precache( void )
+	{
+		PRECACHE_MODEL ("models/w_chainammo.mdl");
+		PRECACHE_SOUND("items/9mmclip1.wav");
+	}
+	BOOL AddAmmo( CBaseEntity *pOther ) 
+	{ 
+		if (pOther->GiveAmmo( AMMO_URANIUMBOX_GIVE, "uranium", URANIUM_MAX_CARRY ) != -1)
+		{
+			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+			return TRUE;
+		}
+		return FALSE;
+	}
+};
+LINK_ENTITY_TO_CLASS( ammo_egonclip, CEgonAmmo );
+
+#endif

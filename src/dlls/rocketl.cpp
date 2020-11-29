@@ -1,18 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
-#if !defined( OEM_BUILD )
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 
 #include "extdll.h"
 #include "util.h"
@@ -81,11 +79,13 @@ public:
 
 	CLaserSpot *m_pSpot;
 	int m_fSpotActive;
-	int m_cActiveRockets;// how many missiles in flight from this launcher right now?
+	int m_cActiveRockets;
+
+	int rocket_load;
 
 };
-
- LINK_ENTITY_TO_CLASS( weapon_helilauncher, CRpg );
+LINK_ENTITY_TO_CLASS( weapon_rocketl, CRpg );
+LINK_ENTITY_TO_CLASS ( weapon_rpg, CRpg );
 
 TYPEDESCRIPTION	CRpg::m_SaveData[] = 
 {
@@ -162,16 +162,14 @@ public:
 	void Precache( void );
 	void EXPORT FollowThink( void );
 	void EXPORT IgniteThink( void );
-	void EXPORT BlowMeUp( void );
 	void EXPORT RocketTouch( CBaseEntity *pOther );
-    static CRpgRocket *CreateRpgRocket( Vector vecOrigin, Vector vecAngles, CBaseEntity *pOwner, CRpg *pLauncher );
+	static CRpgRocket *CreateRpgRocket( Vector vecOrigin, Vector vecAngles, CBaseEntity *pOwner, CRpg *pLauncher );
+
 	int m_iTrail;
-	int m_iSpriteTexture;
-	int m_iExplode;
 	float m_flIgniteTime;
 	CRpg *m_pLauncher;// pointer back to the launcher that fired me. 
 };
-LINK_ENTITY_TO_CLASS( rpg_rocket, CRpgRocket );
+LINK_ENTITY_TO_CLASS( rocket, CRpgRocket );
 
 TYPEDESCRIPTION	CRpgRocket::m_SaveData[] = 
 {
@@ -210,7 +208,7 @@ void CRpgRocket :: Spawn( void )
 	UTIL_SetSize(pev, Vector( 0, 0, 0), Vector(0, 0, 0));
 	UTIL_SetOrigin( pev, pev->origin );
 
-	pev->classname = MAKE_STRING("rpg_rocket");
+	pev->classname = MAKE_STRING("rocket");
 
 	SetThink( IgniteThink );
 	SetTouch( ExplodeTouch );
@@ -224,7 +222,7 @@ void CRpgRocket :: Spawn( void )
 
 	pev->nextthink = gpGlobals->time + 0.4;
 
-	pev->dmg = gSkillData.plrDmgRPG;
+	pev->dmg = gSkillData.plrDmgRocket;
 }
 
 //=========================================================
@@ -233,94 +231,12 @@ void CRpgRocket :: RocketTouch ( CBaseEntity *pOther )
 {
 	if ( m_pLauncher )
 	{
-		// my launcher is still around, tell it I'm dead.
 		m_pLauncher->m_cActiveRockets--;
 	}
 
 	STOP_SOUND( edict(), CHAN_VOICE, "weapons/rocket1.wav" );
 	ExplodeTouch( pOther );
-
-	//initialize a vector that finds the center of the RPG models hitbox
-	Vector vecSpot = pev->origin + (pev->mins + pev->maxs) * 0.5;
- 
-	// blast circle "The Infamous Disc of Death"
-	MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, pev->origin );
-	WRITE_BYTE( TE_BEAMCYLINDER );
-	WRITE_COORD( pev->origin.x);//center of effect on x axis
-	WRITE_COORD( pev->origin.y);//center of effect on y axis
-	WRITE_COORD( pev->origin.z);//center of effect on z axis
-	WRITE_COORD( pev->origin.x);//axis of effect on x axis
-	WRITE_COORD( pev->origin.y);//axis of effect on y axis
-	WRITE_COORD( pev->origin.z + 1000 ); // z axis and Radius of effect
-	WRITE_SHORT( m_iSpriteTexture );//Name of the sprite to use, as defined at begining of tut
-	WRITE_BYTE( 0 ); // startframe
-	WRITE_BYTE( 0 ); //framerate in 0.1's
-	WRITE_BYTE( 40 ); //Life in 0.1's
-	WRITE_BYTE( 32 ); //Line Width in .1 units
-	WRITE_BYTE( 0 ); //Noise Amplitude in 0.01's
-	WRITE_BYTE( 255 ); // Red Color Value
-	WRITE_BYTE( 255 ); // Green Color Value
-	WRITE_BYTE( 192 ); // Blue Color Value
-	WRITE_BYTE( 128 ); // brightness
-	WRITE_BYTE( 0 ); // speed
-	MESSAGE_END();
-
-	pev->effects |= EF_NODRAW;//stop showing the model!!
-	pev->velocity = g_vecZero;//set velocity to "0"
-
-	MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, pev->origin );
-	WRITE_BYTE( TE_SPRITE );//additive sprite plays though once
-	WRITE_COORD( pev->origin.x );//where to make the sprite appear on x axis
-	WRITE_COORD( pev->origin.y );//where to make the sprite appear on y axis
-	WRITE_COORD( pev->origin.z + 128 );//Creates sprite 128 units above model's center
-	WRITE_SHORT( m_iExplode );//Name of the sprite to use, as defined at begining of tut
-	WRITE_BYTE( 400 ); // scale in .1 units --by comparison the player is 72 units tall 
-	WRITE_BYTE( 255 ); // brightness (this is as bright as it gets)
-	MESSAGE_END();
-
-	SetThink( BlowMeUp );
-    pev->nextthink = gpGlobals->time + .5;//set next think into future
 }
-
-void CRpgRocket::BlowMeUp( void )
-{
-	EMIT_SOUND(ENT(pev), CHAN_STATIC, "weapons/mortarhit.wav", 1.0, 0.3);
-
-	MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, pev->origin );
-	WRITE_BYTE( TE_SPRITE );//additive sprite plays though once
-	WRITE_COORD( pev->origin.x );//where to make the sprite appear on x axis
-	WRITE_COORD( pev->origin.y );//where to make the sprite appear on y axis
-	WRITE_COORD( pev->origin.z );//Creates sprite 128 units above model's center
-	WRITE_SHORT( m_iExplode );//Name of the sprite to use, as defined at begining of tut
-	WRITE_BYTE( 600 ); // scale in .1 units --by comparison the player is 72 units tall 
-	WRITE_BYTE( 255 ); // brightness (this is as bright as it gets)
-	MESSAGE_END();
-
-		// blast circle "The Infamous Disc of Death"
-	MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, pev->origin );
-	WRITE_BYTE( TE_BEAMCYLINDER );
-	WRITE_COORD( pev->origin.x);//center of effect on x axis
-	WRITE_COORD( pev->origin.y);//center of effect on y axis
-	WRITE_COORD( pev->origin.z);//center of effect on z axis
-	WRITE_COORD( pev->origin.x);//axis of effect on x axis
-	WRITE_COORD( pev->origin.y);//axis of effect on y axis
-	WRITE_COORD( pev->origin.z + 1000 ); // z axis and Radius of effect
-	WRITE_SHORT( m_iSpriteTexture );//Name of the sprite to use, as defined at begining of tut
-	WRITE_BYTE( 0 ); // startframe
-	WRITE_BYTE( 0 ); //framerate in 0.1's
-	WRITE_BYTE( 40 ); //Life in 0.1's
-	WRITE_BYTE( 32 ); //Line Width in .1 units
-	WRITE_BYTE( 0 ); //Noise Amplitude in 0.01's
-	WRITE_BYTE( 255 ); // Red Color Value
-	WRITE_BYTE( 255 ); // Green Color Value
-	WRITE_BYTE( 192 ); // Blue Color Value
-	WRITE_BYTE( 128 ); // brightness
-	WRITE_BYTE( 0 ); // speed
-	MESSAGE_END();
-	
-	UTIL_Remove( this );
-}
-
 
 //=========================================================
 //=========================================================
@@ -329,16 +245,11 @@ void CRpgRocket :: Precache( void )
 	PRECACHE_MODEL("models/rpgrocket.mdl");
 	m_iTrail = PRECACHE_MODEL("sprites/smoke.spr");
 	PRECACHE_SOUND ("weapons/rocket1.wav");
-    PRECACHE_SOUND ("weapons/rocket1.wav");
-    PRECACHE_SOUND("weapons/mortarhit.wav");//precache the Big Booming Sound
-	m_iSpriteTexture = PRECACHE_MODEL( "sprites/white.spr" );//precache the sprite for disc
-	m_iExplode = PRECACHE_MODEL( "sprites/fexplo.spr" );//precache the sprite for explosion
 }
 
 
 void CRpgRocket :: IgniteThink( void  )
 {
-	// pev->movetype = MOVETYPE_TOSS;
 
 	pev->movetype = MOVETYPE_FLY;
 	pev->effects |= EF_LIGHT;
@@ -352,7 +263,7 @@ void CRpgRocket :: IgniteThink( void  )
 		WRITE_BYTE( TE_BEAMFOLLOW );
 		WRITE_SHORT(entindex());	// entity
 		WRITE_SHORT(m_iTrail );	// model
-		WRITE_BYTE( 40 ); // life
+		WRITE_BYTE( 5 ); // life
 		WRITE_BYTE( 5 );  // width
 		WRITE_BYTE( 224 );   // r, g, b
 		WRITE_BYTE( 224 );   // r, g, b
@@ -363,7 +274,6 @@ void CRpgRocket :: IgniteThink( void  )
 
 	m_flIgniteTime = gpGlobals->time;
 
-	// set to follow laser spot
 	SetThink( FollowThink );
 	pev->nextthink = gpGlobals->time + 0.1;
 }
@@ -459,16 +369,6 @@ void CRpg::Reload( void )
 		// don't bother with any of this if don't need to reload.
 		return;
 	}
-
-	// because the RPG waits to autoreload when no missiles are active while  the LTD is on, the
-	// weapons code is constantly calling into this function, but is often denied because 
-	// a) missiles are in flight, but the LTD is on
-	// or
-	// b) player is totally out of ammo and has nothing to switch to, and should be allowed to
-	//    shine the designator around
-	//
-	// Set the next attack time into the future so that WeaponIdle will get called more often
-	// than reload, allowing the RPG LTD to be updated
 	
 	m_flNextPrimaryAttack = gpGlobals->time + 0.5;
 
@@ -487,7 +387,7 @@ void CRpg::Reload( void )
 
 	if (m_iClip == 0)
 	{
-		iResult = DefaultReload( RPG_MAX_CLIP, RPG_RELOAD, 2 );
+		iResult = DefaultReload( ROCKETL_MAX_CLIP, RPG_RELOAD, 2 );
 	}
 
 	if (iResult)
@@ -498,57 +398,48 @@ void CRpg::Reload( void )
 
 void CRpg::Spawn( )
 {
+	pev->classname = MAKE_STRING("weapon_rocketl"); 
 	Precache( );
-	m_iId = WEAPON_RPG;
+	m_iId = WEAPON_ROCKETL;
 
-
-	SET_MODEL(ENT(pev), "models/wmodels/w_rpg.mdl");
+	SET_MODEL(ENT(pev), "models/wmodels/w_rocketl.mdl");
 	m_fSpotActive = 1;
 
-	if ( g_pGameRules->IsMultiplayer() )
-	{
-		// more default ammo in multiplay. 
-		m_iDefaultAmmo = RPG_DEFAULT_GIVE * 2;
-	}
-	else
-	{
-		m_iDefaultAmmo = RPG_DEFAULT_GIVE;
-	}
+	m_iDefaultAmmo = ROCKETL_DEFAULT_GIVE;
 
-	FallInit();// get ready to fall down.
+	FallInit();
 }
 
 
 void CRpg::Precache( void )
 {
-	PRECACHE_MODEL("models/wmodels/w_rpg.mdl");
-	PRECACHE_MODEL("models/vmodels/v_rpg.mdl");
-	PRECACHE_MODEL("models/p_rpg.mdl");
-
-	PRECACHE_SOUND("items/9mmclip1.wav");
+	PRECACHE_MODEL("models/wmodels/w_rocketl.mdl");
+	PRECACHE_MODEL("models/vmodels/v_rocketl.mdl");
+	PRECACHE_MODEL("models/pmodels/p_rocketl.mdl");
 
 	UTIL_PrecacheOther( "laser_spot" );
-	UTIL_PrecacheOther( "rpg_rocket" );
+	UTIL_PrecacheOther( "rocket" );
 
 	PRECACHE_SOUND("weapons/rocketfire1.wav");
-	PRECACHE_SOUND("weapons/glauncher.wav"); // alternative fire sound
+	PRECACHE_SOUND("weapons/glauncher.wav");
+	PRECACHE_SOUND("weapons/rocketalert.wav");
+	PRECACHE_SOUND("weapons/rocketload.wav");
 }
 
 
 int CRpg::GetItemInfo(ItemInfo *p)
 {
-	
 	p->pszName = STRING(pev->classname);
-	p->pszAmmo1 = "rockets";
-	p->iMaxAmmo1 = ROCKET_MAX_CARRY;
-	p->pszAmmo2 = NULL;
-	p->iMaxAmmo2 = -1;
-	p->iMaxClip = RPG_MAX_CLIP;
-	p->iSlot = 0;
-	p->iPosition = 15;
-	p->iId = WEAPON_RPG;
+	p->pszAmmo1 = "rocket";
+	p->iMaxAmmo1 = ROCKETL_MAX_CARRY;
+	p->pszAmmo2 = "heli-rockets";
+	p->iMaxAmmo2 = HELIROCKET_MAX_CARRY;
+	p->iMaxClip = ROCKETL_MAX_CLIP;
+	p->iSlot = 3;
+	p->iPosition = 1;
+	p->iId = m_iId = WEAPON_ROCKETL;
 	p->iFlags = 0;
-	p->iWeight = RPG_WEIGHT;
+	p->iWeight = ROCKETL_WEIGHT;
 
 	return 1;
 }
@@ -569,10 +460,10 @@ BOOL CRpg::Deploy( )
 {
 	if ( m_iClip == 0 )
 	{
-		return DefaultDeploy( "models/vmodels/v_rpg.mdl", "models/p_rpg.mdl", RPG_DRAW_UL, "rpg" );
+		return DefaultDeploy( "models/vmodels/v_rocketl.mdl", "models/pmodels/p_rocketl.mdl", RPG_DRAW_UL, "egon" );
 	}
 
-	return DefaultDeploy( "models/vmodels/v_rpg.mdl", "models/p_rpg.mdl", RPG_DRAW1, "rpg" );
+	return DefaultDeploy( "models/vmodels/v_rocketl.mdl", "models/pmodels/p_rocketl.mdl", RPG_DRAW1, "egon" );
 }
 
 
@@ -589,11 +480,13 @@ BOOL CRpg::CanHolster( void )
 
 void CRpg::Holster( )
 {
-	m_fInReload = FALSE;// cancel any reload in progress.
+	m_fInReload = FALSE;
+
+	rocket_load = 0;
 
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
-	// m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 	SendWeaponAnim( RPG_HOLSTER1 );
+	
 	if (m_pSpot)
 	{
 		m_pSpot->Killed( NULL, GIB_NEVER );
@@ -605,6 +498,7 @@ void CRpg::Holster( )
 
 void CRpg::PrimaryAttack()
 {
+
 	if (m_iClip)
 	{
 		m_pPlayer->m_iWeaponVolume = LOUD_GUN_VOLUME;
@@ -623,39 +517,109 @@ void CRpg::PrimaryAttack()
 		UTIL_MakeVectors( m_pPlayer->pev->v_angle );// RpgRocket::Create stomps on globals, so remake.
 		pRocket->pev->velocity = pRocket->pev->velocity + gpGlobals->v_forward * DotProduct( m_pPlayer->pev->velocity, gpGlobals->v_forward );
 
-		// firing RPG no longer turns on the designator. ALT fire is a toggle switch for the LTD.
-		// Ken signed up for this as a global change (sjb)
-
 		
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/rocketfire1.wav", 0.9, ATTN_NORM );
 		EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/glauncher.wav", 0.7, ATTN_NORM );
 
 		m_iClip--; 
-		//m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]--;
-		
-		m_flNextPrimaryAttack = gpGlobals->time + 1.5;
-		m_flTimeWeaponIdle = gpGlobals->time + 1.5;
-		m_pPlayer->pev->punchangle.x -= 5;
+			
+		if( m_pPlayer->m_iPlayerRune == RUNE_ROCKETARENA )
+		{
+			m_flNextPrimaryAttack = gpGlobals->time + .5;
+		}
+		else
+		{
+			m_flNextPrimaryAttack = gpGlobals->time + 1.5;
+		}
+
+			m_flTimeWeaponIdle = gpGlobals->time + 1.5;
+			m_pPlayer->pev->punchangle.x -= 5;
 	}
 	else
 	{
 		PlayEmptySound( );
+		m_flNextPrimaryAttack = gpGlobals->time + .5;
 	}
+	
 	UpdateSpot( );
 }
 
 
 void CRpg::SecondaryAttack()
 {
-	m_fSpotActive = ! m_fSpotActive;
-
-	if (!m_fSpotActive && m_pSpot)
+	if ( g_pGameRules->IsRocketArena() == 0 )
 	{
-		m_pSpot->Killed( NULL, GIB_NORMAL );
-		m_pSpot = NULL;
+		m_fSpotActive = ! m_fSpotActive;
+
+		if (!m_fSpotActive && m_pSpot)
+		{
+			m_pSpot->Killed( NULL, GIB_NORMAL );
+			m_pSpot = NULL;
+		}
+
+		m_flNextSecondaryAttack = gpGlobals->time + 0.2;
+	}
+	else
+	{
+		if (m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType])
+		{
+			rocket_load++;
+
+			if ( rocket_load == 1 )
+			{
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/rocketload.wav", 0.9, ATTN_NORM );
+				m_flNextSecondaryAttack = gpGlobals->time + 1.0;
+			}
+			if ( rocket_load == 2 )
+			{
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/rocketload.wav", 0.9, ATTN_NORM );
+				m_flNextSecondaryAttack = gpGlobals->time + 1.0;
+			}
+			if ( rocket_load == 3 )
+			{
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/rocketload.wav", 0.9, ATTN_NORM );
+				m_flNextSecondaryAttack = gpGlobals->time + 1.0;
+			}
+			if ( rocket_load == 4 )
+			{
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_BODY, "weapons/rocketalert.wav", 0.9, ATTN_NORM );
+			
+				m_pPlayer->m_iWeaponVolume = LOUD_GUN_VOLUME;
+				m_pPlayer->m_iWeaponFlash = BRIGHT_GUN_FLASH;
+
+				SendWeaponAnim( RPG_FIRE2 );
+
+				// player "shoot" animation
+				m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
+
+				UTIL_MakeVectors( m_pPlayer->pev->v_angle );
+			
+				Vector vecSrc1 = m_pPlayer->GetGunPosition( ) + gpGlobals->v_forward * 16 + gpGlobals->v_right * -8 + gpGlobals->v_up * -8;
+				Vector vecSrc2 = m_pPlayer->GetGunPosition( ) + gpGlobals->v_forward * 16 + gpGlobals->v_right * 0 + gpGlobals->v_up * -8;
+				Vector vecSrc3 = m_pPlayer->GetGunPosition( ) + gpGlobals->v_forward * 16 + gpGlobals->v_right * 8 + gpGlobals->v_up * -8;
+			
+				CRpgRocket *pRocket = CRpgRocket::CreateRpgRocket( vecSrc1, m_pPlayer->pev->v_angle, m_pPlayer, this );
+									  CRpgRocket::CreateRpgRocket( vecSrc2, m_pPlayer->pev->v_angle, m_pPlayer, this );
+				                      CRpgRocket::CreateRpgRocket( vecSrc3, m_pPlayer->pev->v_angle, m_pPlayer, this );
+			
+				UTIL_MakeVectors( m_pPlayer->pev->v_angle );
+				pRocket->pev->velocity = pRocket->pev->velocity + gpGlobals->v_forward * DotProduct( m_pPlayer->pev->velocity, gpGlobals->v_forward );
+
+		
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/rocketfire1.wav", 0.9, ATTN_NORM );
+				EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/glauncher.wav", 0.7, ATTN_NORM );
+
+				m_pPlayer->m_rgAmmo[m_iSecondaryAmmoType]--;
+
+				rocket_load = 0;
+		
+				m_flNextSecondaryAttack = gpGlobals->time + 1.5;
+				m_flTimeWeaponIdle = gpGlobals->time + 1.5;
+				m_pPlayer->pev->punchangle.x -= 5;
+			}
+		}
 	}
 
-	m_flNextSecondaryAttack = gpGlobals->time + 0.2;
 }
 
 
@@ -672,6 +636,7 @@ void CRpg::WeaponIdle( void )
 	{
 		int iAnim;
 		float flRand = RANDOM_FLOAT(0, 1);
+		
 		if (flRand <= 0.75 || m_fSpotActive)
 		{
 			if ( m_iClip == 0 )
@@ -717,12 +682,15 @@ void CRpg::UpdateSpot( void )
 		TraceResult tr;
 		UTIL_TraceLine ( vecSrc, vecSrc + vecAiming * 8192, dont_ignore_monsters, ENT(m_pPlayer->pev), &tr );
 		
-		// ALERT( "%f %f\n", gpGlobals->v_forward.y, vecAiming.y );
-
 		/*
-		float a = gpGlobals->v_forward.y * vecAiming.y + gpGlobals->v_forward.x * vecAiming.x;
-		m_pPlayer->pev->punchangle.y = acos( a ) * (180 / M_PI);
+		ALERT( "%f %f\n", gpGlobals->v_forward.y, vecAiming.y );
 		
+		char * a = gpGlobals->v_forward.y * vecAiming.y + gpGlobals->v_forward.x * vecAiming.x;
+		m_pPlayer->pev->punchangle.y = acos( a ) * (180 / M_PI);
+
+		ShowMenu (m_pPlayer, 0x0, 2, 0, a );
+			
+	
 		ALERT( at_console, "%f\n", a );
 		*/
 
@@ -731,41 +699,26 @@ void CRpg::UpdateSpot( void )
 }
 
 
-class CRpgAmmo : public CBasePlayerAmmo
+class CRocketAmmo : public CBasePlayerAmmo
 {
 	void Spawn( void )
 	{ 
-	if ( (CVAR_GET_FLOAT( "rocket_arena" ) == 2) ||  (CVAR_GET_FLOAT( "automatic_arena" ) == 2) )	
-	{
-	
-	}
-	else
-	{
 		Precache( );
-		SET_MODEL(ENT(pev), "models/w_rpgammo.mdl");
+		SET_MODEL(ENT(pev), "models/ammo/w_rocketl.mdl");
 		CBasePlayerAmmo::Spawn( );
-	}
 	}
 	void Precache( void )
 	{
-		PRECACHE_MODEL ("models/w_rpgammo.mdl");
+		PRECACHE_MODEL ("models/ammo/w_rocketl.mdl");
 		PRECACHE_SOUND("items/9mmclip1.wav");
 	}
 	BOOL AddAmmo( CBaseEntity *pOther ) 
 	{ 
 		int iGive;
 
-		if ( g_pGameRules->IsMultiplayer() )
-		{
-			// hand out more ammo per rocket in multiplayer.
-			iGive = AMMO_RPGCLIP_GIVE * 2;
-		}
-		else
-		{
-			iGive = AMMO_RPGCLIP_GIVE;
-		}
+		iGive = AMMO_ROCKET_GIVE;
 
-		if (pOther->GiveAmmo( iGive, "rockets", ROCKET_MAX_CARRY ) != -1)
+		if (pOther->GiveAmmo( iGive, "rocket", ROCKETL_MAX_CARRY ) != -1)
 		{
 			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
 			return TRUE;
@@ -773,6 +726,30 @@ class CRpgAmmo : public CBasePlayerAmmo
 		return FALSE;
 	}
 };
-LINK_ENTITY_TO_CLASS( ammo_rpgclip, CRpgAmmo );
+LINK_ENTITY_TO_CLASS( ammo_rocket, CRocketAmmo );
 
-#endif
+class CHeliRocketAmmo : public CBasePlayerAmmo
+{
+	void Spawn( void )
+	{ 
+		Precache( );
+		SET_MODEL(ENT(pev), "models/ammo/w_rocketl.mdl");
+		CBasePlayerAmmo::Spawn( );
+	}
+	void Precache( void )
+	{
+		PRECACHE_MODEL ("models/ammo/w_rocketl.mdl");
+		PRECACHE_SOUND("items/9mmclip1.wav");
+	}
+	BOOL AddAmmo( CBaseEntity *pOther ) 
+	{ 
+
+		if (pOther->GiveAmmo( HELIROCKET_MAX_CARRY, "heli-rockets", HELIROCKET_MAX_CARRY ) != -1)
+		{
+			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
+			return TRUE;
+		}
+		return FALSE;
+	}
+};
+LINK_ENTITY_TO_CLASS( ammo_helirockets, CHeliRocketAmmo );

@@ -1,17 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 /*
 
 ===== weapons.cpp ========================================================
@@ -41,7 +40,6 @@ DLL_GLOBAL	short	g_sModelIndexLaser;// holds the index for the laser beam
 DLL_GLOBAL  const char *g_pModelNameLaser = "sprites/laserbeam.spr";
 DLL_GLOBAL	short	g_sModelIndexLaserDot;// holds the index for the laser beam dot
 DLL_GLOBAL	short	g_sModelIndexFireball;// holds the index for the fireball
-DLL_GLOBAL	short	g_sModelIndexPepsi;
 DLL_GLOBAL	short	g_sModelIndexSmoke;// holds the index for the smoke cloud
 DLL_GLOBAL	short	g_sModelIndexWExplosion;// holds the index for the underwater explosion
 DLL_GLOBAL	short	g_sModelIndexBubbles;// holds the index for the bubbles model
@@ -176,7 +174,7 @@ void DecalGunshot( TraceResult *pTrace, int iBulletType )
 		case BULLET_MONSTER_9MM:
 		case BULLET_PLAYER_MP5:
 		case BULLET_MONSTER_MP5:
-        case BULLET_PLAYER_BUCKSHOT:
+		case BULLET_PLAYER_BUCKSHOT:
 		default:
 			// smoke and decal
 			UTIL_GunshotDecalTrace( pTrace, DamageDecal( pEntity, DMG_BULLET ) );
@@ -213,8 +211,9 @@ void EjectBrass ( const Vector &vecOrigin, const Vector &vecVelocity, float rota
 		WRITE_ANGLE( rotation );
 		WRITE_SHORT( model );
 		WRITE_BYTE ( soundtype);
-		WRITE_BYTE ( 25 );// 2.5 seconds
+		WRITE_BYTE ( 5 );// .5 seconds
 	MESSAGE_END();
+
 }
 
 
@@ -230,7 +229,7 @@ void ExplodeModel( const Vector &vecOrigin, float speed, int model, int count )
 		WRITE_COORD( speed );
 		WRITE_SHORT( model );
 		WRITE_SHORT( count );
-		WRITE_BYTE ( 15 );// 1.5 seconds
+		WRITE_BYTE ( 5 );// .5 seconds
 	MESSAGE_END();
 }
 #endif
@@ -309,117 +308,186 @@ void W_Precache(void)
 	memset( CBasePlayerItem::AmmoInfoArray, 0, sizeof(CBasePlayerItem::AmmoInfoArray) );
 	giAmmoIndex = 0;
 
-	// items
-	if ( (CVAR_GET_FLOAT( "rocket_arena" ) == 2) )	
-	{
+	// custom items...
 
-	}
-	else 
-	{
+	// common world objects
 	UTIL_PrecacheOther( "item_suit" );
 	UTIL_PrecacheOther( "item_battery" );
-	UTIL_PrecacheOther( "item_antidote" );
-	UTIL_PrecacheOther( "item_security" );
 	UTIL_PrecacheOther( "item_longjump" );
-	}
+	UTIL_PrecacheOther( "grapple_hook" );
+    	
+	//============================================
+	// unused weapon entites, but still in map files	
+	//============================================
 
-    UTIL_PrecacheOther( "grapple_hook" ); 
-	
-	// runes
-	UTIL_PrecacheOther( "rune_strength" );
-    UTIL_PrecacheOther( "rune_health" );
-    UTIL_PrecacheOther( "rune_resist" );
-    UTIL_PrecacheOther( "rune_speed" );
-	UTIL_PrecacheOther( "rune_frags" );
-
-	// old HL weapon_names. (Not spawned )
-	UTIL_PrecacheOtherWeapon( "weapon_shotgun" );
+	// glock
 	UTIL_PrecacheOtherWeapon( "weapon_9mmhandgun" );
+	UTIL_PrecacheOther( "ammo_9mmclip" );
+	
+	// mp5
 	UTIL_PrecacheOtherWeapon( "weapon_9mmAR" );
-	UTIL_PrecacheOtherWeapon( "weapon_357" );
-	UTIL_PrecacheOtherWeapon( "weapon_gauss" );
-	UTIL_PrecacheOtherWeapon( "weapon_rpg" );
+	UTIL_PrecacheOther( "ammo_9mmAR" );
+	UTIL_PrecacheOther( "ammo_ARgrenades" );
+
+	// shotgun
+	UTIL_PrecacheOtherWeapon( "weapon_shotgun" );
+	UTIL_PrecacheOther( "ammo_buckshot" );
+
+	// crossbow
 	UTIL_PrecacheOtherWeapon( "weapon_crossbow" );
+	UTIL_PrecacheOther( "ammo_crossbow" );
+
+	// python
+	UTIL_PrecacheOtherWeapon( "weapon_357" );
+	UTIL_PrecacheOther( "ammo_357" );
+	
+	// gauss
+	UTIL_PrecacheOtherWeapon( "weapon_gauss" );
+	UTIL_PrecacheOther( "ammo_gaussclip" );
+
+	// rpg
+	UTIL_PrecacheOtherWeapon( "weapon_rpg" );
+	UTIL_PrecacheOther( "ammo_rpgclip" );
+
+	// egon
 	UTIL_PrecacheOtherWeapon( "weapon_egon" );
+
+	// tripmine
 	UTIL_PrecacheOtherWeapon( "weapon_tripmine" );
+
+	// satchel charge
 	UTIL_PrecacheOtherWeapon( "weapon_satchel" );
-	UTIL_PrecacheOtherWeapon( "weapon_handgrenade");
+
+	// hand grenade
+	UTIL_PrecacheOtherWeapon("weapon_handgrenade");
+
+	// squeak grenade
 	UTIL_PrecacheOtherWeapon( "weapon_snark" );
+
+	// hornetgun
 	UTIL_PrecacheOtherWeapon( "weapon_hornetgun" );
 
+	//=============================================
+	//=============================================
 
-	// cold ice weapons
-	UTIL_PrecacheOtherWeapon( "weapon_ashotgun" );
-	UTIL_PrecacheOtherWeapon( "weapon_sshotgun" );
-	UTIL_PrecacheOtherWeapon( "weapon_knife" );
+	//=============================================
+	// weapons used in cold ice
+	//=============================================
+
+	// crowbar
 	UTIL_PrecacheOtherWeapon( "weapon_crowbar" );
-	UTIL_PrecacheOtherWeapon( "weapon_wrench" );
+	UTIL_PrecacheOtherWeapon( "weapon_fwcrowbar" );
+
+	// knife
+	UTIL_PrecacheOtherWeapon( "weapon_knife" );
+
+	// sword
+	UTIL_PrecacheOtherWeapon( "weapon_sword" );
+
+	// ppk
 	UTIL_PrecacheOtherWeapon( "weapon_ppk" );
-	UTIL_PrecacheOtherWeapon( "weapon_m16" );
-	UTIL_PrecacheOtherWeapon( "weapon_uzi" );
-	UTIL_PrecacheOtherWeapon( "weapon_taser" );
-	UTIL_PrecacheOtherWeapon( "weapon_lrifle" );
-	UTIL_PrecacheOtherWeapon( "weapon_raygun" );
-	UTIL_PrecacheOtherWeapon( "weapon_chaingun" );
-	UTIL_PrecacheOtherWeapon( "weapon_boltgun" );
+	UTIL_PrecacheOther( "ammo_ppkclip" );
+
+	// mag60
 	UTIL_PrecacheOtherWeapon( "weapon_mag60" );
-	UTIL_PrecacheOtherWeapon( "weapon_cannon" );
-	UTIL_PrecacheOtherWeapon( "weapon_helilauncher" );
+	UTIL_PrecacheOther( "ammo_magclip" );
+
+	// m16
+	UTIL_PrecacheOtherWeapon( "weapon_m16" );
+	UTIL_PrecacheOther( "ammo_m16clip" );
+
+	// uzi
+	UTIL_PrecacheOtherWeapon( "weapon_uzi" );
+	UTIL_PrecacheOther( "ammo_uziclip" );
+
+	// mac - 10
+	UTIL_PrecacheOtherWeapon( "weapon_mac10" );
+
+	// double uzi
 	UTIL_PrecacheOtherWeapon( "weapon_doubleuzi" );
+
+	// assault shotgun
+	UTIL_PrecacheOtherWeapon( "weapon_ashotgun" );
+	UTIL_PrecacheOther( "ammo_buckshotbox" );
+
+	// 12 gauge shotgun
+	UTIL_PrecacheOtherWeapon( "weapon_sshotgun" );
+	
+	// chaingun
+	UTIL_PrecacheOtherWeapon( "weapon_chaingun" );
+	UTIL_PrecacheOther( "ammo_chaingunbox" );
+
+	// rifle
 	UTIL_PrecacheOtherWeapon( "weapon_rifle" );
+	UTIL_PrecacheOther( "ammo_rifleclip" );
+
+	// railgun
+	UTIL_PrecacheOtherWeapon( "weapon_railgun" );
+	UTIL_PrecacheOther( "ammo_railslug" );
+
+	// pulsegun
+	UTIL_PrecacheOtherWeapon( "weapon_pulserifle" );
+	//UTIL_PrecacheOther( "ammo_pulserifle" );
+	
+	// grenadel
 	UTIL_PrecacheOtherWeapon( "weapon_grenadel" );
-	UTIL_PrecacheOtherWeapon( "weapon_tnt" );
-	UTIL_PrecacheOtherWeapon( "weapon_decoybomb" );
-	UTIL_PrecacheOtherWeapon( "weapon_clustergrenade" );
-	UTIL_PrecacheOtherWeapon( "weapon_smokegrenade" );
+	UTIL_PrecacheOther( "ammo_contact" );
+	UTIL_PrecacheOther( "ammo_timed" );
+	
+	// boltgun
+	UTIL_PrecacheOtherWeapon( "weapon_boltgun" );
+	UTIL_PrecacheOther( "ammo_boltgun" );
+
+	// chumtoad
 	UTIL_PrecacheOtherWeapon( "weapon_chumtoad" );
-	UTIL_PrecacheOtherWeapon( "weapon_usas" );
-	UTIL_PrecacheOtherWeapon( "weapon_pepsibomb" );
+	
+	// rocket launcher
+	UTIL_PrecacheOtherWeapon( "weapon_rocketl" );
+	UTIL_PrecacheOther( "ammo_rocket" );
+	UTIL_PrecacheOther( "ammo_helirockets" );
 
-	// ammo
-	UTIL_PrecacheOther( "ammo_crossbow" );
-	UTIL_PrecacheOther( "ammo_rpgclip" );
-	UTIL_PrecacheOther( "ammo_gaussclip" );
-	UTIL_PrecacheOther( "ammo_357" );	
-	UTIL_PrecacheOther( "ammo_9mmAR" );
-	UTIL_PrecacheOther( "ammo_ARgrenades" );	
-	UTIL_PrecacheOther( "ammo_buckshot" );	
-	UTIL_PrecacheOther( "ammo_9mmclip" );
+	// invisible mine
+	UTIL_PrecacheOtherWeapon( "weapon_ifrtripmine" );
+
+	// tnt vest
+	UTIL_PrecacheOtherWeapon( "weapon_tnt" );
+
+	// nuke launcher
+	UTIL_PrecacheOtherWeapon( "weapon_nuke" );
+	UTIL_PrecacheOther( "ammo_nukeclip" );
+
+	//============================================
+	//============================================
 
 
+#if !defined( OEM_BUILD ) && !defined( HLDEMO_BUILD )
 	if ( g_pGameRules->IsDeathmatch() )
 	{
 		UTIL_PrecacheOther( "weaponbox" );// container for dropped deathmatch weapons
 	}
+#endif
 
-
-	g_sModelIndexFireball = PRECACHE_MODEL ("sprites/zerogxplode.spr");// fireball
-	g_sModelIndexPepsi = PRECACHE_MODEL ("sprites/pepsiexpolde.spr");
+	g_sModelIndexFireball =   PRECACHE_MODEL ("sprites/zerogxplode.spr");// fireball
 	g_sModelIndexWExplosion = PRECACHE_MODEL ("sprites/WXplo1.spr");// underwater fireball
-	g_sModelIndexSmoke = PRECACHE_MODEL ("sprites/steam1.spr");// smoke
-	g_sModelIndexBubbles = PRECACHE_MODEL ("sprites/bubble.spr");//bubbles
+	g_sModelIndexSmoke =      PRECACHE_MODEL ("sprites/steam1.spr");// smoke
+	g_sModelIndexBubbles =    PRECACHE_MODEL ("sprites/bubble.spr");//bubbles
 	g_sModelIndexBloodSpray = PRECACHE_MODEL ("sprites/bloodspray.spr"); // initial blood
-	g_sModelIndexBloodDrop = PRECACHE_MODEL ("sprites/blood.spr"); // splattered blood 
+	g_sModelIndexBloodDrop =  PRECACHE_MODEL ("sprites/blood.spr"); // splattered blood 
 
-	g_sModelIndexLaser = PRECACHE_MODEL( (char *)g_pModelNameLaser );
+	g_sModelIndexLaser =    PRECACHE_MODEL( (char *)g_pModelNameLaser );
 	g_sModelIndexLaserDot = PRECACHE_MODEL("sprites/laserdot.spr");
 
 
 	// used by explosions
-	PRECACHE_MODEL ("models/contact.mdl"); 
-	PRECACHE_MODEL ("models/pepsi.mdl");
-	PRECACHE_MODEL ("models/w_grenade.mdl"); 
-    PRECACHE_MODEL ("models/clustergrenade.mdl");  
-	PRECACHE_MODEL ("models/cluster.mdl");  
-	PRECACHE_MODEL ("models/sawed/w_pellet.mdl");  
-	PRECACHE_MODEL ("models/30mm/w_flak.mdl"); 
+	PRECACHE_MODEL ("models/grenade.mdl");
+	PRECACHE_MODEL ("models/clustergrenade.mdl");
+	PRECACHE_MODEL ("models/cluster.mdl");
+	PRECACHE_MODEL ("models/w_grenade.mdl");
 	PRECACHE_MODEL ("sprites/explode1.spr");
 
 	PRECACHE_SOUND ("weapons/debris1.wav");// explosion aftermaths
 	PRECACHE_SOUND ("weapons/debris2.wav");// explosion aftermaths
 	PRECACHE_SOUND ("weapons/debris3.wav");// explosion aftermaths
-
-	PRECACHE_SOUND ("weapons/pepsibomb.wav");
 
 	PRECACHE_SOUND ("weapons/grenade_hit1.wav");//grenade
 	PRECACHE_SOUND ("weapons/grenade_hit2.wav");//grenade
@@ -439,7 +507,10 @@ TYPEDESCRIPTION	CBasePlayerItem::m_SaveData[] =
 {
 	DEFINE_FIELD( CBasePlayerItem, m_pPlayer, FIELD_CLASSPTR ),
 	DEFINE_FIELD( CBasePlayerItem, m_pNext, FIELD_CLASSPTR ),
+	//DEFINE_FIELD( CBasePlayerItem, m_fKnown, FIELD_INTEGER ),Reset to zero on load
 	DEFINE_FIELD( CBasePlayerItem, m_iId, FIELD_INTEGER ),
+	// DEFINE_FIELD( CBasePlayerItem, m_iIdPrimary, FIELD_INTEGER ),
+	// DEFINE_FIELD( CBasePlayerItem, m_iIdSecondary, FIELD_INTEGER ),
 };
 IMPLEMENT_SAVERESTORE( CBasePlayerItem, CBaseAnimating );
 
@@ -453,6 +524,8 @@ TYPEDESCRIPTION	CBasePlayerWeapon::m_SaveData[] =
 	DEFINE_FIELD( CBasePlayerWeapon, m_iSecondaryAmmoType, FIELD_INTEGER ),
 	DEFINE_FIELD( CBasePlayerWeapon, m_iClip, FIELD_INTEGER ),
 	DEFINE_FIELD( CBasePlayerWeapon, m_iDefaultAmmo, FIELD_INTEGER ),
+//	DEFINE_FIELD( CBasePlayerWeapon, m_iClientClip, FIELD_INTEGER )	 , reset to zero on load so hud gets updated correctly
+//  DEFINE_FIELD( CBasePlayerWeapon, m_iClientWeaponState, FIELD_INTEGER ), reset to zero on load so hud gets updated correctly
 };
 
 IMPLEMENT_SAVERESTORE( CBasePlayerWeapon, CBasePlayerItem );
@@ -470,6 +543,28 @@ void CBasePlayerItem :: SetObjectCollisionBox( void )
 //=========================================================
 void CBasePlayerItem :: FallInit( void )
 {
+	//===========Rocket Arena========================================================================================
+	if ((strcmp((char *)STRING( pev->classname ), "weapon_rocketl")) && ( g_pGameRules->IsRocketArena() == 1 ))
+	{
+		UTIL_Remove( this );
+	}
+
+	//===============================================================================================================
+
+	//===========FW Arena=======================================================================================
+	if ((strcmp((char *)STRING( pev->classname ), "weapon_fwcrowbar")) && ( g_pGameRules->IsFWArena() == 1 ))
+	{
+		UTIL_Remove( this );
+	}
+	//===============================================================================================================
+
+	//===========Railgun Arena=======================================================================================
+	if ((strcmp((char *)STRING( pev->classname ), "weapon_railgun")) && ( g_pGameRules->IsRailArena() == 1 ))
+	{
+		UTIL_Remove( this );
+	}
+	//===============================================================================================================
+
 	pev->movetype = MOVETYPE_TOSS;
 	pev->solid = SOLID_BBOX;
 
@@ -478,6 +573,7 @@ void CBasePlayerItem :: FallInit( void )
 	
 	SetTouch( DefaultTouch );
 	SetThink( FallThink );
+	
 
 	pev->nextthink = gpGlobals->time + 0.1;
 }
@@ -508,6 +604,7 @@ void CBasePlayerItem::FallThink ( void )
 		pev->angles.z = 0;
 
 		Materialize(); 
+		
 	}
 }
 
@@ -574,7 +671,37 @@ CBaseEntity* CBasePlayerItem::Respawn( void )
 {
 	// make a copy of this weapon that is invisible and inaccessible to players (no touch function). The weapon spawn/respawn code
 	// will decide when to make the weapon visible and touchable.
-	CBaseEntity *pNewWeapon = CBaseEntity::Create( (char *)STRING( pev->classname ), g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	
+	CBaseEntity *pNewWeapon;
+
+	// Mag60 and Uzi
+	if ((!strcmp((char *)STRING( pev->classname ), "weapon_mag60")))
+		pNewWeapon = CBaseEntity::Create( "weapon_uzi", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_uzi")) && ( g_pGameRules->IsRocketArena() == 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_mag60", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	// Chaingun and M-16
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_chaingun")))
+		pNewWeapon = CBaseEntity::Create( "weapon_m16", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_m16")) && ( g_pGameRules->IsRocketArena() == 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_chaingun", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	// Rocket Launcher and Nuke
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_rocketl")) && ( g_pGameRules->IsRocketArena() == 0 ) && ( CVAR_GET_FLOAT( "mp_allownuke" ) > 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_nuke", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_nuke")) && ( g_pGameRules->IsRocketArena() == 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_rocketl", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	// Assault Shoutgun and 12 Gauge
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_ashotgun")) && ( g_pGameRules->IsRocketArena() == 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_sshotgun", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_sshotgun")) && ( g_pGameRules->IsRocketArena() == 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_ashotgun", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	// Railgun and Pulse Rifle
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_railgun")))
+		pNewWeapon = CBaseEntity::Create( "weapon_pulserifle", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	else if ((!strcmp((char *)STRING( pev->classname ), "weapon_pulserifle")) && ( g_pGameRules->IsRocketArena() == 0 ))
+		pNewWeapon = CBaseEntity::Create( "weapon_railgun", g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+	else
+		pNewWeapon = CBaseEntity::Create( (char *)STRING( pev->classname ), g_pGameRules->VecWeaponRespawnSpot( this ), pev->angles, pev->owner );
+
 
 	if ( pNewWeapon )
 	{
@@ -595,6 +722,7 @@ CBaseEntity* CBasePlayerItem::Respawn( void )
 
 	return pNewWeapon;
 }
+
 
 void CBasePlayerItem::DefaultTouch( CBaseEntity *pOther )
 {
@@ -618,7 +746,6 @@ void CBasePlayerItem::DefaultTouch( CBaseEntity *pOther )
 	{
 		AttachToPlayer( pPlayer );
 		EMIT_SOUND(ENT(pPlayer->pev), CHAN_ITEM, "items/gunpickup2.wav", 1, ATTN_NORM);
-
 	}
 
 	SUB_UseTargets( pOther, USE_TOGGLE, 0 ); // UNDONE: when should this happen?
@@ -1011,10 +1138,10 @@ void CBasePlayerAmmo::Spawn( void )
 }
 
 CBaseEntity* CBasePlayerAmmo::Respawn( void )
-{
+{	
 	pev->effects |= EF_NODRAW;
 	SetTouch( NULL );
-
+		
 	UTIL_SetOrigin( pev, g_pGameRules->VecAmmoRespawnSpot( this ) );// move to wherever I'm supposed to repawn.
 
 	SetThink( Materialize );
@@ -1124,45 +1251,6 @@ void CBasePlayerWeapon::RetireWeapon( void )
 
 	g_pGameRules->GetNextBestWeapon( m_pPlayer, this );
 }
-void CBasePlayerWeapon::UpdateItemInfo( void )
-{
-    ItemInfo    iInfo;
-
-    memset(&iInfo, 0, sizeof(iInfo));
-    if (GetItemInfo(&iInfo))
-    {
-        if (iInfo.weaponName)
-        {
-            char szText[201];
-            hudtextparms_t     hText;
-
-            sprintf(szText, "%s Equipped.", iInfo.weaponName);
-            
-            memset(&hText, 0, sizeof(hText));
-            hText.channel = 1;
-            // These X and Y coordinates are just above
-            // the health meter.
-            hText.x = 0.01;
-            hText.y = 0.9;
-    
-            hText.effect = 0;    // Fade in/out
-            
-            hText.r1 = hText.g1 = hText.b1 = 180;
-            hText.a1 = 0;
-
-            hText.r2 = hText.g2 = hText.b2 = 180;
-            hText.a2 = 0;
-
-            hText.fadeinTime = 0.5;
-            hText.fadeoutTime = 1;
-            hText.holdTime = 3.0;
-            hText.fxTime = 0.5;
-
-            UTIL_HudMessage(m_pPlayer, hText, szText);
-        }
-    }
-}
-
 
 //*********************************************************
 // weaponbox code:

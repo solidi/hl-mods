@@ -19,37 +19,35 @@
 
 
 cvar_t	displaysoundlist = {"displaysoundlist","0"};
-cvar_t  mapcyclefile = {"mapcyclefile","mapcycle.txt"};
-cvar_t  servercfgfile = {"servercfgfile","server.cfg"};
-cvar_t  lservercfgfile = {"lservercfgfile","listenserver.cfg"};
+cvar_t  mapcyclefile     = {"mapcyclefile","mapcycle.txt"};
+cvar_t  servercfgfile    = {"servercfgfile","server.cfg"};
+cvar_t  lservercfgfile   = {"lservercfgfile","listenserver.cfg"};
 
 // multiplayer server rules
-cvar_t	teamplay	=    {"mp_teamplay","1", FCVAR_SERVER };
-cvar_t	fraglimit	=    {"mp_fraglimit","0", FCVAR_SERVER };
-cvar_t	timelimit	=    {"mp_timelimit","0", FCVAR_SERVER };
-cvar_t	friendlyfire=    {"mp_friendlyfire","0", FCVAR_SERVER };
-cvar_t	falldamage	=    {"mp_falldamage","0", FCVAR_SERVER };
-cvar_t	weaponstay	=    {"mp_weaponstay","0", FCVAR_SERVER };
-cvar_t	forcerespawn=    {"mp_forcerespawn","1", FCVAR_SERVER };
-cvar_t	footsteps	=    {"mp_footsteps","1", FCVAR_SERVER };
-cvar_t	flashlight	=    {"mp_flashlight","0", FCVAR_SERVER };
-cvar_t	aimcrosshair=    {"mp_autocrosshair","1", FCVAR_SERVER };
+//cvar_t	teamplay   = {"mp_teamplay","0", FCVAR_SERVER };
+cvar_t	fraglimit	   = {"mp_fraglimit","0", FCVAR_SERVER };
+cvar_t	timelimit	   = {"mp_timelimit","0", FCVAR_SERVER };
+cvar_t	friendlyfire   = {"mp_friendlyfire","0", FCVAR_SERVER };
+cvar_t	falldamage	   = {"mp_falldamage","0", FCVAR_SERVER };
+cvar_t	weaponstay	   = {"mp_weaponstay","0", FCVAR_SERVER };
+cvar_t	forcerespawn   = {"mp_forcerespawn","1", FCVAR_SERVER };
+cvar_t	footsteps	   = {"mp_footsteps","1", FCVAR_SERVER };
+cvar_t	flashlight	   = {"mp_flashlight","0", FCVAR_SERVER };
+cvar_t	aimcrosshair   = {"mp_autocrosshair","1", FCVAR_SERVER };
 cvar_t	decalfrequency = {"decalfrequency","30", FCVAR_SERVER };
-cvar_t	teamlist =       {"mp_teamlist","Icewoman;Iceman", FCVAR_SERVER };
-cvar_t	teamoverride =   {"mp_teamoverride","1" };
-cvar_t	defaultteam =    {"mp_defaultteam","0" };
-cvar_t	allowmonsters=   {"mp_allowmonsters","0", FCVAR_SERVER };
+cvar_t	teamlist       = {"mp_teamlist","hgrunt;scientist", FCVAR_SERVER };
+cvar_t	teamoverride   = {"mp_teamoverride","1" };
+cvar_t	defaultteam    = {"mp_defaultteam","0" };
+cvar_t	allowmonsters  = {"mp_allowmonsters","0", FCVAR_SERVER };
 
-//--------------------------------------------------------------
-// Cold Ice CVARS
-//--------------------------------------------------------------
-cvar_t  runes          = {"mp_runes", "1", FCVAR_SERVER };
-cvar_t  hook           = {"mp_hook", "1", FCVAR_SERVER };
-cvar_t  secretweapons  = {"secretweapons", "0", FCVAR_SERVER };
-cvar_t	rocketarena    = {"rocket_arena","0", FCVAR_SERVER };
-cvar_t	automaticarena = {"automatic_arena","0", FCVAR_SERVER };
-cvar_t  botarena       = {"bot_arena", "0", FCVAR_SERVER };
-//--------------------------------------------------------------
+cvar_t	runes	        = {"mp_runes","1", FCVAR_SERVER };
+cvar_t	hook	        = {"mp_hook","1", FCVAR_SERVER };
+
+cvar_t	allownuke	    = {"mp_allownuke","1", FCVAR_SERVER };
+
+cvar_t	rocketarena =  {"mp_rocketarena","0", FCVAR_SERVER };
+cvar_t	railarena   =  {"mp_railarena","0", FCVAR_SERVER };
+cvar_t	fwarena     =  {"mp_fwarena","0", FCVAR_SERVER };
 
 //CVARS FOR SKILL LEVEL SETTINGS
 // Agrunt
@@ -355,6 +353,7 @@ cvar_t	sk_plr_hand_grenade1 = {"sk_plr_hand_grenade1","0"};
 cvar_t	sk_plr_hand_grenade2 = {"sk_plr_hand_grenade2","0"};
 cvar_t	sk_plr_hand_grenade3 = {"sk_plr_hand_grenade3","0"};
 
+
 // Satchel Charge
 cvar_t	sk_plr_satchel1	= {"sk_plr_satchel1","0"};
 cvar_t	sk_plr_satchel2	= {"sk_plr_satchel2","0"};
@@ -430,17 +429,17 @@ cvar_t	sk_monster_leg2	= { "sk_monster_leg2","1" };
 cvar_t	sk_monster_leg3	= { "sk_monster_leg3","1" };
 
 // player damage adjusters
-cvar_t	sk_player_head1	= { "sk_player_head1","3" };
-cvar_t	sk_player_head2	= { "sk_player_head2","3" };
-cvar_t	sk_player_head3	= { "sk_player_head3","3" };
+cvar_t	sk_player_head1	= { "sk_player_head1","2" };
+cvar_t	sk_player_head2	= { "sk_player_head2","2" };
+cvar_t	sk_player_head3	= { "sk_player_head3","2" };
 
-cvar_t	sk_player_chest1	= { "sk_player_chest1","2" };
-cvar_t	sk_player_chest2	= { "sk_player_chest2","2" };
-cvar_t	sk_player_chest3	= { "sk_player_chest3","2" };
+cvar_t	sk_player_chest1	= { "sk_player_chest1","1" };
+cvar_t	sk_player_chest2	= { "sk_player_chest2","1" };
+cvar_t	sk_player_chest3	= { "sk_player_chest3","1" };
 
-cvar_t	sk_player_stomach1	= { "sk_player_stomach1","2" };
-cvar_t	sk_player_stomach2	= { "sk_player_stomach2","2" };
-cvar_t	sk_player_stomach3	= { "sk_player_stomach3","2" };
+cvar_t	sk_player_stomach1	= { "sk_player_stomach1","1" };
+cvar_t	sk_player_stomach2	= { "sk_player_stomach2","1" };
+cvar_t	sk_player_stomach3	= { "sk_player_stomach3","1" };
 
 cvar_t	sk_player_arm1	= { "sk_player_arm1","1" };
 cvar_t	sk_player_arm2	= { "sk_player_arm2","1" };
@@ -463,20 +462,18 @@ void GameDLLInit( void )
 	CVAR_REGISTER (&servercfgfile);
 	CVAR_REGISTER (&lservercfgfile);
 
-	// ========================
-	// Cold Ice CVARS
-	//=========================
-    CVAR_REGISTER (&runes);
-	CVAR_REGISTER (&hook);
-	CVAR_REGISTER (&secretweapons);
-	CVAR_REGISTER (&rocketarena);
-	CVAR_REGISTER (&automaticarena);	
-	CVAR_REGISTER (&botarena);
-	//==========================
-	
-	CVAR_REGISTER (&teamplay);
+    //CVAR_REGISTER (&teamplay);
 	CVAR_REGISTER (&fraglimit);
 	CVAR_REGISTER (&timelimit);
+
+	CVAR_REGISTER (&rocketarena);
+	CVAR_REGISTER (&railarena);
+	CVAR_REGISTER (&fwarena);
+
+	CVAR_REGISTER (&hook);
+	CVAR_REGISTER (&runes);
+
+	CVAR_REGISTER (&allownuke);
 
 	CVAR_REGISTER (&friendlyfire);
 	CVAR_REGISTER (&falldamage);
@@ -807,6 +804,7 @@ void GameDLLInit( void )
 	CVAR_REGISTER ( &sk_plr_tripmine1 );// {"sk_plr_tripmine1","0"};
 	CVAR_REGISTER ( &sk_plr_tripmine2 );// {"sk_plr_tripmine2","0"};
 	CVAR_REGISTER ( &sk_plr_tripmine3 );// {"sk_plr_tripmine3","0"};
+
 
 	// WORLD WEAPONS
 	CVAR_REGISTER ( &sk_12mm_bullet1 );// {"sk_12mm_bullet1","0"};

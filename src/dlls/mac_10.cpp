@@ -23,20 +23,22 @@
 #include "soundent.h"
 #include "gamerules.h"
 
-enum uzi_e
+enum mac_e
 {
-	UZI_LONGIDLE = 0,
-	UZI_IDLE1,
-	UZI_LAUNCH,
-	UZI_RELOAD,
-	UZI_DEPLOY,
-	UZI_FIRE1,
-	UZI_FIRE2,
-	UZI_FIRE3,
+	MAC_IDLE1 = 0,
+	MAC_IDLE2,
+	MAC_IDLE3,
+	MAC_SHOOT,
+	MAC_SHOOT_EMPTY,
+	MAC_RELOAD,
+	MAC_RELOAD_NOT_EMPTY,
+	MAC_DRAW,
+	MAC_HOLSTER,
+	MAC_ADD_SILENCER
 };
 
 
-class CUzi : public CBasePlayerWeapon
+class CMac : public CBasePlayerWeapon
 {
 public:
 	void Spawn( void );
@@ -52,54 +54,54 @@ public:
 	float m_flNextAnimTime;
 	int m_iShell;
 };
-LINK_ENTITY_TO_CLASS( weapon_uzi, CUzi );
+LINK_ENTITY_TO_CLASS( weapon_mac10, CMac );
 
 //=========================================================
 //=========================================================
 
-void CUzi::Spawn( )
+void CMac::Spawn( )
 {
-	pev->classname = MAKE_STRING("weapon_uzi"); 
+	pev->classname = MAKE_STRING("weapon_mac10"); 
 	Precache( );
-	SET_MODEL(ENT(pev), "models/wmodels/w_uzi.mdl");
-	m_iId = WEAPON_UZI;
+	SET_MODEL(ENT(pev), "models/wmodels/w_mac10.mdl");
+	m_iId = WEAPON_MAC10;
 
-	m_iDefaultAmmo = UZI_DEFAULT_GIVE;
+	m_iDefaultAmmo = MAC10_DEFAULT_GIVE;
 
 	FallInit();
 }
 
 
-void CUzi::Precache( void )
+void CMac::Precache( void )
 {
-	PRECACHE_MODEL("models/vmodels/v_uzi.mdl");
-	PRECACHE_MODEL("models/wmodels/w_uzi.mdl");
-	PRECACHE_MODEL("models/pmodels/p_uzi.mdl");
+	PRECACHE_MODEL("models/vmodels/v_mac10.mdl");
+	PRECACHE_MODEL("models/wmodels/w_mac10.mdl");
+	PRECACHE_MODEL("models/pmodels/p_mac10.mdl");
 
 	m_iShell = PRECACHE_MODEL ("models/shell.mdl");        
 
-	PRECACHE_SOUND("weapons/uzi1.wav");
+	PRECACHE_SOUND("weapons/mac1.wav");
 
 }
 
-int CUzi::GetItemInfo(ItemInfo *p)
+int CMac::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
 	p->pszAmmo1 = "9mm";
-	p->iMaxAmmo1 = UZI_MAX_CARRY;
+	p->iMaxAmmo1 = MAC10_MAX_CARRY;
 	p->pszAmmo2 = NULL;
 	p->iMaxAmmo2 = -1;
-	p->iMaxClip = UZI_MAX_CLIP;
+	p->iMaxClip = MAC10_MAX_CLIP;
 	p->iSlot = 2;
 	p->iPosition = 3;
 	p->iFlags = 0;
-	p->iId = m_iId = WEAPON_UZI;
-	p->iWeight = UZI_WEIGHT;
+	p->iId = m_iId = WEAPON_MAC10;
+	p->iWeight = MAC10_WEIGHT;
 
 	return 1;
 }
 
-int CUzi::AddToPlayer( CBasePlayer *pPlayer )
+int CMac::AddToPlayer( CBasePlayer *pPlayer )
 {
 	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
 	{
@@ -111,13 +113,13 @@ int CUzi::AddToPlayer( CBasePlayer *pPlayer )
 	return FALSE;
 }
 
-BOOL CUzi::Deploy( )
+BOOL CMac::Deploy( )
 {
-	return DefaultDeploy( "models/vmodels/v_uzi.mdl", "models/pmodels/p_uzi.mdl", UZI_DEPLOY, "mp5" );
+	return DefaultDeploy( "models/vmodels/v_mac10.mdl", "models/pmodels/p_mac10.mdl", MAC_DRAW, "mp5" );
 }
 
 
-void CUzi::PrimaryAttack()
+void CMac::PrimaryAttack()
 {
 	if (m_pPlayer->pev->waterlevel == 3)
 	{
@@ -143,13 +145,13 @@ void CUzi::PrimaryAttack()
 
 	if (1 || m_flNextAnimTime < gpGlobals->time)
 	{
-		SendWeaponAnim( UZI_FIRE1 + RANDOM_LONG(0,2));
+		SendWeaponAnim( MAC_SHOOT );
 		m_flNextAnimTime = gpGlobals->time + 0.2;
 	}
 
 	m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
 
-    EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/uzi1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf)); 
+    EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/mac1.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xf)); 
 
 	UTIL_MakeVectors( m_pPlayer->pev->v_angle + m_pPlayer->pev->punchangle );
 
@@ -166,9 +168,9 @@ void CUzi::PrimaryAttack()
 	Vector vecSrc	 = m_pPlayer->GetGunPosition( );
 	Vector vecAiming = m_pPlayer->GetAutoaimVector( AUTOAIM_5DEGREES );
 
-	m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_8DEGREES, 8192, BULLET_PLAYER_MP5, 0 );
+	m_pPlayer->FireBullets( 1, vecSrc, vecAiming, VECTOR_CONE_7DEGREES, 8192, BULLET_PLAYER_MP5, 0 );
 	
-	m_flNextPrimaryAttack = gpGlobals->time + 0.08;
+	m_flNextPrimaryAttack = gpGlobals->time + 0.09;
 	m_flNextSecondaryAttack = gpGlobals->time + 0.1;
 
 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
@@ -176,12 +178,12 @@ void CUzi::PrimaryAttack()
 	m_pPlayer->pev->punchangle.x = RANDOM_FLOAT( -2, 2 );
 }
 
-void CUzi::Reload( void )
+void CMac::Reload( void )
 {
-	DefaultReload( UZI_MAX_CLIP, UZI_RELOAD, 1.5 );
+	DefaultReload( MAC10_MAX_CLIP, MAC_RELOAD, 1.5 );
 }
 
-void CUzi::WeaponIdle( void )
+void CMac::WeaponIdle( void )
 {
 	ResetEmptySound( );
 
@@ -194,12 +196,12 @@ void CUzi::WeaponIdle( void )
 	switch ( RANDOM_LONG( 0, 1 ) )
 	{
 	case 0:	
-		iAnim = UZI_LONGIDLE;	
+		iAnim = MAC_IDLE2;	
 		break;
 	
 	default:
 	case 1:
-		iAnim = UZI_IDLE1;
+		iAnim = MAC_IDLE1;
 		break;
 	}
 
@@ -208,30 +210,6 @@ void CUzi::WeaponIdle( void )
 	m_flTimeWeaponIdle = gpGlobals->time + RANDOM_FLOAT ( 10, 15 );
 }
 
-class CUziAmmoClip : public CBasePlayerAmmo
-{
-	void Spawn( void )
-	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_9mmARclip.mdl");
-		CBasePlayerAmmo::Spawn( );
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_9mmARclip.mdl");
-		PRECACHE_SOUND("items/9mmclip1.wav");
-	}
-	BOOL AddAmmo( CBaseEntity *pOther ) 
-	{ 
-		int bResult = (pOther->GiveAmmo( AMMO_UZICLIP_GIVE, "9mm", UZI_MAX_CARRY) != -1);
-		if (bResult)
-		{
-			EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/9mmclip1.wav", 1, ATTN_NORM);
-		}
-		return bResult;
-	}
-};
-LINK_ENTITY_TO_CLASS( ammo_uziclip, CUziAmmoClip );
 
 
 

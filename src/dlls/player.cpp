@@ -349,52 +349,33 @@ void CBasePlayer :: TraceAttack( entvars_t *pevAttacker, float flDamage, Vector 
 		case HITGROUP_GENERIC:
 			break;
 		case HITGROUP_HEAD:
-			//ALERT (at_warning, "Head Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/headshot.wav", 1.0, ATTN_NORM);
 			flDamage *= gSkillData.plrHead;
-        	break;
+			break;
 		case HITGROUP_CHEST:
-			//ALERT (at_warning, "Chest Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/chestshot.wav", 1.0, ATTN_NORM);
 			flDamage *= gSkillData.plrChest;
 			break;
 		case HITGROUP_STOMACH:
-			//ALERT (at_warning, "Stomach Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/stomachshot.wav", 1.0, ATTN_NORM);
 			flDamage *= gSkillData.plrStomach;
 			break;
 		case HITGROUP_LEFTARM:
-		//	ALERT (at_warning, "Left Arm Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/limbshot.wav", 1.0, ATTN_NORM);
-			flDamage *= gSkillData.plrArm;
-			break;
 		case HITGROUP_RIGHTARM:
-		//	ALERT (at_warning, "Right Arm Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/limbshot.wav", 1.0, ATTN_NORM);
 			flDamage *= gSkillData.plrArm;
 			break;
 		case HITGROUP_LEFTLEG:
-		//	ALERT (at_warning, "Left Leg Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/limbshot.wav", 1.0, ATTN_NORM);
-			flDamage *= gSkillData.plrLeg;
-			break;
 		case HITGROUP_RIGHTLEG:
-			//ALERT (at_warning, "Right Leg Damage\n");
-		//	EMIT_SOUND(ENT(pev), CHAN_BODY, "player/limbshot.wav", 1.0, ATTN_NORM);
 			flDamage *= gSkillData.plrLeg;
 			break;
 		default:
 			break;
 		}
-	    
-	
+		
+		// rune support
+		flDamage = RuneDamage(pevAttacker, flDamage);
+		flDamage = RuneProtect( flDamage );
+
 		SpawnBlood(ptr->vecEndPos, BloodColor(), flDamage);// a little surface blood.
 		TraceBleed( flDamage, vecDir, ptr, bitsDamageType );
-		AddMultiDamage( pevAttacker, this, flDamage, bitsDamageType );	
-		flDamage = RuneDamage(pevAttacker, flDamage);
-        flDamage = RuneProtect( flDamage );
-	
-
+		AddMultiDamage( pevAttacker, this, flDamage, bitsDamageType );
 	}
 }
 
@@ -424,11 +405,9 @@ int CBasePlayer :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, 
 	flBonus = ARMOR_BONUS;
 	flRatio = ARMOR_RATIO;
 
-
-	//Begin Runes
-    flDamage = RuneDamage(pevAttacker, flDamage);
-    flDamage = RuneProtect( flDamage );
-    //End Runes
+	// rune support
+	flDamage = RuneDamage(pevAttacker, flDamage);
+	flDamage = RuneProtect( flDamage );
 
 
 	if ( ( bitsDamageType & DMG_BLAST ) && g_pGameRules->IsMultiplayer() )
@@ -440,8 +419,7 @@ int CBasePlayer :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, 
 	// Already dead
 	if ( !IsAlive() )
 		return 0;
-	// go take the damage first   
-
+	// go take the damage first
 
 	
 	CBaseEntity *pAttacker = CBaseEntity::Instance(pevAttacker);
@@ -638,7 +616,6 @@ int CBasePlayer :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, 
 
 	return fTookDamage;
 }
-
 
 //=========================================================
 // PackDeadPlayerItems - call this when a player dies to
@@ -838,8 +815,6 @@ void CBasePlayer::Killed( entvars_t *pevAttacker, int iGib )
 		m_pTank = NULL;
 	}
 
-	m_fJetPack = FALSE;
-
 	// this client isn't going to be thinking for a while, so reset the sound until they respawn
 	pSound = CSoundEnt::SoundPointerForIndex( CSoundEnt::ClientSoundIndex( edict() ) );
 	{
@@ -882,13 +857,16 @@ void CBasePlayer::Killed( entvars_t *pevAttacker, int iGib )
 	// reset FOV
 	m_iFOV = m_iClientFOV = 0;
 
+	// rune spawn
+	SpawnRunes( );
+
 	MESSAGE_BEGIN( MSG_ONE, gmsgSetFOV, NULL, pev );
 		WRITE_BYTE(0);
 	MESSAGE_END();
 
 
 	// UNDONE: Put this in, but add FFADE_PERMANENT and make fade time 8.8 instead of 4.12
-//	UTIL_ScreenFade( edict(), Vector(128,0,0), 6, 15, 255, FFADE_OUT | FFADE_MODULATE );
+	// UTIL_ScreenFade( edict(), Vector(128,0,0), 6, 15, 255, FFADE_OUT | FFADE_MODULATE );
 
 	if ( ( pev->health < -40 && iGib != GIB_NEVER ) || iGib == GIB_ALWAYS )
 	{
@@ -903,16 +881,7 @@ void CBasePlayer::Killed( entvars_t *pevAttacker, int iGib )
 	pev->angles.z = 0;
 
 	SetThink(PlayerDeathThink);
-	if (observerflag)
-    return;
-	
 	pev->nextthink = gpGlobals->time + 0.1;
-
-	//Begin Runes
-    SpawnRunes( );
-   //End Runes
-
-
 }
 
 
@@ -1086,212 +1055,6 @@ void CBasePlayer::SetAnimation( PLAYER_ANIM playerAnim )
 	pev->frame			= 0;
 	ResetSequenceInfo( );
 }
-//============================================
-// Rune Code
-//============================================
-//Begin Runes
-
-float CBasePlayer::RuneDamage( entvars_t *pevAttacker, float flDamage)
-
-{
-
-if( GetClassPtr((CBasePlayer *)pevAttacker)->m_iPlayerRune == RUNE_STRENGTH)
-
-{
-
-EMIT_SOUND(ENT(pev), CHAN_ITEM, "items/protect.wav", 0.5, ATTN_NORM);
-			
-flDamage = flDamage * 1.5;
-
-}
-
-return flDamage;
-
-}
-
-float CBasePlayer::RuneProtect(float flDamage)
-
-{
-
-if( m_iPlayerRune & RUNE_RESIST )
-
-{
-
-flDamage = flDamage * 0.75;
-
-}
-
-return flDamage;
-
-}
-
-void CBasePlayer::RuneHeal( )
-
-{
-
-if(m_flRuneHealTime > gpGlobals->time)
-
-return;
-
-
-if(pev->health < 100.0 ) 
-
-{
-
-pev->health = pev->health + 1.0;
-
-m_flRuneHealTime = gpGlobals->time + 1.0;
-
-return;
-
-}
-
-if(pev->armorvalue < 200.0 )
-
-{
-
-pev->armorvalue = pev->armorvalue + 1.0;
-
-m_flRuneHealTime = gpGlobals->time + 2.0;
-
-return;
-
-}
-
-}
-void CBasePlayer::RuneSpeed( )
-
-{
-
-if ( !FBitSet(pev->flags, FL_ONGROUND) )
-
-{
-
-pev->movetype = MOVETYPE_WALK;
-
-return;
-
-}
-
-if( pev->button & IN_FORWARD )
-
-{
-
-pev->movetype = MOVETYPE_FLY;
-
-UTIL_MakeVectors( pev->angles );
-Vector New_Position = pev->origin + gpGlobals->v_forward * 500;
-
-pev->velocity = New_Position- pev->origin;
-
-return;
-
-}
-
-if( pev->button & IN_BACK )
-
-{
-
-pev->movetype = MOVETYPE_FLY;
-
-//UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
-
-UTIL_MakeVectors( pev->angles );
-
-Vector New_Position = pev->origin - gpGlobals->v_forward * 500;
-
-pev->velocity = New_Position- pev->origin;
-
-return;
-
-}
-
-if( pev->button & IN_MOVERIGHT )
-
-{
-
-pev->movetype = MOVETYPE_FLY;
-
-//UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
-
-UTIL_MakeVectors( pev->angles );
-
-Vector New_Position = pev->origin + gpGlobals->v_right * 500;
-
-pev->velocity = New_Position- pev->origin;
-
-return;
-
-}
-
-
-if( pev->button & IN_MOVELEFT )
-
-{
-
-pev->movetype = MOVETYPE_FLY;
-
-//UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
-
-UTIL_MakeVectors( pev->angles );
-
-Vector New_Position = pev->origin - gpGlobals->v_right * 500;
-
-pev->velocity = New_Position- pev->origin;
-
-return;
-
-}
-}
-void CBasePlayer::RuneFrags( )
-{
-
-	pev->renderfx = kRenderFxGlowShell;
-
-	return;
-}
-void CBasePlayer::DropRune( )
-{
-
-SpawnRunes( );
-
-m_iPlayerRune = 0;
-
-}
-void CBasePlayer::SpawnRunes( )
-{
-
-if(!m_iPlayerRune)
-
-return;
-
-CBaseEntity *CRune;
-
-char *sz_Rune;
-
- 
-
-switch (m_iPlayerRune)
-
-{
-
-case RUNE_SPEED: sz_Rune = "rune_speed"; break;
-case RUNE_FRAGS: sz_Rune = "rune_frags"; break;
-case RUNE_STRENGTH: sz_Rune = "rune_strength"; break;
-case RUNE_RESIST: sz_Rune = "rune_resist"; break;
-case RUNE_HEALTH: sz_Rune = "rune_health"; break;
-
-default:
-
-ALERT ( at_console, "Unable to determine rune\n" );
-
-}
-
-CRune = CBaseEntity::Create(sz_Rune, pev->origin + Vector (0, 50, 0), Vector(0, 0,0), NULL );
-
-}
-
-//End Runes
 
 
 /*
@@ -1542,7 +1305,7 @@ void CBasePlayer::PlayerDeathThink(void)
 // if the player has been dead for one second longer than allowed by forcerespawn, 
 // forcerespawn isn't on. Send the player off to an intermission camera until they 
 // choose to respawn.
-	if ( g_pGameRules->IsMultiplayer() && ( gpGlobals->time > (m_fDeadTime + 5) ) && !(m_afPhysicsFlags & PFLAG_OBSERVER) )
+	if ( g_pGameRules->IsMultiplayer() && ( gpGlobals->time > (m_fDeadTime + 6) ) && !(m_afPhysicsFlags & PFLAG_OBSERVER) )
 	{
 		// go to dead camera. 
 		StartDeathCam();
@@ -1609,7 +1372,9 @@ void CBasePlayer::StartDeathCam( void )
 		return;
 	}
 }
-
+//------------------------------------------------------------------------
+// Spectator Code
+//------------------------------------------------------------------------
 void CBasePlayer::StartObserver( Vector vecPosition, Vector vecViewAngle )
 {
 	m_afPhysicsFlags |= PFLAG_OBSERVER;
@@ -1628,29 +1393,11 @@ void CBasePlayer:: StartSpectator( void ) {
 
 	if (observerflag)
 	return;
+	
+//if (IsAlive())
+//	return;
 
-    if (IsAlive())
-	return;
-
-	observerflag = TRUE;
-	RemoveAllItems( TRUE );
-	pev->deadflag = DEAD_DEAD;
-	m_fWantRespawn = FALSE;
-
-	// no intermission spot. Push them up in the air, looking down at their corpse
-	TraceResult tr;
-	UTIL_TraceLine( pev->origin, pev->origin + Vector( 0, 0, 128 ), ignore_monsters, edict(), &tr );
-	StartObserver( tr.vecEndPos, UTIL_VecToAngles( tr.vecEndPos - pev->origin ) );
-	return;
-
-}
-void CBasePlayer:: StartMenu( void ) {
-
-	if (observerflag)
-	return;
-
-    if (IsAlive())
-	return;
+	const char *pcmd = CMD_ARGV(0);
 
 	observerflag = TRUE;
 	RemoveAllItems( TRUE );
@@ -1661,41 +1408,11 @@ void CBasePlayer:: StartMenu( void ) {
 	TraceResult tr;
 	UTIL_TraceLine( pev->origin, pev->origin + Vector( 0, 0, 128 ), ignore_monsters, edict(), &tr );
 	StartObserver( tr.vecEndPos, UTIL_VecToAngles( tr.vecEndPos - pev->origin ) );
+
 	return;
 
 }
-void CBasePlayer:: StartSpectatorMenu( void ) {
 
-	if (observerflag)
-	return;
-
-	observerflag = TRUE;
-	RemoveAllItems( TRUE );
-	pev->deadflag = DEAD_DEAD;
-	m_fWantRespawn = FALSE;
-
-	// no intermission spot. Push them up in the air, looking down at their corpse
-	TraceResult tr;
-	UTIL_TraceLine( pev->origin, pev->origin + Vector( 0, 0, 128 ), ignore_monsters, edict(), &tr );
-	StartObserver( tr.vecEndPos, UTIL_VecToAngles( tr.vecEndPos - pev->origin ) );
-	return;
-
-}
-void CBasePlayer::StopSpectator( void ) {
-
-	if (!observerflag)
-	return;
-
-	pev->deadflag = DEAD_NO; 
-	observerflag = FALSE; 
-	m_fWantRespawn = TRUE;
-
-	pev->button = 0;
-	m_iRespawnFrames = 0;
-
-	respawn(pev, !(m_afPhysicsFlags & PFLAG_OBSERVER) );
-	pev->nextthink = -1;
-}
 void CBasePlayer::SpectatorMove( void ) {
 
 	if (!observerflag)
@@ -1720,6 +1437,42 @@ void CBasePlayer::SpectatorMove( void ) {
 	
 	}
 }
+void CBasePlayer::StopSpectator( void ) {
+
+	if (!observerflag)
+	return;
+
+	pev->deadflag = DEAD_NO; 
+	observerflag = FALSE; 
+	m_fWantRespawn = TRUE;
+
+	pev->button = 0;
+	m_iRespawnFrames = 0;
+
+	respawn(pev, !(m_afPhysicsFlags & PFLAG_OBSERVER) );
+	pev->nextthink = -1;
+}
+void CBasePlayer:: StartMenu( void ) {
+
+	if (observerflag)
+	return;
+
+    if (IsAlive())
+	return;
+
+	observerflag = TRUE;
+	RemoveAllItems( TRUE );
+	pev->deadflag = DEAD_DEAD;
+	m_fWantRespawn = FALSE;
+
+	// no intermission spot. Push them up in the air, looking down at their corpse
+	TraceResult tr;
+	UTIL_TraceLine( pev->origin, pev->origin + Vector( 0, 0, 128 ), ignore_monsters, edict(), &tr );
+	StartObserver( tr.vecEndPos, UTIL_VecToAngles( tr.vecEndPos - pev->origin ) );
+	return;
+
+}
+//---------------------------------------------------------------------------
 
 // 
 // PlayerUse - handles USE keypress
@@ -2453,21 +2206,6 @@ void CBasePlayer::PreThink(void)
 	m_afButtonPressed =  buttonsChanged & pev->button;		// The changed ones still down are "pressed"
 	m_afButtonReleased = buttonsChanged & (~pev->button);	// The ones not down are "released"
 
-	//Begin Grapple
-
-    if( m_afPhysicsFlags & PFLAG_ON_GRAPPLE) //If we are on a grapple
-	{
-		if ((m_MyGrapple->pev->origin - pev->origin).Length() <= 50.0) //If the length of the 'chain' is greater that 50 units
-		{
-			pev->velocity = (m_MyGrapple->pev->origin - pev->origin);
-            return;
-		}
-	pev->velocity = (m_MyGrapple->pev->origin - pev->origin) * 2.0; 
-	return;
-	}
-
-	//End Grapple
-
 	SpectatorMove();
 
 	g_pGameRules->PlayerThink( this );
@@ -2476,9 +2214,7 @@ void CBasePlayer::PreThink(void)
 		return;         // intermission or finale
 
 	UTIL_MakeVectors(pev->v_angle);             // is this still used?
-
-	JetPackFly();//Let it fly!
-
+	
 	ItemPreFrame( );
 	WaterMove();
 
@@ -2507,7 +2243,6 @@ void CBasePlayer::PreThink(void)
 		PlayerDeathThink();
 		return;
 	}
-
 
 	// So the correct flags get sent to client asap.
 	//
@@ -2582,26 +2317,18 @@ void CBasePlayer::PreThink(void)
 	// If trying to duck, already ducked, or in the process of ducking
 	if ((pev->button & IN_DUCK) || FBitSet(pev->flags,FL_DUCKING) || (m_afPhysicsFlags & PFLAG_DUCKING) )
 		Duck();
-	
-//Begin Runes
 
-	if(m_iPlayerRune & RUNE_FRAGS)
+	if(m_iPlayerRune & RUNE_SPEED)
 	{
-       RuneFrags( );
-         return;
-	}
-    if(m_iPlayerRune & RUNE_SPEED)
-	{
-       RuneSpeed( );
-         return;
-	}
-     if(m_iPlayerRune & RUNE_HEALTH)
-	{
-         RuneHeal( );
+		RuneSpeed( );
+
+		return;
 	}
 
-//End Runes
- 
+	if(m_iPlayerRune & RUNE_HEALTH)
+	{
+		RuneHeal( );
+	}
 
 	// play a footstep if it's time - this will eventually be frame-based. not time based.
 	
@@ -2773,12 +2500,7 @@ void CBasePlayer::CheckTimeBasedDamage()
 				if (((i == itbd_NerveGas) && (m_rgbTimeBasedDamage[i] < NERVEGAS_DURATION)) ||
 					((i == itbd_Poison)   && (m_rgbTimeBasedDamage[i] < POISON_DURATION)))
 				{
-					if (m_rgItems[ITEM_ANTIDOTE])
-					{
-						m_rgbTimeBasedDamage[i] = 0;
-						m_rgItems[ITEM_ANTIDOTE]--;
-						SetSuitUpdate("!HEV_HEAL4", FALSE, SUIT_REPEAT_OK);
-					}
+			
 				}
 
 
@@ -2922,6 +2644,11 @@ void CBasePlayer::CheckSuitUpdate()
 	// if in range of radiation source, ping geiger counter
 	UpdateGeigerCounter();
 
+	if ( g_pGameRules->IsMultiplayer() )
+	{
+		// don't bother updating HEV voice in multiplayer.
+		return;
+	}
 
 	if ( gpGlobals->time >= m_flSuitUpdate && m_flSuitUpdate > 0)
 	{
@@ -3479,10 +3206,11 @@ void CBasePlayer::Spawn( void )
 	m_bitsHUDDamage		= -1;
 	m_bitsDamageType	= 0;
 	m_afPhysicsFlags	= 0;
-	m_iPlayerRune       = 0;
 	m_fLongJump			= FALSE;// no longjump module. 
 	m_iFOV				= 0;// init field of view.
 	m_iClientFOV		= -1; // make sure fov reset is sent
+
+	m_iPlayerRune       = 0; // no rune
 
 	m_flNextDecalTime	= 0;// let this player decal as soon as he spawns.
 
@@ -3528,7 +3256,6 @@ void CBasePlayer::Spawn( void )
 
 	m_pLastItem = NULL;
 	m_fInitHUD = TRUE;
-
 	m_iClientHideHUD = -1;  // force this to be recalculated
 	m_fWeapon = FALSE;
 	m_pClientActiveItem = NULL;
@@ -3942,9 +3669,9 @@ void CBasePlayer::GiveNamedItem( const char *pszName )
 	int istr = MAKE_STRING(pszName);
 
 	pent = CREATE_NAMED_ENTITY(istr);
-    if ( FNullEnt( pent ) )
+	if ( FNullEnt( pent ) )
 	{
-		ALERT ( at_console, "" );
+		ALERT ( at_console, "NULL Ent in GiveNamedItem!\n" );
 		return;
 	}
 	VARS( pent )->origin = pev->origin;
@@ -4133,51 +3860,49 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 
 	switch ( iImpulse )
 	{
-	case 10:
-		gEvilImpulse101 = TRUE;
-	
-		gEvilImpulse101 = FALSE;
-		break;
-
-	case 11:
-		gEvilImpulse101 = TRUE;
-	
-		gEvilImpulse101 = FALSE;
-		break;
-
-	case 12:
-		gEvilImpulse101 = TRUE;
-	
-		gEvilImpulse101 = FALSE;
-		break;
-
-	case 13:
-		gEvilImpulse101 = TRUE;
-	
-		gEvilImpulse101 = FALSE;
-	    break;
-
-	case 14:
-		gEvilImpulse101 = TRUE;
-	
-        gEvilImpulse101 = FALSE;
-	    break;
-
-	case 15:
+	case 43:
 		gEvilImpulse101 = TRUE;
 		GiveNamedItem( "item_suit" );
+		GiveNamedItem( "weapon_crowbar" );
+		GiveNamedItem( "weapon_knife" );
+		GiveNamedItem( "weapon_sword" );
+		GiveNamedItem( "weapon_ppk" );
+		GiveNamedItem( "ammo_ppkclip" );
+		GiveNamedItem( "weapon_mag60" );
+		GiveNamedItem( "ammo_magclip" );
+		GiveNamedItem( "weapon_m16" );
+		GiveNamedItem( "ammo_m16clip" );
+		GiveNamedItem( "weapon_uzi" );
+		GiveNamedItem( "weapon_doubleuzi" );
+		GiveNamedItem( "ammo_uziclip" );
+		GiveNamedItem( "weapon_ashotgun" );
+		GiveNamedItem( "ammo_buckshotbox" );
+		GiveNamedItem( "weapon_sshotgun" );
+		GiveNamedItem( "weapon_chaingun" );
+		GiveNamedItem( "ammo_chaingunbox" );
+		GiveNamedItem( "weapon_rifle" );
+		GiveNamedItem( "ammo_rifleclip" );
+		GiveNamedItem( "weapon_grenadel" );
+		GiveNamedItem( "ammo_contact" );
+		GiveNamedItem( "ammo_timed" );
+		GiveNamedItem( "weapon_rocketl" );
+		GiveNamedItem( "ammo_rocket" );
+		GiveNamedItem( "weapon_boltgun" );
+		GiveNamedItem( "ammo_boltgun" );
+		GiveNamedItem( "weapon_chumtoad" );
+		GiveNamedItem( "weapon_tnt" );
+		GiveNamedItem( "weapon_railgun" );
+		GiveNamedItem( "ammo_railslug" );
+		GiveNamedItem( "weapon_pulserifle" );
+		GiveNamedItem( "weapon_ifrtripmine" );
+		GiveNamedItem( "weapon_clustergrenade" );
+		GiveNamedItem( "weapon_nuke" );
+		GiveNamedItem( "ammo_nukeclip" );
+
 		gEvilImpulse101 = FALSE;
-	    break;
-
-	case 16:
-		gEvilImpulse101 = TRUE;
-
-
-		gEvilImpulse101 = FALSE;
-	    break;
-
+		break;
 	}
-#endif	
+#endif	// HLDEMO_BUILD
 }
 
 //
@@ -5134,28 +4859,26 @@ BOOL CBasePlayer :: SwitchWeapon( CBasePlayerItem *pWeapon )
 
 	return TRUE;
 }
+//=========================================================
+// Cold Ice Grapple Hook
+//=========================================================
 class CHook : public CBaseEntity
 {
-    //Define the class and all the functions we need.
+
     void Spawn( void );
 
-    int  Classify ( void ); //huh
+    int  Classify ( void ); 
     void EXPORT HookTouch( CBaseEntity *pOther );
-//so we know when we hit something
-    void KillHook( void ); // DIE IT MUST DIE...
-    void Think ( void ); //My god it can think
-
-    //Keep track of this so the player won't
-    //bounce around like hes on a bungie cord.
+    void KillHook( void );
+    void Think ( void ); 
     Vector m_vPlayerHangOrigin;
-    //HACKHACK: Something like the above but it was late.
     BOOL m_fPlayerAtEnd; 
     short ropesprite;
     
-public:
-    static CHook *HookCreate( void ); //the name says it all
+	public:
+    static CHook *HookCreate( void ); 
     void Precache( void );
-    CBasePlayer *pevOwner; //Keep track of our owner
+    CBasePlayer *pevOwner; 
 
 };
 
@@ -5163,23 +4886,17 @@ LINK_ENTITY_TO_CLASS( grapple_hook, CHook );
 
 CHook *CHook::HookCreate( void )
 {
-    // Lets make a new hook shall we...
     CHook *pHook = GetClassPtr( (CHook *)NULL );
     pHook->pev->classname = MAKE_STRING("hook");
     pHook->Spawn();
-    // la la la la la
     return pHook;
 }
 
 void CHook::Spawn( )
 {
-
-    //Spawn the new hook
     Precache( );
     pev->movetype = MOVETYPE_FLY;
     pev->solid = SOLID_BBOX;
-    //lower grav to make up for the engine not being able to
-    // calculate wind resistance.
     pev->gravity = -0.01;
 
     SET_MODEL(ENT(pev), "models/bolt.mdl");
@@ -5188,28 +4905,26 @@ void CHook::Spawn( )
     UTIL_SetSize(pev, Vector(0, 0, 0), Vector(0, 0, 0));
 
     SetTouch( CHook::HookTouch );
-//  pev->nextthink = gpGlobals->time + 0.2;
 }
 
 
 void CHook::Precache( )
 {
-    //Precache or die
     PRECACHE_MODEL ("models/bolt.mdl");
+
     PRECACHE_SOUND("weapons/xbow_hitbod1.wav");
     PRECACHE_SOUND("weapons/xbow_hitbod2.wav");
+
     PRECACHE_SOUND("weapons/xbow_fly1.wav");
     PRECACHE_SOUND("weapons/xbow_hit1.wav");
-	PRECACHE_SOUND("weapons/xbow_fire1.wav");
-    PRECACHE_SOUND("fvox/beep.wav");
-	PRECACHE_SOUND("items/jetpackon.wav");
+	PRECACHE_SOUND("weapons/grapple/deploy.wav");
+
     ropesprite = PRECACHE_MODEL("sprites/smoke.spr");
 }
 
 
 int CHook :: Classify ( void )
 {
-    //Damned if i know why this is here.
     return  CLASS_NONE;
 }
 
@@ -5222,28 +4937,24 @@ void CHook::HookTouch( CBaseEntity *pOther )
         TraceResult tr = UTIL_GetGlobalTrace( );
         entvars_t   *Owner;
         Owner = VARS( pev->owner );
-        //Do some damage if we hit a player
         pOther->TraceAttack(Owner, 5, pev->velocity.Normalize(), &tr, DMG_NEVERGIB ); 
         ApplyMultiDamage( pev, Owner );
-
         pev->velocity = Vector( 0, 0, 0 );
-        // play body "thwack" sound
+
         switch( RANDOM_LONG(0,1) )
         {
-        case 0:
-            EMIT_SOUND(ENT(pev), CHAN_WEAPON, "weapons/xbow_hitbod1.wav", 
-1, ATTN_NORM); break;
-        case 1:
-            EMIT_SOUND(ENT(pev), CHAN_WEAPON, "weapons/xbow_hitbod2.wav", 
-1, ATTN_NORM); break;
+			case 0:
+				EMIT_SOUND(ENT(pev), CHAN_WEAPON, "weapons/xbow_hitbod1.wav", 1, ATTN_NORM); break;
+			case 1:
+				EMIT_SOUND(ENT(pev), CHAN_WEAPON, "weapons/xbow_hitbod2.wav", 1, ATTN_NORM); break;
         }
-	pevOwner->m_fHookButton = FALSE;
-    pevOwner->pev->movetype = MOVETYPE_WALK;
-    pevOwner->m_fActiveHook = FALSE;
-    pevOwner->m_fHookInWall = FALSE;
-    pevOwner->pev->gravity = 1;
-    m_fPlayerAtEnd = FALSE;
-    SUB_Remove();
+		pevOwner->m_fHookButton = FALSE;
+		pevOwner->pev->movetype = MOVETYPE_WALK;
+		pevOwner->m_fActiveHook = FALSE;
+		pevOwner->m_fHookInWall = FALSE;
+		pevOwner->pev->gravity = 1;
+		m_fPlayerAtEnd = FALSE;
+		SUB_Remove();
 
         if ( !g_pGameRules->IsMultiplayer() )
         {
@@ -5253,14 +4964,9 @@ void CHook::HookTouch( CBaseEntity *pOther )
     }
     else
     {
-        EMIT_SOUND_DYN(ENT(pev), CHAN_WEAPON, "weapons/xbow_hit1.wav", 
-RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,7));
-
-        //if ( FClassnameIs( pOther->pev, "worldspawn" ) )
-        {
-            // if what we hit is static architecture
-            // stop the hook from moving and set it's think
-            // so we can draw a beam and pull the player
+        EMIT_SOUND_DYN(ENT(pev), CHAN_WEAPON, "weapons/xbow_hit1.wav", RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,7));
+        
+		{
             Vector vecDir = pev->velocity.Normalize( );
             UTIL_SetOrigin( pev, pev->origin - vecDir * 12 );
             pev->angles = UTIL_VecToAngles( vecDir );
@@ -5272,23 +4978,19 @@ RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 98 + RANDOM_LONG(0,7));
             SetThink( CHook::Think );
             pev->nextthink = gpGlobals->time + 0.01;
 
-            // Keep track of stuff so there is only one
-            // active hook per player.
             pevOwner->m_fHookInWall = TRUE; 
             pevOwner->m_fActiveHook = TRUE;
             pevOwner->pev->movetype = MOVETYPE_FLY;
 
         }
 
-            UTIL_Sparks( pev->origin ); //ohhhh some nice sparks when we hit the wall
+            UTIL_Sparks( pev->origin ); 
 
     }
 
 }
-void CHook::KillHook( void ) {
-
-    //Reset everything so the player can walk again
-    //and fire another hook when he wants
+void CHook::KillHook( void ) 
+{
     pevOwner->m_fHookButton = FALSE;
     pevOwner->pev->movetype = MOVETYPE_WALK;
     pevOwner->m_fActiveHook = FALSE;
@@ -5299,56 +5001,59 @@ void CHook::KillHook( void ) {
 }
 
 
-void CHook::Think ( void ) {
+void CHook::Think ( void )
+{
     
-    //Check to make use the player is not dead
-    if(!pevOwner->IsAlive( ) ) {
+    if(!pevOwner->IsAlive( ) ) 
+	{
         KillHook();
         return;
     }
     
-    //Make sure hes still holding +hook
-    if(!pevOwner->m_fHookButton){
+    if(!pevOwner->m_fHookButton)
+	{
         KillHook();
         return;
     }
 
 
-MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY ); //Draw the rope
-    WRITE_BYTE( TE_BEAMENTS ); 
-    WRITE_SHORT( pevOwner->entindex() );
-    WRITE_SHORT( this->entindex() );
-    WRITE_SHORT( ropesprite ); 
-    WRITE_BYTE( 1 );
-    WRITE_BYTE( 0 ); 
-    WRITE_BYTE( 1 ); 
-    WRITE_BYTE( 10 ); 
-    WRITE_BYTE( 0 ); 
-    WRITE_BYTE( 0 ); //Red
-    WRITE_BYTE( 113 ); //Green
-    WRITE_BYTE( 230 ); //Blue
-    WRITE_BYTE( 185 ); //Brightness
-    WRITE_BYTE( 10 );
-MESSAGE_END( );
+	MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY ); 
+		WRITE_BYTE( TE_BEAMENTS ); 
+		WRITE_SHORT( pevOwner->entindex() );
+		WRITE_SHORT( this->entindex() );
+		WRITE_SHORT( ropesprite ); 
+		WRITE_BYTE( 1 );
+		WRITE_BYTE( 0 ); 
+		WRITE_BYTE( 1 ); 
+		WRITE_BYTE( 10 ); 
+		WRITE_BYTE( 0 ); 
+		WRITE_BYTE( 0 );	//Red
+		WRITE_BYTE( 113 );  //Green
+		WRITE_BYTE( 230 );  //Blue
+		WRITE_BYTE( 185 );  //Brightness
+		WRITE_BYTE( 10 );
+	MESSAGE_END( );
 
 
 
-    if(pevOwner->m_fHookInWall){  
-        if(!m_fPlayerAtEnd) {
-            if(( pev->origin - pevOwner->pev->origin ).Length() >= 50.0) {
-                //Just an equation i guessed at, use to have one that made
-                //them swing but it was to buggy, live with it :)
-                pevOwner->pev->velocity = (( pev->origin - pevOwner->pev->origin ) +
-                                            pevOwner->m_vVecDirHookMove) * 3.0; 
+    if(pevOwner->m_fHookInWall)
+	{  
+        if(!m_fPlayerAtEnd) 
+		{
+            if(( pev->origin - pevOwner->pev->origin ).Length() >= 50.0) 
+			{
+                pevOwner->pev->velocity = (( pev->origin - pevOwner->pev->origin ) + pevOwner->m_vVecDirHookMove) * 3.0; 
                 pevOwner->pev->speed = 150;
-            } else {
+            } 
+			else 
+			{
                 m_vPlayerHangOrigin = pevOwner->pev->origin;
                 m_fPlayerAtEnd = TRUE;
             }
         
         }
-        if(m_fPlayerAtEnd){
-            //Stop the player from moving so he can hang.
+        if(m_fPlayerAtEnd)
+		{
             pevOwner->pev->origin = m_vPlayerHangOrigin;
             pevOwner->pev->velocity = Vector(0, 0, 0);
             pevOwner->pev->gravity = -.001;
@@ -5356,7 +5061,7 @@ MESSAGE_END( );
         }
     }
 
-    pev->nextthink = gpGlobals->time + 0.01; //set delay untill next think
+    pev->nextthink = gpGlobals->time + 0.01; 
 
 }
 
@@ -5364,17 +5069,17 @@ MESSAGE_END( );
 
 void CBasePlayer::FireHook ( void )
 {
-    if(m_fActiveHook) //Don't let them have 2 hooks
+    if(m_fActiveHook) 
         return;
+	
 	if(!IsAlive( ) ) 
         return;
 
     TraceResult tr;
     m_iWeaponVolume = 300;
 
-    // make twang sound like the crossbow
-    EMIT_SOUND_DYN(ENT(pev), CHAN_WEAPON, "weapons/xbow_fire1.wav", 
-RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 93 + RANDOM_LONG(0,0xF));
+ 
+    EMIT_SOUND_DYN(ENT(pev), CHAN_WEAPON, "weapons/grapple/deploy.wav", RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 93 + RANDOM_LONG(0,0xF));
 
     Vector anglesAim = pev->v_angle + pev->punchangle;
     UTIL_MakeVectors( anglesAim );
@@ -5382,10 +5087,8 @@ RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 93 + RANDOM_LONG(0,0xF));
     anglesAim.x     = -anglesAim.x;
     Vector vecSrc    = GetGunPosition( ) - gpGlobals->v_up * 2;
     Vector vecDir    = gpGlobals->v_forward;
-    //Make a new hook
     CHook *pHook = CHook::HookCreate();
     m_fActiveHook = TRUE;
-    //set it's angle and velocity and uhh stuff
     pHook->pev->origin = vecSrc;
     pHook->pev->angles = anglesAim;
     pHook->pev->owner = edict();
@@ -5399,38 +5102,8 @@ RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 93 + RANDOM_LONG(0,0xF));
     pev->punchangle.x -= 2;
     
 }
-void CBasePlayer :: JetPackFly( void )
-{
-	if(!m_fJetPack) //if we don't have jetpack return
-		return;
-	
-	//Ok vectors kick ass...
-	Vector vecSrc = pev->origin;
-	Vector vecAiming = gpGlobals->v_forward;
-	Vector vecTarget = gpGlobals->v_forward;
-	Vector vecDir;
-	
-	//Traceline does to... We use it to find where to fly at.	
-	TraceResult tr;
-	UTIL_TraceLine ( vecSrc, vecSrc + vecAiming
- * 8192, dont_ignore_monsters, ENT(pev), &tr );
-		
-	float flSpeed = pev->velocity.Length();
-
-	if(m_fFlyKeyDown) {
-		//Nifty Cool code that moves us around. The number after .Normalize() * 
-		//controls the speed at which you fly.. the higher the faster
-//		    EMIT_SOUND_DYN(ENT(pev), CHAN_ITEM, "items/jetpackon.wav", 
-//RANDOM_FLOAT(0.95, 1.0), ATTN_NORM, 0, 100 + RANDOM_LONG(0,0xF));
-		pev->nextthink = gpGlobals->time + 0.1;
-		vecDir = tr.vecEndPos - pev->origin;
-		vecTarget = vecDir;
-		pev->velocity = (pev->velocity * 0.2 + vecTarget 
-* (flSpeed * 0.2 + 400)).Normalize() * 350;
-		pev->velocity.z += 25; //i dunno if this does anything anymore
-	
-	}
-}
+//=========================================================
+//=========================================================
 
 //=========================================================
 // Dead HEV suit prop
@@ -5630,7 +5303,7 @@ void CInfoIntermission::Spawn( void )
 	pev->effects = EF_NODRAW;
 	pev->v_angle = g_vecZero;
 
-	pev->nextthink = gpGlobals->time + .1;// let targets spawn!
+	pev->nextthink = gpGlobals->time + 2;// let targets spawn!
 
 }
 
@@ -5644,12 +5317,14 @@ void CInfoIntermission::Think ( void )
 	if ( !FNullEnt(pTarget) )
 	{
 		pev->v_angle = UTIL_VecToAngles( (pTarget->v.origin - pev->origin).Normalize() );
-		pev->v_angle.x = +pev->v_angle.x;
+		pev->v_angle.x = -pev->v_angle.x;
 	}
 }
 
 LINK_ENTITY_TO_CLASS( info_intermission, CInfoIntermission );
 
+//=========================================================
+//=========================================================
 extern int gmsgShowMenu; // the message # for ShowMenu
 
 void ShowMenu (CBasePlayer *pPlayer, int bitsValidSlots, int nDisplayTime, BOOL fNeedMore, char *pszText)
@@ -5661,16 +5336,147 @@ void ShowMenu (CBasePlayer *pPlayer, int bitsValidSlots, int nDisplayTime, BOOL 
 		WRITE_STRING (pszText);
 	MESSAGE_END();
 }
-void ShowAllMenu ( CBasePlayer *pPlayer, int bitsValidSlots, int nDisplayTime, BOOL fNeedMore, const char *pszText)
+//=========================================================
+//=========================================================
+
+
+//=========================================================
+// Runes
+//=========================================================
+float CBasePlayer::RuneDamage( entvars_t *pevAttacker, float flDamage)
 {
-	MESSAGE_BEGIN( MSG_ALL, gmsgShowMenu );
-		WRITE_SHORT( bitsValidSlots);
-		WRITE_CHAR( nDisplayTime );
-		WRITE_BYTE( fNeedMore );
-		WRITE_STRING ( pszText );
-	MESSAGE_END();
+
+	if( GetClassPtr((CBasePlayer *)pevAttacker)->m_iPlayerRune == RUNE_STRENGTH)
+	{
+		flDamage = flDamage * 1.5;
+	}
+
+	return flDamage;
 }
 
+float CBasePlayer::RuneProtect(float flDamage)
+{
 
+	if( m_iPlayerRune & RUNE_RESIST )
+	{
+		flDamage = flDamage * 0.75;
+	}
+
+	return flDamage;
+
+}
+
+void CBasePlayer::RuneHeal( )
+{
+	if (m_flRuneHealTime > gpGlobals->time)
+		return;
+
+
+	if (pev->health < 100.0 ) 
+	{
+		pev->health = pev->health + 1.0;
+		m_flRuneHealTime = gpGlobals->time + 1.0;
+
+		return;
+	}
+
+	if (pev->armorvalue < 100.0 )
+	{
+		pev->armorvalue = pev->armorvalue + 1.0;
+		m_flRuneHealTime = gpGlobals->time + 2.0;
+
+		return;
+	}
+
+}
+void CBasePlayer::RuneSpeed( )
+{
+
+	if ( !FBitSet(pev->flags, FL_ONGROUND) )
+	{
+		pev->movetype = MOVETYPE_WALK;
+
+		return;
+	}
+	
+
+	if( pev->button & IN_FORWARD )
+	{
+		pev->movetype = MOVETYPE_FLY;
+		UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
+		Vector New_Position = pev->origin + gpGlobals->v_forward * 500;
+
+		pev->velocity = New_Position- pev->origin;
+
+		return;
+	}
+
+	if( pev->button & IN_BACK )
+	{
+		pev->movetype = MOVETYPE_FLY;
+		UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
+		Vector New_Position = pev->origin - gpGlobals->v_forward * 500;
+		pev->velocity = New_Position- pev->origin;
+
+		return;
+
+	}
+
+	if( pev->button & IN_MOVERIGHT )
+	{
+		pev->movetype = MOVETYPE_FLY;
+		UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
+		Vector New_Position = pev->origin + gpGlobals->v_right * 500;
+		pev->velocity = New_Position- pev->origin;
+
+		return;
+	}
+
+	if( pev->button & IN_MOVELEFT )
+	{
+		pev->movetype = MOVETYPE_FLY;
+		UTIL_MakeVectors( pev->v_angle + pev->punchangle ); 
+		Vector New_Position = pev->origin - gpGlobals->v_right * 500;
+		pev->velocity = New_Position- pev->origin;
+
+		return;
+	}
+	
+
+}
+
+void CBasePlayer::DropRune( )
+{
+	SpawnRunes( );
+	m_iPlayerRune = 0;
+}
+
+void CBasePlayer::SpawnRunes( )
+{
+	if(!m_iPlayerRune)
+		return;
+
+	CBaseEntity *CRune;
+
+	char *sz_Rune;
+
+	switch (m_iPlayerRune)
+	{
+		case RUNE_SPEED:       sz_Rune  = "rune_speed"; break;
+		case RUNE_STRENGTH:    sz_Rune  = "rune_strength"; break;
+		case RUNE_RESIST:      sz_Rune  = "rune_resist"; break;
+		case RUNE_HEALTH:      sz_Rune  = "rune_health"; break;
+		case RUNE_ROCKETARENA: sz_Rune  = "rune_rocketarena"; break;
+		
+		default:
+		ALERT ( at_console, "Unable to determine rune\n" );
+	}
+
+	CRune = CBaseEntity::Create(sz_Rune, pev->origin + Vector (0, 50, 0), Vector(0, 0,0), NULL );
+
+}
+
+//=========================================================
+//=========================================================
 
 

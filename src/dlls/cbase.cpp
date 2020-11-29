@@ -713,7 +713,7 @@ CBaseEntity * CBaseEntity::Create( char *szName, const Vector &vecOrigin, const 
 	pent = CREATE_NAMED_ENTITY( MAKE_STRING( szName ));
 	if ( FNullEnt( pent ) )
 	{
-		ALERT ( at_console, " " );
+		ALERT ( at_console, "NULL Ent in Create!\n" );
 		return NULL;
 	}
 	pEntity = Instance( pent );

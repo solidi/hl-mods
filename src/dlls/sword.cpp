@@ -1,17 +1,16 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
 
 #include "extdll.h"
 #include "util.h"
@@ -23,10 +22,10 @@
 #include "gamerules.h"
 
 
-#define	CROWBAR_BODYHIT_VOLUME 128
-#define	CROWBAR_WALLHIT_VOLUME 512
+#define	SWORD_BODYHIT_VOLUME 128
+#define	SWORD_WALLHIT_VOLUME 512
 
-class CWrench : public CBasePlayerWeapon
+class CSword : public CBasePlayerWeapon
 {
 public:
 	void Spawn( void );
@@ -35,6 +34,9 @@ public:
 	void EXPORT SwingAgain( void );
 	void EXPORT Smack( void );
 	int GetItemInfo(ItemInfo *p);
+	int AddToPlayer( CBasePlayer *pPlayer );
+
+	int menu_on ;
 
 	void PrimaryAttack( void );
 	int Swing( int fFirst );
@@ -43,52 +45,42 @@ public:
 	int m_iSwing;
 	TraceResult m_trHit;
 };
-LINK_ENTITY_TO_CLASS( weapon_wrench, CWrench );
+LINK_ENTITY_TO_CLASS( weapon_sword, CSword );
 
 
 
-enum gauss_e {
-	 WRENCH_IDLE = 0,
-	 WRENCH_ATTACK,
-	 WRENCH_ATTACK2,
-	 WRENCH_USE,
-	 WRENCH_DRAW,
-	 WRENCH_HOLSTER,
+enum sword_e {
+	SWORD_IDLE = 0,
+	SWORD_DRAW,
+	SWORD_HOLSTER,
+	SWORD_ATTACK1HIT,
+	SWORD_ATTACK1MISS,
+	SWORD_ATTACK2MISS,
+	SWORD_ATTACK2HIT,
+	SWORD_ATTACK3MISS,
+	SWORD_ATTACK3HIT
 };
 
 
-void CWrench::Spawn( )
+void CSword::Spawn( )
 {
-		if ( CVAR_GET_FLOAT( "rocket_arena" ) == 2 ||  CVAR_GET_FLOAT( "automatic_arena" ) == 2 )	
-	{
-		return;
-	}
-	else
-	{
 	Precache( );
-	m_iId = WEAPON_WRENCH;
-	SET_MODEL(ENT(pev), "models/w_crowbar.mdl");
+	m_iId = WEAPON_SWORD;
+	SET_MODEL(ENT(pev), "models/wmodels/w_sword.mdl");
 	m_iClip = -1;
 
-	FallInit();// get ready to fall down.
-	}
+	FallInit();
 }
 
 
-void CWrench::Precache( void )
+void CSword::Precache( void )
 {
-	PRECACHE_MODEL("models/vmodels/v_wrench.mdl");
-	PRECACHE_MODEL("models/w_crowbar.mdl");
-	PRECACHE_MODEL("models/pmodels/p_wrench.mdl");
-	PRECACHE_SOUND("weapons/cbar_hit1.wav");
-	PRECACHE_SOUND("weapons/cbar_hit2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod1.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod2.wav");
-	PRECACHE_SOUND("weapons/cbar_hitbod3.wav");
-	PRECACHE_SOUND("weapons/wrench_miss.wav");
+	PRECACHE_MODEL("models/vmodels/v_sword.mdl");
+	PRECACHE_MODEL("models/wmodels/w_sword.mdl");
+	PRECACHE_MODEL("models/pmodels/p_sword.mdl");
 }
 
-int CWrench::GetItemInfo(ItemInfo *p)
+int CSword::GetItemInfo(ItemInfo *p)
 {
 	p->pszName = STRING(pev->classname);
 	p->pszAmmo1 = NULL;
@@ -98,27 +90,80 @@ int CWrench::GetItemInfo(ItemInfo *p)
 	p->iMaxClip = WEAPON_NOCLIP;
 	p->iSlot = 0;
 	p->iPosition = 2;
-	p->iId = WEAPON_WRENCH;
-	p->iWeight = WRENCH_WEIGHT;
-	p->weaponName = "40 Pound Monkey Wrench";  
+	p->iId = WEAPON_SWORD;
+	p->iWeight = SWORD_WEIGHT;
 	return 1;
 }
-
-
-
-BOOL CWrench::Deploy( )
+int CSword::AddToPlayer( CBasePlayer *pPlayer )
 {
-	return DefaultDeploy( "models/vmodels/v_wrench.mdl", "models/pmodels/p_wrench.mdl", WRENCH_DRAW, "crowbar" );
+	if ( CBasePlayerWeapon::AddToPlayer( pPlayer ) )
+	{
+		MESSAGE_BEGIN( MSG_ONE, gmsgWeapPickup, NULL, pPlayer->pev );
+			WRITE_BYTE( m_iId );
+		MESSAGE_END();
+		return TRUE;
+	}
+	return FALSE;
 }
 
-void CWrench::Holster( )
+BOOL CSword::Deploy( )
 {
-	//ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "Switching Wrench\n");
+	return DefaultDeploy( "models/vmodels/v_sword.mdl", "models/pmodels/p_sword.mdl", SWORD_DRAW, "crowbar" );
+}
+
+void CSword::Holster( )
+{
 	m_pPlayer->m_flNextAttack = gpGlobals->time + 0.5;
-	SendWeaponAnim( WRENCH_HOLSTER );
+	SendWeaponAnim( SWORD_HOLSTER );
 }
 
-void CWrench::PrimaryAttack()
+
+void FindHullIntersectionSword( const Vector &vecSrc, TraceResult &tr, float *mins, float *maxs, edict_t *pEntity )
+{
+	int			i, j, k;
+	float		distance;
+	float		*minmaxs[2] = {mins, maxs};
+	TraceResult tmpTrace;
+	Vector		vecHullEnd = tr.vecEndPos;
+	Vector		vecEnd;
+
+	distance = 1e6f;
+
+	vecHullEnd = vecSrc + ((vecHullEnd - vecSrc)*2);
+	UTIL_TraceLine( vecSrc, vecHullEnd, dont_ignore_monsters, pEntity, &tmpTrace );
+	if ( tmpTrace.flFraction < 1.0 )
+	{
+		tr = tmpTrace;
+		return;
+	}
+
+	for ( i = 0; i < 2; i++ )
+	{
+		for ( j = 0; j < 2; j++ )
+		{
+			for ( k = 0; k < 2; k++ )
+			{
+				vecEnd.x = vecHullEnd.x + minmaxs[i][0];
+				vecEnd.y = vecHullEnd.y + minmaxs[j][1];
+				vecEnd.z = vecHullEnd.z + minmaxs[k][2];
+
+				UTIL_TraceLine( vecSrc, vecEnd, dont_ignore_monsters, pEntity, &tmpTrace );
+				if ( tmpTrace.flFraction < 1.0 )
+				{
+					float thisDistance = (tmpTrace.vecEndPos - vecSrc).Length();
+					if ( thisDistance < distance )
+					{
+						tr = tmpTrace;
+						distance = thisDistance;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+void CSword::PrimaryAttack()
 {
 	if (! Swing( 1 ))
 	{
@@ -127,20 +172,20 @@ void CWrench::PrimaryAttack()
 	}
 }
 
-void CWrench::Smack( )
 
+void CSword::Smack( )
 {
 	DecalGunshot( &m_trHit, BULLET_PLAYER_CROWBAR );
 }
 
 
-void CWrench::SwingAgain( void )
+void CSword::SwingAgain( void )
 {
 	Swing( 0 );
 }
 
 
-int CWrench::Swing( int fFirst )
+int CSword::Swing( int fFirst )
 {
 	int fDidHit = FALSE;
 
@@ -160,7 +205,9 @@ int CWrench::Swing( int fFirst )
 			// Calculate the point of intersection of the line (or hull) and the object we hit
 			// This is and approximation of the "best" intersection
 			CBaseEntity *pHit = CBaseEntity::Instance( tr.pHit );
-		
+			if ( !pHit || pHit->IsBSPModel() )
+				FindHullIntersectionSword( vecSrc, tr, VEC_DUCK_HULL_MIN, VEC_DUCK_HULL_MAX, m_pPlayer->edict() );
+			vecEnd = tr.vecEndPos;	// This is the point on the actual surface (the hull could have hit space)
 		}
 	}
 
@@ -172,15 +219,15 @@ int CWrench::Swing( int fFirst )
 			switch( (m_iSwing++) % 3 )
 			{
 			case 0:
-				SendWeaponAnim( WRENCH_ATTACK ); break;
+				SendWeaponAnim( SWORD_ATTACK1MISS ); break;
 			case 1:
-				SendWeaponAnim( WRENCH_ATTACK2 ); break;
+				SendWeaponAnim( SWORD_ATTACK2MISS ); break;
 			case 2:
-				SendWeaponAnim( WRENCH_ATTACK ); break;
+				SendWeaponAnim( SWORD_ATTACK3MISS ); break;
 			}
 			m_flNextPrimaryAttack = gpGlobals->time + 0.7;
 			// play wiff or swish sound
-			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/wrench_miss.wav", 1, ATTN_NORM, 0, 94 + RANDOM_LONG(0,0xF));
+			EMIT_SOUND_DYN(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_miss1.wav", 1, ATTN_NORM, 0, 50 + RANDOM_LONG(0,0xF));
 
 			// player "shoot" animation
 			m_pPlayer->SetAnimation( PLAYER_ATTACK1 );
@@ -196,11 +243,11 @@ int CWrench::Swing( int fFirst )
 		switch( ((m_iSwing++) % 2) + 1 )
 		{
 		case 0:
-			SendWeaponAnim( WRENCH_ATTACK2 ); break;
+			SendWeaponAnim( SWORD_ATTACK1HIT ); break;
 		case 1:
-			SendWeaponAnim( WRENCH_ATTACK ); break;
+			SendWeaponAnim( SWORD_ATTACK2HIT ); break;
 		case 2:
-			SendWeaponAnim( WRENCH_ATTACK2 ); break;
+			SendWeaponAnim( SWORD_ATTACK3HIT ); break;
 		}
 
 		// player "shoot" animation
@@ -210,12 +257,12 @@ int CWrench::Swing( int fFirst )
 		if ( (m_flNextPrimaryAttack + 1 < gpGlobals->time) || g_pGameRules->IsMultiplayer() )
 		{
 			// first swing does full damage
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgWrench, gpGlobals->v_forward, &tr, DMG_CLUB ); 
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgSword, gpGlobals->v_forward, &tr, DMG_CLUB ); 
 		}
 		else
 		{
 			// subsequent swings do half
-			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgWrench / 2, gpGlobals->v_forward, &tr, DMG_CLUB ); 
+			pEntity->TraceAttack(m_pPlayer->pev, gSkillData.plrDmgSword / 2, gpGlobals->v_forward, &tr, DMG_CLUB ); 
 		}	
 		ApplyMultiDamage( m_pPlayer->pev, m_pPlayer->pev );
 
@@ -239,7 +286,7 @@ int CWrench::Swing( int fFirst )
 				case 2:
 					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_WEAPON, "weapons/cbar_hitbod3.wav", 1, ATTN_NORM); break;
 				}
-				m_pPlayer->m_iWeaponVolume = CROWBAR_BODYHIT_VOLUME;
+				m_pPlayer->m_iWeaponVolume = SWORD_BODYHIT_VOLUME;
 				if (!pEntity->IsAlive() )
 					return TRUE;
 				else
@@ -281,9 +328,9 @@ int CWrench::Swing( int fFirst )
 		// delay the decal a bit
 		m_trHit = tr;
 		SetThink( Smack );
-		pev->nextthink = gpGlobals->time + 0.05;
+		pev->nextthink = gpGlobals->time + 0.2;
 
-		m_pPlayer->m_iWeaponVolume = flVol * CROWBAR_WALLHIT_VOLUME;
+		m_pPlayer->m_iWeaponVolume = flVol * SWORD_WALLHIT_VOLUME;
 	}
 	return fDidHit;
 }

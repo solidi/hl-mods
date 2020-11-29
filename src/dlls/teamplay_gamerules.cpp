@@ -26,7 +26,7 @@
 
 static char team_names[MAX_TEAMS][MAX_TEAMNAME_LENGTH];
 static int team_scores[MAX_TEAMS];
-static int num_teams = 2;
+static int num_teams = 0;
 
 extern DLL_GLOBAL BOOL		g_fGameOver;
 
@@ -114,68 +114,8 @@ BOOL CHalfLifeTeamplay :: ClientCommand( CBasePlayer *pPlayer, const char *pcmd 
 		int slot = atoi( CMD_ARGV(1) );
 
 		// select the item from the current menu
-		switch(pPlayer->m_nMenu) {
-		case Menu_Spec: {
-			if(slot == 1){
-				pPlayer->StopSpectator();
-			} else if (slot == 2) {
-				pPlayer->StartSpectator();
-					ShowMenu (pPlayer, 0x7, 5, 0, "Currently In Spectator Mode. \n\n Type in the console \"stopboserv\" \n to exit and join the game." );
-			}
-			break;
-		}
-		case Menu_Weap1: {
-			if(slot == 1)
-				pPlayer->m_cWeapon1 = "weapon_knife";
-			else if(slot == 2)
-				pPlayer->m_cWeapon1 = "weapon_crowbar";
-			else if(slot == 3)
-				pPlayer->m_cWeapon1 = "weapon_wrench";
-			pPlayer->m_nMenu = Menu_Weap2;
-			ShowMenu(pPlayer, 0x3, 0, FALSE,"Select Weapon\n\n1. 12-Gauge\n2. Walter PPK\n");
-			break;
-		}
-		case Menu_Weap2: {
-			if(slot == 1)
-				pPlayer->m_cWeapon2 = "weapon_sshotgun";
-			else if(slot == 2)
-				pPlayer->m_cWeapon2 = "weapon_9mmhandgun";
-			pPlayer->m_nMenu = Menu_Weap3;
-			ShowMenu(pPlayer, 0x3, 0, FALSE,"Select Weapon\n\n1. M-16 Assault Rifle\n2. Uzi Sub Machinegun\n");	
-			break;
-		}
-		case Menu_Weap3: {
-			if(slot == 1)
-				pPlayer->m_cWeapon3 = "weapon_m16";
-			else if(slot == 2)
-				pPlayer->m_cWeapon3 = "weapon_uzi";
-			pPlayer->m_nMenu = Menu_Weap4;
-			ShowMenu(pPlayer, 0x3, 0, FALSE,"Choose a High Tech Device\n\n1. High Energy Taser\n2. High Energy Laser Rifle");
-			break;
-		}
-		case Menu_Weap4: {
-			if(slot == 1)
-				pPlayer->m_cWeapon4 = "weapon_taser";
-			else if(slot == 2)
-				pPlayer->m_cWeapon4 = "weapon_lrifle";
-			pPlayer->m_nMenu = Menu_Spec;
-			ShowMenu(pPlayer, 0x3, 0, FALSE,"Choose a Method of Play\n\n1. Jump In!\n2. Observe Game\n");
-			break;
-		}
-		}
+
 		return TRUE;
-
-	    if ( FStrEq( pcmd, "stopobserv" ) ) 
-	{
-		pPlayer->StopSpectator();
-	    return TRUE;
-	}
-   	   else if ( FStrEq( pcmd, "startobserv" ) ) 
-	{
-		pPlayer->StartSpectator();
-	    return TRUE;
-	}
-
 	}
 
 	return FALSE;
@@ -259,11 +199,6 @@ void CHalfLifeTeamplay::InitHUD( CBasePlayer *pPlayer )
 				WRITE_BYTE( plr->entindex() );
 				WRITE_STRING( plr->TeamID() );
 			MESSAGE_END();
-
-	pPlayer->StartSpectatorMenu();
-	pPlayer->m_nMenu = Menu_Weap1;
-	ShowMenu(pPlayer, 0x7, 0, FALSE,"Welcome to Cold Ice Beta1 2x\n\nSmart Hud Build .99\n\n TeamPlay Activated \n\n Select Close Range Weapon\n1. Knife\n2. Crowbar\n3. 40lbs Wrench\n");
-
 		}
 	}
 }

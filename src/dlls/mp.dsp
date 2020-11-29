@@ -125,25 +125,25 @@ SOURCE="$(InputPath)"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo /o".\Profilemp/ice.bsc"
+# ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /debug /machine:I386 /def:".\mp.def"
 # SUBTRACT BASE LINK32 /profile
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\mp.def" /out:".\Profilemp/ice.dll"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\mp.def"
 # Begin Custom Build - Copying to \SIERRA\Half-Life\ice\dlls
 TargetDir=.\Profilemp
-InputPath=.\Profilemp\ice.dll
+InputPath=.\Profilemp\mp.dll
 SOURCE="$(InputPath)"
 
 BuildCmds= \
-	copy $(TargetDir)\ice.dll \SIERRA\Half-Life\ice\dlls \
-	copy $(TargetDir)\ice.map \SIERRA\Half-Life\ice\dlls \
+	copy $(TargetDir)\mp.dll \SIERRA\Half-Life\ice\dlls \
+	copy $(TargetDir)\mp.map C:\SIERRA\Half-Life\ice\dlls \
 	
 
-"C:\SIERRA\Half-Life\ice\dlls\ice.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"C:\SIERRA\Half-Life\ice\dlls\mp.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
    $(BuildCmds)
 
-"C:\SIERRA\Half-Life\ice\dlls\ice.map" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"C:\SIERRA\Half-Life\ice\dlls\mp.map" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
    $(BuildCmds)
 # End Custom Build
 
@@ -167,6 +167,10 @@ SOURCE=.\animation.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\ashotgun.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\bmodels.cpp
 # End Source File
 # Begin Source File
@@ -175,15 +179,7 @@ SOURCE=.\boltgun.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\bot.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\buttons.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\cannon.cpp
 # End Source File
 # Begin Source File
 
@@ -203,7 +199,7 @@ SOURCE=.\client.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\clustergrenade.cpp
+SOURCE=.\cluster_grenade.cpp
 # End Source File
 # Begin Source File
 
@@ -212,10 +208,6 @@ SOURCE=.\combat.cpp
 # Begin Source File
 
 SOURCE=.\crowbar.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\decoybomb.cpp
 # End Source File
 # Begin Source File
 
@@ -232,6 +224,10 @@ SOURCE=.\effects.cpp
 # Begin Source File
 
 SOURCE=.\explode.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\fragsforweapons_arena.cpp
 # End Source File
 # Begin Source File
 
@@ -291,15 +287,15 @@ SOURCE=.\knife.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\laser_rifle.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\lights.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\m16.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\mac_10.cpp
 # End Source File
 # Begin Source File
 
@@ -323,11 +319,11 @@ SOURCE=.\multiplay_gamerules.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\pathcorner.cpp
+SOURCE=.\nukelauncher.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\pepsibomb.cpp
+SOURCE=.\pathcorner.cpp
 # End Source File
 # Begin Source File
 
@@ -347,7 +343,15 @@ SOURCE=.\ppk.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\raygun.cpp
+SOURCE=.\pulse_rifle.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\railgun.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\railgun_arena.cpp
 # End Source File
 # Begin Source File
 
@@ -355,15 +359,15 @@ SOURCE=.\rifle.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\rpg.cpp
+SOURCE=.\rocket_arena.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\rocketl.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\runes.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\shotgun.cpp
 # End Source File
 # Begin Source File
 
@@ -372,10 +376,6 @@ SOURCE=.\singleplay_gamerules.cpp
 # Begin Source File
 
 SOURCE=.\skill.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\smokegrenade.cpp
 # End Source File
 # Begin Source File
 
@@ -399,7 +399,7 @@ SOURCE=.\subs.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\taser.cpp
+SOURCE=.\sword.cpp
 # End Source File
 # Begin Source File
 
@@ -415,7 +415,7 @@ SOURCE=.\triggers.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\usas.cpp
+SOURCE=.\tripmine.cpp
 # End Source File
 # Begin Source File
 
@@ -432,10 +432,6 @@ SOURCE=.\weapons.cpp
 # Begin Source File
 
 SOURCE=.\world.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\wrench.cpp
 # End Source File
 # Begin Source File
 
@@ -460,10 +456,6 @@ SOURCE=.\animation.h
 # Begin Source File
 
 SOURCE=.\basemonster.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\bot.h
 # End Source File
 # Begin Source File
 

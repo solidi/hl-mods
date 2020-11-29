@@ -136,7 +136,7 @@ public:
 
 	// path corners
 	CBaseEntity			*m_pGoalEnt;// path corner we are heading towards
-	CBaseEntity         *m_pLink;// used for temporary link-list operations.
+	CBaseEntity			*m_pLink;// used for temporary link-list operations. 
 
 	// initialization functions
 	virtual void	Spawn( void ) { return; }
@@ -608,8 +608,8 @@ public:
 
 // NOTE: tweak these values based on gameplay feedback:
 
-#define PARALYZE_DURATION	40		// number of 2 second intervals to take damage
-#define PARALYZE_DAMAGE		0.0		// damage to take each 2 second interval
+#define PARALYZE_DURATION	2		// number of 2 second intervals to take damage
+#define PARALYZE_DAMAGE		1.0		// damage to take each 2 second interval
 
 #define NERVEGAS_DURATION	2
 #define NERVEGAS_DAMAGE		5.0
@@ -620,14 +620,14 @@ public:
 #define RADIATION_DURATION	2
 #define RADIATION_DAMAGE	1.0
 
-#define ACID_DURATION		10
-#define ACID_DAMAGE			20.0
+#define ACID_DURATION		2
+#define ACID_DAMAGE			5.0
 
 #define SLOWBURN_DURATION	2
 #define SLOWBURN_DAMAGE		1.0
 
-#define SLOWFREEZE_DURATION	20
-#define SLOWFREEZE_DAMAGE	5.0
+#define SLOWFREEZE_DURATION	2
+#define SLOWFREEZE_DAMAGE	1.0
 
 
 #define	itbd_Paralyze		0		

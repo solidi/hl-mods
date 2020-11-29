@@ -1,20 +1,17 @@
-/***
-*
-*	Copyright (c) 1999, Valve LLC. All rights reserved.
-*	
-*	This product contains software technology licensed from Id 
-*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
-*	All Rights Reserved.
-*
-*   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
-*   Valve LLC.  All other use, distribution, or modification is prohibited
-*   without written permission from Valve LLC.
-*
-****/
-//
-// teamplay_gamerules.cpp
-//
+/*
+	Copyright (c) 1999, Cold Ice Modification. 
+	
+	This code has been written by SlimShady ( darcuri@optonline.net )
+
+    Use, distribution, and modification of this source code and/or resulting
+    object code is restricted to non-commercial enhancements to products from
+    Valve LLC.  All other use, distribution, or modification is prohibited
+    without written permission from Valve LLC and from the Cold Ice team.
+
+    Please if you use this code in any public form, please give us credit.
+
+*/
+
 #include	"extdll.h"
 #include	"util.h"
 #include	"cbase.h"
@@ -31,29 +28,19 @@ extern int gmsgDeathMsg;	// client dll messages
 extern int gmsgScoreInfo;
 extern int gmsgMOTD;
 
-
 #define ITEM_RESPAWN_TIME	30
 #define WEAPON_RESPAWN_TIME	20
 #define AMMO_RESPAWN_TIME	20
 
 //*********************************************************
-// Rules for the half-life multiplayer game.
+// Rules for Cold Ice Railgun Arena
 //*********************************************************
 
-CHalfLifeMultiplay :: CHalfLifeMultiplay()
+CRailArena :: CRailArena()
 {
 	RefreshSkillData();
 	m_flIntermissionEndTime = 0;
 	
-	// 11/8/98
-	// Modified by YWB:  Server .cfg file is now a cvar, so that 
-	//  server ops can run multiple game servers, with different server .cfg files,
-	//  from a single installed directory.
-	// Mapcyclefile is already a cvar.
-
-	// 3/31/99
-	// Added lservercfg file cvar, since listen and dedicated servers should not
-	// share a single config file. (sjb)
 	if ( IS_DEDICATED_SERVER() )
 	{
 		// dedicated server
@@ -87,54 +74,15 @@ CHalfLifeMultiplay :: CHalfLifeMultiplay()
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay::RefreshSkillData( void )
+void CRailArena::RefreshSkillData( void )
 {
-// load all default values
 	CGameRules::RefreshSkillData();
-
-// override some values for multiplay.
 
 	// suitcharger
 	gSkillData.suitchargerCapacity = 30;
 
-	// Crowbar whack
-	gSkillData.plrDmgCrowbar = 25;
-
-	// Knife whack
-	gSkillData.plrDmgKnife = 28;
-
-	// Sword whack
-	gSkillData.plrDmgSword = 32;
-
-	// Glock Round
-	gSkillData.plrDmg9MM = 12;
-
-	// MP5 Round
-	gSkillData.plrDmgMP5 = 12;
-
-	// 765mm Round
-	gSkillData.plrDmgRifle = 200;
-
-	// Bolt
-	gSkillData.plrDmgBoltgun = 15;
-
-	// Contact grenade
-	gSkillData.plrDmgContact = 120;
-
-	// Cluster grenade
-	gSkillData.plrDmgClusterGrenade = 50;
-
 	// Rocket
-	gSkillData.plrDmgRocket = 145;
-
-	// Railgun Slug
-	gSkillData.plrDmgRailgun = 100;
-
-	// IRF Tripmine
-	gSkillData.plrDmgTripmine = 130;
-
-	// Buckshot
-	gSkillData.plrDmgBuckshot = 8;
+	gSkillData.plrDmgRailgun = 145;
 
 }
 
@@ -143,7 +91,7 @@ void CHalfLifeMultiplay::RefreshSkillData( void )
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay :: Think ( void )
+void CRailArena :: Think ( void )
 {
 	///// Check game rules /////
 
@@ -181,39 +129,41 @@ void CHalfLifeMultiplay :: Think ( void )
 			}
 		}
 	}
-	if ( CVAR_GET_FLOAT( "rocket_arena" ) == 1 )
-	{
-		GoToIntermission ();
-		CVAR_SET_FLOAT( "rocket_arena", 2 );	
-	}
 
 }
 
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::IsMultiplayer( void )
+BOOL CRailArena::IsMultiplayer( void )
 {
 	return TRUE;
 }
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::IsDeathmatch( void )
+BOOL CRailArena::IsDeathmatch( void )
 {
 	return TRUE;
 }
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::IsCoOp( void )
+BOOL CRailArena::IsRailArena( void )
+{
+	return TRUE;
+}
+
+//=========================================================
+//=========================================================
+BOOL CRailArena::IsCoOp( void )
 {
 	return gpGlobals->coop;
 }
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::FShouldSwitchWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pWeapon )
+BOOL CRailArena::FShouldSwitchWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pWeapon )
 {
 	if ( !pWeapon->CanDeploy() )
 	{
@@ -241,7 +191,7 @@ BOOL CHalfLifeMultiplay::FShouldSwitchWeapon( CBasePlayer *pPlayer, CBasePlayerI
 	return FALSE;
 }
 
-BOOL CHalfLifeMultiplay :: GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pCurrentWeapon )
+BOOL CRailArena :: GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pCurrentWeapon )
 {
 
 	CBasePlayerItem *pCheck;
@@ -310,7 +260,7 @@ BOOL CHalfLifeMultiplay :: GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerI
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay :: ClientConnected( edict_t *pEntity, const char *pszName, const char *pszAddress, char szRejectReason[ 128 ] )
+BOOL CRailArena :: ClientConnected( edict_t *pEntity, const char *pszName, const char *pszAddress, char szRejectReason[ 128 ] )
 {
 	return TRUE;
 }
@@ -318,14 +268,14 @@ BOOL CHalfLifeMultiplay :: ClientConnected( edict_t *pEntity, const char *pszNam
 extern int gmsgSayText;
 extern int gmsgGameMode;
 
-void CHalfLifeMultiplay :: UpdateGameMode( CBasePlayer *pPlayer )
+void CRailArena :: UpdateGameMode( CBasePlayer *pPlayer )
 {
 	MESSAGE_BEGIN( MSG_ONE, gmsgGameMode, NULL, pPlayer->edict() );
 		WRITE_BYTE( 0 );  // game mode none
 	MESSAGE_END();
 }
 
-void CHalfLifeMultiplay :: InitHUD( CBasePlayer *pl )
+void CRailArena :: InitHUD( CBasePlayer *pl )
 {
 	// notify other clients of player joining the game
 	UTIL_ClientPrintAll( HUD_PRINTNOTIFY, UTIL_VarArgs( "%s has joined the game\n", 
@@ -368,14 +318,14 @@ void CHalfLifeMultiplay :: InitHUD( CBasePlayer *pl )
 	}
 
 	pl->StartSpectator();
-	pl->m_nMenu = Menu_Wep;
-	ShowMenu(pl, 0x7, 0, 0,"Welcome to Cold Ice Beta1 2x\n\nCold-Ice Deathmatch Mode\n\nPlease choose a weapon.\n1. Knife\n2. Crowbar\n3. Sword");
+	pl->m_nMenu = Menu_Spec;
+	ShowMenu(pl, 0x3, 0, 0," Welcome to Cold Ice Beta1 2x\n\nCold-Ice Railgun Arena Mode\n\n1. Join Game\n2. Observe Game");
 
 }
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay :: ClientDisconnected( edict_t *pClient )
+void CRailArena :: ClientDisconnected( edict_t *pClient )
 {
 	if ( pClient )
 	{
@@ -384,7 +334,7 @@ void CHalfLifeMultiplay :: ClientDisconnected( edict_t *pClient )
 		if ( pPlayer )
 		{
 			FireTargets( "game_playerleave", pPlayer, pPlayer, USE_TOGGLE, 0 );
-			UTIL_LogPrintf( "\"%s<%i>\" disconnected\n",  STRING( pPlayer->pev->netname ), GETPLAYERUSERID( pPlayer->edict() ) );
+			UTIL_LogPrintf( "\"%s<%i>\" left from Railgun Arena\n",  STRING( pPlayer->pev->netname ), GETPLAYERUSERID( pPlayer->edict() ) );
 
 			pPlayer->RemoveAllItems( TRUE );// destroy all of the players weapons and items
 		}
@@ -393,7 +343,7 @@ void CHalfLifeMultiplay :: ClientDisconnected( edict_t *pClient )
 
 //=========================================================
 //=========================================================
-float CHalfLifeMultiplay :: FlPlayerFallDamage( CBasePlayer *pPlayer )
+float CRailArena :: FlPlayerFallDamage( CBasePlayer *pPlayer )
 {
 	int iFallDamage = (int)CVAR_GET_FLOAT("mp_falldamage");
 
@@ -412,14 +362,14 @@ float CHalfLifeMultiplay :: FlPlayerFallDamage( CBasePlayer *pPlayer )
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::FPlayerCanTakeDamage( CBasePlayer *pPlayer, CBaseEntity *pAttacker )
+BOOL CRailArena::FPlayerCanTakeDamage( CBasePlayer *pPlayer, CBaseEntity *pAttacker )
 {
 	return TRUE;
 }
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay :: PlayerThink( CBasePlayer *pPlayer )
+void CRailArena :: PlayerThink( CBasePlayer *pPlayer )
 {
 	if ( g_fGameOver )
 	{
@@ -436,7 +386,7 @@ void CHalfLifeMultiplay :: PlayerThink( CBasePlayer *pPlayer )
 }
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay :: ClientCommand( CBasePlayer *pPlayer, const char *pcmd )
+BOOL CRailArena :: ClientCommand( CBasePlayer *pPlayer, const char *pcmd )
 {
 
 	if ( FStrEq( pcmd, "menuselect" ) )
@@ -459,73 +409,49 @@ BOOL CHalfLifeMultiplay :: ClientCommand( CBasePlayer *pPlayer, const char *pcmd
 				break;
 			//=============================================================
 			//=============================================================
-			case Menu_Wep: 
-				if(slot == 1)
-					pPlayer->m_cWeapon1 = "weapon_knife";
-				else if (slot == 2) 
-					pPlayer->m_cWeapon1 = "weapon_crowbar";
-				else if (slot == 3) 
-					pPlayer->m_cWeapon1 = "weapon_sword";
-
-				pPlayer->m_nMenu = Menu_Spec;
-				ShowMenu(pPlayer, 0x3, 0, 0,"Choose a play option:\n\n1. Join Game\n2. Observe Game");
-				break;
-			//=============================================================
-			//=============================================================
-			case Menu_Change: 
-				if(slot == 1)
-					pPlayer->m_cWeapon1 = "weapon_knife";
-				else if (slot == 2) 
-					pPlayer->m_cWeapon1 = "weapon_crowbar";
-				else if (slot == 3) 
-					pPlayer->m_cWeapon1 = "weapon_sword";
-
-				ShowMenu(pPlayer, 0x7, 3, 0,"Your manual weapon choice will be changed on\nthe next respawn");
-				break;
-			//=============================================================
-			//=============================================================
+		
 		}
 		return TRUE;
 	}
 
-		//=============================================================
-		//=============================================================
-		if (FStrEq(pcmd, "rune_status" ))
-		{
+	//=============================================================
+	//=============================================================
+	if (FStrEq(pcmd, "rune_status" ))
+	{
 
-			if ( pPlayer->m_iPlayerRune == RUNE_SPEED )
-				ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Speed" );
-			else if ( pPlayer->m_iPlayerRune == RUNE_RESIST )
-				ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Resist" );
-			else if ( pPlayer->m_iPlayerRune == RUNE_STRENGTH )
-				ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Strength" );
-			else if ( pPlayer->m_iPlayerRune == RUNE_HEALTH )
-				ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Regeneration" );
-			else if ( pPlayer->m_iPlayerRune == RUNE_ROCKETARENA )
-				ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Rocket Arena Special" );
-			else
-				ShowMenu (pPlayer, 0x1, 5, 0, "You Have No Runes." );
+		if ( pPlayer->m_iPlayerRune == RUNE_SPEED )
+			ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Speed" );
+		else if ( pPlayer->m_iPlayerRune == RUNE_RESIST )
+			ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Resist" );
+		else if ( pPlayer->m_iPlayerRune == RUNE_STRENGTH )
+			ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Strength" );
+		else if ( pPlayer->m_iPlayerRune == RUNE_HEALTH )
+			ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Regeneration" );
+		else if ( pPlayer->m_iPlayerRune == RUNE_ROCKETARENA )
+			ShowMenu (pPlayer, 0x1, 5, 0, "You Have Rune: Rocket Arena Special" );
+		else
+			ShowMenu (pPlayer, 0x1, 5, 0, "You Have No Runes." );
 
 			
-			return TRUE;	
-		}
-		//=============================================================
-		//=============================================================
-		if (FStrEq(pcmd, "changeweapons" ))
-		{
-			pPlayer->m_nMenu = Menu_Change;
-			ShowMenu(pPlayer, 0x7, 0, 0,"Weapons Change:\n\nPlease choose a weapon.\n1. Knife\n2. Crowbar\n3. Sword");
-				
-			return TRUE;	
-		}
-	
+		return TRUE;	
+	}
+	//=============================================================
+	//=============================================================
+	else if ( FStrEq( pcmd, "stopobserv" ) ) 
+	{
+		pPlayer->StopSpectator();
+		return TRUE;
+	}
+	//=============================================================
+	//=============================================================
+
 	return FALSE;
 
 }
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay :: PlayerSpawn( CBasePlayer *pPlayer )
+void CRailArena :: PlayerSpawn( CBasePlayer *pPlayer )
 {
 	BOOL		addDefault;
 	CBaseEntity	*pWeaponEntity = NULL;
@@ -542,26 +468,25 @@ void CHalfLifeMultiplay :: PlayerSpawn( CBasePlayer *pPlayer )
 
 	if ( addDefault )
 	{
-		pPlayer->GiveNamedItem( pPlayer->m_cWeapon1 );
-		pPlayer->GiveNamedItem( "weapon_ppk" );
+		pPlayer->GiveNamedItem( "weapon_railgun" );
 	}
 }
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay :: FPlayerCanRespawn( CBasePlayer *pPlayer )
+BOOL CRailArena :: FPlayerCanRespawn( CBasePlayer *pPlayer )
 {
 	return pPlayer->m_fWantRespawn;
 }
 
 //=========================================================
 //=========================================================
-float CHalfLifeMultiplay :: FlPlayerSpawnTime( CBasePlayer *pPlayer )
+float CRailArena :: FlPlayerSpawnTime( CBasePlayer *pPlayer )
 {
 	return gpGlobals->time;//now!
 }
 
-BOOL CHalfLifeMultiplay :: AllowAutoTargetCrosshair( void )
+BOOL CRailArena :: AllowAutoTargetCrosshair( void )
 {
 	return ( CVAR_GET_FLOAT( "mp_autocrosshair" ) != 0 );
 }
@@ -570,7 +495,7 @@ BOOL CHalfLifeMultiplay :: AllowAutoTargetCrosshair( void )
 // IPointsForKill - how many points awarded to anyone
 // that kills this player?
 //=========================================================
-int CHalfLifeMultiplay :: IPointsForKill( CBasePlayer *pAttacker, CBasePlayer *pKilled )
+int CRailArena :: IPointsForKill( CBasePlayer *pAttacker, CBasePlayer *pKilled )
 {
 	return 1;
 }
@@ -579,7 +504,7 @@ int CHalfLifeMultiplay :: IPointsForKill( CBasePlayer *pAttacker, CBasePlayer *p
 //=========================================================
 // PlayerKilled - someone/something killed this player
 //=========================================================
-void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKiller, entvars_t *pInflictor )
+void CRailArena :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKiller, entvars_t *pInflictor )
 {
 	DeathNotice( pVictim, pKiller, pInflictor );
 
@@ -636,7 +561,7 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 //=========================================================
 // Deathnotice. 
 //=========================================================
-void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, entvars_t *pevInflictor )
+void CRailArena::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, entvars_t *pevInflictor )
 {
 	// Work out what killed the player, and send a message to all clients about it
 	CBaseEntity *Killer = CBaseEntity::Instance( pKiller );
@@ -709,7 +634,7 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 // PlayerGotWeapon - player has grabbed a weapon that was
 // sitting in the world
 //=========================================================
-void CHalfLifeMultiplay :: PlayerGotWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pWeapon )
+void CRailArena :: PlayerGotWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pWeapon )
 {
 }
 
@@ -717,18 +642,9 @@ void CHalfLifeMultiplay :: PlayerGotWeapon( CBasePlayer *pPlayer, CBasePlayerIte
 // FlWeaponRespawnTime - what is the time in the future
 // at which this weapon may spawn?
 //=========================================================
-float CHalfLifeMultiplay :: FlWeaponRespawnTime( CBasePlayerItem *pWeapon )
+float CRailArena :: FlWeaponRespawnTime( CBasePlayerItem *pWeapon )
 {
-	if ( CVAR_GET_FLOAT("mp_weaponstay") > 0 )
-	{
-		// make sure it's only certain weapons
-		if ( !(pWeapon->iFlags() & ITEM_FLAG_LIMITINWORLD) )
-		{
-			return gpGlobals->time + 0;		// weapon respawns almost instantly
-		}
-	}
-
-	return gpGlobals->time + WEAPON_RESPAWN_TIME;
+	return FALSE;
 }
 
 // when we are within this close to running out of entities,  items 
@@ -740,15 +656,11 @@ float CHalfLifeMultiplay :: FlWeaponRespawnTime( CBasePlayerItem *pWeapon )
 // now,  otherwise it returns the time at which it can try
 // to spawn again.
 //=========================================================
-float CHalfLifeMultiplay :: FlWeaponTryRespawn( CBasePlayerItem *pWeapon )
+float CRailArena :: FlWeaponTryRespawn( CBasePlayerItem *pWeapon )
 {
-	if ( pWeapon && pWeapon->m_iId && (pWeapon->iFlags() & ITEM_FLAG_LIMITINWORLD) )
+	if ( pWeapon && pWeapon->m_iId  )
 	{
-		if ( NUMBER_OF_ENTITIES() < (gpGlobals->maxEntities - ENTITY_INTOLERANCE) )
 			return 0;
-
-		// we're past the entity tolerance level,  so delay the respawn
-		return FlWeaponRespawnTime( pWeapon );
 	}
 
 	return 0;
@@ -758,7 +670,7 @@ float CHalfLifeMultiplay :: FlWeaponTryRespawn( CBasePlayerItem *pWeapon )
 // VecWeaponRespawnSpot - where should this weapon spawn?
 // Some game variations may choose to randomize spawn locations
 //=========================================================
-Vector CHalfLifeMultiplay :: VecWeaponRespawnSpot( CBasePlayerItem *pWeapon )
+Vector CRailArena :: VecWeaponRespawnSpot( CBasePlayerItem *pWeapon )
 {
 	return pWeapon->pev->origin;
 }
@@ -767,21 +679,16 @@ Vector CHalfLifeMultiplay :: VecWeaponRespawnSpot( CBasePlayerItem *pWeapon )
 // WeaponShouldRespawn - any conditions inhibiting the
 // respawning of this weapon?
 //=========================================================
-int CHalfLifeMultiplay :: WeaponShouldRespawn( CBasePlayerItem *pWeapon )
+int CRailArena :: WeaponShouldRespawn( CBasePlayerItem *pWeapon )
 {
-	if ( pWeapon->pev->spawnflags & SF_NORESPAWN )
-	{
-		return GR_WEAPON_RESPAWN_NO;
-	}
-
-	return GR_WEAPON_RESPAWN_YES;
+	return GR_WEAPON_RESPAWN_NO;
 }
 
 //=========================================================
 // CanHaveWeapon - returns FALSE if the player is not allowed
 // to pick up this weapon
 //=========================================================
-BOOL CHalfLifeMultiplay::CanHavePlayerItem( CBasePlayer *pPlayer, CBasePlayerItem *pItem )
+BOOL CRailArena::CanHavePlayerItem( CBasePlayer *pPlayer, CBasePlayerItem *pItem )
 {
 	if ( CVAR_GET_FLOAT("mp_weaponstay") > 0 )
 	{
@@ -810,34 +717,29 @@ BOOL CHalfLifeMultiplay::CanHavePlayerItem( CBasePlayer *pPlayer, CBasePlayerIte
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::CanHaveItem( CBasePlayer *pPlayer, CItem *pItem )
+BOOL CRailArena::CanHaveItem( CBasePlayer *pPlayer, CItem *pItem )
 {
 	return TRUE;
 }
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay::PlayerGotItem( CBasePlayer *pPlayer, CItem *pItem )
+void CRailArena::PlayerGotItem( CBasePlayer *pPlayer, CItem *pItem )
 {
 }
 
 //=========================================================
 //=========================================================
-int CHalfLifeMultiplay::ItemShouldRespawn( CItem *pItem )
+int CRailArena::ItemShouldRespawn( CItem *pItem )
 {
-	if ( pItem->pev->spawnflags & SF_NORESPAWN )
-	{
-		return GR_ITEM_RESPAWN_NO;
-	}
-
-	return GR_ITEM_RESPAWN_YES;
+	return GR_ITEM_RESPAWN_NO;
 }
 
 
 //=========================================================
 // At what time in the future may this Item respawn?
 //=========================================================
-float CHalfLifeMultiplay::FlItemRespawnTime( CItem *pItem )
+float CRailArena::FlItemRespawnTime( CItem *pItem )
 {
 	return gpGlobals->time + ITEM_RESPAWN_TIME;
 }
@@ -846,81 +748,75 @@ float CHalfLifeMultiplay::FlItemRespawnTime( CItem *pItem )
 // Where should this item respawn?
 // Some game variations may choose to randomize spawn locations
 //=========================================================
-Vector CHalfLifeMultiplay::VecItemRespawnSpot( CItem *pItem )
+Vector CRailArena::VecItemRespawnSpot( CItem *pItem )
 {
 	return pItem->pev->origin;
 }
 
 //=========================================================
 //=========================================================
-void CHalfLifeMultiplay::PlayerGotAmmo( CBasePlayer *pPlayer, char *szName, int iCount )
+void CRailArena::PlayerGotAmmo( CBasePlayer *pPlayer, char *szName, int iCount )
 {
 }
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay::IsAllowedToSpawn( CBaseEntity *pEntity )
+BOOL CRailArena::IsAllowedToSpawn( CBaseEntity *pEntity )
 {
-//	if ( pEntity->pev->flags & FL_MONSTER )
-//		return FALSE;
+	if ( pEntity->pev->flags & FL_MONSTER )
+		return FALSE;
 
 	return TRUE;
 }
 
 //=========================================================
 //=========================================================
-int CHalfLifeMultiplay::AmmoShouldRespawn( CBasePlayerAmmo *pAmmo )
+int CRailArena::AmmoShouldRespawn( CBasePlayerAmmo *pAmmo )
 {
-	if ( pAmmo->pev->spawnflags & SF_NORESPAWN )
-	{
-		return GR_AMMO_RESPAWN_NO;
-	}
-
-	return GR_AMMO_RESPAWN_YES;
+	return GR_AMMO_RESPAWN_NO;
 }
 
 //=========================================================
 //=========================================================
-float CHalfLifeMultiplay::FlAmmoRespawnTime( CBasePlayerAmmo *pAmmo )
+float CRailArena::FlAmmoRespawnTime( CBasePlayerAmmo *pAmmo )
 {
 	return gpGlobals->time + AMMO_RESPAWN_TIME;
 }
 
 //=========================================================
 //=========================================================
-Vector CHalfLifeMultiplay::VecAmmoRespawnSpot( CBasePlayerAmmo *pAmmo )
+Vector CRailArena::VecAmmoRespawnSpot( CBasePlayerAmmo *pAmmo )
 {
 	return pAmmo->pev->origin;
 }
 
 //=========================================================
 //=========================================================
-float CHalfLifeMultiplay::FlHealthChargerRechargeTime( void )
+float CRailArena::FlHealthChargerRechargeTime( void )
 {
 	return 60;
 }
 
 
-float CHalfLifeMultiplay::FlHEVChargerRechargeTime( void )
+float CRailArena::FlHEVChargerRechargeTime( void )
 {
 	return 30;
 }
 
 //=========================================================
 //=========================================================
-int CHalfLifeMultiplay::DeadPlayerWeapons( CBasePlayer *pPlayer )
+int CRailArena::DeadPlayerWeapons( CBasePlayer *pPlayer )
 {
 	return GR_PLR_DROP_GUN_ACTIVE;
 }
-
 //=========================================================
 //=========================================================
-int CHalfLifeMultiplay::DeadPlayerAmmo( CBasePlayer *pPlayer )
+int CRailArena::DeadPlayerAmmo( CBasePlayer *pPlayer )
 {
 	return GR_PLR_DROP_AMMO_ACTIVE;
 }
 
-edict_t *CHalfLifeMultiplay::GetPlayerSpawnSpot( CBasePlayer *pPlayer )
+edict_t *CRailArena::GetPlayerSpawnSpot( CBasePlayer *pPlayer )
 {
 	edict_t *pentSpawnSpot = CGameRules::GetPlayerSpawnSpot( pPlayer );	
 	if ( IsMultiplayer() && pentSpawnSpot->v.target )
@@ -934,7 +830,7 @@ edict_t *CHalfLifeMultiplay::GetPlayerSpawnSpot( CBasePlayer *pPlayer )
 
 //=========================================================
 //=========================================================
-int CHalfLifeMultiplay::PlayerRelationship( CBaseEntity *pPlayer, CBaseEntity *pTarget )
+int CRailArena::PlayerRelationship( CBaseEntity *pPlayer, CBaseEntity *pTarget )
 {
 	// half life deathmatch has only enemies
 	return GR_NOTTEAMMATE;
@@ -942,7 +838,7 @@ int CHalfLifeMultiplay::PlayerRelationship( CBaseEntity *pPlayer, CBaseEntity *p
 
 //=========================================================
 //=========================================================
-BOOL CHalfLifeMultiplay :: PlayFootstepSounds( CBasePlayer *pl, float fvol )
+BOOL CRailArena :: PlayFootstepSounds( CBasePlayer *pl, float fvol )
 {
 	if ( CVAR_GET_FLOAT( "mp_footsteps" ) == 0 )
 		return FALSE;
@@ -955,23 +851,24 @@ BOOL CHalfLifeMultiplay :: PlayFootstepSounds( CBasePlayer *pl, float fvol )
 //=========================================================
 //========================================================
 
-BOOL CHalfLifeMultiplay :: FAllowFlashlight( void ) 
+BOOL CRailArena :: FAllowFlashlight( void ) 
 { 
 	return CVAR_GET_FLOAT( "mp_flashlight" ) != 0; 
 }
+
 //=========================================================
 //=========================================================
 
-BOOL CHalfLifeMultiplay :: FAllowMonsters( void )
+BOOL CRailArena :: FAllowMonsters( void )
 {
 	return ( CVAR_GET_FLOAT( "mp_allowmonsters" ) != 0 );
 }
 
 //=========================================================
-//======== CHalfLifeMultiplay private functions ===========
+//======== CRailArena private functions ===========
 #define INTERMISSION_TIME		6
 
-void CHalfLifeMultiplay :: GoToIntermission( void )
+void CRailArena :: GoToIntermission( void )
 {
 	if ( g_fGameOver )
 		return;  // intermission has already been triggered, so ignore.
@@ -984,7 +881,7 @@ void CHalfLifeMultiplay :: GoToIntermission( void )
 	m_iEndIntermissionButtonHit = FALSE;
 }
 
-void CHalfLifeMultiplay :: ChangeLevel( void )
+void CRailArena :: ChangeLevel( void )
 {
 	char szNextMap[32];
 	char szFirstMapInList[32];
@@ -1056,12 +953,12 @@ void CHalfLifeMultiplay :: ChangeLevel( void )
 #define MAX_MOTD_CHUNK	  60
 #define MAX_MOTD_LENGTH   (MAX_MOTD_CHUNK * 4)
 
-void CHalfLifeMultiplay :: SendMOTDToClient( edict_t *client )
+void CRailArena :: SendMOTDToClient( edict_t *client )
 {
 	// read from the MOTD.txt file
 	int length, char_count = 0;
 	char *pFileList;
-	char *aFileList = pFileList = (char*)LOAD_FILE_FOR_ME( "motd.txt", &length );
+	char *aFileList = pFileList = (char*)LOAD_FILE_FOR_ME( "rail_arena_motd.txt", &length );
 
 	// Send the message of the day
 	// read it chunk-by-chunk,  and send it in parts
