@@ -1,0 +1,833 @@
+/***
+*
+*	Copyright (c) 1999, Valve LLC. All rights reserved.
+*	
+*	This product contains software technology licensed from Id 
+*	Software, Inc. ("Id Technology").  Id Technology (c) 1996 Id Software, Inc. 
+*	All Rights Reserved.
+*
+*   Use, distribution, and modification of this source code and/or resulting
+*   object code is restricted to non-commercial enhancements to products from
+*   Valve LLC.  All other use, distribution, or modification is prohibited
+*   without written permission from Valve LLC.
+*
+****/
+// Robin, 4-22-98: Moved set_suicide_frame() here from player.cpp to allow us to 
+//				   have one without a hardcoded player.mdl in tf_client.cpp
+
+/*
+
+===== client.cpp ========================================================
+
+  client/server game specific stuff
+
+*/
+
+#include "extdll.h"
+#include "util.h"
+#include "cbase.h"
+#include "saverestore.h"
+#include "player.h"
+#include "spectator.h"
+#include "client.h"
+#include "soundent.h"
+#include "gamerules.h"
+
+extern DLL_GLOBAL ULONG		g_ulModelIndexPlayer;
+extern DLL_GLOBAL BOOL		g_fGameOver;
+extern DLL_GLOBAL int		g_iSkillLevel;
+extern DLL_GLOBAL ULONG		g_ulFrameCount;
+
+extern void CopyToBodyQue(entvars_t* pev);
+extern int giPrecacheGrunt;
+extern int gmsgSayText;
+
+
+/*
+ * used by kill command and disconnect command
+ * ROBIN: Moved here from player.cpp, to allow multiple player models
+ */
+void set_suicide_frame(entvars_t* pev)
+{       
+	if (!FStrEq(STRING(pev->model), "models/player.mdl"))
+		return; // allready gibbed
+
+//	pev->frame		= $deatha11;
+	pev->solid		= SOLID_NOT;
+	pev->movetype	= MOVETYPE_TOSS;
+	pev->deadflag	= DEAD_DEAD;
+	pev->nextthink	= -1;
+}
+
+
+/*
+===========
+ClientConnect
+
+called when a player connects to a server
+============
+*/
+BOOL ClientConnect( edict_t *pEntity, const char *pszName, const char *pszAddress, char szRejectReason[ 128 ]  )
+{	
+	return g_pGameRules->ClientConnected( pEntity, pszName, pszAddress, szRejectReason );
+
+// a client connecting during an intermission can cause problems
+//	if (intermission_running)
+//		ExitIntermission ();
+
+}
+
+
+/*
+===========
+ClientDisconnect
+
+called when a player disconnects from a server
+
+GLOBALS ASSUMED SET:  g_fGameOver
+============
+*/
+void ClientDisconnect( edict_t *pEntity )
+{
+	if (g_fGameOver)
+		return;
+
+	char text[256];
+	sprintf( text, "- %s has left the game\n", STRING(pEntity->v.netname) );
+	MESSAGE_BEGIN( MSG_ALL, gmsgSayText, NULL );
+		WRITE_BYTE( ENTINDEX(pEntity) );
+		WRITE_STRING( text );
+	MESSAGE_END();
+
+	CSound *pSound;
+	pSound = CSoundEnt::SoundPointerForIndex( CSoundEnt::ClientSoundIndex( pEntity ) );
+	{
+		// since this client isn't around to think anymore, reset their sound. 
+		if ( pSound )
+		{
+			pSound->Reset();
+		}
+	}
+
+// since the edict doesn't get deleted, fix it so it doesn't interfere.
+	pEntity->v.takedamage = DAMAGE_NO;// don't attract autoaim
+	pEntity->v.solid = SOLID_NOT;// nonsolid
+	UTIL_SetOrigin ( &pEntity->v, pEntity->v.origin );
+
+	g_pGameRules->ClientDisconnected( pEntity );
+}
+
+
+// called by ClientKill and DeadThink
+void respawn(entvars_t* pev, BOOL fCopyCorpse)
+{
+	if (gpGlobals->coop || gpGlobals->deathmatch)
+	{
+		if ( fCopyCorpse )
+		{
+			// make a copy of the dead body for appearances sake
+			CopyToBodyQue(pev);
+		}
+
+		// respawn player
+		GetClassPtr( (CBasePlayer *)pev)->Spawn( );
+	}
+	else
+	{       // restart the entire server
+		SERVER_COMMAND("reload\n");
+	}
+}
+
+/*
+============
+ClientKill
+
+Player entered the suicide command
+
+GLOBALS ASSUMED SET:  g_ulModelIndexPlayer
+============
+*/
+void ClientKill( edict_t *pEntity )
+{
+	entvars_t *pev = &pEntity->v;
+
+	CBasePlayer *pl = (CBasePlayer*) CBasePlayer::Instance( pev );
+
+	if ( pl->m_fNextSuicideTime > gpGlobals->time )
+		return;  // prevent suiciding too ofter
+
+	pl->m_fNextSuicideTime = gpGlobals->time + 1;  // don't let them suicide for 5 seconds after suiciding
+
+	// have the player kill themself
+	pev->health = 0;
+	pl->Killed( pev, GIB_NEVER );
+
+//	pev->modelindex = g_ulModelIndexPlayer;
+//	pev->frags -= 2;		// extra penalty
+//	respawn( pev );
+}
+
+/*
+===========
+ClientPutInServer
+
+called each time a player is spawned
+============
+*/
+void ClientPutInServer( edict_t *pEntity )
+{
+	CBasePlayer *pPlayer;
+
+	entvars_t *pev = &pEntity->v;
+
+	pPlayer = GetClassPtr((CBasePlayer *)pev);
+	pPlayer->SetCustomDecalFrames(-1); // Assume none;
+
+	// Allocate a CBasePlayer for pev, and call spawn
+	pPlayer->Spawn() ;
+}
+
+//// HOST_SAY
+// String comes in as
+// say blah blah blah
+// or as
+// blah blah blah
+//
+void Host_Say( edict_t *pEntity, int teamonly )
+{
+	CBasePlayer *client;
+	int		j;
+	char	*p;
+	char	text[128];
+	char    szTemp[256];
+	const char *cpSay = "say";
+	const char *cpSayTeam = "say_team";
+	const char *pcmd = CMD_ARGV(0);
+
+	// We can get a raw string now, without the "say " prepended
+	if ( CMD_ARGC() == 0 )
+		return;
+
+	if ( !stricmp( pcmd, cpSay) || !stricmp( pcmd, cpSayTeam ) )
+	{
+		if ( CMD_ARGC() >= 2 )
+		{
+			p = (char *)CMD_ARGS();
+		}
+		else
+		{
+			// say with a blank message, nothing to do
+			return;
+		}
+	}
+	else  // Raw text, need to prepend argv[0]
+	{
+		if ( CMD_ARGC() >= 2 )
+		{
+			sprintf( szTemp, "%s %s", ( char * )pcmd, (char *)CMD_ARGS() );
+		}
+		else
+		{
+			// Just a one word command, use the first word...sigh
+			sprintf( szTemp, "%s", ( char * )pcmd );
+		}
+		p = szTemp;
+	}
+
+// remove quotes if present
+	if (*p == '"')
+	{
+		p++;
+		p[strlen(p)-1] = 0;
+	}
+
+// make sure the text has content
+	for ( char *pc = p; pc != NULL && *pc != 0; pc++ )
+	{
+		if ( isprint( *pc ) && !isspace( *pc ) )
+		{
+			pc = NULL;	// we've found an alphanumeric character,  so text is valid
+			break;
+		}
+	}
+	if ( pc != NULL )
+		return;  // no character found, so say nothing
+
+// turn on color set 2  (color on,  no sound)
+	if ( teamonly )
+		sprintf( text, "%c(TEAM) %s: ", 2, STRING( pEntity->v.netname ) );
+	else
+		sprintf( text, "%c%s: ", 2, STRING( pEntity->v.netname ) );
+
+	j = sizeof(text) - 2 - strlen(text);  // -2 for /n and null terminator
+	if ( (int)strlen(p) > j )
+		p[j] = 0;
+
+	strcat( text, p );
+	strcat( text, "\n" );
+
+	// loop through all players
+	// Start with the first player.
+	// This may return the world in single player if the client types something between levels or during spawn
+	// so check it, or it will infinite loop
+
+	client = NULL;
+	while ( ((client = (CBasePlayer*)UTIL_FindEntityByClassname( client, "player" )) != NULL) && (!FNullEnt(client->edict())) ) 
+	{
+		if ( !client->pev )
+			continue;
+		
+		if ( client->edict() == pEntity )
+			continue;
+
+		if ( !(client->IsNetClient()) )	// Not a client ? (should never be true)
+			continue;
+
+		if ( teamonly && g_pGameRules->PlayerRelationship(client, CBaseEntity::Instance(pEntity)) != GR_TEAMMATE )
+			continue;
+
+		MESSAGE_BEGIN( MSG_ONE, gmsgSayText, NULL, client->pev );
+			WRITE_BYTE( ENTINDEX(client->edict()) );
+			WRITE_STRING( text );
+		MESSAGE_END();
+
+	}
+
+	// print to the sending client
+	MESSAGE_BEGIN( MSG_ONE, gmsgSayText, NULL, &pEntity->v );
+		WRITE_BYTE( ENTINDEX(pEntity) );
+		WRITE_STRING( text );
+	MESSAGE_END();
+
+	// echo to server console
+	g_engfuncs.pfnServerPrint( text );
+}
+
+
+/*
+===========
+ClientCommand
+called each time a player uses a "cmd" command
+============
+*/
+extern float g_flWeaponCheat;
+
+//START BOT
+void BotCreate(void);
+extern int f_Observer;  // flag for observer mode
+//END BOT
+
+// Use CMD_ARGV,  CMD_ARGV, and CMD_ARGC to get pointers the character string command.
+void ClientCommand( edict_t *pEntity )
+{
+	const char *pcmd = CMD_ARGV(0);
+	const char *pstr;
+
+	// Is the client spawned yet?
+	if ( !pEntity->pvPrivateData )
+		return;
+
+	entvars_t *pev = &pEntity->v;
+
+	if ( FStrEq(pcmd, "say" ) )
+	{
+		Host_Say( pEntity, 0 );
+	}
+	else if ( FStrEq(pcmd, "say_team" ) )
+	{
+		Host_Say( pEntity, 1 );
+	}
+	else if ( FStrEq(pcmd, "give" ) )
+	{
+		if ( g_flWeaponCheat != 0.0)
+		{
+			int iszItem = ALLOC_STRING( CMD_ARGV(1) );	// Make a copy of the classname
+			GetClassPtr((CBasePlayer *)pev)->GiveNamedItem( STRING(iszItem) );
+		}
+	}
+
+	else if ( FStrEq(pcmd, "drop" ) )
+	{
+		// player is dropping an item. 
+		GetClassPtr((CBasePlayer *)pev)->DropPlayerItem((char *)CMD_ARGV(1));
+	}
+	else if ( FStrEq(pcmd, "fov" ) )
+	{
+		if ( g_flWeaponCheat && CMD_ARGC() > 1)
+		{
+			GetClassPtr((CBasePlayer *)pev)->m_iFOV = atoi( CMD_ARGV(1) );
+		}
+		else
+		{
+			CLIENT_PRINTF( pEntity, print_console, UTIL_VarArgs( "\"fov\" is \"%d\"\n", (int)GetClassPtr((CBasePlayer *)pev)->m_iFOV ) );
+		}
+	}
+	else if ( FStrEq(pcmd, "use" ) )
+	{
+		GetClassPtr((CBasePlayer *)pev)->SelectItem((char *)CMD_ARGV(1));
+	}
+	else if (((pstr = strstr(pcmd, "weapon_")) != NULL)  && (pstr == pcmd))
+	{
+		GetClassPtr((CBasePlayer *)pev)->SelectItem(pcmd);
+	}
+	else if (FStrEq(pcmd, "lastinv" ))
+	{
+		GetClassPtr((CBasePlayer *)pev)->SelectLastItem();
+	}
+    else if (FStrEq(pcmd, "+hook" ))
+    {
+		if ( CVAR_GET_FLOAT( "mp_hook" ) == 0 )
+          return;
+        GetClassPtr((CBasePlayer *)pev)->FireHook(); 
+        GetClassPtr((CBasePlayer *)pev)->m_fHookButton = TRUE;
+    }   
+    else if (FStrEq(pcmd, "-hook" ))
+    {
+		if ( CVAR_GET_FLOAT( "mp_hook" ) == 0 )
+              return;
+        //keep track of weather we're pressing the button
+        GetClassPtr((CBasePlayer *)pev)->m_fHookButton = FALSE;
+	}
+	//Begin Runes
+    else if ( FStrEq(pcmd, "drop_rune" ) )
+	{
+       GetClassPtr((CBasePlayer *)pev)->DropRune( );
+	}
+//End Runes
+	else if (FStrEq(pcmd, "+jetpack" ))
+	{
+      UTIL_ClientPrintAll( HUD_PRINTNOTIFY, "JetPack Has been disabled due to being unstable.\n" );
+		//We are holding the key set this.
+		//GetClassPtr((CBasePlayer *)pev)->m_fFlyKeyDown = TRUE;
+	}
+		else if (FStrEq(pcmd, "-jetpack" ))
+	{
+		//We are not holding the key un-set this.
+	//	GetClassPtr((CBasePlayer *)pev)->m_fFlyKeyDown = FALSE;
+	}
+	//START BOT
+	else if (FStrEq(pcmd, "addbot" ))
+	{
+       	if ( CVAR_GET_FLOAT( "bot_arena" ) == 0 )
+              return;
+		BotCreate(); //If user types "addbot" in console, add a bot.
+	}
+	else if ( FStrEq(pcmd, "observer" ) )
+	{
+		if (CMD_ARGC() > 1)
+		{
+         f_Observer = atoi( CMD_ARGV(1) );  // set observer flag
+			CLIENT_PRINTF( pEntity, print_console, UTIL_VarArgs("observer set to %d\n", (int)f_Observer) );
+		}
+		else
+		{
+			CLIENT_PRINTF( pEntity, print_console, UTIL_VarArgs("observer is %d\n", (int)f_Observer) );
+		}
+	}
+	//END BOT
+	else if ( g_pGameRules->ClientCommand( GetClassPtr((CBasePlayer *)pev), pcmd ) )
+	{
+		// MenuSelect returns true only if the command is properly handled,  so don't print a warning
+	}
+	else
+	{
+		// tell the user they entered an unknown command
+		ClientPrint( &pEntity->v, HUD_PRINTCONSOLE, UTIL_VarArgs( "Unknown command: %s\n", pcmd ) );
+	}
+}
+
+
+/*
+========================
+ClientUserInfoChanged
+
+called after the player changes
+userinfo - gives dll a chance to modify it before
+it gets sent into the rest of the engine.
+========================
+*/
+void ClientUserInfoChanged( edict_t *pEntity, char *infobuffer )
+{
+	// Is the client spawned yet?
+	if ( !pEntity->pvPrivateData )
+		return;
+
+	// msg everyone if someone changes their name,  and it isn't the first time (changing no name to current name)
+	if ( pEntity->v.netname && STRING(pEntity->v.netname)[0] != 0 && !FStrEq( STRING(pEntity->v.netname), g_engfuncs.pfnInfoKeyValue( infobuffer, "name" )) )
+	{
+		char text[256];
+		sprintf( text, "* %s changed name to %s\n", STRING(pEntity->v.netname), g_engfuncs.pfnInfoKeyValue( infobuffer, "name" ) );
+		MESSAGE_BEGIN( MSG_ALL, gmsgSayText, NULL );
+			WRITE_BYTE( ENTINDEX(pEntity) );
+			WRITE_STRING( text );
+		MESSAGE_END();
+
+		UTIL_LogPrintf( "\"%s<%i>\" changed name to \"%s<%i>\"\n", STRING( pEntity->v.netname ), GETPLAYERUSERID( pEntity ), g_engfuncs.pfnInfoKeyValue( infobuffer, "name" ), GETPLAYERUSERID( pEntity ) );
+	}
+
+	g_pGameRules->ClientUserInfoChanged( GetClassPtr((CBasePlayer *)&pEntity->v), infobuffer );
+}
+
+
+void ServerActivate( edict_t *pEdictList, int edictCount, int clientMax )
+{
+	int				i;
+	CBaseEntity		*pClass;
+
+	// Clients have not been initialized yet
+	for ( i = 0; i < edictCount; i++ )
+	{
+		if ( pEdictList[i].free )
+			continue;
+		
+		// Clients aren't necessarily initialized until ClientPutInServer()
+		if ( i < clientMax || !pEdictList[i].pvPrivateData )
+			continue;
+
+		pClass = CBaseEntity::Instance( &pEdictList[i] );
+		// Activate this entity if it's got a class & isn't dormant
+		if ( pClass && !(pClass->pev->flags & FL_DORMANT) )
+		{
+			pClass->Activate();
+		}
+		else
+		{
+			ALERT( at_console, "Can't instance %s\n", STRING(pEdictList[i].v.classname) );
+		}
+	}
+}
+
+
+/*
+================
+PlayerPreThink
+
+Called every frame before physics are run
+================
+*/
+void PlayerPreThink( edict_t *pEntity )
+{
+	entvars_t *pev = &pEntity->v;
+	CBasePlayer *pPlayer = (CBasePlayer *)GET_PRIVATE(pEntity);
+
+	if (pPlayer)
+		pPlayer->PreThink( );
+}
+
+/*
+================
+PlayerPostThink
+
+Called every frame after physics are run
+================
+*/
+void PlayerPostThink( edict_t *pEntity )
+{
+	entvars_t *pev = &pEntity->v;
+	CBasePlayer *pPlayer = (CBasePlayer *)GET_PRIVATE(pEntity);
+
+	if (pPlayer)
+		pPlayer->PostThink( );
+}
+
+
+
+void ParmsNewLevel( void )
+{
+}
+
+
+void ParmsChangeLevel( void )
+{
+	// retrieve the pointer to the save data
+	SAVERESTOREDATA *pSaveData = (SAVERESTOREDATA *)gpGlobals->pSaveData;
+
+	if ( pSaveData )
+		pSaveData->connectionCount = BuildChangeList( pSaveData->levelList, MAX_LEVEL_CONNECTIONS );
+}
+
+
+//
+// GLOBALS ASSUMED SET:  g_ulFrameCount
+//
+//START BOT
+CBasePlayer	*CBasePlayerByIndex( int playerIndex )
+{
+	CBasePlayer *pPlayer = NULL;
+	entvars_t *pev;
+
+	if ( playerIndex > 0 && playerIndex <= gpGlobals->maxClients )
+	{
+		edict_t *pPlayerEdict = INDEXENT( playerIndex );
+		if ( pPlayerEdict && !pPlayerEdict->free && (pPlayerEdict->v.flags & FL_FAKECLIENT || pPlayerEdict->v.flags & FL_CLIENT) ) //fake
+		{
+			pev = &pPlayerEdict->v;
+			pPlayer = GetClassPtr((CBasePlayer *)pev);
+		}
+	}
+	
+	return pPlayer;
+}
+//END BOT
+
+void StartFrame( void )
+{
+	//START BOT
+   // loop through all the players...
+	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+	{
+		CBasePlayer *pPlayer = CBasePlayerByIndex( i );
+
+      if (!pPlayer)  // if invalid then continue with next index...
+         continue;
+
+      // check if this is a FAKECLIENT (i.e. is it a bot?)
+      if (FBitSet(pPlayer->pev->flags, FL_FAKECLIENT))
+      {
+         // call the think function for the bot...
+         pPlayer->Think();
+		}
+	}
+	//END BOT
+	if ( g_pGameRules )
+		g_pGameRules->Think();
+
+	if ( g_fGameOver )
+		return;
+
+	gpGlobals->teamplay = CVAR_GET_FLOAT("teamplay");
+	g_iSkillLevel = CVAR_GET_FLOAT("skill");
+	g_ulFrameCount++;
+}
+
+
+void ClientPrecache( void )
+{
+	// setup precaches always needed
+	PRECACHE_SOUND("player/sprayer.wav");			// spray paint sound for PreAlpha
+	
+	PRECACHE_SOUND("player/pl_fallpain2.wav");		
+	PRECACHE_SOUND("player/pl_fallpain3.wav");		
+	
+	PRECACHE_SOUND("player/pl_step1.wav");		// walk on concrete
+	PRECACHE_SOUND("player/pl_step2.wav");
+	PRECACHE_SOUND("player/pl_step3.wav");
+	PRECACHE_SOUND("player/pl_step4.wav");
+
+	PRECACHE_SOUND("common/npc_step1.wav");		// NPC walk on concrete
+	PRECACHE_SOUND("common/npc_step2.wav");
+	PRECACHE_SOUND("common/npc_step3.wav");
+	PRECACHE_SOUND("common/npc_step4.wav");
+
+	PRECACHE_SOUND("player/pl_metal1.wav");		// walk on metal
+	PRECACHE_SOUND("player/pl_metal2.wav");
+	PRECACHE_SOUND("player/pl_metal3.wav");
+	PRECACHE_SOUND("player/pl_metal4.wav");
+
+	PRECACHE_SOUND("player/pl_dirt1.wav");		// walk on dirt
+	PRECACHE_SOUND("player/pl_dirt2.wav");
+	PRECACHE_SOUND("player/pl_dirt3.wav");
+	PRECACHE_SOUND("player/pl_dirt4.wav");
+
+	PRECACHE_SOUND("player/pl_duct1.wav");		// walk in duct
+	PRECACHE_SOUND("player/pl_duct2.wav");
+	PRECACHE_SOUND("player/pl_duct3.wav");
+	PRECACHE_SOUND("player/pl_duct4.wav");
+
+	PRECACHE_SOUND("player/pl_grate1.wav");		// walk on grate
+	PRECACHE_SOUND("player/pl_grate2.wav");
+	PRECACHE_SOUND("player/pl_grate3.wav");
+	PRECACHE_SOUND("player/pl_grate4.wav");
+
+	PRECACHE_SOUND("player/pl_slosh1.wav");		// walk in shallow water
+	PRECACHE_SOUND("player/pl_slosh2.wav");
+	PRECACHE_SOUND("player/pl_slosh3.wav");
+	PRECACHE_SOUND("player/pl_slosh4.wav");
+
+	PRECACHE_SOUND("player/pl_tile1.wav");		// walk on tile
+	PRECACHE_SOUND("player/pl_tile2.wav");
+	PRECACHE_SOUND("player/pl_tile3.wav");
+	PRECACHE_SOUND("player/pl_tile4.wav");
+	PRECACHE_SOUND("player/pl_tile5.wav");
+
+	PRECACHE_SOUND("player/pl_swim1.wav");		// breathe bubbles
+	PRECACHE_SOUND("player/pl_swim2.wav");
+	PRECACHE_SOUND("player/pl_swim3.wav");
+	PRECACHE_SOUND("player/pl_swim4.wav");
+
+	PRECACHE_SOUND("player/pl_ladder1.wav");	// climb ladder rung
+	PRECACHE_SOUND("player/pl_ladder2.wav");
+	PRECACHE_SOUND("player/pl_ladder3.wav");
+	PRECACHE_SOUND("player/pl_ladder4.wav");
+
+	PRECACHE_SOUND("player/pl_wade1.wav");		// wade in water
+	PRECACHE_SOUND("player/pl_wade2.wav");
+	PRECACHE_SOUND("player/pl_wade3.wav");
+	PRECACHE_SOUND("player/pl_wade4.wav");
+
+	PRECACHE_SOUND("debris/wood1.wav");			// hit wood texture
+	PRECACHE_SOUND("debris/wood2.wav");
+	PRECACHE_SOUND("debris/wood3.wav");
+
+	PRECACHE_SOUND("plats/train_use1.wav");		// use a train
+
+	PRECACHE_SOUND("buttons/spark3.wav");
+	PRECACHE_SOUND("buttons/spark4.wav");
+	PRECACHE_SOUND("buttons/spark5.wav");		// hit computer texture
+	PRECACHE_SOUND("buttons/spark6.wav");
+	PRECACHE_SOUND("debris/glass1.wav");
+	PRECACHE_SOUND("debris/glass2.wav");
+	PRECACHE_SOUND("debris/glass3.wav");
+
+	PRECACHE_SOUND( SOUND_FLASHLIGHT_ON );
+	PRECACHE_SOUND( SOUND_FLASHLIGHT_OFF );
+
+    // player gib sounds
+	PRECACHE_SOUND("common/bodysplat.wav");		               
+
+    // player pain sounds
+	PRECACHE_SOUND("player/pl_pain2.wav");
+	PRECACHE_SOUND("player/pl_pain4.wav");
+	PRECACHE_SOUND("player/pl_pain5.wav");
+	PRECACHE_SOUND("player/pl_pain6.wav");
+	PRECACHE_SOUND("player/pl_pain7.wav");
+
+    //Fitted Player sounds here!
+	PRECACHE_SOUND ("player/headshot.wav");
+	PRECACHE_SOUND ("player/chestshot.wav");
+	PRECACHE_SOUND ("player/stomachshot.wav");
+	PRECACHE_SOUND ("player/limbshot.wav"); 
+
+	PRECACHE_MODEL("models/player.mdl");
+
+	// hud sounds
+	PRECACHE_SOUND("common/wpn_hudoff.wav");
+	PRECACHE_SOUND("common/wpn_hudon.wav");
+	PRECACHE_SOUND("common/wpn_moveselect.wav");
+	PRECACHE_SOUND("common/wpn_select.wav");
+	PRECACHE_SOUND("common/wpn_denyselect.wav");
+	PRECACHE_SOUND("houndeye/he_attack1.wav");
+    PRECACHE_SOUND("items/medshot4.wav");
+
+	//Begin Runes
+    PRECACHE_SOUND("items/protect.wav");
+    PRECACHE_SOUND("items/medshot4.wav");
+    //End Runes
+
+	
+	// geiger sounds
+	PRECACHE_SOUND("player/geiger6.wav");
+	PRECACHE_SOUND("player/geiger5.wav");
+	PRECACHE_SOUND("player/geiger4.wav");
+	PRECACHE_SOUND("player/geiger3.wav");
+	PRECACHE_SOUND("player/geiger2.wav");
+	PRECACHE_SOUND("player/geiger1.wav");
+
+	if (giPrecacheGrunt)
+		UTIL_PrecacheOther("monster_human_grunt");
+}
+
+/*
+===============
+const char *GetGameDescription()
+
+Returns the descriptive name of this .dll.  E.g., Half-Life, or Team Fortress 2
+===============
+*/
+const char *GetGameDescription()
+{
+	if ( g_pGameRules ) // this function may be called before the world has spawned, and the game rules initialized
+		return g_pGameRules->GetGameDescription();
+	else
+		return "Cold Ice Beta 1 2x";
+}
+
+/*
+================
+PlayerCustomization
+
+A new player customization has been registered on the server
+UNDONE:  This only sets the # of frames of the spray can logo
+animation right now.
+================
+*/
+void PlayerCustomization( edict_t *pEntity, customization_t *pCust )
+{
+	entvars_t *pev = &pEntity->v;
+	CBasePlayer *pPlayer = (CBasePlayer *)GET_PRIVATE(pEntity);
+
+	if (!pPlayer)
+	{
+		ALERT(at_console, "PlayerCustomization:  Couldn't get player!\n");
+		return;
+	}
+
+	if (!pCust)
+	{
+		ALERT(at_console, "PlayerCustomization:  NULL customization!\n");
+		return;
+	}
+
+	switch (pCust->resource.type)
+	{
+	case t_decal:
+		pPlayer->SetCustomDecalFrames(pCust->nUserData2); // Second int is max # of frames.
+		break;
+	case t_sound:
+	case t_skin:
+	case t_model:
+		// Ignore for now.
+		break;
+	default:
+		ALERT(at_console, "PlayerCustomization:  Unknown customization type!\n");
+		break;
+	}
+}
+
+/*
+================
+SpectatorConnect
+
+A spectator has joined the game
+================
+*/
+void SpectatorConnect( edict_t *pEntity )
+{
+	entvars_t *pev = &pEntity->v;
+	CBaseSpectator *pPlayer = (CBaseSpectator *)GET_PRIVATE(pEntity);
+
+	if (pPlayer)
+		pPlayer->SpectatorConnect( );
+}
+
+/*
+================
+SpectatorConnect
+
+A spectator has left the game
+================
+*/
+void SpectatorDisconnect( edict_t *pEntity )
+{
+	entvars_t *pev = &pEntity->v;
+	CBaseSpectator *pPlayer = (CBaseSpectator *)GET_PRIVATE(pEntity);
+
+	if (pPlayer)
+		pPlayer->SpectatorDisconnect( );
+}
+
+/*
+================
+SpectatorConnect
+
+A spectator has sent a usercmd
+================
+*/
+void SpectatorThink( edict_t *pEntity )
+{
+	entvars_t *pev = &pEntity->v;
+	CBaseSpectator *pPlayer = (CBaseSpectator *)GET_PRIVATE(pEntity);
+
+	if (pPlayer)
+		pPlayer->SpectatorThink( );
+}
