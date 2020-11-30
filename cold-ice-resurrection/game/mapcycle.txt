@@ -1,0 +1,8 @@
+cir_catacombs
+cir_coldice
+cir_stalkyard
+cir_canyon
+cir_focus
+cir_themill
+cir_training
+
