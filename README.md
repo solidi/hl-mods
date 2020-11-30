@@ -1,3 +1,6 @@
-# Cold-Ice
+# Half-Life Mods
 
-Artifacts and code from [the modification](https://www.moddb.com/mods/cold-ice).
+Modifications for Half-Life developed from 1999 to 2004
+
+1. Cold-Ice
+1. Cold-Ice Resurrection
