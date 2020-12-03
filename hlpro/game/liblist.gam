@@ -1,0 +1,14 @@
+// Do not edit this, or Half-Life Pro will not run correctly.
+
+game "Half-Life Pro"
+url_info "http://www.halflife.net/hlpro"
+url_dl "http://www.halflife.net/hlpro"
+version "1"
+size "733257"
+svonly "0"
+cldll "1" 
+hlversion "1013"
+type "multiplayer_only"
+nomodels "0"
+mpentity "info_player_deathmatch"
+gamedll "dlls\mp.dll"
