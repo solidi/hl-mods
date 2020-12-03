@@ -1,5 +1,5 @@
 
-   Half-Life Pro v1.2 
+   Half-Life Pro v1.2b 
    Author: Surreal (surreal@optonline.net)
    http://www.planethalflife.com/hlpro
    __________________________
@@ -79,7 +79,7 @@
    The zip will extract the files into the c:\sirrea\sierra\hlpro directory, so 
    you do not have to worry about making new directories. 
    
-   The requirements for Half-Life Pro 1.2 are as follows:
+   The requirements for Half-Life Pro 1.2b are as follows:
    - Half-Life 1.1+ (1.1.0.0 patch+).
    - It is also suggested to run under 800*600 or greater to receive the full 
      advantage of the new HUD display. Run HLPRO under this suggested setting,
@@ -151,7 +151,6 @@
    show_gui      - to display vgui support in Half-Life Pro.
 
    (please read section 8 for details)
-   vote          - to create a public vote.
    vote_kick     - to create a vote to kick a client. 
    vote_map      - to create a vote for a new map. 
    vote_arena    - to create a vote to begin another arena. 
@@ -225,14 +224,12 @@
    09. Voting System.
    --------------------------
    Half-Life Pro offers a new voting system for all connected clients. Its very
-   easy to use. All a clinet needs to do is type vote in his or her console. From
-   there a menu pops up(if no one else is constructing a vote) and you can follow
-   the directions.
+   easy to use.
    
    Note: There are 3 types of votes:
-   Map
-   Arena
-   Kick
+   vote_map
+   vote_arena
+   vote_kick
    
    Once the vote is in progress, all connected clients will see a message at the 
    top left corner of their hud. You can vote by simply typing in the console:

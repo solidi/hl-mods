@@ -1,0 +1,23 @@
+This patch fixes the following problems with Half-Life Pro 1.2 and 1.2a 
+
+-One on One Arena Crash.
+-Corrected Last Man Standing Arena.
+-Fixed player disconnect erros with cretain arenas.
+-Fixed Last Man Standing no victor bug.
+-Added disconnecting Messages if a player is in a arena. 
+-Simplified voting commands. "Vote" is not needed anymore.
+-Gave a set amount of weapons in last man standing, removed All other items and weapons.
+-Notify clienst killing others that aren't the armored man.
+-Removed all healing items in last man standing.
+-Armored man models. Robo is the armored man, recon are the exterminators.
+-Holster weapons that have holster animations used.
+-Satchel exploding bug.
+-Unknown Armored Man bug.
+-Added new intros and conclusions to last man and armored man.
+
+
+To install, just unzip into sierra/half-life directory.
+
+
+If you have any other questions regarding this patch, please
+contact me at surreal@optonline.net

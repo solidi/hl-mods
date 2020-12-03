@@ -2,10 +2,10 @@
 //Please do not edit!
 
 game "Half-Life Pro" 				   // MOD Title
-gamedir "hlpro"                                    // MOD Directory
+gamedir "devhlpro"                                 // MOD Directory
 url_info "http://www.planethalflife.com/hlpro"	   // MOD URL
 url_dl "http://www.planethalflife.com/hlpro/files" // MOD Download URL
-version "1.2" 				           // Current Version
+version "1.2b" 				           // Current Version
 hlversion "1101" 				   // Halflife Version
 size "2692946"  				   // MOD Size
 type "Single and Multiplayer"                      // MOD Type
@@ -16,4 +16,4 @@ cldll "1" 					   // Client-Side DLL? (1=yes 0=no)
 svonly "0" 					   // Server-Side Only? (1=yes 0=no)
 nomodels "1" 					   // Select Player Model? (1=yes 0=no)
 mpentity "info_player_start"			   // Multiplayer Spawn Entity
-gamedll "dlls\hl.dll" 			   	   // DLL Location
+gamedll "dlls\hl.dll" 		          	   // DLL Location
