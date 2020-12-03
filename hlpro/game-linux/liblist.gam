@@ -1,0 +1,20 @@
+//Half-Life Pro liblist.gam file.
+//Please do not edit!
+
+game "Half-Life Pro" 				   // MOD Title
+gamedir "hlpro"                                    // MOD Directory
+url_info "http://www.planethalflife.com/hlpro"	   // MOD URL
+url_dl "http://www.planethalflife.com/hlpro/files" // MOD Download URL
+version "1.2" 				           // Current Version
+hlversion "1101" 				   // Halflife Version
+size "2692946"  				   // MOD Size
+type "Single and Multiplayer"                      // MOD Type
+startmap "c0a0"                                    // Start Single Player Map
+trainmap "t0a0"                                    // Start Training Map
+mpentity "info_player_deathmatch"                  // Multiplayer Spawn
+cldll "1" 					   // Client-Side DLL? (1=yes 0=no)
+svonly "0" 					   // Server-Side Only? (1=yes 0=no)
+nomodels "1" 					   // Select Player Model? (1=yes 0=no)
+mpentity "info_player_start"			   // Multiplayer Spawn Entity
+gamedll "dlls\hl.dll" 			   	   // DLL Location
+gamedll_linux "dlls/hl_i386.so"                    // Linux Server Shared Library. Compiled by Hero (101.18018@germany.net)
