@@ -82,13 +82,13 @@ bucket4			640 640hud7	168	92	20	20
 bucket5			640 640hud7	188	92	20	20		
 bucket0			640 640hud7	208	92	20	20		
 
-dmg_poison		640 640hud8	128	0	64	64
 dmg_bio			640 640hud8	128	0	64	64
+dmg_poison		640 640hud8	128	0	64	64
 dmg_chem		640 640hud8	0	0	64	64
-dmg_drown		640 640hud8	64	0	64	64
-dmg_gas			640 640hud9	0	0	64	64
 dmg_cold		640 640hud9	64	0	64	64
+dmg_drown		640 640hud8	64	0	64	64
 dmg_heat		640 640hud9	128	0	64	64
+dmg_gas			640 640hud9	0	0	64	64
 dmg_rad			640 640hud9	192 	0	64	64
 dmg_shock		640 640hud8	192	0	64	64
 
