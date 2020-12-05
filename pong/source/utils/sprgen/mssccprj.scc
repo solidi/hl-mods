@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[sprgen.mak]
+SCC_Aux_Path = "\\Jeeves\VSSCODE\"
+SCC_Project_Name = "$/Sdk/Standard/utils/sprgen", HJZBAAAA

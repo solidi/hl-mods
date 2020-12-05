@@ -1,0 +1,138 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mp - Win32 Profile--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE28.tmp" with contents
+[
+/nologo /G5 /MT /W3 /GX /Zi /O2 /I "..\dlls" /I "..\engine" /I "..\common" /I "..\pm_shared" /I "..\\" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "VALVE_DLL" /Fr".\Profilemp/" /Fp".\Profilemp/pong.pch" /YX /Fo".\Profilemp/" /Fd".\Profilemp/" /FD /c 
+"C:\Documents and Settings\Douglas W. Arcuri.SURREALMAIN\My Documents\My Files\projects\pong\source\dlls\multiplay_gamerules.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE28.tmp" 
+Creating temporary file "C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE29.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\pong.def" /out:".\Profilemp/pong.dll" /implib:".\Profilemp/pong.lib" 
+".\Profilemp\animating.obj"
+".\Profilemp\animation.obj"
+".\Profilemp\bmodels.obj"
+".\Profilemp\buttons.obj"
+".\Profilemp\cbase.obj"
+".\Profilemp\client.obj"
+".\Profilemp\combat.obj"
+".\Profilemp\doors.obj"
+".\Profilemp\effects.obj"
+".\Profilemp\explode.obj"
+".\Profilemp\func_break.obj"
+".\Profilemp\func_tank.obj"
+".\Profilemp\game.obj"
+".\Profilemp\gamerules.obj"
+".\Profilemp\ggrenade.obj"
+".\Profilemp\globals.obj"
+".\Profilemp\h_ai.obj"
+".\Profilemp\h_battery.obj"
+".\Profilemp\h_cycler.obj"
+".\Profilemp\h_export.obj"
+".\Profilemp\healthkit.obj"
+".\Profilemp\items.obj"
+".\Profilemp\lights.obj"
+".\Profilemp\maprules.obj"
+".\Profilemp\mortar.obj"
+".\Profilemp\mpstubb.obj"
+".\Profilemp\multiplay_gamerules.obj"
+".\Profilemp\pathcorner.obj"
+".\Profilemp\plane.obj"
+".\Profilemp\plats.obj"
+".\Profilemp\player.obj"
+".\Profilemp\pm_debug.obj"
+".\Profilemp\pm_math.obj"
+".\Profilemp\pm_shared.obj"
+".\Profilemp\singleplay_gamerules.obj"
+".\Profilemp\skill.obj"
+".\Profilemp\sound.obj"
+".\Profilemp\soundent.obj"
+".\Profilemp\spectator.obj"
+".\Profilemp\subs.obj"
+".\Profilemp\teamplay_gamerules.obj"
+".\Profilemp\triggers.obj"
+".\Profilemp\util.obj"
+".\Profilemp\weapons.obj"
+".\Profilemp\world.obj"
+".\Profilemp\xen.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE29.tmp"
+Creating temporary file "C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE2A.bat" with contents
+[
+@echo off
+copy .\Profilemp\pong.dll "\game files\Half-Life\pong\dlls"
+]
+Creating command line "C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE2A.bat"
+Compiling...
+multiplay_gamerules.cpp
+Linking...
+   Creating library .\Profilemp/pong.lib and object .\Profilemp/pong.exp
+<h3>Output Window</h3>
+Copying to \game files\Half-Life\pong\dlls
+        1 file(s) copied.
+Creating temporary file "C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE2E.tmp" with contents
+[
+/nologo /o".\Profilemp/pong.bsc" 
+".\Profilemp\animating.sbr"
+".\Profilemp\animation.sbr"
+".\Profilemp\bmodels.sbr"
+".\Profilemp\buttons.sbr"
+".\Profilemp\cbase.sbr"
+".\Profilemp\client.sbr"
+".\Profilemp\combat.sbr"
+".\Profilemp\doors.sbr"
+".\Profilemp\effects.sbr"
+".\Profilemp\explode.sbr"
+".\Profilemp\func_break.sbr"
+".\Profilemp\func_tank.sbr"
+".\Profilemp\game.sbr"
+".\Profilemp\gamerules.sbr"
+".\Profilemp\ggrenade.sbr"
+".\Profilemp\globals.sbr"
+".\Profilemp\h_ai.sbr"
+".\Profilemp\h_battery.sbr"
+".\Profilemp\h_cycler.sbr"
+".\Profilemp\h_export.sbr"
+".\Profilemp\healthkit.sbr"
+".\Profilemp\items.sbr"
+".\Profilemp\lights.sbr"
+".\Profilemp\maprules.sbr"
+".\Profilemp\mortar.sbr"
+".\Profilemp\mpstubb.sbr"
+".\Profilemp\multiplay_gamerules.sbr"
+".\Profilemp\pathcorner.sbr"
+".\Profilemp\plane.sbr"
+".\Profilemp\plats.sbr"
+".\Profilemp\player.sbr"
+".\Profilemp\pm_debug.sbr"
+".\Profilemp\pm_math.sbr"
+".\Profilemp\pm_shared.sbr"
+".\Profilemp\singleplay_gamerules.sbr"
+".\Profilemp\skill.sbr"
+".\Profilemp\sound.sbr"
+".\Profilemp\soundent.sbr"
+".\Profilemp\spectator.sbr"
+".\Profilemp\subs.sbr"
+".\Profilemp\teamplay_gamerules.sbr"
+".\Profilemp\triggers.sbr"
+".\Profilemp\util.sbr"
+".\Profilemp\weapons.sbr"
+".\Profilemp\world.sbr"
+".\Profilemp\xen.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\DOUGLA~1.SUR\LOCALS~1\Temp\RSPE2E.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+pong.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
