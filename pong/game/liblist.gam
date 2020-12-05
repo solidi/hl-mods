@@ -1,0 +1,17 @@
+//Pong liblist.gam file.
+//Please do not edit!
+
+game "Pong" 		                              // MOD Title
+gamedir "pong"                                        // MOD Directory
+url_info "http://www.planethalflife.com/hlpro/pong"   // MOD URL
+url_dl "http://www.planethalflife.com/hlpro/pong"     // MOD Download URL
+version "1" 		                              // Current Version
+hlversion "1108" 				      // Halflife Version
+size "1024000"  				      // MOD Size
+type "multiplayer_only"                               // MOD Type
+mpentity "info_player_deathmatch"                     // Multiplayer Spawn
+cldll "1" 					      // Client-Side DLL? (1=yes 0=no)
+svonly "0" 					      // Server-Side Only? (1=yes 0=no)
+nomodels "0" 					      // No Player Model Select? (1=yes 0=no)
+mpentity "info_player_start"			      // Multiplayer Spawn Entity
+gamedll "dlls\pong.dll" 		              // DLL Location
