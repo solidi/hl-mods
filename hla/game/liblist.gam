@@ -1,0 +1,17 @@
+//Half-Life Advanced liblist.gam file.
+//Please do not edit!
+
+game "Half-Life Advanced"
+gamedir "devhla"
+url_info ""
+url_dl ""
+version "1"
+hlversion "1101"
+size "2692946"
+svonly "1"
+cldll "0"
+type "multiplayer_only"
+mpentity "info_player_deathmatch"
+nomodels "0"
+mpentity "info_player_start"
+gamedll "dlls\hla.dll"

@@ -1,0 +1,11 @@
+Arena is LMS!
+Last Man Standing
+
+Mutators:
+(weapon): all weapons are changed to this and ammo changed to similar ammo.
+anticamper: recieve damage if camping.
+instagib: one shot gibs.
+fatboy: the higher the frag / death streak, the bigger you are.
+earning: earn weapons at certain frag amounts.
+startfull: start fully loaded.
+gore: increase in blood and guts.

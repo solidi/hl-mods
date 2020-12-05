@@ -1,0 +1,8 @@
+crowbar {
+got smacked hard with a crow!;
+got hurt bad with the big bad pipe!;
+}
+shotgun {
+destroyed his victim with pellets!;
+got smacked with a a blast of iron!;
+}
