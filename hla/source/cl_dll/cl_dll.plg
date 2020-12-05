@@ -1,0 +1,216 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cl_dll - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP41E.tmp" with contents
+[
+/nologo /G5 /MTd /W3 /Gm /GR /GX /ZI /Od /I "..\dlls" /I "..\common" /I "..\pm_shared" /I "..\engine" /I "..\utils\vgui\include" /I "..\game_shared" /D "_DEBUG" /D "_MBCS" /D "WIN32" /D "_WINDOWS" /D "CLIENT_DLL" /D "CLIENT_WEAPONS" /FR".\Debug/" /Fp".\Debug/cl_dll.pch" /YX /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\Documents and Settings\Surreal\Desktop\hlpro\dlls\wpn_shared\hl_wpn_glock.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP41E.tmp" 
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP41F.tmp" with contents
+[
+oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib winmm.lib ../utils/vgui/lib/win32_vc6/vgui.lib wsock32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:".\Debug/client.pdb" /debug /machine:I386 /out:".\Debug\client.dll" /implib:".\Debug/client.lib" 
+".\Debug\crossbow.obj"
+".\Debug\crowbar.obj"
+".\Debug\egon.obj"
+".\Debug\ev_hldm.obj"
+".\Debug\gauss.obj"
+".\Debug\handgrenade.obj"
+".\Debug\hl_baseentity.obj"
+".\Debug\hl_events.obj"
+".\Debug\hl_objects.obj"
+".\Debug\hl_weapons.obj"
+".\Debug\hl_wpn_glock.obj"
+".\Debug\hornetgun.obj"
+".\Debug\interface.obj"
+".\Debug\mp5.obj"
+".\Debug\python.obj"
+".\Debug\rpg.obj"
+".\Debug\satchel.obj"
+".\Debug\shotgun.obj"
+".\Debug\squeakgrenade.obj"
+".\Debug\tripmine.obj"
+".\Debug\vgui_scrollbar2.obj"
+".\Debug\vgui_slider2.obj"
+".\Debug\voice_banmgr.obj"
+".\Debug\voice_status.obj"
+".\Debug\ammo.obj"
+".\Debug\ammo_secondary.obj"
+".\Debug\ammohistory.obj"
+".\Debug\battery.obj"
+".\Debug\cdll_int.obj"
+".\Debug\com_weapons.obj"
+".\Debug\death.obj"
+".\Debug\demo.obj"
+".\Debug\entity.obj"
+".\Debug\ev_common.obj"
+".\Debug\events.obj"
+".\Debug\flashlight.obj"
+".\Debug\GameStudioModelRenderer.obj"
+".\Debug\geiger.obj"
+".\Debug\health.obj"
+".\Debug\hud.obj"
+".\Debug\hud_msg.obj"
+".\Debug\hud_redraw.obj"
+".\Debug\hud_servers.obj"
+".\Debug\hud_spectator.obj"
+".\Debug\hud_update.obj"
+".\Debug\in_camera.obj"
+".\Debug\input.obj"
+".\Debug\inputw32.obj"
+".\Debug\menu.obj"
+".\Debug\message.obj"
+".\Debug\parsemsg.obj"
+".\Debug\pm_debug.obj"
+".\Debug\pm_math.obj"
+".\Debug\pm_shared.obj"
+".\Debug\saytext.obj"
+".\Debug\status_icons.obj"
+".\Debug\statusbar.obj"
+".\Debug\studio_util.obj"
+".\Debug\StudioModelRenderer.obj"
+".\Debug\text_message.obj"
+".\Debug\train.obj"
+".\Debug\tri.obj"
+".\Debug\util.obj"
+".\Debug\vgui_checkbutton2.obj"
+".\Debug\vgui_ClassMenu.obj"
+".\Debug\vgui_ConsolePanel.obj"
+".\Debug\vgui_ControlConfigPanel.obj"
+".\Debug\vgui_CustomObjects.obj"
+".\Debug\vgui_grid.obj"
+".\Debug\vgui_helpers.obj"
+".\Debug\vgui_int.obj"
+".\Debug\vgui_listbox.obj"
+".\Debug\vgui_loadtga.obj"
+".\Debug\vgui_MOTDWindow.obj"
+".\Debug\vgui_SchemeManager.obj"
+".\Debug\vgui_ScorePanel.obj"
+".\Debug\vgui_ServerBrowser.obj"
+".\Debug\vgui_SpectatorPanel.obj"
+".\Debug\vgui_TeamFortressViewport.obj"
+".\Debug\vgui_teammenu.obj"
+".\Debug\view.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP41F.tmp"
+<h3>Output Window</h3>
+Compiling...
+hl_wpn_glock.cpp
+Linking...
+   Creating library .\Debug/client.lib and object .\Debug/client.exp
+tripmine.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+rpg.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+satchel.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+shotgun.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+squeakgrenade.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+handgrenade.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+hl_wpn_glock.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+hornetgun.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+python.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+crossbow.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+crowbar.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+egon.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+gauss.obj : error LNK2001: unresolved external symbol "int g_flWeaponArena" (?g_flWeaponArena@@3HA)
+mp5.obj : error LNK2001: unresolved external symbol "int mp5" (?mp5@@3HA)
+.\Debug\client.dll : fatal error LNK1120: 2 unresolved externals
+Error executing link.exe.
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP423.tmp" with contents
+[
+/nologo /o".\Debug/cl_dll.bsc" 
+".\Debug\crossbow.sbr"
+".\Debug\crowbar.sbr"
+".\Debug\egon.sbr"
+".\Debug\ev_hldm.sbr"
+".\Debug\gauss.sbr"
+".\Debug\handgrenade.sbr"
+".\Debug\hl_baseentity.sbr"
+".\Debug\hl_events.sbr"
+".\Debug\hl_objects.sbr"
+".\Debug\hl_weapons.sbr"
+".\Debug\hl_wpn_glock.sbr"
+".\Debug\hornetgun.sbr"
+".\Debug\interface.sbr"
+".\Debug\mp5.sbr"
+".\Debug\python.sbr"
+".\Debug\rpg.sbr"
+".\Debug\satchel.sbr"
+".\Debug\shotgun.sbr"
+".\Debug\squeakgrenade.sbr"
+".\Debug\tripmine.sbr"
+".\Debug\vgui_scrollbar2.sbr"
+".\Debug\vgui_slider2.sbr"
+".\Debug\voice_banmgr.sbr"
+".\Debug\voice_status.sbr"
+".\Debug\ammo.sbr"
+".\Debug\ammo_secondary.sbr"
+".\Debug\ammohistory.sbr"
+".\Debug\battery.sbr"
+".\Debug\cdll_int.sbr"
+".\Debug\com_weapons.sbr"
+".\Debug\death.sbr"
+".\Debug\demo.sbr"
+".\Debug\entity.sbr"
+".\Debug\ev_common.sbr"
+".\Debug\events.sbr"
+".\Debug\flashlight.sbr"
+".\Debug\GameStudioModelRenderer.sbr"
+".\Debug\geiger.sbr"
+".\Debug\health.sbr"
+".\Debug\hud.sbr"
+".\Debug\hud_msg.sbr"
+".\Debug\hud_redraw.sbr"
+".\Debug\hud_servers.sbr"
+".\Debug\hud_spectator.sbr"
+".\Debug\hud_update.sbr"
+".\Debug\in_camera.sbr"
+".\Debug\input.sbr"
+".\Debug\inputw32.sbr"
+".\Debug\menu.sbr"
+".\Debug\message.sbr"
+".\Debug\parsemsg.sbr"
+".\Debug\pm_debug.sbr"
+".\Debug\pm_math.sbr"
+".\Debug\pm_shared.sbr"
+".\Debug\saytext.sbr"
+".\Debug\status_icons.sbr"
+".\Debug\statusbar.sbr"
+".\Debug\studio_util.sbr"
+".\Debug\StudioModelRenderer.sbr"
+".\Debug\text_message.sbr"
+".\Debug\train.sbr"
+".\Debug\tri.sbr"
+".\Debug\util.sbr"
+".\Debug\vgui_checkbutton2.sbr"
+".\Debug\vgui_ClassMenu.sbr"
+".\Debug\vgui_ConsolePanel.sbr"
+".\Debug\vgui_ControlConfigPanel.sbr"
+".\Debug\vgui_CustomObjects.sbr"
+".\Debug\vgui_grid.sbr"
+".\Debug\vgui_helpers.sbr"
+".\Debug\vgui_int.sbr"
+".\Debug\vgui_listbox.sbr"
+".\Debug\vgui_loadtga.sbr"
+".\Debug\vgui_MOTDWindow.sbr"
+".\Debug\vgui_SchemeManager.sbr"
+".\Debug\vgui_ScorePanel.sbr"
+".\Debug\vgui_ServerBrowser.sbr"
+".\Debug\vgui_SpectatorPanel.sbr"
+".\Debug\vgui_TeamFortressViewport.sbr"
+".\Debug\vgui_teammenu.sbr"
+".\Debug\view.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP423.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+client.dll - 15 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

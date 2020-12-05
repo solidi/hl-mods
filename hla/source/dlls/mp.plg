@@ -1,0 +1,176 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: mp - Win32 Profile--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP393.tmp" with contents
+[
+/nologo /G5 /MT /W3 /GX /Zi /O2 /I "..\dlls" /I "..\engine" /I "..\common" /I "..\pm_shared" /I "..\game_shared" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "VALVE_DLL" /D "CLIENT_WEAPONS" /FR".\Profilemp/" /Fp".\Profilemp/hlpro.pch" /YX /Fo".\Profilemp/" /Fd".\Profilemp/" /FD /c 
+"X:\+00+                                      --==[ Files\projects\hla\source\dlls\player.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP393.tmp" 
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP394.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /profile /debug /machine:I386 /def:".\hla.def" /out:".\Profilemp/hla.dll" /implib:".\Profilemp/hla.lib" 
+".\Profilemp\airtank.obj"
+".\Profilemp\animating.obj"
+".\Profilemp\animation.obj"
+".\Profilemp\bmodels.obj"
+".\Profilemp\buttons.obj"
+".\Profilemp\cbase.obj"
+".\Profilemp\client.obj"
+".\Profilemp\combat.obj"
+".\Profilemp\crossbow.obj"
+".\Profilemp\crowbar.obj"
+".\Profilemp\doors.obj"
+".\Profilemp\effects.obj"
+".\Profilemp\egon.obj"
+".\Profilemp\explode.obj"
+".\Profilemp\func_break.obj"
+".\Profilemp\func_tank.obj"
+".\Profilemp\game.obj"
+".\Profilemp\gamerules.obj"
+".\Profilemp\gauss.obj"
+".\Profilemp\ggrenade.obj"
+".\Profilemp\globals.obj"
+".\Profilemp\h_ai.obj"
+".\Profilemp\h_battery.obj"
+".\Profilemp\h_cycler.obj"
+".\Profilemp\h_export.obj"
+".\Profilemp\handgrenade.obj"
+".\Profilemp\healthkit.obj"
+".\Profilemp\hl_wpn_glock.obj"
+".\Profilemp\hornet.obj"
+".\Profilemp\hornetgun.obj"
+".\Profilemp\interface.obj"
+".\Profilemp\items.obj"
+".\Profilemp\lights.obj"
+".\Profilemp\maprules.obj"
+".\Profilemp\mortar.obj"
+".\Profilemp\mp5.obj"
+".\Profilemp\mpstubb.obj"
+".\Profilemp\multiplay_gamerules.obj"
+".\Profilemp\pathcorner.obj"
+".\Profilemp\plane.obj"
+".\Profilemp\plats.obj"
+".\Profilemp\player.obj"
+".\Profilemp\pm_debug.obj"
+".\Profilemp\pm_math.obj"
+".\Profilemp\pm_shared.obj"
+".\Profilemp\python.obj"
+".\Profilemp\rpg.obj"
+".\Profilemp\satchel.obj"
+".\Profilemp\shotgun.obj"
+".\Profilemp\singleplay_gamerules.obj"
+".\Profilemp\skill.obj"
+".\Profilemp\sound.obj"
+".\Profilemp\soundent.obj"
+".\Profilemp\spectator.obj"
+".\Profilemp\squeakgrenade.obj"
+".\Profilemp\subs.obj"
+".\Profilemp\teamplay_gamerules.obj"
+".\Profilemp\triggers.obj"
+".\Profilemp\tripmine.obj"
+".\Profilemp\util.obj"
+".\Profilemp\voice_gamemgr.obj"
+".\Profilemp\vote.obj"
+".\Profilemp\weapons.obj"
+".\Profilemp\world.obj"
+".\Profilemp\xen.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP394.tmp"
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP395.bat" with contents
+[
+@echo off
+copy .\Profilemp\hla.dll "D:\half-life\devhla\dlls\hla.dll"
+]
+Creating command line "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP395.bat"
+Compiling...
+player.cpp
+Linking...
+   Creating library .\Profilemp/hla.lib and object .\Profilemp/hla.exp
+<h3>Output Window</h3>
+Performing Custom Build Step on .\Profilemp\hla.dll
+        1 file(s) copied.
+Creating temporary file "C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP399.tmp" with contents
+[
+/nologo /o".\Profilemp/hla.bsc" 
+".\Profilemp\airtank.sbr"
+".\Profilemp\animating.sbr"
+".\Profilemp\animation.sbr"
+".\Profilemp\bmodels.sbr"
+".\Profilemp\buttons.sbr"
+".\Profilemp\cbase.sbr"
+".\Profilemp\client.sbr"
+".\Profilemp\combat.sbr"
+".\Profilemp\crossbow.sbr"
+".\Profilemp\crowbar.sbr"
+".\Profilemp\doors.sbr"
+".\Profilemp\effects.sbr"
+".\Profilemp\egon.sbr"
+".\Profilemp\explode.sbr"
+".\Profilemp\func_break.sbr"
+".\Profilemp\func_tank.sbr"
+".\Profilemp\game.sbr"
+".\Profilemp\gamerules.sbr"
+".\Profilemp\gauss.sbr"
+".\Profilemp\ggrenade.sbr"
+".\Profilemp\globals.sbr"
+".\Profilemp\h_ai.sbr"
+".\Profilemp\h_battery.sbr"
+".\Profilemp\h_cycler.sbr"
+".\Profilemp\h_export.sbr"
+".\Profilemp\handgrenade.sbr"
+".\Profilemp\healthkit.sbr"
+".\Profilemp\hl_wpn_glock.sbr"
+".\Profilemp\hornet.sbr"
+".\Profilemp\hornetgun.sbr"
+".\Profilemp\interface.sbr"
+".\Profilemp\items.sbr"
+".\Profilemp\lights.sbr"
+".\Profilemp\maprules.sbr"
+".\Profilemp\mortar.sbr"
+".\Profilemp\mp5.sbr"
+".\Profilemp\mpstubb.sbr"
+".\Profilemp\multiplay_gamerules.sbr"
+".\Profilemp\pathcorner.sbr"
+".\Profilemp\plane.sbr"
+".\Profilemp\plats.sbr"
+".\Profilemp\player.sbr"
+".\Profilemp\pm_debug.sbr"
+".\Profilemp\pm_math.sbr"
+".\Profilemp\pm_shared.sbr"
+".\Profilemp\python.sbr"
+".\Profilemp\rpg.sbr"
+".\Profilemp\satchel.sbr"
+".\Profilemp\shotgun.sbr"
+".\Profilemp\singleplay_gamerules.sbr"
+".\Profilemp\skill.sbr"
+".\Profilemp\sound.sbr"
+".\Profilemp\soundent.sbr"
+".\Profilemp\spectator.sbr"
+".\Profilemp\squeakgrenade.sbr"
+".\Profilemp\subs.sbr"
+".\Profilemp\teamplay_gamerules.sbr"
+".\Profilemp\triggers.sbr"
+".\Profilemp\tripmine.sbr"
+".\Profilemp\util.sbr"
+".\Profilemp\voice_gamemgr.sbr"
+".\Profilemp\vote.sbr"
+".\Profilemp\weapons.sbr"
+".\Profilemp\world.sbr"
+".\Profilemp\xen.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\Surreal\LOCALS~1\Temp\RSP399.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+hla.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
