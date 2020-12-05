@@ -94,6 +94,11 @@ enum sbar_data
 #define RUNE_GRAVITY	6
 #define RUNE_CLOAK		7
 #define RUNE_VAMPIRE	8
+#define RUNE_HASTE		9
+
+#define OBS_CHASE_LOCKED		1
+#define OBS_CHASE_FREE			2
+#define OBS_ROAMING			3	
 //end hlpro2
 
 class CBasePlayer : public CBaseMonster
@@ -215,7 +220,9 @@ public:
 	virtual BOOL IsSneaking( void ) { return m_tSneaking <= gpGlobals->time; }
 	virtual BOOL IsAlive( void ) { return (pev->deadflag == DEAD_NO) && pev->health > 0; }
 	virtual BOOL ShouldFadeOnDeath( void ) { return FALSE; }
-	virtual	BOOL IsPlayer( void ) { return TRUE; }			// Spectators should return FALSE for this, they aren't "players" as far as game logic is concerned
+	//start hlpro2
+	virtual	BOOL IsPlayer( void ) { return ( HasDisconnected ? FALSE : TRUE ); }			// Spectators should return FALSE for this, they aren't "players" as far as game logic is concerned
+	//end hlpro2
 
 	virtual BOOL IsNetClient( void ) { return TRUE; }		// Bots should return FALSE for this, they can't receive NET messages
 															// Spectators should return TRUE for this
@@ -322,6 +329,15 @@ public:
 	float m_flNextChatTime;
 
 	//start hlpro2
+	Vector v_LastAngles;
+
+	EHANDLE m_hObserverTarget;
+//	BOOL m_bPutToObserver;
+
+	float m_flSpawnProtect;
+	float m_flLMSHurt;
+	float m_flForceToObserverTime;
+
 	float m_fDisplayMessage;
 	float m_fDisplayVoteMessage;
 	BOOL  m_bHasVotedYes;
@@ -331,37 +347,55 @@ public:
 	float m_flCamperUpdate;
 
 	int m_fHasRune;
+	float m_flRuneTime;
 	float m_flAmmoRegenTime;
 	float m_flRegenHealTime;
 
 	BOOL m_bWeaponStats;
 	int  m_iLandedHits[16];
 	int  m_iMissedHits[16];
-	int  m_iKillRatio[16];
+	int  m_iWeaponKills[16];
+	int  m_iTotalKills;
 	float m_fCurrentAccu;
-	float m_fKillWeaponRatio;
+	float m_fWeaponKillRatio;
 	float m_flWeaponStatsUpdate;
 
 	int m_iFatAmount;
+	float m_fArmoredManHits;
 
-	BOOL IsSpectator;
+	float m_fBleedTime;
+	int m_iBleedCount;
+	entvars_t *pevBleedAttacker;
+
+	int m_iGameModeWins;
+//	int m_iGameModeLoses;
+	int m_iGameModePlays;
+
+	BOOL IsSpectator( void ) { return ( pev->movetype & MOVETYPE_NOCLIP ? TRUE : FALSE ); };
 	BOOL IsFinishedIntroSpectating;
-	int m_iObserverIndex;
-	float m_flObserverUpdate;
+//	int m_iObserverIndex;
+//	float m_flObserverUpdate;
 	float m_fFindPlayerToObserveUpdate;
-	int m_iObserverForwardView;
+//	int m_iObserverForwardView;
 
 	BOOL HasDisconnected;
 	BOOL IsInArena;
-	float m_flSpawnTime;
+//	float m_flSpawnTime;
+
+	BOOL IsArmoredMan;
+	BOOL IsIt;
+	Vector m_vFreezeAngle;
+	float m_flFrozenTime;
 
 	virtual void DisplayAccuracy( int m_iWeapon, char *szWeapon );
 
 	virtual void GiveAllItems( void );
 
-	virtual void StartObserving( void );
-	virtual void FindPlayerToObserve ( int cycle );
-	virtual void UpdateObserverView ( int ID );
+	virtual void StartObserving( BOOL CopyBody );
+	virtual void ExitObserving( void );
+	virtual void FindPlayerToObserve( int cycle );
+//	virtual void UpdateObserverView( int ID );
+	virtual void SwitchSpectatorModes( void );
 
 	virtual int  BloodColor( void ) { return BLOOD_COLOR_RED;} // Bleed Baby!
 	void DisplayHudMessage( char message[256], int channel, float x, float y, int r, int g, int b, int effect, float fadein, float fadeout, float holdtime, float fxtime );

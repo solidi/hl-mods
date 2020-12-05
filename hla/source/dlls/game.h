@@ -39,6 +39,8 @@ extern cvar_t	allowmonsters;
 //start hlpro2
 extern cvar_t   hla_mutators;
 extern cvar_t	hla_gamemode;
+extern cvar_t   hla_gamefrags;
+extern cvar_t	hla_startweapons;
 //end hlpro2
 
 // Engine Cvars

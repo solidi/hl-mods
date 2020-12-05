@@ -335,11 +335,11 @@ void CRpg::Reload( void )
 void CRpg::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_RPG && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_RPG && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );
@@ -587,14 +587,14 @@ class CRpgAmmo : public CBasePlayerAmmo
 {
 	void Spawn( void )
 	{
-		//start hlpro2
+	/*	//start hlpro2
 		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_RPG )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
 		}
-		//end hlpro2
+		//end hlpro2*/
 
 		Precache( );
 		SET_MODEL(ENT(pev), "models/w_rpgammo.mdl");

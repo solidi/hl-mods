@@ -44,11 +44,11 @@ LINK_ENTITY_TO_CLASS( weapon_handgrenade, CHandGrenade );
 void CHandGrenade::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_HANDGRENADE && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_HANDGRENADE && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );

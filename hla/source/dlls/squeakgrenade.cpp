@@ -419,11 +419,11 @@ LINK_ENTITY_TO_CLASS( weapon_snark, CSqueak );
 void CSqueak::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_SNARK && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_SNARK && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 	//	return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );

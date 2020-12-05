@@ -55,11 +55,11 @@ BOOL CHgun::IsUseable( void )
 void CHgun::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_HORNETGUN && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_HORNETGUN && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );

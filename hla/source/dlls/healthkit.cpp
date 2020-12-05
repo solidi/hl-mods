@@ -24,6 +24,10 @@
 
 extern int gmsgItemPickup;
 
+//start hlpro2
+extern DLL_GLOBAL   int			g_GameMode;
+//end hlpro2
+
 class CHealthKit : public CItem
 {
 	void Spawn( void );
@@ -158,6 +162,11 @@ void CWallHealth::KeyValue( KeyValueData *pkvd )
 
 void CWallHealth::Spawn()
 {
+	//start hlpro2
+	if ( g_GameMode == GAME_ARENA || g_GameMode == GAME_LMS )
+		return;
+	//end hlpro2
+
 	Precache( );
 
 	pev->solid		= SOLID_BSP;

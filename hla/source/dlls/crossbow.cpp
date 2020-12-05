@@ -244,11 +244,11 @@ LINK_ENTITY_TO_CLASS( weapon_crossbow, CCrossbow );
 void CCrossbow::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_CROSSBOW && g_flWeaponArena != 16 )  )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_CROSSBOW && g_flWeaponArena != 16 )  )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );
@@ -549,12 +549,12 @@ class CCrossbowAmmo : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
-		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_CROSSBOW )
+		/* if ( g_flWeaponArena && g_flWeaponArena != WEAPON_CROSSBOW )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
-		}
+		} */
 		//end hlpro2
 
 		Precache( );

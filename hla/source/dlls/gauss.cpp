@@ -67,11 +67,11 @@ extern int g_irunninggausspred;
 void CGauss::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_GAUSS && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_GAUSS && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );
@@ -629,14 +629,14 @@ void CGauss::WeaponIdle( void )
 class CGaussAmmo : public CBasePlayerAmmo
 {
 	void Spawn( void )
-	{ 
+	{ /*
 		//start hlpro2
 		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_GAUSS )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
-		}
+		}*/
 		//end hlpro2
 
 		Precache( );

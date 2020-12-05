@@ -48,11 +48,11 @@ LINK_ENTITY_TO_CLASS( weapon_shotgun, CShotgun );
 void CShotgun::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && ( g_flWeaponArena != WEAPON_SHOTGUN && g_flWeaponArena != 16 ) )
+/*	if ( g_flWeaponArena && ( g_flWeaponArena != WEAPON_SHOTGUN && g_flWeaponArena != 16 ) )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );
@@ -397,12 +397,31 @@ class CShotgunAmmo : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
-		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_SHOTGUN )
+		/*if ( g_flWeaponArena && g_flWeaponArena != WEAPON_SHOTGUN )
 		{
+			for ( int j = 1; j <= g_TotalWeapons; j++ )
+				
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
 		}
+
+		if ( g_flWeaponArena )
+		{
+			BOOL found_same = FALSE;
+			
+			for ( int j = 1; j <= g_TotalWeapons; j++ )
+			{
+				if ( g_flWeaponMutators[j] == WEAPON_SHOTGUN )
+					found_same = TRUE;
+			}
+					
+			if ( !found_same )
+			{
+				UTIL_Remove(this);
+				DetermineArenaAmmoSpawn(this);
+			}
+		}*/
 		//end hlpro2
 
 		Precache( );

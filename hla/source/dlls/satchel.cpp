@@ -25,6 +25,8 @@
 
 //start hlpro2
 extern DLL_GLOBAL int	g_flWeaponArena;
+extern DLL_GLOBAL BOOL  g_bMaxPack;
+extern DLL_GLOBAL BOOL  g_bBoobyTrap;
 //end hlpro2
 
 enum satchel_e {
@@ -76,7 +78,45 @@ void CSatchelCharge :: Spawn( void )
 	pev->movetype = MOVETYPE_BOUNCE;
 	pev->solid = SOLID_BBOX;
 
-	SET_MODEL(ENT(pev), "models/w_satchel.mdl");
+	//start hlpro2
+	if ( g_bBoobyTrap )
+	{
+		if ( g_bMaxPack )
+			SET_MODEL( ENT(pev), "models/w_weaponbox.mdl");
+		else
+		{
+			switch ( RANDOM_LONG(0,11) )
+			{
+			case 0: SET_MODEL( ENT(pev), "models/w_9mmhandgun.mdl"); break;
+			case 1: SET_MODEL( ENT(pev), "models/w_357.mdl"); break;
+			case 2: SET_MODEL( ENT(pev), "models/w_shotgun.mdl"); break;
+			case 3: SET_MODEL( ENT(pev), "models/w_9mmar.mdl"); break;
+			case 4: SET_MODEL( ENT(pev), "models/w_crossbow.mdl"); break;
+			case 5: SET_MODEL( ENT(pev), "models/w_rpg.mdl"); break;
+			case 6: SET_MODEL( ENT(pev), "models/w_gauss.mdl"); break;
+			case 7: SET_MODEL( ENT(pev), "models/w_hgun.mdl"); break;
+			case 8: SET_MODEL( ENT(pev), "models/w_egon.mdl"); break;
+			case 9: SET_MODEL( ENT(pev), "models/w_squeak.mdl"); break;
+			/*case 10:
+			{
+				pev->body = 3;
+				pev->sequence = 8;
+				//pev->absmin = pev->origin + Vector(-16, -16, -5);
+				//pev->absmax = pev->origin + Vector(16, 16, 28); 
+				SET_MODEL( ENT(pev), "models/v_tripmine.mdl");
+			}
+			break;*/
+			case 10: SET_MODEL( ENT(pev), "models/w_grenade.mdl"); break;
+			case 11: SET_MODEL( ENT(pev), "models/w_satchel.mdl"); break;
+			//case 12: SET_MODEL( ENT(pev), "models/w_weaponbox.mdl"); break;
+			}
+		}
+
+	}
+	else
+		SET_MODEL(ENT(pev), "models/w_satchel.mdl");
+	//end hlpro2
+
 	//UTIL_SetSize(pev, Vector( -16, -16, -4), Vector(16, 16, 32));	// Old box -- size of headcrab monsters/players get blocked by this
 	UTIL_SetSize(pev, Vector( -4, -4, -4), Vector(4, 4, 4));	// Uses point-sized, and can be stepped over
 	UTIL_SetOrigin( pev, pev->origin );
@@ -219,11 +259,11 @@ int CSatchel::AddToPlayer( CBasePlayer *pPlayer )
 void CSatchel::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_SATCHEL && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_SATCHEL && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );

@@ -116,9 +116,20 @@ TargetDir=.\Profilemp
 InputPath=.\Profilemp\hla.dll
 SOURCE="$(InputPath)"
 
-"D:\half-life\devhla\dlls\hla.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	copy $(TargetDir)\hla.dll "D:\half-life\devhla\dlls\hla.dll"
+BuildCmds= \
+	copy $(TargetDir)\hla.dll "\\solid\hl_old\hla.dll" \
+	copy $(TargetDir)\hla.dll "\\solid\dlls\hla.dll" \
+	copy $(TargetDir)\hla.dll "C:\Games\Steam\SteamApps\xsurrealx@hotmail.com\half-life\devhla\dlls" \
+	
 
+"\\solid\hl_old\hla.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
+
+"\\solid\dlls\hla.dll" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
+
+"C:\Games\Steam\SteamApps\xsurrealx@hotmail.com\half-life\devhla\dlls" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+   $(BuildCmds)
 # End Custom Build
 
 !ENDIF 

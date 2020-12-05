@@ -59,11 +59,11 @@ LINK_ENTITY_TO_CLASS( weapon_egon, CEgon );
 void CEgon::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_EGON && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_EGON && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	Precache( );
@@ -556,12 +556,12 @@ class CEgonAmmo : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
-		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_EGON )
+		/*if ( g_flWeaponArena && g_flWeaponArena != WEAPON_EGON )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
-		}
+		} */
 		//end hlpro2
 
 		Precache( );

@@ -43,8 +43,8 @@
 
 extern DLL_GLOBAL int			g_GameMode;
 extern DLL_GLOBAL int			g_flWeaponArena;
-extern DLL_GLOBAL const char   *g_WeaponArenaName;
-extern DLL_GLOBAL const char   *g_GameModeName;
+extern DLL_GLOBAL int			g_flWeaponMutators[16];
+extern DLL_GLOBAL int			g_TotalWeapons;
 extern DLL_GLOBAL BOOL          g_bAntiCamper;
 extern DLL_GLOBAL BOOL          g_bInstaGib;
 extern DLL_GLOBAL BOOL          g_bFatBoy;
@@ -52,9 +52,21 @@ extern DLL_GLOBAL BOOL          g_bEarning;
 extern DLL_GLOBAL BOOL          g_bStartFull;
 extern DLL_GLOBAL BOOL          g_bMoreGore;
 extern DLL_GLOBAL BOOL          g_bRunes;
+extern DLL_GLOBAL BOOL          g_bExplosive;
+extern DLL_GLOBAL BOOL          g_bMaxPack;
+extern DLL_GLOBAL BOOL          g_bBoobyTrap;
+extern DLL_GLOBAL BOOL			g_bSpawnProtect;
+extern DLL_GLOBAL BOOL			g_bDecay;
+extern DLL_GLOBAL BOOL			g_bRealLife;
+
+extern DLL_GLOBAL BOOL			g_GameInProgress;
+
 extern DLL_GLOBAL BOOL			g_VoteInProgress;
 extern DLL_GLOBAL float			g_VoteTimer;
-extern DLL_GLOBAL char			g_VoteMessage[256];
+extern DLL_GLOBAL char			g_VoteMessage[128];
+
+//for display
+extern cvar_t timeleft, fragsleft;
 //end hlpro2
 
 extern DLL_GLOBAL ULONG		g_ulModelIndexPlayer;
@@ -202,7 +214,7 @@ int gmsgSetFOV = 0;
 int gmsgShowMenu = 0;
 int gmsgGeigerRange = 0;
 int gmsgTeamNames = 0;
-
+//int gmsgSpectator = 0;
 int gmsgStatusText = 0;
 int gmsgStatusValue = 0; 
 
@@ -249,7 +261,7 @@ void LinkUserMessages( void )
 	gmsgFade = REG_USER_MSG("ScreenFade", sizeof(ScreenFade));
 	gmsgAmmoX = REG_USER_MSG("AmmoX", 2);
 	gmsgTeamNames = REG_USER_MSG( "TeamNames", -1 );
-
+	//gmsgSpectator = REG_USER_MEG( "Spectator", -1);
 	gmsgStatusText = REG_USER_MSG("StatusText", -1);
 	gmsgStatusValue = REG_USER_MSG("StatusValue", 3); 
 
@@ -412,6 +424,11 @@ Vector CBasePlayer :: GetGunPosition( )
 //=========================================================
 void CBasePlayer :: TraceAttack( entvars_t *pevAttacker, float flDamage, Vector vecDir, TraceResult *ptr, int bitsDamageType)
 {
+	BOOL blind = FALSE;
+	//start hlpro2
+	int random = RANDOM_LONG(0,1);
+	//end hlpro2
+
 	if ( pev->takedamage )
 	{
 		m_LastHitGroup = ptr->iHitgroup;
@@ -422,16 +439,37 @@ void CBasePlayer :: TraceAttack( entvars_t *pevAttacker, float flDamage, Vector 
 			break;
 		case HITGROUP_HEAD:
 			flDamage *= gSkillData.plrHead;
+			//start hlpro2
+			if ( g_bRealLife && random )
+			{
+				UTIL_ScreenFade( this, Vector(0,0,0), .25, RANDOM_FLOAT(2, 4), 200, FFADE_IN );
+				blind = TRUE;
+			}
+			//end hlpro2
 			break;
 		case HITGROUP_CHEST:
 			flDamage *= gSkillData.plrChest;
 			break;
 		case HITGROUP_STOMACH:
 			flDamage *= gSkillData.plrStomach;
+			//start hlpro2
+			if ( g_bRealLife && random )
+			{
+				m_fBleedTime = gpGlobals->time + 2.0;
+				m_iBleedCount = 5;
+				pevBleedAttacker = pevAttacker;
+			}
+			//end hlpro2
 			break;
 		case HITGROUP_LEFTARM:
 		case HITGROUP_RIGHTARM:
 			flDamage *= gSkillData.plrArm;
+			//start hlpro2
+			if ( g_bRealLife && random )
+			{
+				DropPlayerItem ( "" );
+			}
+			//end hlpro2
 			break;
 		case HITGROUP_LEFTLEG:
 		case HITGROUP_RIGHTLEG:
@@ -442,11 +480,15 @@ void CBasePlayer :: TraceAttack( entvars_t *pevAttacker, float flDamage, Vector 
 		}
 
 		//start hlpro2
+		if ( !blind )
+			UTIL_ScreenFade( this, Vector(255,0,0), 0.5, 0.5, 64, FFADE_IN );
+
 		if ( bitsDamageType == DMG_BULLET )
 			UTIL_BloodStream( ptr->vecEndPos + gpGlobals->v_forward * 32, gpGlobals->v_forward * 350 + gpGlobals->v_up * 20, (unsigned short)73, 100 );
 		
 		if ( g_bMoreGore )
 		{
+			CGib::SpawnRandomGibs( pev, 1, 1 );
 			CGib::SpawnRandomGibs( pev, 1, 1 );
 		}
 		//end hlpro2
@@ -498,8 +540,6 @@ int CBasePlayer :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, 
 	CBaseEntity *pAttacker = CBaseEntity::Instance(pevAttacker);
 
 	//start hlpro2
-	UTIL_ScreenFade( this, Vector(255,0,0), 0.5, 0.5, 64, FFADE_IN );
-
 	CBasePlayer *pKiller = (CBasePlayer *)CBaseEntity::Instance(pevAttacker);
 	CBasePlayer *pVictim = (CBasePlayer *)CBaseEntity::Instance(pev);
 	
@@ -509,15 +549,17 @@ int CBasePlayer :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, 
 		if ( pKiller->m_fHasRune == RUNE_STRENGTH )
 		{	
 			flDamage *= 1.5; // 150%
-			UTIL_ScreenFade( pKiller, Vector(200,200,0), 1, 1, 32, FFADE_IN);
+
+			if ( pKiller != pVictim )
+				UTIL_ScreenFade( pKiller, Vector(200,200,0), 1, 1, 32, FFADE_IN);
 		}
 
 		//vampire rune
-		if ( pKiller->m_fHasRune == RUNE_VAMPIRE && (pKiller != pVictim) )
+		if ( (pKiller->m_fHasRune == RUNE_VAMPIRE || g_GameMode == GAME_LMS) && pKiller != pVictim )
 		{	
-			if ( (pKiller->pev->health + (flDamage / 2)) < 100 )
+			if ( (pKiller->pev->health + (flDamage / 5)) < 100 )
 			{
-				pKiller->pev->health += flDamage / 2;
+				pKiller->pev->health += flDamage / 5;
 				UTIL_ScreenFade( pKiller, Vector(200,0,0), 1, 1, 32, FFADE_IN);
 			}
 			else
@@ -525,19 +567,48 @@ int CBasePlayer :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, 
 
 			if ( pKiller->pev->health == 100 )
 			{
-				if ( (pKiller->pev->armorvalue + (flDamage / 2)) < 100 )
-					pKiller->pev->armorvalue += flDamage / 2;
+				if ( (pKiller->pev->armorvalue + (flDamage / 5)) < 100 )
+					pKiller->pev->armorvalue += flDamage / 5;
 				else
 					pKiller->pev->armorvalue = 100;
+			}
+		}
+
+		//calculate hits for this recon on robo.
+		if ( g_GameMode == GAME_ROBO )
+		{
+			if ( pKiller != pVictim && pVictim->IsArmoredMan )
+			{
+				pKiller->m_fArmoredManHits += flDamage;
+				ALERT(at_notice, UTIL_VarArgs("Total damage against robo is: %.0f\n", pKiller->m_fArmoredManHits));
+			}
+			else if ( !pVictim->IsArmoredMan )
+				ClientPrint( pKiller->pev, HUD_PRINTCENTER, "Destroy the robo!\nNot your teammate!");
+
+		}
+		//distribute the 'IT' status.
+		else if ( g_GameMode == GAME_FREEZETAG )
+		{
+			if ( pKiller != pVictim && pKiller->IsIt && !m_flFrozenTime )
+			{
+				pVictim->m_fHasRune = 0;
+				pVictim->m_vFreezeAngle = pVictim->pev->v_angle;
+				pVictim->pev->fixangle = TRUE;
+				
+				UTIL_ScreenFade( pVictim, Vector(0,115,255), 2.0, 1.0, 128, FFADE_IN );
+
+				pVictim->m_flFrozenTime = gpGlobals->time + 30.0;
 			}
 		}
 	}
 
 	//protect rune
-	if ( m_fHasRune == RUNE_PROTECT )
+	if ( m_fHasRune == RUNE_PROTECT || IsArmoredMan )
 	{	
 		flDamage *= .5; // 50%
-		UTIL_ScreenFade( this, Vector(0,200,0), 1, 1, 32, FFADE_IN);
+
+		if ( pev->health > 25 || pev->armorvalue > 0 )
+			UTIL_ScreenFade( this, Vector(0,200,0), 1, 1, 32, FFADE_IN);
 	}
 	//end hlpro2
 
@@ -864,8 +935,13 @@ void CBasePlayer::PackDeadPlayerItems( void )
 // now pack all of the items in the lists
 	while ( rgpPackWeapons[ iPW ] )
 	{
+		int truth =0;
+
 		// weapon unhooked from the player. Pack it into der box.
-		pWeaponBox->PackWeapon( rgpPackWeapons[ iPW ] );
+		//start hlpro2
+		//truth = pWeaponBox->PackWeapon( rgpPackWeapons[ iPW ] );
+		//ALERT(at_notice, UTIL_VarArgs("did we return pack true?: %d\n", truth));
+		//end hlpro2
 
 		iPW++;
 	}
@@ -937,6 +1013,65 @@ void CBasePlayer::Killed( entvars_t *pevAttacker, int iGib )
 	if ( m_pActiveItem )
 		m_pActiveItem->Holster( );
 
+	//start hlpro2
+	if ( g_GameMode == GAME_FREEZETAG )
+	{
+		if ( m_flFrozenTime > 0 )
+		{
+			CBasePlayer *peKiller = NULL;
+			CBaseEntity *ktmp = CBaseEntity::Instance( pevAttacker );
+
+			if ( ktmp && (ktmp->Classify() == CLASS_PLAYER) )
+				peKiller = (CBasePlayer*)ktmp;
+
+			if ( peKiller && peKiller->IsPlayer() && !peKiller->IsIt )
+			{
+				pev->frags--;
+
+				if ( pev->frags <= 0 )
+				{
+					UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has been eliminated from the round!\n", STRING(pev->netname)));
+					UTIL_ClientPrintAll(HUD_PRINTTALK, "* Killer remains 'IT'\n");
+				}
+				else
+				{
+
+					//kill previous IT person.
+					for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+					{
+						CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+						if ( plr && plr->IsPlayer() )
+						{
+							if ( plr->IsIt )
+							{
+								ClientPrint( plr->pev, HUD_PRINTCENTER, "You are no longer 'IT'\n");
+
+								plr->GiveNamedItem( "weapon_9mmhandgun" );
+								plr->GiveAmmo( 68, "9mm", _9MM_MAX_CARRY );
+								plr->IsIt = FALSE;
+							}
+						}
+					}
+
+					UTIL_ClientPrintAll( HUD_PRINTTALK, UTIL_VarArgs("* %s is now 'IT'.\n", STRING(pev->netname)));
+								
+
+					pev->renderfx = kRenderFxNone;
+					pev->renderamt = 0;
+
+					IsIt = TRUE;
+					EnableControl(TRUE);
+					m_flFrozenTime = 0;
+				}
+			}
+		}
+
+		if ( IsIt )
+			pev->frags--;
+	}
+	//end hlpro2
+
 	g_pGameRules->PlayerKilled( this, pevAttacker, g_pevLastInflictor );
 
 	if ( m_pTank != NULL )
@@ -992,6 +1127,39 @@ void CBasePlayer::Killed( entvars_t *pevAttacker, int iGib )
 	// UNDONE: Put this in, but add FFADE_PERMANENT and make fade time 8.8 instead of 4.12
 	// UTIL_ScreenFade( edict(), Vector(128,0,0), 6, 15, 255, FFADE_OUT | FFADE_MODULATE );
 
+	//start hlpro2
+	if ( g_bExplosive )
+	{
+		iGib = GIB_ALWAYS;
+
+		int iContents = UTIL_PointContents ( pev->origin );
+		int iScale;
+		
+		pev->dmg = 80;
+		iScale = 20;
+
+		MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, pev->origin );
+			WRITE_BYTE( TE_EXPLOSION);		
+			WRITE_COORD( pev->origin.x );
+			WRITE_COORD( pev->origin.y );
+			WRITE_COORD( pev->origin.z );
+			if (iContents != CONTENTS_WATER)
+			{
+				WRITE_SHORT( g_sModelIndexFireball );
+			}
+			else
+			{
+				WRITE_SHORT( g_sModelIndexWExplosion );
+			}
+			WRITE_BYTE( iScale ); // scale * 10
+			WRITE_BYTE( 15  ); // framerate
+			WRITE_BYTE( TE_EXPLFLAG_NONE );
+		MESSAGE_END();
+
+		::RadiusDamage( pev->origin, pev, pev, pev->dmg, 128, CLASS_NONE, DMG_BLAST | DMG_ALWAYSGIB );
+	}
+	//end hlpro2
+
 	if ( ( pev->health < -40 && iGib != GIB_NEVER ) || iGib == GIB_ALWAYS )
 	{
 		pev->solid			= SOLID_NOT;
@@ -1004,21 +1172,6 @@ void CBasePlayer::Killed( entvars_t *pevAttacker, int iGib )
 	
 	pev->angles.x = 0;
 	pev->angles.z = 0;
-
-	//start hlpro2
-	if ( m_fLongJump )
-	{
-		CBaseEntity *pLongJump = CBaseEntity::Create("item_longjump", pev->origin, pev->angles, edict() );
-		pLongJump->pev->movetype    = MOVETYPE_TOSS;
-		pLongJump->pev->solid       = SOLID_TRIGGER;
-		pLongJump->pev->spawnflags |= SF_NORESPAWN;
-		pLongJump->pev->velocity    = pev->velocity * 1.2;
-		pLongJump->pev->renderamt   = 255;
-		pLongJump->pev->rendermode  = kRenderTransTexture;
-		pLongJump->SetThink( SUB_StartFadeOut );
-		pLongJump->pev->nextthink   = gpGlobals->time + 30.0;
-	}
-	//end hlpro2
 
 	SetThink(PlayerDeathThink);
 	pev->nextthink = gpGlobals->time + 0.1;
@@ -1366,6 +1519,21 @@ void CBasePlayer::PlayerDeathThink(void)
 		// we aren't calling into any of their code anymore through the player pointer.
 		PackDeadPlayerItems();
 	}
+
+	if ( m_fLongJump )
+	{
+		CBaseEntity *pLongJump = CBaseEntity::Create("item_longjump", pev->origin, pev->angles, edict() );
+		pLongJump->pev->angles.x	= 0;
+		pLongJump->pev->angles.z	= 0;
+		pLongJump->pev->spawnflags |= SF_NORESPAWN;
+		pLongJump->pev->velocity    = pev->velocity * 1.2;
+		pLongJump->pev->renderamt   = 255;
+		pLongJump->pev->rendermode  = kRenderTransTexture;
+		pLongJump->SetThink( SUB_StartFadeOut );
+		pLongJump->pev->nextthink   = gpGlobals->time + 30.0;
+
+		m_fLongJump = FALSE;
+	}
 	//end hlpro2
 
 	if (pev->modelindex && (!m_fSequenceFinished) && (pev->deadflag == DEAD_DYING))
@@ -1410,17 +1578,55 @@ void CBasePlayer::PlayerDeathThink(void)
 // if the player has been dead for one second longer than allowed by forcerespawn, 
 // forcerespawn isn't on. Send the player off to an intermission camera until they 
 // choose to respawn.
-	if ( g_pGameRules->IsMultiplayer() && ( gpGlobals->time > (m_fDeadTime + 6) ) && !(m_afPhysicsFlags & PFLAG_OBSERVER) )
+	//start hlpro2
+	//has to repsawn in a gamemode
+	if ( !g_GameMode )
 	{
-		// go to dead camera. 
-		StartDeathCam();
+		if ( g_pGameRules->IsMultiplayer() && ( gpGlobals->time > (m_fDeadTime + 6) ) && !(m_afPhysicsFlags & PFLAG_OBSERVER) )
+		{
+			// go to dead camera. 
+			//StartDeathCam();
+			StartObserving( TRUE );
+		}
 	}
+	else
+		forcerespawn.value = 1;
+	//end hlpro2
 
 	//start hlpro2
 	//prevent spawnage
-	if ( g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA )
+	if ( g_GameMode == GAME_ROBO )
+	{
+		if ( !m_flForceToObserverTime )
+			m_flForceToObserverTime = gpGlobals->time + 3.0;
+
 		return;
-	//end hlpro
+	}
+	else if ( g_GameMode == GAME_LMS || g_GameMode == GAME_FREEZETAG )
+	{
+		if ( pev->frags <= 0 )
+		{
+			if ( !m_flForceToObserverTime )
+			{
+				m_flForceToObserverTime = gpGlobals->time + 3.0;
+				//ClientPrint(pev, HUD_PRINTCENTER, "You have lost the round!\n");
+			}
+
+			return;
+		}
+	}
+	else if (  g_GameMode == GAME_ARENA )
+	{
+		if ( !g_GameInProgress )
+			return; 
+	}
+
+	//if im copied to observer do not break out.
+	//let prethink observer button handle figure this.
+	if ( IsSpectator() )
+		return;
+	//end hlpro2
+
 	
 // wait for any button down,  or mp_forcerespawn is set and the respawn time is up
 	if (!fAnyButtonDown 
@@ -1451,7 +1657,7 @@ void CBasePlayer::StartDeathCam( void )
 		return;
 	}
 
-	pSpot = FIND_ENTITY_BY_CLASSNAME( NULL, "info_intermission");	
+	pSpot = FIND_ENTITY_BY_CLASSNAME( NULL, "info_player_deathmatch");	
 
 	if ( !FNullEnt( pSpot ) )
 	{
@@ -1460,7 +1666,7 @@ void CBasePlayer::StartDeathCam( void )
 
 		while ( iRand > 0 )
 		{
-			pNewSpot = FIND_ENTITY_BY_CLASSNAME( pSpot, "info_intermission");
+			pNewSpot = FIND_ENTITY_BY_CLASSNAME( pSpot, "info_player_deathmatch");
 			
 			if ( pNewSpot )
 			{
@@ -1471,7 +1677,7 @@ void CBasePlayer::StartDeathCam( void )
 		}
 
 		CopyToBodyQue( pev );
-		StartObserver( pSpot->v.origin, pSpot->v.v_angle );
+		StartObserver( pSpot->v.origin + Vector( 0, 0, 64 ), pSpot->v.v_angle );
 	}
 	else
 	{
@@ -1486,6 +1692,7 @@ void CBasePlayer::StartDeathCam( void )
 
 void CBasePlayer::StartObserver( Vector vecPosition, Vector vecViewAngle )
 {
+	
 	m_afPhysicsFlags |= PFLAG_OBSERVER;
 
 	pev->view_ofs = g_vecZero;
@@ -1496,8 +1703,95 @@ void CBasePlayer::StartObserver( Vector vecPosition, Vector vecViewAngle )
 	pev->movetype = MOVETYPE_NONE;
 	pev->modelindex = 0;
 	UTIL_SetOrigin( pev, vecPosition );
+	
+
+	/*
+	MESSAGE_BEGIN( MSG_PAS, SVC_TEMPENTITY, pev->origin );
+		WRITE_BYTE( TE_KILLPLAYERATTACHMENTS );
+		WRITE_BYTE( (BYTE)entindex() );
+	MESSAGE_END();
+	
+	// Holster weapon immediately, to allow it to cleanup
+	if (m_pActiveItem)
+		m_pActiveItem->Holster( );
+
+	// ?? Let go of tanks?
+	if ( m_pTank != NULL )
+	{
+	 	m_pTank->Use( this, this, USE_OFF, 0 );
+	 	m_pTank = NULL;
+	}
+
+	// clear out the suit message cache so we don't keep chattering
+	SetSuitUpdate(NULL, FALSE, 0);
+
+	// Tell Ammo Hud that the player is dead
+	MESSAGE_BEGIN( MSG_ONE, gmsgCurWeapon, NULL, pev );
+	 	WRITE_BYTE(0);
+	 	WRITE_BYTE(0XFF);
+	 	WRITE_BYTE(0xFF);
+	MESSAGE_END();
+
+	// reset FOV
+	m_iFOV = 0;
+	m_iClientFOV = -1;
+	pev->fov = m_iFOV;
+	SET_VIEW(edict(), edict());
+
+	MESSAGE_BEGIN( MSG_ONE, gmsgSetFOV, NULL, pev );
+		WRITE_BYTE(0);
+	MESSAGE_END();
+
+	// Setup flags
+	//m_iHideHUD = (HIDEHUD_FLASHLIGHT | HIDEHUD_WEAPONS | HIDEHUD_HEALTH);
+	m_afPhysicsFlags |= PFLAG_OBSERVER;
+	pev->effects |= EF_NODRAW;
+	pev->view_ofs = g_vecZero;
+	pev->angles = pev->v_angle = vecViewAngle;
+	pev->fixangle = TRUE;
+	pev->solid = SOLID_NOT;
+	pev->takedamage = DAMAGE_NO;
+	pev->movetype = MOVETYPE_NOCLIP;
+	//ClearBits( m_afPhysicsFlags, PFLAG_DUCKING );
+	//ClearBits( pev->flags, FL_DUCKING );
+	pev->deadflag = DEAD_RESPAWNABLE;
+	pev->health = 1;
+	
+	// Clear out the status bar
+	m_fInitHUD = TRUE;
+
+	// Update Team Status
+	// pev->team = 0;
+
+	// Remove all the player's stuff
+	// RemoveAllItems( FALSE );
+
+	// Move them to the new position
+	UTIL_SetOrigin( pev, vecPosition );
+	UTIL_SetSize( pev, Vector(0,0,0), Vector(0,0,0) );
+
+	// Find a player to watch
+//	Observer_SetMode(OBS_ROAMING);
+
+	// Tell all clients this player is now a spectator
+	//MESSAGE_BEGIN( MSG_ALL, gmsgSpectator );  
+	//	WRITE_BYTE( ENTINDEX( edict() ) );
+	//	WRITE_BYTE( 1 );
+	//MESSAGE_END();
+
+	 //MESSAGE_BEGIN( MSG_ALL, gmsgTeamInfo );
+	 //	WRITE_BYTE( ENTINDEX(edict()) );
+	 //  WRITE_STRING( "" );
+	 //MESSAGE_END();
+
+//	 m_fMsgTimer = gpGlobals->time + .5;
+//	 m_bSentMsg = FALSE;
+
+	IsSpectator = TRUE;
+	IsFinishedIntroSpectating = TRUE;
 
 	ALERT(at_console, "set observer");
+*/
 }
 
 // 
@@ -1845,11 +2139,28 @@ void CBasePlayer::UpdateStatusBar()
 	}
 }
 
-
-
-
-
-
+//start hlpro2
+char *WeaponList [] =
+{
+	"all",			//0		0-16  weapon arena
+	"crowbar",		//1
+	"glock",		//2
+	"python",		//3
+	"mp5",			//4
+	"chaingun",		//5
+	"crossbow",		//6
+	"shotgun",		//7
+	"rpg",			//8
+	"gauss",		//9
+	"egon",			//10
+	"hornetgun",	//11
+	"handgrenade",	//12
+	"tripmine",		//13
+	"satchel",		//14
+	"snark",		//15
+	"none",         //16
+};
+//end hlpro2
 
 
 
@@ -1890,6 +2201,193 @@ void CBasePlayer::PreThink(void)
 	CheckTimeBasedDamage();
 
 	CheckSuitUpdate();
+
+	//start hlpro2
+	if ( IsSpectator() )
+	{
+		if ( (pev->button & IN_JUMP ) )
+			SwitchSpectatorModes();
+
+		if ( pev->button & IN_ATTACK2 )
+			FindPlayerToObserve(pev->iuser2);
+/*
+		if ( (pev->button & IN_DUCK ) && m_iObserverIndex )
+		{
+			//break free of observing
+			m_iObserverIndex = 0;
+			m_flObserverUpdate = 0;
+			pev->iuser1 = pev->iuser2 = 0;
+			ClientPrint(pev, HUD_PRINTTALK, "* Broke free from observing.\n");
+		}
+
+
+		if ( (pev->button & IN_FORWARD ) && m_iObserverIndex )
+		{
+			if ( m_iObserverForwardView <= 0 )
+				m_iObserverForwardView += 10;
+		}
+
+		if ( (pev->button & IN_BACK ) && m_iObserverIndex )
+		{
+			if ( m_iObserverForwardView >= -256 )
+				m_iObserverForwardView -= 10;
+		}
+*/
+
+//		if ( m_flObserverUpdate && m_flObserverUpdate <= gpGlobals->time )
+//			UpdateObserverView(m_iObserverIndex);
+
+		if ( ( pev->button & IN_ATTACK ) )
+		{
+			if ( !g_GameMode )
+			{
+				ClientPrint(pev, HUD_PRINTCENTER, " ");
+				//m_flSpawnTime = 0;
+				//m_iObserverIndex = 0;
+				//m_flObserverUpdate = 0;
+				ExitObserving();
+			}
+		}
+		else
+		{
+			if ( !g_GameMode && !pev->iuser2 )
+				ClientPrint(pev, HUD_PRINTCENTER, "FIRE to spawn.\nJUMP to switch modes.\nFIRE2 to switch players.\n");
+		}
+
+//		if ((m_hObserverTarget != NULL) && (m_hObserverTarget->IsPlayer()))
+//		{
+			//pev->origin = m_hObserverTarget->pev->origin;
+//			pev->v_angle = m_hObserverTarget->pev->v_angle;
+			//pev->velocity = m_hObserverTarget->pev->velocity;
+//		}
+	}
+
+	if ( m_fDisplayMessage && IsSpectator() && m_fDisplayMessage < gpGlobals->time )
+	{
+		char szMessageM[512] = { "" };
+		char szMessage2t[128] = { "" };
+		char szMessage2b[128] = { "" };
+
+		//Display game mode.
+		DisplayHudMessage( "Half-Life Advanced v2.0", 1, .01, .10, 255, 128, 0, 2, .015, 2, 30, .25 );
+
+		if ( g_GameMode == GAME_ARENA )
+		{
+			strcpy ( szMessageM, "Arena:\n" );
+			strcat ( szMessageM, "Players will go head to head\nin a round based setting.\n\n" );
+		}
+		else if ( g_GameMode == GAME_LMS )
+		{
+			strcpy ( szMessageM, "Last Man Standing:\n" );
+			strcat ( szMessageM, "Players will battle until\none man is left alive.\n\n" );
+		}
+		else if ( g_GameMode == GAME_ROBO )
+		{
+			strcpy ( szMessageM, "Robo:\n" );
+			strcat ( szMessageM, "Players will battle Robo\nuntill he is defeated.\n\n" );
+		}
+		else if ( g_GameMode == GAME_HEADHUNTER )
+		{
+			strcpy ( szMessageM, "Head Hunters:\n" );
+			strcat ( szMessageM, "Players will collect skulls\nto earn benefits.\n\n" );
+		}
+		else if ( g_GameMode == GAME_FREEZETAG )
+		{
+			strcpy ( szMessageM, "Freeze Tag:\n" );
+			strcat ( szMessageM, "Players will avoid IT\nto stay alive.\n\n" );
+		}
+		else
+		{
+			strcpy ( szMessageM, "Free For All:\n" );
+			strcat ( szMessageM, "Players will do standard\ndeathmatch battle.\n\n" );
+		}
+
+		strcat ( szMessageM, "Mutators Active:\n" );
+
+		//Display description + mutators.
+		if ( g_flWeaponArena )
+		{
+			for ( int i = 0; i < g_TotalWeapons; i++ )
+			{
+				if ( g_flWeaponMutators[i] )
+				{
+					strcat(szMessageM, UTIL_VarArgs("%s\n", WeaponList[g_flWeaponMutators[i]]) );
+				}
+			}
+		}
+
+		if ( g_bAntiCamper )
+			strcat( szMessageM, "anticamper\n");
+		if ( g_bInstaGib )
+			strcat( szMessageM, "instagib\n");
+		if ( g_bFatBoy )
+			strcat( szMessageM, "fatboy\n");
+		if ( g_bEarning )
+			strcat( szMessageM, "earning\n");
+		if ( g_bStartFull )
+			strcat( szMessageM, "startfull\n");
+		if ( g_bMoreGore )
+			strcat( szMessageM, "gore\n");
+		if ( g_bRunes )
+			strcat( szMessageM, "runes\n");
+		if ( g_bExplosive )
+			strcat( szMessageM, "explosive\n");
+		if ( g_bMaxPack )
+			strcat( szMessageM, "maxpack\n");
+		if ( g_bBoobyTrap )
+			strcat( szMessageM, "boobytrap\n");
+		if ( g_bSpawnProtect )
+			strcat( szMessageM, "spawnprotect\n");
+		if ( g_bDecay )
+			strcat( szMessageM, "decay\n");
+		if ( g_bRealLife )
+			strcat( szMessageM, "real\n");
+
+		DisplayHudMessage( szMessageM, 2, .01, .16, 210, 210, 210, 2, .015, 2, 30, .25 );
+
+		//Display info about server in upper-right.
+		if ( g_GameMode )
+		{
+			if ( CVAR_GET_FLOAT("hla_gamerounds") )
+			{
+				strcat ( szMessage2t, "Rounds:\n" );
+				strcat ( szMessage2b, UTIL_VarArgs("%i\n", (int)CVAR_GET_FLOAT("hla_gamerounds")) );
+			}
+
+			if ( CVAR_GET_FLOAT("hla_gametimer") )
+			{
+				strcat ( szMessage2t, "Time:\n" );
+				strcat ( szMessage2b, UTIL_VarArgs("%i:00\n", (int)CVAR_GET_FLOAT("hla_gametimer")) );
+			}
+
+			if ( CVAR_GET_FLOAT("hla_gamefrags") )
+			{
+				strcat ( szMessage2t, "Limit:\n" );
+				strcat ( szMessage2b, UTIL_VarArgs("%i\n", (int)CVAR_GET_FLOAT("hla_gamefrags")) );
+			}
+		}
+		else
+		{
+			strcat ( szMessage2t, "Time Left:\nFrags Left:\n" );
+			strcat ( szMessage2b, UTIL_VarArgs("%i:%0.2i\n%i\n", 
+						(int)timeleft.value / 60, 
+						(int)timeleft.value % 60, 
+						(int)fragsleft.value ));
+		}
+
+		DisplayHudMessage( szMessage2t, 3, .82, 0.10, 255, 128, 0, 2, .015, 2, 30, .25 );
+		DisplayHudMessage( szMessage2b, 4, .93, 0.10, 210, 210, 210, 2, .015, 2, 30, .25 );
+		
+		m_fDisplayMessage = 0;
+	}
+
+	if ( m_flForceToObserverTime && m_flForceToObserverTime < gpGlobals->time )	
+	{
+		StartObserving( TRUE );
+		m_flForceToObserverTime = 0;
+	}
+	//end hlpro2
+
 
 	if (pev->deadflag >= DEAD_DYING)
 	{
@@ -1987,113 +2485,64 @@ void CBasePlayer::PreThink(void)
 	}
 
 	//start hlpro2
-	if ( m_fDisplayMessage && m_fDisplayMessage < gpGlobals->time )
-	{
-		char header[32] = { "" };
-		char szMessage[512] = { "" };
-		
-		strcpy(szMessage, "Mutators active:\n");
-
-		if ( g_flWeaponArena )
-			sprintf(szMessage, "%s\n", g_WeaponArenaName );
-		if ( g_bAntiCamper )
-			strcat( szMessage, "anticamper\n");
-		if ( g_bInstaGib )
-			strcat( szMessage, "instagib\n");
-		if ( g_bFatBoy )
-			strcat( szMessage, "fatboy\n");
-		if ( g_bEarning )
-			strcat( szMessage, "earning\n");
-		if ( g_bStartFull )
-			strcat( szMessage, "startfull\n");
-		if ( g_bMoreGore )
-			strcat( szMessage, "gore\n");
-		if ( g_bRunes )
-			strcat( szMessage, "powerups\n");
-
-		if ( !strcmp(szMessage, "Mutators active:\n"))
-			strcpy(szMessage, "Mutators active: None.\n");
-
-		sprintf(header, "Half-Life Advanced v2.0 [%s]", (char *)g_GameModeName );
-		DisplayHudMessage( header, 1, .01, .02, 255, 128, 0, 2, .015, 1, 7, .25 );
-
-		if ( strlen(szMessage) )
-			DisplayHudMessage( szMessage, 2, .01, .05, 210, 210, 210, 2, .015, 1, 7, .25 );
-		
-		m_fDisplayMessage = 0;
-	}
-
 	if ( m_fDisplayVoteMessage && m_fDisplayVoteMessage < gpGlobals->time ) {
-		DisplayHudMessage( g_VoteMessage, 4, .01, .15, 210, 210, 210, 2, .015, 1, (g_VoteTimer - gpGlobals->time), .25 );
-		m_fDisplayVoteMessage = 0;
+		//never show voting in spectator
+		if ( !IsSpectator() )
+		{
+			DisplayHudMessage( "[You still have not voted!]", 3, .01, .12, 255, 128, 0, 2, .015, 1, ((g_VoteTimer-2) - gpGlobals->time), .25 );
+			DisplayHudMessage( g_VoteMessage, 4, .01, .15, 210, 210, 210, 2, .015, 1, ((g_VoteTimer-2) - gpGlobals->time), .25 );
+			m_fDisplayVoteMessage = 0;
+		}
 	}
 
-	if ( g_bAntiCamper && (m_flCamperUpdate && m_flCamperUpdate < gpGlobals->time) && !IsSpectator )
+	if ( g_bAntiCamper && (m_flCamperUpdate && m_flCamperUpdate < gpGlobals->time) && !IsSpectator() )
 	{
 		Vector CurrentOrigin = pev->origin;
 		int distance_x = abs(CurrentOrigin.x - m_vCamperOrigin.x);
 		int distance_y = abs(CurrentOrigin.y - m_vCamperOrigin.y);
 		//int distance_z = abs(CurrentOrigin.z - m_vCamperOrigin.z);
 
-		if ( distance_x < 10 && distance_y < 10 )
+		if ( distance_x < 75 && distance_y < 75 )
 		{			
 			//hurt
-			TakeDamage(pev, pev, RANDOM_FLOAT(2.0,6.0), RADIATION_DAMAGE);
-			ClientPrint(pev, HUD_PRINTCENTER, "Move, move, move... camper!\n");
-			//ALERT(at_notice, "been camping :D\n");
+			if ( IsAlive() )
+			{
+				TakeDamage(VARS(eoNullEntity), VARS(eoNullEntity), RANDOM_FLOAT(2.0,6.0), RADIATION_DAMAGE);
+				ClientPrint(pev, HUD_PRINTCENTER, "Move, move, move... camper!\n");
+				//ALERT(at_notice, "been camping :D\n");
+			}
 		}
 
 		m_vCamperOrigin = CurrentOrigin;
 		m_flCamperUpdate = gpGlobals->time + 2.0;
 	}
 
-	if ( IsSpectator )
+	if ( g_bRealLife )
 	{
-		if ( (pev->button & IN_JUMP ) && !m_flObserverUpdate )
-			FindPlayerToObserve(1);
-
-		if ( (pev->button & IN_DUCK ) && m_iObserverIndex )
+		if ( m_fBleedTime && m_fBleedTime < gpGlobals->time )
 		{
-			//break free of observing
-			m_iObserverIndex = 0;
-			m_flObserverUpdate = 0;
-			ClientPrint(pev, HUD_PRINTTALK, "* Broke free from observing.\n");
-		}
+			if ( m_iBleedCount && IsAlive() )
+			{
+				//still need to copy weapon to this statement.
+				TakeDamage(pevBleedAttacker, pevBleedAttacker, RANDOM_FLOAT(2.0,6.0), RADIATION_DAMAGE);
+				UTIL_ScreenFade( this, Vector(255,0,0), 0.5, 0.5, 64, FFADE_IN );
+				SpawnBlood((pev->origin + gpGlobals->v_forward * 4), BloodColor(), 12 );
 
-		if ( (pev->button & IN_FORWARD ) && m_iObserverIndex )
-		{
-			if ( m_iObserverForwardView <= 0 )
-				m_iObserverForwardView += 10;
+				m_fBleedTime = gpGlobals->time + 2.0;
+				m_iBleedCount--;
+			}
 		}
+	}
 
-		if ( (pev->button & IN_BACK ) && m_iObserverIndex )
-		{
-			if ( m_iObserverForwardView >= -256 )
-				m_iObserverForwardView -= 10;
-		}
+	if ( m_flRuneTime && m_flRuneTime < gpGlobals->time )
+	{
+		pev->renderfx = kRenderFxNone;
+		pev->renderamt = 0;
 
-		if ( m_flObserverUpdate && (pev->button & IN_JUMP ) )
-		{
-			FindPlayerToObserve(m_iObserverIndex+1);
-		}
+		ClientPrint(pev, HUD_PRINTTALK, "* Your rune has faded.\n");
 
-		if ( m_flObserverUpdate && m_flObserverUpdate <= gpGlobals->time )
-			UpdateObserverView(m_iObserverIndex);
-
-		if ( (pev->button & (IN_ATTACK|IN_ATTACK2) ) )
-		{
-			ClientPrint(pev, HUD_PRINTCENTER, " ");
-			m_flSpawnTime = 0;
-			m_iObserverIndex = 0;
-			m_flObserverUpdate = 0;
-			IsSpectator = FALSE;
-			Spawn();
-		}
-		else
-		{
-			if ( !g_GameMode && !m_iObserverIndex )
-				ClientPrint(pev, HUD_PRINTCENTER, "FIRE or FIRE2 to spawn.\nJUMP to observe players.\nDUCK to break free.\n");
-		}
+		m_fHasRune	= 0;
+		m_flRuneTime = 0;
 	}
 
 	if ( m_fHasRune == RUNE_GRAVITY )
@@ -2114,7 +2563,7 @@ void CBasePlayer::PreThink(void)
 		pev->rendermode &= ~kRenderTransTexture;
 	}
 
-	if ( m_fHasRune == RUNE_REGEN )
+	if ( m_fHasRune == RUNE_REGEN || IsArmoredMan )
 	{
 		if ( m_flRegenHealTime < gpGlobals->time )
 		{
@@ -2131,6 +2580,68 @@ void CBasePlayer::PreThink(void)
 
 			m_flRegenHealTime = gpGlobals->time + 1.0;
 		}
+	}
+
+	if ( m_flLMSHurt && m_flLMSHurt < gpGlobals->time )
+	{
+		if ( !IsSpectator() )
+		{
+			TakeDamage(VARS(eoNullEntity), VARS(eoNullEntity), RANDOM_FLOAT(4.0, 8.0), RADIATION_DAMAGE);
+			m_flLMSHurt = gpGlobals->time + RANDOM_FLOAT(2.0, 4.0);
+		}
+	}
+
+	if ( g_GameMode == GAME_FREEZETAG )
+	{
+		if ( IsIt )
+		{
+			MESSAGE_BEGIN( MSG_PVS, SVC_TEMPENTITY, pev->origin );
+				WRITE_BYTE( TE_SPRITE );
+				WRITE_COORD( pev->origin.x + RANDOM_LONG( -10, 10) );
+				WRITE_COORD( pev->origin.y + RANDOM_LONG( -10, 10) );
+				WRITE_COORD( pev->origin.z + RANDOM_LONG( -30, 30) );
+				WRITE_SHORT( g_sModelIndexFlare );
+				WRITE_BYTE( 3 ); // scale * 10
+				WRITE_BYTE( 255  ); // alpha
+			MESSAGE_END();
+		}
+
+		if ( m_flFrozenTime )
+		{
+			if ( m_flFrozenTime > gpGlobals->time )
+			{
+				EnableControl(FALSE);
+				pev->v_angle = m_vFreezeAngle;
+				pev->fixangle = TRUE;
+
+				Vector Color = Vector(0,115,230);
+
+				pev->renderfx = kRenderFxGlowShell;
+				pev->rendercolor = Color;
+				pev->renderamt = 10;
+	
+				ClientPrint( pev, HUD_PRINTCENTER, UTIL_VarArgs( "You have been frozen!\nTime before thaw: %0.0f\n", m_flFrozenTime - gpGlobals->time ));
+			}
+			else
+			{
+				pev->renderfx = kRenderFxNone;
+				pev->renderamt = 0;
+
+				m_flFrozenTime = 0;
+				EnableControl(TRUE);
+			}
+		}
+	}
+
+	if ( m_flSpawnProtect && m_flSpawnProtect < gpGlobals->time )
+	{
+		ClientPrint(pev, HUD_PRINTCENTER, "Spawn Protection has faded.\n");
+		pev->takedamage	= DAMAGE_AIM;
+		pev->solid = SOLID_SLIDEBOX;
+		pev->rendermode &= ~kRenderTransAdd;
+		pev->renderfx &= ~kRenderFxHologram;
+		pev->renderamt = 0;
+		m_flSpawnProtect = 0;
 	}
 	//end hlpro2
 }
@@ -2815,6 +3326,18 @@ void CBasePlayer::PostThink()
 	m_afButtonLast = pev->button;
 
 pt_end:
+
+	//start hlpro2
+    //omega; fix the corpses. 
+    if (pev->deadflag == DEAD_NO)
+        v_LastAngles = pev->angles;
+    else
+	{
+		pev->solid = SOLID_NOT;//no crowbar blood.
+        pev->angles = v_LastAngles;
+	}
+	//end hlpro2
+
 #if defined( CLIENT_WEAPONS )
 		// Decay timers on weapons
 	// go through all of the weapons and make a list of the ones to pack
@@ -3106,8 +3629,45 @@ void CBasePlayer::Spawn( void )
 		pev->renderamt		= 0;
 
 		m_fHasRune = 0;
+		m_flRuneTime = 0;
 	}
-	
+
+	if ( g_bSpawnProtect )
+	{
+		ClientPrint(pev, HUD_PRINTCENTER, "Spawn Protection for 10 seconds.\n");
+		pev->solid = SOLID_NOT;
+		pev->takedamage	= DAMAGE_NO;
+		pev->rendermode = kRenderTransAdd;
+		pev->renderfx = kRenderFxHologram;
+		pev->renderamt = 155;
+		m_flSpawnProtect = gpGlobals->time + 10.0;
+	}
+
+	if ( g_GameMode == GAME_LMS )
+		m_flLMSHurt = gpGlobals->time + RANDOM_FLOAT(2.0, 4.0);
+	else if ( g_GameMode == GAME_ROBO )
+	{
+		if ( IsArmoredMan )
+		{
+			pev->health = 200;
+			pev->armorvalue = 200;
+			pev->maxspeed = 180;
+
+			g_engfuncs.pfnSetClientKeyValue( ENTINDEX( edict() ), g_engfuncs.pfnGetInfoKeyBuffer( edict() ), "model", "robo" );
+		}
+		else
+		{
+			pev->maxspeed = 320;
+			g_engfuncs.pfnSetClientKeyValue( ENTINDEX( edict() ), g_engfuncs.pfnGetInfoKeyBuffer( edict() ), "model", "recon" );
+		}
+	}
+
+	if ( g_bRealLife )
+	{
+		m_fBleedTime = 0;
+		m_iBleedCount = 0;
+	}
+
 	if ( g_VoteInProgress && (!m_bHasVotedYes && !m_bHasVotedNo) )
 		m_fDisplayVoteMessage = gpGlobals->time;
 	//end hlpro2
@@ -3710,7 +4270,7 @@ void CBasePlayer::CheatImpulseCommands( int iImpulse )
 
 	case 101:
 		//start hlpro2
-		if ( g_flWeaponArena || IsSpectator )
+		if ( g_flWeaponArena || IsSpectator() )
 			break;
 		//end hlpro2
 
@@ -3909,14 +4469,18 @@ int CBasePlayer::AddPlayerItem( CBasePlayerItem *pItem )
 			memset( &II, 0, sizeof( II ) );
 			gun->GetItemInfo( &II );
 
-			if ( gun->m_iPickup )
+			if ( g_bDecay )
 			{
-				char msg[128];
-				sprintf(msg, "This weapon has been used %d times.", gun->m_iPickup ); 
-				ClientPrint(pev, HUD_PRINTCENTER, msg );
-			}
+				if ( !gun->m_iDecay )
+					gun->m_iDecay = RANDOM_LONG(25,45);
 
-			gun->m_iPickup++;
+				if ( gun->m_iPickup )
+				{
+					ClientPrint(pev, HUD_PRINTCENTER, UTIL_VarArgs("This weapon has been used %i times\n",	gun->m_iPickup));
+				}
+
+				gun->m_iPickup++;
+			}
 		}
 		//end hlpro2
 
@@ -4368,11 +4932,16 @@ void CBasePlayer :: UpdateClientData( void )
 	m_iClientFOV = m_iFOV;
 
 	// Update Status Bar
-	if ( m_flNextSBarUpdateTime < gpGlobals->time )
+	//start hlpro2
+	if ( !IsSpectator() )
 	{
-		UpdateStatusBar();
-		m_flNextSBarUpdateTime = gpGlobals->time + 0.2;
+		if ( m_flNextSBarUpdateTime < gpGlobals->time )
+		{
+			UpdateStatusBar();
+			m_flNextSBarUpdateTime = gpGlobals->time + 0.2;
+		}
 	}
+	//end hlpro2
 }
 
 
@@ -4749,8 +5318,10 @@ void CBasePlayer::DropPlayerItem ( char *pszItemName )
 		
 		// if we land here with a valid pWeapon pointer, that's because we found the 
 		// item we want to drop and hit a BREAK;  pWeapon is the item.
-		if ( pWeapon )
-		{
+		//start hlpro2
+		if ( pWeapon && pWeapon->m_iId != WEAPON_CROWBAR ) //never drop the bar!
+		{ //end hlpro2
+
 			g_pGameRules->GetNextBestWeapon( this, pWeapon );
 
 			UTIL_MakeVectors ( pev->angles ); 
@@ -5079,6 +5650,10 @@ LINK_ENTITY_TO_CLASS( info_intermission, CInfoIntermission );
 
 
 //start hlpro2
+
+//chan 1 & 2 is reserved for beginning messages
+//chan 3, 4 & 5 reserved for voting
+//chan 9 & 10 reserved for accuracy of weapons
 void CBasePlayer::DisplayHudMessage( char message[256], int channel, float x, float y, int r, int g, int b, int effect, float fadein, float fadeout, float holdtime, float fxtime )
 {
 	hudtextparms_t hText;
@@ -5108,34 +5683,33 @@ void CBasePlayer::DisplayHudMessage( char message[256], int channel, float x, fl
 
 void CBasePlayer::DisplayAccuracy( int m_iWeapon, char *szWeapon )
 {
-	char msg[256];
-	int m_fRatio = 0;
-
-	if ( !m_bWeaponStats )
+	//voting takes higher precedence
+	if ( !m_bWeaponStats || g_VoteInProgress )
 		return;
 
 	if ( m_flWeaponStatsUpdate >= gpGlobals->time )
 		return;
 
+	//figure weapon accuracy
 	int m_fTotalShots = m_iLandedHits[m_iWeapon] + m_iMissedHits[m_iWeapon];
 
-	m_fCurrentAccu = ( (float)m_iLandedHits[m_iWeapon] / (float)m_fTotalShots ) * 100;
+	if ( m_fTotalShots > 0 )
+		m_fCurrentAccu = ( (float)m_iLandedHits[m_iWeapon] / (float)m_fTotalShots ) * 100;
+	else
+		m_fCurrentAccu = 0.0;
 
-	for ( int i = 0; i < 16; i++ )
-		m_fRatio += m_iKillRatio[i];
+	//figure weaponkill ratio
+	if ( m_iTotalKills > 0 )
+		m_fWeaponKillRatio = ( (float)m_iWeaponKills[m_iWeapon] / (float)m_iTotalKills ) * 100;
+	else
+		m_fWeaponKillRatio = 0.0;
 
-	m_fKillWeaponRatio = ( (float)m_iKillRatio[m_iWeapon] / (float)m_fRatio ) * 100;
-	
-	if ( m_fTotalShots <= 0 )
-		m_fTotalShots = 0.0;
-	if ( m_fKillWeaponRatio <= 0 )
-		m_fKillWeaponRatio = 0.0;
+	//ALERT(at_notice, UTIL_VarArgs("this display m_iWeaponKills: %f ,m_iTotalKills %f , = %f\n", (float)m_iWeaponKills[m_iWeapon], (float)m_iTotalKills, m_fWeaponKillRatio));
 
-	DisplayHudMessage( szWeapon, 9, 0.01, 0.80, 255, 128, 0, 0, 0.0, 1.0, 4.0, 0.0 );
-	sprintf(msg, "Accuracy: %d of %d = %.01f%%\nKill Ratio: %d of %d = %.01f%%\n", m_iLandedHits[m_iWeapon], m_fTotalShots, m_fCurrentAccu, m_iKillRatio[m_iWeapon], m_fRatio, m_fKillWeaponRatio );
-	DisplayHudMessage( msg, 10, 0.01, 0.83, 210, 210, 210, 0, 0.0, 1.0, 4.0, 0.0 );
+	DisplayHudMessage( szWeapon, 1, 0.01, 0.80, 255, 128, 0, 0, 0.0, 0.5, 2.0, 0.0 );
+	DisplayHudMessage( UTIL_VarArgs("Accuracy: %d of %d [%.01f%%]\nKill Ratio: %d of %d [%.01f%%]\n", m_iLandedHits[m_iWeapon], m_fTotalShots, m_fCurrentAccu, m_iWeaponKills[m_iWeapon], m_iTotalKills, m_fWeaponKillRatio), 2, 0.01, 0.83, 210, 210, 210, 0, 0.0, 0.5, 2.0, 0.0 );
 
-	m_flWeaponStatsUpdate = gpGlobals->time + 5.0;
+	m_flWeaponStatsUpdate = gpGlobals->time + 2.5;
 }
 
 void CBasePlayer::GiveAllItems( void )
@@ -5176,53 +5750,152 @@ void CBasePlayer::GiveAllItems( void )
 
 }
 
-void CBasePlayer::StartObserving ( void )
+void CBasePlayer::StartObserving ( BOOL CopyBody )
 {
-	edict_t *pSpot, *pNewSpot;
-	int iRand;
+	if ( CopyBody )
+		CopyToBodyQue( pev );
+/*
+		// clear any clientside entities attached to this player
+	MESSAGE_BEGIN( MSG_PAS, SVC_TEMPENTITY, pev->origin );
+		WRITE_BYTE( TE_KILLPLAYERATTACHMENTS );
+		WRITE_BYTE( (BYTE)entindex() );
+	MESSAGE_END();
 
-	if ( IsSpectator )
+	// Holster weapon immediately, to allow it to cleanup
+	if (m_pActiveItem)
+		m_pActiveItem->Holster( );
+
+	if ( m_pTank != NULL )
 	{
+		m_pTank->Use( this, this, USE_OFF, 0 );
+		m_pTank = NULL;
+	}
+
+	// clear out the suit message cache so we don't keep chattering
+	SetSuitUpdate(NULL, FALSE, 0);
+
+	// Tell Ammo Hud that the player is dead
+	MESSAGE_BEGIN( MSG_ONE, gmsgCurWeapon, NULL, pev );
+		WRITE_BYTE(0);
+		WRITE_BYTE(0XFF);
+		WRITE_BYTE(0xFF);
+	MESSAGE_END();
+
+	// reset FOV
+	m_iFOV = m_iClientFOV = 0;
+	pev->fov = m_iFOV;
+	MESSAGE_BEGIN( MSG_ONE, gmsgSetFOV, NULL, pev );
+		WRITE_BYTE(0);
+	MESSAGE_END();
+
+	// Setup flags
+	//m_iHideHUD = (HIDEHUD_HEALTH | HIDEHUD_WEAPONS);
+	m_afPhysicsFlags |= PFLAG_OBSERVER;
+	pev->effects = EF_NODRAW;
+	pev->view_ofs = g_vecZero;
+	pev->fixangle = TRUE;
+	pev->solid = SOLID_NOT;
+	pev->takedamage = DAMAGE_NO;
+	pev->movetype = MOVETYPE_NONE;
+	ClearBits( m_afPhysicsFlags, PFLAG_DUCKING );
+	ClearBits( pev->flags, FL_DUCKING );
+	pev->deadflag = DEAD_RESPAWNABLE;
+	pev->health = 1;
+	
+	// Clear out the status bar
+	m_fInitHUD = TRUE;
+
+	// Update Team Status
+	pev->team = 0;
+	MESSAGE_BEGIN( MSG_ALL, gmsgTeamInfo );
+		WRITE_BYTE( ENTINDEX(edict()) );
+		WRITE_STRING( "" );
+	MESSAGE_END();
+
+	// Remove all the player's stuff
+	RemoveAllItems( FALSE );
+
+*/
+
+	ALERT(at_notice, "Calling observer routine.\n" );
+
+	if ( HasWeapons() )
+		RemoveAllItems( TRUE );
+
+	m_iHideHUD = (HIDEHUD_FLASHLIGHT | HIDEHUD_WEAPONS | HIDEHUD_HEALTH);
+	pev->view_ofs = g_vecZero;
+	pev->effects |= EF_NODRAW;
+	pev->fixangle = TRUE;
+	pev->solid = SOLID_NOT;
+	pev->takedamage = DAMAGE_NO;
+	pev->movetype = MOVETYPE_NOCLIP;
+	pev->modelindex = 0;
+	pev->health = 1;
+	pev->deadflag = DEAD_NO;
+	ClearBits( m_afPhysicsFlags, PFLAG_DUCKING );
+	ClearBits( pev->flags, FL_DUCKING );	
+		
+	if ( IsFinishedIntroSpectating )
+	{
+		edict_t *pSpot = g_pGameRules->GetPlayerSpawnSpot( this );
+		pev->angles = pev->v_angle = pSpot->v.v_angle;
+		UTIL_SetOrigin( pev, pSpot->v.origin + Vector(0,0,64) );
+	}
+
+	pev->iuser1 = OBS_ROAMING;
+
+	m_fHasRune	 = 0;
+	m_flRuneTime = 0;
+}
+
+void CBasePlayer::ExitObserving( void )
+{
+	if ( HasWeapons() )
+		RemoveAllItems( TRUE );
+
+	pev->iuser1 = pev->iuser2 = 0;
+	m_iHideHUD = 0;
+	Spawn();
+}
+
+void CBasePlayer::SwitchSpectatorModes( void )
+{	
+	if ( m_fFindPlayerToObserveUpdate > gpGlobals->time )
+		return;
+
+	if ( !IsSpectator() || !pev->iuser2 )
+	{
+		FindPlayerToObserve(pev->iuser2);
+		//ClientPrint(pev, HUD_PRINTTALK, "* Changing modes only if observing player.\n");
+		//m_flObserverUpdate = gpGlobals->time + 1.0;
 		return;
 	}
 
-	ALERT(at_notice, "Calling observer routine.\n");
-
-	pSpot = FIND_ENTITY_BY_CLASSNAME( NULL, "info_intermission");	
-
-	if ( !FNullEnt( pSpot ) )
+	if ( pev->iuser1 == OBS_CHASE_LOCKED )
 	{
-		// at least one intermission spot in the world.
-		iRand = RANDOM_LONG(0,8);
-
-		while ( iRand > 0 )
-		{
-			pNewSpot = FIND_ENTITY_BY_CLASSNAME( pSpot, "info_player_deathmatch");
-			
-			if ( pNewSpot )
-			{
-				pSpot = pNewSpot;
-			}	
-
-			iRand--;
-		}
-
-		pev->view_ofs = g_vecZero;
-		pev->effects |= EF_NODRAW;
-		pev->angles = pev->v_angle = pSpot->v.v_angle;
-		pev->fixangle = FALSE;
-		pev->solid = SOLID_NOT;
-		pev->takedamage = DAMAGE_NO;
-		pev->movetype = MOVETYPE_NOCLIP;
-		pev->modelindex = 0;
+       pev->iuser1 = OBS_CHASE_FREE;
+	   ClientPrint(pev, HUD_PRINTTALK, "* Switched mode to Free Chase.\n");
+	}
+    else if ( pev->iuser1 == OBS_CHASE_FREE )
+	{
+		pev->iuser1 = OBS_ROAMING;
+		pev->iuser2 = 0;
+		//m_iObserverIndex = 0;
+		
+		edict_t *pSpot = g_pGameRules->GetPlayerSpawnSpot( this );
 		UTIL_SetOrigin( pev, pSpot->v.origin + Vector(0,0,64) );
 
-		RemoveAllItems( TRUE );
-		
-		IsSpectator = TRUE;
-		IsFinishedIntroSpectating = TRUE;
+		ClientPrint(pev, HUD_PRINTTALK, "* Switched mode to Roaming.\n");
 	}
+	else if ( pev->iuser1 == OBS_ROAMING )
+	{
+		pev->iuser1 = OBS_CHASE_LOCKED;
+		ClientPrint(pev, HUD_PRINTTALK, "* Switched mode to Locked Chase.\n");
+	}
+    else
+       pev->iuser1 = OBS_ROAMING;
 
+	m_fFindPlayerToObserveUpdate = gpGlobals->time + 1.0;
 }
 
 void CBasePlayer::FindPlayerToObserve ( int cycle )
@@ -5232,17 +5905,31 @@ void CBasePlayer::FindPlayerToObserve ( int cycle )
 	if ( m_fFindPlayerToObserveUpdate > gpGlobals->time )
 		return;
 
-	for ( int i = cycle; i <= gpGlobals->maxClients; i++ )
+	ALERT(at_console, "Calling find player.\n");
+
+	for ( int i = 0; i <= gpGlobals->maxClients; i++ )
 	{
+		if ( pev->iuser2 == i )
+			continue;
+
+		CBaseEntity *pEnt = UTIL_PlayerByIndex( i );
 		CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
 		if ( plr && plr->IsPlayer() )
 		{
-			if ( !plr->IsSpectator && plr->pev != pev )
+			if ( plr->pev != pev && !plr->IsSpectator() )
 			{
-				m_iObserverIndex = i;
-				m_flObserverUpdate = gpGlobals->time;
-				UpdateObserverView(i);
+				//m_iObserverIndex = i;
+				//m_flObserverUpdate = gpGlobals->time;
+				//UpdateObserverView(i);
+
+				m_hObserverTarget = pEnt;
+				pev->iuser1 = OBS_CHASE_LOCKED;
+				// Store the target in pev so the physics DLL can get to it
+				pev->iuser2 = ENTINDEX( m_hObserverTarget->edict() );
+
+				// Move to the target
+				UTIL_SetOrigin( pev, Vector(m_hObserverTarget->pev->origin.x, m_hObserverTarget->pev->origin.y, m_hObserverTarget->pev->origin.z ) );
 
 				ClientPrint(pev, HUD_PRINTTALK, UTIL_VarArgs("* Observing %s.\n", STRING(plr->pev->netname)));
 				found_observer = TRUE;
@@ -5253,24 +5940,30 @@ void CBasePlayer::FindPlayerToObserve ( int cycle )
 
 	if ( !found_observer )
 	{
-		if ( cycle > 1 )
-			ClientPrint(pev, HUD_PRINTTALK, "* Could not find any other players to observe.\n");
-		else
-		{
+		//if ( cycle > 1 )
+		//	ClientPrint(pev, HUD_PRINTTALK, "* Could not find any other players to observe.\n");
+		//else
+		//{
 			ClientPrint(pev, HUD_PRINTTALK, "* Could not find a player to observe.\n");
-			m_iObserverIndex = 0;
-			m_flObserverUpdate = 0;
-		}
+			//m_iObserverIndex = 0;
+			//m_flObserverUpdate = 0;
+	//	}
 
 	}
 
-	m_fFindPlayerToObserveUpdate = gpGlobals->time + 4.0;
+	m_fFindPlayerToObserveUpdate = gpGlobals->time + 1.0;
 }
 
+/*
 void CBasePlayer::UpdateObserverView ( int ID )
 {
 	CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( ID );
-	Vector vecSrc = plr->pev->origin + gpGlobals->v_forward * m_iObserverForwardView; //+ gpGlobals->v_up * 32;
+
+	if ( plr->IsSpectator )
+		return;
+
+
+//	Vector vecSrc = plr->pev->origin + gpGlobals->v_forward * m_iObserverForwardView; //+ gpGlobals->v_up * 32;
 	
 	//TraceResult tr;
 	//CBaseEntity *ent = NULL;
@@ -5287,12 +5980,13 @@ void CBasePlayer::UpdateObserverView ( int ID )
 			pev->punchangle = plr->pev->punchangle;
 			pev->fixangle = TRUE;
 
-			UTIL_SetOrigin( pev, vecSrc );
+			UTIL_SetOrigin( pev, vecSrc + gpGlobals->v_forward * -8 );
 	//	}
 	//}
 
 
-	m_flObserverUpdate = gpGlobals->time + 2.0;
+	m_flObserverUpdate = gpGlobals->time;
 }
+*/
 //end hlpro2
 

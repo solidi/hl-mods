@@ -24,7 +24,7 @@
 #include "gamerules.h"
 
 //start hlpro2
-extern DLL_GLOBAL	int	g_flWeaponArena;
+extern DLL_GLOBAL	int		g_flWeaponArena;
 //end hlpro2
 
 enum mp5_e
@@ -55,11 +55,11 @@ int CMP5::SecondaryAmmoIndex( void )
 void CMP5::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_MP5 && g_flWeaponArena != 16 )    )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_MP5 && g_flWeaponArena != 16 )    )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	pev->classname = MAKE_STRING("weapon_9mmAR"); // hack to allow for old names
@@ -152,7 +152,7 @@ void CMP5::PrimaryAttack()
 		return;
 	}
 
-	if (m_iClip <= 0)
+	if (m_iClip <= 0 )
 	{
 		PlayEmptySound();
 		m_flNextPrimaryAttack = 0.15;
@@ -309,12 +309,12 @@ class CMP5AmmoClip : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
-		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_MP5 )
+		/*if ( g_flWeaponArena && g_flWeaponArena != WEAPON_MP5 )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
-		}
+		}*/
 		//end hlpro2
 
 		Precache( );
@@ -348,12 +348,14 @@ class CMP5Chainammo : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
+		/*
 		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_MP5 )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
 		}
+		*/
 		//end hlpro2
 
 		Precache( );
@@ -383,13 +385,13 @@ class CMP5AmmoGrenade : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
-		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_MP5 )
+		/*if ( g_flWeaponArena && g_flWeaponArena != WEAPON_MP5 )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
 		}
-		//end hlpro2
+		//end hlpro2 */
 
 		Precache( );
 		SET_MODEL(ENT(pev), "models/w_ARgrenade.mdl");

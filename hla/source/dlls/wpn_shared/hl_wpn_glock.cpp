@@ -45,11 +45,11 @@ LINK_ENTITY_TO_CLASS( weapon_9mmhandgun, CGlock );
 void CGlock::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_GLOCK && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_GLOCK && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	pev->classname = MAKE_STRING("weapon_9mmhandgun"); // hack to allow for old names
@@ -253,12 +253,12 @@ class CGlockAmmo : public CBasePlayerAmmo
 	void Spawn( void )
 	{ 
 		//start hlpro2
-		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_GLOCK )
+		/* if ( g_flWeaponArena && g_flWeaponArena != WEAPON_GLOCK )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
-		}
+		} */
 		//end hlpro2
 
 		Precache( );

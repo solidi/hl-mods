@@ -30,6 +30,8 @@ class CBasePlayerAmmo;
 #define	GAME_ROBO			3
 #define GAME_HEADHUNTER		4
 #define GAME_FREEZETAG		5
+
+#define TOTAL_MUTATORS		29
 //end hlpro2
 
 // weapon respawning return codes
@@ -272,6 +274,10 @@ public:
 	virtual void RefreshSkillData( void );
 	virtual BOOL IsAllowedToSpawn( CBaseEntity *pEntity );
 	virtual BOOL FAllowFlashlight( void );
+
+	//start hlpro2
+	virtual void ClientUserInfoChanged( CBasePlayer *pPlayer, char *infobuffer );
+	//end hlpro2
 
 	virtual BOOL FShouldSwitchWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pWeapon );
 	virtual BOOL GetNextBestWeapon( CBasePlayer *pPlayer, CBasePlayerItem *pCurrentWeapon );

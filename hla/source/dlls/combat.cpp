@@ -656,6 +656,7 @@ void CBaseEntity :: SUB_StartFadeOut ( void )
 	}
 
 	//start hlpro2
+	pev->rendercolor = Vector(0,0,0);
 	//pev->solid = SOLID_NOT;
 	//end hlpro2
 	pev->avelocity = g_vecZero;
@@ -1103,7 +1104,7 @@ void RadiusDamage( Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacke
 	else if ( !strcmp( killer_weapon_name, "grenade" ) )
 	{
 		weapon_used = WEAPON_HANDGRENADE;
-		strcpy( sz, "Handgreande" );
+		strcpy( sz, "Handgrenade" );
 	}
 	else if ( !strcmp( killer_weapon_name, "monster_satchel" ) )
 	{
@@ -1156,7 +1157,7 @@ void RadiusDamage( Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacke
 			if ( tr.flFraction == 1.0 || tr.pHit == pEntity->edict() )
 			{
 				//start hlpro2
-				if ( ptr && ptr->IsPlayer() && ptr != (CBasePlayer *)pEntity )
+				if ( ptr && pEntity->IsPlayer() && ptr->IsPlayer() && ptr != (CBasePlayer *)pEntity )
 				{
 					ptr->m_iLandedHits[weapon_used]++;
 					ptr->DisplayAccuracy(weapon_used, sz);
@@ -1203,8 +1204,11 @@ void RadiusDamage( Vector vecSrc, entvars_t *pevInflictor, entvars_t *pevAttacke
 	//start hlpro2
 	if ( ptr && ptr->IsPlayer() && !hit )
 	{
-		ptr->m_iMissedHits[weapon_used]++;
-		ptr->DisplayAccuracy(weapon_used, sz);
+		if ( strcmp(sz, "Unknown") )
+		{
+			ptr->m_iMissedHits[weapon_used]++;
+			ptr->DisplayAccuracy(weapon_used, sz);
+		}
 	}
 	//end hlpro2
 }

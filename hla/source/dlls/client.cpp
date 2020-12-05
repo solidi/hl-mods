@@ -43,7 +43,6 @@
 #include "vote.h"
 
 extern DLL_GLOBAL   int			g_GameMode;
-extern DLL_GLOBAL	const char *g_GameModeName;
 extern DLL_GLOBAL	BOOL		g_VoteInProgress;
 extern DLL_GLOBAL   float		g_VoteExecute;
 //end hlpro2
@@ -172,7 +171,7 @@ void ClientKill( edict_t *pEntity )
 	CBasePlayer *pl = (CBasePlayer*) CBasePlayer::Instance( pev );
 
 	//start hlpro2
-	if ( pl->IsSpectator )
+	if ( pl->IsSpectator() )
 		return;
 
 	if ( g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA )
@@ -206,7 +205,7 @@ void ClientPutInServer( edict_t *pEntity )
 	entvars_t *pev = &pEntity->v;
 
 	pPlayer = GetClassPtr((CBasePlayer *)pev);
-	pPlayer->SetCustomDecalFrames(-1); // Assume none;
+	pPlayer->SetCustomDecalFrames(-1); // Assume none
 
 	// Allocate a CBasePlayer for pev, and call spawn
 	pPlayer->Spawn() ;
@@ -295,7 +294,14 @@ void Host_Say( edict_t *pEntity, int teamonly )
 	if ( teamonly )
 		sprintf( text, "%c(TEAM) %s: ", 2, STRING( pEntity->v.netname ) );
 	else
-		sprintf( text, "%c%s: ", 2, STRING( pEntity->v.netname ) );
+	{
+		//start hlpro2
+		if ( player->IsSpectator() )
+			sprintf( text, "%c(S) %s: ", 2, STRING( pEntity->v.netname ) );
+		else
+			sprintf( text, "%c(A) %s: ", 2, STRING( pEntity->v.netname ) );
+		//end hlpro2
+	}
 
 	j = sizeof(text) - 2 - strlen(text);  // -2 for /n and null terminator
 	if ( (int)strlen(p) > j )
@@ -374,6 +380,92 @@ void Host_Say( edict_t *pEntity, int teamonly )
 			temp,
 			p );
 	}
+
+	//start hlpro2
+	if ( g_VoteInProgress )
+	{
+		if ( !strcmp ( p, "yes" ) )
+		{
+			Vote( player, TRUE );
+		}
+		else if ( !strcmp ( p, "no" ) )
+		{
+			Vote( player, FALSE );
+		}
+	}
+	else
+	{
+		//parse me
+		int found_vote = 0;
+		p = strtok( p, " " );
+		while ( p != NULL && *p  )
+		{
+			if ( !strcmp ( p, "vote_map" ) )
+			{
+				found_vote = VOTE_MAP;
+			}
+			else if ( !strcmp ( p, "vote_game" ) )
+			{
+				found_vote = VOTE_GAME;
+			}
+			else if ( !strcmp ( p, "vote_kick" ) )
+			{
+				found_vote = VOTE_KICK;
+			}
+			else if ( !strcmp ( p, "vote_ban" ) )
+			{
+				found_vote = VOTE_BAN;
+			}
+			else if ( !strcmp ( p, "vote_extend" ) )
+			{
+				//found_vote = VOTE_EXTEND;
+				VoteExtend( player, p );
+			}
+			else if ( !strcmp ( p, "vote_mutator" ) )
+			{
+				found_vote = VOTE_MUTATOR;
+			}
+
+			//found a match, now pick the next chunk
+			//and designate it as the voted variable.
+			if ( found_vote )
+			{
+				p = strtok( NULL, " " );
+
+				if ( p == NULL )
+					p = "";
+
+				switch ( found_vote )
+				{
+				case VOTE_MAP:
+					VoteMap( player, p );
+					break;
+				case VOTE_GAME:
+					VoteGame( player, p );
+					break;
+				case VOTE_KICK:
+					VoteKick( player, p, FALSE );
+					break;
+				case VOTE_BAN:
+					VoteKick( player, p, TRUE );
+					break;
+				//case VOTE_EXTEND:
+				//	VoteExtend( player, p );
+					break;
+				case VOTE_MUTATOR:
+					VoteMutator( player, p );
+					break;
+				}
+
+				break;
+			}
+
+			p = strtok( NULL, " " );
+		}
+	}
+
+	//ALERT(at_console, UTIL_VarArgs("CMD_ARGS(): \"%s\"\nCMD_ARGV(0): \"%s\"\nCMD_ARGV(1): \"%s\"\np: \"%s\"\nCMD_ARGC(): \"%i\"\n", CMD_ARGS(), CMD_ARGV(0),CMD_ARGV(1),p,CMD_ARGC() )); 
+	//end hlpro2
 }
 
 
@@ -384,6 +476,22 @@ called each time a player uses a "cmd" command
 ============
 */
 extern float g_flWeaponCheat;
+
+//start hlpro2
+const char *szRunes [] =
+{
+	"Unknown",
+	"Strength",
+	"Protect",
+	"Frag",
+	"AmmoRegen",
+	"HealthRegen",
+	"Gravity",
+	"Cloak",
+	"Vampire",
+	"Haste",
+};
+//end hlpro2
 
 // Use CMD_ARGV,  CMD_ARGV, and CMD_ARGC to get pointers the character string command.
 void ClientCommand( edict_t *pEntity )
@@ -396,6 +504,9 @@ void ClientCommand( edict_t *pEntity )
 		return;
 
 	entvars_t *pev = &pEntity->v;
+	//start hlpro2
+	CBasePlayer *Spect = GetClassPtr((CBasePlayer *)pev);
+	//end hlpro2
 
 	if ( FStrEq(pcmd, "say" ) )
 	{
@@ -460,9 +571,9 @@ void ClientCommand( edict_t *pEntity )
 	//start hlpro2
 	else if ( FStrEq(pcmd, "help" ) )
 	{
-		CLIENT_PRINTF( pEntity, print_console, "\n][Help][\nServer:\nhla_gamemode <mode> - set the current gamemode of hla.\nhla_mutators <var1;var2;var3...> - sets valid mutators. values can be combined.\nhla_votedelay <seconds> - sets time delay between the next intial vote.\nhla_votetimer <seconds> - sets the valid voting time casted by a client.\n\nClient:\nhelp - menu of new commands.\ndrop_rune - destroy the current rune.\nrune - display what rune you currently have.\nstats - toggle weapon accuracy/ratio display ON or OFF.\nvote_gamemode <mode> - cast a vote to change the current gamemode.\nvote_kicklist - list clients ID numbers for kick/ban reference.\n");
-		CLIENT_PRINTF( pEntity, print_console, "vote_map <map> - cast a vote to change the level.\nvote_kick <ID> - cast a vote to kick a client.\n");
-		CLIENT_PRINTF( pEntity, print_console, "vote_ban <ID> - cast a vote to ban a client for 10 minutes.\nvote_yes - cast the vote YES.\nvote_no - cast the vote NO.\n");
+		CLIENT_PRINTF( pEntity, print_console, "\n][Help][\nServer:\nhla_gamemode <mode> - set the current gamemode of hla.\nhla_mutators <var1, var2, var3...> - sets valid mutators. values can be combined.\nhla_votedelay <seconds> - sets time delay between the next intial vote.\nhla_votetimer <seconds> - sets the valid voting time casted by a client.\nhla_gametimer <seconds> - sets the round time for all hla gamemodes.\n\nClient:\nhelp - menu of new commands.\nrune - display what rune you currently have.\nstats - toggle weapon accuracy/ratio display ON or OFF.\nvote_game <mode> - cast a vote to change the current gamemode.\n\n");
+		CLIENT_PRINTF( pEntity, print_console, "vote_map <map> - cast a vote to change the level.\nvote_kick <ID or Name> - cast a vote to kick a client.\n");
+		CLIENT_PRINTF( pEntity, print_console, "vote_ban <ID or Name> - cast a vote to ban a client for 10 minutes.\nvote_extend - cast a vote to extend duration of map.\nvote_mutator <mutator> - cast a vote to enable a mutator.\nyes - cast the vote YES.\nno - cast the vote NO.\n");
 	}
 	else if ( FStrEq(pcmd, "stats" ) )
 	{
@@ -482,10 +593,10 @@ void ClientCommand( edict_t *pEntity )
 		CBasePlayer *pPlayer = GetClassPtr((CBasePlayer *)pev);
 		
 		if ( pPlayer->m_fHasRune )
-			ClientPrint(pPlayer->pev, HUD_PRINTNOTIFY, UTIL_VarArgs("* You have the %d rune.\n", pPlayer->m_fHasRune));
+			ClientPrint(pPlayer->pev, HUD_PRINTTALK, UTIL_VarArgs("* You have the \"%s\" rune.\n", szRunes[pPlayer->m_fHasRune]));
 		else
-			ClientPrint(pPlayer->pev, HUD_PRINTNOTIFY, "* You do not own a rune.\n");
-	}
+			ClientPrint(pPlayer->pev, HUD_PRINTTALK, "* You do not own a rune.\n");
+	}/*
 	else if ( FStrEq(pcmd, "drop_rune" ) )
 	{
 		CBasePlayer *pPlayer = GetClassPtr((CBasePlayer *)pev);
@@ -500,99 +611,16 @@ void ClientCommand( edict_t *pEntity )
 			ClientPrint(pPlayer->pev, HUD_PRINTNOTIFY, "* You do not own a rune to destroy.\n");
 
 		pPlayer->m_fHasRune = 0;
-	}
-	else if ( FStrEq(pcmd, "vote_gamemode") )
-	{
-		if ( CMD_ARGC() >= 2 && strlen(CMD_ARGS()) <= 32 )
-		{
-			int result = -1;
-			char *szMode = (char *)CMD_ARGS();
-
-			if ( !strcmp( szMode, g_GameModeName ))
-			{
-				result = 1;
-			}
-
-			if ( result )
-			{
-				if ( !strcmp(g_GameModeName, szMode) )
-					ClientPrint(pev, HUD_PRINTNOTIFY, "Game mode already in play.\n");
-				else
-					InitVote(pEntity, 2, szMode, 0);
-			}
-			else
-				ClientPrint(pev, HUD_PRINTNOTIFY, "Invalid game mode!\n");
-		}
-		else
-		{
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Please type in game mode!\n");
-		}
-	}
+	} */
 	else if ( FStrEq(pcmd, "vote_map") )
 	{
-		if ( CMD_ARGC() >= 2 && strlen(CMD_ARGS()) <= 32 )
-		{
-			/*
-			int i = 0;
-			char sz[128];
-
-			strcpy(sz, (const char *)CMD_ARGS());
-			
-			while ( sz && ( sz[i] != '\0' || i > 32 ))
-			{
-				sz[i] = tolower(sz[i]);	
-				i++;
-			}
-			*/
-
-			int result;
-			char *szMap = (char *)CMD_ARGS();
-			result = IS_MAP_VALID( szMap );
-
-			if ( result )
-			{
-				if ( !strcmp( szMap, STRING(gpGlobals->mapname ) ))
-					ClientPrint(pev, HUD_PRINTNOTIFY, "Map already in play.\n");
-				else
-					InitVote(pEntity, 1, szMap, 0);
-			}
-			else
-				ClientPrint(pev, HUD_PRINTNOTIFY, "Not a valid map!\n");
-
-		}
-		else
-		{
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Please type in a map!\n");
-			return;
-		}
-
-	
-		/*
-		struct _finddata_t bsp_file;
-		char sz[256];
-		long hFile;
-
-		// Find first .bsp file in current directory
-		if( (hFile = _findfirst( "valve/maps/*.bsp", &bsp_file )) == -1L )
-			ClientPrint(pev, HUD_PRINTCONSOLE, "No *.bsp files in current directory!\n" );
-		else
-		{
-            ClientPrint(pev, HUD_PRINTCONSOLE, "Listing of .bsp files\n\n" );
-			sprintf(sz, "%s %dk\n", bsp_file.name, bsp_file.size / 1024 );
-            ClientPrint(pev, HUD_PRINTCONSOLE, sz );
-
-            // Find the rest of the .bsp files 
-            while( _findnext( hFile, &bsp_file ) == 0 )
-			{
-				sprintf(sz, "%s %dk\n", bsp_file.name, bsp_file.size / 1024  );
-				ClientPrint(pev, HUD_PRINTCONSOLE, sz );
-			}
-
-			_findclose( hFile );
-		}
-		*/
+		VoteMap( Spect, CMD_ARGV(1) );
 	}
-	else if ( FStrEq(pcmd, "vote_kicklist") )
+	else if ( FStrEq(pcmd, "vote_game") )
+	{
+		VoteGame( Spect, CMD_ARGV(1) );
+	}
+/*	else if ( FStrEq(pcmd, "vote_kicklist") )
 	{
 		char sz[128];
 
@@ -600,7 +628,7 @@ void ClientCommand( edict_t *pEntity )
 		{
 			CBaseEntity *pPlayer = UTIL_PlayerByIndex( i );
 
-			if ( pPlayer  )
+			if ( pPlayer && pPlayer->IsPlayer() )
 			{
 				sprintf(sz, "Name: %s ID: %d\n", STRING(pPlayer->pev->netname), GETPLAYERUSERID(pPlayer->edict()));
 				ClientPrint(pev, HUD_PRINTNOTIFY, sz);
@@ -608,93 +636,30 @@ void ClientCommand( edict_t *pEntity )
 		}
 
 		ClientPrint(pev, HUD_PRINTNOTIFY, "Type the command 'vote_kick' or 'vote_ban' followed by the desired ID.\n");
-	}
+	} */
 	else if ( FStrEq(pcmd, "vote_kick") )
 	{
-		if ( CMD_ARGC() >= 2 )
-		{
-			for ( int i = 1; i <= gpGlobals->maxClients; i++ )
-			{
-				CBaseEntity *pPlayer = UTIL_PlayerByIndex( i );
-
-				if ( pPlayer && (GETPLAYERUSERID(pPlayer->edict()) == atoi( CMD_ARGV(1) )))
-				{
-					InitVote(pEntity, 3, (char *)STRING(pPlayer->pev->netname), GETPLAYERUSERID(pPlayer->edict()) );
-					return;
-				}
-			}
-
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Invalid ID. Type 'vote_kicklist' for reference.\n");
-		}
-		else
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Please enter ID. Type 'vote_kicklist' for reference.\n");
-
+		VoteKick( Spect, CMD_ARGV(1), FALSE );
 	}
 	else if ( FStrEq(pcmd, "vote_ban") )
 	{
-		if ( CVAR_GET_FLOAT("sv_lan") )
-		{
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Not allowed to ban in lan mode.\n");
-			return;
-		}
-
-		if ( CMD_ARGC() >= 2 )
-		{
-			for ( int i = 1; i <= gpGlobals->maxClients; i++ )
-			{
-				CBaseEntity *pPlayer = UTIL_PlayerByIndex( i );
-
-				if ( pPlayer && (GETPLAYERUSERID(pPlayer->edict()) == atoi( CMD_ARGV(1) )))
-				{
-					InitVote(pEntity, 4, (char *)STRING(pPlayer->pev->netname), atoi(CMD_ARGV(1)) );
-					return;
-				}
-			}
-
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Invalid ID. Type 'vote_kicklist' for reference.\n");
-		}
-		else
-			ClientPrint(pev, HUD_PRINTNOTIFY, "Please enter ID. Type 'vote_kicklist' for reference.\n");
+		VoteKick( Spect, CMD_ARGV(1), TRUE );
 	}
-	else if ( FStrEq(pcmd, "vote_yes") )
+	else if ( FStrEq(pcmd, "vote_extend") )
 	{
-		if ( !g_VoteInProgress || g_VoteExecute )
-		{
-			ClientPrint(pev, HUD_PRINTNOTIFY, "There is no current vote.\n");
-			return;
-		}
-
-		if ( !GetClassPtr((CBasePlayer *)pev)->m_bHasVotedYes && !GetClassPtr((CBasePlayer *)pev)->m_bHasVotedNo )
-		{
-			GetClassPtr((CBasePlayer *)pev)->m_bHasVotedYes = TRUE;
-			GetClassPtr((CBasePlayer *)pev)->DisplayHudMessage( " ", 3, .01, .12, 255, 128, 0, 2, .015, 1, 3, .25 );
-			GetClassPtr((CBasePlayer *)pev)->DisplayHudMessage( " ", 4, .01, .15, 210, 210, 210, 2, .015, 1, 3, .25 );
-			GetClassPtr((CBasePlayer *)pev)->DisplayHudMessage( "You have voted YES.\n", 5, .01, .12, 255, 128, 0, 2, .015, 1, 3, .25 );
-			//ClientPrint(pev, HUD_PRINTCONSOLE, "you have voted yes!\n");
-		}
-		else
-			ClientPrint(pev, HUD_PRINTNOTIFY, "You have already voted!\n");
-
+		VoteExtend( Spect, STRING(gpGlobals->mapname ) );
 	}
-	else if ( FStrEq(pcmd, "vote_no") )
+	else if ( FStrEq(pcmd, "vote_mutator") )
 	{
-		if ( !g_VoteInProgress || g_VoteExecute )
-		{
-			ClientPrint(pev, HUD_PRINTNOTIFY, "There is no current vote.\n");
-			return;
-		}
-
-		if ( !GetClassPtr((CBasePlayer *)pev)->m_bHasVotedYes && !GetClassPtr((CBasePlayer *)pev)->m_bHasVotedNo )
-		{
-			GetClassPtr((CBasePlayer *)pev)->m_bHasVotedNo = TRUE;
-			GetClassPtr((CBasePlayer *)pev)->DisplayHudMessage( " ", 3, .01, .12, 255, 128, 0, 2, .015, 1, 3, .25 );
-			GetClassPtr((CBasePlayer *)pev)->DisplayHudMessage( " ", 4, .01, .15, 210, 210, 210, 2, .015, 1, 3, .25 );
-			GetClassPtr((CBasePlayer *)pev)->DisplayHudMessage( "You have voted NO.\n", 5, .01, .12, 255, 128, 0, 2, .015, 1, 3, .25 );
-			//ClientPrint(pev, HUD_PRINTCONSOLE, "you have voted no!\n");
-		}
-		else
-			ClientPrint(pev, HUD_PRINTNOTIFY, "You have already voted!\n");
-
+		VoteMutator( Spect, CMD_ARGV(1) );
+	}
+	else if ( FStrEq(pcmd, "yes") )
+	{
+		Vote( Spect, TRUE );
+	}
+	else if ( FStrEq(pcmd, "no") )
+	{
+		Vote( Spect, FALSE );
 	}
 	//end hlpro2
 	else
@@ -1155,6 +1120,15 @@ void SetupVisibility( edict_t *pViewEntity, edict_t *pClient, unsigned char **pv
 	{
 		pView = pViewEntity;
 	}
+
+	//start hlpro2 -spectator
+	// Tracking Spectators use the visibility of their target
+	CBasePlayer *pPlayer = (CBasePlayer *)CBaseEntity::Instance( pClient );
+	if ( (pPlayer->pev->iuser2 != 0) && (pPlayer->m_hObserverTarget != NULL) )
+	{
+		pView = pPlayer->m_hObserverTarget->edict();
+	}
+	//end hlpro2
 
 	if ( pClient->v.flags & FL_PROXY )
 	{
@@ -1782,6 +1756,11 @@ void UpdateClientData ( const struct edict_s *ent, int sendweapons, struct clien
 	cd->weaponanim		= ent->v.weaponanim;
 
 	cd->pushmsec		= ent->v.pushmsec;
+
+	//start hlpro2 -spectator
+	cd->iuser1			= ent->v.iuser1;
+	cd->iuser2			= ent->v.iuser2;
+	//end hlpro2
 
 #if defined( CLIENT_WEAPONS )
 	if ( sendweapons )

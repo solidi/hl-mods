@@ -27,6 +27,10 @@
 #include "skill.h"
 #include "gamerules.h"
 
+//start hlpro2
+extern DLL_GLOBAL   int			g_GameMode;
+//end hlpro2
+
 class CRecharge : public CBaseToggle
 {
 public:
@@ -84,6 +88,11 @@ void CRecharge::KeyValue( KeyValueData *pkvd )
 
 void CRecharge::Spawn()
 {
+	//start hlpro2
+	if ( g_GameMode == GAME_ARENA || g_GameMode == GAME_LMS )
+		return;
+	//end hlpro2
+
 	Precache( );
 
 	pev->solid		= SOLID_BSP;

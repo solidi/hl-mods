@@ -8,7 +8,7 @@
 *	All Rights Reserved.
 *
 *   Use, distribution, and modification of this source code and/or resulting
-*   object code is restricted to non-commercial enhancements to products from
+*   object code is restricted to non-commercial enhancements to products from 
 *   Valve LLC.  All other use, distribution, or modification is prohibited
 *   without written permission from Valve LLC.
 *
@@ -39,6 +39,10 @@ extern int gmsgServerName;
 //start hlpro2
 #include "vote.h"
 extern DLL_GLOBAL int	g_flWeaponArena;
+extern DLL_GLOBAL int	g_flWeaponMutators[16];
+extern DLL_GLOBAL int	g_TotalWeapons;
+extern DLL_GLOBAL int	g_flStartWeapons[16];
+extern DLL_GLOBAL int	g_TotalStartWeapons;
 extern DLL_GLOBAL BOOL  g_VoteInProgress;
 extern DLL_GLOBAL int   g_GameMode;
 extern DLL_GLOBAL float g_VoteTimer;
@@ -46,6 +50,7 @@ extern DLL_GLOBAL float g_VoteExecute;
 extern DLL_GLOBAL BOOL  g_bFatBoy;
 extern DLL_GLOBAL BOOL  g_bEarning;
 extern DLL_GLOBAL BOOL  g_bStartFull;
+extern DLL_GLOBAL BOOL  g_bMaxPack;
 //end hlpro2
 
 extern int g_teamplay;
@@ -82,15 +87,30 @@ static CMultiplayGameMgrHelper g_GameMgrHelper;
 
 //start hlpro2
 BOOL g_GameInProgress;
-BOOL dubdelay;
+int countdown;
+BOOL _30secwarning;
+BOOL _15secwarning;
+BOOL _3secwarning;
 float flUpdateTime;
+float flTimeLimit;
+int SuccessfulRounds;
+float g_ShowUsVoting;
 
 void ResetGameMode ( void )
 {
 	g_GameInProgress = FALSE;
-	dubdelay = FALSE;
+
+	countdown = 2;
+
+	_30secwarning = FALSE;
+	_15secwarning = FALSE;
+	_3secwarning = FALSE;
+
+	SuccessfulRounds = 0;
 	flUpdateTime = 0;
+	flTimeLimit = 0;
 }
+//end hlpro2
 
 CHalfLifeMultiplay :: CHalfLifeMultiplay()
 {
@@ -142,6 +162,8 @@ CHalfLifeMultiplay :: CHalfLifeMultiplay()
 	//start hlpro2
 	if ( g_VoteInProgress )
 		ALERT(at_console, "Preceeding vote has been terminated.\n");
+	
+	g_ShowUsVoting = gpGlobals->time;
 
 	ResetVote();
 	ResetGameMode();
@@ -155,6 +177,34 @@ BOOL CHalfLifeMultiplay::ClientCommand( CBasePlayer *pPlayer, const char *pcmd )
 
 	return CGameRules::ClientCommand(pPlayer, pcmd);
 }
+
+//start hlpro2
+//=========================================================
+// ClientUserInfoChanged
+//=========================================================
+void CHalfLifeMultiplay::ClientUserInfoChanged( CBasePlayer *pPlayer, char *infobuffer )
+{
+	// prevent skin/color/model changes
+	char *robo = "robo";
+	char *recon = "recon";
+	char *mdls = g_engfuncs.pfnInfoKeyValue( infobuffer, "model" );
+
+	if ( g_GameMode == GAME_ROBO )
+	{
+		if ( strcmp( mdls, robo ) || strcmp( mdls, recon ) )
+		{
+			if ( pPlayer->IsArmoredMan )
+				g_engfuncs.pfnSetClientKeyValue( ENTINDEX( pPlayer->edict() ), g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model", robo );
+			else
+				g_engfuncs.pfnSetClientKeyValue( ENTINDEX( pPlayer->edict() ), g_engfuncs.pfnGetInfoKeyBuffer( pPlayer->edict() ), "model", recon );
+
+			ClientPrint(pPlayer->pev, HUD_PRINTCONSOLE, "Models changed due to robo arena!\n");
+
+			return;
+		}
+	}
+}
+//end hlpro2
 
 //=========================================================
 //=========================================================
@@ -217,22 +267,31 @@ extern cvar_t timeleft, fragsleft;
 extern cvar_t mp_chattime;
 
 
-//start hlpro
+//start hlpro2
 int plsArena[64];
 
 // determines current players connected to the server.
+// only called when game mode is not in progress.
 int CheckClients ( void )
 {
 	int clients = 0;
+
+	for ( int j = 0; j < 64; j++ )
+		plsArena[j] = 0;
 
 	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 	{
 		CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
-		if ( plr && plr->IsPlayer() && !plr->HasDisconnected  )
+		if ( plr && plr->IsPlayer() )
 		{
 			clients++;
-			plsArena[clients] = i; //GETPLAYERUSERID( plr->edict() );
+			plr->IsInArena					= FALSE;
+			plr->IsArmoredMan				= FALSE;
+			plr->IsIt						= FALSE;
+			plr->m_fArmoredManHits			= 0;
+			plr->m_flForceToObserverTime	= 0;
+			plsArena[clients]				= i;
 		}
 	}
 
@@ -246,122 +305,366 @@ void InsertClientsIntoArena ( void )
 	{
 		CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
-		if ( plr && plr->IsPlayer() && !plr->HasDisconnected )
+		if ( plr && plr->IsPlayer() )
 		{ 
+			MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
+			WRITE_BYTE( ENTINDEX(plr->edict()) );
+			if ( g_GameMode == GAME_ARENA  )
+				WRITE_SHORT( plr->pev->frags = 0 );
+			else if ( g_GameMode == GAME_LMS || g_GameMode == GAME_FREEZETAG )
+				WRITE_SHORT( plr->pev->frags = hla_gamefrags.value );
+			else
+				WRITE_SHORT( 0 );
+			WRITE_SHORT( plr->m_iDeaths = 0 );
+			WRITE_SHORT( 0 );
+			WRITE_SHORT( 0 );
+			MESSAGE_END();
+
 			ALERT(at_console, "| %s ", STRING(plr->pev->netname) );
+
+			plr->ExitObserving();
 			plr->IsInArena = TRUE;
-			plr->IsSpectator = FALSE;
-			plr->Spawn();
+			plr->m_iGameModePlays++;
 		}
 	}
 }
+
+void SuckAllToSpectator( void )
+{
+	for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+	{
+		CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+		if ( plr && plr->IsPlayer() && !plr->IsSpectator() )
+		{ 
+			MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
+			WRITE_BYTE( ENTINDEX(plr->edict()) );
+			WRITE_SHORT( plr->pev->frags = 0 );
+			WRITE_SHORT( plr->m_iDeaths = 0 );
+			WRITE_SHORT( 0 );
+			WRITE_SHORT( 0 );
+			MESSAGE_END();
+
+			plr->StartObserving( FALSE );
+		}
+	}
+}
+
+void DisplayWinnersGoods( CBasePlayer *pl )
+{
+	//increase his win count
+	pl->m_iGameModeWins++;
+
+	//and display to the world what he does best!
+	UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* [Round #%i Report]\n", SuccessfulRounds ));
+	UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has won the round!\n", STRING(pl->pev->netname)));
+	UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s record is %i for %i [%0.0f]\n", STRING(pl->pev->netname), pl->m_iGameModeWins, pl->m_iGameModePlays, ((float)pl->m_iGameModeWins / (float)pl->m_iGameModePlays) * 100 ));	
+}
+
+void SetRoundLimits( void )
+{
+	//enforce a fraglimit always.
+	if ( CVAR_GET_FLOAT("hla_gamefrags") <= 0 )
+		CVAR_SET_FLOAT("hla_gamefrags", 10);
+	
+	//enforce a timelimit if given proper value
+	if ( CVAR_GET_FLOAT("hla_gametimer") > 0 )
+		flTimeLimit = gpGlobals->time + (CVAR_GET_FLOAT("hla_gametimer") * 60.0);
+
+	_30secwarning	= FALSE;
+	_15secwarning	= FALSE;
+	_3secwarning	= FALSE;
+}
+
+void CheckRounds ( void )
+{
+	SuccessfulRounds++;
+
+	if ( CVAR_GET_FLOAT("hla_gamerounds") > 0 )
+	{
+		ALERT( at_notice, UTIL_VarArgs("SuccessfulRounds = %i\n", SuccessfulRounds ));
+		if ( SuccessfulRounds >= CVAR_GET_FLOAT("hla_gamerounds") )
+			g_fGameOver = TRUE;
+	}
+}
+
+BOOL CheckGameTimer( void )
+{
+	if ( !_30secwarning && (flTimeLimit - 30) < gpGlobals->time )
+	{
+		UTIL_ClientPrintAll(HUD_PRINTTALK, "* 30 second warning...\n");
+		_30secwarning = TRUE;
+	}
+	else if ( !_15secwarning && (flTimeLimit - 15) < gpGlobals->time )
+	{
+		UTIL_ClientPrintAll(HUD_PRINTTALK, "* 15 second warning...\n");
+		_15secwarning = TRUE;
+	}
+	else if ( !_3secwarning && (flTimeLimit - 3) < gpGlobals->time )
+	{
+		UTIL_ClientPrintAll(HUD_PRINTTALK, "* 3 second warning...\n");
+		_3secwarning = TRUE;
+	}
+
+//===================================================
+
+	//time is up for this game.
+
+//===================================================
+
+	//time is up
+	if ( flTimeLimit < gpGlobals->time )
+	{
+		int highest = -99999;
+		BOOL IsEqual = FALSE;
+		CBasePlayer *highballer;
+
+		if ( g_GameMode == GAME_ROBO )
+		{
+			//find highest damage amount.
+			for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+			{
+				CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+				if ( plr && plr->IsPlayer() && plr->IsInArena )
+				{
+					if ( highest <= plr->m_fArmoredManHits )
+					{
+						if ( highest == plr->m_fArmoredManHits )
+						{
+							IsEqual = TRUE;
+							break;
+						}
+
+						highest = plr->m_fArmoredManHits;
+						highballer = plr;
+					}
+				}
+			}
+
+			if ( !IsEqual )
+			{
+				CheckRounds();
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Time is up!\n\n%s doled the most damage!\n", STRING(highballer->pev->netname)));
+				DisplayWinnersGoods( highballer );
+			}
+			else
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, "Time is up!\nNo one has won!\n");
+			}
+		}
+		else
+		{
+			for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+			{
+				CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+				if ( plr && plr->IsPlayer() && plr->IsInArena )
+				{
+					if ( highest <= plr->pev->frags )
+					{
+						if ( highest == plr->pev->frags )
+						{
+							IsEqual = TRUE;
+							break;
+						}
+
+						highest = plr->pev->frags;
+						highballer = plr;
+					}
+				}
+			}
+
+			if ( !IsEqual )
+			{
+				CheckRounds();
+				DisplayWinnersGoods( highballer );
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Time is Up: %s is the Victor!\n", STRING(highballer->pev->netname)));
+			}
+			else
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, "Time is Up: Match ends in a draw!" );
+
+		}
+
+		g_GameInProgress = FALSE;
+
+		flUpdateTime = gpGlobals->time + 5.0;
+		flTimeLimit = 0;
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+CBasePlayer *pPlayer1;
+CBasePlayer *pPlayer2;
 
 void Arena ( void )
 {
 	if ( flUpdateTime > gpGlobals->time )
 		return;
 
+	if ( flTimeLimit )
+	{
+		if ( CheckGameTimer() )
+			return;
+	}
+
 	if ( g_GameInProgress )
 	{
-		int clients_alive = 0;
-		const char *client_name;
+		//when a player disconnects...
+		if ( pPlayer1->HasDisconnected || pPlayer2->HasDisconnected )
+		{
+			//stop timer / end game.
+			flTimeLimit = 0;
+			g_GameInProgress = FALSE;
+
+			CheckRounds();
+
+			if ( pPlayer1->HasDisconnected )
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s is the victor!\n", STRING(pPlayer2->pev->netname)/*client_name*/ ));
+				DisplayWinnersGoods( pPlayer2 );
+			}
+			else
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s is the victor!\n", STRING(pPlayer1->pev->netname)/*client_name*/ ));
+				DisplayWinnersGoods( pPlayer1 );
+			}
+
+			flUpdateTime = gpGlobals->time + 5.0;
+			return;
+		}
+
 		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 		{
 			CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
-			//player must exist, and must be alive
-			if ( plr && plr->IsPlayer() && plr->IsAlive() )
+			//player must exist
+			if ( plr && plr->IsPlayer() )
 			{
-				//player cannot be disconnected client
-				//and is currently in this game of arena.
-				if ( !plr->HasDisconnected && plr->IsInArena )
+				// is currently in this game of arena.
+				// and frags are >= set server value.
+				if ( plr->IsInArena && plr->pev->frags >= hla_gamefrags.value )
 				{
-					clients_alive++;
-					client_name = STRING(plr->pev->netname);
+					//stop timer / end game.
+					flTimeLimit = 0;
+					g_GameInProgress = FALSE;
+
+					UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s is the victor!\n", STRING(plr->pev->netname)/*client_name*/ ));
+
+					CheckRounds();
+
+					DisplayWinnersGoods( plr );
+					flUpdateTime = gpGlobals->time + 5.0;
+					return;
 				}
 				else
 				{
 					//for clients who connected while game in progress.
-					UTIL_ClientPrintAll(HUD_PRINTCENTER, "Arena in progress... please wait!\n");
+					if ( plr->IsSpectator() )
+						ClientPrint(plr->pev, HUD_PRINTCENTER, UTIL_VarArgs("Arena in progress\n%s (%.0f/%.0f) Vs. %s (%.0f/%.0f)\n", STRING(pPlayer1->pev->netname), pPlayer1->pev->health, pPlayer1->pev->armorvalue, STRING(pPlayer2->pev->netname), pPlayer2->pev->health, pPlayer2->pev->armorvalue /*szVictor1, szVictor2*/));
 				}
 
 			}
-		}
-
-		//found victor / or draw.
-		if ( clients_alive <= 1 )
-		{
-			g_GameInProgress = FALSE;
-
-			if ( clients_alive == 1 )
-				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s is the victor!\n", client_name ));
-			else
-				UTIL_ClientPrintAll(HUD_PRINTCENTER, "Draw: both have died!\n");
-
-			flUpdateTime = gpGlobals->time + 5.0;
-			return;
 		}
 
 		flUpdateTime = gpGlobals->time;
 		return;
 	}
 
+//=======================================================
+// execute below if we are waiting for players to join
+//=======================================================
+
 	int clients = 0;
 	clients = CheckClients();
 
+	ALERT( at_notice, UTIL_VarArgs("CheckClients(): %i\n", clients ));
+
 	if ( clients > 1 )
 	{
-		if ( !dubdelay )
+		if ( countdown >= 0 )
 		{
-			dubdelay = TRUE;
-			UTIL_ClientPrintAll(HUD_PRINTCENTER, "Prepare for arena battle...\n");
-			flUpdateTime = gpGlobals->time + 2.0;
+			countdown--;
+			UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Prepare for Arena battle\n\n%i...\n", countdown+2));
+			flUpdateTime = gpGlobals->time + 1.0;
 			return;
 		}
 
 		ALERT(at_console, "Players in Arena: ");
 
-		int player1 = RANDOM_LONG( 1, plsArena[clients] );
-		int player2 = RANDOM_LONG( 1, plsArena[clients] );
+		int player1 = plsArena[RANDOM_LONG( 1, clients )];
+		int player2 = plsArena[RANDOM_LONG( 1, clients )];
 
 		while ( player1 == player2 )
 		{
-			player1 = RANDOM_LONG( 1, plsArena[clients] );
-			player2 = RANDOM_LONG( 1, plsArena[clients] );
+			//player1 = RANDOM_LONG( 1, plsArena[clients] );
+			player2 = RANDOM_LONG( 1, plsArena[RANDOM_LONG( 1, clients )] );
 		}
 
+		ALERT( at_notice, UTIL_VarArgs("player1: %i | player2: %i \n", player1, player2 ));
+
+		pPlayer1 = (CBasePlayer *)UTIL_PlayerByIndex( player1 );
+		pPlayer2 = (CBasePlayer *)UTIL_PlayerByIndex( player2 );
+
+		//frags + time
+		SetRoundLimits();
+
+		//Should really be using InsertClientsIntoArena...
 		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 		{
 			CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
-			if ( plr && plr->IsPlayer() && !plr->HasDisconnected )
+			if ( plr && plr->IsPlayer() )
 			{ 
 				if ( player1 == i || player2 == i )
 				{
+					MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
+					WRITE_BYTE( ENTINDEX(plr->edict()) );
+					WRITE_SHORT( plr->pev->frags = 0 );
+					WRITE_SHORT( plr->m_iDeaths = 0 );
+					WRITE_SHORT( 0 );
+					WRITE_SHORT( 0 );
+					MESSAGE_END();
+
 					ALERT(at_console, "| %s ", STRING(plr->pev->netname) );
+
+					plr->ExitObserving();
 					plr->IsInArena = TRUE;
-					plr->IsSpectator = FALSE;
-					plr->Spawn();
+					plr->m_iGameModePlays++;
 				}
 				else
 				{
-					if ( !plr->IsSpectator )
-						plr->StartObserving();
+					if ( !plr->IsSpectator() )
+					{
+						//just incase player played previous round
+						MESSAGE_BEGIN( MSG_ALL, gmsgScoreInfo );
+						WRITE_BYTE( ENTINDEX(plr->edict()) );
+						WRITE_SHORT( plr->pev->frags = 0 );
+						WRITE_SHORT( plr->m_iDeaths = 0 );
+						WRITE_SHORT( 0 );
+						WRITE_SHORT( 0 );
+						MESSAGE_END();
+
+						plr->StartObserving( FALSE );
+					}
 				}
 			}
 		}
 
-		//InsertClientsIntoArena();
+		ALERT(at_console, "\n");
 
-		ALERT(at_console, "|\n");
+		countdown = 2;
 
 		g_GameInProgress = TRUE;
-		dubdelay = FALSE;
-		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Arena has begun!\n");
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Arena has begun!\n\n%s Vs. %s", STRING(pPlayer1->pev->netname), STRING(pPlayer2->pev->netname) /*szVictor1, szVictor2*/));
 	}
 	else
 	{
-		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Waiting for other players to\nbegin 'Arena'...\n");
+		SuckAllToSpectator();
+		flTimeLimit = 0;
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Waiting for other players to begin\n\n'Arena'\n");
 	}
 
 
@@ -373,6 +676,12 @@ void LMS ( void )
 	if ( flUpdateTime > gpGlobals->time )
 		return;
 
+	if ( flTimeLimit )
+	{
+		if ( CheckGameTimer() )
+			return;
+	}
+
 //===================================================
 
 	//access this when game is in progress.
@@ -383,25 +692,29 @@ void LMS ( void )
 	if ( g_GameInProgress )
 	{
 		int clients_alive = 0;
+		int client_index = 0;
 		const char *client_name;
+
 		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
 		{
 			CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
 
 			//player must exist, and must be alive
-			if ( plr && plr->IsPlayer() && plr->IsAlive() )
+			if ( plr && plr->IsPlayer() )
 			{
 				//player cannot be disconnected client
 				//and is currently in this game of LMS.
-				if ( !plr->HasDisconnected && plr->IsInArena )
+				if ( plr->IsInArena && plr->pev->frags > 0 )
 				{
 					clients_alive++;
+					client_index = i;
 					client_name = STRING(plr->pev->netname);
 				}
 				else
 				{
 					//for clients who connected while game in progress.
-					UTIL_ClientPrintAll(HUD_PRINTCENTER, "LMS in progress... please wait!\n");
+					if ( plr->IsAlive() )
+						ClientPrint(plr->pev, HUD_PRINTCENTER, "LMS round in progress.\n");
 				}
 
 			}
@@ -410,12 +723,23 @@ void LMS ( void )
 		//found victor / or draw.
 		if ( clients_alive <= 1 )
 		{
+			//stop timer / end game.
+			flTimeLimit = 0;
 			g_GameInProgress = FALSE;
 
 			if ( clients_alive == 1 )
+			{
 				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s is the last man standing!\n", client_name ));
+
+				CheckRounds();
+
+				CBasePlayer *pl = (CBasePlayer *)UTIL_PlayerByIndex( client_index );
+				DisplayWinnersGoods( pl );
+			}	
 			else
-				UTIL_ClientPrintAll(HUD_PRINTCENTER, "Draw: No one is left standing!\n");
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, "No man is left standing!\n");
+			}
 
 			flUpdateTime = gpGlobals->time + 5.0;
 			return;
@@ -439,33 +763,324 @@ void LMS ( void )
 
 	if ( clients > 1 )
 	{
-		if ( !dubdelay )
+		if ( countdown >= 0 )
 		{
-			dubdelay = TRUE;
-			UTIL_ClientPrintAll(HUD_PRINTCENTER, "Prepare for battle...\n");
-			flUpdateTime = gpGlobals->time + 2.0;
+			countdown--;
+			UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Prepare for LMS battle\n\n%i...\n", countdown+2));
+			flUpdateTime = gpGlobals->time + 1.0;
 			return;
 		}
 
 		ALERT(at_console, "Players in LMS: ");
 
+		//frags + time.
+		SetRoundLimits();
 		InsertClientsIntoArena();
+		ALERT(at_console, "\n");
 
-		ALERT(at_console, "|\n");
-
+		countdown = 2;
+		
 		g_GameInProgress = TRUE;
-		dubdelay = FALSE;
 		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Last man standing has begun!\n");
 	}
 	else
 	{
-		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Waiting for other players to begin 'LMS'...\n");
+		SuckAllToSpectator();
+		flTimeLimit = 0;
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Waiting for other players to begin\n\n'LMS'\n");
 	}
 
 	flUpdateTime = gpGlobals->time + 5.0;
 }
 
+CBasePlayer *pArmoredMan;
 
+void Robo ( void )
+{
+	if ( flUpdateTime > gpGlobals->time )
+		return;
+
+	if ( flTimeLimit )
+	{
+		if ( CheckGameTimer() )
+			return;
+	}
+
+	if ( g_GameInProgress )
+	{
+		int clients_alive = 0;
+
+		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+		{
+			CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+			if ( plr && plr->IsPlayer() )
+			{
+				if ( plr->IsInArena && plr->IsAlive() )
+				{
+					clients_alive++; 
+				}
+				else
+				{
+					//for clients who connected while game in progress.
+					if ( plr->IsSpectator() )
+						ClientPrint(plr->pev, HUD_PRINTCENTER, UTIL_VarArgs("Robo Arena in progress\nRobo: %s (%.0f/%.0f)\n", STRING(pArmoredMan->pev->netname), pArmoredMan->pev->health, pArmoredMan->pev->armorvalue ));
+				}
+
+			}
+		}
+
+		//recon all dead or armored man defeated.
+		if ( clients_alive <= 1 || !pArmoredMan->IsAlive() )
+		{
+			//stop timer / end game.
+			flTimeLimit = 0;
+			g_GameInProgress = FALSE;
+
+			//hack to allow for logical code below.
+			if ( pArmoredMan->HasDisconnected )
+				pArmoredMan->pev->health = 0;
+
+			//armored man is alive.
+			if ( pArmoredMan->IsAlive() && clients_alive == 1 )
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s has defeated all Recon!\n", STRING(pArmoredMan->pev->netname) ));
+
+				CheckRounds();
+
+				DisplayWinnersGoods( pArmoredMan );
+			}
+			//the man has been killed.
+			else if ( !pArmoredMan->IsAlive() )
+			{
+				//find highest damage amount.
+				float highest = -99999;
+				BOOL IsEqual = FALSE;
+				CBasePlayer *highballer;
+
+				for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+				{
+					CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+					if ( plr && plr->IsPlayer() && plr->IsInArena )
+					{
+						if ( highest <= plr->m_fArmoredManHits )
+						{
+							if ( highest == plr->m_fArmoredManHits )
+							{
+								IsEqual = TRUE;
+								break;
+							}
+
+							highest = plr->m_fArmoredManHits;
+							highballer = plr;
+						}
+					}
+				}
+
+
+				if ( !IsEqual )
+				{
+					CheckRounds();
+					UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("The Robo has been destroyed!\n\n%s doled the most damage!\n", STRING(highballer->pev->netname)));
+					DisplayWinnersGoods( highballer );
+				}
+				else
+				{
+					UTIL_ClientPrintAll(HUD_PRINTCENTER, "The Robo has been destroyed!\n");
+				}
+
+			}
+			//everyone died.
+			else
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, "Everyone has been killed!\n");
+			}
+
+			flUpdateTime = gpGlobals->time + 5.0;
+			return;
+		}
+
+		flUpdateTime = gpGlobals->time;
+		return;
+	}
+
+
+	int clients = 0;
+	clients = CheckClients();
+
+	if ( clients > 1 )
+	{
+		if ( countdown >= 0 )
+		{
+			countdown--;
+			UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Prepare for Robo battle\n\n%i...\n", countdown+2));
+			flUpdateTime = gpGlobals->time + 1.0;
+			return;
+		}
+
+		ALERT(at_console, "Players in Robo: ");
+
+		//frags + time.
+		SetRoundLimits();
+				
+		int armoredman = plsArena[RANDOM_LONG( 1, clients )];
+
+		pArmoredMan = (CBasePlayer *)UTIL_PlayerByIndex( armoredman );
+		pArmoredMan->IsArmoredMan = TRUE;
+
+		InsertClientsIntoArena();
+
+		ALERT(at_console, "\n");
+
+		countdown = 2;
+		
+		g_GameInProgress = TRUE;
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Robo Arena has begun!\n%s is the robo!\n", STRING(pArmoredMan->pev->netname)));
+	}
+	else
+	{
+		SuckAllToSpectator();
+		flTimeLimit = 0;
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Waiting for other players to begin\n\n'Robo'\n");
+	}
+
+	flUpdateTime = gpGlobals->time + 5.0;
+}
+
+void FreezeTag ( void )
+{
+	if ( flUpdateTime > gpGlobals->time )
+		return;
+
+	if ( flTimeLimit )
+	{
+		if ( CheckGameTimer() )
+			return;
+	}
+
+	if ( g_GameInProgress )
+	{
+		int clients_alive = 0;
+
+		for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+		{
+			CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+			if ( plr && plr->IsPlayer() )
+			{
+				if ( plr->IsIt )
+					pArmoredMan = plr;
+
+				if ( plr->IsInArena && plr->pev->frags > 0 )
+				{
+					clients_alive++; 
+				}
+				else
+				{
+					//for clients who connected while game in progress.
+					if ( plr->IsSpectator() )
+						ClientPrint(plr->pev, HUD_PRINTCENTER, UTIL_VarArgs("Freeze Tag in progress\nIt: %s (%.0f/%.0f)\n", STRING(pArmoredMan->pev->netname), pArmoredMan->pev->health, pArmoredMan->pev->armorvalue ));
+				}
+
+			}
+		}
+
+		//victor has been found
+		if ( clients_alive <= 2 )
+		{
+			//stop timer / end game.
+			flTimeLimit = 0;
+			g_GameInProgress = FALSE;
+
+			//find the highest frags
+			float highest = -99999;
+			BOOL IsEqual = FALSE;
+			CBasePlayer *highballer;
+
+			for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+			{
+				CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+
+				if ( plr && plr->IsPlayer() && plr->IsInArena )
+				{
+					if ( highest <= plr->pev->frags )
+					{
+						if ( highest == plr->pev->frags )
+						{
+							IsEqual = TRUE;
+							break;
+						}
+
+						highest = plr->pev->frags;
+						highballer = plr;
+					}
+				}
+			}
+
+
+			if ( !IsEqual )
+			{
+				CheckRounds();
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s is the survivor!\n", STRING(highballer->pev->netname)));
+				DisplayWinnersGoods( highballer );
+			}
+			else
+			{
+				UTIL_ClientPrintAll(HUD_PRINTCENTER, "Match ends in a draw!\n");
+			}
+
+			flUpdateTime = gpGlobals->time + 5.0;
+			return;
+		}
+
+		flUpdateTime = gpGlobals->time;
+		return;
+	}
+
+
+	int clients = 0;
+	clients = CheckClients();
+
+	if ( clients > 2 )
+	{
+		if ( countdown >= 0 )
+		{
+			countdown--;
+			UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Prepare for Freeze Tag\n\n%i...\n", countdown+2));
+			flUpdateTime = gpGlobals->time + 1.0;
+			return;
+		}
+
+		ALERT(at_console, "Players in FreezeTag: ");
+
+		//frags + time.
+		SetRoundLimits();
+				
+		int it = plsArena[RANDOM_LONG( 1, clients )];
+
+		pArmoredMan = (CBasePlayer *)UTIL_PlayerByIndex( it );
+		pArmoredMan->IsIt = TRUE;
+
+		InsertClientsIntoArena();
+
+		ALERT(at_console, "\n");
+
+		countdown = 2;
+		
+		g_GameInProgress = TRUE;
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("Freeze Tag has begun!\n%s is It!\n", STRING(pArmoredMan->pev->netname)));
+	}
+	else
+	{
+		SuckAllToSpectator();
+		flTimeLimit = 0;
+		UTIL_ClientPrintAll(HUD_PRINTCENTER, "Waiting for other players to begin\n\n'Freeze Tag'\n");
+	}
+
+	flUpdateTime = gpGlobals->time + 5.0;
+}
+//end hlpro2
 
 //=========================================================
 //=========================================================
@@ -501,6 +1116,48 @@ void CHalfLifeMultiplay :: Think ( void )
 
 		return;
 	}
+
+	//start hlpro2
+	if ( g_VoteTimer && g_VoteTimer < gpGlobals->time )
+	{
+		TallyVote();
+		g_VoteTimer = 0;
+	}
+
+	if ( g_VoteExecute && g_VoteExecute < gpGlobals->time )
+	{
+		ExecuteVote();
+	}
+
+	if ( g_ShowUsVoting < gpGlobals->time )
+	{
+		UTIL_ClientPrintAll(HUD_PRINTTALK, "* Voting is enabled on this server.\n" );
+		UTIL_ClientPrintAll(HUD_PRINTTALK, "* vote_kick <id or name>, vote_ban <id or name>, vote_map <map>\n" );
+		UTIL_ClientPrintAll(HUD_PRINTTALK, "* vote_extend, vote_game <mode>, vote_mutator <mutator>.\n" );
+		g_ShowUsVoting = gpGlobals->time + RANDOM_FLOAT(300.0, 350.0);
+	}
+
+	if ( g_GameMode == GAME_FREEZETAG )
+	{
+		FreezeTag();
+		return;
+	}
+	else if ( g_GameMode == GAME_ROBO )
+	{
+		Robo();
+		return;
+	}
+	else if ( g_GameMode == GAME_LMS )
+	{
+		LMS();
+		return;
+	}
+	else if ( g_GameMode == GAME_ARENA )
+	{
+		Arena();
+		return;
+	}
+	//end hlpro2
 
 	float flTimeLimit = timelimit.value * 60;
 	float flFragLimit = fraglimit.value;
@@ -557,24 +1214,6 @@ void CHalfLifeMultiplay :: Think ( void )
 
 	last_frags = frags_remaining;
 	last_time  = time_remaining;
-
-	//start hlpro2
-	if ( g_GameMode == GAME_LMS )
-		LMS();
-	else if ( g_GameMode == GAME_ARENA )
-		Arena();
-
-	if ( g_VoteTimer && g_VoteTimer < gpGlobals->time )
-	{
-		TallyVote();
-		g_VoteTimer = 0;
-	}
-
-	if ( g_VoteExecute && g_VoteExecute < gpGlobals->time )
-	{
-		ExecuteVote();
-	}
-	//end hlpro2
 }
 
 
@@ -777,17 +1416,20 @@ void CHalfLifeMultiplay :: InitHUD( CBasePlayer *pl )
 	}
 
 	//start hlpro2
-	pl->IsFinishedIntroSpectating = FALSE;
-	pl->StartObserving();
+	pl->m_iGameModeWins = pl->m_iGameModePlays = 0;
 	pl->m_bWeaponStats = TRUE;
 
-	if ( !g_GameMode )
-		pl->m_flSpawnTime = gpGlobals->time + 10.0;
+	//if ( !pl->IsFinishedIntroSpectating )
+	pl->StartObserving( FALSE );	
+
+	//if ( !g_GameMode )
+	//	pl->m_flSpawnTime = gpGlobals->time + 10.0;
 
 	pl->m_fDisplayMessage = gpGlobals->time + 1.0;
 
 	for ( i = 0; i < 16; i++ )
-		pl->m_iLandedHits[i] = pl->m_iMissedHits[i] = pl->m_iKillRatio[i] = 0;
+		pl->m_iLandedHits[i] = pl->m_iMissedHits[i] = pl->m_iWeaponKills[i];
+	pl->m_iTotalKills = 0;
 	//end hlpro2
 }
 
@@ -823,25 +1465,28 @@ void CHalfLifeMultiplay :: ClientDisconnected( edict_t *pClient )
 
 			//start hlpro2
 			pPlayer->HasDisconnected = TRUE;
-			pPlayer->IsInArena = FALSE;
+
+			if ( !pPlayer->IsSpectator() )
+			{
+				MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
+				WRITE_BYTE( TE_TELEPORT	); 
+				WRITE_COORD(pPlayer->pev->origin.x);
+				WRITE_COORD(pPlayer->pev->origin.y);
+				WRITE_COORD(pPlayer->pev->origin.z);
+				MESSAGE_END();
+			}
 
 			if ( g_GameInProgress )
 			{
-				int clients = 0;
-
-				for ( int i = 1; i <= gpGlobals->maxClients; i++ )
+				if ( pPlayer->IsInArena && !pPlayer->IsSpectator() )
 				{
-					CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+					pPlayer->IsInArena = FALSE;
 
-					if ( plr && plr->IsPlayer() && !plr->HasDisconnected )
-						clients++;
-				}
+					//find a new It
+					// UNDONE ... 
 
-				if ( clients <= 1 )
-				{
-					//g_GameInProgress = FALSE;
-					flUpdateTime = gpGlobals->time + 5.0;
-					UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("%s has left the arena!\n", STRING(pPlayer->pev->netname)));
+					flUpdateTime = gpGlobals->time + 3.0;
+					UTIL_ClientPrintAll(HUD_PRINTCENTER, UTIL_VarArgs("* %s has left the arena!\n", STRING(pPlayer->pev->netname)));
 				}
 			}
 			//end hlpro2
@@ -874,6 +1519,14 @@ float CHalfLifeMultiplay :: FlPlayerFallDamage( CBasePlayer *pPlayer )
 //=========================================================
 BOOL CHalfLifeMultiplay::FPlayerCanTakeDamage( CBasePlayer *pPlayer, CBaseEntity *pAttacker )
 {
+	//start hlpro2
+	if ( g_GameMode == GAME_FREEZETAG )
+	{
+		if ( pPlayer->m_flFrozenTime && ((CBasePlayer *)pAttacker)->IsIt )
+			return FALSE;
+	}
+	//end hlpro2
+
 	return TRUE;
 }
 
@@ -903,44 +1556,58 @@ void CHalfLifeMultiplay :: PlayerSpawn( CBasePlayer *pPlayer )
 
 	pPlayer->pev->weapons |= (1<<WEAPON_SUIT);
 	
-	addDefault = TRUE;
-
-	while ( pWeaponEntity = UTIL_FindEntityByClassname( pWeaponEntity, "game_player_equip" ))
-	{
-		pWeaponEntity->Touch( pPlayer );
-		addDefault = FALSE;
-	}
-
-	if ( ( g_bStartFull || g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA ) && pPlayer->IsFinishedIntroSpectating )
-	{
-		pPlayer->GiveAllItems();
-		return;
-	}
-		
 	//start hlpro2
+	addDefault = pPlayer->IsFinishedIntroSpectating ? TRUE : FALSE;
+	pPlayer->IsFinishedIntroSpectating = TRUE;
+
 	if ( addDefault )
 	{
-		if ( g_flWeaponArena && g_flWeaponArena != 16 )
+		while ( pWeaponEntity = UTIL_FindEntityByClassname( pWeaponEntity, "game_player_equip" ))
 		{
-			switch ( g_flWeaponArena )
-			{
-			case WEAPON_CROWBAR:		pPlayer->GiveNamedItem( "weapon_crowbar" );break;
-			case WEAPON_GLOCK:			pPlayer->GiveNamedItem( "weapon_9mmhandgun" );break;
-			case WEAPON_CROSSBOW:		pPlayer->GiveNamedItem( "weapon_crossbow" );break;
-			case WEAPON_PYTHON:			pPlayer->GiveNamedItem( "weapon_357" );break;
-			case WEAPON_EGON:			pPlayer->GiveNamedItem( "weapon_egon" );break;
-			case WEAPON_GAUSS:			pPlayer->GiveNamedItem( "weapon_gauss" );break;
-			case WEAPON_RPG:			pPlayer->GiveNamedItem( "weapon_rpg" );break;
-			case WEAPON_SHOTGUN:		pPlayer->GiveNamedItem( "weapon_shotgun" );break;
-			case WEAPON_MP5:			pPlayer->GiveNamedItem( "weapon_9mmAR" );break;
-			case WEAPON_HORNETGUN:		pPlayer->GiveNamedItem( "weapon_hornetgun" );break;
-			case WEAPON_HANDGRENADE:	pPlayer->GiveNamedItem( "weapon_handgrenade" );break;
-			case WEAPON_TRIPMINE:		pPlayer->GiveNamedItem( "weapon_tripmine" );break;
-			case WEAPON_SATCHEL:		pPlayer->GiveNamedItem( "weapon_satchel" );break;
-			case WEAPON_SNARK:			pPlayer->GiveNamedItem( "weapon_snark" );break;
-			default:					pPlayer->GiveNamedItem( "weapon_crowbar" );
-			}
+			pWeaponEntity->Touch( pPlayer );
+			addDefault = FALSE;
+		}
 
+		if ( ( g_bStartFull || g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA || pPlayer->IsArmoredMan ) && pPlayer->IsFinishedIntroSpectating )
+		{
+			pPlayer->GiveAllItems();
+			return;
+		}
+
+		if ( g_GameMode == GAME_FREEZETAG )
+		{
+			if ( pPlayer->IsIt )
+			{
+				pPlayer->m_fLongJump = TRUE;
+				g_engfuncs.pfnSetPhysicsKeyValue( pPlayer->edict(), "slj", "1" );
+				pPlayer->GiveNamedItem( "weapon_crowbar" );
+				return;
+			}
+		}
+
+		if ( g_flWeaponArena  /* && g_flWeaponArena != 16 */ )
+		{
+			for ( int j = 0; j < g_TotalWeapons; j++ )
+			{
+				switch ( g_flWeaponMutators[j] )
+				{
+					case WEAPON_CROWBAR:		pPlayer->GiveNamedItem( "weapon_crowbar" );break;
+					case WEAPON_GLOCK:			pPlayer->GiveNamedItem( "weapon_9mmhandgun" );break;
+					case WEAPON_CROSSBOW:		pPlayer->GiveNamedItem( "weapon_crossbow" );break;
+					case WEAPON_PYTHON:			pPlayer->GiveNamedItem( "weapon_357" );break;
+					case WEAPON_EGON:			pPlayer->GiveNamedItem( "weapon_egon" );break;
+					case WEAPON_GAUSS:			pPlayer->GiveNamedItem( "weapon_gauss" );break;
+					case WEAPON_RPG:			pPlayer->GiveNamedItem( "weapon_rpg" );break;
+					case WEAPON_SHOTGUN:		pPlayer->GiveNamedItem( "weapon_shotgun" );break;
+					case WEAPON_MP5:			pPlayer->GiveNamedItem( "weapon_9mmAR" );break;
+					case WEAPON_HORNETGUN:		pPlayer->GiveNamedItem( "weapon_hornetgun" );break;
+					case WEAPON_HANDGRENADE:	pPlayer->GiveNamedItem( "weapon_handgrenade" );break;
+					case WEAPON_TRIPMINE:		pPlayer->GiveNamedItem( "weapon_tripmine" );break;
+					case WEAPON_SATCHEL:		pPlayer->GiveNamedItem( "weapon_satchel" );break;
+					case WEAPON_SNARK:			pPlayer->GiveNamedItem( "weapon_snark" );break;
+					default:					pPlayer->GiveNamedItem( "weapon_crowbar" );
+				}
+			}
 		}
 		else
 		{
@@ -997,9 +1664,31 @@ void CHalfLifeMultiplay :: PlayerSpawn( CBasePlayer *pPlayer )
 			}
 			else
 			{
-				pPlayer->GiveNamedItem( "weapon_crowbar" );
-				pPlayer->GiveNamedItem( "weapon_9mmhandgun" );
+				//pPlayer->GiveNamedItem( "weapon_crowbar" );
+				//pPlayer->GiveNamedItem( "weapon_9mmhandgun" );
 				pPlayer->GiveAmmo( 68, "9mm", _9MM_MAX_CARRY );// 4 full reloads
+
+				for ( int j = 0; j < g_TotalStartWeapons; j++ )
+				{
+					switch ( g_flStartWeapons[j] )
+					{
+						case WEAPON_CROWBAR:		pPlayer->GiveNamedItem( "weapon_crowbar" );break;
+						case WEAPON_GLOCK:			pPlayer->GiveNamedItem( "weapon_9mmhandgun" );break;
+						case WEAPON_CROSSBOW:		pPlayer->GiveNamedItem( "weapon_crossbow" );break;
+						case WEAPON_PYTHON:			pPlayer->GiveNamedItem( "weapon_357" );break;
+						case WEAPON_EGON:			pPlayer->GiveNamedItem( "weapon_egon" );break;
+						case WEAPON_GAUSS:			pPlayer->GiveNamedItem( "weapon_gauss" );break;
+						case WEAPON_RPG:			pPlayer->GiveNamedItem( "weapon_rpg" );break;
+						case WEAPON_SHOTGUN:		pPlayer->GiveNamedItem( "weapon_shotgun" );break;
+						case WEAPON_MP5:			pPlayer->GiveNamedItem( "weapon_9mmAR" );break;
+						case WEAPON_HORNETGUN:		pPlayer->GiveNamedItem( "weapon_hornetgun" );break;
+						case WEAPON_HANDGRENADE:	pPlayer->GiveNamedItem( "weapon_handgrenade" );break;
+						case WEAPON_TRIPMINE:		pPlayer->GiveNamedItem( "weapon_tripmine" );break;
+						case WEAPON_SATCHEL:		pPlayer->GiveNamedItem( "weapon_satchel" );break;
+						case WEAPON_SNARK:			pPlayer->GiveNamedItem( "weapon_snark" );break;
+						default:					pPlayer->GiveNamedItem( "weapon_crowbar" );
+					}
+				}
 			}
 		}
 		//end hlpro2
@@ -1035,6 +1724,8 @@ int CHalfLifeMultiplay :: IPointsForKill( CBasePlayer *pAttacker, CBasePlayer *p
 	//start hlpro2
 	if ( pAttacker->m_fHasRune == RUNE_FRAG && pAttacker != pKilled )
 		return 2;
+	else if ( g_GameMode == GAME_LMS || g_GameMode == GAME_FREEZETAG )
+		return 0;
 	else
 		return 1;
 	//end hlpro2
@@ -1048,6 +1739,71 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 {
 	DeathNotice( pVictim, pKiller, pInflictor );
 
+	//start hlpro2
+	if ( g_GameInProgress )
+	{
+		if ( g_GameMode == GAME_ARENA )
+		{
+			float result = (hla_gamefrags.value - pKiller->frags) - 1;
+
+			if ( result > 0 )
+			{
+				//where killer has been on top.
+				if ( pKiller->frags > pVictim->pev->frags )
+				{
+					ClientPrint(pKiller, HUD_PRINTCENTER, UTIL_VarArgs("%0.0f frags to go...\n", result));
+					UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has %0.0f frags to go!\n", STRING(pKiller->netname), result));
+				}
+				else if ( pKiller->frags == pVictim->pev->frags )
+				{
+					//taken the lead.
+					if ( pKiller != pVictim->pev )
+					{
+						ClientPrint(pKiller, HUD_PRINTCENTER, "You have taken the lead!\n");
+						UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has taken the lead!\n", STRING(pKiller->netname)));
+					}
+					else
+					{
+						//due to pKiller's own fault.
+						if ( pKiller == pPlayer2->pev )
+						{
+							if ( pPlayer1->pev->frags == pKiller->frags )
+							{
+								ClientPrint(pPlayer1->pev, HUD_PRINTCENTER, "You have taken the lead!\n");
+								UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has taken the lead!\n", STRING(pPlayer1->pev->netname)));
+							}
+						}
+						else
+						{
+							if ( pPlayer2->pev->frags == pKiller->frags )
+							{
+								ClientPrint(pPlayer2->pev, HUD_PRINTCENTER, "You have taken the lead!\n");
+								UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has taken the lead!\n", STRING(pPlayer2->pev->netname)));
+							}
+						}
+					}
+				}
+				else	//love this.
+				{
+					UTIL_ClientPrintAll(HUD_PRINTTALK, "* Game is tied!\n");
+				}				
+			}
+		}
+		else if ( g_GameMode == GAME_LMS )
+		{
+			pVictim->pev->frags -= 1;
+
+			if ( !pVictim->pev->frags )
+				UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* %s has been eliminated from the round!\n", STRING(pVictim->pev->netname)));
+		}
+		else if ( g_GameMode == GAME_ROBO )
+		{
+			if ( !pVictim->IsArmoredMan )
+				UTIL_ClientPrintAll(HUD_PRINTTALK, UTIL_VarArgs("* Recon %s has been eliminated from the round!\n", STRING(pVictim->pev->netname)));
+		}
+	}
+	//end hlpro2
+
 	pVictim->m_iDeaths += 1;
 
 
@@ -1059,7 +1815,10 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 
 	if ( pVictim->pev == pKiller )  
 	{  // killed self
-		pKiller->frags -= 1;
+		//start hlpro2
+		if ( g_GameMode != GAME_LMS && g_GameMode != GAME_FREEZETAG )
+			pKiller->frags -= 1;
+		//end hlpro2
 	}
 	else if ( ktmp && ktmp->IsPlayer() )
 	{
@@ -1070,7 +1829,10 @@ void CHalfLifeMultiplay :: PlayerKilled( CBasePlayer *pVictim, entvars_t *pKille
 	}
 	else
 	{  // killed by the world
-		pKiller->frags -= 1;
+		//start hlpro2
+		if ( g_GameMode != GAME_LMS && g_GameMode != GAME_FREEZETAG )
+			pKiller->frags -= 1;
+		//end hlpro2
 	}
 
 	//start hlpro2
@@ -1208,13 +1970,19 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 					killer_weapon_name = pPlayer->m_pActiveItem->pszName();
 
 					//start hlpro2
+					int weapon_used = pPlayer->m_pActiveItem->m_iId;
 					if ( pPlayer != pVictim )
 					{
-						int weapon_used = pPlayer->m_pActiveItem->m_iId;
-						pPlayer->m_iKillRatio[weapon_used]++;
+						pPlayer->m_iWeaponKills[weapon_used]++;
 						//ALERT(at_console, UTIL_VarArgs("weapon: weapon_used = %d\n", weapon_used ));
 						//pPlayer->DisplayKillDeathRatio( weapon_used );
 					}
+					else
+					{
+						pPlayer->m_iWeaponKills[weapon_used]--;
+					}
+
+					pPlayer->m_iTotalKills++;
 					//end hlpro2
 				}
 			}
@@ -1225,8 +1993,8 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 				//start hlpro2
 				CBasePlayer *pPlayer = (CBasePlayer*)CBaseEntity::Instance( pKiller );
 
-				if ( pPlayer != pVictim )
-				{
+				//if ( pPlayer != pVictim )
+				//{
 					char sz[32];
 					int weapon_used = 0;
 
@@ -1253,7 +2021,7 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 					else if ( !strcmp( killer_weapon_name, "grenade" ) )
 					{
 						weapon_used = WEAPON_HANDGRENADE;
-						strcpy( sz, "Handgreande" );
+						strcpy( sz, "Handgrenade" );
 					}
 					else if ( !strcmp( killer_weapon_name, "monster_satchel" ) )
 					{
@@ -1275,16 +2043,26 @@ void CHalfLifeMultiplay::DeathNotice( CBasePlayer *pVictim, entvars_t *pKiller, 
 						weapon_used = WEAPON_GAUSS;
 						strcpy( sz, "Gauss" );
 					}
+					else if ( !strcmp( killer_weapon_name, "weapon_egon" ) )
+					{
+						weapon_used = WEAPON_EGON;
+						strcpy( sz, "Egon" );
+					}
 
 					//ALERT(at_console, UTIL_VarArgs("non-weapon: weapon_used = %d\n", weapon_used ));
 					//ALERT(at_console, UTIL_VarArgs("%s\n", STRING( pevInflictor->classname )));
 
-					pPlayer->m_iKillRatio[weapon_used]++;
+					if ( pPlayer != pVictim )
+						pPlayer->m_iWeaponKills[weapon_used]++;
+					else
+						pPlayer->m_iWeaponKills[weapon_used]--;
+
+					pPlayer->m_iTotalKills++;
 					pPlayer->DisplayAccuracy(weapon_used, sz);
 
 					if ( weapon_used == WEAPON_MP5 )
-						killer_weapon_name = "grenade"; //hack ! convert back from ar_grenade
-				}
+						killer_weapon_name = "grenade"; //hack ! convert back from ar_grenade`
+				//}
 				//end hlpro2
 			}
 
@@ -1657,7 +2435,9 @@ float CHalfLifeMultiplay::FlAmmoRespawnTime( CBasePlayerAmmo *pAmmo )
 //=========================================================
 Vector CHalfLifeMultiplay::VecAmmoRespawnSpot( CBasePlayerAmmo *pAmmo )
 {
-	return pAmmo->pev->origin;
+	//start hlpro2
+	return Vector ( pAmmo->pev->origin.x, pAmmo->pev->origin.y, pAmmo->pev->origin.z );
+	//end hlpro2
 }
 
 //=========================================================
@@ -1677,14 +2457,24 @@ float CHalfLifeMultiplay::FlHEVChargerRechargeTime( void )
 //=========================================================
 int CHalfLifeMultiplay::DeadPlayerWeapons( CBasePlayer *pPlayer )
 {
-	return GR_PLR_DROP_GUN_ACTIVE;
+	//start hlpro2
+	if ( g_bMaxPack )
+		return GR_PLR_DROP_GUN_ALL;
+	else
+		return GR_PLR_DROP_GUN_ACTIVE;
+	//end hlpro2
 }
 
 //=========================================================
 //=========================================================
 int CHalfLifeMultiplay::DeadPlayerAmmo( CBasePlayer *pPlayer )
 {
-	return GR_PLR_DROP_AMMO_ACTIVE;
+	//start hlpro2
+	if ( g_bMaxPack )
+		return GR_PLR_DROP_AMMO_ALL;
+	else
+		return GR_PLR_DROP_AMMO_ACTIVE;
+	//end hlpro2
 }
 
 edict_t *CHalfLifeMultiplay::GetPlayerSpawnSpot( CBasePlayer *pPlayer )

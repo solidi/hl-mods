@@ -46,10 +46,16 @@ CGlobalState					gGlobalState;
 extern DLL_GLOBAL	int			gDisplayTitle;
 
 //start hlpro2
+extern DLL_GLOBAL	char		g_MutatorList[32][32];
+extern DLL_GLOBAL	int			g_TotalMutators;
 extern DLL_GLOBAL   int         g_flWeaponArena;
-extern DLL_GLOBAL   const char *g_WeaponArenaName;
+extern DLL_GLOBAL   int			g_flWeaponMutators[16];
+extern DLL_GLOBAL	int			g_TotalWeapons;
+extern DLL_GLOBAL   int			g_flStartWeapons[16];
+extern DLL_GLOBAL	int			g_TotalStartWeapons;
+
 extern DLL_GLOBAL   int			g_GameMode;
-extern DLL_GLOBAL  const char  *g_GameModeName;
+
 extern DLL_GLOBAL   BOOL        g_bAntiCamper;
 extern DLL_GLOBAL   BOOL        g_bInstaGib;
 extern DLL_GLOBAL   BOOL        g_bFatBoy;
@@ -57,8 +63,16 @@ extern DLL_GLOBAL   BOOL        g_bEarning;
 extern DLL_GLOBAL   BOOL        g_bStartFull;
 extern DLL_GLOBAL   BOOL        g_bMoreGore;
 extern DLL_GLOBAL   BOOL        g_bRunes;
+extern DLL_GLOBAL	BOOL		g_bExplosive;
+extern DLL_GLOBAL	BOOL		g_bMaxPack;
+extern DLL_GLOBAL	BOOL		g_bBoobyTrap;
+extern DLL_GLOBAL   BOOL        g_bSpawnProtect;
+extern DLL_GLOBAL   BOOL        g_bDecay;
+extern DLL_GLOBAL	BOOL		g_bRealLife;
+
 extern cvar_t					hla_mutators;
 extern cvar_t					hla_gamemode;
+extern cvar_t					hla_startweapons;
 //end hlpro2
 
 extern void W_Precache(void);
@@ -489,9 +503,7 @@ extern DLL_GLOBAL BOOL		g_fGameOver;
 float g_flWeaponCheat;
 
 //start hlpro2
-#define TOTAL_MUTATORS		23
-
-char *szMutatorList [] =
+const char *szMutatorList [] =
 {
 	"all",			//0		0-16  weapon arena
 	"crowbar",		//1
@@ -517,10 +529,16 @@ char *szMutatorList [] =
 	"earning",      //20	20	earning
 	"startfull",    //21    21  startfull
 	"gore",         //22    22  gore
-	"powerups",        //23    23  runes
+	"runes",		//23    23  runes
+	"explosive",    //24    24  explosive weaponboxes
+	"maxpack",      //25    25  packall
+	"boobytrap",    //26    26	boobytrap
+	"spawn",		//27	27	spawnprotect
+	"decay",		//28	28	decay of weapons
+	"real",			//29	29  real life
 };
 
-char *szGameModeList [] =
+const char *szGameModeList [] =
 {
 	"ffa",			//0
 	"arena",		//1
@@ -530,25 +548,6 @@ char *szGameModeList [] =
 	"freezetag",	//5
 };
 
-
-/*
-#define WEAPON_NONE				0
-#define WEAPON_CROWBAR			1
-#define	WEAPON_GLOCK			2
-#define WEAPON_PYTHON			3
-#define WEAPON_MP5				4
-#define WEAPON_CHAINGUN			5
-#define WEAPON_CROSSBOW			6
-#define WEAPON_SHOTGUN			7
-#define WEAPON_RPG				8
-#define WEAPON_GAUSS			9
-#define WEAPON_EGON				10
-#define WEAPON_HORNETGUN		11
-#define WEAPON_HANDGRENADE		12
-#define WEAPON_TRIPMINE			13
-#define	WEAPON_SATCHEL			14
-#define	WEAPON_SNARK			15
-*/
 void SetGameMode( void )
 {
 	char textfile[64];
@@ -560,7 +559,6 @@ void SetGameMode( void )
 		if ( !strcmp( szGameModeList[i], hla_gamemode.string ))
 		{
 			g_GameMode = i;
-			g_GameModeName = szGameModeList[i];
 			ALERT(at_console, UTIL_VarArgs("\n\n----------------------------------------\nGamemode set to: %s\n", szGameModeList[i] ));
 			
 			sprintf(textfile, "modes/%s.txt", szGameModeList[i] );
@@ -571,7 +569,6 @@ void SetGameMode( void )
 	if ( g_GameMode == -1 )
 	{
 		g_GameMode = 0;
-		g_GameModeName = "ffa";
 		CVAR_SET_STRING( "motdfile", "ffa.txt");
 		CVAR_SET_STRING( "hla_gamemode", "ffa" );
 	}
@@ -579,15 +576,23 @@ void SetGameMode( void )
 
 void SetMutatorCvars( void )
 {
-	int			i;
-	char		sz[128];
+	int			i = 0;
 	char		*pName;
-	char 		list[64];
-	static char	mutator_list[5][64];
-	int			mutator_num = 0;
-	memset( mutator_list, 0, sizeof(mutator_list) );
+	char 		list[128];
+	char		currentCvar[128];
 
-	g_flWeaponArena = -1;
+	g_TotalMutators		= 0;
+	g_flWeaponArena		= 0;
+	g_TotalWeapons		= 0;
+	g_TotalStartWeapons	= 0;
+
+	//clear out arrays..
+	for ( i = 0; i < 16; i++ )
+	{
+		g_flWeaponMutators[i] = 0;
+		g_flStartWeapons[i] = 0;
+	}
+
 	g_bAntiCamper	= FALSE;
 	g_bInstaGib		= FALSE;
 	g_bFatBoy		= FALSE;
@@ -595,57 +600,150 @@ void SetMutatorCvars( void )
 	g_bStartFull    = FALSE;
 	g_bMoreGore	    = FALSE;
 	g_bRunes        = FALSE;
-
+	g_bExplosive    = FALSE;
+	g_bMaxPack		= FALSE;
+	g_bBoobyTrap	= FALSE;
+	g_bSpawnProtect = FALSE;
+	g_bDecay		= FALSE;
+	g_bRealLife		= FALSE;
+					
 	strcpy( list, hla_mutators.string );
 	pName = list;
 	pName = strtok( pName, ", " );
-	while ( pName != NULL && *pName /* && mutator_num < 5*/ )
+	while ( pName != NULL && *pName /* && g_TotalMutators < 5*/ )
 	{
+		BOOL Duplicate = FALSE;
+
 		for ( i = 0; i <= TOTAL_MUTATORS; i++ )
 		{
+			//check for duplicates
 			if ( !strcmp( szMutatorList[i], pName ) )
 			{ 
-				strcpy(mutator_list[mutator_num], pName );
-
-				if ( i < 17 )
+				for ( int j = 0; j < g_TotalMutators; j++ )
 				{
-					if ( g_flWeaponArena == -1 )
+					ALERT( at_console, UTIL_VarArgs( "checking %s against %s\n", szMutatorList[i], g_MutatorList[j] ));
+
+					if ( !strcmp(g_MutatorList[j], szMutatorList[i]) )
 					{
-						g_flWeaponArena = i;
-						g_WeaponArenaName = mutator_list[mutator_num];
-					}
-					else
-					{
-						ALERT(at_console, "Ignoring defined weapon arena: already defined.\n");
+						Duplicate = TRUE;
+						ALERT(at_console, "Found duplicate mutator. Ignoring.\n");
 					}
 				}
 
-				if ( i == 17 )
-					g_bAntiCamper = TRUE;
-				if ( i == 18 )
-					g_bInstaGib = TRUE;
-				if ( i == 19 )
-					g_bFatBoy = TRUE;
-				if ( i == 20 )
-					g_bEarning = TRUE;
-				if ( i == 21 )
-					g_bStartFull = TRUE;
-				if ( i == 22 )
-					g_bMoreGore = TRUE;
-				if ( i == 23 )
-					g_bRunes = TRUE;
+				//if we found a duplicate skip the code below and go to the next
+				if ( Duplicate )
+					continue;
 
-				mutator_num++;
+				strcpy(g_MutatorList[g_TotalMutators], szMutatorList[i] );
+				ALERT(at_console, UTIL_VarArgs("Copied %s[%i] to mutators...\n", g_MutatorList[g_TotalMutators], g_TotalMutators));
+				
+				if ( !g_TotalMutators )
+					sprintf( currentCvar, "%s", g_MutatorList[g_TotalMutators]);
+				else
+					sprintf( currentCvar, "%s, %s", CVAR_GET_STRING("hla_mutators"), g_MutatorList[g_TotalMutators]);
+
+				CVAR_SET_STRING( "hla_mutators", currentCvar );
+				
+				if ( i < 17 )
+				{			
+					g_flWeaponMutators[g_TotalWeapons] = i; 
+					g_TotalWeapons++;
+					g_flWeaponArena = 1;
+				}
+				else if ( i == 17 )
+					g_bAntiCamper = TRUE;
+				else if ( i == 18 )
+					g_bInstaGib = TRUE;
+				else if ( i == 19 )
+					g_bFatBoy = TRUE;
+				else if ( i == 20 )
+					g_bEarning = TRUE;
+				else if ( i == 21 )
+					g_bStartFull = TRUE;
+				else if ( i == 22 )
+					g_bMoreGore = TRUE;
+				else if ( i == 23 )
+					g_bRunes = TRUE;
+				else if ( i == 24 )
+					g_bExplosive = TRUE;
+				else if ( i == 25 )
+					g_bMaxPack = TRUE;
+				else if ( i == 26 )
+					g_bBoobyTrap = TRUE;
+				else if ( i == 27 )
+					g_bSpawnProtect = TRUE;
+				else if ( i == 28 )
+					g_bDecay = TRUE;
+				else if ( i == 29 )
+					g_bRealLife = TRUE;
+
+				g_TotalMutators++;
 				//break;
 			}
 		}
 		pName = strtok( NULL, ", " );
 	}
 
-	if ( g_flWeaponArena == -1 )
+	//set up start weapons...
+	BOOL dup;
+	strcpy( list, hla_startweapons.string );
+	pName = list;
+	pName = strtok( pName, ", " );
+	while ( pName != NULL && *pName  )
 	{
-		g_flWeaponArena = 0; //all by default
-		strcpy((char *)g_WeaponArenaName, "all");
+		for ( i = 1; i <= 15; i++ )
+		{
+			dup = FALSE;
+
+			if ( !strcmp( szMutatorList[i], pName ) )
+			{ 
+				//lets see if we have a duplicate
+				for ( int j = 0; j < g_TotalStartWeapons; j++ )
+				{
+					if ( g_flStartWeapons[j] == i )
+						dup = TRUE;
+				}
+
+				//if no dup's, load it in.
+				if ( !dup )
+				{					
+					g_flStartWeapons[g_TotalStartWeapons] = i;
+					
+					if ( !g_TotalStartWeapons )
+						sprintf( currentCvar, "%s", szMutatorList[i]);
+					else
+						sprintf( currentCvar, "%s, %s", CVAR_GET_STRING("hla_startweapons"), szMutatorList[i]);
+
+					CVAR_SET_STRING( "hla_startweapons", currentCvar );
+
+					g_TotalStartWeapons++;
+				}
+				else
+					ALERT( at_console, "Found duplicate in startweapons.\n");
+			}
+		}
+
+		pName = strtok( NULL, ", " );
+	}
+
+
+	//cycle through weapons...
+	//kill duplicates
+	//special case if = 16 / no weapon spawn.
+	if ( g_flWeaponArena )
+	{
+		for ( i = 0; i < g_TotalWeapons; i++ )
+		{
+			//found 'none', therefore everything else is disabled.
+			if ( g_flWeaponMutators[i]  == 16 )
+			{
+				g_flWeaponMutators[0] = 16;
+				g_TotalWeapons = 1;
+				break;
+			}
+		}
+
+		ALERT( at_console, UTIL_VarArgs( "Total Weapons: %i\n", g_TotalWeapons ));
 	}
 
 	if ( (g_bStartFull && g_bEarning) || (g_bStartFull && g_flWeaponArena) )
@@ -656,21 +754,21 @@ void SetMutatorCvars( void )
 
 	if ( g_bEarning )
 	{
-		g_flWeaponArena = 16;
-		strcpy((char *)g_WeaponArenaName, "none");
+		g_flWeaponArena = 0;
 		ALERT(at_notice, "Disabled weapon mutator (reason: earning).\n");
 	}
 
-
+	if ( g_GameMode && CVAR_GET_FLOAT("mp_teamplay") )
+	{
+		ALERT(at_console, "Can not have teamplay enabled with game mode.\n" );
+		CVAR_SET_FLOAT("mp_teamplay", 0 );
+	}
 
 	//console output
 	ALERT(at_console, "Mutator list: ");
 
-	for ( int j = 0; j < mutator_num; j++ ) {
-		strcpy(sz, mutator_list[j]);
-		strcat(sz," ");
-		ALERT(at_console, sz);
-	} 
+	for ( int j = 0; j < g_TotalMutators; j++ ) 
+		ALERT(at_console, UTIL_VarArgs("%s[%i] ", g_MutatorList[j], j));
 
 	ALERT(at_console, "\n----------------------------------------\n\n");
 }

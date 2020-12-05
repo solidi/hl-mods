@@ -42,11 +42,15 @@ cvar_t	allowmonsters={"mp_allowmonsters","0", FCVAR_SERVER };
 cvar_t  mp_chattime = {"mp_chattime","10", FCVAR_SERVER };
 
 //start hlpro2
-cvar_t  hla_mutators = {"hla_mutators","all, powerups", FCVAR_SERVER };
-cvar_t  hla_gamemode = {"hla_gamemode","ffa", FCVAR_SERVER };
-cvar_t  hla_votetimer = {"hla_votetimer","30", FCVAR_SERVER };
-cvar_t  hla_votedelay = {"hla_votedelay","30", FCVAR_SERVER };
-cvar_t  hla_tripminecolor = {"hla_tripminecolor","0, 214, 198", FCVAR_SERVER };
+cvar_t  hla_mutators		= {"hla_mutators","runes", FCVAR_SERVER };
+cvar_t  hla_gamemode		= {"hla_gamemode","ffa", FCVAR_SERVER };
+cvar_t  hla_gamefrags		= {"hla_gamefrags","10", FCVAR_SERVER };
+cvar_t  hla_gametimer		= {"hla_gametimer","5", FCVAR_SERVER };
+cvar_t  hla_gamerounds		= {"hla_gamerounds","15", FCVAR_SERVER };
+cvar_t  hla_votetimer		= {"hla_votetimer","30", FCVAR_SERVER };
+cvar_t  hla_votedelay		= {"hla_votedelay","30", FCVAR_SERVER };
+cvar_t  hla_tripminecolor	= {"hla_tripminecolor","0,214,198", FCVAR_SERVER };
+cvar_t  hla_startweapons	= {"hla_startweapons","crowbar, glock", FCVAR_SERVER };
 //end hlpro2
 
 // Engine Cvars
@@ -491,10 +495,13 @@ void GameDLLInit( void )
 
 	//start hlpro2
 	CVAR_REGISTER (&hla_gamemode);
+	CVAR_REGISTER (&hla_gamefrags);
+	CVAR_REGISTER (&hla_gametimer);
+	CVAR_REGISTER (&hla_gamerounds);
 	CVAR_REGISTER (&hla_mutators);
 	CVAR_REGISTER (&hla_votetimer);
 	CVAR_REGISTER (&hla_votedelay);
-	CVAR_REGISTER (&hla_tripminecolor);
+	CVAR_REGISTER (&hla_startweapons);
 	//end hlpro2
 
 

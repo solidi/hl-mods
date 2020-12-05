@@ -40,7 +40,13 @@ DLL_GLOBAL int			g_Language;
 
 //start hlpro2
 DLL_GLOBAL int          g_flWeaponArena;
-DLL_GLOBAL const char  *g_WeaponArenaName;
+DLL_GLOBAL int			g_flWeaponMutators[16];
+DLL_GLOBAL int			g_TotalWeapons;
+DLL_GLOBAL int			g_flStartWeapons[16];
+DLL_GLOBAL int			g_TotalStartWeapons;
+DLL_GLOBAL char			g_MutatorList[32][32];
+DLL_GLOBAL int			g_TotalMutators;
+
 DLL_GLOBAL BOOL         g_bAntiCamper;
 DLL_GLOBAL BOOL         g_bInstaGib;
 DLL_GLOBAL BOOL         g_bFatBoy;
@@ -48,9 +54,14 @@ DLL_GLOBAL BOOL         g_bEarning;
 DLL_GLOBAL BOOL         g_bStartFull;
 DLL_GLOBAL BOOL         g_bMoreGore;
 DLL_GLOBAL BOOL         g_bRunes;
+DLL_GLOBAL BOOL         g_bExplosive;
+DLL_GLOBAL BOOL			g_bMaxPack;
+DLL_GLOBAL BOOL			g_bBoobyTrap;
+DLL_GLOBAL BOOL			g_bSpawnProtect;
+DLL_GLOBAL BOOL			g_bDecay;
+DLL_GLOBAL BOOL			g_bRealLife;
 
 DLL_GLOBAL int			g_GameMode;
-DLL_GLOBAL const char  *g_GameModeName;
 
 DLL_GLOBAL BOOL         g_VoteInProgress;
 DLL_GLOBAL float        g_VoteTimer;
@@ -58,5 +69,5 @@ DLL_GLOBAL float        g_VoteExecute;
 DLL_GLOBAL int			g_VotesYes;
 DLL_GLOBAL int			g_VotesNo;
 DLL_GLOBAL int			g_VoteType;
-DLL_GLOBAL char			g_VoteMessage[256];
+DLL_GLOBAL char			g_VoteMessage[128];
 //end hlpro2

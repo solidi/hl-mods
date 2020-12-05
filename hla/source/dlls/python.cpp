@@ -72,11 +72,11 @@ int CPython::AddToPlayer( CBasePlayer *pPlayer )
 void CPython::Spawn( )
 {
 	//start hlpro2
-	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_PYTHON && g_flWeaponArena != 16 )   )
+/*	if ( g_flWeaponArena && (g_flWeaponArena != WEAPON_PYTHON && g_flWeaponArena != 16 )   )
 	{
 		DetermineArenaSpawn(this);
 		return;
-	}
+	}*/
 	//end hlpro2
 
 	pev->classname = MAKE_STRING("weapon_357"); // hack to allow for old names
@@ -308,14 +308,14 @@ class CPythonAmmo : public CBasePlayerAmmo
 {
 	void Spawn( void )
 	{ 
-		//start hlpro2
+		/*//start hlpro2
 		if ( g_flWeaponArena && g_flWeaponArena != WEAPON_PYTHON )
 		{
 			UTIL_Remove(this);
 			DetermineArenaAmmoSpawn(this);
 			return;
 		}
-		//end hlpro2
+		//end hlpro2*/
 
 		Precache( );
 		SET_MODEL(ENT(pev), "models/w_357ammobox.mdl");

@@ -36,8 +36,14 @@ extern int gEvilImpulse101;
 
 //start hlpro
 extern DLL_GLOBAL	int g_flWeaponArena;
+extern DLL_GLOBAL	int g_TotalWeapons;
+extern DLL_GLOBAL	int g_flWeaponMutators[16]; 
 extern DLL_GLOBAL	int g_GameMode;
 extern DLL_GLOBAL	BOOL g_bEarning;
+//extern DLL_GLOBAL	BOOL g_bExplosive;
+extern DLL_GLOBAL	BOOL g_bMaxPack;
+extern DLL_GLOBAL   BOOL g_bDecay;
+DLL_GLOBAL	short	g_sModelIndexFlare;
 //end hlpro2
 
 
@@ -408,6 +414,10 @@ void W_Precache(void)
 	g_sModelIndexLaser = PRECACHE_MODEL( (char *)g_pModelNameLaser );
 	g_sModelIndexLaserDot = PRECACHE_MODEL("sprites/laserdot.spr");
 
+	//start hlpro2
+	g_sModelIndexFlare = PRECACHE_MODEL("sprites/flare6.spr");
+	//end hlpro2
+
 
 	// used by explosions
 	PRECACHE_MODEL ("models/grenade.mdl");
@@ -477,6 +487,25 @@ void CBasePlayerItem :: SetObjectCollisionBox( void )
 //=========================================================
 void CBasePlayerItem :: FallInit( void )
 {
+	//start hlpro2
+	if ( g_flWeaponArena && g_flWeaponMutators[0] != 16 )
+	{
+		BOOL found_same = FALSE;
+
+		for ( int j = 0; j < g_TotalWeapons; j++ )
+		{
+			if ( g_flWeaponMutators[j] == m_iId  )
+				found_same = TRUE;
+		}
+
+		if ( !found_same )
+		{
+			DetermineArenaSpawn(this);
+			return;
+		}
+	}
+	//end hlpro2
+
 	pev->movetype = MOVETYPE_TOSS;
 	pev->solid = SOLID_BBOX;
 
@@ -522,18 +551,21 @@ void CBasePlayerItem::FallThink ( void )
 //=========================================================
 // Materialize - make a CBasePlayerItem visible and tangible
 //=========================================================
+//start hlpro2
 void CBasePlayerItem::Spin ( void )
 {
-	static int spin = 0;
+	static float spin = 0;
 
 	pev->angles.y = spin;
-	spin++;
+	spin += .5;
+	//ALERT(at_notice, UTIL_VarArgs("%\n", spin));
 
 	if ( spin > 360 )
 		spin = 0;
 
-	pev->nextthink = gpGlobals->time + .5;
+	pev->nextthink = gpGlobals->time + .10;
 }
+//end hlpro2
 
 void CBasePlayerItem::Materialize( void )
 {
@@ -546,8 +578,11 @@ void CBasePlayerItem::Materialize( void )
 	}
 
 	pev->solid = SOLID_TRIGGER;
+	
+	//start hlpro2
+	UTIL_SetOrigin( pev, Vector(pev->origin.x, pev->origin.y, pev->origin.z) );// link into world.
 
-	UTIL_SetOrigin( pev, Vector(pev->origin.x, pev->origin.y, pev->origin.z + 44) );// link into world.
+	/*
 	if ( m_iId == WEAPON_SHOTGUN || m_iId == WEAPON_PYTHON )
 	pev->angles.z = -90;
 	if ( m_iId == WEAPON_GAUSS )
@@ -556,36 +591,36 @@ void CBasePlayerItem::Materialize( void )
 	pev->angles.z = 40;
 	if ( m_iId == WEAPON_MP5 )
 	pev->angles.x = -90;
+	*/
 
 	SetTouch (DefaultTouch);
-	SetThink (Spin); //NULL
+	SetThink ( NULL /*Spin*/ );
 
-	pev->nextthink = gpGlobals->time + .5;
+	//pev->nextthink = gpGlobals->time + .10;
 
-	//start hlpro2
-	if ( g_bEarning )
+	if ( g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA || g_bEarning || g_flWeaponMutators[0] == 16 )
 	{
 		pev->effects |= EF_NODRAW;
 		pev->solid = SOLID_NOT;
 	}
 
-	if ( g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA )
-	{
-		pev->effects |= EF_NODRAW;
-		pev->solid = SOLID_NOT;
-	}
+	//code remmed for now..
+	//was suppose to remove redundant weapons.
+//	if ( g_flWeaponArena )
+//	{
+//		for ( int j = 1; j <= g_TotalWeapons; j++ )
+//		{
+//			if ( /* g_flWeaponArena */ g_flWeaponMutators[j] == m_iId  )
+//			{
+//				pev->effects |= EF_NODRAW;
+//				pev->solid = SOLID_NOT;
 
-	if ( g_flWeaponArena )
-	{
-		if ( g_flWeaponArena == m_iId  )
-		{
-			pev->effects |= EF_NODRAW;
-			pev->solid = SOLID_NOT;
-
-			CBasePlayerWeapon *pWeapon = (CBasePlayerWeapon *)this;
-			pWeapon->DetermineArenaSpawn( (CBasePlayerWeapon *)this );
-		}
-	}
+//				CBasePlayerWeapon *pWeapon = (CBasePlayerWeapon *)this;
+//				pWeapon->DetermineArenaSpawn( (CBasePlayerWeapon *)this );
+//				break;
+//			}
+//		}
+//	}
 	//end hlpro2
 }
 
@@ -641,8 +676,10 @@ CBaseEntity* CBasePlayerItem::Respawn( void )
 		pNewWeapon->SetTouch( NULL );// no touch
 		pNewWeapon->SetThink( AttemptToMaterialize );
 		
-		if ( !strcmp(STRING(pNewWeapon->pev->classname), "weapon_gauss"))
-			pNewWeapon->pev->angles.z = 55;
+		//start hlpro2
+		//if ( !strcmp(STRING(pNewWeapon->pev->classname), "weapon_gauss"))
+		//	pNewWeapon->pev->angles.z = 55;
+		//end hlpro2
 
 		DROP_TO_FLOOR ( ENT(pev) );
 
@@ -705,7 +742,7 @@ BOOL CanAttack( float attack_time, float curtime, BOOL isPredicted )
 void CBasePlayerWeapon::ItemPostFrame( void )
 {
 	//start hlpro2
-	if ( m_pPlayer->m_fHasRune == RUNE_AMMO )
+	if ( m_pPlayer->m_fHasRune == RUNE_AMMO || m_pPlayer->IsArmoredMan )
 	{
 		if ( m_pPlayer->m_flAmmoRegenTime < gpGlobals->time )
 		{
@@ -749,6 +786,12 @@ void CBasePlayerWeapon::ItemPostFrame( void )
 
 		m_pPlayer->TabulateAmmo();
 		SecondaryAttack();
+				
+		//start hlpro2
+		if ( m_pPlayer->m_fHasRune == RUNE_HASTE )
+			m_flNextSecondaryAttack = m_flNextSecondaryAttack * 0.5;
+		//end hlpro2
+
 		m_pPlayer->pev->button &= ~IN_ATTACK2;
 	}
 	else if ((m_pPlayer->pev->button & IN_ATTACK) && CanAttack( m_flNextPrimaryAttack, gpGlobals->time, UseDecrement() ) )
@@ -758,8 +801,37 @@ void CBasePlayerWeapon::ItemPostFrame( void )
 			m_fFireOnEmpty = TRUE;
 		}
 
+		if ( g_bDecay )
+		{
+			if ( m_iClip )
+			{
+				if ( m_iDecay > -1 )
+				{
+					m_iDecay--;
+					ALERT(at_notice, UTIL_VarArgs("This weapon's health is %i\n", m_iDecay));
+				}
+				else
+				{
+					//DestroyItem();
+					ALERT(at_notice, "Inside this shit\n");
+					m_iPlayEmptySound = 1;
+					PlayEmptySound();
+					m_flNextPrimaryAttack = m_flNextSecondaryAttack = gpGlobals->time + 1.0;
+					EMIT_SOUND(ENT(m_pPlayer->pev), CHAN_ITEM, "weapons/357_cock1.wav", 0.8, ATTN_NORM);
+					ClientPrint(m_pPlayer->pev, HUD_PRINTTALK, "* This weapon has jammed!\n");
+					return;
+					
+				}
+			}
+		}
+				
 		m_pPlayer->TabulateAmmo();
 		PrimaryAttack();
+
+		//start hlpro2
+		if ( m_pPlayer->m_fHasRune == RUNE_HASTE )
+			m_flNextPrimaryAttack = m_flNextPrimaryAttack * 0.5;
+		//end hlpro2
 	}
 	else if ( m_pPlayer->pev->button & IN_RELOAD && iMaxClip() != WEAPON_NOCLIP && !m_fInReload ) 
 	{
@@ -816,6 +888,14 @@ void CBasePlayerItem::DestroyItem( void )
 int CBasePlayerItem::AddToPlayer( CBasePlayer *pPlayer )
 {
 	m_pPlayer = pPlayer;
+
+	//start hlpro2
+	if ( g_GameMode == GAME_FREEZETAG )
+	{
+		if ( m_pPlayer->IsIt && strcmp(STRING(pev->classname), "weapon_crowbar") )
+			return FALSE;
+	}
+	//end hlpro2
 
 	return TRUE;
 }
@@ -1024,6 +1104,11 @@ BOOL CBasePlayerWeapon :: AddSecondaryAmmo( int iCount, char *szName, int iMax )
 //=========================================================
 BOOL CBasePlayerWeapon :: IsUseable( void )
 {
+	//start hlpro2
+	if ( m_pPlayer->m_fHasRune == RUNE_AMMO )
+		return TRUE;
+	//end hlpro2
+
 	if ( m_iClip <= 0 )
 	{
 		if ( m_pPlayer->m_rgAmmo[ PrimaryAmmoIndex() ] <= 0 && iMaxAmmo1() != -1 )			
@@ -1040,11 +1125,13 @@ BOOL CBasePlayerWeapon :: CanDeploy( void )
 {
 	BOOL bHasAmmo = 0;
 
-	if ( !pszAmmo1() )
+	//start hlpro2
+	if ( !pszAmmo1() || m_pPlayer->m_fHasRune == RUNE_AMMO )
 	{
 		// this weapon doesn't use ammo, can always deploy.
 		return TRUE;
 	}
+	//end hlpro2
 
 	if ( pszAmmo1() )
 	{
@@ -1147,7 +1234,9 @@ void CBasePlayerAmmo::Spawn( void )
 	pev->movetype = MOVETYPE_TOSS;
 	pev->solid = SOLID_TRIGGER;
 	UTIL_SetSize(pev, Vector(-16, -16, 0), Vector(16, 16, 16));
-	UTIL_SetOrigin( pev, pev->origin );
+
+	//start hlpro2
+	UTIL_SetOrigin( pev, Vector(pev->origin.x, pev->origin.y, pev->origin.z ) );
 
 	if ( g_GameMode == GAME_LMS || g_GameMode == GAME_ARENA )
 	{
@@ -1156,6 +1245,47 @@ void CBasePlayerAmmo::Spawn( void )
 	}
 
 	SetTouch( DefaultTouch );
+
+	if ( g_flWeaponArena )
+	{
+		BOOL found_same = FALSE;
+		int index = 0;
+		
+		if ( !strcmp("ammo_buckshot", STRING(pev->classname)))
+			index = WEAPON_SHOTGUN;
+		else if ( !strcmp("ammo_rpgclip", STRING(pev->classname)))
+			index = WEAPON_RPG;
+		else if ( !strcmp("ammo_9mmclip", STRING(pev->classname)))
+			index = WEAPON_GLOCK;
+		else if ( !strcmp("ammo_357", STRING(pev->classname)))
+			index = WEAPON_PYTHON;
+		else if ( !strcmp("ammo_ARgrenades", STRING(pev->classname)) || !strcmp("ammo_9mmbox", STRING(pev->classname)) || !strcmp("ammo_9mmAR", STRING(pev->classname)))
+			index = WEAPON_MP5;
+		else if ( !strcmp("ammo_gaussclip", STRING(pev->classname)))
+			index = WEAPON_GAUSS;
+		else if ( !strcmp("ammo_egonclip", STRING(pev->classname)))
+			index = WEAPON_EGON;
+		else if ( !strcmp("ammo_crossbow", STRING(pev->classname)))
+			index = WEAPON_CROSSBOW;
+
+		for ( int j = 0; j < g_TotalWeapons; j++ )
+		{
+			if ( g_flWeaponMutators[j] == index )
+				found_same = TRUE;
+		}
+						
+		if ( !found_same )
+		{
+			UTIL_Remove(this);
+			DetermineArenaAmmoSpawn(this);
+		}
+	}
+	//end hlpro2
+		
+	//start hlpro2
+	//SetThink ( Spin );
+	//pev->nextthink = gpGlobals->time + .10;
+	//end hlpro2
 }
 
 CBaseEntity* CBasePlayerAmmo::Respawn( void )
@@ -1171,6 +1301,22 @@ CBaseEntity* CBasePlayerAmmo::Respawn( void )
 	return this;
 }
 
+//start hlpro2
+void CBasePlayerAmmo::Spin ( void )
+{
+	static float spin = 0;
+
+	pev->angles.y = spin;
+	spin += .5;
+	//ALERT(at_notice, UTIL_VarArgs("%\n", spin));
+
+	if ( spin > 360 )
+		spin = 0;
+
+	pev->nextthink = gpGlobals->time + .10;
+}
+//end hlpro2
+
 void CBasePlayerAmmo::Materialize( void )
 {
 	if ( pev->effects & EF_NODRAW )
@@ -1182,6 +1328,10 @@ void CBasePlayerAmmo::Materialize( void )
 	}
 
 	SetTouch( DefaultTouch );
+	//start hlpro2
+	//SetThink ( Spin );
+	//pev->nextthink = gpGlobals->time + .10;
+	//end hlpro2
 }
 
 void CBasePlayerAmmo :: DefaultTouch( CBaseEntity *pOther )
@@ -1190,6 +1340,14 @@ void CBasePlayerAmmo :: DefaultTouch( CBaseEntity *pOther )
 	{
 		return;
 	}
+
+	//start hlpro2
+	if ( g_GameMode == GAME_FREEZETAG )
+	{
+		if ( ((CBasePlayer *)pOther)->IsIt )
+			return;
+	}
+	//end hlpro2
 
 	if (AddAmmo( pOther ))
 	{
@@ -1293,7 +1451,7 @@ TYPEDESCRIPTION	CWeaponBox::m_SaveData[] =
 	DEFINE_FIELD( CWeaponBox, m_cAmmoTypes, FIELD_INTEGER ),
 };
 
-IMPLEMENT_SAVERESTORE( CWeaponBox, CBaseEntity );
+IMPLEMENT_SAVERESTORE( CWeaponBox, CBaseEntity /*CGrenade*/ );
 
 //=========================================================
 //
@@ -1320,6 +1478,29 @@ void CWeaponBox :: KeyValue( KeyValueData *pkvd )
 	}
 }
 
+//start hlpro2
+void CWeaponBox :: Killed( entvars_t *pevAttacker, int iGib )
+{
+	pev->owner = ENT( pevAttacker );
+
+	// UNDONE: this should make a big bubble cloud, not an explosion
+
+	Explode( pev->origin, Vector( 0, 0, -1 ) );
+}
+
+int CWeaponBox :: TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType )
+{
+	if ( flDamage < pev->health)
+	{
+		pev->owner = ENT( pevAttacker );
+		Explode( pev->origin, Vector( 0, 0, -1 ) );
+		pev->nextthink = gpGlobals->time + 0.1;
+		return FALSE;
+	}
+	return CGrenade::TakeDamage( pevInflictor, pevAttacker, flDamage, bitsDamageType );
+}
+//end hlpro2
+
 //=========================================================
 // CWeaponBox - Spawn 
 //=========================================================
@@ -1327,12 +1508,29 @@ void CWeaponBox::Spawn( void )
 {
 	Precache( );
 
+	pev->solid = SOLID_BBOX;
 	pev->movetype = MOVETYPE_TOSS;
-	pev->solid = SOLID_TRIGGER;
+	SetObjectCollisionBox();
 
-	UTIL_SetSize( pev, g_vecZero, g_vecZero );
+	//start hlpro2
+	//SET_MODEL( ENT(pev), "models/w_weaponbox.mdl");
 
-	SET_MODEL( ENT(pev), "models/w_weaponbox.mdl");
+/*	if ( g_bExplosive )
+	{
+		pev->flags |= FL_MONSTER;
+		pev->takedamage = DAMAGE_YES;
+		pev->dmg = 100;
+		pev->health = 25; // don't let die normally
+		pev->owner = NULL;
+	}
+	else
+	{*/
+		pev->solid = SOLID_TRIGGER;
+		pev->takedamage = DAMAGE_NO;
+//	}
+
+	//UTIL_SetSize( pev, g_vecZero, g_vecZero );
+	//end hlpro2
 }
 
 //=========================================================
@@ -1469,41 +1667,58 @@ BOOL CWeaponBox::PackWeapon( CBasePlayerItem *pWeapon )
 	}
 
 	//start hlpro2
-	if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_crowbar")))
-		UTIL_Remove( this );
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_9mmhandgun")))
-		SET_MODEL( ENT(pev), "models/w_9mmhandgun.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_357")))
-		SET_MODEL( ENT(pev), "models/w_357.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_shotgun")))
-		SET_MODEL( ENT(pev), "models/w_shotgun.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_9mmAR")))
-		SET_MODEL( ENT(pev), "models/w_9mmar.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_crossbow")))
-		SET_MODEL( ENT(pev), "models/w_crossbow.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_rpg")))
-		SET_MODEL( ENT(pev), "models/w_rpg.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_gauss")))
-		SET_MODEL( ENT(pev), "models/w_gauss.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_hornetgun")))
-		SET_MODEL( ENT(pev), "models/w_hgun.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_egon")))
-		SET_MODEL( ENT(pev), "models/w_egon.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_snark")))
-		SET_MODEL( ENT(pev), "models/w_squeak.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_tripmine")))
+	if ( !g_bMaxPack )
 	{
-		pev->body = 3;
-		pev->sequence = 8;
-		pev->absmin = pev->origin + Vector(-16, -16, -5);
-		pev->absmax = pev->origin + Vector(16, 16, 28); 
-		SET_MODEL( ENT(pev), "models/v_tripmine.mdl");
+		if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_crowbar")))
+			UTIL_Remove( this );
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_9mmhandgun")))
+			SET_MODEL( ENT(pev), "models/w_9mmhandgun.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_357")))
+			SET_MODEL( ENT(pev), "models/w_357.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_shotgun")))
+			SET_MODEL( ENT(pev), "models/w_shotgun.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_9mmAR")))
+			SET_MODEL( ENT(pev), "models/w_9mmar.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_crossbow")))
+			SET_MODEL( ENT(pev), "models/w_crossbow.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_rpg")))
+			SET_MODEL( ENT(pev), "models/w_rpg.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_gauss")))
+			SET_MODEL( ENT(pev), "models/w_gauss.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_hornetgun")))
+			SET_MODEL( ENT(pev), "models/w_hgun.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_egon")))
+			SET_MODEL( ENT(pev), "models/w_egon.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_snark")))
+			SET_MODEL( ENT(pev), "models/w_squeak.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_tripmine")))
+		{
+			pev->body = 3;
+			pev->sequence = 8;
+			pev->absmin = pev->origin + Vector(-16, -16, -5);
+			pev->absmax = pev->origin + Vector(16, 16, 28); 
+			SET_MODEL( ENT(pev), "models/v_tripmine.mdl");
+		}
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_handgrenade")))
+			SET_MODEL( ENT(pev), "models/w_grenade.mdl");
+		else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_satchel")))
+			SET_MODEL( ENT(pev), "models/w_satchel.mdl");
+		else
+			SET_MODEL( ENT(pev), "models/w_weaponbox.mdl");
 	}
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_handgrenade")))
-		SET_MODEL( ENT(pev), "models/w_grenade.mdl");
-	else if ((!strcmp((char *)STRING( pWeapon->pev->classname ), "weapon_satchel")))
-		SET_MODEL( ENT(pev), "models/w_satchel.mdl");
 
+	if ( g_bMaxPack )
+	{
+		SET_MODEL( ENT(pev), "models/w_weaponbox.mdl");
+	}
+
+/*	if ( g_bExplosive )
+	{
+		pev->solid = SOLID_BBOX;
+		UTIL_SetSize(pev, Vector( -4, -4, -4), Vector(4, 4, 4));
+		UTIL_SetOrigin( pev, pev->origin );
+	}
+*/
 	pev->renderamt = 255;
 	pev->rendermode = kRenderTransTexture;
 	SetThink( SUB_StartFadeOut );
@@ -1716,13 +1931,17 @@ TYPEDESCRIPTION	CSatchel::m_SaveData[] =
 IMPLEMENT_SAVERESTORE( CSatchel, CBasePlayerWeapon );
 
 //start hlpro2
-void CBasePlayerWeapon::DetermineArenaSpawn( CBasePlayerWeapon *pWeapon )
+void CBasePlayerItem::DetermineArenaSpawn( CBasePlayerItem *pWeapon )
 {
 	//ALERT(at_notice, UTIL_VarArgs("calling arenaspawn - %d\n", g_flWeaponArena));
 
 	UTIL_Remove(pWeapon);
+
+	int rand = RANDOM_LONG( 0, g_TotalWeapons-1 );
+
+	//ALERT( at_console, UTIL_VarArgs("random shit: %i\n", g_flWeaponMutators[rand]));
 	
-	switch ( g_flWeaponArena )
+	switch ( g_flWeaponMutators[rand] /* g_flWeaponArena */)
 	{
 	case WEAPON_CROWBAR:	break;
 	case WEAPON_GLOCK:		CBaseEntity::Create( "ammo_9mmclip", g_pGameRules->VecWeaponRespawnSpot( pWeapon ), pWeapon->pev->angles, pWeapon->pev->owner );break;
@@ -1750,7 +1969,11 @@ void CBasePlayerWeapon::DetermineArenaSpawn( CBasePlayerWeapon *pWeapon )
 
 void CBasePlayerAmmo::DetermineArenaAmmoSpawn( CBasePlayerAmmo *pAmmo )
 {
-	switch ( g_flWeaponArena )
+	int rand = RANDOM_LONG( 0, g_TotalWeapons-1 );
+
+	//ALERT( at_console, UTIL_VarArgs("random shit: %i\n", g_flWeaponMutators[rand]));
+
+	switch ( g_flWeaponMutators[rand] /* g_flWeaponArena*/ )
 	{
 	case WEAPON_GLOCK:			CBaseEntity::Create( "ammo_9mmclip", g_pGameRules->VecAmmoRespawnSpot( pAmmo ), pAmmo->pev->angles, pAmmo->pev->owner );break;
 	case WEAPON_CROSSBOW:		CBaseEntity::Create( "ammo_crossbow", g_pGameRules->VecAmmoRespawnSpot( pAmmo ), pAmmo->pev->angles, pAmmo->pev->owner );break;

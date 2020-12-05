@@ -30,9 +30,10 @@
 #include "gamerules.h"
 //start hlpro2
 #include "shake.h"
-//end hlpro2
 
 extern DLL_GLOBAL int  g_GameMode;
+extern DLL_GLOBAL BOOL g_VoteInProgress;
+//end hlpro2
 
 extern int gmsgItemPickup;
 
@@ -384,6 +385,8 @@ LINK_ENTITY_TO_CLASS( item_longjump, CItemLongJump );
 //start hlpro2
 void CRune::Spawn( void )
 {
+	Precache( );
+
 	pev->angles.x = 0;
 	pev->angles.z = 0;
 	pev->velocity.x = RANDOM_FLOAT( -300, 300 );
@@ -411,6 +414,12 @@ void CRune::Spawn( void )
 	//EMIT_SOUND_DYN( ENT(pev), CHAN_WEAPON, "items/env_materialize2.wav", 1, ATTN_NORM, 0, 150 );	
 }
 
+void CRune::Precache( void )
+{
+	PRECACHE_MODEL ("models/w_suit.mdl");
+	PRECACHE_SOUND ("items/ammopickup2.wav");
+}
+
 void CRune::RuneTouch( CBaseEntity *pOther )
 {
 	// if it's not a player, ignore
@@ -421,9 +430,17 @@ void CRune::RuneTouch( CBaseEntity *pOther )
 
 	CBasePlayer *pPlayer = (CBasePlayer *)pOther;
 
-	if (MyTouch( pPlayer ))
+	//armored man / it / fat men not allowed.
+	if ( pPlayer->IsArmoredMan || pPlayer->IsIt || pPlayer->m_iFatAmount )
+		return;
+
+	if ( MyTouch( pPlayer )  )
 	{
-		EMIT_SOUND( pPlayer->edict(), CHAN_ITEM, "items/env_materialize1.wav", 1, ATTN_NORM );
+		EMIT_SOUND( pPlayer->edict(), CHAN_ITEM, "items/ammopickup2.wav", 1, ATTN_NORM );
+
+		//ignore stats if we obtained rune.
+		pPlayer->m_flWeaponStatsUpdate = gpGlobals->time + 11.0;
+		pPlayer->m_flRuneTime = gpGlobals->time + 60;
 
 		SUB_UseTargets( pOther, USE_TOGGLE, 0 );
 		SetTouch( NULL );
@@ -441,10 +458,9 @@ class CStrengthRune : public CRune
 
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
-
 		Color = Vector(0,200,200);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -456,18 +472,13 @@ class CStrengthRune : public CRune
 			WRITE_BYTE( 5 );
 		MESSAGE_END();
 
-		pev->renderfx = kRenderFxGlowShell;
+		pev->renderfx |= kRenderFxGlowShell;
 		pev->rendercolor = Color;
 		pev->renderamt = 10;
 
 		CRune::Spawn( );
 
 		//pev->body = RUNE_STRENGTH - 1;
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_battery.mdl");
-		PRECACHE_SOUND ("items/env_materialize1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -489,7 +500,13 @@ class CStrengthRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup STRENGTH\n");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup STRENGTH\n");
+				pPlayer->DisplayHudMessage( "Strength", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will increase your damage by 50%!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -502,10 +519,13 @@ LINK_ENTITY_TO_CLASS( rune_strength, CStrengthRune );
 
 class CProtectRune : public CRune
 {
+	Vector Color;
+
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
+		Color = Vector(0,200,0);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 		
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -524,11 +544,6 @@ class CProtectRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_PROTECT - 1;
-	}
-	void Precache( void )
-	{
-		//PRECACHE_MODEL ("models/w_runes.mdl");
-		//PRECACHE_SOUND ("items/env_runepickup1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -552,7 +567,13 @@ class CProtectRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup PROTECT");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup PROTECT");
+				pPlayer->DisplayHudMessage( "Protect", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will protect you from half the damage!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );	
+			}
+
 			UTIL_ScreenFade( pPlayer, Vector(0,200,0), 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -565,10 +586,13 @@ LINK_ENTITY_TO_CLASS( rune_protect, CProtectRune );
 
 class CFragRune : public CRune
 {
+	Vector Color;
+
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
+		Color = Vector(200,200,200);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 		
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -587,11 +611,6 @@ class CFragRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_PROTECT - 1;
-	}
-	void Precache( void )
-	{
-		//PRECACHE_MODEL ("models/w_runes.mdl");
-		//PRECACHE_SOUND ("items/env_runepickup1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -613,7 +632,13 @@ class CFragRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup FRAG");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup FRAG");
+				pPlayer->DisplayHudMessage( "Frag", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will increase your frags by double!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Vector(200,200,200), 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -631,10 +656,9 @@ class CAmmoRune : public CRune
 
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
-
 		Color = Vector(200,128,0);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 		
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -653,11 +677,6 @@ class CAmmoRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_PROTECT - 1;
-	}
-	void Precache( void )
-	{
-		//PRECACHE_MODEL ("models/w_runes.mdl");
-		//PRECACHE_SOUND ("items/env_runepickup1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -679,7 +698,13 @@ class CAmmoRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup AMMO REGEN");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup AMMO REGEN");
+				pPlayer->DisplayHudMessage( "Ammo Regeneration", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will regenerate your current weapon's ammo!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -697,10 +722,9 @@ class CRegenRune : public CRune
 
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
-
 		Color = Vector(200,0,200);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -719,11 +743,6 @@ class CRegenRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_STRENGTH - 1;
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_battery.mdl");
-		PRECACHE_SOUND ("items/env_materialize1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -745,7 +764,13 @@ class CRegenRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup REGEN\n");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup REGEN\n");
+				pPlayer->DisplayHudMessage( "Health Regeneration", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will regenerate your health and armor!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -764,10 +789,9 @@ class CGravityRune : public CRune
 
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
-
 		Color = Vector(0,115,230);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -786,11 +810,6 @@ class CGravityRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_STRENGTH - 1;
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_battery.mdl");
-		PRECACHE_SOUND ("items/env_materialize1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -812,7 +831,13 @@ class CGravityRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup GRAVITY\n");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup GRAVITY\n");
+				pPlayer->DisplayHudMessage( "Gravity", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will reduce your gravity by 80%!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -830,10 +855,9 @@ class CCloakRune : public CRune
 
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
-
 		Color = Vector(100,100,100);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -852,11 +876,6 @@ class CCloakRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_STRENGTH - 1;
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_battery.mdl");
-		PRECACHE_SOUND ("items/env_materialize1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -878,7 +897,13 @@ class CCloakRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup CLOAK\n");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup CLOAK\n");
+				pPlayer->DisplayHudMessage( "Cloak", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will make you semi-transparent!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -896,10 +921,9 @@ class CVampireRune : public CRune
 
 	void Spawn( void )
 	{ 
-		Precache( );
-		SET_MODEL(ENT(pev), "models/w_battery.mdl");
-
 		Color = Vector(200,0,0);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
 
 		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
 			WRITE_BYTE( TE_PARTICLEBURST ); 
@@ -918,11 +942,6 @@ class CVampireRune : public CRune
 		CRune::Spawn( );
 
 		//pev->body = RUNE_STRENGTH - 1;
-	}
-	void Precache( void )
-	{
-		PRECACHE_MODEL ("models/w_battery.mdl");
-		PRECACHE_SOUND ("items/env_materialize1.wav");
 	}
 	BOOL MyTouch( CBasePlayer *pPlayer )
 	{
@@ -944,7 +963,13 @@ class CVampireRune : public CRune
 			WRITE_BYTE( 5 );
 			MESSAGE_END();
 
-			ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup VAMPIRE\n");
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup VAMPIRE\n");
+				pPlayer->DisplayHudMessage( "Vampire", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will give you health and armor for the damage you deal!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
 			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
 
 			return TRUE;
@@ -955,8 +980,140 @@ class CVampireRune : public CRune
 };
 LINK_ENTITY_TO_CLASS( rune_vampire, CVampireRune );
 
+class CHasteRune : public CRune
+{
+	Vector Color;
+
+	void Spawn( void )
+	{ 
+		Color = Vector(200,200,0);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
+
+		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
+			WRITE_BYTE( TE_PARTICLEBURST ); 
+			WRITE_COORD(pev->origin.x);
+			WRITE_COORD(pev->origin.y);
+			WRITE_COORD(pev->origin.z + 32);
+			WRITE_SHORT( 50 );
+			WRITE_BYTE((unsigned short)73);
+			WRITE_BYTE( 5 );
+		MESSAGE_END();
+
+		pev->renderfx = kRenderFxGlowShell;
+		pev->rendercolor = Color;
+		pev->renderamt = 10;
+
+		CRune::Spawn( );
+
+		//pev->body = RUNE_STRENGTH - 1;
+	}
+	BOOL MyTouch( CBasePlayer *pPlayer )
+	{
+		if ( !pPlayer->m_fHasRune )
+		{
+			pPlayer->m_fHasRune = RUNE_HASTE;
+					
+			pPlayer->pev->renderfx = kRenderFxGlowShell;
+			pPlayer->pev->renderamt = 5;
+			pPlayer->pev->rendercolor = Color;
+
+			MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
+			WRITE_BYTE( TE_PARTICLEBURST ); 
+			WRITE_COORD(pPlayer->pev->origin.x);
+			WRITE_COORD(pPlayer->pev->origin.y);
+			WRITE_COORD(pPlayer->pev->origin.z);
+			WRITE_SHORT( 50 );
+			WRITE_BYTE((unsigned short)243);
+			WRITE_BYTE( 5 );
+			MESSAGE_END();
+
+			if ( !g_VoteInProgress )
+			{
+				//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup HASTE\n");
+				pPlayer->DisplayHudMessage( "Haste", 6, -1, 0.03, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+				pPlayer->DisplayHudMessage( "This rune will makes your weapons fire twice as fast!", 7, -1, 0.05, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			}
+
+			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
+
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+};
+LINK_ENTITY_TO_CLASS( rune_haste, CHasteRune );
+
+/*
+//===================================================================
+// Weapon PowerUps!
+//===================================================================
+
+class CCrowbarPower : public CRune
+{
+	Vector Color;
+
+	void Spawn( void )
+	{ 
+		Color = Vector(255,0,0);
+
+		SET_MODEL(ENT(pev), "models/w_suit.mdl");
+
+		MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
+			WRITE_BYTE( TE_PARTICLEBURST ); 
+			WRITE_COORD(pev->origin.x);
+			WRITE_COORD(pev->origin.y);
+			WRITE_COORD(pev->origin.z + 32);
+			WRITE_SHORT( 50 );
+			WRITE_BYTE((unsigned short)73);
+			WRITE_BYTE( 5 );
+		MESSAGE_END();
+
+		pev->renderfx = kRenderFxGlowShell;
+		pev->rendercolor = Color;
+		pev->renderamt = 10;
+
+		CRune::Spawn( );
+
+		//pev->body = RUNE_STRENGTH - 1;
+	}
+	BOOL MyTouch( CBasePlayer *pPlayer )
+	{
+		if ( !pPlayer->m_fHasRune )
+		{
+			pPlayer->m_fHasRune = RUNE_HASTE;
+					
+			pPlayer->pev->renderfx = kRenderFxGlowShell;
+			pPlayer->pev->renderamt = 5;
+			pPlayer->pev->rendercolor = Color;
+
+			MESSAGE_BEGIN( MSG_BROADCAST, SVC_TEMPENTITY );
+			WRITE_BYTE( TE_PARTICLEBURST ); 
+			WRITE_COORD(pPlayer->pev->origin.x);
+			WRITE_COORD(pPlayer->pev->origin.y);
+			WRITE_COORD(pPlayer->pev->origin.z);
+			WRITE_SHORT( 50 );
+			WRITE_BYTE((unsigned short)243);
+			WRITE_BYTE( 5 );
+			MESSAGE_END();
+
+			//ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Obtained powerup HASTE\n");
+			pPlayer->DisplayHudMessage( "Haste", 6, -1, 0.93, Color.x, Color.y, Color.z, 0, 0.0, 1.0, 10.0, 0.0 );
+			pPlayer->DisplayHudMessage( "This rune will makes your weapons fire twice as fast!", 7, -1, 0.95, 210, 210, 210, 0, 0.0, 1.0, 10.0, 0.0 );
+			UTIL_ScreenFade( pPlayer, Color, 1, 1, 64, FFADE_IN); 
+
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+};
+LINK_ENTITY_TO_CLASS( rune_haste, CHasteRune );
+*/
 //===================================================================
 //===================================================================
+
 
 void CWorldRunes::Spawn( )
 {
@@ -974,7 +1131,7 @@ void CWorldRunes::Precache( )
 	UTIL_PrecacheOther("rune_vampire");
 	UTIL_PrecacheOther("rune_protect");
 	UTIL_PrecacheOther("rune_regen");
-	//UTIL_PrecacheOther("rune_haste");
+	UTIL_PrecacheOther("rune_haste");
 	UTIL_PrecacheOther("rune_gravity");
 	UTIL_PrecacheOther("rune_strength");
 	UTIL_PrecacheOther("rune_cloak");
@@ -990,11 +1147,13 @@ CBaseEntity *CWorldRunes::SelectSpawnPoint(CBaseEntity *pSpot)
 
 void CWorldRunes::CreateRune(char *sz_RuneClass)
 {
-	m_pSpot = SelectSpawnPoint( m_pSpot );
+	//keep trying
+	//while ( !m_pSpot )
+		m_pSpot = SelectSpawnPoint( m_pSpot );
 
 	if( m_pSpot == NULL )
 	{
-		ALERT ( at_console, "Error Creating Powerups\n" );
+		ALERT ( at_console, "Error creating runes.\n" );
 		return;
 	}
 
@@ -1003,24 +1162,25 @@ void CWorldRunes::CreateRune(char *sz_RuneClass)
 
 void CWorldRunes::SpawnRunes( )
 {
-	ALERT ( at_console, "Creating Powerups\n" );
+	ALERT ( at_console, "Creating runes.\n" );
 	CreateRune( "rune_frag" );
-	CreateRune( "rune_frag" );
+	//CreateRune( "rune_frag" );
 	CreateRune( "rune_ammo" );
-	CreateRune( "rune_ammo" );
+	//CreateRune( "rune_ammo" );
 	CreateRune( "rune_vampire" );
-	CreateRune( "rune_vampire" );
+	//CreateRune( "rune_vampire" );
 	CreateRune( "rune_protect" );
-	CreateRune( "rune_protect" );
+	//CreateRune( "rune_protect" );
 	CreateRune( "rune_regen" );
-	CreateRune( "rune_regen" );
+	//CreateRune( "rune_regen" );
 	CreateRune( "rune_cloak" );
-	CreateRune( "rune_cloak" );
+	//CreateRune( "rune_cloak" );
+	CreateRune( "rune_haste" );
 	//CreateRune( "rune_haste" );
 	CreateRune( "rune_gravity" );
-	CreateRune( "rune_gravity" );
+	//CreateRune( "rune_gravity" );
 	CreateRune( "rune_strength" );
-	CreateRune( "rune_strength" );
+	//CreateRune( "rune_strength" );
 
 	SetThink( SpawnRunes );
 	pev->nextthink = gpGlobals->time + 30.0; 

@@ -282,8 +282,10 @@ public:
 	// int		m_iIdSecondary;										// Unique Id for secondary ammo
 
 	//start hlpro2
-	int  m_iPickup;
-	virtual void Spin(void);
+	int		m_iPickup;
+	int		m_iDecay;
+	virtual void Spin( void );
+	virtual void DetermineArenaSpawn( CBasePlayerItem *pWeapon );
 	//end hlpro2
 };
 
@@ -357,11 +359,6 @@ public:
 	int		m_fInReload;										// Are we in the middle of a reload;
 
 	int		m_iDefaultAmmo;// how much ammo you get when you pick up this weapon as placed by a level designer.
-
-	//start hlpro2
-	virtual void DetermineArenaSpawn( CBasePlayerWeapon *pWeapon );
-	//end hlpro2
-
 };
 
 
@@ -376,6 +373,7 @@ public:
 	void EXPORT Materialize( void );
 
 	//start hlpro2
+	virtual void Spin( void );
 	virtual void DetermineArenaAmmoSpawn( CBasePlayerAmmo *pAmmo );
 	//end hlpro2
 };
@@ -391,6 +389,10 @@ extern DLL_GLOBAL	short	g_sModelIndexWExplosion;// holds the index for the under
 extern DLL_GLOBAL	short	g_sModelIndexBubbles;// holds the index for the bubbles model
 extern DLL_GLOBAL	short	g_sModelIndexBloodDrop;// holds the sprite index for blood drops
 extern DLL_GLOBAL	short	g_sModelIndexBloodSpray;// holds the sprite index for blood spray (bigger)
+
+//start hlpro2
+extern DLL_GLOBAL	short	g_sModelIndexFlare;
+//end hlpro2
 
 extern void ClearMultiDamage(void);
 extern void ApplyMultiDamage(entvars_t* pevInflictor, entvars_t* pevAttacker );
@@ -442,12 +444,17 @@ extern MULTIDAMAGE gMultiDamage;
 // CWeaponBox - a single entity that can store weapons
 // and ammo. 
 //=========================================================
-class CWeaponBox : public CBaseEntity
+class CWeaponBox : public //start hlpro2 /* CBaseEntity */ 
+						  CGrenade //end hlpro2
 {
 	void Precache( void );
 	void Spawn( void );
 	void Touch( CBaseEntity *pOther );
 	void KeyValue( KeyValueData *pkvd );
+	//start hlpro2
+	void Killed( entvars_t *pevAttacker, int iGib );
+	int TakeDamage( entvars_t *pevInflictor, entvars_t *pevAttacker, float flDamage, int bitsDamageType );
+	//end hlpro2
 	BOOL IsEmpty( void );
 	int  GiveAmmo( int iCount, char *szName, int iMax, int *pIndex = NULL );
 	void SetObjectCollisionBox( void );

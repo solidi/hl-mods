@@ -1194,7 +1194,7 @@ void UTIL_BloodDrips( const Vector &origin, const Vector &direction, int color, 
 		WRITE_SHORT( g_sModelIndexBloodDrop );				// droplet sprite models
 		WRITE_BYTE( color );								// color index into host_basepal
 		//start hlpro2
-		WRITE_BYTE( g_bMoreGore ? RANDOM_LONG(30,32) : (min( max( 3, amount / 10 ), 16 )) );		// size
+		WRITE_BYTE( g_bMoreGore ? RANDOM_LONG(40,50) : (min( max( 3, amount / 10 ), 16 )) );		// size
 		//end hlpro2
 	MESSAGE_END();
 }				
