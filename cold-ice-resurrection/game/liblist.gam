@@ -3,10 +3,10 @@
 
 game "Cold-Ice Resurrection" 		              // MOD Title
 gamedir "cir"                                         // MOD Directory
-url_info "http://www.planethalflife.com/cir"          // MOD URL
-url_dl "http://www.planethalflife.com/cir/files.html" // MOD Download URL
-version "Beta 1" 		                      // Current Version
-hlversion "1101" 				      // Halflife Version
+url_info "http://www.planethalflife.com/cir/"         // MOD URL
+url_dl "http://www.planethalflife.com/cir/"           // MOD Download URL
+version "1" 		                              // Current Version
+hlversion "1108" 				      // Halflife Version
 size "38661920"  				      // MOD Size
 type "multiplayer_only"                               // MOD Type
 mpentity "info_player_deathmatch"                     // Multiplayer Spawn

@@ -1,7 +1,7 @@
 // Cold-Ice game definition file (.fgd) 
 // for beta 1
 // for Worldcraft 3.3 and above, and Half-Life 1.0.0.9 and above
-// last update: 1/20/2001
+// last update: 11/07/2001
 //
 // updated by Surreal
 // surreal@optonline.net
@@ -557,16 +557,8 @@
 // cir ammo
 //
 
-@PointClass base(Weapon, Targetx) = ammo_pistolclip : "9mm Pistol Ammo"         []
-@PointClass base(Weapon, Targetx) = ammo_magbullets : ".44mm Revolver Ammo"     []
-@PointClass base(Weapon, Targetx) = ammo_smgclip    : "9mm Sub Machinegun Ammo" []
-@PointClass base(Weapon, Targetx) = ammo_sigclip    : "556mm Sig Rifle Ammo"    []
-@PointClass base(Weapon, Targetx) = ammo_slugbox    : "Slug Rifle Ammo"         []
-@PointClass base(Weapon, Targetx) = ammo_blaserbox  : "Blaser Rifle Ammo"       []
-@PointClass base(Weapon, Targetx) = ammo_glbarrel   : "Grenade Launcher Ammo"   []
-@PointClass base(Weapon, Targetx) = ammo_rocketbox  : "Rocket Launcher Ammo"    []
-@PointClass base(Weapon, Targetx) = ammo_n2obox     : "n2o Frozen Ammo"    []
-
+@PointClass base(Weapon, Targetx) = ammo_deaglebox : ".50 Desert Eagle Ammo" []
+@PointClass base(Weapon, Targetx) = ammo_slugbox :   "Buck Shot Ammo"        []
 
 @SolidClass base(Target) = button_target : "Target Button"
 [
@@ -2103,28 +2095,18 @@
 // cir weapons
 //
 
-@PointClass base(Weapon, Targetx) = weapon_steelpipe     : "Steel Pipe"          []
-@PointClass base(Weapon, Targetx) = weapon_9mmpistol     : "9mm Pistol"          []
-@PointClass base(Weapon, Targetx) = weapon_revolver      : "44mm Revolver"       []
-@PointClass base(Weapon, Targetx) = weapon_smg           : "9mm Sub Machinegun"  []
-@PointClass base(Weapon, Targetx) = weapon_slugrifle     : "Slug Rifle"          []
-@PointClass base(Weapon, Targetx) = weapon_sigrifle      : "556mm Sig Rifle"     []
-@PointClass base(Weapon, Targetx) = weapon_blaser        : "762mm Blaser Rifle"  []
-@PointClass base(Weapon, Targetx) = weapon_minigun       : "Minigun"             []
-@PointClass base(Weapon, Targetx) = weapon_grenadel      : "Grenade Launcher"    []
-@PointClass base(Weapon, Targetx) = weapon_rocketl       : "Rocket Launcher"     []
-@PointClass base(Weapon, Targetx) = weapon_c4mine        : "C4 Mine"             []
-@PointClass base(Weapon, Targetx) = weapon_handgrenade   : "Frag grenade"        []
-@PointClass base(Weapon, Targetx) = weapon_freezer       : "Freezer Tech Rifle"  []
+@PointClass base(Weapon, Targetx) = weapon_steelpipe     : "Steel Pipe (SPAWN)" []
+@PointClass base(Weapon, Targetx) = weapon_chainsaw      : "Chainsaw (SPAWN)"   []
+@PointClass base(Weapon, Targetx) = weapon_deagle        : "Desert Eagle"       []
+@PointClass base(Weapon, Targetx) = weapon_sawedoff      : "Sawed Off Shotgun"  []
+@PointClass base(Weapon, Targetx) = weapon_smg           : "Sub Machine Gun"    []
+@PointClass base(Weapon, Targetx) = weapon_c4            : "C4 Mines"           []
 @PointClass size(-16 -16 0, 16 16 64) color(0 128 0) =  weaponbox : "Weapon/Ammo Container" []
 
 @PointClass base(Weapon, Targetx) = world_items : "World Items" 
 [
 	type(choices) :"types" : 42 =
 	[
-		42: "Head Armor"
-		43: "Chest Armor"
-		44: "Knee Armor"
 		45: "Suit"
 	]
 ]

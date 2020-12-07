@@ -1,57 +1,15 @@
    
-   Cold-Ice Resurrection Beta 1
+   Cold-Ice Resurrection Version 1.0
    http://www.planethalflife.com/cir
    readme.txt
    _________________________________
 
    Features:
 
-   Version Beta 1
+   Version 1.0
    -----------
-   [1.21.01]
+   [6.1.02]
 
-   - Completely rebuilt damage system.
-	-Indiviual health for each body part. 
-	-More Realstic Combat.
-		-Heart-Attacks.
-		-Blindness.
-		-Limb loss.
-		-Bleeding.
-   - 13 all new weapons.
-	-Steel Pipe.
-	-9mm Pistol.
-	-44mm Revolver.
-	-9mm Sub Machine Gun.
-	-12g Slug Rifle.
-	-5.56mm Sig Machine Gun.
-	-762 Minigun.
-	-7.62mm Blaser Sniper Rifle.
-        -35mm Grenade Launcher.
-	-Rocket Launcher.
-	-C4 Mine.
-	-Frag Grenade.
-	-The Freezer.
-   - 8 all new Maps.
-	-Catacombs.
- 	-Canyon.
- 	-The Mill.
- 	-Cold-Ice.
- 	-Training Complex.
-	-Stalkyard CIR Edition.
-	-Focus.
-	-The Hunting Grounds.
-   - Completely rebuilt 24bit hud.
-	-Ultra sharp graphics.
-   - GameModes
-	-Straight Spray and Pray.
-	-Last Man Standing.
-	-Iceman Cometh.
-   - Mutators
-	-NightOps.
-	-Weapon Arena.
-   - Taunt System.
-   - Mp3 Vgui Player.
-   - Powerup's Galore.
    _________________________________
 
    
@@ -92,52 +50,29 @@
    Panic - Mapper. 
    kste1149@earthlink.net
 
-   Devious - Mapper.
-   rhaworth@cwcom.net
-
    Apocalypso - Mapper.
    apo@planethalflife.com
 
-   Cyrus258 - Mapper.
-   Cyrus258@skyweb.net
-
-   Schrade - Mapper.
-   schrade@planethalflife.com
 	
    [Testing Department]
 
-   Spyder - Lead beta tester.
-   venom106@dccnet.com
-
-   Panic - Secondary beta tester. 
+   Panic - Beta tester. 
    kste1149@earthlink.net
 
    | > The Maps.
    ---------------------------------
 
-   | [Author] | [Name]                 | [File Name]   | [Misc]               |
-   |----------|------------------------|---------------|----------------------|
-   | Panic    | Catacombs              | cir_catacombs | n/a                  |
-   | Panic    | Canyon                 | cir_canyon    | n/a                  |
-   | Devious  | The Mill               | cir_themill   | n/a                  |
-   | tommyd   | Stalkx                 | cir_stalkx    | converted            |
-   | Schrade  | Focus                  | cir_focus     | converted            |
-   | Jope     | Cold-Ice               | cir_coldice   | redone by Surreal    |
-   | Surreal  | Training Complex       | cir_training  | sequeal              |
-   | Surreal  | Stalkyard: CIR EDITION | cir_stalkyard | converted by Surreal |
+   | [Author]   | [Name]                 | [File Name]   | [Misc]               |
+   |------------|------------------------|---------------|----------------------|
+   | Jope       | Cold-Ice               | cir_coldice   | redone by Surreal    |
+   | Surreal    | Training Complex       | cir_training  | sequeal              |
+   | Surreal    | Stalkyard              | cir_stalkyard | converted by Surreal |
+   | Apocalypso | Furrow                 | cir_furrow    | n\a                  |
    
 
    | > Misc Issues.
    ---------------------------------
-   If you do not own a computer inwhich can render half-life in opengl or
-   d3d and run it at a minimum resolution of 640*480, Cold-Ice will not 
-   function properly. These are really minimum requirements. If you cannot
-   meet these requirements, please buy a new computer now.
 
-   Again the requirements are:
-   
-   -Render in OPENGL or DIRECT 3D.
-   -Minimum resolution of 640*480.
 
    | > Special Thanks.
    ---------------------------------
