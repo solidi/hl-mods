@@ -8,12 +8,12 @@ Artifacts and code from the modification that was not released.
 
 Contributors:
 
-Infinity
-Panic
-Apocalypso
-Devious
-Cyrus258
-Schrade
-Spyder
-tommyd
-Jope
+Infinity  
+Panic  
+Apocalypso  
+Devious  
+Cyrus258  
+Schrade  
+Spyder  
+tommyd  
+Jope  
