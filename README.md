@@ -1,6 +1,8 @@
 # Half-Life Mods
 
-Modifications for Half-Life developed from 1999 to 2004
+Modifications for Half-Life developed from 1999 to 2004 by Douglas "Surreal" Arcuri.
+
+*Note: my email addresses of darcuri@optonline.net, surreal@optonline.net, and icq address are no longer active.*
 
 1. [Cold-Ice](https://www.moddb.com/mods/cold-ice)
 1. Cold-Ice Resurrection
