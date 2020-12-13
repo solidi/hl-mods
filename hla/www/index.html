@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>Half-Life Advanced v2.0</title>
+
+<script type="text/javascript">
+var revert = new Array();
+var inames = new Array('menu01', 'menu02', 'menu03', 'menu04', 'menu05', 'menu06');
+
+imgAbout = new Image();
+imgAbout.src = "images2/about.gif";
+imgAdvanced = new Image();
+imgAdvanced.src = "images2/advanced.gif";
+imgVault = new Image();
+imgVault.src = "images2/vault.gif";
+imgAuthor = new Image();
+imgAuthor.src = "images2/author.gif";
+imgSubmit = new Image();
+imgSubmit.src = "images2/submit.gif";
+imgContact = new Image();
+imgContact.src = "images2/contact.gif";
+
+// Preload
+if (document.images) {
+  var flipped = new Array();
+  for(i=0; i<inames.length; i++) {
+    flipped[i] = new Image();
+    flipped[i].src = "images2/"+inames[i]+"1.gif";
+  }
+}
+
+function over(num) {
+  if(document.images) {
+    revert[num] = document.images[inames[num]].src;
+    document.images[inames[num]].src = flipped[num].src;
+  }
+}
+
+function out(num) {
+  if(document.images) document.images[inames[num]].src = revert[num];
+}
+
+function file_name_only(str) { 
+return str.substring(str.lastIndexOf('/') + 1, str.lastIndexOf('.')) 
+} 
+
+function check_img() {
+	var framename = file_name_only(parent.c_window.location.href);
+
+	if ( framename =='advanced' ){ document.header.src = imgAdvanced.src; }
+	else if ( framename =='vault' ){ document.header.src = imgVault.src; }
+	else if ( framename =='author' ){ document.header.src = imgAuthor.src; }
+	else if ( framename =='submition' ){ document.header.src = imgSubmit.src; }
+	else if ( framename =='contact' ){ document.header.src = imgContact.src; }
+	else document.header.src = imgAbout.src;
+}
+</script>
+
+</head>
+<body topmargin="0" leftmargin="0" marginhieght="0" marginwidth="0" onload="check_img()">
+
+<table width="750" cellpadding="0" cellspacing="0">
+<tr height="2">
+	<td bgcolor="#E6E6E6"></td>
+</tr>
+<tr height="50">
+	<td align="right" bgcolor="#E6E6E6"><img src="images2/logo.gif"></td>
+</tr>
+<tr height="25">
+	<td bgcolor="#666666"></td> <!-- 336699 -->
+</tr>
+<tr height="25">
+	<td align="right" bgcolor="#FF6600"><img name="header" src="images2/about.gif"><img src="images2/line02.gif"></td> <!-- 99B3CC -->
+</tr>
+<tr height="460">
+	<td bgcolor="#FFFFFF">
+
+	<table width="100%" height="100%" cellpadding="20">
+	<tr>
+		<td width="400">
+		
+		<iframe width="100%" height="100%" scrolling="auto" hspace="0" frameborder="0" name="c_window" marginwidth="0" marginheight="0" vspace="0" src="about.html"><font face="verdana" color="#666666" style='font-size:9px'>You do not have floating frames. Download the latest version of your browser!</font></iframe>
+	
+		</td>
+		<td valign="top">
+
+		<br>
+
+		<table width="195" cellpadding="0" cellspacing="0">
+		<tr height="1">
+			<td colspan="2" bgcolor="#E6E6E6"></td>
+		</tr>
+		<tr height="25">
+			<td width="15" bgcolor="#E6E6E6"></td><td><a href="about.html" target="c_window"><img src="images2/menu01.gif" border="0" name="menu01" onMouseOver="over(0)" onClick="javascript:void(document.header.src = imgAbout.src )" onMouseOut="out(0)"></a></td>
+		</tr>
+		<tr height="25">
+			<td width="15" bgcolor="#E6E6E6"></td><td><a href="advanced.html" target="c_window"><img src="images2/menu02.gif" border="0" name="menu02" onMouseOver="over(1)" onClick="javascript:void(document.header.src = imgAdvanced.src )"  onMouseOut="out(1)"></a></td>
+		</tr>
+		<tr height="25">
+			<td width="15" bgcolor="#E6E6E6"></td><td><a href="vault.html" target="c_window"><img src="images2/menu03.gif" border="0" name="menu03" onMouseOver="over(2)" onClick="javascript:void(document.header.src = imgVault.src )" onMouseOut="out(2)"></a></td>
+		</tr>
+		<tr height="25">
+			<td width="15" bgcolor="#E6E6E6"></td><td><a href="author.html" target="c_window"><img src="images2/menu04.gif" border="0" name="menu04" onMouseOver="over(3)" onClick="javascript:void(document.header.src = imgAuthor.src )" onMouseOut="out(3)"></a></td>
+		</tr>
+		<tr height="25">
+			<td width="15" bgcolor="#E6E6E6"></td><td><a href="submition.html" target="c_window"><img src="images2/menu05.gif" border="0" name="menu05" onMouseOver="over(4)" onClick="javascript:void(document.header.src = imgSubmit.src )" onMouseOut="out(4)"></a></td>
+		</tr>
+		<tr height="25">
+			<td width="15" bgcolor="#E6E6E6"></td><td><a href="contact.html" target="c_window"><img src="images2/menu06.gif" border="0" name="menu06" onMouseOver="over(5)" onclick="javascript:void(document.header.src = imgContact.src )" onMouseOut="out(5)"></a></td>
+		</tr>
+		<tr height="1">
+			<td colspan="2" bgcolor="#E6E6E6"></td>
+		</tr>
+		</table>
+		<br>
+		<!-- <img src="images2/guy.gif"> -->
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="202" height="202" id="gordon" align="middle">
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="movie" value="images2/flash/gordon.swf" />
+		<param name="quality" value="high" />
+		<param name="bgcolor" value="#ffffff" />
+		<embed src="images2/flash/gordon.swf" quality="high" bgcolor="#ffffff" width="202" height="202" name="gordon" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+		</object>
+
+		</td>
+	</tr>
+	</table>
+
+	</td>
+</tr>
+<tr height="25">
+	<td bgcolor="#666666"><img align="center" src="images2/line01.gif"><!-- <img align="center" src="images2/bottom2.gif"> --></td>
+</tr>
+</table>
+</body>
+</html>
