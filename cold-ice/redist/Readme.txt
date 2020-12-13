@@ -56,7 +56,7 @@ you can trade in your hard earned frags for some kick ass weapons. You can alway
 Both of these menu can be actived by the commands   ammomenu  and   weaponmenu
 
 Why did we change the rules?
-This was because we wanted to cut lagg. This mode inturn  makes smooth gameplay because the server doesnt have to "slave" all the world models + the serious expolsives.
+This was because we wanted to cut lagg. This mode inturn  makes smooth gameplay because the server doesnt have to serve all the world models + the serious expolsives.
 Also, it gives a chance for the little guy to actually win. A good player will conserve frags inorder to gain the biggest weapons!
 But be careful. Dont be a slacky if you have the nuke launcher. People can still kill you.. and they could take away your hard earned weapon!
 
