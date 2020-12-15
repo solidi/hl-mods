@@ -1,0 +1,46 @@
+37
+
+dmg_bio			640 640hud8	128	0	64	64
+dmg_poison		640 640hud8	128	0	64	64
+dmg_chem		640 640hud8	0	0	64	64
+dmg_cold		640 640hud9	64	0	64	64
+dmg_drown		640 640hud8	64	0	64	64
+dmg_heat		640 640hud9	128	0	64	64
+dmg_gas			640 640hud9	0	0	64	64
+dmg_rad			640 640hud9	192 0	64	64
+dmg_shock		640 640hud8	192	0	64	64
+
+train_back		640	640hud5 170	0	72	72
+train_stop		640	640hud5 170	72	72	72
+train_forward1	640	640hud5 170	144	72	72
+train_forward2	640	640hud6 170	0	72	72
+train_forward3	640	640hud6 170	72	72	72
+
+title_half		640 640hud4	0	226	256	30
+title_life		640 640hud5	0	226	220	30
+
+d_grenade		640	640hud1	192	160	32	16
+d_skull			640	640hud1	192	224	32	16
+d_tracktrain		640	640hud1	192	240	32	16
+
+grenade			640 640hud7     48      96      24      24
+
+//start ice [17]
+d_steelpipe		640	640death    0   0       48      16
+d_9mmpistol		640	640death    0   18      48      16
+d_revolver		640	640death    0   36      48      16
+d_smg			640	640death    0   54      48      16
+d_slugrifle      	640	640death    0   72      48      16
+d_sigrifle 	 	640	640death    0   90      48      16
+d_blaser                640     640death    0   108     48      16
+d_minigun               640     640death    0   124     48      16
+d_grenadel              640     640death    0   142     48      16
+
+man_head                320     640man      52  20      24      28
+man_chest               320     640man      48  52      32      36
+man_stomach             320     640man      46  92      36      40
+man_leftarm             320     640man      6   52      32      66
+man_rightarm            320     640man      92  52      32      66   
+man_leftleg             320     640man      22  142     26      92
+man_rightleg            320     640man      80  142     26      92
+//end ice

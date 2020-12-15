@@ -1,0 +1,17 @@
+//Cold-Ice liblist.gam file.
+//Please do not edit!
+
+game "Cold-Ice Resurrection" 		              // MOD Title
+gamedir "cir"                                         // MOD Directory
+url_info "http://www.planethalflife.com/cir"          // MOD URL
+url_dl "http://www.planethalflife.com/cir/files.html" // MOD Download URL
+version "Beta 1" 		                      // Current Version
+hlversion "1101" 				      // Halflife Version
+size "38661920"  				      // MOD Size
+type "multiplayer_only"                               // MOD Type
+mpentity "info_player_deathmatch"                     // Multiplayer Spawn
+cldll "1" 					      // Client-Side DLL? (1=yes 0=no)
+svonly "0" 					      // Server-Side Only? (1=yes 0=no)
+nomodels "0" 					      // No Player Model Select? (1=yes 0=no)
+mpentity "info_player_start"			      // Multiplayer Spawn Entity
+gamedll "dlls\ice.dll" 		                      // DLL Location
