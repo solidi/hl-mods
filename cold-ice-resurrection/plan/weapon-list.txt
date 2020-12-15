@@ -1,0 +1,157 @@
+---------------------------------
+COLD ICE resurrection Weapon list
+---------------------------------
+
+steel pipe 
+hk 9mm pistol
+.44 taraus revolver
+mp5k
+sig assualt rifle
+slug rifle
+blaser hunting rifle
+762 minigun (vulcan)
+35mm grenade laucher
+semi auto (6 clip!) medium armor rocket laucher!
+frag grenade
+c4 explosive
+Xero n2o tec rifle (ice-cubes)
+
+Steel pipe
+   |
+   |
+    ---  crowbar v2 * (?)
+
+9mm handgun
+   |
+   |
+    ---  .44m Revolver *
+   |
+   |
+    ---  Laser gun * (?)
+
+9mm MP5K
+   |
+   |
+    ---  556 Sig Rifle
+   |
+   |
+    ---  12g Shotgun
+   |
+   |
+    ---  762 Minigun *
+
+grenade launcher
+   |
+   |
+    ---  rocket launcher *
+   |
+   |
+    ---  Plasma rifle *
+
+grenades *
+   |
+   |
+    ---  C4 remote / time *
+   |
+   |
+    ---  decoy bomb * (?)
+
+
+-> * not done yet   (?) not sure
+
+--------------
+Weapon summary
+--------------
+
+Meele | Pistol | Assault | Heavy | HandExpl. 
+------|--------|---------|-------|-----------
+  2   |   3    |    4    |   3   |    3        
+
+total weapons: 15
+
+----------------
+Weapon functions
+----------------
+                   |   AMMO   |    PRIMARY    |   SECONDARY   | DAMAGE TYPE
+-------------------|----------|---------------|---------------|-------------
+Steel pipe         |   none   |    strike     |    load up    |    meele
+crowbar v2 * (?)   |   none   |    strike     |    disarm     |    meele
+-------------------|----------|---------------|---------------|-------------
+9mm handgun        |   9mm    |    shoot      | laserpointer  |   bullet
+.44m Revolver *    |   none   |    shoot      |       -       |   bullet
+Laser gun * (?)    |   none   |  shoot(beam)  |    load up    |   energy
+-------------------|----------|---------------|---------------|-------------
+9mm MP5K           |   none   |    shoot      |  fire modes   |   bullet
+556 Sig Rifle      |   none   |    shoot      |     Zoom      |   bullet
+12g Shotgun        |   none   |    shoot      |       -       |   bullet
+762 Minigun *      |   none   |    shoot      |    overheat   |   bullet
+-------------------|----------|---------------|---------------|-------------
+grenade launcher   |   none   | shoot(impact) | shoot(bounce) |  explosive
+rocket launcher *  |   none   |shoot(straight)| shoot(homing) |  explosive
+Plasma rifle *     |   none   |  shoot(beam)  |shoot(bfg-ball)|   energy
+-------------------|----------|---------------|---------------|-------------
+grenades *         |   none   |    throw      |   lay down    |  explosive
+C4 remote / time * |   none   |    plant      | switch modes  |  explosive
+decoy bomb * (?)   |   none   |    throw      |       -       |  explosive
+
+------------------------------------------------------------------------------
+Steel pipe: The steel pipe, wherever it comes from, is a nice meele tool to
+          get rid of your enimies when you're low on ammo, or for close range
+          combats because of it's potential damage.
+crowbar v2 * (?): The new crowbar, better, bigger and more beatiful but very
+          dangerous for you enemies, hit them in their head and they won't
+          be able to react before they feel it.
+------------------------------------------------------------------------------
+9mm handgun: The usual 9mm handgun everyone carrys around if you don't overuse
+          it's velocity it's rather accurate and an precise shot in the head
+          can cause some problems for your enemy.
+.44m Revolver *: Be happy, if you're equipped with this baby, it as only 6
+          shots and fires rather slow but it blasts your poor enemies away,
+          it's very accurate and is still precise on longer distances. 
+Laser gun * (?): Star Trek? No! This is Cold Ice and it has a laser gun. It's
+          function is pretty simple, it fires a concentrated light beam which
+          will turn the cold feeling of your enemies very quickly.
+------------------------------------------------------------------------------
+9mm MP5K: Need for Speed? Yes, you're right here if you are sourrounded by a
+          lot of enemies just fire 30 bullets around in 3 seconds and the
+          situation will change for your happiness. If you don't want to waste
+          all your ammo you can either switch to burst fire or to semi-auto.
+556 Sig Rifle: The good old assault rifle helped in every situation until now,
+          it has an acceptable rate of fire and accuracy and to help on long
+          ranges it's equipped with a 2x scope.
+12g Shotgun: The humans best friend is a dog or a shotgun? A dog can cause
+          damage on close range only, like the shotgun, but the shotgun can
+          cause more damage at once. It'll help you in buildings or hallways
+          but over long ranges you probably won't even hit your target.
+762 Minigun *: The minigun is the top of the assault weapons it's not very
+          accurate but it has an incredible rate of fire so it would be better
+          to have some ammunition reserves. If you have many enemies before
+          you this is a good tool to hunt them down.
+------------------------------------------------------------------------------
+grenade launcher: Who doesn't see 3 people quarreling about the frag, just
+          join them with a nice grenade and everything will rest in piece(s).
+          It's strong and even if you don't hit your target you will cause
+          major damage but beware it needs a time until you can shoot again.
+rocket launcher *: You're in a big canyon and your enemy is on the other side
+          then you, no broblem just sent him a little gift from your rocket
+          launcher and if he decides to refuse it then you can let it follow
+          his heart beat signal, but beware that the rocker doesn't detect
+          your own heart otherwise you'll be the gift.
+Plasma rifle *: It's big, it's strong, it's surreal, it's the plasma rifle
+          one big baby that can help you a lot. You can shoot either a nice
+          green beam wich will go through wall(s) and corrode your enemies
+          bodies or you concentrate the energy and fire a big green plasma-
+          ball which will result in a very toxic and corrosive explosion.
+------------------------------------------------------------------------------
+grenades *: The frag grenade, live with it or die with it, it's your decision
+          but I would guess it's better to live with it and let your enemies
+          die, just pull the pin and throw it towards them, but not the pin,
+          you have to throw the grenade.
+C4 remote / time *: C4, remember? Yeah it's that green Plasticine which can
+          result in an explosion sometimes and you can decide how to let that
+          happen. You can just set a timer to 5 seconds or you activate the
+          handy remote control system which let's you detonate the bomb from
+          a safe distance and you can watch your enemies go BOOM.
+decoy bomb * (?): You can see the decoy bomb from too sides. The first side is
+          that you give your enemy a healthpack for free the other side is
+          that this healthpack is equipped with explosives.
