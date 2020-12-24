@@ -3,7 +3,7 @@ SET icedir=C:\Sierra\Half-Life\iceg
 SET hlexe=C:\Sierra\Half-Life\hl.exe
 
 REM https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-%msdev% z:\src\dlls\hl.dsw /make "hl - Win32 Debug"
+%msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Debug"
 
 ECHO Y|RMDIR %icedir% /Q /S
 MKDIR %icedir%
