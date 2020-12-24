@@ -6,3 +6,4 @@
 1. MSVC 6 can be run from the command line using the msdev executable.
 1. Git submodules are repos within repos. Checkout branch in the submodule folder, commit, and then update the outter repo git commit reference.
 1. Continue to reduce the pipeline time to get to test the game changes.
+1. Goldsrc requires gcc 4.x to to compile correctly. However, macOS Catalina has removed the header source files for compilation from the xcode toolchain.
