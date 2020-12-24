@@ -8,8 +8,37 @@
 
    Version 1.0
    -----------
-   [6.1.02]
+   [1.1.02]
 
+   - Completely rebuilt damage system.
+	-Indiviual health for each body part. 
+	-More Realstic Combat.
+		-Heart-Attacks.
+		-Blindness.
+		-Limb loss.
+		-Bleeding.
+   - 13 all new weapons.
+	-Steel Pipe.
+	-Chainsaw.
+	-Desert Eagle.
+	-Sawed Off Shotgun.
+	-Sub Machinegun.
+	-5.56mm Sig Machine Gun.
+	-762 Minigun.
+	-7.62mm Blaser Sniper Rifle.
+        -35mm Grenade Launcher.
+	-Rocket Launcher.
+	-C4 Mine.
+	-Frag Grenade.
+	-The Freezer.
+   - 4 all new Maps.
+ 	-Cold-Ice.
+ 	-Training Complex.
+	-Stalkyard CIR Edition.
+	-Furrow.
+   - Completely rebuilt 24bit hud.
+	-Ultra sharp graphics.
+   - Taunt System.
    _________________________________
 
    
