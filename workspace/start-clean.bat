@@ -9,5 +9,12 @@ ECHO Y|RMDIR %icedir% /Q /S
 MKDIR %icedir%
 ECHO Y|XCOPY Z:\redist "%icedir%" /E
 
+REM Making PAK file
+COPY Z:\bin\qpakman.exe %icedir%
+CD %icedir%
+%icedir%\qpakman models -o pak0.pak
+ECHO Y|RMDIR %icedir%\models /Q /S
+DEL %icedir%\qpakman.exe
+
 REM https://developer.valvesoftware.com/wiki/Command_Line_Options
 %hlexe% -dev -console -game iceg +sv_lan 1 +map stalkyard
