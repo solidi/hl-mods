@@ -1,7 +1,8 @@
 @ECHO OFF
 SET msdev="C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\msdev"
-SET icedir=C:\Sierra\Half-Life\iceg
-SET hlexe=C:\Sierra\Half-Life\hl.exe
+SET hldir=C:\Sierra\Half-Life
+SET icedir=%hldir%\iceg
+SET hlexe=%hldir%\hl.exe
 
 REM https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
 %msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Debug"
@@ -37,4 +38,6 @@ IF %ERRORLEVEL% NEQ 0 (
   ECHO Something went wrong with Half-Life.
 )
 
+REM Get out of %icedir% so that the folder can be removed later
+CD %hldir%
 CMD
