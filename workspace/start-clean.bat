@@ -1,3 +1,4 @@
+@ECHO OFF
 SET msdev="C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\msdev"
 SET icedir=C:\Sierra\Half-Life\iceg
 SET hlexe=C:\Sierra\Half-Life\hl.exe
@@ -7,7 +8,8 @@ REM https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studi
 
 IF %ERRORLEVEL% NEQ 0 (
   ECHO Could not compile dll.
-  CMD /K
+  PAUSE
+  EXIT
 )
 
 ECHO Y|RMDIR %icedir% /Q /S
@@ -21,14 +23,18 @@ CD %icedir%
 
 if %ERRORLEVEL% EQU 0 (
   ECHO Could not recreate pak file.
-  CMD /K
+  PAUSE
+  EXIT
 )
 
 ECHO Y|RMDIR %icedir%\models /Q /S
 DEL %icedir%\qpakman.exe
 
 REM https://developer.valvesoftware.com/wiki/Command_Line_Options
-%hlexe% -dev -windowed -console -game iceg +sv_lan 1 +map stalkyard
+%hlexe% -dev -windowed -console -game iceg -condebug +sv_lan 1 +map stalkyard
 
-REM Prevent command closing
-CMD /K
+IF %ERRORLEVEL% NEQ 0 (
+  ECHO Something went wrong with Half-Life.
+)
+
+CMD
