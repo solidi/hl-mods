@@ -14,7 +14,7 @@
 
 1. Bots
 1. Off-hand grapple hook
-1. Weapons
+1. Weapons (add behavior noes of each weapon after in-game review)
     1. 25-inch chaingun
     1. 7.65 mm sniper rifle 
     1. Grenade Launcher
@@ -38,3 +38,7 @@
     1. chumtoad
 1. HUD notification system
     1. Identity of weapons from Rory
+
+## Nice to Haves
+
+1. Snowball fight mutator - all weapons fire / throw snowballs
