@@ -12,8 +12,8 @@
 
 ## Outline
 
-1. Bots
-1. Off-hand grapple hook
+1. Add [bots](http://hpb-bot.bots-united.com/index.html)
+1. Add Off-hand [grapple hook](https://github.com/solidi/hl-mods/blob/c91828511f455f9fe323f652379cdb287414ea0b/ci/src/dlls/player.cpp#L4863)
 1. Weapons (add behavior noes of each weapon after in-game review)
     1. 25-inch chaingun
     1. 7.65 mm sniper rifle 
