@@ -1,5 +1,9 @@
 # Cold Ice Goldsrc
 
+## Mission
+
+1. More is more with weapons - if the game can handle it, add more of it
+
 ## First Principles
 
 1. To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life GoldSource
@@ -8,7 +12,8 @@
 
 ## Upgrades
 
-1. Use hi-definition models in place of lower resolution models
+1. Unless otherise noted, use hi-definition models in place of lower resolution models
+1. Borrow CIR beta 2 models with ice over effect to this mod
 
 ## Outline
 
