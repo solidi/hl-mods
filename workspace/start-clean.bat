@@ -5,7 +5,8 @@ SET icedir=%hldir%\iceg
 SET hlexe=%hldir%\hl.exe
 
 REM https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-%msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Debug"
+%msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Release"
+%msdev% z:\src\cl_dll\cl_dll.dsp /make "cl_dll - Win32 Release"
 
 IF %ERRORLEVEL% NEQ 0 (
   ECHO Could not compile dll.
@@ -16,6 +17,18 @@ IF %ERRORLEVEL% NEQ 0 (
 ECHO Y|RMDIR %icedir% /Q /S
 MKDIR %icedir%
 ECHO Y|XCOPY Z:\redist "%icedir%" /E
+
+IF NOT EXIST %icedir%\dlls\hl.dll (
+  ECHO Could not find hl.dll.
+  PAUSE
+  EXIT
+)
+
+IF NOT EXIST %icedir%\cl_dlls\client.dll (
+  ECHO Could not find client.dll.
+  PAUSE
+  EXIT
+)
 
 REM Making PAK file
 COPY Z:\bin\qpakman.exe %icedir%
@@ -32,7 +45,7 @@ ECHO Y|RMDIR %icedir%\models /Q /S
 DEL %icedir%\qpakman.exe
 
 REM https://developer.valvesoftware.com/wiki/Command_Line_Options
-%hlexe% -dev -windowed -console -game iceg -condebug +sv_lan 1 +map stalkyard
+%hlexe% -dev -windowed -console -game iceg -condebug +log on +sv_lan 1 +map stalkyard
 
 IF %ERRORLEVEL% NEQ 0 (
   ECHO Something went wrong with Half-Life.
