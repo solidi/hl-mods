@@ -14,8 +14,8 @@ DEL %redistdir%\dlls\hl.dll
 DEL %redistdir%\cl_dlls\client.dll
 
 REM https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-%msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Release" %rebuild%
-%msdev% z:\src\cl_dll\cl_dll.dsp /make "cl_dll - Win32 Release" %rebuild%
+%msdev% z:\src-2.3\dlls\hl.dsp /make "hl - Win32 Release" %rebuild%
+%msdev% z:\src-2.3\cl_dll\cl_dll.dsp /make "cl_dll - Win32 Release" %rebuild%
 
 IF %ERRORLEVEL% NEQ 0 (
   ECHO Could not compile dll.
@@ -25,7 +25,7 @@ IF %ERRORLEVEL% NEQ 0 (
 
 RMDIR %icedir% /Q /S
 MKDIR %icedir%
-ECHO Y|XCOPY "%redistdir" "%icedir%" /E
+ECHO Y|XCOPY "%redistdir%" "%icedir%" /E
 
 IF NOT EXIST %icedir%\dlls\hl.dll (
   ECHO Could not find hl.dll.
