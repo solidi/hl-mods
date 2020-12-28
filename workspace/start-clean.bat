@@ -1,12 +1,21 @@
 @ECHO OFF
+TITLE Compiling Cold Ice GoldSrc
+COLOR 3F
+
+SET rebuild=%1
 SET msdev="C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\msdev"
 SET hldir=C:\Sierra\Half-Life
+SET redistdir=Z:\redist
 SET icedir=%hldir%\iceg
 SET hlexe=%hldir%\hl.exe
 
+REM Delete current libraries so that we do not use old copies
+DEL %redistdir%\dlls\hl.dll
+DEL %redistdir%\cl_dlls\client.dll
+
 REM https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-%msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Release"
-%msdev% z:\src\cl_dll\cl_dll.dsp /make "cl_dll - Win32 Release"
+%msdev% z:\src\dlls\hl.dsp /make "hl - Win32 Release" %rebuild%
+%msdev% z:\src\cl_dll\cl_dll.dsp /make "cl_dll - Win32 Release" %rebuild%
 
 IF %ERRORLEVEL% NEQ 0 (
   ECHO Could not compile dll.
@@ -14,9 +23,9 @@ IF %ERRORLEVEL% NEQ 0 (
   EXIT
 )
 
-ECHO Y|RMDIR %icedir% /Q /S
+RMDIR %icedir% /Q /S
 MKDIR %icedir%
-ECHO Y|XCOPY Z:\redist "%icedir%" /E
+ECHO Y|XCOPY "%redistdir" "%icedir%" /E
 
 IF NOT EXIST %icedir%\dlls\hl.dll (
   ECHO Could not find hl.dll.
@@ -41,7 +50,7 @@ if %ERRORLEVEL% EQU 0 (
   EXIT
 )
 
-ECHO Y|RMDIR %icedir%\models /Q /S
+RMDIR %icedir%\models /Q /S
 DEL %icedir%\qpakman.exe
 
 REM https://developer.valvesoftware.com/wiki/Command_Line_Options
