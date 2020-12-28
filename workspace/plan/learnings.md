@@ -20,3 +20,12 @@
 1. Here is a [good list](https://developer.valvesoftware.com/wiki/Command_Line_Options) of Half-Life executable parameters and switches.
 1. Half-Life has entity limits, ex. `num_edicts <variable>` - Sets the entity limit for map/game entities (not temporary entities, which is still locked to 500). 900 is default. 4096 is a good limit, beyond that seems to cause hunk_alloc errors. Both clients and servers need matching values for best compatibility.
 1. VAC means [Valve Anti-Cheat](https://developer.valvesoftware.com/wiki/Valve_Anti-Cheat).
+1. Here is the [current liblist.gam format](https://developer.valvesoftware.com/wiki/The_liblist.gam_File_Structure) for Half-Life 1 mods.
+1. cl_dll compile problems - things I've tried
+    1. Compile debug and release
+    1. Compile in MSVC directly and copy over
+    1. Changed liblist.gam from type "multiplayer_only" to "singleplayer_only"
+    1. [Followed this thread](https://github.com/ValveSoftware/halflife/issues/1610), added cg dlls, removed MousePointer virtual function declaration
+1. In WindowsXP, to see file permissions, disable `Simpel File Share` in Explorer Options.
+1. Will need to further investigate `edicts "2048"` in the `liblist.gam`cfile for more entities.
+1. For modeling, "splines" are slats or spokes in a wheel. UWW is used as a metaphor for XYZ for texturing coordinates.
