@@ -29,3 +29,7 @@
 1. In WindowsXP, to see file permissions, disable `Simpel File Share` in Explorer Options.
 1. Will need to further investigate `edicts "2048"` in the `liblist.gam`cfile for more entities.
 1. For modeling, "splines" are slats or spokes in a wheel. UWW is used as a metaphor for XYZ for texturing coordinates.
+1. MSVC 6.0 `msdev` compilation is [attainable](https://stackoverflow.com/questions/19856468/running-visual-studio-6-c-in-windows-8-1) in Windows Pro 8.1. `msdev.exe` requires a rename to `msdev3.exe`
+1. Here is a cool list of [dos console colors](https://stackoverflow.com/questions/29014820/color-echo-in-batch-files) when using the command `COLOR 3F`.
+1. More info on creating [basic player config files](https://hldm.cz/how-to-create-config/) in Half-Life.
+1. The current version of the [GoldSrc cl_dll](https://github.com/ValveSoftware/halflife) is not compatible with `1.1.0.0`.

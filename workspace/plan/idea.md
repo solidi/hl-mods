@@ -15,6 +15,10 @@
 1. Unless otherise noted, use hi-definition models in place of lower resolution models
 1. Borrow CIR beta 2 models with ice over effect to this mod
 
+## Cvars
+
+1. Switch between iced models and standard skins
+
 ## Outline
 
 1. Add [bots](http://hpb-bot.bots-united.com/index.html)
