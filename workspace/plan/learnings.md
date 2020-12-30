@@ -33,3 +33,6 @@
 1. Here is a cool list of [dos console colors](https://stackoverflow.com/questions/29014820/color-echo-in-batch-files) when using the command `COLOR 3F`.
 1. More info on creating [basic player config files](https://hldm.cz/how-to-create-config/) in Half-Life.
 1. The current version of the [GoldSrc cl_dll](https://github.com/ValveSoftware/halflife) is not compatible with `1.1.0.0`.
+1. Powershell has commands called `commandlets` that are long formed aliases like `Remove-Items` and `Copy-Items`
+1. When compiling a reference model with `studiomdl`, to apply the chrome effect, the texture name must have `Chrome` in the filename. [It must also be 64x64.](https://forums.alliedmods.net/showthread.php?p=2322742)
+1. In powershell, adding `-force` to any cmdlet makes things work.
