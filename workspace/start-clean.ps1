@@ -1,4 +1,6 @@
+$ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
+
 $host.UI.RawUI.WindowTitle = "Packaging Cold Ice GoldSrc"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
@@ -11,6 +13,8 @@ $rebuild = $args[0]
 $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin\msdev3"
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
+$bindir = "Z:\bin"
+$modelsdir = "Z:\models"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
@@ -32,6 +36,26 @@ if ($lastexitcode -ne 0) {
     echo "Could not compile hl.dll. Exit code: ${lastexitcode}"
     exit
 }
+
+function Compile-Model {
+    param (
+        $target
+    )
+
+    Copy-Item $bindir\studiomdl.exe $modelsdir\$target
+    Remove-Item $modelsdir\$target.mdl -ErrorAction Ignore
+    Set-Location -Path $modelsdir\$target
+    & .\studiomdl $modelsdir\$target\$target.qc | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not compile ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    Move-Item $modelsdir\$target\$target.mdl $redistdir\models -force
+    Remove-Item $modelsdir\$target\studiomdl.exe
+}
+
+# Compile source models
+Compile-Model "v_9mmAR"
 
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
 
