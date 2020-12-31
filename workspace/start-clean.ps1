@@ -90,7 +90,7 @@ Remove-Item "${icedir}\models" -Recurse -Force
 Remove-Item "${icedir}\qpakman.exe"
 
 # https://developer.valvesoftware.com/wiki/Command_Line_Options
-& $hlexe -dev -windowed -console -game iceg -condebug +log on +sv_lan 1 +map stalkyard | Out-Null
+& $hlexe -dev -console -game iceg -condebug -windowed -gl -w 640 -h 480 +log on +sv_lan 1 +map stalkyard | Out-Null
 
 if ($lastexitcode -ne 0) {
     echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
