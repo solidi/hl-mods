@@ -16,6 +16,7 @@ $redistdir = "Z:\redist"
 $bindir = "Z:\bin"
 $modelsdir = "Z:\models"
 $spritesdir = "z:\sprites"
+$mapsdir = "Z:\maps"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
@@ -72,11 +73,45 @@ function Compile-Sprite {
     Remove-Item $spritesdir\$target\sprgen.exe
 }
 
+function Compile-Map {
+    param (
+        $target
+    )
+
+    Set-Location -Path $bindir
+    & .\qcsg $mapsdir\$target\$target.map | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not qcsp ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    & .\qbsp2 $mapsdir\$target\$target.map | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not qbsp ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    & .\vis $mapsdir\$target\$target.map | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not vis ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    & .\qrad $mapsdir\$target\$target.map | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not qrad ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    Copy-Item $mapsdir\$target\$target.bsp $redistdir\maps
+    Get-ChildItem $mapsdir\$target -Exclude *.map | Remove-Item -Force -ErrorAction Ignore
+}
+
 # Compile source models
 Compile-Model "v_9mmAR"
 
 # Compile sprites
 Compile-Sprite "muzzleflash1"
+
+# Compile maps
+Compile-Map "yard"
+# Compile-Map "training"
 
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
 
