@@ -36,3 +36,9 @@
 1. Powershell has commands called `commandlets` that are long formed aliases like `Remove-Items` and `Copy-Items`
 1. When compiling a reference model with `studiomdl`, to apply the chrome effect, the texture name must have `Chrome` in the filename. [It must also be 64x64.](https://forums.alliedmods.net/showthread.php?p=2322742)
 1. In powershell, adding `-force` to any cmdlet makes things work.
+1. Adding a git fork is straightforward, and more importantly, [fetching from upstream](https://garygregory.wordpress.com/2016/11/10/how-to-catch-up-my-git-fork-to-master/) is also painless.
+1. How to use [passed parameters](https://www.red-gate.com/simple-talk/sysadmin/powershell/how-to-use-parameters-in-powershell/) in PowerShell.
+1. How to set execution policy of powershell on the system [to run unsigned scripts](https://superuser.com/questions/106360/how-to-enable-execution-of-powershell-scripts).
+1. Some of the [oddness explained](https://stackoverflow.com/questions/18877580/powershell-and-the-contains-operator) attempting equality operations in Powershell.
+1. Syntax changes from cmd to powershell, [see here](https://www.meziantou.net/convert-cmd-script-to-powershell.htm). Here is a (style guide)[https://github.com/PoshCode/PowerShellPracticeAndStyle] to powershell.
+1. Numerous [threads](https://stackoverflow.com/questions/3592851/executing-a-command-stored-in-a-variable-from-powershell) on [running](https://stackoverflow.com/questions/51690708/run-powershell-commands-sequentially-in-their-own-windows-and-prevent-them-from) exes [in powershell](https://stackoverflow.com/questions/1741490/how-to-tell-powershell-to-wait-for-each-command-to-end-before-starting-the-next). This was difficult to get right since we want to run the programs sequentially but not have to deal with Coammand Argument escaping.
