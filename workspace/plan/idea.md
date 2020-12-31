@@ -24,30 +24,33 @@
 1. Add [bots](http://hpb-bot.bots-united.com/index.html)
 1. Add Off-hand [grapple hook](https://github.com/solidi/hl-mods/blob/c91828511f455f9fe323f652379cdb287414ea0b/ci/src/dlls/player.cpp#L4863)
 1. Weapons (add behavior noes of each weapon after in-game review)
-    1. 25-inch chaingun
-    1. 7.65 mm sniper rifle 
-    1. Grenade Launcher
-    1. Mag60
-    1. 12-inch combat knife
-    1. Standard crowbar
-    1. 40-pound monkey wrench
-    1. PPK, bond style
-    1. Mag 60 automatic handgun
-    1. m-16 assault rifle
-    1. 12 gauge shotgun
-    1. Assault Shotgun
-    1. 50-pound automatic LAW rocket Launcher
-    1. 120-pound grenade launcher
-    1. 30mm assault cannon
-    1. USAS-12 auto shotgun
-    1. Air Compressed Auto BoltGun
-    1. 6-pack cluster grenades
-    1. female assassin decoy bombs
-    1. Kamikaze dynamite vest
-    1. chumtoad
+
+  | entity name | title | slot | primary | clip | amount | secondary | clip | humor? |
+  | - | - | - | - | - | - | - | - | - 
+  | - | 12-inch Combat Knife | 1 | swing | 0 | 0 | no | 0 | no
+  | - | Standard Crowbar | 1 | swing | 0 | 0 | no | 0 | no
+  | - | 40-pound Monkey Wrench | 1 | swing | 0 | 0 |  no | 0 | no
+  | - | PPK, Bond Style | 2 | fire | 8 | 64 | change to silencer | 0 | yes
+  | - | Mag 60 Automatic Handgun | 2 | fast fire | 22 | 150 | slow fire | 0 | no
+  | - | M-16 Assault Rifle | 3 | fire | 30 | 75 | zoom | 0 | no
+  | - | 12 Gauge Shotgun | 4 | fire | 2 | 45 | double fire | 0 | no
+  | - | Assault Shotgun | 4 | fire | 8 | 45 | explosive buskshot | 8 | no
+  | - | USAS-12 Auto Shotgun | 4 | fire | 40 | 80 | no | 0 | no
+  | - | 25-inch Chaingun | 5 | fire | 60 | 200 | buckshot | 45 | no
+  | - | 7.65mm Sniper Rifle | 6 | fire | 10 | 20 | zoom | 0 | no
+  | - | Air Compressed Auto BoltGun | 6 | fire | 30 | 45 | no | 0 | no
+  | - | 30mm Assault Cannon | 7 | fire | 6 | 18 | no | 0 | no 
+  | - | 120-Pound Grenade Launcher | 7 | impact grenade | 6 | 18  | timed grenade | 8 | no
+  | - | 50-pound automatic LAW rocket Launcher | 7 | rocket | 5 | 5 | 5x rockets | 2 | no
+  | - | female assassin decoy bombs | 8 | throw | 4 | 0 | no | 0 | yes
+  | - | 6-pack cluster grenades | 8 | throw | 4 | 0 | no | 0 | no
+  | - | Chumtoad | 9 | throw | 3 | 0 | no | 0 | no
+  | - | Kamikaze Dynamite Vest | 10 | detonate | 1 | 0 | no | 0 | no
+
 1. HUD notification system
     1. Identity of weapons from Rory
 
 ## Nice to Haves
 
 1. Snowball fight mutator - all weapons fire / throw snowballs
+1. Have humor ous sound effect with each weapon?
