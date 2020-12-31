@@ -105,6 +105,7 @@ function Compile-Map {
 
 # Compile source models
 Compile-Model "v_9mmAR"
+Compile-Model "p_9mmar"
 Compile-Model "v_shotgun"
 
 # Compile sprites
