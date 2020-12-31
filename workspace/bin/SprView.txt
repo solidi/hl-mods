@@ -1,0 +1,116 @@
+Half-Life Sprite Viewer v1.05 Beta
+==================================
+
+Written by David Flor (a.k.a. Nighthawk)
+  (c) 1999, Mach III Enterprises
+  EMail: dflor@mach3.com
+  Site:  http://www.planethalflife.com/mach3/
+
+
+Release Notes:
+==============
+
+Well, creating this application was easier than I thought... It works for
+all the sprites I checked in Valve's PAK file.
+
+DirectX 3.0 is required.
+
+Version History:
+================
+
+V1.05:
+======
+- Now when you "Save Sequence", the program asks you if you want to create
+  a ".qc" file as well. The file created may not always be 100% compatible
+  with certain sprites in that the result might not match the original,
+  but it is compatible with Valve's "sprgen" utility.
+
+V1.04:
+======
+- For "Play Once", instead of using the period, I made it "Ctrl-Space".
+  The period in the menu was apparently too hard to see, and some people
+  complained that it didn't have a hotkey.
+- Menus are corrected
+- The "Sprite Information" dialog now includes the transparency mode of
+  the sprite.
+
+V1.03:
+======
+Added...
+- An "Open" dialog.
+- A "Save BMP" option, which saves the current frame.
+- A "Save Sequence" option, which saves all the frames in the sprites,
+  adding on three digits to the end of the filename.
+- A "Sprite Information" dialog, just shows you the size (in pixels)
+  and total number of frames.
+
+Changes...
+- The "Speed" dialog is now "Ctrl-P"; the "Save BMP" option is now 
+  "Ctrl-S". Figured the program wasn't out for long enough to 
+  aggravate anyone because of this change
+- Fixed crashes with certain sprites in the Half-Life PAK file
+
+V1.02:
+======
+- Apparently, at least as it appears on my 3Dfx adapter, all graphic
+  depths are fixed. 24-bit looks sweet. Couldn't test 32-bit at home
+  because I don't have that option.
+- Variable size sprites ("320_pain.spr", for instance) are now supported.
+- Now instead of animation speed in milliseconds, I'm using "frames per
+  second" (recommended by "Autolycus" from the "Half-Life Editing Resource
+  Center" at "http://halflife.gamedesign.net/"... thanks!)
+
+V1.01:
+======
+- Supports 16-bit and 32-bit flawlessly, 24-bit has been theoretically
+  implemented but not tested. 8-bit is extremely screwy and may not
+  draw properly. Who uses 8-bit these days anyway? 
+
+V1.0:
+=====
+- It's a very early Beta, and works only in 8-bit (not very well) and 
+  16-bit color space. My office development machine doesn't support 24-bit
+  space (jumps straight to 32), so I'll have to test that some other time.
+- Doesn't support what are seemingly referred to as "SPR_GROUP" frame
+  types. Documentation is sketchy on these things...
+- You can't open files from within the program; expect a future one to.
+
+Usage:
+======
+
+Double click on a sprite and tell it to use this program. This program
+could be in any directory.
+
+Once in the program:
+<Space>:		Stops playback and cycles through the animation frame by 
+				frame
+Ctrl-<Space>:	Play sprite once, then stop
+<Enter>:		Resume normal playback
+Ctrl-P:			Set the delay (in milliseconds) between each frame
++ / -:			Zoom in / out
+
+Ctrl-O:			Open a sprite
+Ctrl-S:			Save current frame as a bitmap
+Ctrl-Shift-S:	Save numerical sequence of bitmaps
+Ctrl-I:			Sprite Information dialog
+
+Comments / Suggestions:
+=======================
+Send EMails to "dflor@mach3.com"
+
+Also, visit Mach III, the Mecca of Half-Life Development at
+"http://www.planethalflife.com/mach3/"
+
+Donations:
+==========
+
+I'm not asking for money, but if you like the product and are feeling
+particularly generous, send any donations of any amount to:
+
+	Mach III Enterprises
+	8107 S.W. 72nd Avenue, Suite 313E
+	Miami, Florida 33143
+
+Tnx & Rgds...
+David Flor, aka Nighthawk
+Mach III Enterprises

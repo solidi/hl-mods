@@ -15,6 +15,7 @@ $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
 $bindir = "Z:\bin"
 $modelsdir = "Z:\models"
+$spritesdir = "z:\sprites"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
@@ -54,8 +55,28 @@ function Compile-Model {
     Remove-Item $modelsdir\$target\studiomdl.exe
 }
 
+function Compile-Sprite {
+    param (
+        $target
+    )
+
+    Copy-Item $bindir\sprgen.exe $spritesdir\$target
+    Remove-Item $spritesdir\$target.spr -ErrorAction Ignore
+    Set-Location -Path $spritesdir\$target
+    & .\sprgen $spritesdir\$target\$target.qc | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not compile ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    Move-Item $spritesdir\$target\$target.spr $redistdir\sprites -force
+    Remove-Item $spritesdir\$target\sprgen.exe
+}
+
 # Compile source models
 Compile-Model "v_9mmAR"
+
+# Compile sprites
+Compile-Sprite "muzzleflash1"
 
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
 
