@@ -46,3 +46,4 @@
 1. Windows 10 transparency can be disabled by editing this registry key [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize](https://www.tenforums.com/tutorials/5556-turn-off-transparency-effects-windows-10-a.html).
 1. Map compilation requires a lights.rad file, and here is [a community version](https://gamebanana.com/gamefiles/download/9025).
 1. Here is a helpful [list of all entities](https://developer.valvesoftware.com/wiki/List_of_Half-Life_entities) in the Half-life game.
+1. Registry keys for pre-steam Half-Life can [be found here](https://www.regfiles.net/registry/half-life-registry). For steam related keys, `hdmodels` is stored to switch  `CrashInitializingVideoMode` is [also of interest](https://github.com/ValveSoftware/halflife/issues/343). Items can be found in `Computer\HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings`
