@@ -17,6 +17,7 @@ $bindir = "Z:\bin"
 $modelsdir = "Z:\models"
 $spritesdir = "z:\sprites"
 $mapsdir = "Z:\maps"
+$wadsdir = "Z:\wads"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
@@ -103,6 +104,26 @@ function Compile-Map {
     Get-ChildItem $mapsdir\$target -Exclude *.map | Remove-Item -Force -ErrorAction Ignore
 }
 
+function Compile-Wad {
+    param (
+        $target
+    )
+
+    Set-Location -Path $bindir
+    & .\makels $wadsdir\$target $wadsdir\$target $wadsdir\$target.ls | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "Could not makels ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    & .\qlumpy $wadsdir\$target.ls
+    if ($lastexitcode -ne 0) {
+        echo "Could not qlumpy ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+    Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
+    Move-Item $wadsdir\$target.wad $redistdir -force
+}
+
 # Compile source models
 Compile-Model "v_9mmAR"
 Compile-Model "p_9mmar"
@@ -110,6 +131,9 @@ Compile-Model "v_shotgun"
 
 # Compile sprites
 Compile-Sprite "muzzleflash1"
+
+# Compile wads
+# Compile-Wad "coldice"
 
 # Compile maps
 Compile-Map "yard"
