@@ -3,3 +3,4 @@ debughl/
 *.pdb
 hl.dll
 client.dll
+Thumbs.db*
