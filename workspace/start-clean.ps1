@@ -9,7 +9,6 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-$rebuild = $args[0]
 $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin\msdev3"
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
@@ -18,27 +17,32 @@ $modelsdir = "Z:\models"
 $spritesdir = "z:\sprites"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
+$srcdir = "Z:\src"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
-# Delete current libraries so that we do not use old copies
-Remove-Item ${redistdir}\dlls\hl.dll -ErrorAction Ignore
-Remove-Item ${redistdir}\cl_dlls\client.dll -ErrorAction Ignore
+function Compile-DLL {
+    param (
+        $dll,
+        $target,
+        $path,
+        $rebuildAll
+    )
 
-# https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-& $msdev z:\src\dlls\hl.dsp /make "hl - Win32 Release" ${rebuild} | Out-String
+    # Delete current libraries so that we do not use old copies
+    Remove-Item ${redistdir}\$path\$dll.dll -ErrorAction Ignore
 
-if ($lastexitcode -ne 0) {
-    echo "Could not compile hl.dll. Exit code: ${lastexitcode}"
-    exit
+    # https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
+    & $msdev $srcdir\$path\$target.dsp /make "$target - Win32 Release" ${rebuildAll} | Out-String
+
+    if ($lastexitcode -ne 0) {
+        echo "Could not compile $dll.dll. Exit code: ${lastexitcode}"
+        exit
+    }
 }
 
-& $msdev z:\src\cl_dll\cl_dll.dsp /make "cl_dll - Win32 Release" ${rebuild} | Out-String
-
-if ($lastexitcode -ne 0) {
-    echo "Could not compile hl.dll. Exit code: ${lastexitcode}"
-    exit
-}
+Compile-DLL "hl" "hl" "dlls" $args[0]
+Compile-DLL "client" "cl_dll" "cl_dll" $args[0]
 
 function Compile-Model {
     param (
