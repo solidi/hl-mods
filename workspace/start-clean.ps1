@@ -19,7 +19,7 @@ $wadsdir = "Z:\wads"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
-$CompileDll = {
+function Compile-DLL {
     param (
         $dll,
         $target,
@@ -43,15 +43,14 @@ $CompileDll = {
         exit
     }
 
-    if ($out.Contains("Error")) {
+    if ($out.ToLower().Contains("Error")) {
         echo "Could not compile $dll.dll."
         exit
     }
 }
 
-Start-Job -Name "hl.dll" -ScriptBlock $CompileDll -ArgumentList "hl", "hl", "dlls", $args[0]
-Start-Job -Name "client.dll" -ScriptBlock $CompileDll -ArgumentList "client", "cl_dll", "cl_dll", $args[0]
-Get-Job | Wait-Job | Receive-Job
+Compile-DLL "hl" "hl" "dlls" $args[0]
+Compile-DLL "client" "cl_dll" "cl_dll" $args[0]
 
 function Compile-Model {
     param (
