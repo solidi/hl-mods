@@ -51,3 +51,13 @@
 1. Learned that `.lmp` files are [lump files](https://quakewiki.org/wiki/.lmp).
 1. A [full listening of all cvars](https://developer.valvesoftware.com/wiki/Console_Command_List) in the Half-Life engine. This helped discover the cvar `+deathmatch 1`.
 1. Use the `listenserver.cfg` to exec cvars that are required on every deathmatch.
+1. #Valve string interpolation is provided in the [resource/valve.english.txt](https://github.com/SteamDatabase/GameTracking-CSGO/blob/master/csgo/resource/valve_english.txt) file.
+1. A nice listing of bsp [map compilation warnings](https://www.slackiller.com/tommy14/errors.htm#swap).
+1. For wad editing, I went with [HLLib](https://developer.valvesoftware.com/wiki/HLLib) 2.46 to extract out wad bmp files.
+1. The [gfx file](http://quakeone.com/forum/quake-help/general-help/12956-anyone-have-experience-modifying-gfx-file) for half-life has a unique mapping for the console characters. I am unsure how to extract and recompile this file. Here is the [best example](https://www.betaarchive.com/forum/viewtopic.php?t=20106) of how to reconstruct the Half-Life gfx file.
+1. Here is a good list of [wad editors](https://wiki.srb2.org/wiki/WAD_editors). Additionally, I tried [unwad](https://github.com/RomanHargrave/unwad/tree/master/release/windows), but [failed to unpack WAD3 format](https://forum.zdoom.org/viewtopic.php?f=4&t=52738).
+1. [GDCC](https://github.com/DavidPH?tab=repositories) is the [latest toolchain](https://forum.zdoom.org/viewtopic.php?f=3&t=51947) to compile WAD2, but does not support WAD3.
+1. When adding [preprocessor definitions](https://docs.microsoft.com/en-us/cpp/build/reference/d-preprocessor-definitions?view=msvc-160) like `CLIENT_WEAPONS`, always rebuild both libraries otherwise the flag will not work correctly.
+1. On Windows 8 using the `Start-Job` cmdlet experienced a weird behaviro where I had to restart powershell to clear a missing `Compile-DLL` function reference.
+1. "PM" means `player move` in Half-Life.
+1. [Older versions of MSVC, including 2010, 2012, 2013, etc.](https://visualstudio.microsoft.com/vs/older-downloads/). The Half-Life SDK supports VS 2010 solution files.
