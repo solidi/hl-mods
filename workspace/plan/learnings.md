@@ -47,3 +47,7 @@
 1. Map compilation requires a lights.rad file, and here is [a community version](https://gamebanana.com/gamefiles/download/9025).
 1. Here is a helpful [list of all entities](https://developer.valvesoftware.com/wiki/List_of_Half-Life_entities) in the Half-life game.
 1. Registry keys for pre-steam Half-Life can [be found here](https://www.regfiles.net/registry/half-life-registry). For steam related keys, `hdmodels` is stored to switch  `CrashInitializingVideoMode` is [also of interest](https://github.com/ValveSoftware/halflife/issues/343). Items can be found in `Computer\HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings`
+1. Unsuccessful at unpacking the `gfx.wad` for Half-Life. I used both `hllib 118` and `hllib 246` from [nems tools](https://nemstools.github.io/subpages/Comments/HLLib.html). 118 extracted only some of the files. 246 crashed on both x86 and x64 on Windows 8.
+1. Learned that `.lmp` files are [lump files](https://quakewiki.org/wiki/.lmp).
+1. A [full listening of all cvars](https://developer.valvesoftware.com/wiki/Console_Command_List) in the Half-Life engine. This helped discover the cvar `+deathmatch 1`.
+1. Use the `listenserver.cfg` to exec cvars that are required on every deathmatch.
