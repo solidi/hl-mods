@@ -9,7 +9,6 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-$msdev = "C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin\msdev3"
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
 $bindir = "Z:\bin"
@@ -17,11 +16,10 @@ $modelsdir = "Z:\models"
 $spritesdir = "z:\sprites"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
-$srcdir = "Z:\src"
 $icedir = "${hldir}\iceg"
 $hlexe = "${hldir}\hl.exe"
 
-function Compile-DLL {
+$CompileDll = {
     param (
         $dll,
         $target,
@@ -29,20 +27,31 @@ function Compile-DLL {
         $rebuildAll
     )
 
+    $srcdir = "Z:\src"
+    $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin\msdev3"
+
     # Delete current libraries so that we do not use old copies
     Remove-Item ${redistdir}\$path\$dll.dll -ErrorAction Ignore
 
     # https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-    & $msdev $srcdir\$path\$target.dsp /make "$target - Win32 Release" ${rebuildAll} | Out-String
+    $out = & $msdev $srcdir\$path\$target.dsp /make "$target - Win32 Release" ${rebuildAll} | Out-String
+
+    echo $out
 
     if ($lastexitcode -ne 0) {
         echo "Could not compile $dll.dll. Exit code: ${lastexitcode}"
         exit
     }
+
+    if ($out.Contains("Error")) {
+        echo "Could not compile $dll.dll."
+        exit
+    }
 }
 
-Compile-DLL "hl" "hl" "dlls" $args[0]
-Compile-DLL "client" "cl_dll" "cl_dll" $args[0]
+Start-Job -Name "hl.dll" -ScriptBlock $CompileDll -ArgumentList "hl", "hl", "dlls", $args[0]
+Start-Job -Name "client.dll" -ScriptBlock $CompileDll -ArgumentList "client", "cl_dll", "cl_dll", $args[0]
+Get-Job | Wait-Job | Receive-Job
 
 function Compile-Model {
     param (
