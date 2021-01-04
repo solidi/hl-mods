@@ -9,12 +9,17 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
+# https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
         $rebuild = "/rebuild"
         echo "rebuilding all code sources..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Rollback") {
-        $rollback = $_.Split(' ')[1]
+        $rollback = "yes"
+        echo "unpacking previous game version..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Preserve") {
+        $preserve = "yes"
+        echo "preserving previous game version..."
     }
 }
 
@@ -26,7 +31,37 @@ $spritesdir = "z:\sprites"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
 $icedir = "${hldir}\iceg"
-$hlexe = "${hldir}\hl.exe"
+$zipfile = "Z:\last-build.zip"
+
+function Launch-HL {
+    $hlexe = "${hldir}\hl.exe"
+    
+    # https://developer.valvesoftware.com/wiki/Command_Line_Options
+    & $hlexe -dev -console -game iceg -condebug -windowed -gl -w 640 -h 480 +log on +sv_lan 1 +map stalkyard +deathmatch 1 | Out-Null
+
+    if ($lastexitcode -ne 0) {
+        echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
+        exit
+    }
+}
+
+if (Test-Path variable:rollback) {
+    if (Test-Path $zipfile) {
+        Set-Location -Path $hldir
+        Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -LiteralPath $zipfile -DestinationPath $icedir
+        Launch-HL
+        exit
+    } else {
+        echo "zip not found?"
+        exit
+    }
+}
+
+if (!(Test-Path variable:preserve)) {
+    Remove-Item $zipfile -Recurse -Force -ErrorAction Ignore
+    Compress-Archive -Path ${icedir}\\* -DestinationPath $zipfile
+}
 
 function Compile-DLL {
     param (
@@ -192,10 +227,4 @@ if ($out -like "FAILURE") {
 Remove-Item "${icedir}\models" -Recurse -Force
 Remove-Item "${icedir}\qpakman.exe"
 
-# https://developer.valvesoftware.com/wiki/Command_Line_Options
-& $hlexe -dev -console -game iceg -condebug -windowed -gl -w 640 -h 480 +log on +sv_lan 1 +map stalkyard +deathmatch 1 | Out-Null
-
-if ($lastexitcode -ne 0) {
-    echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
-    exit
-}
+Launch-HL

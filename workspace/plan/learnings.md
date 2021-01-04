@@ -61,3 +61,5 @@
 1. On Windows 8 using the `Start-Job` cmdlet experienced a weird behaviro where I had to restart powershell to clear a missing `Compile-DLL` function reference.
 1. "PM" means `player move` in Half-Life.
 1. [Older versions of MSVC, including 2010, 2012, 2013, etc.](https://visualstudio.microsoft.com/vs/older-downloads/). The Half-Life SDK supports VS 2010 solution files.
+1. Powershell 5.1 supports [zip](https://blog.netwrix.com/2018/11/06/using-powershell-to-create-zip-archives-and-unzip-files/) functionality using `Compress-Archive` and `Expand-Archive`. Download Powershell 5.1 from the [Windows Management Framework](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
+1. Use `Get-Host` to understand which version of PowerShell is running.
