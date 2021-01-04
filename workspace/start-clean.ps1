@@ -9,6 +9,15 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
+([string]$args).split('-') | %{
+    if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
+        $rebuild = "/rebuild"
+        echo "rebuilding all code sources..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Rollback") {
+        $rollback = $_.Split(' ')[1]
+    }
+}
+
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
 $bindir = "Z:\bin"
@@ -49,8 +58,8 @@ function Compile-DLL {
     }
 }
 
-Compile-DLL "hl" "hl" "dlls" $args[0]
-Compile-DLL "client" "cl_dll" "cl_dll" $args[0]
+Compile-DLL "hl" "hl" "dlls" $rebuild
+Compile-DLL "client" "cl_dll" "cl_dll" $rebuild
 
 function Compile-Model {
     param (
