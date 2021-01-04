@@ -5,3 +5,7 @@ hl.dll
 client.dll
 Thumbs.db*
 last-build.zip
+
+workspace/redist/coldice.wad
+workspace/redist/maps/
+workspace/redist/models/
