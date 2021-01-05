@@ -1,0 +1,13 @@
+cl_dlls\client.dll
+dlls\hl.dll
+gfx\shell\kb_act.lst
+gfx\shell\kb_def.lst
+maps\yard.bsp
+models\p_9mmar.mdl
+models\v_9mmAR.mdl
+models\v_shotgun.mdl
+resource\valve_english.txt
+sprites\muzzleflash1.spr
+liblist.gam
+ReadMe.txt
+settings.scr

@@ -203,15 +203,19 @@ if (!(Test-Path $icedir)) {
 
 Copy-Item $redistdir\\* $icedir -Recurse -Force
 
-if (!(Test-Path "${icedir}\dlls\hl.dll")) {
-    echo "Could not find hl.dll."
-    exit
+function Test-Manifest {
+    $files = Get-Content -Path Z:\manifest
+    Set-Location -Path $redistdir
+    foreach ($file in $files) {
+        echo "locating $file..."
+        if (!(Test-Path "${file}")) {
+            echo "Could not find $file"
+            exit
+        }
+    }
 }
 
-if (!(Test-Path "${icedir}\cl_dlls\client.dll")) {
-    echo "Could not find client.dll."
-    exit
-}
+Test-Manifest
 
 function PAK-File {
     param (
