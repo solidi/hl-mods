@@ -109,7 +109,7 @@ function Compile-Model {
         echo "Could not compile ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    Move-Item $modelsdir\$target\$target.mdl $redistdir\models\$target.mdl
+    Move-Item $modelsdir\$target\$target.mdl $redistdir\models\$target.mdl -force
     Remove-Item $modelsdir\$target\studiomdl.exe
 }
 
