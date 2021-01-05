@@ -213,18 +213,30 @@ if (!(Test-Path "${icedir}\cl_dlls\client.dll")) {
     exit
 }
 
-# Making PAK file
-Copy-Item Z:\bin\qpakman.exe $icedir -Force
-Set-Location -Path $icedir
-$out = & "${icedir}\qpakman.exe" models -o pak0.pak | Out-String
+function PAK-File {
+    param (
+        $targets
+    )
 
-# qpakman does not exit with failure.
-if ($out -like "FAILURE") {
-    echo "Could not create pak file."
-    exit
+    Copy-Item Z:\bin\qpakman.exe $icedir -Force
+    Set-Location -Path $icedir
+    $folders = [String]::Join(" ", $targets)
+    $in = ".\qpakman.exe ${folders} -o pak0.pak"
+    $out = iex $in | Out-String
+    echo $out
+
+    # qpakman does not exit with failure.
+    if ($out -match '[1-9] failures' -or $out.Contains("FAILURE")) {
+        echo "Could not create pak file."
+        exit
+    }
+
+    foreach ($folder in $targets) {
+        Remove-Item "${icedir}\${folder}" -Recurse -Force
+    }
+    Remove-Item "${icedir}\qpakman.exe"
 }
 
-Remove-Item "${icedir}\models" -Recurse -Force
-Remove-Item "${icedir}\qpakman.exe"
+PAK-File @("models", "maps")
 
 Launch-HL
