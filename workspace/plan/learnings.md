@@ -63,3 +63,8 @@
 1. [Older versions of MSVC, including 2010, 2012, 2013, etc.](https://visualstudio.microsoft.com/vs/older-downloads/). The Half-Life SDK supports VS 2010 solution files.
 1. Powershell 5.1 supports [zip](https://blog.netwrix.com/2018/11/06/using-powershell-to-create-zip-archives-and-unzip-files/) functionality using `Compress-Archive` and `Expand-Archive`. Download Powershell 5.1 from the [Windows Management Framework](https://www.microsoft.com/en-us/download/details.aspx?id=54616).
 1. Use `Get-Host` to understand which version of PowerShell is running.
+1. By creating the grappling hook, I've learned about origin, angles, and velocity setting.
+1. Here is a [basic primer](https://www.educative.io/edpresso/what-are--sharpifndef-and--sharpdefine-used-for-in-cpp) on the use of `#ifdef` and `#ndef` usage in C++.
+1. Attempted the use of  parallel processing for the powershell script using `start-job` [discussed here](https://stackoverflow.com/questions/4016451/can-powershell-run-commands-in-parallel). I had difficulty getting it run correctly, where `exit` did not abort the script, only the sub process. Will dig deeper on on to abort the script entirely.
+1. `iex` [is an alias for](https://stackoverflow.com/questions/6338015/how-do-you-execute-an-arbitrary-native-command-from-a-string) `Invoke-Command` cmdlet. It can be used to pass in a full string to be executed.
+1. [A primer](https://morgantechspace.com/2016/08/powershell-check-if-string-contains-word.html) on the use of string comparsions in PowerShell. Also see the `-match` parameter that takes in regex.
