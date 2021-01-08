@@ -1,3 +1,4 @@
+#Requires -Version 5.1
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
@@ -37,7 +38,12 @@ function Launch-HL {
     $hlexe = "${hldir}\hl.exe"
     
     # https://developer.valvesoftware.com/wiki/Command_Line_Options
-    & $hlexe -dev -console -game iceg -condebug -windowed -gl -w 640 -h 480 +log on +sv_lan 1 +map stalkyard +deathmatch 1 | Out-Null
+    & $hlexe -dev `
+            -console `
+            -game iceg `
+            -condebug `
+            -windowed -gl -w 640 -h 480 `
+            +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers 2 | Out-Null
 
     if ($lastexitcode -ne 0) {
         echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
@@ -65,13 +71,13 @@ if (!(Test-Path variable:preserve)) {
 
 function Compile-DLL {
     param (
+        $srcdir,
         $dll,
         $target,
         $path,
         $rebuildAll
     )
 
-    $srcdir = "Z:\src"
     $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin\msdev3"
 
     # Delete current libraries so that we do not use old copies
@@ -80,21 +86,23 @@ function Compile-DLL {
     # https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
     $out = & $msdev $srcdir\$path\$target.dsp /make "$target - Win32 Release" ${rebuildAll} | Out-String
 
-    echo $out
-
     if ($lastexitcode -ne 0) {
+        echo $out
         echo "Could not compile $dll.dll. Exit code: ${lastexitcode}"
         exit
     }
 
-    if ($out.ToLower().Contains("Error")) {
+    echo $out
+
+    if ($out -match '[1-9] error' -or $out.Contains("Error")) {
         echo "Could not compile $dll.dll."
         exit
     }
 }
 
-Compile-DLL "hl" "hl" "dlls" $rebuild
-Compile-DLL "client" "cl_dll" "cl_dll" $rebuild
+Compile-DLL "Z:\grave-bot-src" "grave_bot" "grave_bot" "dlls" $rebuild
+Compile-DLL "Z:\src" "hl" "hl" "dlls" $rebuild
+Compile-DLL "Z:\src" "client" "cl_dll" "cl_dll" $rebuild
 
 function Compile-Model {
     param (
