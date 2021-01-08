@@ -68,3 +68,4 @@
 1. Attempted the use of  parallel processing for the powershell script using `start-job` [discussed here](https://stackoverflow.com/questions/4016451/can-powershell-run-commands-in-parallel). I had difficulty getting it run correctly, where `exit` did not abort the script, only the sub process. Will dig deeper on on to abort the script entirely.
 1. `iex` [is an alias for](https://stackoverflow.com/questions/6338015/how-do-you-execute-an-arbitrary-native-command-from-a-string) `Invoke-Command` cmdlet. It can be used to pass in a full string to be executed.
 1. [A primer](https://morgantechspace.com/2016/08/powershell-check-if-string-contains-word.html) on the use of string comparsions in PowerShell. Also see the `-match` parameter that takes in regex.
+1. `UTIL_MakeVectors( anglesAim );` macro aligns the angles to the target of the current call, otherwise, angles are aligned to the last entity.
