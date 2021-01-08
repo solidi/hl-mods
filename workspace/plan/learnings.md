@@ -69,3 +69,4 @@
 1. `iex` [is an alias for](https://stackoverflow.com/questions/6338015/how-do-you-execute-an-arbitrary-native-command-from-a-string) `Invoke-Command` cmdlet. It can be used to pass in a full string to be executed.
 1. [A primer](https://morgantechspace.com/2016/08/powershell-check-if-string-contains-word.html) on the use of string comparsions in PowerShell. Also see the `-match` parameter that takes in regex.
 1. `UTIL_MakeVectors( anglesAim );` macro aligns the angles to the target of the current call, otherwise, angles are aligned to the last entity.
+1. To wrap a command to numerous lines in Powershell, [use the grave](https://stackoverflow.com/questions/2608144/how-to-split-long-commands-over-multiple-lines-in-powershell/2608186) ` character.
