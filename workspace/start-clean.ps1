@@ -26,17 +26,22 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
+$redisthddir = "Z:\redist_hd"
 $bindir = "Z:\bin"
-$modelsdir = "Z:\models"
 $spritesdir = "z:\sprites"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
 $icedir = "${hldir}\iceg"
+$icehddir = "${hldir}\iceg_hd"
 $zipfile = "Z:\last-build.zip"
 
 function Launch-HL {
     $hlexe = "${hldir}\hl.exe"
-    
+
+    # Set hdmodels
+    Get-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings
+    Set-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings -Name hdmodels -Value 1
+
     # https://developer.valvesoftware.com/wiki/Command_Line_Options
     & $hlexe -dev `
             -console `
@@ -100,13 +105,14 @@ function Compile-DLL {
     }
 }
 
-Compile-DLL "Z:\grave-bot-src" "grave_bot" "grave_bot" "dlls" $rebuild
 Compile-DLL "Z:\src" "hl" "hl" "dlls" $rebuild
 Compile-DLL "Z:\src" "client" "cl_dll" "cl_dll" $rebuild
 
 function Compile-Model {
     param (
-        $target
+        $target,
+        $modelsdir,
+        $outdir
     )
 
     Copy-Item $bindir\studiomdl.exe $modelsdir\$target
@@ -117,7 +123,7 @@ function Compile-Model {
         echo "Could not compile ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    Move-Item $modelsdir\$target\$target.mdl $redistdir\models\$target.mdl -force
+    Move-Item $modelsdir\$target\$target.mdl $outdir\$target.mdl -force
     Remove-Item $modelsdir\$target\studiomdl.exe
 }
 
@@ -189,9 +195,13 @@ function Compile-Wad {
 }
 
 # Compile source models
-Compile-Model "v_9mmAR"
-Compile-Model "p_9mmar"
-Compile-Model "v_shotgun"
+Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
+$modelsdir = "Z:\models"
+Compile-Model "v_9mmAR" $modelsdir $redistdir\models
+Compile-Model "v_9mmAR" $modelsdir\hd $redisthddir\models
+Compile-Model "p_9mmar" $modelsdir\hd $redisthddir\models
+Compile-Model "v_shotgun" $modelsdir\hd $redisthddir\models
 
 # Compile sprites
 Compile-Sprite "muzzleflash1"
@@ -204,12 +214,18 @@ Compile-Map "yard"
 # Compile-Map "training"
 
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
 
 if (!(Test-Path $icedir)) {
     New-Item -ItemType directory -Path $icedir
 }
 
+if (!(Test-Path $icehddir)) {
+    New-Item -ItemType directory -Path $icehddir
+}
+
 Copy-Item $redistdir\\* $icedir -Recurse -Force
+Copy-Item $redisthddir\\* $icehddir -Recurse -Force
 
 function Test-Manifest {
     $files = Get-Content -Path Z:\manifest
