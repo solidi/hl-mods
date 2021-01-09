@@ -71,3 +71,4 @@
 1. `UTIL_MakeVectors( anglesAim );` macro aligns the angles to the target of the current call, otherwise, angles are aligned to the last entity.
 1. To wrap a command to numerous lines in Powershell, [use the grave](https://stackoverflow.com/questions/2608144/how-to-split-long-commands-over-multiple-lines-in-powershell/2608186) ` character.
 1. To require a version running Powershell, use the `#Requires` [attribute here](https://stackoverflow.com/questions/36166262/powershell-version-check-prior-to-script-execution).
+1. Learned abou C++ forward declaration. For instance, `class AClass` to promise to the compiler that the defintion will be defined later.
