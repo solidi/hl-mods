@@ -204,15 +204,18 @@ Compile-Model "p_9mmar" $modelsdir\hd $redisthddir\models
 Compile-Model "v_shotgun" $modelsdir\hd $redisthddir\models
 
 # Compile sprites
+Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Compile-Sprite "muzzleflash1"
 
 # Compile wads
+# Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
 # Compile-Wad "coldice"
 
 # Compile maps
+Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard"
-# Compile-Map "training"
 
+# Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
 
