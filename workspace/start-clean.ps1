@@ -105,9 +105,6 @@ function Compile-DLL {
     }
 }
 
-Compile-DLL "Z:\src" "hl" "hl" "dlls" $rebuild
-Compile-DLL "Z:\src" "client" "cl_dll" "cl_dll" $rebuild
-
 function Compile-Model {
     param (
         $target,
@@ -193,6 +190,12 @@ function Compile-Wad {
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
     Move-Item $wadsdir\$target.wad $redistdir -force
 }
+
+# Compile all DLLs
+Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
+Compile-DLL "Z:\src" "hl" "hl" "dlls" $rebuild
+Compile-DLL "Z:\src" "client" "cl_dll" "cl_dll" $rebuild
 
 # Compile source models
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
