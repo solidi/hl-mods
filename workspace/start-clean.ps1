@@ -194,6 +194,7 @@ function Compile-Wad {
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
+Compile-DLL "Z:\grave-bot-src" "grave_bot" "grave_bot" "dlls" $rebuild
 Compile-DLL "Z:\src" "hl" "hl" "dlls" $rebuild
 Compile-DLL "Z:\src" "client" "cl_dll" "cl_dll" $rebuild
 

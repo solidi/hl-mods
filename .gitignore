@@ -3,6 +3,7 @@ debughl/
 *.pdb
 hl.dll
 client.dll
+grave_bot.dll
 Thumbs.db*
 last-build.zip
 

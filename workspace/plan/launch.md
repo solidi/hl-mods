@@ -1,5 +1,6 @@
 # Launch List
 
+[ ] Burn in mod with bots on dedicated server for hours
 [ ] ModDB Entry  
 [ ] Steam Workshop  
 [ ] Steam Community Forums  
@@ -11,3 +12,4 @@
     [ ] Bot support for hook  
     [ ] Customer map waypoints for bots  
 [ ] Compile so's?  
+[ ] Edict count?
