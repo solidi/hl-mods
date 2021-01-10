@@ -1,5 +1,6 @@
 cl_dlls\client.dll
 dlls\hl.dll
+dlls\grave_bot.dll
 gfx\shell\kb_act.lst
 gfx\shell\kb_def.lst
 maps\yard.bsp
