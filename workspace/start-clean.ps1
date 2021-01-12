@@ -147,22 +147,22 @@ function Compile-Map {
     )
 
     Set-Location -Path $bindir
-    & .\qcsg $mapsdir\$target\$target.map | Out-String
+    & .\hlcsg $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
         echo "Could not qcsp ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\qbsp2 $mapsdir\$target\$target.map | Out-String
+    & .\hlbsp $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
         echo "Could not qbsp ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\vis $mapsdir\$target\$target.map | Out-String
+    & .\hlvis $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
         echo "Could not vis ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\qrad $mapsdir\$target\$target.map | Out-String
+    & .\hlrad $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
         echo "Could not qrad ${target}. Exit code: ${lastexitcode}"
         exit
