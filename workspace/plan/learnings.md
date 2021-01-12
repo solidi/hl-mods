@@ -78,3 +78,4 @@
 1. MSVC++ 6.0 prevented a build due to endlines with the grave_bot.dsp file. I copied the dsp file from the original zip file, and then it built ok. See [this](https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important) for more info on endlines.
 1. `globalvars_t` reference is "stomped" on during each frame rendered. The result is when calculating angles, it is required to use macros such as `UTIL_MakeVectors` to capture the current reference. See `CRpg` for this comment.
 1. Learned about gearbox Zoner's Half-Life Tools to compile maps [found here](http://zhlt.info/).
+1. The cutting floor room [for Half-Life](https://tcrf.net/Half-Life_(Windows)) has documented excellent models, weapons, [textures](https://tcrf.net/Half-Life_(Windows)/Textures), and [sounds](https://tcrf.net/Half-Life_(Windows)/Sounds) for the Half-Life game.
