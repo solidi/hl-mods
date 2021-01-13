@@ -79,3 +79,4 @@
 1. `globalvars_t` reference is "stomped" on during each frame rendered. The result is when calculating angles, it is required to use macros such as `UTIL_MakeVectors` to capture the current reference. See `CRpg` for this comment.
 1. Learned about gearbox Zoner's Half-Life Tools to compile maps [found here](http://zhlt.info/).
 1. The cutting floor room [for Half-Life](https://tcrf.net/Half-Life_(Windows)) has documented excellent models, weapons, [textures](https://tcrf.net/Half-Life_(Windows)/Textures), and [sounds](https://tcrf.net/Half-Life_(Windows)/Sounds) for the Half-Life game.
+1. Client hook message name has a maximum character limit. The use of `AnnounceWeapon` crashed the server.Keep under 10 characters.
