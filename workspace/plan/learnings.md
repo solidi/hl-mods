@@ -80,3 +80,5 @@
 1. Learned about gearbox Zoner's Half-Life Tools to compile maps [found here](http://zhlt.info/).
 1. The cutting floor room [for Half-Life](https://tcrf.net/Half-Life_(Windows)) has documented excellent models, weapons, [textures](https://tcrf.net/Half-Life_(Windows)/Textures), and [sounds](https://tcrf.net/Half-Life_(Windows)/Sounds) for the Half-Life game.
 1. Client hook message name has a maximum character limit. The use of `AnnounceWeapon` crashed the server.Keep under 10 characters.
+1. `$externaltextures` is used to split the textures from a model for optimization purposes. In Half-Life it's mainly used for world models (`w_`). Textures [cannot be used](https://twhl.info/thread/view/19095) by other models.
+1. Convert [references and addressof](https://stackoverflow.com/questions/19032461/convert-reference-to-pointer-representation-in-c) in C++, and interest suggestions of how to [intiatize a struct](https://stackoverflow.com/questions/11516657/c-structure-initialization).
