@@ -10,6 +10,8 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
+[int]$hdmodels = 1
+
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
@@ -21,6 +23,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Preserve") {
         $preserve = "yes"
         echo "preserving previous game version..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "LowRes") {
+        $hdmodels = 0
+        echo "switching to low res models..."
     }
 }
 
@@ -40,15 +45,17 @@ function Launch-HL {
 
     # Set hdmodels
     Get-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings
-    Set-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings -Name hdmodels -Value 1
+    Set-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings -Name hdmodels -Value $hdmodels
 
     # https://developer.valvesoftware.com/wiki/Command_Line_Options
-    & $hlexe -dev `
+    $out = & $hlexe -dev `
             -console `
             -game iceg `
             -condebug `
             -windowed -gl -w 640 -h 480 `
-            +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers 2 | Out-Null
+            +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers 2 | Out-String
+
+    echo $out
 
     if ($lastexitcode -ne 0) {
         echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
@@ -137,7 +144,7 @@ function Compile-Sprite {
         echo "Could not compile ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    Move-Item $spritesdir\$target\$target.spr $redistdir\sprites -force
+    Move-Item $spritesdir\$target\$target.spr $redistdir\sprites\$target.spr -force
     Remove-Item $spritesdir\$target\sprgen.exe
 }
 
@@ -167,7 +174,7 @@ function Compile-Map {
         echo "Could not qrad ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    Copy-Item $mapsdir\$target\$target.bsp $redistdir\maps
+    Copy-Item $mapsdir\$target\$target.bsp $redistdir\maps\$target.bsp
     Get-ChildItem $mapsdir\$target -Exclude *.map | Remove-Item -Force -ErrorAction Ignore
 }
 
@@ -188,7 +195,7 @@ function Compile-Wad {
         exit
     }
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
-    Move-Item $wadsdir\$target.wad $redistdir -force
+    Copy-Item $wadsdir\$target.wad $redistdir -force
 }
 
 # Compile all DLLs
@@ -206,10 +213,16 @@ Compile-Model "v_9mmAR" $modelsdir $redistdir\models
 Compile-Model "v_9mmAR" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmar" $modelsdir\hd $redisthddir\models
 Compile-Model "v_shotgun" $modelsdir\hd $redisthddir\models
+Compile-Model "p_vest" $modelsdir $redistdir\models
+Compile-Model "v_vest_radio" $modelsdir $redistdir\models
+Compile-Model "v_vest_radio" $modelsdir\hd $redisthddir\models
+Compile-Model "w_vest" $modelsdir $redistdir\models
 
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Compile-Sprite "muzzleflash1"
+Copy-Item $spritesdir\weapon_vest.txt $redistdir\sprites
+Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
 # Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
@@ -218,6 +231,7 @@ Compile-Sprite "muzzleflash1"
 # Compile maps
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard"
+# Compile-Map "cir_stalkyard"
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
@@ -235,18 +249,36 @@ Copy-Item $redistdir\\* $icedir -Recurse -Force
 Copy-Item $redisthddir\\* $icehddir -Recurse -Force
 
 function Test-Manifest {
-    $files = Get-Content -Path Z:\manifest
-    Set-Location -Path $redistdir
+    param (
+        $manifest,
+        $target
+    )
+
+    # Read $mainfest files to directory
+    $files = Get-Content -Path $manifest
+    Set-Location -Path $target
     foreach ($file in $files) {
-        echo "locating $file..."
+        echo "locating $file in directory..."
         if (!(Test-Path "${file}")) {
-            echo "Could not find $file"
+            echo "Could not find $file in $target"
+            exit
+        }
+    }
+
+    # Read directory files to $manifest
+    $rawfiles = Get-ChildItem -Path $target -Recurse
+    foreach ($file in $rawfiles) {
+        $fileName = $file.FullName.Replace("$target\","")
+        echo "locating $file in $manifest..."
+        if (!$files.Contains($fileName)) {
+            echo "Could not find $fileName in $manifest"
             exit
         }
     }
 }
 
-Test-Manifest
+Test-Manifest "Z:\manifest" $redistdir
+Test-Manifest "Z:\manifest_hd" $redisthddir
 
 function PAK-File {
     param (
@@ -272,6 +304,6 @@ function PAK-File {
     Remove-Item "${icedir}\qpakman.exe"
 }
 
-PAK-File @("models", "maps")
+PAK-File @("models", "maps", "sound", "sprites")
 
 Launch-HL
