@@ -13,3 +13,7 @@
     [ ] Customer map waypoints for bots  
 [ ] Compile so's?  
 [ ] Edict count?
+
+## FIXES
+
+[ ] Adjust Grappling hook origin on player 
