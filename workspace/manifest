@@ -17,6 +17,8 @@ models\p_vest.mdl
 models\v_vest_radio.mdl
 models\w_vest.mdl
 resource
+resource\TrackerScheme.res
+resource\westminster.ttf
 resource\valve_english.txt
 sound
 sound\vest_selected.wav
@@ -37,3 +39,4 @@ readme.txt
 listenserver.cfg
 mapcycle.txt
 coldice.wad
+fonts.wad
