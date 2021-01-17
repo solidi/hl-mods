@@ -11,6 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 [int]$hdmodels = 1
+[int]$verifyfiles = 1
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -26,6 +27,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "LowRes") {
         $hdmodels = 0
         echo "switching to low res models..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVerify") {
+        $verifyfiles = 1
+        echo "skipping file verification..."
     }
 }
 
@@ -228,6 +232,10 @@ Copy-Item $spritesdir\hud.txt $redistdir\sprites
 # Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
 # Compile-Wad "coldice"
 
+# Compile fonts
+Set-Location -Path $bindir
+& .\makefont.exe -font "Arial" $redistdir\fonts.wad
+
 # Compile maps
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard"
@@ -277,8 +285,10 @@ function Test-Manifest {
     }
 }
 
-Test-Manifest "Z:\manifest" $redistdir
-Test-Manifest "Z:\manifest_hd" $redisthddir
+if ($verifyfiles) {
+    Test-Manifest "Z:\manifest" $redistdir
+    Test-Manifest "Z:\manifest_hd" $redisthddir
+}
 
 function PAK-File {
     param (
