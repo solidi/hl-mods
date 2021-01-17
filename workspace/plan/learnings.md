@@ -84,3 +84,5 @@
 1. Convert [references and addressof](https://stackoverflow.com/questions/19032461/convert-reference-to-pointer-representation-in-c) in C++, and interest suggestions of how to [intiatize a struct](https://stackoverflow.com/questions/11516657/c-structure-initialization).
 1. Using [header guards](https://stackoverflow.com/questions/15042470/redefinition-of-struct-error-i-only-defined-it-once) can avoid recompilation of the same header file.
 1. Copying a struct to a reference caused garbage data to be passed into CHudMessage. Must provide copy to the member class.
+1. Learned about the Xash3D engine, which is a fully compatible HL assets engine, that will take in maps, models, etc. See [early documentation](https://documentation.help/Xash3D/documentation.pdf).
+1. In the latest version of goldsource, it does not appear that fonts.wad is used.
