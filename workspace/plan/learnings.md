@@ -86,3 +86,5 @@
 1. Copying a struct to a reference caused garbage data to be passed into CHudMessage. Must provide copy to the member class.
 1. Learned about the Xash3D engine, which is a fully compatible HL assets engine, that will take in maps, models, etc. See [early documentation](https://documentation.help/Xash3D/documentation.pdf).
 1. In the latest version of goldsource, it does not appear that fonts.wad is used.
+1. To file archived files for Half-Life, including maps from Radium, and tools from Wavelength, [checkout this resource from dukeworld](http://dukeworld.duke4.net/planetquake/planethalflife/).
+1. Documentation on the wad3 and sprite file format specifics that are used in Half-Life [can be found here](https://yuraj.ucoz.com/half-life-formats.pdf).
