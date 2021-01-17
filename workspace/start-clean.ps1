@@ -28,7 +28,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
         $hdmodels = 0
         echo "switching to low res models..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVerify") {
-        $verifyfiles = 1
+        $verifyfiles = 0
         echo "skipping file verification..."
     }
 }

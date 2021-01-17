@@ -35,8 +35,9 @@ grave_bot.cfg
 grave_bot_names.txt
 config.cfg
 autoexec.cfg
-readme.txt
+readme.txt 
 listenserver.cfg
 mapcycle.txt
 coldice.wad
 fonts.wad
+gfx.wad
