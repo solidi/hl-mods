@@ -88,3 +88,5 @@
 1. In the latest version of goldsource, it does not appear that fonts.wad is used.
 1. To file archived files for Half-Life, including maps from Radium, and tools from Wavelength, [checkout this resource from dukeworld](http://dukeworld.duke4.net/planetquake/planethalflife/).
 1. Documentation on the wad3 and sprite file format specifics that are used in Half-Life [can be found here](https://yuraj.ucoz.com/half-life-formats.pdf).
+1. [Helpful thread](https://twhl.info/thread/view/19504) on the differences between enginefonts, vgui fonts, and everything inbetween.
+1. A helpfull full compilation command guidelines to the qc files/smd/model making for Half-Life [can be found here](https://the303.org/tutorials/gold_qc.htm).
