@@ -12,11 +12,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 [int]$hdmodels = 1
 [int]$verifyfiles = 1
+[string]$rebuild = "Build"
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
-        $rebuild = "/rebuild"
+        $rebuild = "Clean,Build"
         echo "rebuilding all code sources..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Rollback") {
         $rollback = "yes"
@@ -87,31 +88,26 @@ if (!(Test-Path variable:preserve)) {
 
 function Compile-DLL {
     param (
-        $srcdir,
-        $dll,
-        $target,
-        $path,
-        $rebuildAll
+        $slnpath,
+        $dllname,
+        $rebuildall
     )
 
-    $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin\msdev3"
-
-    # Delete current libraries so that we do not use old copies
-    Remove-Item ${redistdir}\$path\$dll.dll -ErrorAction Ignore
+    $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild"
 
     # https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
-    $out = & $msdev $srcdir\$path\$target.dsp /make "$target - Win32 Release" ${rebuildAll} | Out-String
+    $out = & $msdev $slnpath /t:$rebuildall /p:Configuration=Release | Out-String
 
     if ($lastexitcode -ne 0) {
         echo $out
-        echo "Could not compile $dll.dll. Exit code: ${lastexitcode}"
+        echo "Could not compile $dllname.dll. Exit code: ${lastexitcode}"
         exit
     }
 
     echo $out
 
-    if ($out -match '[1-9] error' -or $out.Contains("Error")) {
-        echo "Could not compile $dll.dll."
+    if ($out -match '^[1-9]\d* Error') {
+        echo "Could not compile $dllname.dll."
         exit
     }
 }
@@ -205,9 +201,9 @@ function Compile-Wad {
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
-Compile-DLL "Z:\grave-bot-src" "grave_bot" "grave_bot" "dlls" $rebuild
-Compile-DLL "Z:\src" "hl" "hl" "dlls" $rebuild
-Compile-DLL "Z:\src" "client" "cl_dll" "cl_dll" $rebuild
+Compile-DLL "Z:\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
+Compile-DLL "Z:\src\projects\vs2019\hldll.sln" "hl" $rebuild
+Compile-DLL "Z:\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
 
 # Compile source models
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
