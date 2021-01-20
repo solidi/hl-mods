@@ -13,6 +13,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [int]$hdmodels = 1
 [int]$verifyfiles = 1
 [string]$rebuild = "Build"
+[string]$grapplinghook = "GRAPPLING_HOOK"
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -31,6 +32,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVerify") {
         $verifyfiles = 0
         echo "skipping file verification..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "GrapplingHook") {
+        $grapplinghook = ""
+        echo "skipping grappling hook..."
     }
 }
 
@@ -96,7 +100,10 @@ function Compile-DLL {
     $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild"
 
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
-    $out = & $msdev $slnpath /t:$rebuildall /p:Configuration=Release | Out-String
+    $out = & $msdev $slnpath /t:$rebuildall `
+                    /p:Configuration=Release `
+                    /p:GrapplingHook=$grapplinghook `
+                    | Out-String
 
     if ($lastexitcode -ne 0) {
         echo $out
@@ -197,7 +204,7 @@ function Compile-Wad {
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
     Copy-Item $wadsdir\$target.wad $redistdir -force
 }
-
+`
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
