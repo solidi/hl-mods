@@ -14,6 +14,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [int]$verifyfiles = 1
 [string]$rebuild = "Build"
 [string]$grapplinghook = "GRAPPLING_HOOK"
+[string]$weaponvest = "VEST"
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -32,9 +33,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVerify") {
         $verifyfiles = 0
         echo "skipping file verification..."
-    } elseif ($_.Split(' ')[0].ToUpper() -eq "GrapplingHook") {
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipHook") {
         $grapplinghook = ""
         echo "skipping grappling hook..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVest") {
+        $weaponvest = ""
+        echo "skipping vest device..."
     }
 }
 
@@ -103,6 +107,7 @@ function Compile-DLL {
     $out = & $msdev $slnpath /t:$rebuildall `
                     /p:Configuration=Release `
                     /p:GrapplingHook=$grapplinghook `
+                    /p:Vest=$weaponvest `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
