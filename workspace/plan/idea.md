@@ -56,3 +56,4 @@
 1. Snowball fight mutator - all weapons fire / throw snowballs
 1. Have humorous sound effect with each weapon?
 1. [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
+1. Wall jumping
