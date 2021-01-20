@@ -95,7 +95,7 @@ function Compile-DLL {
 
     $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild"
 
-    # https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa699274(v=vs.60)
+    # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
     $out = & $msdev $slnpath /t:$rebuildall /p:Configuration=Release | Out-String
 
     if ($lastexitcode -ne 0) {
