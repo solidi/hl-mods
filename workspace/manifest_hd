@@ -3,3 +3,10 @@ models\p_9mmar.mdl
 models\v_9mmAR.mdl
 models\v_shotgun.mdl
 models\v_vest_radio.mdl
+models\v_9mmhandgun.mdl
+models\v_9mmhandguns.mdl
+models\p_9mmhandguns.mdl
+models\w_9mmhandguns.mdl
+sprites
+sprites\640hud1.spr
+sprites\640hud4.spr

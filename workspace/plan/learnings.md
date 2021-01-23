@@ -92,3 +92,5 @@
 1. A helpfull full compilation command guidelines to the qc files/smd/model making for Half-Life [can be found here](https://the303.org/tutorials/gold_qc.htm).
 1. Updated compilation to Visual Studio 2019 and building on the command line [can be found here](https://social.msdn.microsoft.com/Forums/en-US/3ed198c7-756e-44f4-bfc8-de90b0faf798/how-to-build-c-program-from-command-line-for-vs-2019?forum=msbuild).
 1. [This repro](https://github.com/Solokiller/halflife-updated/commit/e19fe4703583a7ef793034c2b119b884e8e97693) was helpful in understanding how to update `abs` in the upgrade to Visual Studio 2019.
+1. A good thread on how to handle [the copy function](https://stackoverflow.com/questions/834270/visual-studio-post-build-event-copy-to-relative-directory-location) in visual studio 2019.
+1. Changing values in a `SetThink` for client sided weapons will not reflect the value on the client.
