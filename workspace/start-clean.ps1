@@ -15,11 +15,13 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$rebuild = "Build"
 [string]$grapplinghook = "GRAPPLING_HOOK"
 [string]$weaponvest = "VEST"
+[string]$weaponhandgun = "SILENCER"
+[int]$bots = 0
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
-        $rebuild = "Clean,Build"
+        $rebuild = "Rebuild"
         echo "rebuilding all code sources..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Rollback") {
         $rollback = "yes"
@@ -39,6 +41,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVest") {
         $weaponvest = ""
         echo "skipping vest device..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipHandgun") {
+        $weaponhandgun = ""
+        echo "skipping handgun..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Bots") {
+        $bots = $_.Split(' ')[1]
+        echo "adding ${bots} bots..."
     }
 }
 
@@ -46,7 +54,6 @@ $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistdir = "Z:\redist"
 $redisthddir = "Z:\redist_hd"
 $bindir = "Z:\bin"
-$spritesdir = "z:\sprites"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
 $icedir = "${hldir}\iceg"
@@ -54,6 +61,10 @@ $icehddir = "${hldir}\iceg_hd"
 $zipfile = "Z:\last-build.zip"
 
 function Launch-HL {
+    param (
+        $botcount
+    )
+    $players = $botcount + 2
     $hlexe = "${hldir}\hl.exe"
 
     # Set hdmodels
@@ -66,7 +77,7 @@ function Launch-HL {
             -game iceg `
             -condebug `
             -windowed -gl -w 640 -h 480 `
-            +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers 2 | Out-String
+            +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers $players | Out-String
 
     echo $out
 
@@ -104,10 +115,11 @@ function Compile-DLL {
     $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild"
 
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
-    $out = & $msdev $slnpath /t:$rebuildall `
+    $out = & $msdev $slnpath /t:"$rebuildall" `
                     /p:Configuration=Release `
                     /p:GrapplingHook=$grapplinghook `
                     /p:Vest=$weaponvest `
+                    /p:Silencer=$weaponhandgun `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -145,7 +157,9 @@ function Compile-Model {
 
 function Compile-Sprite {
     param (
-        $target
+        $target,
+        $spritesdir,
+        $outdir
     )
 
     Copy-Item $bindir\sprgen.exe $spritesdir\$target
@@ -156,7 +170,7 @@ function Compile-Sprite {
         echo "Could not compile ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    Move-Item $spritesdir\$target\$target.spr $redistdir\sprites\$target.spr -force
+    Move-Item $spritesdir\$target\$target.spr $outdir\$target.spr -force
     Remove-Item $spritesdir\$target\sprgen.exe
 }
 
@@ -229,11 +243,27 @@ Compile-Model "p_vest" $modelsdir $redistdir\models
 Compile-Model "v_vest_radio" $modelsdir $redistdir\models
 Compile-Model "v_vest_radio" $modelsdir\hd $redisthddir\models
 Compile-Model "w_vest" $modelsdir $redistdir\models
+Compile-Model "v_9mmhandgun" $modelsdir $redistdir\models
+Compile-Model "v_9mmhandgun" $modelsdir\hd $redisthddir\models
+Compile-Model "v_9mmhandguns" $modelsdir\hd $redisthddir\models
+Compile-Model "v_9mmhandguns" $modelsdir $redistdir\models
+Compile-Model "p_9mmhandguns" $modelsdir $redistdir\models
+Compile-Model "p_9mmhandguns" $modelsdir\hd $redisthddir\models
+Compile-Model "w_9mmhandguns" $modelsdir $redistdir\models
+Compile-Model "w_9mmhandguns" $modelsdir\hd $redisthddir\models
 
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
-Compile-Sprite "muzzleflash1"
+Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
+$spritesdir = "z:\sprites"
+Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
+Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
+Compile-Sprite "640hud1" $spritesdir $redistdir\sprites
+Compile-Sprite "640hud1" $spritesdir\hd $redisthddir\sprites
+Compile-Sprite "640hud4" $spritesdir $redistdir\sprites
+Compile-Sprite "640hud4" $spritesdir\hd $redisthddir\sprites
 Copy-Item $spritesdir\weapon_vest.txt $redistdir\sprites
+Copy-Item $spritesdir\weapon_9mmhandgun.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
@@ -293,6 +323,11 @@ function Test-Manifest {
     }
 }
 
+for ($bot = 0; $bot -lt $bots; $bot++) {
+    "addbot 2" | Add-Content $icedir\grave_bot.cfg
+    "pause 3" | Add-Content $icedir\grave_bot.cfg
+}
+
 if ($verifyfiles) {
     Test-Manifest "Z:\manifest" $redistdir
     Test-Manifest "Z:\manifest_hd" $redisthddir
@@ -324,4 +359,4 @@ function PAK-File {
 
 PAK-File @("models", "maps", "sound", "sprites")
 
-Launch-HL
+Launch-HL $bots
