@@ -56,8 +56,9 @@ $redisthddir = "Z:\redist_hd"
 $bindir = "Z:\bin"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
-$icedir = "${hldir}\iceg"
-$icehddir = "${hldir}\iceg_hd"
+$icefolder = "iceg"
+$icedir = "${hldir}\${icefolder}"
+$icehddir = "${hldir}\${icefolder}_hd"
 $zipfile = "Z:\last-build.zip"
 
 function Launch-HL {
@@ -72,12 +73,12 @@ function Launch-HL {
     Set-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings -Name hdmodels -Value $hdmodels
 
     # https://developer.valvesoftware.com/wiki/Command_Line_Options
-    $out = & $hlexe -dev `
-            -console `
-            -game iceg `
-            -condebug `
+    $out = & $hlexe `
+            -console -dev -condebug `
+            -game $icefolder `
             -windowed -gl -w 640 -h 480 `
-            +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers $players | Out-String
+            +developer 2 +log on `
+            +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers $players | Out-String
 
     echo $out
 
