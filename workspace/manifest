@@ -34,6 +34,7 @@ sound\handgun_silenced.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
+sprites\zerogxplode.spr
 sprites\640hud1.spr
 sprites\640hud4.spr
 sprites\weapon_vest.txt
