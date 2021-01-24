@@ -42,7 +42,7 @@ $hbox 0 "Cylinder02" -0.490000 -0.690000 -6.010000 3.140000 0.980000 5.860000
 // 5 animation sequence(s)
 $sequence "idle1" "idle1" fps 30 loop 
 $sequence "fidget1" "fidget1" fps 40 
-$sequence "draw" "draw" fps 30 { event 5004 5 "vest_selected.wav" }
+$sequence "draw" "draw" fps 30 { event 5004 0 "vest_selected.wav" } { event 5004 10 "vest_equip.wav" } 
 $sequence "fire" "fire" fps 50 
 $sequence "holster" "holster" fps 30 
 

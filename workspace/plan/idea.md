@@ -58,3 +58,5 @@
 1. [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
 1. [Wall jumping](http://articles.thewavelength.net/226/)
 1. Akimbo models
+1. Third model mode - real skins
+1. Vest "back out" second attack

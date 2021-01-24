@@ -38,7 +38,7 @@ $hbox 0 "Dummy22" -1.910000 -0.760000 -2.020000 1.710000 0.900000 9.850000
 // 5 animation sequence(s)
 $sequence "idle1" "idle1" fps 30 loop 
 $sequence "fidget1" "fidget1" fps 30 
-$sequence "draw" "draw" fps 30 
+$sequence "draw" "draw" fps 30 { event 5004 0 "vest_selected.wav" } { event 5004 10 "vest_equip.wav" } 
 $sequence "fire" "fire" fps 30 
 $sequence "holster" "holster" fps 30 
 
