@@ -97,3 +97,4 @@
 1. Mirroring view models may not provide back polygons (back culling). Noted this on view models with Milkshape.
 1. Animated sprites in Half-Life require 256 indexed color. If there is more than one frame, the same palette is used for all bmps. [IrfanView](https://www.irfanview.com/) is a good tool to export and import these plaettes.
 1. Polygon count of Half-Life 1 to Half-Life 2 appears to be 5x-10x times. Here is [a source](https://developer.valvesoftware.com/wiki/Model_Creation_Overview) confirming poly counts.
+1. Although original modeling doc states that p_model attachments can override attachments declared in a player model, this is not the case. In order to tweak the muzzleflash placements, [the player model muzzle flash event and its position attatchment](https://forums.alliedmods.net/showthread.php?t=309330) has to be edited and recompiled.
