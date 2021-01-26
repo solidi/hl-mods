@@ -47,6 +47,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Bots") {
         $bots = $_.Split(' ')[1]
         echo "adding ${bots} bots..."
+    } else {
+        $cmd = $_.Split(' ')[0]
+        if ($cmd) {
+            echo "${cmd} is not supported..."
+            exit
+        }
     }
 }
 
@@ -249,9 +255,13 @@ Compile-Model "v_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "v_9mmhandguns" $modelsdir\hd $redisthddir\models
 Compile-Model "v_9mmhandguns" $modelsdir $redistdir\models
 Compile-Model "p_9mmhandguns" $modelsdir $redistdir\models
+Compile-Model "p_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmhandguns" $modelsdir\hd $redisthddir\models
 Compile-Model "w_9mmhandguns" $modelsdir $redistdir\models
 Compile-Model "w_9mmhandguns" $modelsdir\hd $redisthddir\models
+
+New-Item -ItemType directory -Path $redistdir\models\player\gordon
+Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
 
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
