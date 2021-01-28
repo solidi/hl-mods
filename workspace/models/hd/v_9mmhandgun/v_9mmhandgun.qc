@@ -27,23 +27,23 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "v_beretta_reference"
 
-$body "studio" "v_beretta_hands_reference"
+$body "studio" "v_gordon_hands_Reference"
 
 $body "studio" "clip_reference"
 
 
 // 1 attachment(s)
-$attachment 0 "Bip01 R Hand" 12.000000 2.250000 4.250000
+$attachment 0 "Hands biped R Hand" 12.000000 2.250000 4.250000
 
 // 8 hit box(es)
-$hbox 0 "Bip01 R Hand" 0.000000 -0.860000 -1.870000 3.870000 1.010000 3.273725
-$hbox 0 "Hands mesh" -0.880000 -6.500000 -6.790000 1.240000 3.550000 2.760000
+$hbox 0 "Hands biped R Forearm" -0.690000 -2.150000 -2.460000 11.368418 2.820000 1.950000
+$hbox 0 "Hands biped R Hand" -0.560000 -1.560000 -2.450000 3.890000 1.200000 1.887007
+$hbox 0 "Hands mesh" -0.880000 -6.500000 -6.800000 1.240000 3.550000 2.760000
 $hbox 0 "Hands mesh 2" -0.960000 -2.000000 -4.580000 0.800000 1.930000 4.150000
-$hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -2.060000 3.910000 0.900000 1.710000
-$hbox 0 "Bip01 L Finger0" 0.000000 -0.950000 -0.570000 2.450000 0.380000 0.700000
-$hbox 0 "L_Arm_bone" -1.920000 -2.640000 -2.300000 2.760000 2.490000 7.980000
-$hbox 0 "Bip01 R Finger0" 0.000000 -0.850000 -0.830000 2.373624 0.480000 0.710000
-$hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
+$hbox 0 "Hands biped L Forearm" -0.690000 -2.150000 -1.970000 11.368419 2.820000 2.440000
+$hbox 0 "Hands biped L Hand" -0.560000 -1.540000 -1.910000 3.890000 1.220000 2.450000
+$hbox 0 "Hands biped L Finger0" 0.000000 -0.730000 -0.560000 2.380000 0.370000 0.750000
+$hbox 0 "Hands biped R Finger0" -0.040000 -0.700000 -0.730000 2.380000 0.370000 0.570000
 
 // 9 animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
@@ -53,7 +53,7 @@ $sequence "shoot" "shoot" fps 28 { event 5001 0 "11" }
 $sequence "shoot_empty" "shoot_empty" fps 28 { event 5001 0 "11" } 
 $sequence "reload" "reload" fps 25 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
 $sequence "reload_noshot" "reload_noshot" fps 25 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
-$sequence "draw" "draw" fps 20  { event 5004 5 "handgun_selected.wav" }
-$sequence "holster" "holster" fps 20 { event 5004 0 "handgun_bond.wav" } 
+$sequence "draw" "draw" fps 20 { event 5004 5 "handgun_selected.wav" }
+$sequence "holster" "holster" fps 20 { event 5004 0 "handgun_bond.wav" }
 
 // End of QC script.

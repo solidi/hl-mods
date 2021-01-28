@@ -11,3 +11,4 @@ Thanks To
 
 zikshadow with handgun silencers https://gamebanana.com/skins/158498
 chris whitman for the silencer https://web.archive.org/web/20011204054313fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/02.htm
+Modboy for the fixed beretta https://gamebanana.com/skins/download/142561
