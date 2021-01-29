@@ -61,3 +61,4 @@
 1. Third model mode - real skins
 1. Vest "back out" second attack
 1. Guass gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
+1. [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY)
