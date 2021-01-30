@@ -100,3 +100,4 @@
 1. Although original modeling doc states that p_model attachments can override attachments declared in a player model, this is not the case. In order to tweak the muzzleflash placements, [the player model muzzle flash event and its position attatchment](https://forums.alliedmods.net/showthread.php?t=309330) has to be edited and recompiled.
 1. I learned at un-raring files on Macos requires a third party util. [I used an install from homebrew called unrar](https://github.com/Homebrew/discussions/discussions/285).
 1. Learned about the updated `studiomdl.exe` update from Sven-Coop that improves the model compilation experience. [It can be downloaded here](https://www.gvme.org/1837).
+1. `pev->body` group setting will work with v_weapon models, as long as each `SendWeaponAnim()` sends the body.
