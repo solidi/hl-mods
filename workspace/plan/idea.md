@@ -55,6 +55,7 @@
 1. Convert weaponbox to dropped weapon
 1. Snowball fight mutator - all weapons fire / throw snowballs
 1. Have humorous sound effect with each weapon?
+  1. Holy handgrenade humor sfx for cluster grenades
 1. [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
 1. [Wall jumping](http://articles.thewavelength.net/226/)
 1. Akimbo models
@@ -62,4 +63,3 @@
 1. Vest "back out" second attack
 1. Guass gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
 1. [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY)
-1. Holy handgrenade humor sfx for cluster grenades
