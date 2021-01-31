@@ -31,6 +31,7 @@ sound
 sound\vest_selected.wav
 sound\vest_attack.wav
 sound\vest_equip.wav
+sound\vest_alive.wav
 sound\handgun_selected.wav
 sound\handgun_bond.wav
 sound\handgun.wav

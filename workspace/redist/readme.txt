@@ -24,4 +24,4 @@ Slartibarty for the fixed beretta model https://gamebanana.com/skins/142561
 RR2DO2 for the cluster grenades tutorial http://web.archive.org/web/20010720214509/http://www.contaminated.net/whenitsdone/tutorials/coding/clustergrenades/index.shtml
 APGRoboCop for grave bot https://github.com/APGRoboCop/grave_bot
 MachIII for the weapons label tutorial http://web.archive.org/web/20040702181915/http://www.contaminated.net/mach3/tutorials/weapons/weapon_names.html
-MyInstants.com for humorous movie clips https://www.myinstants.com/
+MyInstants.com and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
