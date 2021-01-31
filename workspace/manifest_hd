@@ -7,6 +7,10 @@ models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\p_9mmhandguns.mdl
 models\w_9mmhandguns.mdl
+models\p_9mmhandgun.mdl
+models\v_grenade.mdl
+models\w_grenade.mdl
+models\p_grenade.mdl
 sprites
 sprites\640hud1.spr
 sprites\640hud4.spr

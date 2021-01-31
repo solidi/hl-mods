@@ -16,6 +16,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$grapplinghook = "GRAPPLING_HOOK"
 [string]$weaponvest = "VEST"
 [string]$weaponhandgun = "SILENCER"
+[string]$weaponclustergrenades = "CLUSTER_GRENADES"
 [int]$bots = 0
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
@@ -44,6 +45,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipHandgun") {
         $weaponhandgun = ""
         echo "skipping handgun..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipClusterGrenades") {
+        $weaponclustergrenades = ""
+        echo "skipping cluster grenades..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Bots") {
         $bots = $_.Split(' ')[1]
         echo "adding ${bots} bots..."
@@ -127,6 +131,7 @@ function Compile-DLL {
                     /p:GrapplingHook=$grapplinghook `
                     /p:Vest=$weaponvest `
                     /p:Silencer=$weaponhandgun `
+                    /p:ClusterGrenades=$weaponclustergrenades `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -153,9 +158,10 @@ function Compile-Model {
     Copy-Item $bindir\studiomdl.exe $modelsdir\$target
     Remove-Item $modelsdir\$target.mdl -ErrorAction Ignore
     Set-Location -Path $modelsdir\$target
-    & .\studiomdl $modelsdir\$target\$target.qc | Out-String
+    echo "Compiling model $modelsdir\$target\$target.qc..."
+    $out = & .\studiomdl $modelsdir\$target\$target.qc | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not compile ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not compile ${target}. Exit code: ${lastexitcode}"
         exit
     }
     Move-Item $modelsdir\$target\$target.mdl $outdir\$target.mdl -force
@@ -259,9 +265,15 @@ Compile-Model "p_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmhandguns" $modelsdir\hd $redisthddir\models
 Compile-Model "w_9mmhandguns" $modelsdir $redistdir\models
 Compile-Model "w_9mmhandguns" $modelsdir\hd $redisthddir\models
+Compile-Model "v_grenade" $modelsdir\hd $redisthddir\models
+Compile-Model "w_grenade" $modelsdir\hd $redisthddir\models
+Compile-Model "p_grenade" $modelsdir\hd $redisthddir\models
+Compile-Model "p_grenade" $modelsdir $redistdir\models
+Compile-Model "v_grenade" $modelsdir $redistdir\models
+Compile-Model "w_grenade" $modelsdir $redistdir\models
 
-New-Item -ItemType directory -Path $redistdir\models\player\gordon
-Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
+# New-Item -ItemType directory -Path $redistdir\models\player\gordon
+# Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
 
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore

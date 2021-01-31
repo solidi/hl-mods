@@ -29,11 +29,6 @@ $body "studio" "glock_reference"
 
 $body "studio" "clip_reference"
 
-$bodygroup "silencer"
-{
-blank
-studio "glock_reference(silencer)"
-}
 
 
 // 1 attachment(s)

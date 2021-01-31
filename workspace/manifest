@@ -20,6 +20,9 @@ models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\p_9mmhandguns.mdl
 models\w_9mmhandguns.mdl
+models\v_grenade.mdl
+models\w_grenade.mdl
+models\p_grenade.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -32,6 +35,12 @@ sound\handgun_selected.wav
 sound\handgun_bond.wav
 sound\handgun.wav
 sound\handgun_silenced.wav
+sound\clustergrenades_selected.wav
+sound\holy_handgrenade.wav
+sound\weapons
+sound\weapons\explode3.wav
+sound\weapons\explode4.wav
+sound\weapons\explode5.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -56,3 +65,4 @@ coldice.wad
 fonts.wad
 gfx.wad
 skill.cfg
+user.scr

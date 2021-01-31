@@ -101,3 +101,5 @@
 1. I learned at un-raring files on Macos requires a third party util. [I used an install from homebrew called unrar](https://github.com/Homebrew/discussions/discussions/285).
 1. Learned about the updated `studiomdl.exe` update from Sven-Coop that improves the model compilation experience. [It can be downloaded here](https://www.gvme.org/1837).
 1. `pev->body` group setting will work with v_weapon models, as long as each `SendWeaponAnim()` sends the body.
+1. For humorous movie sound clips, check out [here](http://www.moviesoundclips.net/).
+1. To convert sound effects for half-life, the easiest pipeline would be to use ffmpeg, with the example command: `./ffmpeg -i ../in.mp3 -ar 22000 -ac 1 -acodec pcm_u8  -filter:a "volume=1.0" ../out.wav`.
