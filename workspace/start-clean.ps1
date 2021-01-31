@@ -125,6 +125,7 @@ function Compile-DLL {
 
     $msdev = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild"
 
+    echo "Compiling dll $slnpath > $dllname.dll..."
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
     $out = & $msdev $slnpath /t:"$rebuildall" `
                     /p:Configuration=Release `
@@ -135,15 +136,12 @@ function Compile-DLL {
                     | Out-String
 
     if ($lastexitcode -ne 0) {
-        echo $out
-        echo "Could not compile $dllname.dll. Exit code: ${lastexitcode}"
+        echo "$out> Could not compile $dllname.dll. Exit code: ${lastexitcode}"
         exit
     }
 
-    echo $out
-
     if ($out -match '^[1-9]\d* Error') {
-        echo "Could not compile $dllname.dll."
+        echo "$out> Could not compile $dllname.dll."
         exit
     }
 }
@@ -178,9 +176,10 @@ function Compile-Sprite {
     Copy-Item $bindir\sprgen.exe $spritesdir\$target
     Remove-Item $spritesdir\$target.spr -ErrorAction Ignore
     Set-Location -Path $spritesdir\$target
-    & .\sprgen $spritesdir\$target\$target.qc | Out-String
+    echo "Compiling sprite $spritesdir\$target.spr..."
+    $out = & .\sprgen $spritesdir\$target\$target.qc | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not compile ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not compile ${target}. Exit code: ${lastexitcode}"
         exit
     }
     Move-Item $spritesdir\$target\$target.spr $outdir\$target.spr -force
@@ -193,24 +192,25 @@ function Compile-Map {
     )
 
     Set-Location -Path $bindir
-    & .\hlcsg $mapsdir\$target\$target.map | Out-String
+    echo "Compiling map $target..."
+    $out = & .\hlcsg $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not qcsp ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not qcsp ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\hlbsp $mapsdir\$target\$target.map | Out-String
+    $out = & .\hlbsp $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not qbsp ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not qbsp ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\hlvis $mapsdir\$target\$target.map | Out-String
+    $out = & .\hlvis $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not vis ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not vis ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\hlrad $mapsdir\$target\$target.map | Out-String
+    $out = & .\hlrad $mapsdir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not qrad ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not qrad ${target}. Exit code: ${lastexitcode}"
         exit
     }
     Copy-Item $mapsdir\$target\$target.bsp $redistdir\maps\$target.bsp
@@ -223,14 +223,15 @@ function Compile-Wad {
     )
 
     Set-Location -Path $bindir
-    & .\makels $wadsdir\$target $wadsdir\$target $wadsdir\$target.ls | Out-String
+    echo "Compiling wad $wadsdir\$target.wad..."
+    $out = & .\makels $wadsdir\$target $wadsdir\$target $wadsdir\$target.ls | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not makels ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not makels ${target}. Exit code: ${lastexitcode}"
         exit
     }
-    & .\qlumpy $wadsdir\$target.ls
+    $out = & .\qlumpy $wadsdir\$target.ls | Out-String
     if ($lastexitcode -ne 0) {
-        echo "Could not qlumpy ${target}. Exit code: ${lastexitcode}"
+        echo "$out> Could not qlumpy ${target}. Exit code: ${lastexitcode}"
         exit
     }
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
@@ -366,12 +367,12 @@ function PAK-File {
     Set-Location -Path $icedir
     $folders = [String]::Join(" ", $targets)
     $in = ".\qpakman.exe ${folders} -o pak0.pak"
+    echo "Creating pak0 file..."
     $out = iex $in | Out-String
-    echo $out
 
     # qpakman does not exit with failure.
     if ($out -match '[1-9] failures' -or $out.Contains("FAILURE")) {
-        echo "Could not create pak file."
+        echo "$out> Could not create pak file."
         exit
     }
 
