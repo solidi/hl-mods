@@ -38,6 +38,8 @@ sound\handgun.wav
 sound\handgun_silenced.wav
 sound\clustergrenades_selected.wav
 sound\holy_handgrenade.wav
+sound\grapple_hit.wav
+sound\grapple_deploy.wav
 sound\weapons
 sound\weapons\explode3.wav
 sound\weapons\explode4.wav
