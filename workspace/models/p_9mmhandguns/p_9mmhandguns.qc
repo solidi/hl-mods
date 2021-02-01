@@ -27,6 +27,21 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "reference_9mm"
 
+$texturegroup ice
+{
+  { 
+    "back.bmp"
+    "side.bmp"
+    "chrome.bmp"
+    "top.bmp"
+  }
+  { 
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+}
 
 // 2 hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000

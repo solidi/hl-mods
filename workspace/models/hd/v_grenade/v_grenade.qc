@@ -29,10 +29,14 @@ $body "body" "grenade"
 
 $body "body" "v_gordon_hands_Reference"
 
-$bodygroup "body"
+$texturegroup ice
 {
-    blank
-    studio "grenade_ice"
+  {
+    "grenade s.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+  }
 }
 
 // 7 hit box(es)

@@ -31,6 +31,23 @@ $body "studio" "v_gordon_hands_Reference"
 
 $body "studio" "clip_reference"
 
+$texturegroup ice
+{
+  {
+    "chrome_black.BMP"
+    "gclip.bmp"
+    "gclipinside.bmp"
+    "v_beretta_bottom.BMP"
+    "v_beretta_main.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+}
 
 // 1 attachment(s)
 $attachment 0 "Hands biped R Hand" 12.000000 2.250000 4.250000

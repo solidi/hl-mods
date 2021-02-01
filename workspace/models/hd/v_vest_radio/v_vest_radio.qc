@@ -29,6 +29,17 @@ $body "body" "v_gordon_hands_reference"
 
 $body "body" "satchel_radio_detonator"
 
+$texturegroup ice
+{
+  {
+    "det_chrome.bmp"
+    "detonata'  bod.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+}
 
 // 7 hit box(es)
 $hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -1.820000 3.910000 0.900000 1.710000

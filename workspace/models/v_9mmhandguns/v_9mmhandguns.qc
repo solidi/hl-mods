@@ -31,6 +31,25 @@ $body "studio" "glock_reference"
 
 $body "studio" "clip_reference"
 
+$texturegroup ice
+{
+  { 
+    "back.bmp"
+    "side.bmp"
+    "chrome.bmp"
+    "top.bmp"
+    "gclip.bmp"
+    "gclipinside.bmp"
+  }
+  { 
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+}
 
 // 1 attachment(s)
 $attachment 0 "Bip01 R Hand" 10.000001 2.250000 4.250000

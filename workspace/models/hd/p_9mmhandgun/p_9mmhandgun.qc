@@ -27,6 +27,16 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "p_beretta"
 
+$texturegroup ice
+{
+  { 
+    "w_beretta.BMP"
+  }
+  { 
+    "..\iceCHROME.bmp"
+  }
+}
+
 // 1 attachment(s)
 $attachment 0 "Bip01 Neck" 0.000000 0.000000 0.000000
 

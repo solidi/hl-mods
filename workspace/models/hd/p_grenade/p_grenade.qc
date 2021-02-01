@@ -29,8 +29,12 @@ $body "studio" "p_grenade"
 
 $texturegroup ice
 {
-  { "grenade 128.bmp" }
-  { "..\iceCHROME.bmp" }
+  {
+    "grenade 128.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+  }
 }
 
 // 3 hit box(es)

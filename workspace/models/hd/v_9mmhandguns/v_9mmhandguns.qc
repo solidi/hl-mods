@@ -33,6 +33,25 @@ $body "clip" "clip_reference"
 
 $body "clip" "silencer"
 
+$texturegroup ice
+{
+  {
+    "chrome_black.BMP"
+    "chrome.bmp"
+    "gclip.bmp"
+    "gclipinside.bmp"
+    "v_beretta_bottom.BMP"
+    "v_beretta_main.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+}
 
 // 1 attachment(s)
 $attachment 0 "Bip01 R Hand" 12.000000 2.250000 4.250000

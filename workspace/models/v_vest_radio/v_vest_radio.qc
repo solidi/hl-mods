@@ -29,6 +29,23 @@ $body "body" "satchel_radio_hand"
 
 $body "body" "satchel_radio_detonator"
 
+$texturegroup ice
+{
+  { 
+    "det_front.bmp"
+    "det_side.bmp"
+    "detbutn_bright.bmp"
+    "dettop.bmp"
+    "flapchrome.bmp"
+  }
+  { 
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+}
 
 // 3 hit box(es)
 $hbox 0 "Bip01 R Arm2" 0.000000 -1.810000 -2.520000 11.368423 3.360000 2.090000

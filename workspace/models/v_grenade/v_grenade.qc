@@ -29,10 +29,18 @@ $body "body" "grenade"
 
 $body "body" "grenade_hand"
 
-$bodygroup "body"
+$texturegroup ice
 {
-    blank
-    studio "grenade_ice"
+  { 
+    "spoont.bmp"
+    "grenCHROME.bmp"
+    "grenade3.bmp"
+  }
+  { 
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
 }
 
 // 6 hit box(es)
