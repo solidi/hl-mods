@@ -264,7 +264,9 @@ Compile-Model "v_9mmhandguns" $modelsdir $redistdir\models
 Compile-Model "p_9mmhandguns" $modelsdir $redistdir\models
 Compile-Model "p_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmhandguns" $modelsdir\hd $redisthddir\models
+Compile-Model "w_9mmhandgun" $modelsdir $redistdir\models
 Compile-Model "w_9mmhandguns" $modelsdir $redistdir\models
+Compile-Model "w_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "w_9mmhandguns" $modelsdir\hd $redisthddir\models
 Compile-Model "v_grenade" $modelsdir\hd $redisthddir\models
 Compile-Model "w_grenade" $modelsdir\hd $redisthddir\models
