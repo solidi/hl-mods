@@ -13,8 +13,7 @@ Original Weapons are back!
 Commands:
 - Allow grappling hook on server - "mp_grapplinghook 1"
 - Deploy grappling hook - Use "+hook"
-- Ice Models (Client Sided) - "cl_icemodels 1" - To switch between view and player ice skins and real skins.
-- Ice Models (Server Sided) - "mp_icemodels 1" - To switch between world model ice skins and real skins.
+- Ice Models - "cl_icemodels 1" - To switch between view and player ice skins and real skins.
 
 Thanks To
 

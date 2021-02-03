@@ -27,6 +27,21 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "wrld_glock"
 
+$texturegroup ice
+{
+  { 
+    "glockback.bmp"
+    "glockfront.bmp"
+    "glockside.bmp"
+    "glocktop1.bmp"
+  }
+  { 
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+}
 
 // 1 hit box(es)
 $hbox 0 "sides01" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000

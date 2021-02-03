@@ -27,6 +27,15 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "w_beretta"
 
+$texturegroup ice
+{
+  { 
+    "w_beretta.BMP"
+  }
+  { 
+    "..\iceCHROME.bmp"
+  }
+}
 
 // 1 hit box(es)
 $hbox 0 "w_beretta" -4.890000 -6.370000 -0.840000 4.890000 6.370000 0.840000

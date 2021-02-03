@@ -28,8 +28,14 @@ $body "studio" "grenade"
 
 $texturegroup ice
 {
-  { "grenade_side.bmp" "grenade_skin.bmp" }
-  { "..\ringchrome.bmp" "..\ringchrome.bmp" }
+  {
+    "grenade_side.bmp"
+    "grenade_skin.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
 }
 
 // 1 hit box(es)
