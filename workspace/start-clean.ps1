@@ -66,6 +66,7 @@ $redisthddir = "Z:\redist_hd"
 $bindir = "Z:\bin"
 $mapsdir = "Z:\maps"
 $wadsdir = "Z:\wads"
+$sounddir = "Z:\sound"
 $icefolder = "iceg"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
@@ -237,6 +238,25 @@ function Compile-Wad {
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
     Copy-Item $wadsdir\$target.wad $redistdir -force
 }
+
+function Compile-Sound {
+    param (
+        $target,
+        $volume,
+        $outsound
+    )
+
+    Set-Location -Path $bindir
+    echo "Converting sound $outsound..."
+    $out = & .\ffmpeg -y -i $sounddir\$target `
+             -ar 22000 -ac 1 -acodec pcm_u8 -filter:a "volume=$volume" `
+             -hide_banner -loglevel error `
+             $redistdir\sound\$outsound | Out-String
+    if ($lastexitcode -ne 0) {
+        echo "$out> Could not convert sound ${target}. Exit code: ${lastexitcode}"
+        exit
+    }
+}
 `
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
@@ -305,6 +325,25 @@ Set-Location -Path $bindir
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard"
 # Compile-Map "cir_stalkyard"
+
+# Compile sounds
+Remove-Item $redistdir\sound\\* -Recurse -Force -ErrorAction Ignore
+Compile-Sound "hhg.mp3" "2.0" "holy_handgrenade.wav"
+Compile-Sound "alive.wav" "1.5" "vest_alive.wav"
+Copy-Item $sounddir\clustergrenades_selected.wav $redistdir\sound
+Copy-Item $sounddir\grapple_deploy.wav $redistdir\sound
+Copy-Item $sounddir\grapple_hit.wav $redistdir\sound
+Copy-Item $sounddir\handgun_bond.wav $redistdir\sound
+Copy-Item $sounddir\handgun_selected.wav $redistdir\sound
+Copy-Item $sounddir\handgun_silenced.wav $redistdir\sound
+Copy-Item $sounddir\handgun.wav $redistdir\sound
+Copy-Item $sounddir\vest_attack.wav $redistdir\sound
+Copy-Item $sounddir\vest_equip.wav $redistdir\sound
+Copy-Item $sounddir\vest_selected.wav $redistdir\sound
+New-Item -ItemType directory -Path $redistdir\sound\weapons
+Copy-Item $sounddir\explode3.wav $redistdir\sound\weapons
+Copy-Item $sounddir\explode4.wav $redistdir\sound\weapons
+Copy-Item $sounddir\explode5.wav $redistdir\sound\weapons
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
