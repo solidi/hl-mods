@@ -104,3 +104,4 @@
 1. For humorous movie sound clips, check out [here](http://www.moviesoundclips.net/).
 1. To convert sound effects for half-life, the easiest pipeline would be to use ffmpeg, with the example command: `./ffmpeg -i ../in.mp3 -ar 22000 -ac 1 -acodec pcm_u8  -filter:a "volume=1.0" ../out.wav`.
 1. A [nice post](https://stackoverflow.com/questions/1878001/how-do-i-check-if-a-c-stdstring-starts-with-a-certain-string-and-convert-a) on how to check for pure substring comparsion in C++. Also `strncmp(str, substr, strlen(substr))`
+1. I learned how to stub out operators and primative types in C++. For instance, `CBaseEntity * EHANDLE::operator ->() { return NULL; }` and `EHANDLE::operator int () { return 0; }`. Primative types do not allow for typer qualifiers, and use of `operator` after scope.
