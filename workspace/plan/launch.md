@@ -14,7 +14,8 @@
 [ ] Weapons  
     [x] Vest  
     [x] Silencer  
-    [ ] Cluster Grenades  
+    [x] Cluster Grenades  
+    [x] Knife  
     [ ] Rocket Launcher  
 [ ] Compile so's?  
 [ ] Edict count?  
@@ -23,3 +24,6 @@
 
 [ ] Adjust Grappling hook origin on player  
 [ ] Third person muzzle flash placement  
+[ ] Knife  
+    [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)  
+    [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)  

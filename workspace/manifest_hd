@@ -12,6 +12,11 @@ models\p_9mmhandgun.mdl
 models\v_grenade.mdl
 models\w_grenade.mdl
 models\p_grenade.mdl
+models\v_knife.mdl
+models\w_knife.mdl
+models\p_knife.mdl
+sound
+sound\knife_miss2.wav
 sprites
 sprites\640hud1.spr
 sprites\640hud4.spr

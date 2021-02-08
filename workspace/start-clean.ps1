@@ -17,7 +17,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponvest = "VEST"
 [string]$weaponhandgun = "SILENCER"
 [string]$weaponclustergrenades = "CLUSTER_GRENADES"
+[string]$weaponknife = "KNIFE"
 [int]$bots = 0
+[string]$map = "stalkyard"
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -51,6 +53,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Bots") {
         $bots = $_.Split(' ')[1]
         echo "adding ${bots} bots..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Map") {
+        $map = $_.Split(' ')[1]
+        echo "level is ${map} map..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipKnife") {
+        $weaponknife = ""
+        echo "skipping knife..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -89,7 +97,7 @@ function Launch-HL {
             -game $icefolder `
             -windowed -gl -w 640 -h 480 `
             +developer 2 +log on `
-            +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers $players | Out-String
+            +sv_lan 1 +map $map +deathmatch 1 +maxplayers $players | Out-String
 
     echo $out
 
@@ -134,6 +142,7 @@ function Compile-DLL {
                     /p:Vest=$weaponvest `
                     /p:Silencer=$weaponhandgun `
                     /p:ClusterGrenades=$weaponclustergrenades `
+                    /p:Knife=$weaponknife `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -243,15 +252,23 @@ function Compile-Sound {
     param (
         $target,
         $volume,
-        $outsound
+        $outsound,
+        $trim=0
     )
+
+    if ($trim -gt 0) {
+        $trimcmd = "-to $trim"
+    }
 
     Set-Location -Path $bindir
     echo "Converting sound $outsound..."
-    $out = & .\ffmpeg -y -i $sounddir\$target `
-             -ar 22000 -ac 1 -acodec pcm_u8 -filter:a "volume=$volume" `
-             -hide_banner -loglevel error `
-             $redistdir\sound\$outsound | Out-String
+    $in = ".\ffmpeg -y -i $sounddir\$target " `
+          + "-ar 22000 -ac 1 -acodec pcm_u8 -filter:a volume=$volume " `
+          + "$trimcmd " `
+          + "-hide_banner -loglevel error " `
+          + "$redistdir\sound\$outsound"
+
+    $out = iex $in | Out-String
     if ($lastexitcode -ne 0) {
         echo "$out> Could not convert sound ${target}. Exit code: ${lastexitcode}"
         exit
@@ -294,6 +311,12 @@ Compile-Model "p_grenade" $modelsdir\hd $redisthddir\models
 Compile-Model "p_grenade" $modelsdir $redistdir\models
 Compile-Model "v_grenade" $modelsdir $redistdir\models
 Compile-Model "w_grenade" $modelsdir $redistdir\models
+Compile-Model "p_knife" $modelsdir\hd $redisthddir\models
+Compile-Model "v_knife" $modelsdir\hd $redisthddir\models
+Compile-Model "w_knife" $modelsdir\hd $redisthddir\models
+Compile-Model "p_knife" $modelsdir $redistdir\models
+Compile-Model "v_knife" $modelsdir $redistdir\models
+Compile-Model "w_knife" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -310,6 +333,7 @@ Compile-Sprite "640hud1" $spritesdir\hd $redisthddir\sprites
 Compile-Sprite "640hud4" $spritesdir $redistdir\sprites
 Compile-Sprite "640hud4" $spritesdir\hd $redisthddir\sprites
 Copy-Item $spritesdir\weapon_vest.txt $redistdir\sprites
+Copy-Item $spritesdir\weapon_knife.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_9mmhandgun.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
@@ -324,10 +348,12 @@ Set-Location -Path $bindir
 # Compile maps
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard"
+Copy-Item $mapsdir\stalkyard.wpt $redistdir\maps
 # Compile-Map "cir_stalkyard"
 
 # Compile sounds
 Remove-Item $redistdir\sound\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
 Compile-Sound "hhg.mp3" "2.0" "holy_handgrenade.wav"
 Compile-Sound "alive.wav" "1.5" "vest_alive.wav"
 Copy-Item $sounddir\clustergrenades_selected.wav $redistdir\sound
@@ -344,6 +370,14 @@ New-Item -ItemType directory -Path $redistdir\sound\weapons
 Copy-Item $sounddir\explode3.wav $redistdir\sound\weapons
 Copy-Item $sounddir\explode4.wav $redistdir\sound\weapons
 Copy-Item $sounddir\explode5.wav $redistdir\sound\weapons
+Copy-Item $sounddir\knife_selected.wav $redistdir\sound
+Compile-Sound "buddha.wav" "1.0" "knife_thecore.wav" 3
+Copy-Item $sounddir\knife_miss2.wav $redistdir\sound
+Copy-Item $sounddir\hd\knife_miss2.wav $redisthddir\sound
+Copy-Item $sounddir\knife_hit_flesh1.wav $redistdir\sound
+Copy-Item $sounddir\knife_hit_flesh2.wav $redistdir\sound
+Copy-Item $sounddir\knife_hit_wall1.wav $redistdir\sound
+Copy-Item $sounddir\knife_hit_wall2.wav $redistdir\sound
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
@@ -390,7 +424,7 @@ function Test-Manifest {
 }
 
 for ($bot = 0; $bot -lt $bots; $bot++) {
-    "addbot 2" | Add-Content $icedir\grave_bot.cfg
+    "addbot 5" | Add-Content $icedir\grave_bot.cfg
     "pause 3" | Add-Content $icedir\grave_bot.cfg
 }
 
@@ -423,6 +457,6 @@ function PAK-File {
     Remove-Item "${icedir}\qpakman.exe"
 }
 
-PAK-File @("models", "maps", "sound", "sprites")
+PAK-File @("models", "sound", "sprites")
 
 Launch-HL $bots

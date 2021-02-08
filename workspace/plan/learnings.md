@@ -106,3 +106,4 @@
 1. A [nice post](https://stackoverflow.com/questions/1878001/how-do-i-check-if-a-c-stdstring-starts-with-a-certain-string-and-convert-a) on how to check for pure substring comparsion in C++. Also `strncmp(str, substr, strlen(substr))`
 1. I learned how to stub out operators and primative types in C++. For instance, `CBaseEntity * EHANDLE::operator ->() { return NULL; }` and `EHANDLE::operator int () { return 0; }`. Primative types do not allow for typer qualifiers, and use of `operator` after scope.
 1. How to use `texturegroup` with numerous skins [can be found here](https://developer.valvesoftware.com/wiki/$texturegroup).
+1. `extern "C"` prevents the compiler for "mangling." So if you specify a function to be extern C, the compiler doesn't performs name mangling with it and it can be directly accessed using its symbol name as the function name.
