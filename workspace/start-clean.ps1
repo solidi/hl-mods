@@ -1,4 +1,5 @@
 #Requires -Version 5.1
+Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
@@ -251,22 +252,32 @@ function Compile-Wad {
 function Compile-Sound {
     param (
         $target,
-        $volume,
+        [float]$volume,
         $outsound,
-        $trim=0
+        $type="wav",
+        [int]$trimfrom=0,
+        [int]$trimto=0
     )
 
-    if ($trim -gt 0) {
-        $trimcmd = "-to $trim"
+    $trimcmd = ""
+    if ($trimto -gt 0) {
+        $trimcmd = "-ss $trimfrom -to $trimto"
+    }
+
+    if ($type -eq "mp3") {
+       $typecmd = "-acodec libmp3lame"
+    } else {
+        $typecmd = "-ar 22050 -ac 1 -acodec pcm_u8 "
     }
 
     Set-Location -Path $bindir
     echo "Converting sound $outsound..."
     $in = ".\ffmpeg -y -i $sounddir\$target " `
-          + "-ar 22000 -ac 1 -acodec pcm_u8 -filter:a volume=$volume " `
+          + "$typecmd " `
+          + "-filter:a volume=$volume " `
           + "$trimcmd " `
           + "-hide_banner -loglevel error " `
-          + "$redistdir\sound\$outsound"
+          + "$redistdir\$outsound"
 
     $out = iex $in | Out-String
     if ($lastexitcode -ne 0) {
@@ -354,8 +365,8 @@ Copy-Item $mapsdir\stalkyard.wpt $redistdir\maps
 # Compile sounds
 Remove-Item $redistdir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
-Compile-Sound "hhg.mp3" "2.0" "holy_handgrenade.wav"
-Compile-Sound "alive.wav" "1.5" "vest_alive.wav"
+Compile-Sound "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
+Compile-Sound "alive.wav" 1.5 "sound\vest_alive.wav"
 Copy-Item $sounddir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $sounddir\grapple_deploy.wav $redistdir\sound
 Copy-Item $sounddir\grapple_hit.wav $redistdir\sound
@@ -371,13 +382,14 @@ Copy-Item $sounddir\explode3.wav $redistdir\sound\weapons
 Copy-Item $sounddir\explode4.wav $redistdir\sound\weapons
 Copy-Item $sounddir\explode5.wav $redistdir\sound\weapons
 Copy-Item $sounddir\knife_selected.wav $redistdir\sound
-Compile-Sound "buddha.wav" "1.0" "knife_thecore.wav" 3
+Compile-Sound "buddha.wav" 1.0 "sound\knife_thecore.wav" "wav" 0 3
 Copy-Item $sounddir\knife_miss2.wav $redistdir\sound
 Copy-Item $sounddir\hd\knife_miss2.wav $redisthddir\sound
 Copy-Item $sounddir\knife_hit_flesh1.wav $redistdir\sound
 Copy-Item $sounddir\knife_hit_flesh2.wav $redistdir\sound
 Copy-Item $sounddir\knife_hit_wall1.wav $redistdir\sound
 Copy-Item $sounddir\knife_hit_wall2.wav $redistdir\sound
+Compile-Sound "limp.wav" 1.0 "media\gamestartup.mp3" "mp3"
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
