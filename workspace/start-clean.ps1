@@ -18,6 +18,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponvest = "VEST"
 [string]$weaponhandgun = "SILENCER"
 [string]$weaponclustergrenades = "CLUSTER_GRENADES"
+[string]$weaponcrowbar = "CROWBAR"
 [string]$weaponknife = "KNIFE"
 [int]$bots = 0
 [string]$map = "stalkyard"
@@ -57,6 +58,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Map") {
         $map = $_.Split(' ')[1]
         echo "level is ${map} map..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipCrowbar") {
+        $weaponcrowbar = ""
+        echo "skipping crowbar..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipKnife") {
         $weaponknife = ""
         echo "skipping knife..."
@@ -144,6 +148,7 @@ function Compile-DLL {
                     /p:Silencer=$weaponhandgun `
                     /p:ClusterGrenades=$weaponclustergrenades `
                     /p:Knife=$weaponknife `
+                    /p:Crowbar=$weaponcrowbar `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -310,6 +315,7 @@ Compile-Model "v_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "v_9mmhandguns" $modelsdir\hd $redisthddir\models
 Compile-Model "v_9mmhandguns" $modelsdir $redistdir\models
 Compile-Model "p_9mmhandguns" $modelsdir $redistdir\models
+Compile-Model "p_9mmhandgun" $modelsdir $redistdir\models
 Compile-Model "p_9mmhandgun" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmhandguns" $modelsdir\hd $redisthddir\models
 Compile-Model "w_9mmhandgun" $modelsdir $redistdir\models
@@ -328,6 +334,12 @@ Compile-Model "w_knife" $modelsdir\hd $redisthddir\models
 Compile-Model "p_knife" $modelsdir $redistdir\models
 Compile-Model "v_knife" $modelsdir $redistdir\models
 Compile-Model "w_knife" $modelsdir $redistdir\models
+Compile-Model "v_crowbar" $modelsdir\hd $redisthddir\models
+Compile-Model "w_crowbar" $modelsdir\hd $redisthddir\models
+Compile-Model "p_crowbar" $modelsdir\hd $redisthddir\models
+Compile-Model "p_crowbar" $modelsdir $redistdir\models
+Compile-Model "v_crowbar" $modelsdir $redistdir\models
+Compile-Model "w_crowbar" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -390,6 +402,12 @@ Copy-Item $sounddir\knife_hit_flesh2.wav $redistdir\sound
 Copy-Item $sounddir\knife_hit_wall1.wav $redistdir\sound
 Copy-Item $sounddir\knife_hit_wall2.wav $redistdir\sound
 Compile-Sound "limp.wav" 1.0 "media\gamestartup.mp3" "mp3"
+Compile-Sound "zeke.mp3" 1.0 "sound\crowbar_zeke.wav" "wav" 2 6
+Copy-Item $sounddir\crowbar_selected.wav $redistdir\sound
+Copy-Item $sounddir\cbar_hit1.wav $redistdir\sound
+Copy-Item $sounddir\cbar_hitbod1.wav $redistdir\sound
+Copy-Item $sounddir\cbar_hitbod2.wav $redistdir\sound
+Copy-Item $sounddir\cbar_hitbod3.wav $redistdir\sound
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore

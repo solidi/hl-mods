@@ -24,6 +24,7 @@ models\w_vest.mdl
 models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\p_9mmhandguns.mdl
+models\p_9mmhandgun.mdl
 models\w_9mmhandgun.mdl
 models\w_9mmhandguns.mdl
 models\v_grenade.mdl
@@ -32,6 +33,9 @@ models\p_grenade.mdl
 models\v_knife.mdl
 models\w_knife.mdl
 models\p_knife.mdl
+models\v_crowbar.mdl
+models\w_crowbar.mdl
+models\p_crowbar.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -60,6 +64,12 @@ sound\knife_hit_wall1.wav
 sound\knife_hit_wall2.wav
 sound\knife_hit_flesh1.wav
 sound\knife_hit_flesh2.wav
+sound\crowbar_selected.wav
+sound\crowbar_zeke.wav
+sound\cbar_hit1.wav
+sound\cbar_hitbod1.wav
+sound\cbar_hitbod2.wav
+sound\cbar_hitbod3.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
