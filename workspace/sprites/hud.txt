@@ -50,6 +50,7 @@ title_half		320 320hud3 0	48	128	16
 title_life		320 320hud3 128 48	116	16
 
 d_crowbar		320	320hud1	0	208	48	16
+d_flying_crowbar		320	320hud1	0	208	48	16
 d_knife 		320	320hud1	0	208	48	16
 d_flying_knife 	320	320hud1	0	208	48	16
 d_9mmhandgun	320	320hud1	0	224	32	16
@@ -132,6 +133,7 @@ title_half		640 640hud4	0	226	256	30
 title_life		640 640hud5	0	226	220	30
 
 d_crowbar		640	640hud1	192	0	48	16
+d_flying_crowbar		640	640hud1	192	0	48	16
 d_knife  		640	640hud1	192	0	48	16
 d_flying_knife  640	640hud1	192	0	48	16
 d_9mmhandgun	640	640hud1	192	16	32	16

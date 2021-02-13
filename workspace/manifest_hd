@@ -15,6 +15,9 @@ models\p_grenade.mdl
 models\v_knife.mdl
 models\w_knife.mdl
 models\p_knife.mdl
+models\v_crowbar.mdl
+models\p_crowbar.mdl
+models\w_crowbar.mdl
 sound
 sound\knife_miss2.wav
 sprites

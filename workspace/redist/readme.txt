@@ -11,6 +11,7 @@ Features:
     - Silenced Handgun
     - Cluster Grenades
     - 12-Inch Combat Knife
+    - Standard Crowbar
 - Option for origin models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
@@ -19,12 +20,14 @@ Features:
 
 Commands:
 
-Server: 
+Server:
+
 - Allow grappling hook on server - "mp_grapplinghook 1"
 - Time (seconds) when next grappling hook can deploy - "mp_grapplinghookdeploytime 1.0"
 - Add a bot - Use "addbot"
 
 Client:
+
 - Deploy grappling hook - Use "+hook"
 - Ice Models - "cl_icemodels 1" - To switch between view and player ice skins and real skins
 - Switch between original and HD models using the "Enable HD models if available" in Video options
