@@ -351,6 +351,7 @@ $spritesdir = "z:\sprites"
 Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
 Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
 Compile-Sprite "zerogxplode" $spritesdir $redistdir\sprites
+Compile-Sprite "crosshairs" $spritesdir $redistdir\sprites
 Compile-Sprite "640hud1" $spritesdir $redistdir\sprites
 Compile-Sprite "640hud1" $spritesdir\hd $redisthddir\sprites
 Compile-Sprite "640hud4" $spritesdir $redistdir\sprites

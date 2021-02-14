@@ -74,6 +74,7 @@ sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
 sprites\zerogxplode.spr
+sprites\crosshairs.spr
 sprites\640hud1.spr
 sprites\640hud4.spr
 sprites\weapon_vest.txt
@@ -88,6 +89,7 @@ grave_bot.cfg
 grave_bot_names.txt
 config.cfg
 autoexec.cfg
+dev.cfg
 readme.txt
 listenserver.cfg
 mapcycle.txt
@@ -96,3 +98,4 @@ fonts.wad
 gfx.wad
 skill.cfg
 user.scr
+motd.txt
