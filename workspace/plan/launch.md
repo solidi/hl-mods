@@ -19,6 +19,9 @@
     [ ] Rocket Launcher  
 [ ] Compile so's?  
 [ ] Edict count?  
+[ ] Package for release script
+    [ ] Remove config or replace with default one
+    [ ] Remove dev.cfg
 
 ## FIXES
 
