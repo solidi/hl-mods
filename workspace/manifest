@@ -70,6 +70,11 @@ sound\cbar_hit1.wav
 sound\cbar_hitbod1.wav
 sound\cbar_hitbod2.wav
 sound\cbar_hitbod3.wav
+sound\talk.wav
+sound\wpn_hudon.wav
+sound\wpn_hudoff.wav
+sound\wpn_moveselect.wav
+sound\wpn_select.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

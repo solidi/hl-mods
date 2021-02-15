@@ -409,6 +409,11 @@ Copy-Item $sounddir\cbar_hit1.wav $redistdir\sound
 Copy-Item $sounddir\cbar_hitbod1.wav $redistdir\sound
 Copy-Item $sounddir\cbar_hitbod2.wav $redistdir\sound
 Copy-Item $sounddir\cbar_hitbod3.wav $redistdir\sound
+Copy-Item $sounddir\talk.wav $redistdir\sound
+Copy-Item $sounddir\wpn_hudoff.wav $redistdir\sound
+Copy-Item $sounddir\wpn_hudon.wav $redistdir\sound
+Copy-Item $sounddir\wpn_moveselect.wav $redistdir\sound
+Copy-Item $sounddir\wpn_select.wav $redistdir\sound
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
