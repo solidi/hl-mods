@@ -27,7 +27,7 @@
     1. Changed liblist.gam from type "multiplayer_only" to "singleplayer_only"
     1. [Followed this thread](https://github.com/ValveSoftware/halflife/issues/1610), added cg dlls, removed MousePointer virtual function declaration
 1. In WindowsXP, to see file permissions, disable `Simpel File Share` in Explorer Options.
-1. Will need to further investigate `edicts "2048"` in the `liblist.gam`cfile for more entities.
+1. Will need to [further investigate](https://www.moddb.com/mods/half-life-anti-climax/tutorials/fixing-ed-alloc-no-free-edicts) `edicts "2048"` in the `liblist.gam`cfile for more entities.
 1. For modeling, "splines" are slats or spokes in a wheel. UWW is used as a metaphor for XYZ for texturing coordinates.
 1. MSVC 6.0 `msdev` compilation is [attainable](https://stackoverflow.com/questions/19856468/running-visual-studio-6-c-in-windows-8-1) in Windows Pro 8.1. `msdev.exe` requires a rename to `msdev3.exe`
 1. Here is a cool list of [dos console colors](https://stackoverflow.com/questions/29014820/color-echo-in-batch-files) when using the command `COLOR 3F`.
@@ -108,4 +108,7 @@
 1. How to use `texturegroup` with numerous skins [can be found here](https://developer.valvesoftware.com/wiki/$texturegroup).
 1. `extern "C"` prevents the compiler for "mangling." So if you specify a function to be extern C, the compiler doesn't performs name mangling with it and it can be directly accessed using its symbol name as the function name.
 1. Excellent walkthrough of all sprite types and their properties [can be found here](http://the303.org/tutorials/gold_sprite_p1.htm).
-1. Excellent resource for all HLDM bot waypoints [can be found here](https://github.com/Bots-United/jk_botti/tree/master/addons/jk_botti/waypoints) at jk_botti repo.
+1. Excellent resource for all HLDM bot waypoints [can be found here](https://github.com/Bots-United/jk_botti/tree/master/addons/jk_botti/waypoints) at jk_botti repo. Do not use [this page](http://www.oocities.org/thesirclan/frames/hl.htm), as the waypoint for stalkyard caused a crash for `mp_teamplay`.
+1. Very good resource on the details of the steampipe directory format. [See this article](https://developer.valvesoftware.com/wiki/GoldSource_SteamPipe_Directories) for <game>_hd and others. `-nohdmodels` can also be used for low res models.
+1. ffmeg windows builds [can be found here](https://www.gyan.dev/ffmpeg/builds/).
+1. Numerous important Half-Life tools and resources can be found [on this url](https://twhl.info/wiki/page/Tools_and_Resources).
