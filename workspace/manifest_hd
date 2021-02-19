@@ -18,6 +18,10 @@ models\p_knife.mdl
 models\v_crowbar.mdl
 models\p_crowbar.mdl
 models\w_crowbar.mdl
+models\v_rpg.mdl
+models\p_rpg.mdl
+models\w_rpg.mdl
+models\rpgrocket.mdl
 sound
 sound\knife_miss2.wav
 sprites

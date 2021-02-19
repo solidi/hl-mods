@@ -13,6 +13,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 [int]$hdmodels = 1
 [int]$verifyfiles = 1
+[int]$dedicatedserver = 0
 [string]$rebuild = "Build"
 [string]$grapplinghook = "GRAPPLING_HOOK"
 [string]$weaponvest = "VEST"
@@ -20,6 +21,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponclustergrenades = "CLUSTER_GRENADES"
 [string]$weaponcrowbar = "CROWBAR"
 [string]$weaponknife = "KNIFE"
+[string]$weaponrpg = "RPG"
 [int]$bots = 0
 [string]$map = "stalkyard"
 
@@ -64,6 +66,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipKnife") {
         $weaponknife = ""
         echo "skipping knife..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipRpg") {
+        $weaponrpg = ""
+        echo "skipping rpg..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
+        $dedicatedserver = 1
+        echo "running dedicated server..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -74,6 +82,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 }
 
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
+$hldsdir = "C:\steamcmd\steamapps\common\Half-Life"
 $redistdir = "Z:\redist"
 $redisthddir = "Z:\redist_hd"
 $bindir = "Z:\bin"
@@ -83,6 +92,8 @@ $sounddir = "Z:\sound"
 $icefolder = "iceg"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
+$icedsdir = "${hldsdir}\${icefolder}"
+$icedshddir = "${hldsdir}\${icefolder}_hd"
 $zipfile = "Z:\last-build.zip"
 
 function Launch-HL {
@@ -108,6 +119,23 @@ function Launch-HL {
 
     if ($lastexitcode -ne 0) {
         echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
+        exit
+    }
+}
+
+function Launch-HLDS {
+    param (
+        $botcount
+    )
+    $players = $botcount + 2
+    $hldsexe = "${hldsdir}\hlds.exe"
+
+    $out = & $hldsexe -game $icefolder +maxplayers $players +map stalkyard -ip localhost +port 27015 | Out-String
+
+    echo $out
+
+    if ($lastexitcode -ne 0) {
+        echo "Something went wrong with Half-Life Dedicated Server. Exit code: ${lastexitcode}"
         exit
     }
 }
@@ -149,6 +177,7 @@ function Compile-DLL {
                     /p:ClusterGrenades=$weaponclustergrenades `
                     /p:Knife=$weaponknife `
                     /p:Crowbar=$weaponcrowbar `
+                    /p:Rpg=$weaponrpg `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -340,6 +369,14 @@ Compile-Model "p_crowbar" $modelsdir\hd $redisthddir\models
 Compile-Model "p_crowbar" $modelsdir $redistdir\models
 Compile-Model "v_crowbar" $modelsdir $redistdir\models
 Compile-Model "w_crowbar" $modelsdir $redistdir\models
+Compile-Model "v_rpg" $modelsdir\hd $redisthddir\models
+Compile-Model "p_rpg" $modelsdir\hd $redisthddir\models
+Compile-Model "w_rpg" $modelsdir\hd $redisthddir\models
+Compile-Model "v_rpg" $modelsdir $redistdir\models
+Compile-Model "p_rpg" $modelsdir $redistdir\models
+Compile-Model "w_rpg" $modelsdir $redistdir\models
+Compile-Model "rpgrocket" $modelsdir $redistdir\models
+Compile-Model "rpgrocket" $modelsdir\hd $redisthddir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -351,6 +388,7 @@ $spritesdir = "z:\sprites"
 Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
 Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
 Compile-Sprite "zerogxplode" $spritesdir $redistdir\sprites
+Compile-Sprite "animglow01" $spritesdir $redistdir\sprites
 Compile-Sprite "crosshairs" $spritesdir $redistdir\sprites
 Compile-Sprite "640hud1" $spritesdir $redistdir\sprites
 Compile-Sprite "640hud1" $spritesdir\hd $redisthddir\sprites
@@ -359,6 +397,7 @@ Compile-Sprite "640hud4" $spritesdir\hd $redisthddir\sprites
 Copy-Item $spritesdir\weapon_vest.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_knife.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_9mmhandgun.txt $redistdir\sprites
+Copy-Item $spritesdir\weapon_rpg.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
@@ -373,6 +412,7 @@ Set-Location -Path $bindir
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard"
 Copy-Item $mapsdir\stalkyard.wpt $redistdir\maps
+Copy-Item $mapsdir\boot_camp.wpt $redistdir\maps
 # Compile-Map "cir_stalkyard"
 
 # Compile sounds
@@ -414,21 +454,34 @@ Copy-Item $sounddir\wpn_hudoff.wav $redistdir\sound
 Copy-Item $sounddir\wpn_hudon.wav $redistdir\sound
 Copy-Item $sounddir\wpn_moveselect.wav $redistdir\sound
 Copy-Item $sounddir\wpn_select.wav $redistdir\sound
+Compile-Sound "rocket1.wav" 1.0 "sound\rocket1.wav" "wav" 0 2
+Copy-Item $sounddir\rpg_selected.wav $redistdir\sound
+Compile-Sound "rocket_1.mp3" 2.0 "sound\rpg_igotone.wav" "wav" 0 3
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $icedsdir\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $icedshddir\\* -Recurse -Force -ErrorAction Ignore
 
 if (!(Test-Path $icedir)) {
     New-Item -ItemType directory -Path $icedir
+}
+if (!(Test-Path $icedsdir)) {
+    New-Item -ItemType directory -Path $icedsdir
 }
 
 if (!(Test-Path $icehddir)) {
     New-Item -ItemType directory -Path $icehddir
 }
+if (!(Test-Path $icedshddir)) {
+    New-Item -ItemType directory -Path $icedshddir
+}
 
 Copy-Item $redistdir\\* $icedir -Recurse -Force
+Copy-Item $redistdir\\* $icedsdir -Recurse -Force
 Copy-Item $redisthddir\\* $icehddir -Recurse -Force
+Copy-Item $redisthddir\\* $icedshddir -Recurse -Force
 
 function Test-Manifest {
     param (
@@ -495,4 +548,8 @@ function PAK-File {
 
 PAK-File @("models", "sound", "sprites")
 
-Launch-HL $bots
+if (!$dedicatedserver) {
+    Launch-HL $bots
+} else {
+    Launch-HLDS $bots
+}
