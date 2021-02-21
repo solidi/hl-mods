@@ -319,13 +319,17 @@ function Compile-Sound {
         exit
     }
 }
-`
+
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
 Compile-DLL "Z:\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
 Compile-DLL "Z:\src\projects\vs2019\hldll.sln" "hl" $rebuild
 Compile-DLL "Z:\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
+Copy-Item Z:\libs\dlls\hl.dylib $redistdir\dlls
+Copy-Item Z:\libs\dlls\hl.so $redistdir\dlls
+Copy-Item Z:\libs\cl_dlls\client.dylib $redistdir\cl_dlls
+Copy-Item Z:\libs\cl_dlls\client.so $redistdir\cl_dlls
 
 # Compile source models
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore

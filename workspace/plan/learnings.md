@@ -112,3 +112,12 @@
 1. Very good resource on the details of the steampipe directory format. [See this article](https://developer.valvesoftware.com/wiki/GoldSource_SteamPipe_Directories) for <game>_hd and others. `-nohdmodels` can also be used for low res models.
 1. ffmeg windows builds [can be found here](https://www.gyan.dev/ffmpeg/builds/).
 1. Numerous important Half-Life tools and resources can be found [on this url](https://twhl.info/wiki/page/Tools_and_Resources).
+1. To compile macOS dylibs, this project requires a legacy version of the SDK. Legacy verions of the SDK [can be found here](https://github.com/phracker/MacOSX-SDKs).
+1. A useful [command guide](https://clang.llvm.org/docs/UsersManual.html#options-to-control-error-and-warning-messages) for all the switches for clang.
+1. `libstdc++` has been removed in later versions of the MacOSX sdk since 10.9. Half-Life does not compile when switching from libstdc++ to `libc++` using `-stdlib=libc++`
+1. Defining the macOS library for the mod includes `gamedll_osx` in the [liblist.gam file here](https://www.reddit.com/r/HalfLife/comments/c3j4sk/getting_science_and_industry_to_work_on_macbook/)
+1. [Cross-compilation on docker](https://docs.conan.io/en/latest/howtos/run_conan_in_docker.html) appears to be a very good approach for building linux projects.
+1. `malloc.h` is [not present on all systems](https://github.com/open62541/open62541/issues/834). Use `stdlib.h` where possible, and then use `__WIN32` to include `malloc.h` only when needed.
+1. `script` is a command that captures all [console output to a file](https://askubuntu.com/questions/161935/how-do-i-log-all-input-and-output-in-a-terminal-session). It was useful when debuging g++.
+1. A small list of interesting flags for `gcc` that was [used to suppress](https://stackoverflow.com/questions/3378560/how-to-disable-gcc-warnings-for-a-few-lines-of-code) verbose output.
+1. `g++` less [than 6.3](https://github.com/Homebrew/homebrew-core/issues/4812) has a problem with `coal text` output stream.
