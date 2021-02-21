@@ -2,7 +2,11 @@
 debughl/
 *.pdb
 hl.dll
+hl.dylib
+hl.so
 client.dll
+client.dylib
+client.so
 grave_bot.dll
 Thumbs.db*
 last-build.zip

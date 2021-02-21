@@ -1,8 +1,12 @@
 cl_dlls
 cl_dlls\client.dll
+cl_dlls\client.dylib
+cl_dlls\client.so
 cl_dlls\client.pdb
 dlls
 dlls\hl.dll
+dlls\hl.dylib
+dlls\hl.so
 dlls\hl.pdb
 dlls\grave_bot.dll
 events
