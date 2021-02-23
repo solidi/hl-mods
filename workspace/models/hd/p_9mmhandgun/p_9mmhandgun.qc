@@ -35,6 +35,9 @@ $texturegroup ice
   { 
     "..\iceCHROME.bmp"
   }
+  {
+    "..\..\ringchrome.bmp"
+  }
 }
 
 // 1 attachment(s)
