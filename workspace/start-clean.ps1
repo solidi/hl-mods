@@ -22,6 +22,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponcrowbar = "CROWBAR"
 [string]$weaponknife = "KNIFE"
 [string]$weaponrpg = "RPG"
+[string]$weapontripmine = "TRIPMINE"
 [int]$bots = 0
 [string]$map = "stalkyard"
 
@@ -69,6 +70,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipRpg") {
         $weaponrpg = ""
         echo "skipping rpg..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipTripmine") {
+        $weapontripmine = ""
+        echo "skipping tripmine..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
         $dedicatedserver = 1
         echo "running dedicated server..."
@@ -81,20 +85,21 @@ Set-ConsoleColor 'DarkCyan' 'White'
     }
 }
 
+$driveletter = "Y:"
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hldsdir = "C:\steamcmd\steamapps\common\Half-Life"
-$redistdir = "Z:\redist"
-$redisthddir = "Z:\redist_hd"
-$bindir = "Z:\bin"
-$mapsdir = "Z:\maps"
-$wadsdir = "Z:\wads"
-$sounddir = "Z:\sound"
+$redistdir = "$driveletter\redist"
+$redisthddir = "$driveletter\redist_hd"
+$bindir = "$driveletter\bin"
+$mapsdir = "$driveletter\maps"
+$wadsdir = "$driveletter\wads"
+$sounddir = "$driveletter\sound"
 $icefolder = "iceg"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
 $icedsdir = "${hldsdir}\${icefolder}"
 $icedshddir = "${hldsdir}\${icefolder}_hd"
-$zipfile = "Z:\last-build.zip"
+$zipfile = "$driveletter\last-build.zip"
 
 function Launch-HL {
     param (
@@ -178,6 +183,7 @@ function Compile-DLL {
                     /p:Knife=$weaponknife `
                     /p:Crowbar=$weaponcrowbar `
                     /p:Rpg=$weaponrpg `
+                    /p:Tripmine=$weapontripmine `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -323,18 +329,18 @@ function Compile-Sound {
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
-Compile-DLL "Z:\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
-Compile-DLL "Z:\src\projects\vs2019\hldll.sln" "hl" $rebuild
-Compile-DLL "Z:\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
-Copy-Item Z:\libs\dlls\hl.dylib $redistdir\dlls
-Copy-Item Z:\libs\dlls\hl.so $redistdir\dlls
-Copy-Item Z:\libs\cl_dlls\client.dylib $redistdir\cl_dlls
-Copy-Item Z:\libs\cl_dlls\client.so $redistdir\cl_dlls
+Compile-DLL "$driveletter\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
+Compile-DLL "$driveletter\src\projects\vs2019\hldll.sln" "hl" $rebuild
+Compile-DLL "$driveletter\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
+Copy-Item $driveletter\libs\dlls\hl.dylib $redistdir\dlls
+Copy-Item $driveletter\libs\dlls\hl.so $redistdir\dlls
+Copy-Item $driveletter\libs\cl_dlls\client.dylib $redistdir\cl_dlls
+Copy-Item $driveletter\libs\cl_dlls\client.so $redistdir\cl_dlls
 
 # Compile source models
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
-$modelsdir = "Z:\models"
+$modelsdir = "$driveletter\models"
 Compile-Model "v_9mmAR" $modelsdir $redistdir\models
 Compile-Model "v_9mmAR" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmar" $modelsdir\hd $redisthddir\models
@@ -381,6 +387,10 @@ Compile-Model "p_rpg" $modelsdir $redistdir\models
 Compile-Model "w_rpg" $modelsdir $redistdir\models
 Compile-Model "rpgrocket" $modelsdir $redistdir\models
 Compile-Model "rpgrocket" $modelsdir\hd $redisthddir\models
+Compile-Model "v_tripmine" $modelsdir\hd $redisthddir\models
+Compile-Model "p_tripmine" $modelsdir\hd $redisthddir\models
+Compile-Model "v_tripmine" $modelsdir $redistdir\models
+Compile-Model "p_tripmine" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -388,7 +398,7 @@ Compile-Model "rpgrocket" $modelsdir\hd $redisthddir\models
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-$spritesdir = "z:\sprites"
+$spritesdir = "$driveletter\sprites"
 Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
 Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
 Compile-Sprite "zerogxplode" $spritesdir $redistdir\sprites
@@ -460,7 +470,9 @@ Copy-Item $sounddir\wpn_moveselect.wav $redistdir\sound
 Copy-Item $sounddir\wpn_select.wav $redistdir\sound
 Compile-Sound "rocket1.wav" 1.0 "sound\rocket1.wav" "wav" 0 2
 Copy-Item $sounddir\rpg_selected.wav $redistdir\sound
-Compile-Sound "rocket_1.mp3" 2.0 "sound\rpg_igotone.wav" "wav" 0 3
+Compile-Sound "rocket_1.mp3" 2.0 "sound\rpg_igotone.wav" "wav" 0 4
+Copy-Item $sounddir\tripmine_selected.wav $redistdir\sound
+Copy-Item $sounddir\mine_activate.wav $redistdir\sound
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
@@ -522,8 +534,8 @@ for ($bot = 0; $bot -lt $bots; $bot++) {
 }
 
 if ($verifyfiles) {
-    Test-Manifest "Z:\manifest" $redistdir
-    Test-Manifest "Z:\manifest_hd" $redisthddir
+    Test-Manifest "$driveletter\manifest" $redistdir
+    Test-Manifest "$driveletter\manifest_hd" $redisthddir
 }
 
 function PAK-File {
@@ -531,7 +543,7 @@ function PAK-File {
         $targets
     )
 
-    Copy-Item Z:\bin\qpakman.exe $icedir -Force
+    Copy-Item $driveletter\bin\qpakman.exe $icedir -Force
     Set-Location -Path $icedir
     $folders = [String]::Join(" ", $targets)
     $in = ".\qpakman.exe ${folders} -o pak0.pak"

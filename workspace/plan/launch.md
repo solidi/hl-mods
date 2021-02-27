@@ -17,10 +17,14 @@
     - [x] Cluster Grenades
     - [x] Knife
     - [x] Rocket Launcher
-    - [ ] Inivisible Tripmines
+    - [x] Inivisible Tripmines
+- [ ] Old School
+    - [ ] Scoreboard
+    - [ ] MOTD
 - [ ] Environment Compile
     - [ ] so's?
     - [x] dylib's?
+    - [ ] Convert Windows endlines to Linux
 - [x] Edict count
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
@@ -35,3 +39,5 @@
 - [ ] Knife
     - [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
     - [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
+- [ ] Rename folder and libs to `ice`
+- [ ] Rename github repo to `coldicegoldsrc`

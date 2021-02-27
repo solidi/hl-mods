@@ -13,6 +13,7 @@ Features:
     - 12-Inch Combat Knife
     - Standard Crowbar
     - 50-lb Automatic LAW Rocket Launcher
+    - Invisible Beam Tripmine
 - Option for origin models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
