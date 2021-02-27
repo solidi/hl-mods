@@ -9,6 +9,7 @@ dlls\hl.dylib
 dlls\hl.so
 dlls\hl.pdb
 dlls\grave_bot.dll
+dlls\gravebot.so
 events
 events\knife.sc
 events\rpg_extreme.sc

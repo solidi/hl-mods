@@ -121,3 +121,5 @@
 1. `script` is a command that captures all [console output to a file](https://askubuntu.com/questions/161935/how-do-i-log-all-input-and-output-in-a-terminal-session). It was useful when debuging g++.
 1. A small list of interesting flags for `gcc` that was [used to suppress](https://stackoverflow.com/questions/3378560/how-to-disable-gcc-warnings-for-a-few-lines-of-code) verbose output.
 1. `g++` less [than 6.3](https://github.com/Homebrew/homebrew-core/issues/4812) has a problem with `coal text` output stream.
+1. The HUD in Half-Life is a linked list of components. To flag a component to draw, set `m_iFlags |= HUD_ACTIVE`, where `m_iFlags` is the component member variable.
+1. `gamedll_linux “dlls/gravebot.so"` caused a 'Non-shared library' error, which had nothing to do with architecture compile, but instead had to do with the expected `"` was missing.

@@ -336,6 +336,7 @@ Copy-Item $driveletter\libs\dlls\hl.dylib $redistdir\dlls
 Copy-Item $driveletter\libs\dlls\hl.so $redistdir\dlls
 Copy-Item $driveletter\libs\cl_dlls\client.dylib $redistdir\cl_dlls
 Copy-Item $driveletter\libs\cl_dlls\client.so $redistdir\cl_dlls
+Copy-Item $driveletter\libs\dlls\gravebot.so $redistdir\dlls
 
 # Compile source models
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
