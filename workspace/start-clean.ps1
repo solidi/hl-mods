@@ -11,6 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
+[int]$launch = 1
 [int]$hdmodels = 1
 [int]$verifyfiles = 1
 [int]$dedicatedserver = 0
@@ -31,6 +32,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
         $rebuild = "Rebuild"
         echo "rebuilding all code sources..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "NoLaunch") {
+        $launch = 0
+        echo "packaging only..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Rollback") {
         $rollback = "yes"
         echo "unpacking previous game version..."
@@ -103,8 +107,14 @@ $zipfile = "$driveletter\last-build.zip"
 
 function Launch-HL {
     param (
+        $launch,
         $botcount
     )
+
+    if (!$launch) {
+        return;
+    }
+
     $players = $botcount + 2
     $hlexe = "${hldir}\hl.exe"
 
@@ -130,8 +140,14 @@ function Launch-HL {
 
 function Launch-HLDS {
     param (
+        $launch,
         $botcount
     )
+
+    if (!$launch) {
+        return;
+    }
+
     $players = $botcount + 2
     $hldsexe = "${hldsdir}\hlds.exe"
 
@@ -566,7 +582,7 @@ function PAK-File {
 PAK-File @("models", "sound", "sprites")
 
 if (!$dedicatedserver) {
-    Launch-HL $bots
+    Launch-HL $launch $bots
 } else {
-    Launch-HLDS $bots
+    Launch-HLDS $launch $bots
 }
