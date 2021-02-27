@@ -22,6 +22,8 @@ models\v_rpg.mdl
 models\p_rpg.mdl
 models\w_rpg.mdl
 models\rpgrocket.mdl
+models\v_tripmine.mdl
+models\p_tripmine.mdl
 sound
 sound\knife_miss2.wav
 sprites

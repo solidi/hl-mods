@@ -46,6 +46,8 @@ models\v_rpg.mdl
 models\w_rpg.mdl
 models\p_rpg.mdl
 models\rpgrocket.mdl
+models\p_tripmine.mdl
+models\v_tripmine.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -88,6 +90,8 @@ sound\wpn_select.wav
 sound\rocket1.wav
 sound\rpg_selected.wav
 sound\rpg_igotone.wav
+sound\tripmine_selected.wav
+sound\mine_activate.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

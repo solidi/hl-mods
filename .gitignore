@@ -8,6 +8,7 @@ client.dll
 client.dylib
 client.so
 grave_bot.dll
+gravebot.so
 Thumbs.db*
 last-build.zip
 
@@ -23,3 +24,5 @@ workspace/redist_hd/models/
 
 .vscode/
 workspace/redist_hd/
+
+*.swp
