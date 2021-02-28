@@ -50,9 +50,9 @@ models\rpgrocket.mdl
 models\p_tripmine.mdl
 models\v_tripmine.mdl
 resource
-resource\TrackerScheme.res
+resource\TrackerScheme.res.old
 resource\westminster.ttf
-resource\valve_english.txt
+resource\iceg_english.txt
 sound
 sound\vest_selected.wav
 sound\vest_attack.wav
