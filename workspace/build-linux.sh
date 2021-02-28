@@ -24,3 +24,9 @@ make distclean
 make clean
 output=`make 2>&1` || (echo $output && false)
 mv Release/gravebot.so ../../libs/dlls
+
+cd ../../libs
+echo 'Copying so libs to redist...'
+cp dlls/hl.so ../redist/dlls/
+cp dlls/gravebot.so ../redist/dlls/
+cp cl_dlls/client.so ../redist/cl_dlls/
