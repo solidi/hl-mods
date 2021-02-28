@@ -12,20 +12,23 @@
     - [ ] Bot support for hook
     - [ ] Custom map waypoints for bots
 - [ ] Weapons
+    - [ ] Spawn extra weapons with other matching slot number
     - [x] Vest
     - [x] Silencer
     - [x] Cluster Grenades
     - [x] Knife
     - [x] Rocket Launcher
     - [x] Inivisible Tripmines
+    - [ ] Sniper Rifle
 - [ ] Old School
-    - [ ] Scoreboard
-    - [ ] MOTD
-- [ ] Environment Compile
-    - [ ] so's?
+    - [x] Scoreboard
+    - [x] MOTD
+- [x] Environment Compile
+    - [x] so's?
     - [x] dylib's?
-    - [ ] Convert Windows endlines to Linux
+    - [x] Convert Windows endlines to Linux
 - [x] Edict count
+- [ ] Blue blood?
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
     - [ ] Remove dev.cfg

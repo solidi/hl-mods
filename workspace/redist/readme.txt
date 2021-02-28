@@ -33,6 +33,8 @@ Client:
 - Deploy grappling hook - Use "+hook"
 - Ice Models - "cl_icemodels 1" - To switch between view and player ice skins and real skins
 - Switch between original and HD models using the "Enable HD models if available" in Video options
+- Old Scoreboard - "cl_oldscoreboard 1" - To switch between old and new style scoreboards
+- Old MOTD (Message of the Day) - "cl_oldmotd 1" - To switch between old and new style message of the day
 
 Thanks To:
 
@@ -46,3 +48,4 @@ Thanks To:
 - RealPatryQVortex for the combat knife https://gamebanana.com/skins/174427
 - Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
 - GearBox for select sound effects from Opossing Force
+- [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26

@@ -47,4 +47,18 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_oldscoreboard"
+	{
+		"#Ice_Scoreboard"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"cl_oldmotd"
+	{
+		"#Ice_MOTD"
+		{ BOOL }
+		{ "1" }
+	}
 }
