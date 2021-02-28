@@ -26,6 +26,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weapontripmine = "TRIPMINE"
 [int]$bots = 0
 [string]$map = "stalkyard"
+[int]$teamplay = 0
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -80,6 +81,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
         $dedicatedserver = 1
         echo "running dedicated server..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Teamplay") {
+        $teamplay = 1
+        echo "with teamplay..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -543,6 +547,10 @@ function Test-Manifest {
             exit
         }
     }
+}
+
+if ($teamplay) {
+    "mp_teamplay 1" | Add-Content $icedir\listenserver.cfg
 }
 
 for ($bot = 0; $bot -lt $bots; $bot++) {
