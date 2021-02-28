@@ -117,11 +117,4 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "1.000000" }
 	}
-
-	"mp_icemodels"
-	{
-		"#Ice_Models"
-		{ BOOL }
-		{ "1" }
-	}
 }
