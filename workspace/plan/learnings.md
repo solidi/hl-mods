@@ -123,3 +123,9 @@
 1. `g++` less [than 6.3](https://github.com/Homebrew/homebrew-core/issues/4812) has a problem with `coal text` output stream.
 1. The HUD in Half-Life is a linked list of components. To flag a component to draw, set `m_iFlags |= HUD_ACTIVE`, where `m_iFlags` is the component member variable.
 1. `gamedll_linux “dlls/gravebot.so"` caused a 'Non-shared library' error, which had nothing to do with architecture compile, but instead had to do with the expected `"` was missing.
+1. Here is an [important thread](https://steamcommunity.com/app/70/discussions/0/490123938425659006/) about the execution sequence of configuration files on the Half-Life Gold Source engine.
+1. [This reference](https://developer.valvesoftware.com/wiki/SteamCMD) has information about the use of SteamCMD. This is a replacement to [HLDS](https://www.joe.to/cstrike/ents/command_line_options.html), and other utils.
+1. I learned numerous basic points of linux operation. `sudo su -` to switch to root, `/media/` to see mapped drives, `/var/logs/` to see logs, `gparted` and `df -h` to resize a [vm drive](https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/) when it [ran low](https://askubuntu.com/questions/101715/resizing-virtual-drive/558215#558215) on space, and `Cmd+H` in Nautilus to see hidden files.
+1. A small article on how to run [Steam protocol](https://scrapmechanic.gamepedia.com/Launch_options) with options to Half-Life
+1. A nice small article of [Linux on Steam](https://developer.valvesoftware.com/wiki/Steam_under_Linux).
+1. To normalize the endlines of files between Windows and Linux, first set git configurations `git config --global core.eol lf` and `git config --global core.autocrlf false` and [follow this guide](https://gist.github.com/ajdruff/16427061a41ca8c08c05992a6c74f59e).
