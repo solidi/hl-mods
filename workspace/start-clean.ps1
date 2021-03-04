@@ -550,7 +550,7 @@ function Test-Manifest {
 }
 
 if ($teamplay) {
-    "mp_teamplay 1" | Add-Content $icedir\listenserver.cfg
+    "mp_teamplay 1" | Add-Content $icedir\game.cfg
 }
 
 for ($bot = 0; $bot -lt $bots; $bot++) {
