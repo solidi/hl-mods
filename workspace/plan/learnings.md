@@ -128,4 +128,6 @@
 1. I learned numerous basic points of linux operation. `sudo su -` to switch to root, `/media/` to see mapped drives, `/var/logs/` to see logs, `gparted` and `df -h` to resize a [vm drive](https://www.howtogeek.com/124622/how-to-enlarge-a-virtual-machines-disk-in-virtualbox-or-vmware/) when it [ran low](https://askubuntu.com/questions/101715/resizing-virtual-drive/558215#558215) on space, and `Cmd+H` in Nautilus to see hidden files.
 1. A small article on how to run [Steam protocol](https://scrapmechanic.gamepedia.com/Launch_options) with options to Half-Life
 1. A nice small article of [Linux on Steam](https://developer.valvesoftware.com/wiki/Steam_under_Linux).
-1. To normalize the endlines of files between Windows and Linux, first set git configurations `git config --global core.eol lf` and `git config --global core.autocrlf false` and [follow this guide](https://gist.github.com/ajdruff/16427061a41ca8c08c05992a6c74f59e).
+1. To normalize the endlines of files between Windows and Linux, first set git configurations `git config --global core.eol lf` and `git config --global core.autocrlf false` and [follow this guide](https://gist.github.com/ajdruff/16427061a41ca8c08c05992a6c74f59e). [This thread](https://stackoverflow.com/questions/9976986/force-lf-eol-in-git-repo-and-working-copy) was also helpful.
+1. See [this stackoverflow thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions) on how typedef and struct are used together
+1. Learned about the `git add --patch` method for partial updates to files.

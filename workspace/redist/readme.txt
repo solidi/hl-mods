@@ -1,12 +1,12 @@
 Cold Ice GoldSrc Edition
 
 This project is a rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
+The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f
 
 Features:
 
-- Offhand Grappling Hook
-- Grave Bots
-- Original Weapons are back!
+- Supports Windows, Linux, and macOS 
+- Original Weapons are back (and more)!
     - Vest Device
     - Silenced Handgun
     - Cluster Grenades
@@ -14,6 +14,9 @@ Features:
     - Standard Crowbar
     - 50-lb Automatic LAW Rocket Launcher
     - Invisible Beam Tripmine
+    - Chumtoads
+- Offhand Grappling Hook
+- Bot support using Grave Bots
 - Option for origin models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
@@ -38,6 +41,10 @@ Client:
 
 Thanks To:
 
+- Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
+- Various for documenting all cut items from Half-Life https://tcrf.net/Half-Life_(Windows)
+- the303 for full mdl spec documentation https://the303.org/tutorials/gold_qc.htm
+- Sparken for OzMod grapple hook source https://www.facebook.com/HalfLifeOzDMMod
 - zikshadow with handgun silencers https://gamebanana.com/skins/158498
 - chris whitman for the silencer tutorial https://web.archive.org/web/20011204054313fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/02.htm
 - Slartibarty for the fixed beretta model https://gamebanana.com/skins/142561
@@ -49,3 +56,4 @@ Thanks To:
 - Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
 - GearBox for select sound effects from Opossing Force
 - [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26
+- Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694

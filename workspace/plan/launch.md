@@ -19,16 +19,24 @@
     - [x] Knife
     - [x] Rocket Launcher
     - [x] Inivisible Tripmines
+    - [x] Chumtoad
     - [ ] Sniper Rifle
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
+    - [ ] [Screen tilting](https://github.com/ValveSoftware/halflife/issues/1544)
 - [x] Environment Compile
     - [x] so's?
     - [x] dylib's?
     - [x] Convert Windows endlines to Linux
 - [x] Edict count
-- [ ] Blue blood?
+- [ ] Runes
+- [ ] Skins
+    - [ ] Blue blood?
+    - [ ] Inverted original weapons
+- [ ] Training Map
+    - [ ] Debrief text file
+    - [ ] Overview graphic
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
     - [ ] Remove dev.cfg
@@ -44,3 +52,4 @@
     - [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
 - [ ] Rename folder and libs to `ice`
 - [ ] Rename github repo to `coldicegoldsrc`
+- [x] Bot names loading on Linux?
