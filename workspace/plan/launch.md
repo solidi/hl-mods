@@ -1,6 +1,7 @@
 # Launch List
 
 - [ ] Burn in mod with bots on dedicated server for hours
+- [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
 - [ ] Steam Community Forums
@@ -40,7 +41,7 @@
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
     - [ ] Remove dev.cfg
-    - [ ] Remove pdb files
+    - [x] Remove pdb files
     - [ ] Remove dSYM files
 
 ## FIXES
@@ -50,6 +51,6 @@
 - [ ] Knife
     - [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
     - [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
-- [ ] Rename folder and libs to `ice`
+- [x] Rename folder and libs to `ice`
 - [ ] Rename github repo to `coldicegoldsrc`
 - [x] Bot names loading on Linux?

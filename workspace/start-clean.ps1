@@ -31,7 +31,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
-    if ($_.Split(' ')[0].ToUpper() -eq "Rebuild") {
+    if ($_.Split(' ')[0].ToUpper() -eq "Clean") {
         $rebuild = "Rebuild"
         echo "rebuilding all code sources..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "NoLaunch") {
@@ -106,7 +106,7 @@ $bindir = "$driveletter\bin"
 $mapsdir = "$driveletter\maps"
 $wadsdir = "$driveletter\wads"
 $sounddir = "$driveletter\sound"
-$icefolder = "iceg"
+$icefolder = "ice"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
 $icedsdir = "${hldsdir}\${icefolder}"
@@ -184,7 +184,11 @@ if (Test-Path variable:rollback) {
 
 if (!(Test-Path variable:preserve)) {
     Remove-Item $zipfile -Recurse -Force -ErrorAction Ignore
-    Compress-Archive -Path ${icedir}\\* -DestinationPath $zipfile
+    try {
+        Compress-Archive -Path ${icedir}\\* -DestinationPath $zipfile
+    } catch {
+        "could not create zip file..."
+    }
 }
 
 function Compile-DLL {
@@ -357,8 +361,8 @@ Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
 Compile-DLL "$driveletter\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
 Compile-DLL "$driveletter\src\projects\vs2019\hldll.sln" "hl" $rebuild
 Compile-DLL "$driveletter\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
-Copy-Item $driveletter\libs\dlls\hl.dylib $redistdir\dlls
-Copy-Item $driveletter\libs\dlls\hl.so $redistdir\dlls
+Copy-Item $driveletter\libs\dlls\ice.dylib $redistdir\dlls
+Copy-Item $driveletter\libs\dlls\ice.so $redistdir\dlls
 Copy-Item $driveletter\libs\cl_dlls\client.dylib $redistdir\cl_dlls
 Copy-Item $driveletter\libs\cl_dlls\client.so $redistdir\cl_dlls
 Copy-Item $driveletter\libs\dlls\gravebot.so $redistdir\dlls

@@ -131,3 +131,4 @@
 1. To normalize the endlines of files between Windows and Linux, first set git configurations `git config --global core.eol lf` and `git config --global core.autocrlf false` and [follow this guide](https://gist.github.com/ajdruff/16427061a41ca8c08c05992a6c74f59e). [This thread](https://stackoverflow.com/questions/9976986/force-lf-eol-in-git-repo-and-working-copy) was also helpful.
 1. See [this stackoverflow thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions) on how typedef and struct are used together
 1. Learned about the `git add --patch` method for partial updates to files.
+1. `dos2unix` is a small util that can handle file conversion of end lines.

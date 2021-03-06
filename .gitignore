@@ -1,9 +1,9 @@
 .DS_Store
 debughl/
 *.pdb
-hl.dll
-hl.dylib
-hl.so
+ice.dll
+ice.dylib
+ice.so
 client.dll
 client.dylib
 client.so

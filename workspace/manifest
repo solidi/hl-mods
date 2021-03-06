@@ -2,12 +2,10 @@ cl_dlls
 cl_dlls\client.dll
 cl_dlls\client.dylib
 cl_dlls\client.so
-cl_dlls\client.pdb
 dlls
-dlls\hl.dll
-dlls\hl.dylib
-dlls\hl.so
-dlls\hl.pdb
+dlls\ice.dll
+dlls\ice.dylib
+dlls\ice.so
 dlls\grave_bot.dll
 dlls\gravebot.so
 events
@@ -58,7 +56,7 @@ models\w_chumtoad_nest.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
-resource\iceg_english.txt
+resource\ice_english.txt
 sound
 sound\vest_selected.wav
 sound\vest_attack.wav
