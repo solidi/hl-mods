@@ -1,4 +1,4 @@
-129
+131
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -70,6 +70,7 @@ d_snark			320	320hud1	192	224	32	16
 d_skull			320	320hud1	192	240	32	16
 d_tracktrain	320	320hud1	224	208	32	16
 d_vest  		320	320hud1	144	240	32	16
+d_chumtoad		320	320hud1	192	224	32	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -153,6 +154,7 @@ d_snark			640	640hud1	192	208	32	16
 d_skull			640	640hud1	192	224	32	16
 d_tracktrain	640	640hud1	192	240	32	16
 d_vest  		640	640hud1	192	176	32	16
+d_chumtoad		640	640hud1	192	208	32	16
 
 item_battery	640 640hud2	176	0	44	44
 item_healthkit	640 640hud2	176	48	44	44

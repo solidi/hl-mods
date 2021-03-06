@@ -1,0 +1,433 @@
+===========================================================================================
+=======================Grave Bot===Commands and Variables===01/23/05===============b0.3====
+===========================================================================================
+
+Introduction
+
+Most of these commands should be pretty simple to figure out.  These commands can only be
+used by the operator of the dedicated server or listen server.  All commands on a dedicated
+server must be entered in this format:
+
+gravebot "command"
+
+So, for example, to add a bot of skill 3 and a name of Grave, we would do:
+
+gravebot "addbot 1 Grave"
+
+Whenever a name is needed in a command, the example commands use 'Grave' as the name.
+Also note that waypoint commands can only be performed on a listen server.
+
+
+===========================================================================================
+
+(Format)
+HLDM:
+addbot skill name skin topcolor bottomcolor
+S&I:
+addbot skill team model name
+
+Function: Adds a bot into the game.
+Note: Replacing an argument with NULL will use the default for that argument.
+
+(Arguments)
+skill:	[#1-5] The skill level of the bot, 1 through 5, with 1 being the best and 5
+	being the worst.  If not specified, the value of 'botskill' will be used.
+name:	[string] The player name of the bot.  If not specified, a random name from
+	grave_bot_names.txt will be chosen.
+skin:	(HLDM) [string] The model name of the model to use, such as "gordon" or
+	"scientist".  If not specified, a random model from the core defaults
+	will be chosen.
+topcolor: (HLDM) [#0-255] The hue, 0-255, of the top half of the selected model.
+	If not specified, a random hue will be selected.
+bottomcolor: (HLDM) [#0-255]The hue, 0-255, of the bottom half of the selected model.
+	If not specified, a random hue will be selected.
+team:	(S&I) [#1-3] The team to attempt to join, AFD or MCL.  1 is MCL, 2 is AFD,
+	3 is random.  If not specified, the bot will join the team with the least
+	players.
+model:	(S&I) [#1-3] The model on the selected team to pick (varies from AFD to MCL),
+	3 is random.  If not specified, the bot will select a random model.
+
+(Example)
+addbot 1 Grave NULL 255 192
+addbot 1 1 3
+
+===========================================================================================
+
+(Format)
+botcam botname
+
+Function: Moves the camera's focus to see through a bot's eyes.  The player is still
+	able to perform actions, but cannot see themselves!  Unless, that is, the bot
+	is looking at the player.  The camera is a bit laggy, this command was created
+	mostly for debugging purposes.
+Note: For listenservers only!
+
+(Arguments)
+botname: [string] The name of the bot for this camera to follow.  If no name is specified,
+	the camera will return back to the player.
+
+(Example)
+botcam Grave
+
+===========================================================================================
+
+(Format)
+botinfo botname
+
+Function: Displays a boat load of information about a bot.  This information includes skin,
+	skill, health, armor, current waypoint, goal waypoint, item waypoint, goal item
+	classname and coordinates, and the status of all weapons for the bot.
+
+(Arguments)
+botname: [string] The player name of the bot to display information about.
+
+(Example)
+botinfo Grave
+
+===========================================================================================
+
+(Format)
+observer boolean
+
+Function: Turns on observer mode.  When observer mode is on, bots will ignore real players.
+	They will, however, continue to attack other bots and monsters.
+
+(Arguments)
+boolean: [#0-1] If 0, turns observer mode off, if greater than 0, turns observer mode on.  If not
+	specified, displays the status of observer mode.
+
+(Example)
+observer 1
+
+===========================================================================================
+
+(Format)
+botskill skill
+
+Function: Changes the default bot skill to use when creating a bot.
+
+(Arguments)
+skill:	[#1-5] Modifies the default skill of bots created after the altercation.  If not
+	specified, displays the status of botskill.
+
+(Example)
+botskill 3
+
+===========================================================================================
+
+(Format)
+bot_chat_debug boolean
+
+Function: Turns on or off chat debug mode.  In chat debug mode, bots will say what they're
+	currently trying to do.
+
+(Arguments)
+boolean: [#0-1] If 0, turns chat debug mode off, if greater than 0, turns chat debug mode on.
+	If not specified, displays the status of chat debug mode.
+
+(Example)
+observer 1
+
+===========================================================================================
+
+(Format)
+bot_speed skill multiplier
+
+Function: Modifies the maximum speed a particular skill of bot is able to move at.
+	Normally all bots will try to move at whatever sv_maxspeed is set to.
+
+(Arguments)
+skill:	[#1-5] The skill level to adjust the speed for
+multiplier: [#0-1] The multiplier against the speed of the specified skill.
+
+(Examples)
+bot_speed 5 0.75
+bot_speed 2 0.9 
+
+===========================================================================================
+
+(Format)
+botweapon weapon setting newvalue
+
+Function: Edits the weapon table information to allow customization of how bots use and
+	handle weapons.
+
+(Arguments)
+weapon:	[string] The classname of the weapon to be modified, such as weapon_crowbar or
+	weapon_crossbow.
+setting: [string] The attribute to be modified, see list:
+	priority: The priority of the weapon, starting at 0.  The lower the number, the 
+		better the weapon.  If two weapons have the same priority, the weapon 
+		with the internal higher priority (appears first in the weapon array)
+		will be used.  If a priority BELOW 0 is specified, bots will never use
+		that weapon.
+	skill: The minimum skill his bot must be to use this weapon.  Remember, skills are
+		1 through 5, with 1 being the best.  So, setting skill to 3 will prohibit
+		bots of skill 4 and 5 from using the weapon.
+	primary_min_distance: The minimum distance to use the primary attack for this
+		weapon.  If the bot is any closer, it will not use this weapon's primary
+		attack.
+	primary_max_distance: The maximum distance to use the primary attack for this
+		weapon.  If the bot is any further, it will not use this weapon's primary
+		attack.
+	secondary_min_distance: The minimum distance to use the secondary attack for this
+		weapon.  If the bot is any closer, it will not use this weapon's secondary
+		attack.
+	secondary_max_distance: The maximum distance to use the secondary attack for this
+		weapon.  If the bot is any further, it will not use this weapon's secondary
+		attack.
+	can_use_underwater: If set to 0, the bot will not use this weapon when underwater,
+		otherwise the bot will attempt use this weapon if underwater.
+	reload_delay: The number of seconds it takes to reload this weapon.  0 for weapons
+		without a clip.
+	primary_fire_percent: The number of times out of 100 to use the primary attack, as
+		long as conditions allow (enough ammo, correct distances, etc).
+	min_primary_ammo: Minimum amount of primary ammo used when performing a primary
+		attack.
+	min_secondary_ammo: Minimum amount of secondary ammo used when performing a
+		secondary attack.
+	primary_fire_hold: Boolean, 0 for no, 1 for yes.  Should the bot hold down the
+		attack button while using this weapon's primary attack?
+	secondary_fire_hold: Boolean, 0 for no, 1 for yes.  Should the bot hold down the
+		attack button while using this weapon's secondary attack?
+	primary_fire_charge: Boolean, 0 for no, 1 for yes.  Should the bot hold down the
+		attack button to charge the primary attack?
+	secondary_fire_charge: Boolean, 0 for no, 1 for yes.  Should the bot hold down the
+		attack button to charge the secondary attack?
+	primary_charge_delay: Number of seconds to charge the primary attack (only used if
+		primary_fire_charge is 1).
+	secondary_charge_delay: Number of seconds to charge the secondary attack (only used
+		if secondary_fire_charge is 1).
+newvalue: [#] The new value of the attribute.
+	
+(Example)
+botweapon weapon_shotgun skill 2
+botweapon weapon_357 primary_max_distance 1024
+
+===========================================================================================
+
+(Format)
+bot_reaction_time multiplier
+
+Function: Multiplies the defined combat reaction minimum and maximum times for ALL skills
+	by the provided argument.
+
+(Arguments)
+multiplier: [#>=0] Number to multiply all skill levels minimum and maximum reaction times by.
+
+(Example)
+bot_reaction_time 1.5
+
+===========================================================================================
+
+(Format)
+bot_reaction_time_min skill time
+
+Function: Set the minimum combat reaction time of the specified skill to the specified time.
+
+(Arguments)
+skill:	[#1-5] Skill level to adjust the minimum combat reaction time to.
+time:	[#>=0] Number of seconds to set the specified minimum combat reaction time to.
+
+(Example)
+bot_reaction_time_min 3	0.08
+
+===========================================================================================
+
+(Format)
+bot_reaction_time_max skill time
+
+Function: Set the maximum combat reaction time of the specified skill to the specified time.
+
+(Arguments)
+skill:	[#1-5] Skill level to adjust the maximum combat reaction time to.
+time:	[#>=0] Number of seconds to set the specified maximum combat reaction time to.
+
+(Example)
+bot_reaction_time_max 3	0.14
+
+===========================================================================================
+
+(Format)
+bot_random_color boolean
+
+Function: Turns on and off whether or not bots randomly select top and bottom hues for HLDM.
+
+(Arguments)
+boolean: [#0-1] If 0, turns off random hue selection for top and bottom.  If 1, turns on
+	random hue selection for top and bottom.
+
+(Example)
+bot_random_color 0
+
+===========================================================================================
+
+(Format)
+botdontshoot boolean
+
+Function: Turns on and off whether or not bots engage in combat.
+
+(Arguments)
+boolean: [#0-1] If 0, bots WILL engage in combat.  If 1, bots WILL NOT engage in combat.
+
+(Example)
+botdontshoot 1
+
+===========================================================================================
+
+(Format)
+botrole botname
+
+Function: SCIENCE AND INDUSTRY ONLY!  Displays information regarding bots, their team, their
+	assigned role, and assigned subrole.
+
+(Arguments)
+botname: [string] Name of the bot to display role information about.  If not specified, then
+	all bots will be listed.
+
+(Example)
+botrole Grave
+botrole
+
+===========================================================================================
+
+(Format)
+bot_si_defend team percent
+
+Function: SCIENCE AND INDUSTRY ONLY!  Manually set the percentage of bots on the specified
+	team to defend.  The attack percentage is calculated based off 100% - Defend%.  If
+	no arguments are specified, the current defend percents for each team will be
+	printed.
+
+(Arguments)
+team:	[#1-2] The team to set the defend percentage on, 1 is MCL, 2 is AFD.
+percent: [#0-100] The percentage of the specified team to have a defensive role.  To use
+	the role auto-director, specify a percent BELOW 0.
+
+(Examples)
+bot_si_defend
+bot_si_defend 2 60
+bot_si_defend 1 -1
+
+===========================================================================================
+
+(Format)
+kickall
+
+Function: Kicks all bots from the game.
+
+(Arguments)
+None
+
+(Examples)
+kickall
+
+===========================================================================================
+
+(Format)
+waypoint mainarg subarg1 subarg2 subarg3
+
+Function: To edit waypoints!
+
+(Arguments)
+mainarg: [string] Performs a waypoint action, some use the sub arguments.  See list:
+	on:	Turns on the display of waypoints.
+	off:	Turns off the display of waypoints.
+	add:	Creates a waypoint at the current location.
+	delete:	Removes the closest waypoint within 50 units.
+	save	Saves the current waypoint data to a grave bot waypoint (.gbw) file.
+	load:	Tries to load waypoints into this level.  Will attempt to load HPB
+		waypoints as well.
+	distance: Gives the distance from one waypoint to another, must specify waypoint
+		indexes as subarg2 and subarg3.
+		subarg1: [#0-numwpts] The index of the first waypoint.
+		subarg2: [#0-numwpts] The index of the second waypoint.
+	menu:	Brings up the waypoint menu.  THIS DOES NOT WORK IN S&I!  Use commands
+		instead if editing waypoints in S&I. :(
+	setflag: Sets a flag on a waypoint.
+		team: Sets this waypoint as a team only waypoint.
+			subarg2: [#1-2] Team number for team only.
+		jump: Assigns that this waypoint is a jump waypoint.
+		crouch: Assigns that this waypoint is a crouch waypoint.
+		duckjump: Assigns that this waypoint is a duck jump waypoint.
+		ladder: Assigns that this waypoint is a ladder waypoint.
+		lift: Assigns that this waypoint is a lift waypoint.
+		door: Assigns that this waypoint is a door waypoint.
+		health: Assigns that this waypoint is a health waypoint.
+		armor: Assigns that this waypoint is an armor waypoint.
+		sniper: Assigns that this waypoint is a sniper waypoint.
+		weapon: Assigns that this waypoint is a weapon waypoint.
+		ammo: Assigns that this waypoint is an ammo waypoint.
+		item: Assigns that this waypoint is an item waypoint.
+		defend: Assigns that this waypoint is a defend waypoint.
+		itemname: Specifies the associated classname with this waypoint.
+			subarg2: [string] Classname to associate with.
+		update: Searches near this waypoint for items.  If any are found, sets
+			this waypoint as an item waypoint and fills in its item name.
+	clearflag: Clears a flag on a waypoint.  If no sub argument is specified, it
+		will clear all flags on the waypoint.  See list:
+		team: Clears that this waypoint is team only.
+		jump: Clears that this waypoint is a jump waypoint.
+		crouch: Clears that this waypoint is a crouch waypoint.
+		duckjump: Clears that this waypoint is a duck jump waypoint.
+		ladder: Clears that this waypoint is a ladder waypoint.
+		lift: Clears that this waypoint is a lift waypoint.
+		door: Clears that this waypoint is a door waypoint.
+		health: Clears that this waypoint is a health waypoint.
+		armor: Clears that this waypoint is an armor waypoint.
+		sniper: Clears that this waypoint is a sniper waypoint.
+		weapon: Clears that this waypoint is a weapon waypoint.
+		ammo: Clears that this waypoint is an ammo waypoint.
+		item: Clears that this waypoint is an item waypoint.
+		defend: Clears that this waypoint is a defend waypoint.
+		aim: Removes the closest aiming waypoint to this waypoint.
+		itemname: Removes the associated classname with this waypoint.
+	info: Displays information about the closest waypoint.
+	update: Loops through all waypoints and attemps to associate them with nearby items.
+
+(Examples)
+waypoint on
+waypoint distance 4 36
+waypoint update
+waypoint setflag team 2
+waypoint setflag itemname weapon_shotgun
+waypoint clearflag jump
+
+===========================================================================================
+
+(Format)
+autowaypoint boolean
+
+Function: Turns on or off autowaypointing, which automatically creates waypoints at the
+	players position as long as they're far enough away from all othe waypoints.
+
+(Arguments)
+boolean: 0 for autowaypointing off, 1 for autowaypointing on.
+
+(Example)
+autowaypoint 1
+
+===========================================================================================
+
+(Format)
+pathwaypoint subarg
+
+Function: Allows the editing of paths between waypoints.
+
+(Arguments)
+subarg:	[string] Specify a command to edit path data.  See list:
+	on:	Turns the display of paths between waypoints on.
+	off:	Turns the display of paths between waypoints off.
+	create1: Assigns the closest waypoint as the first waypoint to create a path between.
+	create2: Assigns the closest waypoint as the second waypoint to create a path between.
+		If a first waypoint is assigned, the path between the two will be created.
+	remove1: Assigns the closest waypoint as the first waypoint to remove a path between.
+	remove2: Assigns the closest waypoint as the second waypoint to remove a path between.
+		If a first waypoint is assigned, the path between the two will be removed.
+
+(Examples)
+pathwaypoint on
+pathwaypoint create1
+pathwaypoint create2
+
+===========================================================================================

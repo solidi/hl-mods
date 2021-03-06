@@ -24,6 +24,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponknife = "KNIFE"
 [string]$weaponrpg = "RPG"
 [string]$weapontripmine = "TRIPMINE"
+[string]$weaponchumtoad = "CHUMTOAD"
 [int]$bots = 0
 [string]$map = "stalkyard"
 [int]$teamplay = 0
@@ -78,6 +79,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipTripmine") {
         $weapontripmine = ""
         echo "skipping tripmine..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipChumtoad") {
+        $weaponchumtoad = ""
+        echo "skipping chumtoad..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
         $dedicatedserver = 1
         echo "running dedicated server..."
@@ -204,6 +208,7 @@ function Compile-DLL {
                     /p:Crowbar=$weaponcrowbar `
                     /p:Rpg=$weaponrpg `
                     /p:Tripmine=$weapontripmine `
+                    /p:Chumtoad=$weaponchumtoad `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -412,6 +417,11 @@ Compile-Model "v_tripmine" $modelsdir\hd $redisthddir\models
 Compile-Model "p_tripmine" $modelsdir\hd $redisthddir\models
 Compile-Model "v_tripmine" $modelsdir $redistdir\models
 Compile-Model "p_tripmine" $modelsdir $redistdir\models
+Compile-Model "v_chumtoad" $modelsdir $redistdir\models
+Compile-Model "w_chumtoad_nest" $modelsdir $redistdir\models
+Compile-Model "p_chumtoad" $modelsdir $redistdir\models
+Compile-Model "w_chumtoad" $modelsdir $redistdir\models
+Compile-Model "v_chumtoad" $modelsdir\hd $redisthddir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -433,6 +443,7 @@ Copy-Item $spritesdir\weapon_vest.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_knife.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_9mmhandgun.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_rpg.txt $redistdir\sprites
+Copy-Item $spritesdir\weapon_chumtoad.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
@@ -494,6 +505,13 @@ Copy-Item $sounddir\rpg_selected.wav $redistdir\sound
 Compile-Sound "rocket_1.mp3" 2.0 "sound\rpg_igotone.wav" "wav" 0 4
 Copy-Item $sounddir\tripmine_selected.wav $redistdir\sound
 Copy-Item $sounddir\mine_activate.wav $redistdir\sound
+Copy-Item $sounddir\chumtoad_selected.wav $redistdir\sound
+Copy-Item $sounddir\chumtoad_hunt1.wav $redistdir\sound
+Copy-Item $sounddir\chumtoad_hunt2.wav $redistdir\sound
+Copy-Item $sounddir\chumtoad_hunt3.wav $redistdir\sound
+Copy-Item $sounddir\chumtoad_blast1.wav $redistdir\sound
+Copy-Item $sounddir\chumtoad_bite.wav $redistdir\sound
+Compile-Sound "yakety-sax-music.mp3" 1.5 "sound\chumtoad_release.wav" "wav" 0 4
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
