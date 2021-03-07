@@ -61,4 +61,18 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_viewroll"
+	{
+		"#Ice_ViewRoll"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"cl_bobtilt"
+	{
+		"#Ice_BobTilt"
+		{ BOOL }
+		{ "1" }
+	}
 }
