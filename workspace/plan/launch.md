@@ -22,6 +22,7 @@
     - [x] Inivisible Tripmines
     - [x] Chumtoad
     - [ ] Sniper Rifle
+    - [ ] Rail Gun
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
@@ -52,5 +53,5 @@
     - [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
     - [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
 - [x] Rename folder and libs to `ice`
-- [ ] Rename github repo to `coldicegoldsrc`
+- [x] Rename github repo to `coldice`
 - [x] Bot names loading on Linux?

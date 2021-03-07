@@ -132,3 +132,6 @@
 1. See [this stackoverflow thread](https://stackoverflow.com/questions/1675351/typedef-struct-vs-struct-definitions) on how typedef and struct are used together
 1. Learned about the `git add --patch` method for partial updates to files.
 1. `dos2unix` is a small util that can handle file conversion of end lines.
+1. ImageMagik has a util called `identify` that was very hopefully in determinating that BMP3 was required for the transfer.
+1. [This dev.to post](https://dev.to/serhatteker/changing-git-submodule-repository-to-other-url-branch-356p) was important in determining how best to rename a submodule url for git origin.
+1. [This thread](https://stackoverflow.com/questions/18847145/loop-through-files-in-a-directory-using-powershell) with very helpful for looping through files in powershell.

@@ -368,9 +368,34 @@ Copy-Item $driveletter\libs\cl_dlls\client.so $redistdir\cl_dlls
 Copy-Item $driveletter\libs\dlls\gravebot.so $redistdir\dlls
 
 # Compile source models
+$modelsdir = "$driveletter\models"
+
+function Invert-Skin {
+    param (
+        $target,
+        $path
+    )
+
+    Set-Location -Path $bindir
+    Get-ChildItem $path\$target -Filter *.bmp |
+    Foreach-Object {
+        if (!$_.BaseName.Contains("invert_")) {
+            if (!(Test-Path $path\$target\invert_$_)) {
+                echo "$_ converting inverted skin!"
+                $out = & .\convert $_.FullName -negate -compress none BMP3:$path\$target\invert_$_
+                echo $out
+            } else {
+                echo "$_ already generated inverted skin..."
+            }
+        }
+    }
+}
+
+Invert-Skin "v_9mmhandgun" $modelsdir
+Invert-Skin "v_9mmhandguns" $modelsdir
+
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
-$modelsdir = "$driveletter\models"
 Compile-Model "v_9mmAR" $modelsdir $redistdir\models
 Compile-Model "v_9mmAR" $modelsdir\hd $redisthddir\models
 Compile-Model "p_9mmar" $modelsdir\hd $redisthddir\models
