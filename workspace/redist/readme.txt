@@ -22,6 +22,7 @@ Features:
 - Throwing meele weapons!
 - Option to switch between ice model skins and real model skins!
 - New weapons will randomly spawn in place of original weapons
+- Original Scoreboard, MOTD, view roll options!
 
 Commands:
 
@@ -38,6 +39,8 @@ Client:
 - Switch between original and HD models using the "Enable HD models if available" in Video options
 - Old Scoreboard - "cl_oldscoreboard 1" - To switch between old and new style scoreboards
 - Old MOTD (Message of the Day) - "cl_oldmotd 1" - To switch between old and new style message of the day
+- Old View Roll - "cl_viewroll 1" - To switch between view roll during movement
+- Old Bob Tilt - "cl_bobtilt 1" - To switch between bob tilt walking animation
 
 Thanks To:
 
@@ -57,3 +60,4 @@ Thanks To:
 - GearBox for select sound effects from Opossing Force
 - [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26
 - Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694
+- L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544
