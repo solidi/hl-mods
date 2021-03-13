@@ -136,3 +136,5 @@
 1. [This dev.to post](https://dev.to/serhatteker/changing-git-submodule-repository-to-other-url-branch-356p) was important in determining how best to rename a submodule url for git origin.
 1. [This thread](https://stackoverflow.com/questions/18847145/loop-through-files-in-a-directory-using-powershell) with very helpful for looping through files in powershell.
 1. For more learnings on [imageMagick](https://imagemagick.org/script/download.php) using negate, see this [legacy document](https://legacy.imagemagick.org/Usage/color_mods/#negate) and how to use the [BMP format tag](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=34554).
+1. Here is an [excellent basic tutorial](http://homepage.eircom.net/~abyrne/Models/model9/tutorials_tut09.htm) on how to animate bones in MilkShape3d.
+1. Docker runs its containers by using the kernel of the operating system it is running on. So, there will be no way to virtualize a container to run Windows applcations on macOS. See [this post](https://www.reddit.com/r/docker/comments/4re2fo/can_the_new_docker_for_windows_and_mac_allow_a/) for more information.

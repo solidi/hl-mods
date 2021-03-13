@@ -25,6 +25,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponrpg = "RPG"
 [string]$weapontripmine = "TRIPMINE"
 [string]$weaponchumtoad = "CHUMTOAD"
+[string]$weaponsniperrifle = "SNIPER_RIFLE"
 [int]$bots = 0
 [string]$map = "stalkyard"
 [int]$teamplay = 0
@@ -82,6 +83,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipChumtoad") {
         $weaponchumtoad = ""
         echo "skipping chumtoad..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipSniperRifle") {
+        $weaponsniperrifle = ""
+        echo "skipping sniper rifle..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
         $dedicatedserver = 1
         echo "running dedicated server..."
@@ -213,6 +217,7 @@ function Compile-DLL {
                     /p:Rpg=$weaponrpg `
                     /p:Tripmine=$weapontripmine `
                     /p:Chumtoad=$weaponchumtoad `
+                    /p:SniperRifle=$weaponsniperrifle `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -393,6 +398,12 @@ function Invert-Skin {
 
 Invert-Skin "v_9mmhandgun" $modelsdir
 Invert-Skin "v_9mmhandguns" $modelsdir
+Invert-Skin "v_sniperrifle" $modelsdir\hd
+Invert-Skin "p_sniperrifle" $modelsdir\hd
+Invert-Skin "w_sniperrifle" $modelsdir\hd
+Invert-Skin "w_sniperrifle" $modelsdir
+Invert-Skin "p_sniperrifle" $modelsdir
+Invert-Skin "v_sniperrifle" $modelsdir
 
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
@@ -451,6 +462,13 @@ Compile-Model "w_chumtoad_nest" $modelsdir $redistdir\models
 Compile-Model "p_chumtoad" $modelsdir $redistdir\models
 Compile-Model "w_chumtoad" $modelsdir $redistdir\models
 Compile-Model "v_chumtoad" $modelsdir\hd $redisthddir\models
+Compile-Model "v_sniperrifle" $modelsdir\hd $redisthddir\models
+Compile-Model "p_sniperrifle" $modelsdir\hd $redisthddir\models
+Compile-Model "w_sniperrifle" $modelsdir\hd $redisthddir\models
+Compile-Model "v_sniperrifle" $modelsdir $redistdir\models
+Compile-Model "p_sniperrifle" $modelsdir $redistdir\models
+Compile-Model "w_sniperrifle" $modelsdir $redistdir\models
+Compile-Model "w_762shell" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -473,6 +491,7 @@ Copy-Item $spritesdir\weapon_knife.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_9mmhandgun.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_rpg.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_chumtoad.txt $redistdir\sprites
+Copy-Item $spritesdir\weapon_sniperrifle.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
@@ -541,6 +560,12 @@ Copy-Item $sounddir\chumtoad_hunt3.wav $redistdir\sound
 Copy-Item $sounddir\chumtoad_blast1.wav $redistdir\sound
 Copy-Item $sounddir\chumtoad_bite.wav $redistdir\sound
 Compile-Sound "yakety-sax-music.mp3" 1.5 "sound\chumtoad_release.wav" "wav" 0 4
+Copy-Item $sounddir\rifle1.wav $redistdir\sound
+Copy-Item $sounddir\rifle_selected.wav $redistdir\sound
+Copy-Item $sounddir\rifle_reload_1.wav $redistdir\sound
+Copy-Item $sounddir\rifle_reload_2.wav $redistdir\sound
+Compile-Sound "target-to-destroy.mp3" 1.0 "sound\rifle_destroy.wav" "wav"
+Copy-Item $sounddir\rifle_zoomout.wav $redistdir\sound
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
