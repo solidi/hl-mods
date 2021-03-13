@@ -101,21 +101,17 @@ Set-ConsoleColor 'DarkCyan' 'White'
     }
 }
 
-$driveletter = "Y:"
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hldsdir = "C:\steamcmd\steamapps\common\Half-Life"
-$redistdir = "$driveletter\redist"
-$redisthddir = "$driveletter\redist_hd"
-$bindir = "$driveletter\bin"
-$mapsdir = "$driveletter\maps"
-$wadsdir = "$driveletter\wads"
-$sounddir = "$driveletter\sound"
+$redistdir = "${PSScriptRoot}redist"
+$redisthddir = "${PSScriptRoot}redist_hd"
+$bindir = "${PSScriptRoot}bin"
 $icefolder = "ice"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
 $icedsdir = "${hldsdir}\${icefolder}"
 $icedshddir = "${hldsdir}\${icefolder}_hd"
-$zipfile = "$driveletter\last-build.zip"
+$zipfile = "${PSScriptRoot}last-build.zip"
 
 function Launch-HL {
     param (
@@ -178,7 +174,7 @@ if (Test-Path variable:rollback) {
         Set-Location -Path $hldir
         Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
         Expand-Archive -LiteralPath $zipfile -DestinationPath $icedir
-        Launch-HL
+        Launch-HL $launch
         exit
     } else {
         echo "zip not found?"
@@ -273,7 +269,8 @@ function Compile-Sprite {
 
 function Compile-Map {
     param (
-        $target
+        $target,
+        $mapsdir
     )
 
     Set-Location -Path $bindir
@@ -304,7 +301,8 @@ function Compile-Map {
 
 function Compile-Wad {
     param (
-        $target
+        $target,
+        $wadsdir
     )
 
     Set-Location -Path $bindir
@@ -321,6 +319,21 @@ function Compile-Wad {
     }
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
     Copy-Item $wadsdir\$target.wad $redistdir -force
+}
+
+function Compile-Font {
+    param (
+        $fontName
+    )
+
+    Set-Location -Path $bindir
+    echo "Compiling $fontName fonts.wad..."
+    $out = & .\makefont.exe -font "$fontName" $redistdir\fonts.wad
+
+    if ($lastexitcode -ne 0) {
+        echo "$out> Could not makefont. Exit code: ${lastexitcode}"
+        exit
+    }
 }
 
 function Compile-Sound {
@@ -363,17 +376,17 @@ function Compile-Sound {
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
-Compile-DLL "$driveletter\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
-Compile-DLL "$driveletter\src\projects\vs2019\hldll.sln" "hl" $rebuild
-Compile-DLL "$driveletter\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
-Copy-Item $driveletter\libs\dlls\ice.dylib $redistdir\dlls
-Copy-Item $driveletter\libs\dlls\ice.so $redistdir\dlls
-Copy-Item $driveletter\libs\cl_dlls\client.dylib $redistdir\cl_dlls
-Copy-Item $driveletter\libs\cl_dlls\client.so $redistdir\cl_dlls
-Copy-Item $driveletter\libs\dlls\gravebot.so $redistdir\dlls
+Compile-DLL "${PSScriptRoot}grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
+Compile-DLL "${PSScriptRoot}src\projects\vs2019\hldll.sln" "hl" $rebuild
+Compile-DLL "${PSScriptRoot}src\projects\vs2019\hl_cdll.sln" "client" $rebuild
+Copy-Item ${PSScriptRoot}libs\dlls\ice.dylib $redistdir\dlls
+Copy-Item ${PSScriptRoot}libs\dlls\ice.so $redistdir\dlls
+Copy-Item ${PSScriptRoot}libs\cl_dlls\client.dylib $redistdir\cl_dlls
+Copy-Item ${PSScriptRoot}libs\cl_dlls\client.so $redistdir\cl_dlls
+Copy-Item ${PSScriptRoot}libs\dlls\gravebot.so $redistdir\dlls
 
 # Compile source models
-$modelsdir = "$driveletter\models"
+$modelsdir = "${PSScriptRoot}models"
 
 function Invert-Skin {
     param (
@@ -476,7 +489,7 @@ Compile-Model "w_762shell" $modelsdir $redistdir\models
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-$spritesdir = "$driveletter\sprites"
+$spritesdir = "${PSScriptRoot}sprites"
 Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
 Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
 Compile-Sprite "zerogxplode" $spritesdir $redistdir\sprites
@@ -495,21 +508,23 @@ Copy-Item $spritesdir\weapon_sniperrifle.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
-# Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
-# Compile-Wad "coldice"
+$wadsdir = "${PSScriptRoot}wads"
+Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
+Compile-Wad "coldice" $wadsdir
 
 # Compile fonts
-Set-Location -Path $bindir
-& .\makefont.exe -font "Arial" $redistdir\fonts.wad
+Compile-Font "Arial"
 
 # Compile maps
+$mapsdir = "${PSScriptRoot}maps"
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
-Compile-Map "yard"
+Compile-Map "yard" $mapsdir
 Copy-Item $mapsdir\stalkyard.wpt $redistdir\maps
 Copy-Item $mapsdir\boot_camp.wpt $redistdir\maps
-# Compile-Map "cir_stalkyard"
+# Compile-Map "cir_stalkyard" $mapsdir
 
 # Compile sounds
+$sounddir = "${PSScriptRoot}sound"
 Remove-Item $redistdir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
 Compile-Sound "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
@@ -631,16 +646,17 @@ for ($bot = 0; $bot -lt $bots; $bot++) {
 }
 
 if ($verifyfiles) {
-    Test-Manifest "$driveletter\manifest" $redistdir
-    Test-Manifest "$driveletter\manifest_hd" $redisthddir
+    Test-Manifest "${PSScriptRoot}manifest" $redistdir
+    Test-Manifest "${PSScriptRoot}manifest_hd" $redisthddir
 }
 
 function PAK-File {
     param (
+        $bindir,
         $targets
     )
 
-    Copy-Item $driveletter\bin\qpakman.exe $icedir -Force
+    Copy-Item $bindir\qpakman.exe $icedir -Force
     Set-Location -Path $icedir
     $folders = [String]::Join(" ", $targets)
     $in = ".\qpakman.exe ${folders} -o pak0.pak"
@@ -659,7 +675,7 @@ function PAK-File {
     Remove-Item "${icedir}\qpakman.exe"
 }
 
-PAK-File @("models", "sound", "sprites")
+PAK-File $bindir @("models", "sound", "sprites")
 
 if (!$dedicatedserver) {
     Launch-HL $launch $bots
