@@ -27,6 +27,19 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "reference_mp5"
 
+$texturegroup ice
+{
+  {
+    "dynamite.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+  }
+}
+
 
 // 4 hit box(es)
 $hbox 0 "Bip01 Spine" -1.370000 -8.850000 -8.100000 8.740000 7.650000 5.980000

@@ -28,6 +28,18 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "wrld_mp5"
 
+$texturegroup ice
+{
+  {
+    "dynamite.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+  }
+}
 
 // 1 hit box(es)
 $hbox 0 "Box01" -1.680000 -9.630000 -4.800000 22.760000 21.580000 16.740000
