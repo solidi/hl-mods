@@ -25,6 +25,9 @@ models\rpgrocket.mdl
 models\v_tripmine.mdl
 models\p_tripmine.mdl
 models\v_chumtoad.mdl
+models\v_sniperrifle.mdl
+models\p_sniperrifle.mdl
+models\w_sniperrifle.mdl
 sound
 sound\knife_miss2.wav
 sprites

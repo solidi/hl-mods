@@ -59,6 +59,7 @@ d_9mmAR			320	320hud1	48	208	48	16
 d_shotgun		320	320hud1	48	224	48	16
 d_bolt			320	320hud1	48	240	48	16
 d_crossbow		320	320hud1	48	240	48	16
+d_sniperrifle	320	320hud1	48	240	48	16
 d_rpg_rocket	320	320hud1	96	208	48	16
 d_gauss			320	320hud1	96	224	32	16
 d_egon			320	320hud1	96	240	32	16
@@ -143,6 +144,7 @@ d_9mmAR			640	640hud1	192	48	48	16
 d_shotgun		640	640hud1	192	64	48	16
 d_bolt			640	640hud1	192	80	48	16
 d_crossbow		640	640hud1	192	80	48	16
+d_sniperrifle	640	640hud1	192	80	48	16
 d_rpg_rocket	640	640hud1	192	96	48	16
 d_gauss			640	640hud1	192	112	32	16
 d_egon			640	640hud1	192	128	32	16

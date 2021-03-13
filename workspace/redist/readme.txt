@@ -15,6 +15,7 @@ Features:
     - 50-lb Automatic LAW Rocket Launcher
     - Invisible Beam Tripmine
     - Chumtoads
+    - 7.65mm Sniper Rifle
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Option for origin models and high res models
@@ -57,7 +58,8 @@ Thanks To:
 - MyInstants.com and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
 - RealPatryQVortex for the combat knife https://gamebanana.com/skins/174427
 - Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
-- GearBox for select sound effects from Opossing Force
+- GearBox for select sound effects from Opposing Force
 - [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26
 - Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694
 - L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544
+- Valve for select models from Team Fortress Classic

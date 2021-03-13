@@ -13,6 +13,7 @@ events\knife.sc
 events\rpg_extreme.sc
 events\chumtoadfire.sc
 events\chumtoadrelease.sc
+events\sniper_rifle.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -53,6 +54,10 @@ models\p_chumtoad.mdl
 models\w_chumtoad.mdl
 models\v_chumtoad.mdl
 models\w_chumtoad_nest.mdl
+models\v_sniperrifle.mdl
+models\p_sniperrifle.mdl
+models\w_sniperrifle.mdl
+models\w_762shell.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -104,6 +109,12 @@ sound\chumtoad_hunt3.wav
 sound\chumtoad_blast1.wav
 sound\chumtoad_bite.wav
 sound\chumtoad_release.wav
+sound\rifle1.wav
+sound\rifle_selected.wav
+sound\rifle_reload_1.wav
+sound\rifle_reload_2.wav
+sound\rifle_destroy.wav
+sound\rifle_zoomout.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -117,6 +128,7 @@ sprites\weapon_knife.txt
 sprites\weapon_9mmhandgun.txt
 sprites\weapon_rpg.txt
 sprites\weapon_chumtoad.txt
+sprites\weapon_sniperrifle.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt
