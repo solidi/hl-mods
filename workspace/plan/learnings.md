@@ -138,3 +138,14 @@
 1. For more learnings on [imageMagick](https://imagemagick.org/script/download.php) using negate, see this [legacy document](https://legacy.imagemagick.org/Usage/color_mods/#negate) and how to use the [BMP format tag](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=34554).
 1. Here is an [excellent basic tutorial](http://homepage.eircom.net/~abyrne/Models/model9/tutorials_tut09.htm) on how to animate bones in MilkShape3d.
 1. Docker runs its containers by using the kernel of the operating system it is running on. So, there will be no way to virtualize a container to run Windows applcations on macOS. See [this post](https://www.reddit.com/r/docker/comments/4re2fo/can_the_new_docker_for_windows_and_mac_allow_a/) for more information.
+1. I learned about how to set the relative root path of the powershell shell by using [PSScriptRoot](https://stackoverflow.com/questions/5466329/whats-the-best-way-to-determine-the-location-of-the-current-powershell-script/5466355)
+1. [A good post](https://www.baeldung.com/linux/use-command-line-arguments-in-bash-script) on the different commandline parameter options to accept input for bash scripts.
+1. Docker can be used for reproducible build environments between developers. See [this thread](https://sweetcode.io/using-docker-reproducible-build-environments/) for details.
+1. Docker [COPY](https://nickjanetakis.com/blog/docker-tip-2-the-difference-between-copy-and-add-in-a-dockerile) is used specifically for local files.
+1. For the Linux builds, make sure to add the `-m32` [attribute](https://stackoverflow.com/questions/27733964/linking-kernel-i386-architecture-of-input-file-is-incompatible-with-i386x86-6) at the front of the parameters so that i386/32 bit compilation happens.
+1. A good post on the [best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) of docker containers.
+1. A technique to [add numerous directories](https://stackoverflow.com/questions/37789984/how-to-copy-folders-to-docker-image-from-dockerfile) from the host to a single docker image is to tar up the files and using `ADD` will extract those files to a folder.
+1. A possible solution of running a macOS [virtual machine](https://github.com/AlexanderWillner/runMacOSinVirtualBox) on virtual box.
+1. Use the `-f` option to [point to a dockerfile](https://stackoverflow.com/questions/17466699/not-able-to-build-a-specific-dockerfile) outside of the current root directory.
+1. [Docker commands](https://blog.baudson.de/blog/stop-and-remove-all-docker-containers-and-images) to start, stop, and remove containers and their associated images.
+1. Options [to explore](https://stackoverflow.com/questions/20813486/exploring-docker-containers-file-system) the structures of docker containers.

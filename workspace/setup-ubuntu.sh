@@ -1,12 +1,16 @@
+#!/bin/bash
 # Ubuntu 20.04+
+set -euo pipefail
+IFS=$'\n\t'
+
 sudo su -
-apt update
+# apt update
 # https://linuxconfig.org/how-to-install-g-the-c-compiler-on-ubuntu-20-04-lts-focal-fossa-linux
-apt install build-essential
+# apt install build-essential
 # https://stackoverflow.com/questions/26740113/virtualbox-shared-folder-permissions
 adduser your-user vboxsf
 # https://askubuntu.com/questions/470796/fatal-error-sys-cdefs-h-no-such-file-or-directory
-apt-get install g++-multilib
+# apt-get install g++-multilib
 
 # https://askubuntu.com/questions/1235819/ubuntu-20-04-gcc-version-lower-than-gcc-7
 echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial main" >> /etc/apt/sources.list

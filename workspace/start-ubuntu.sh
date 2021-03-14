@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
 icefolder=ice
 maxplayers=8
@@ -10,9 +12,10 @@ do
 done
 echo "maxplayers is $maxplayers...";
 
-cd /media/sf_hl-mods/workspace
-./build-linux.sh
-cd /media/sf_hl-mods/workspace
+echo 'Copying so libs to redist...'
+cp libs/dlls/ice.so redist/dlls/
+cp libs/dlls/gravebot.so redist/dlls/
+cp libs/cl_dlls/client.so redist/cl_dlls/
 
 rm -r  ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
 rm -r  ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
