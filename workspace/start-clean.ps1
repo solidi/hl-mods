@@ -103,15 +103,15 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hldsdir = "C:\steamcmd\steamapps\common\Half-Life"
-$redistdir = "${PSScriptRoot}redist"
-$redisthddir = "${PSScriptRoot}redist_hd"
-$bindir = "${PSScriptRoot}bin"
+$redistdir = "${PSScriptRoot}\redist"
+$redisthddir = "${PSScriptRoot}\redist_hd"
+$bindir = "${PSScriptRoot}\bin"
 $icefolder = "ice"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
 $icedsdir = "${hldsdir}\${icefolder}"
 $icedshddir = "${hldsdir}\${icefolder}_hd"
-$zipfile = "${PSScriptRoot}last-build.zip"
+$zipfile = "${PSScriptRoot}\last-build.zip"
 
 function Launch-HL {
     param (
@@ -376,17 +376,18 @@ function Compile-Sound {
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
-Compile-DLL "${PSScriptRoot}grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
-Compile-DLL "${PSScriptRoot}src\projects\vs2019\hldll.sln" "hl" $rebuild
-Compile-DLL "${PSScriptRoot}src\projects\vs2019\hl_cdll.sln" "client" $rebuild
-Copy-Item ${PSScriptRoot}libs\dlls\ice.dylib $redistdir\dlls
-Copy-Item ${PSScriptRoot}libs\dlls\ice.so $redistdir\dlls
-Copy-Item ${PSScriptRoot}libs\cl_dlls\client.dylib $redistdir\cl_dlls
-Copy-Item ${PSScriptRoot}libs\cl_dlls\client.so $redistdir\cl_dlls
-Copy-Item ${PSScriptRoot}libs\dlls\gravebot.so $redistdir\dlls
+Compile-DLL "${PSScriptRoot}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
+Compile-DLL "${PSScriptRoot}\src\projects\vs2019\hldll.sln" "hl" $rebuild
+Compile-DLL "${PSScriptRoot}\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
+# & "$PSScriptRoot\docker\build-linux.ps1"
+Copy-Item ${PSScriptRoot}\libs\dlls\ice.dylib $redistdir\dlls
+Copy-Item ${PSScriptRoot}\libs\dlls\ice.so $redistdir\dlls
+Copy-Item ${PSScriptRoot}\libs\cl_dlls\client.dylib $redistdir\cl_dlls
+Copy-Item ${PSScriptRoot}\libs\cl_dlls\client.so $redistdir\cl_dlls
+Copy-Item ${PSScriptRoot}\libs\dlls\gravebot.so $redistdir\dlls
 
 # Compile source models
-$modelsdir = "${PSScriptRoot}models"
+$modelsdir = "${PSScriptRoot}\models"
 
 function Invert-Skin {
     param (
@@ -489,7 +490,7 @@ Compile-Model "w_762shell" $modelsdir $redistdir\models
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-$spritesdir = "${PSScriptRoot}sprites"
+$spritesdir = "${PSScriptRoot}\sprites"
 Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
 Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
 Compile-Sprite "zerogxplode" $spritesdir $redistdir\sprites
@@ -508,7 +509,7 @@ Copy-Item $spritesdir\weapon_sniperrifle.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
-$wadsdir = "${PSScriptRoot}wads"
+$wadsdir = "${PSScriptRoot}\wads"
 Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
 Compile-Wad "coldice" $wadsdir
 
@@ -516,7 +517,7 @@ Compile-Wad "coldice" $wadsdir
 Compile-Font "Arial"
 
 # Compile maps
-$mapsdir = "${PSScriptRoot}maps"
+$mapsdir = "${PSScriptRoot}\maps"
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard" $mapsdir
 Copy-Item $mapsdir\stalkyard.wpt $redistdir\maps
@@ -524,7 +525,7 @@ Copy-Item $mapsdir\boot_camp.wpt $redistdir\maps
 # Compile-Map "cir_stalkyard" $mapsdir
 
 # Compile sounds
-$sounddir = "${PSScriptRoot}sound"
+$sounddir = "${PSScriptRoot}\sound"
 Remove-Item $redistdir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
 Compile-Sound "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
@@ -646,8 +647,8 @@ for ($bot = 0; $bot -lt $bots; $bot++) {
 }
 
 if ($verifyfiles) {
-    Test-Manifest "${PSScriptRoot}manifest" $redistdir
-    Test-Manifest "${PSScriptRoot}manifest_hd" $redisthddir
+    Test-Manifest "${PSScriptRoot}\manifest" $redistdir
+    Test-Manifest "${PSScriptRoot}\manifest_hd" $redisthddir
 }
 
 function PAK-File {
