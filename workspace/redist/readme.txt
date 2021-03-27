@@ -16,6 +16,7 @@ Features:
     - Invisible Beam Tripmine
     - Chumtoads
     - 7.65mm Sniper Rifle
+    - Air-Compressed Auto Boltgun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Option for origin models and high res models
@@ -32,6 +33,7 @@ Server:
 - Allow grappling hook on server - "mp_grapplinghook 1"
 - Time (seconds) when next grappling hook can deploy - "mp_grapplinghookdeploytime 1.0"
 - Add a bot - Use "addbot"
+- Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_crowbar;weapon_knife;weapon_9mmhandgun""
 
 Client:
 

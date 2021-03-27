@@ -58,6 +58,10 @@ models\v_sniperrifle.mdl
 models\p_sniperrifle.mdl
 models\w_sniperrifle.mdl
 models\w_762shell.mdl
+models\v_crossbow.mdl
+models\p_crossbow.mdl
+models\w_crossbow.mdl
+models\w_bolt.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -115,6 +119,9 @@ sound\rifle_reload_1.wav
 sound\rifle_reload_2.wav
 sound\rifle_destroy.wav
 sound\rifle_zoomout.wav
+sound\boltgun_fire.wav
+sound\boltgun_selected.wav
+sound\boltgun_gotitem.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

@@ -117,4 +117,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "1.000000" }
 	}
+
+	"mp_spawnweaponlist"
+	{
+		"#Ice_Spawn_Weapon_List"
+		{ STRING }
+		{ "weapon_crowbar;weapon_knife;weapon_9mmhandgun" }
+	}
 }
