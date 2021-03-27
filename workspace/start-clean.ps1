@@ -26,9 +26,11 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weapontripmine = "TRIPMINE"
 [string]$weaponchumtoad = "CHUMTOAD"
 [string]$weaponsniperrifle = "SNIPER_RIFLE"
+[string]$weaponboltgun = "BOLT_GUN"
 [int]$bots = 0
 [string]$map = "stalkyard"
 [int]$teamplay = 0
+[string]$spawnweaponlist = ""
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -86,12 +88,18 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipSniperRifle") {
         $weaponsniperrifle = ""
         echo "skipping sniper rifle..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipBoltGun") {
+        $weaponboltgun = ""
+        echo "skipping boltgun..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
         $dedicatedserver = 1
         echo "running dedicated server..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Teamplay") {
         $teamplay = 1
         echo "with teamplay..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SpawnWeaponList") {
+        $spawnweaponlist = $_.Split(' ')[1]
+        echo "spawn weapon list is ${spawnweaponlist}..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -214,6 +222,7 @@ function Compile-DLL {
                     /p:Tripmine=$weapontripmine `
                     /p:Chumtoad=$weaponchumtoad `
                     /p:SniperRifle=$weaponsniperrifle `
+                    /p:Boltgun=$weaponboltgun `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -483,6 +492,14 @@ Compile-Model "v_sniperrifle" $modelsdir $redistdir\models
 Compile-Model "p_sniperrifle" $modelsdir $redistdir\models
 Compile-Model "w_sniperrifle" $modelsdir $redistdir\models
 Compile-Model "w_762shell" $modelsdir $redistdir\models
+Compile-Model "v_crossbow" $modelsdir\hd $redisthddir\models
+Compile-Model "p_crossbow" $modelsdir\hd $redisthddir\models
+Compile-Model "w_crossbow" $modelsdir\hd $redisthddir\models
+Compile-Model "v_crossbow" $modelsdir $redistdir\models
+Compile-Model "p_crossbow" $modelsdir $redistdir\models
+Compile-Model "w_crossbow" $modelsdir $redistdir\models
+Compile-Model "w_bolt" $modelsdir\hd $redisthddir\models
+Compile-Model "w_bolt" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -582,6 +599,9 @@ Copy-Item $sounddir\rifle_reload_1.wav $redistdir\sound
 Copy-Item $sounddir\rifle_reload_2.wav $redistdir\sound
 Compile-Sound "target-to-destroy.mp3" 1.0 "sound\rifle_destroy.wav" "wav"
 Copy-Item $sounddir\rifle_zoomout.wav $redistdir\sound
+Copy-Item $sounddir\boltgun_fire.wav $redistdir\sound
+Copy-Item $sounddir\boltgun_selected.wav $redistdir\sound
+Compile-Sound "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
@@ -639,6 +659,10 @@ function Test-Manifest {
 
 if ($teamplay) {
     "mp_teamplay 1" | Add-Content $icedir\game.cfg
+}
+
+if ($spawnweaponlist) {
+    "mp_spawnweaponlist $spawnweaponlist" | Add-Content $icedir\game.cfg
 }
 
 for ($bot = 0; $bot -lt $bots; $bot++) {

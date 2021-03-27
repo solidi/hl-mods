@@ -28,6 +28,10 @@ models\v_chumtoad.mdl
 models\v_sniperrifle.mdl
 models\p_sniperrifle.mdl
 models\w_sniperrifle.mdl
+models\v_crossbow.mdl
+models\p_crossbow.mdl
+models\w_crossbow.mdl
+models\w_bolt.mdl
 sound
 sound\knife_miss2.wav
 sprites

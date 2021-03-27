@@ -39,6 +39,7 @@
 "slot2"			"#Valve_Weapon_Category_2"
 "use weapon_9mmhandgun"			"#Ice_PPK"
 "slot3" 		"#Valve_Weapon_Category_3"
+"use weapon_crossbow"			"#Ice_Boltgun"
 "use weapon_sniperrifle"			"#Ice_SniperRifle"
 "slot4"			"#Valve_Weapon_Category_4"
 "use weapon_rpg"			"#Ice_ExtremeRPG"
