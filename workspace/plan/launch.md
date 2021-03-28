@@ -9,7 +9,7 @@
 ## TODO
 
 - [x] Grappling hook
-- [ ] Bot support
+- [x] Bot support
     - [ ] Bot support for hook
     - [ ] Custom map waypoints for bots
 - [ ] Weapons
@@ -21,12 +21,23 @@
     - [x] Rocket Launcher
     - [x] Inivisible Tripmines
     - [x] Chumtoad
-    - [ ] Sniper Rifle
+    - [x] Sniper Rifle
+    - [x] Boltgun
     - [ ] Rail Gun
+    - [ ] Monkey Wrench
+    - [ ] Mag 60
+    - [ ] M16 Assault Rifle
+    - [ ] 12 Gauge Shotgun
+    - [ ] Assault Shotgun
+    - [ ] USAS-12 Auto Shotgun
+    - [ ] 25-inch Chaingun
+    - [ ] 30mm Assault Cannon
+    - [ ] 120-Pound Grenade Launcher
+    - [ ] Female Assassin Decoy Bombs
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
-    - [ ] [Screen tilting](https://github.com/ValveSoftware/halflife/issues/1544)
+    - [x] [Screen tilting](https://github.com/ValveSoftware/halflife/issues/1544)
 - [x] Environment Compile
     - [x] so's?
     - [x] dylib's?
