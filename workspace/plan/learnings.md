@@ -162,3 +162,4 @@
 1. Tommy14's [error list](http://www.slackiller.com/tommy14/errors.htm) is a very good resource to understand why compilation and map error detail.
 1. Windows Subsystem for Linux 2 has a problem with VirtualBox. [See this github post](https://github.com/MicrosoftDocs/WSL/issues/798) as the latest info about the incompatibility.
 1. A possible solution to run windows containers on macOS. See [this thread](https://stackoverflow.com/questions/42158596/can-windows-containers-be-hosted-on-linux#:~:text=No%2C%20you%20cannot%20run%20windows,can%20run%20Linux%20on%20Windows.&text=You%20can%20change%20between%20OS,the%20docker%20in%20tray%20menu.) for more detail using Vargant / Packer.
+1. For debugging the number of current edicts, use the macro `NUMBER_OF_ENTITIES()` or the global parameter `gpGlobals->maxEntities`.
