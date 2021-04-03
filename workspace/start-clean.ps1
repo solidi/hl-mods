@@ -27,6 +27,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$weaponchumtoad = "CHUMTOAD"
 [string]$weaponsniperrifle = "SNIPER_RIFLE"
 [string]$weaponboltgun = "BOLT_GUN"
+[string]$weaponrailgun = "RAILGUN"
 [int]$bots = 0
 [string]$map = "stalkyard"
 [int]$teamplay = 0
@@ -91,6 +92,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipBoltGun") {
         $weaponboltgun = ""
         echo "skipping boltgun..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipRailgun") {
+        $weaponrailgun = ""
+        echo "skipping railgun..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "DedicatedServer") {
         $dedicatedserver = 1
         echo "running dedicated server..."
@@ -223,6 +227,7 @@ function Compile-DLL {
                     /p:Chumtoad=$weaponchumtoad `
                     /p:SniperRifle=$weaponsniperrifle `
                     /p:Boltgun=$weaponboltgun `
+                    /p:Railgun=$weaponrailgun `
                     | Out-String
 
     if ($lastexitcode -ne 0) {
@@ -500,6 +505,9 @@ Compile-Model "p_crossbow" $modelsdir $redistdir\models
 Compile-Model "w_crossbow" $modelsdir $redistdir\models
 Compile-Model "w_bolt" $modelsdir\hd $redisthddir\models
 Compile-Model "w_bolt" $modelsdir $redistdir\models
+Compile-Model "w_railgun" $modelsdir $redistdir\models
+Compile-Model "v_railgun" $modelsdir $redistdir\models
+Compile-Model "p_railgun" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -523,6 +531,7 @@ Copy-Item $spritesdir\weapon_9mmhandgun.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_rpg.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_chumtoad.txt $redistdir\sprites
 Copy-Item $spritesdir\weapon_sniperrifle.txt $redistdir\sprites
+Copy-Item $spritesdir\weapon_railgun.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
@@ -602,6 +611,8 @@ Copy-Item $sounddir\rifle_zoomout.wav $redistdir\sound
 Copy-Item $sounddir\boltgun_fire.wav $redistdir\sound
 Copy-Item $sounddir\boltgun_selected.wav $redistdir\sound
 Compile-Sound "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
+Copy-Item $sounddir\railgun_fire.wav $redistdir\sound
+Compile-Sound "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
