@@ -62,6 +62,9 @@ models\v_crossbow.mdl
 models\p_crossbow.mdl
 models\w_crossbow.mdl
 models\w_bolt.mdl
+models\w_railgun.mdl
+models\p_railgun.mdl
+models\v_railgun.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -122,6 +125,8 @@ sound\rifle_zoomout.wav
 sound\boltgun_fire.wav
 sound\boltgun_selected.wav
 sound\boltgun_gotitem.wav
+sound\railgun_fire.wav
+sound\railgun_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -136,6 +141,7 @@ sprites\weapon_9mmhandgun.txt
 sprites\weapon_rpg.txt
 sprites\weapon_chumtoad.txt
 sprites\weapon_sniperrifle.txt
+sprites\weapon_railgun.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

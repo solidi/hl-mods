@@ -1,7 +1,8 @@
 Cold Ice GoldSrc Edition
 
 This project is a rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
-The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f
+The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
+Source code: https://github.com/solidi/coldice
 
 Features:
 
@@ -17,6 +18,7 @@ Features:
     - Chumtoads
     - 7.65mm Sniper Rifle
     - Air-Compressed Auto Boltgun
+    - Quake II Railgun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Option for origin models and high res models
