@@ -26,7 +26,7 @@
     - [x] Chumtoad
     - [x] Sniper Rifle
     - [x] Boltgun
-    - [ ] Rail Gun
+    - [x] Rail Gun
     - [ ] Monkey Wrench
     - [ ] Mag 60
     - [ ] M16 Assault Rifle
