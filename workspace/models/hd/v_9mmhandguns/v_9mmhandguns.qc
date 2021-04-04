@@ -36,6 +36,7 @@ $body "clip" "silencer"
 $texturegroup ice
 {
   {
+    "bulletCHROME.BMP"
     "chrome_black.BMP"
     "chrome.bmp"
     "gclip.bmp"
@@ -44,6 +45,7 @@ $texturegroup ice
     "v_beretta_main.BMP"
   }
   {
+    "invert_bulletCHROME.BMP"
     "invert_chrome_black.BMP"
     "invert_chrome.bmp"
     "invert_gclip.bmp"
@@ -57,8 +59,11 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
