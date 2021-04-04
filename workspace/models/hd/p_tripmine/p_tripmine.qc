@@ -34,12 +34,16 @@ $texturegroup ice
     "tripmine_reference.BMP"
   }
   {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
+    "invert_lensCHROME.BMP"
+    "invert_tripmine_reference.BMP"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
 }
 

@@ -33,10 +33,13 @@ $texturegroup ice
     "w_rpg_reference.BMP"
   }
   {
-    "..\iceCHROME.bmp"
+    "invert_w_rpg_reference.BMP"
   }
   {
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
   }
 }
 

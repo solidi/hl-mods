@@ -41,6 +41,20 @@ $texturegroup ice
     "v_beretta_main.BMP"
   }
   {
+    "invert_chrome_black.BMP"
+    "invert_gclip.bmp"
+    "invert_gclipinside.bmp"
+    "invert_v_beretta_bottom.BMP"
+    "invert_v_beretta_main.BMP"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"

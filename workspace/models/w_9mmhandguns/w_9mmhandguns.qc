@@ -37,11 +37,25 @@ $texturegroup ice
     "top.bmp"
   }
   { 
+    "invert_back.bmp"
+    "invert_chrome.bmp"
+    "invert_glockfront.bmp"
+    "invert_side.bmp"
+    "invert_top.bmp"
+  }
+  { 
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 

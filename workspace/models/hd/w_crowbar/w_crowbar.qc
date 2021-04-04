@@ -35,14 +35,19 @@ $texturegroup ice
     "wtop.bmp"
   }
   {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
+    "invert_wbottom.bmp"
+    "invert_wnut.bmp"
+    "invert_wtop.bmp"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
 }
 

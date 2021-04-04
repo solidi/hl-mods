@@ -56,6 +56,28 @@ $texturegroup ice
     "sboxback.bmp"
   }
   {
+    "invert_join.bmp"
+    "invert_M1CL.bmp"
+    "invert_M2cl.bmp"
+    "invert_M3CL.bmp"
+    "invert_M4cl.bmp"
+    "invert_M5CL.bmp"
+    "invert_M6CL.bmp"
+    "invert_M7CL.bmp"
+    "invert_M8CL.bmp"
+    "invert_M9CL.bmp"
+    "invert_M10CL.bmp"
+    "invert_M11CL.bmp"
+    "invert_M12CL.bmp"
+    "invert_M13CL.bmp"
+    "invert_M16CL.bmp"
+    "invert_M17CL.bmp"
+    "invert_M18CL.bmp"
+    "invert_rocket.bmp"
+    "invert_rocketmotor.bmp"
+    "invert_sboxback.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

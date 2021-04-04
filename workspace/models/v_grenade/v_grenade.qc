@@ -37,9 +37,19 @@ $texturegroup ice
     "grenade3.bmp"
   }
   { 
+    "invert_spoont.bmp"
+    "invert_grenCHROME.bmp"
+    "invert_grenade3.bmp"
+  }
+  { 
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 

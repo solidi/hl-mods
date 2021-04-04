@@ -43,6 +43,15 @@ $texturegroup ice
     "eye.bmp"
   }
   {
+    "invert_CHB_Side1.bmp"
+    "invert_CHB_Tounge1.bmp"
+    "invert_cz2.bmp"
+    "invert_cz3.bmp"
+    "invert_cz4.bmp"
+    "invert_cz6.bmp"
+    "invert_eye.bmp"
+  }
+  {
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"

@@ -33,10 +33,13 @@ $texturegroup ice
     "w_crossbow_bolt_reference.bmp"
   }
   {
-    "..\iceCHROME.bmp"
+    "invert_w_crossbow_bolt_reference.bmp"
   }
   {
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
   }
 }
 

@@ -41,6 +41,17 @@ $texturegroup ice
     "world_slide.BMP"
   }
   {
+    "invert_bowCHROME.bmp"
+    "invert_clip_side.bmp"
+    "invert_mechanismside.bmp"
+    "invert_receiverside.BMP"
+    "invert_sightcyl.BMP"
+    "invert_stock.BMP"
+    "invert_world_grip.BMP"
+    "invert_world_shoulder.BMP"
+    "invert_world_slide.BMP"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

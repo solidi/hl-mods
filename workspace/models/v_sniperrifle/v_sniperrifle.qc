@@ -41,28 +41,6 @@ $texturegroup ice
     "sightclip.bmp"
   }
   {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-  }
-  {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-  }
-  {
     "invert_barrelchrome.bmp"
     "invert_bodyside.bmp"
     "invert_clip.bmp"
@@ -72,6 +50,28 @@ $texturegroup ice
     "invert_sight_rear.bmp"
     "invert_sight_wheel.bmp"
     "invert_sightclip.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 

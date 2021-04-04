@@ -42,16 +42,16 @@ $texturegroup ice
     "scopelens.BMP"
   }
   {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
+    "invert_barrel.BMP"
+    "invert_body.BMP"
+    "invert_bolt.BMP"
+    "invert_foregrip.BMP"
+    "invert_grip.BMP"
+    "invert_magazine.BMP"
+    "invert_round.BMP"
+    "invert_scope_clamp.BMP"
+    "invert_scope.BMP"
+    "invert_scopelens.BMP"
   }
   {
     "..\..\ringchrome.bmp"
@@ -64,6 +64,18 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
   {
     "invert_barrel.bmp"

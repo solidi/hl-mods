@@ -33,6 +33,9 @@ $texturegroup ice
     "dynamite.bmp"
   }
   {
+    "invert_dynamite.bmp"
+  }
+  {
     "..\ringchrome.bmp"
   }
   {

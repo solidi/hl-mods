@@ -33,6 +33,9 @@ $texturegroup ice
     "556shell.bmp"
   }
   {
+    "invert_556shell.bmp"
+  }
+  {
     "..\ringchrome.bmp"
   }
   {

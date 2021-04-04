@@ -33,10 +33,13 @@ $texturegroup ice
     "body.bmp"
   }
   {
-    "..\iceCHROME.bmp"
+    "invert_body.bmp"
   }
   {
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
   }
 }
 

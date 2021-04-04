@@ -38,16 +38,22 @@ $texturegroup ice
     "v_rpg_rocket.BMP"
   }
   {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
+    "invert_v_rpg_monitor_reference.BMP"
+    "invert_v_rpg_primer.BMP"
+    "invert_v_rpg_reference.BMP"
+    "invert_v_rpg_rocket.BMP"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
 }
 

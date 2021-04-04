@@ -35,6 +35,11 @@ $texturegroup ice
     "handle.bmp"
   }
   {
+    "invert_blade_chrome.bmp"
+    "invert_guard_chrome.bmp"
+    "invert_handle.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

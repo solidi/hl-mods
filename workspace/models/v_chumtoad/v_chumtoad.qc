@@ -40,6 +40,11 @@ $texturegroup ice
     "CHB_Tounge1.bmp"
   }
   {
+    "invert_CHB_Eye1.bmp"
+    "invert_CHB_Side1.bmp"
+    "invert_CHB_Tounge1.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

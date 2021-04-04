@@ -44,8 +44,8 @@ DESCRIPTION INFO_OPTIONS
 	"cl_icemodels"
 	{
 		"#Ice_Models"
-		{ BOOL }
-		{ "1" }
+		{ NUMBER 0 3 }
+		{ "2" }
 	}
 
 	"cl_oldscoreboard"

@@ -34,8 +34,16 @@ $texturegroup ice
     "grenade_skin.bmp"
   }
   {
+    "invert_grenade_side.bmp"
+    "invert_grenade_skin.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 

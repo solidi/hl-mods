@@ -32,6 +32,9 @@ $texturegroup ice
     "Skin.BMP"
   }
   {
+    "invert_Skin.BMP"
+  }
+  {
     "..\ringchrome.bmp"
   }
   {

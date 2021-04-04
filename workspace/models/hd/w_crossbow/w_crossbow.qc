@@ -34,12 +34,16 @@ $texturegroup ice
     "w_crossbow_Reference.bmp"
   }
   {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
+    "invert_bowCHROME.bmp"
+    "invert_w_crossbow_Reference.bmp"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
 }
 

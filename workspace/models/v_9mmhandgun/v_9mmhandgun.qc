@@ -46,28 +46,28 @@ $texturegroup ice
     "gclipinside.bmp"
   }
   {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-  }
-  {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-  }
-  {
     "invert_back.bmp"
     "invert_side.bmp"
     "invert_chrome.bmp"
     "invert_top.bmp"
     "invert_gclip.bmp"
     "invert_gclipinside.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 

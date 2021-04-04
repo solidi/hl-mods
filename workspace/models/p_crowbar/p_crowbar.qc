@@ -33,6 +33,9 @@ $texturegroup ice
     "p_pipe.bmp"
   }
   {
+    "invert_p_pipe.bmp"
+  }
+  {
     "..\ringchrome.bmp"
   }
   {

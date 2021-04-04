@@ -51,6 +51,25 @@ $texturegroup ice
     "stock.bmp"
   }
   {
+    "invert_bowCHROME.bmp"
+    "invert_bowtip.bmp"
+    "invert_cliprear.bmp"
+    "invert_clipside.bmp"
+    "invert_grip.bmp"
+    "invert_ladder.bmp"
+    "invert_lensCHROME.bmp"
+    "invert_lensring.bmp"
+    "invert_mechside.bmp"
+    "invert_mechtop.bmp"
+    "invert_receivertop.bmp"
+    "invert_recevierside.bmp"
+    "invert_shoulders.bmp"
+    "invert_slide_rear.bmp"
+    "invert_slide_side.bmp"
+    "invert_slide_top.bmp"
+    "invert_stock.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

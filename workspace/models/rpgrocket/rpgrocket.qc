@@ -34,6 +34,10 @@ $texturegroup ice
     "rocketmotor.bmp"
   }
   {
+    "invert_rocket.bmp"
+    "invert_rocketmotor.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }

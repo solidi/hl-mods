@@ -32,6 +32,9 @@ $texturegroup ice
     "new_worldrpg_combo.BMP"
   }
   {
+    "invert_new_worldrpg_combo.BMP"
+  }
+  {
     "..\ringchrome.bmp"
   }
   {

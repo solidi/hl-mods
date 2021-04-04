@@ -47,6 +47,13 @@ $texturegroup ice
     "side.bmp"
   }
   {
+    "invert_box.bmp"
+    "invert_face.bmp"
+    "invert_lensCHROME.bmp"
+    "invert_light.bmp"
+    "invert_side.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

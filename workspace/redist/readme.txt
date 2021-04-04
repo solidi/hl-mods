@@ -40,7 +40,11 @@ Server:
 Client:
 
 - Deploy grappling hook - Use "+hook"
-- Ice Models - "cl_icemodels 1" - To switch between view and player ice skins and real skins
+- Ice Models - "cl_icemodels 2" - To switch between weapon ice skins and real skins
+    - "0" - real skin
+    - "1" - original inverted skin
+    - "2" - 1.75 blue ice skin
+    - "3" - Cold Ice Goldsrc edition skin
 - Switch between original and HD models using the "Enable HD models if available" in Video options
 - Old Scoreboard - "cl_oldscoreboard 1" - To switch between old and new style scoreboards
 - Old MOTD (Message of the Day) - "cl_oldmotd 1" - To switch between old and new style message of the day

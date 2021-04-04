@@ -36,6 +36,12 @@ $texturegroup ice
     "glocktop1.bmp"
   }
   {
+    "invert_glockback.bmp"
+    "invert_glockfront.bmp"
+    "invert_glockside.bmp"
+    "invert_glocktop1.bmp"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

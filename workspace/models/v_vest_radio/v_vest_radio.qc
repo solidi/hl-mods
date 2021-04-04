@@ -39,6 +39,13 @@ $texturegroup ice
     "flapchrome.bmp"
   }
   { 
+    "invert_det_front.bmp"
+    "invert_det_side.bmp"
+    "invert_detbutn_bright.bmp"
+    "invert_dettop.bmp"
+    "invert_flapchrome.bmp"
+  }
+  { 
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"

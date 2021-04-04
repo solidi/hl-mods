@@ -36,12 +36,16 @@ $texturegroup ice
     "detonata'  bod.bmp"
   }
   {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
+    "invert_det_chrome.bmp"
+    "invert_detonata'  bod.bmp"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
 }
 

@@ -33,10 +33,13 @@ $texturegroup ice
     "w_beretta.BMP"
   }
   { 
-    "..\iceCHROME.bmp"
+    "invert_w_beretta.BMP"
   }
   {
     "..\..\ringchrome.bmp"
+  }
+  { 
+    "..\iceCHROME.bmp"
   }
 }
 

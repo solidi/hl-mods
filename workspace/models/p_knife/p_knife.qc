@@ -34,6 +34,10 @@ $texturegroup ice
     "Spyknife1.BMP"
   }
   {
+    "invert_Chrome2.BMP"
+    "invert_Spyknife1.BMP"
+  }
+  {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }

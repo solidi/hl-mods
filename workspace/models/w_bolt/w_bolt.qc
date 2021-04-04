@@ -34,6 +34,10 @@ $texturegroup ice
     "finCHOME.bmp"
   }
   {
+    "invert_boltCHROME.bmp"
+    "invert_finCHOME.bmp"
+  }
+  {
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
