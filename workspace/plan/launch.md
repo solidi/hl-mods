@@ -1,6 +1,9 @@
 # Launch List
 
 - [ ] Burn in mod with bots on dedicated server for hours
+    - [x] Cluster Grenades
+    - [x] Railgun
+    - [x] Silencer
 - [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
