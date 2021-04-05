@@ -59,10 +59,12 @@
 1. [Wall jumping](http://articles.thewavelength.net/226/)
 1. [ ] Akimbo models
 1. [x] Third model mode - real skins
-1. [ ] Guass gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
+1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
 1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY)
 1. [ ] Jetpack?
 1. [ ] C4 mine placement with satchels.
 1. [x] Invisible tripmines
 1. [ ] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
 1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
+1. [ ] Taser
+1. [ ] Nuke launcher (Cold Ice 2.5 model)
