@@ -332,7 +332,7 @@ function Compile-Wad {
         exit
     }
     Remove-Item $wadsdir\$target.ls -Recurse -Force -ErrorAction Ignore
-    Copy-Item $wadsdir\$target.wad $redistdir -force
+    Move-Item $wadsdir\$target.wad $redistdir -force
 }
 
 function Compile-Font {
