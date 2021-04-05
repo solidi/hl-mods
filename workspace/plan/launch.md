@@ -4,6 +4,7 @@
     - [x] Cluster Grenades
     - [x] Railgun
     - [x] Silencer
+    - [x] RPG
 - [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
