@@ -493,6 +493,7 @@ Invert-Skin "w_railgun" $modelsdir
 Invert-Skin "w_rpg" $modelsdir
 Invert-Skin "w_sniperrifle" $modelsdir
 Invert-Skin "w_vest" $modelsdir
+Invert-Skin "w_weaponbox" $modelsdir
 
 Remove-Item $redistdir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
@@ -569,6 +570,7 @@ Compile-Model "w_bolt" $modelsdir $redistdir\models
 Compile-Model "w_railgun" $modelsdir $redistdir\models
 Compile-Model "v_railgun" $modelsdir $redistdir\models
 Compile-Model "p_railgun" $modelsdir $redistdir\models
+Compile-Model "w_weaponbox" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon

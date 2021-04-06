@@ -65,6 +65,7 @@ models\w_bolt.mdl
 models\w_railgun.mdl
 models\p_railgun.mdl
 models\v_railgun.mdl
+models\w_weaponbox.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
