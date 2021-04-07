@@ -71,3 +71,4 @@ Thanks To:
 - Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694
 - L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544
 - Valve for select models from Team Fortress Classic
+- JoelTroch for the crowbar idle weapon fix https://github.com/ValveSoftware/halflife/issues/1585
