@@ -165,3 +165,5 @@
 1. For debugging the number of current edicts, use the macro `NUMBER_OF_ENTITIES()` or the global parameter `gpGlobals->maxEntities`.
 1. I learned that using the git patch tool for commits may require splitting hunks manually. See [this thread](https://stackoverflow.com/questions/56892981/how-to-solve-sorry-cannot-split-this-hunk) about "Sorry cannot split this hunk."
 1. To show the full diff of a stash in git, use `git stash show -p`. See [this thread](https://stackoverflow.com/questions/3573623/is-it-possible-to-preview-stash-contents-in-git) as well.
+1. An interesting read on how the Source engine implements the Server-Client networking architecture. See [this thread here](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking).
+1. To fake lag (and to test weapon prediction), use the command `fakelag` to simulate the behavior one would experience with a less than ideal ping.
