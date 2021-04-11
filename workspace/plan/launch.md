@@ -5,6 +5,8 @@
     - [x] Railgun
     - [x] Silencer
     - [x] RPG
+    - [x] Chumtoad
+    - [x] Boltgun
 - [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
@@ -38,6 +40,8 @@
     - [ ] 30mm Assault Cannon
     - [ ] 120-Pound Grenade Launcher
     - [ ] Female Assassin Decoy Bombs
+    - [ ] Nuke Launcher
+    - [ ] Pulse Rifle
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
@@ -46,11 +50,12 @@
     - [x] so's?
     - [x] dylib's?
     - [x] Convert Windows endlines to Linux
+    - [ ] Debug build pipeline
 - [x] Edict count
-- [ ] Runes
+- [x] Runes
 - [ ] Skins
     - [ ] Blue blood?
-    - [ ] Inverted original weapons
+    - [x] Inverted original weapons
 - [ ] Training Map
     - [ ] Debrief text file
     - [ ] Overview graphic
@@ -66,6 +71,7 @@
 - [ ] Third person muzzle flash placement
 - [ ] Knife
     - [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
+    - [ ] Cold Ice 2.5 model?
     - [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
 - [x] Rename folder and libs to `ice`
 - [x] Rename github repo to `coldice`

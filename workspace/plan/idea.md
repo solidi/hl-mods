@@ -68,3 +68,4 @@
 1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
 1. [ ] Taser
 1. [ ] Nuke launcher (Cold Ice 2.5 model)
+1. [ ] Pulse Rifle

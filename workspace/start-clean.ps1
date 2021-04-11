@@ -113,17 +113,18 @@ Set-ConsoleColor 'DarkCyan' 'White'
     }
 }
 
+$RootDir = ${PSScriptRoot}.Trimend('\')
 $hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hldsdir = "C:\steamcmd\steamapps\common\Half-Life"
-$redistdir = "${PSScriptRoot}\redist"
-$redisthddir = "${PSScriptRoot}\redist_hd"
-$bindir = "${PSScriptRoot}\bin"
+$redistdir = "${RootDir}\redist"
+$redisthddir = "${RootDir}\redist_hd"
+$bindir = "${RootDir}\bin"
 $icefolder = "ice"
 $icedir = "${hldir}\${icefolder}"
 $icehddir = "${hldir}\${icefolder}_hd"
 $icedsdir = "${hldsdir}\${icefolder}"
 $icedshddir = "${hldsdir}\${icefolder}_hd"
-$zipfile = "${PSScriptRoot}\last-build.zip"
+$zipfile = "${RootDir}\last-build.zip"
 
 function Launch-HL {
     param (
@@ -390,18 +391,18 @@ function Compile-Sound {
 # Compile all DLLs
 Remove-Item $redistdir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistdir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
-Compile-DLL "${PSScriptRoot}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
-Compile-DLL "${PSScriptRoot}\src\projects\vs2019\hldll.sln" "hl" $rebuild
-Compile-DLL "${PSScriptRoot}\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
+Compile-DLL "${RootDir}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $rebuild
+Compile-DLL "${RootDir}\src\projects\vs2019\hldll.sln" "hl" $rebuild
+Compile-DLL "${RootDir}\src\projects\vs2019\hl_cdll.sln" "client" $rebuild
 # & "$PSScriptRoot\docker\build-linux.ps1"
-Copy-Item ${PSScriptRoot}\libs\dlls\ice.dylib $redistdir\dlls
-Copy-Item ${PSScriptRoot}\libs\dlls\ice.so $redistdir\dlls
-Copy-Item ${PSScriptRoot}\libs\cl_dlls\client.dylib $redistdir\cl_dlls
-Copy-Item ${PSScriptRoot}\libs\cl_dlls\client.so $redistdir\cl_dlls
-Copy-Item ${PSScriptRoot}\libs\dlls\gravebot.so $redistdir\dlls
+Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistdir\dlls
+Copy-Item ${RootDir}\libs\dlls\ice.so $redistdir\dlls
+Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistdir\cl_dlls
+Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistdir\cl_dlls
+Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistdir\dlls
 
 # Compile source models
-$modelsdir = "${PSScriptRoot}\models"
+$modelsdir = "${RootDir}\models"
 
 function Invert-Skin {
     param (
@@ -571,6 +572,7 @@ Compile-Model "w_railgun" $modelsdir $redistdir\models
 Compile-Model "v_railgun" $modelsdir $redistdir\models
 Compile-Model "p_railgun" $modelsdir $redistdir\models
 Compile-Model "w_weaponbox" $modelsdir $redistdir\models
+Compile-Model "w_runes" $modelsdir $redistdir\models
 
 # New-Item -ItemType directory -Path $redistdir\models\player\gordon
 # Compile-Model "gordon" $modelsdir $redistdir\models\player\gordon
@@ -578,7 +580,7 @@ Compile-Model "w_weaponbox" $modelsdir $redistdir\models
 # Compile sprites
 Remove-Item $redistdir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-$spritesdir = "${PSScriptRoot}\sprites"
+$spritesdir = "${RootDir}\sprites"
 Compile-Sprite "muzzleflash1" $spritesdir $redistdir\sprites
 Compile-Sprite "muzzleflash2" $spritesdir $redistdir\sprites
 Compile-Sprite "zerogxplode" $spritesdir $redistdir\sprites
@@ -598,7 +600,7 @@ Copy-Item $spritesdir\weapon_railgun.txt $redistdir\sprites
 Copy-Item $spritesdir\hud.txt $redistdir\sprites
 
 # Compile wads
-$wadsdir = "${PSScriptRoot}\wads"
+$wadsdir = "${RootDir}\wads"
 Remove-Item $redistdir\wads\\* -Recurse -Force -ErrorAction Ignore
 Compile-Wad "coldice" $wadsdir
 
@@ -606,7 +608,7 @@ Compile-Wad "coldice" $wadsdir
 Compile-Font "Arial"
 
 # Compile maps
-$mapsdir = "${PSScriptRoot}\maps"
+$mapsdir = "${RootDir}\maps"
 Remove-Item $redistdir\maps\\* -Recurse -Force -ErrorAction Ignore
 Compile-Map "yard" $mapsdir
 Copy-Item $mapsdir\stalkyard.wpt $redistdir\maps
@@ -614,7 +616,7 @@ Copy-Item $mapsdir\boot_camp.wpt $redistdir\maps
 # Compile-Map "cir_stalkyard" $mapsdir
 
 # Compile sounds
-$sounddir = "${PSScriptRoot}\sound"
+$sounddir = "${RootDir}\sound"
 Remove-Item $redistdir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
 Compile-Sound "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
@@ -676,6 +678,7 @@ Copy-Item $sounddir\boltgun_selected.wav $redistdir\sound
 Compile-Sound "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
 Copy-Item $sounddir\railgun_fire.wav $redistdir\sound
 Compile-Sound "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
+Copy-Item $sounddir\rune_pickup.wav $redistdir\sound
 
 # Prepare distribution folders
 Remove-Item $icedir\\* -Recurse -Force -ErrorAction Ignore
@@ -745,8 +748,8 @@ for ($bot = 0; $bot -lt $bots; $bot++) {
 }
 
 if ($verifyfiles) {
-    Test-Manifest "${PSScriptRoot}\manifest" $redistdir
-    Test-Manifest "${PSScriptRoot}\manifest_hd" $redisthddir
+    Test-Manifest "${RootDir}\manifest" $redistdir
+    Test-Manifest "${RootDir}\manifest_hd" $redisthddir
 }
 
 function PAK-File {
