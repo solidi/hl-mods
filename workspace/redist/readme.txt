@@ -21,6 +21,14 @@ Features:
     - Quake II Railgun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
+- Powerup Runes
+    - "Frag" - obtain twice the amount of frags
+    - "Vampire" - obtain health when inflicting damage
+    - "Protect" - soften the damage sustained by half
+    - "Regen" - continually repair health
+    - "Haste" - walk and run 50% faster
+    - "Gravity" - jump 40% farther
+    - "Strength" - inflict 50% more damage
 - Option for origin models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
@@ -36,10 +44,12 @@ Server:
 - Time (seconds) when next grappling hook can deploy - "mp_grapplinghookdeploytime 1.0"
 - Add a bot - Use "addbot"
 - Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_crowbar;weapon_knife;weapon_9mmhandgun""
+- Allow powerup runes on server - "mp_allowrunes 1"
 
 Client:
 
 - Deploy grappling hook - Use "+hook"
+- Drop rune - Use "drop_rune"
 - Ice Models - "cl_icemodels 2" - To switch between weapon ice skins and real skins
     - "0" - real skin
     - "1" - original inverted skin
@@ -72,3 +82,4 @@ Thanks To:
 - L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544
 - Valve for select models from Team Fortress Classic
 - JoelTroch for the crowbar idle weapon fix https://github.com/ValveSoftware/halflife/issues/1585
+- Powerup deathmatch runes tutorial by Phantasiere (nrich@iinet.net.au)

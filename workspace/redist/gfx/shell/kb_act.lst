@@ -65,3 +65,4 @@
 "blank"			"#Ice_Extras_Title"
 "blank"			"=========================="
 "+hook"			"#Ice_Grappling_Hook"
+"drop_rune"		"#Ice_Drop_Rune"

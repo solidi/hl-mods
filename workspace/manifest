@@ -66,6 +66,7 @@ models\w_railgun.mdl
 models\p_railgun.mdl
 models\v_railgun.mdl
 models\w_weaponbox.mdl
+models\w_runes.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -128,6 +129,7 @@ sound\boltgun_selected.wav
 sound\boltgun_gotitem.wav
 sound\railgun_fire.wav
 sound\railgun_selected.wav
+sound\rune_pickup.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

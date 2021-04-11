@@ -124,4 +124,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ STRING }
 		{ "weapon_crowbar;weapon_knife;weapon_9mmhandgun" }
 	}
+
+	"mp_allowrunes"
+	{
+		"#Ice_Runes"
+		{ BOOL }
+		{ "1" }
+	}
 }
