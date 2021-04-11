@@ -164,3 +164,4 @@
 1. A possible solution to run windows containers on macOS. See [this thread](https://stackoverflow.com/questions/42158596/can-windows-containers-be-hosted-on-linux#:~:text=No%2C%20you%20cannot%20run%20windows,can%20run%20Linux%20on%20Windows.&text=You%20can%20change%20between%20OS,the%20docker%20in%20tray%20menu.) for more detail using Vargant / Packer.
 1. For debugging the number of current edicts, use the macro `NUMBER_OF_ENTITIES()` or the global parameter `gpGlobals->maxEntities`.
 1. I learned that using the git patch tool for commits may require splitting hunks manually. See [this thread](https://stackoverflow.com/questions/56892981/how-to-solve-sorry-cannot-split-this-hunk) about "Sorry cannot split this hunk."
+1. To show the full diff of a stash in git, use `git stash show -p`. See [this thread](https://stackoverflow.com/questions/3573623/is-it-possible-to-preview-stash-contents-in-git) as well.
