@@ -167,3 +167,4 @@
 1. To show the full diff of a stash in git, use `git stash show -p`. See [this thread](https://stackoverflow.com/questions/3573623/is-it-possible-to-preview-stash-contents-in-git) as well.
 1. An interesting read on how the Source engine implements the Server-Client networking architecture. See [this thread here](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking).
 1. To fake lag (and to test weapon prediction), use the command `fakelag` to simulate the behavior one would experience with a less than ideal ping.
+1. Windows 8 does not support running native windows docker containers. [Support began](https://stackoverflow.com/questions/53310744/cant-switch-docker-os-on-window-8) with Server 2016 / Windows 10.
