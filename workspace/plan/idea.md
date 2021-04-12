@@ -70,3 +70,4 @@
 1. [ ] Nuke launcher (Cold Ice 2.5 model)
 1. [ ] Pulse Rifle
 1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
+1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
