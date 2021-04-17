@@ -32,6 +32,14 @@ IFS=$'\n\t'
 #make; \
 #exit;"
 
+cfg=release
+while getopts c: flag
+do
+    case "${flag}" in
+        c) cfg=${OPTARG};;
+    esac
+done
+
 docker run -it \
     -v $(pwd):/mnt \
-    --rm ice-ubuntu-base /bin/bash -c "cd mnt/; /mnt/build-linux.sh"
+    --rm ice-ubuntu-base /bin/bash -c "cd mnt/; /mnt/build-linux.sh -c $cfg"

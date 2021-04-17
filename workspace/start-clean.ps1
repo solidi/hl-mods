@@ -15,6 +15,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [int]$hdmodels = 1
 [int]$verifyfiles = 1
 [int]$dedicatedserver = 0
+[string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
 [string]$grapplinghook = "GRAPPLING_HOOK"
 [string]$weaponvest = "VEST"
@@ -35,7 +36,10 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
-    if ($_.Split(' ')[0].ToUpper() -eq "Clean") {
+    if ($_.Split(' ')[0].ToUpper() -eq "BuildConfig") {
+        $buildConfiguration = $_.Split(' ')[1]
+        echo "build config is $buildConfiguration..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
         $rebuild = "Rebuild"
         echo "rebuilding all code sources..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "NoLaunch") {
@@ -216,7 +220,7 @@ function Compile-DLL {
     echo "Compiling dll $slnpath > $dllname.dll..."
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
     $out = & $msdev $slnpath /t:"$rebuildall" `
-                    /p:Configuration=Release `
+                    /p:Configuration=$buildConfiguration `
                     /p:GrapplingHook=$grapplinghook `
                     /p:Vest=$weaponvest `
                     /p:Silencer=$weaponhandgun `
