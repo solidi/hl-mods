@@ -18,6 +18,7 @@
 - [x] Bot support
     - [ ] Bot support for hook
     - [ ] Custom map waypoints for bots
+    - [ ] Bot support for mac
 - [ ] Weapons
     - [ ] Spawn extra weapons with other matching slot number
     - [x] Vest

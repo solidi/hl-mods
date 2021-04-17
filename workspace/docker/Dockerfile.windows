@@ -1,0 +1,64 @@
+FROM mcr.microsoft.com/windows/servercore:2004
+LABEL maintainer="solidi"
+LABEL version="0.1"
+LABEL description="Base Windows image to compile libs and project of Cold Ice Goldsrc."
+
+#ADD https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x64.exe /vc_redist.x64.exe
+#RUN c:/vc_redist.x64.exe /quiet /install
+
+ADD https://aka.ms/vs/16/release/vs_buildtools.exe c:/temp/vs_buildtools.exe
+RUN c:/temp/vs_buildtools.exe --quiet --wait --norestart \
+    --installPath c:/BuildTools \
+    --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 \
+    --add Microsoft.VisualStudio.Component.Windows10SDK.19041
+
+#USER ContainerAdministrator
+#RUN curl -fSLo vc_redist.x64.exe https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x64.exe \
+#    && start /w vc_redist.x64.exe /install /quiet /norestart \
+#    && del vc_redist.x64.exe
+
+SHELL ["powershell", "-Command"]
+
+ADD https://github.com/GyanD/codexffmpeg/releases/download/2021-01-27-git-149bfc2445/ffmpeg-2021-01-27-git-149bfc2445-full_build.zip c:/ffmpeg.zip
+RUN Expand-Archive -Path c:/ffmpeg.zip -DestinationPath c:/ ; \
+    New-Item -ItemType directory -Path c:/bin ; \
+    Copy-Item c:/ffmpeg-2021-01-27-git-149bfc2445-full_build/bin/ffmpeg.exe -Destination c:/bin/ ; \
+    Remove-Item c:/ffmpeg-2021-01-27-git-149bfc2445-full_build -Recurse ; \
+    Remove-Item c:/ffmpeg.zip
+ADD https://github.com/moiamond/docker-ffmpeg-base-windowsservercore/raw/master/System32/avicap32.dll c:/Windows/System32/
+ADD https://github.com/moiamond/docker-ffmpeg-base-windowsservercore/raw/master/System32/msvfw32.dll c:/Windows/System32/
+
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/convert.exe c:/bin/
+
+#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlbsp.exe c:/bin/
+#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlcsg.exe c:/bin/
+#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlrad.exe c:/bin/
+#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlvis.exe c:/bin/
+ADD https://downloads.ammahls.com/zhlt/zhlt34x64final.zip c:/zhlt34x64final.zip
+RUN Expand-Archive -Path c:/zhlt34x64final.zip -DestinationPath c:/zhlt34x64final ; \
+    Copy-Item c:/zhlt34x64final/hlbsp.exe -Destination c:/bin/ ; \
+    Copy-Item c:/zhlt34x64final/hlcsg.exe -Destination c:/bin/ ; \
+    Copy-Item c:/zhlt34x64final/hlrad.exe -Destination c:/bin/ ; \
+    Copy-Item c:/zhlt34x64final/hlvis.exe -Destination c:/bin/ ; \
+    Remove-Item c:/zhlt34x64final -Recurse ; \
+    Remove-Item c:/zhlt34x64final.zip
+
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/lights.rad c:/bin/
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/makefont.exe c:/bin/
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/makels.exe c:/bin/
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/qlumpy.exe c:/bin/
+
+# ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/qpakman.exe c:/bin/
+ADD http://glbsp.sourceforge.net/files/qpakman-062b.zip c:/qpakman-062b.zip
+RUN Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; \
+    Copy-Item c:/qpakman-062b/qpakman.exe -Destination c:/bin/ ; \
+    Remove-Item c:/qpakman-062b -Recurse ; \
+    Remove-Item c:/qpakman-062b.zip
+
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/sprgen.exe c:/bin/
+ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/studiomdl.exe c:/bin/
+
+# COPY /bin/studiomdl.exe c:/bin/studiomdl.exe
+
+# docker -c win build -t ice-windows-base -f .\docker\Dockerfile.windows .
+# docker -c win run -v z:\:c:\build -it ice-windows-base powershell

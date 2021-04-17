@@ -6,7 +6,7 @@
 "MaxRange" "4096"
 "mapversion" "220"
 "mapversion" "220"
-"wad" "..\wads\decals.wad;..\wads\halflife.wad;..\wads\liquids.wad;..\wads\xeno.wad"
+"wad" "c:\build\wads\halflife.wad"
 {
 ( 1232 624 -32 ) ( 1232 624 -80 ) ( 1072 624 -80 ) GENERIC93 [ 1 0 0 -48 ] [ 0 0 -1 -64 ] 0 1 1 
 ( 1232 656 -80 ) ( 1232 624 -80 ) ( 1232 624 -32 ) GENERIC93 [ 0 -1 0 112 ] [ 0 0 -1 -64 ] 0 1 1 
