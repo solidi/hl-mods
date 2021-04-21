@@ -76,7 +76,6 @@ if ($spawnweaponlist) {
 for ($bot = 0; $bot -lt $botCount; $bot++) {
     "addbot 5" | Add-Content $iceDir\grave_bot.cfg
     "pause 3" | Add-Content $iceDir\grave_bot.cfg
-    echo $bot
 }
 
 Launch-HL $botCount $hdModels $map $hldir $iceFolder
