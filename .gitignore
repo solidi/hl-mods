@@ -31,3 +31,5 @@ workspace/redist_hd/models/
 workspace/redist_hd/
 
 *.swp
+
+wads.cfg

@@ -1,15 +1,32 @@
 
+function Write-Wad-Config {
+    param (
+        $mapsDir,
+        $wadsDir
+    )
+
+    Clear-Content -path $mapsDir\wads.cfg -Force -ErrorAction Ignore
+    Add-Content -path $mapsDir\wads.cfg @"
+all {
+    $wadsDir\halflife.wad
+}
+"@
+}
+
 function Compile-Map {
     param (
         $binDir,
         $target,
         $mapsDir,
-        $redistDir
+        $redistDir,
+        $wadsDir
     )
+
+    Write-Wad-Config $mapsDir $wadsDir
 
     Set-Location -Path $binDir
     echo "Compiling map $target..."
-    $out = & .\hlcsg $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlcsg -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
     if ($lastexitcode -ne 0) {
         echo "$out> Could not qcsp ${target}. Exit code: ${lastexitcode}"
         exit
