@@ -20,6 +20,10 @@ workspace/redist/models/
 workspace/redist/sprites/
 workspace/redist/sound/
 workspace/redist/media/gamestartup.mp3
+htmlcache
+debug.log
+steam_appid.txt
+qconsole.log
 
 workspace/redist_hd/models/
 
