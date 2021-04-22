@@ -56,9 +56,16 @@ RUN Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; 
     Remove-Item c:/qpakman-062b.zip
 
 ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/sprgen.exe c:/bin/
-ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/studiomdl.exe c:/bin/
 
-# COPY /bin/studiomdl.exe c:/bin/studiomdl.exe
+ADD https://versaweb.dl.sourceforge.net/project/gnuwin32/unrar/3.4.3/unrar-3.4.3-bin.zip c:/unrar-3.4.3-bin.zip
+RUN Expand-Archive -Path c:/unrar-3.4.3-bin.zip -DestinationPath c:/unrar-3.4.3-bin ; \
+    Copy-Item c:/unrar-3.4.3-bin/bin/unrar.exe -Destination c:/bin/ ; \
+    Copy-Item c:/unrar-3.4.3-bin/bin/unrar3.dll -Destination c:/bin/ ; \
+    Remove-Item c:/unrar-3.4.3-bin -Recurse ; \
+    Remove-Item c:/unrar-3.4.3-bin.zip
+ADD https://www.gvme.org/dl/4605 c:/sven_studiomdl_2019.rar
+RUN & c:/bin/unrar.exe x c:/sven_studiomdl_2019.rar c:/bin ; \
+    Remove-Item c:/sven_studiomdl_2019.rar
 
 # docker -c win build -t ice-windows-base -f .\docker\Dockerfile.windows .
 # docker -c win run -v z:\:c:\build -it ice-windows-base powershell
