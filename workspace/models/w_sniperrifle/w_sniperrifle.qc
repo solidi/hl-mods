@@ -35,16 +35,16 @@ $texturegroup ice
     "pmodel_chrome.bmp"
   }
   {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-  }
-  {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-  }
-  {
     "invert_pmodel_body.bmp"
     "invert_pmodel_chrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 
