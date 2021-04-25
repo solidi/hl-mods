@@ -3,19 +3,20 @@ function Compile-Model {
     param (
         $binDir,
         $target,
-        $modelsdir,
+        $modelsDir,
         $outDir
     )
 
-    Copy-Item $binDir\studiomdl.exe $modelsdir\$target
-    Remove-Item $modelsdir\$target.mdl -ErrorAction Ignore
-    Set-Location -Path $modelsdir\$target
-    echo "Compiling model $modelsdir\$target\$target.qc..."
-    $out = & $modelsdir\$target\studiomdl $modelsdir\$target\$target.qc | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not compile ${target}. Exit code: ${lastexitcode}"
+    Copy-Item $binDir\studiomdl.exe $modelsDir\$target
+    Remove-Item $modelsDir\$target.mdl -ErrorAction Ignore
+    Set-Location -Path $modelsDir\$target
+    echo "Compiling model $modelsDir\$target\$target.qc..."
+    try {
+        $out = & .\studiomdl $modelsDir\$target\$target.qc | Out-String
+    } catch {
+        Write-Error "$out> Could not compile ${target}.`nReason: $_.Exception.Message"
         exit
     }
-    Move-Item $modelsdir\$target\$target.mdl $outDir\$target.mdl -force
-    Remove-Item $modelsdir\$target\studiomdl.exe
+    Move-Item $modelsDir\$target\$target.mdl $outDir\$target.mdl -force
+    Remove-Item $modelsDir\$target\studiomdl.exe
 }

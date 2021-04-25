@@ -38,7 +38,7 @@
     - [ ] Assault Shotgun
     - [ ] USAS-12 Auto Shotgun
     - [ ] 25-inch Chaingun
-    - [ ] 30mm Assault Cannon
+    - [x] 30mm Assault Cannon
     - [ ] 120-Pound Grenade Launcher
     - [ ] Female Assassin Decoy Bombs
     - [ ] Nuke Launcher

@@ -16,6 +16,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 [string]$map = "stalkyard"
 [int]$teamplay = 0
 [string]$spawnweaponList = ""
+[int]$runes = 1
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -34,6 +35,9 @@ Set-ConsoleColor 'DarkCyan' 'White'
     } elseif ($_.Split(' ')[0].ToUpper() -eq "LowRes") {
         $hdModels = 0
         echo "switching to low res models..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipRunes") {
+        $runes = 0
+        echo "skipping runes..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -67,6 +71,10 @@ Copy-Item $redisthddir\\* $icehddir -Recurse -Force
 
 if ($teamplay) {
     "mp_teamplay 1" | Add-Content $iceDir\game.cfg
+}
+
+if (!$runes) {
+    "mp_allowrunes 0" | Add-Content $iceDir\game.cfg
 }
 
 if ($spawnweaponlist) {

@@ -12,4 +12,4 @@ $cfg = "release"
 }
 
 docker -c win run -v z:\:c:\build `
-    -it ice-windows-tools powershell c:\build\Build-Windows.ps1 -BuildConfig $cfg
+    -it ice-windows-tools powershell -Command "&c:\build\Build-Windows.ps1 -BuildConfig $cfg; &c:\build\Build-Release.ps1"
