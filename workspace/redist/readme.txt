@@ -19,6 +19,7 @@ Features:
     - 7.65mm Sniper Rifle
     - Air-Compressed Auto Boltgun
     - Quake II Railgun
+    - 30mm Assault Cannon
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes

@@ -1,6 +1,7 @@
 
 function Compile-DLL {
     param (
+        $msBuild,
         $slnpath,
         $dllname,
         $buildConfiguration,
@@ -19,13 +20,12 @@ function Compile-DLL {
     [string]$weaponsniperrifle = "SNIPER_RIFLE"
     [string]$weaponboltgun = "BOLT_GUN"
     [string]$weaponrailgun = "RAILGUN"
-
-    #$msdev = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild"
-    $msdev = "C:\BuildTools\MSBuild\Current\Bin\MSBuild"
+    [string]$weaponcannon = "CANNON"
 
     echo "Compiling dll $slnpath > $dllname.dll..."
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
-    $out = & $msdev $slnpath /t:"$rebuildall" `
+    try {
+        $out = & $msBuild $slnpath /t:"$rebuildall" `
                     /p:Configuration=$buildConfiguration `
                     /p:GrapplingHook=$grapplinghook `
                     /p:Vest=$weaponvest `
@@ -39,10 +39,10 @@ function Compile-DLL {
                     /p:SniperRifle=$weaponsniperrifle `
                     /p:Boltgun=$weaponboltgun `
                     /p:Railgun=$weaponrailgun `
+                    /p:Cannon=$weaponcannon `
                     | Out-String
-
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not compile $dllname.dll. Exit code: ${lastexitcode}"
+    } catch {
+        Write-Error "$out> Could not compile $dllname.dll`nReason: $_.Exception.Message"
         exit
     }
 

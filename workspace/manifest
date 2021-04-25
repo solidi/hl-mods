@@ -14,6 +14,8 @@ events\rpg_extreme.sc
 events\chumtoadfire.sc
 events\chumtoadrelease.sc
 events\sniper_rifle.sc
+events\cannon.sc
+events\cannon_flak.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -67,6 +69,9 @@ models\p_railgun.mdl
 models\v_railgun.mdl
 models\w_weaponbox.mdl
 models\w_runes.mdl
+models\v_cannon.mdl
+models\w_cannon.mdl
+models\p_cannon.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -130,11 +135,14 @@ sound\boltgun_gotitem.wav
 sound\railgun_fire.wav
 sound\railgun_selected.wav
 sound\rune_pickup.wav
+sound\cannon_selected.wav
+sound\cannon_fire.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
 sprites\zerogxplode.spr
 sprites\animglow01.spr
+sprites\xspark4.spr
 sprites\crosshairs.spr
 sprites\640hud1.spr
 sprites\640hud4.spr
@@ -145,6 +153,7 @@ sprites\weapon_rpg.txt
 sprites\weapon_chumtoad.txt
 sprites\weapon_sniperrifle.txt
 sprites\weapon_railgun.txt
+sprites\weapon_cannon.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

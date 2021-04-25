@@ -177,3 +177,4 @@
 1. Dot sourcing in Powershell requires a fully qualified path to the [script to be imported](https://mcpmag.com/articles/2017/02/02/exploring-dot-sourcing-in-powershell.aspx). It does not accept relative paths. Also, [this was helpful](https://stackoverflow.com/questions/684217/include-relative-files-in-powershell).
 1. Wad locations can be split outside of the map file using a wad configuration. [See this post from zhlt here](http://zhlt.info/using-wad.cfg.html). This [parameter list](http://zhlt.info/command-reference.html) was helpful as well.
 1. Here is a thread on how best [to unrar a file](https://www.reddit.com/r/PowerShell/comments/g8x669/unrar_with_powershell/) in powershell.
+1. Use caution with the use of `pev->nextthink = -1`. If used incorrectly, it may shortcircuit the entities removal, e.g. when inheriting from `CGrenade`.
