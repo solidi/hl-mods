@@ -178,3 +178,4 @@
 1. Wad locations can be split outside of the map file using a wad configuration. [See this post from zhlt here](http://zhlt.info/using-wad.cfg.html). This [parameter list](http://zhlt.info/command-reference.html) was helpful as well.
 1. Here is a thread on how best [to unrar a file](https://www.reddit.com/r/PowerShell/comments/g8x669/unrar_with_powershell/) in powershell.
 1. Use caution with the use of `pev->nextthink = -1`. If used incorrectly, it may shortcircuit the entities removal, e.g. when inheriting from `CGrenade`.
+1. Powershell escape characters are backticks, not slashes. See [this thread](https://stackoverflow.com/questions/36737410/echo-newline-to-powershell-console) for more info.
