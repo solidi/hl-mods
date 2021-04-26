@@ -179,3 +179,4 @@
 1. Here is a thread on how best [to unrar a file](https://www.reddit.com/r/PowerShell/comments/g8x669/unrar_with_powershell/) in powershell.
 1. Use caution with the use of `pev->nextthink = -1`. If used incorrectly, it may shortcircuit the entities removal, e.g. when inheriting from `CGrenade`.
 1. Powershell escape characters are backticks, not slashes. See [this thread](https://stackoverflow.com/questions/36737410/echo-newline-to-powershell-console) for more info.
+1. When investigting how to convert old version of milkshape model files from 2000, [this changelog](https://web.archive.org/web/20140117155314/http://chumbalum.swissquake.ch/ms3d/Release%20Notes.txt) was valuable to pinpoint the version that had the tool to perform the conversion. [Version 1.65 on the milkshape3d forums](https://www.chumba.ch/chumbalum-soft/forum/showthread.php?t=20111) had the conversion tool available.
