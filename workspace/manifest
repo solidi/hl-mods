@@ -137,6 +137,7 @@ sound\railgun_selected.wav
 sound\rune_pickup.wav
 sound\cannon_selected.wav
 sound\cannon_fire.wav
+sound\cannon_burn.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

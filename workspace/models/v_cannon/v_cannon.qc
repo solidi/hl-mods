@@ -97,7 +97,7 @@ $sequence "fidget" "fidget" fps 30
 $sequence "spinup" "spinup" fps 30 loop 
 $sequence "spin" "spin" fps 30 loop 
 $sequence "fire" "fire" fps 30 
-$sequence "fire2" "fire2" fps 30 
+$sequence "fire2" "fire2" fps 30 { event 5004 0 "cannon_burn.wav" }
 $sequence "holster" "holster" fps 45 
 $sequence "draw" "draw" fps 60  { event 5004 0 "cannon_selected.wav" }
 

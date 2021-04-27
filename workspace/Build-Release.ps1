@@ -274,6 +274,7 @@ Compile-Sound $binDir $redistDir $soundDir "yakety-sax-music.mp3" 1.5 "sound\chu
 Compile-Sound $binDir $redistDir $soundDir "target-to-destroy.mp3" 1.0 "sound\rifle_destroy.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
+Compile-Sound $binDir $redistdir $soundDir "m2burnbaby.mp3" 1.0 "sound\cannon_burn.wav" "wav"
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
