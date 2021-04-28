@@ -248,7 +248,7 @@ Remove-Item $redistDir\wads\\* -Recurse -Force -ErrorAction Ignore
 
 Compile-Wad $binDir "coldice" $wadsDir $redistDir
 
-Compile-Font $binDir "Arial"
+Compile-Font $binDir $redistDir "Arial"
 
 $mapsDir = "${RootDir}\maps"
 

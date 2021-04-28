@@ -2,15 +2,16 @@
 function Compile-Font {
     param (
         $binDir,
+        $redistDir,
         $fontName
     )
 
     Set-Location -Path $binDir
     echo "Compiling $fontName fonts.wad..."
-    $out = & .\makefont.exe -font "$fontName" $redistdir\fonts.wad
-
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not makefont. Exit code: ${lastexitcode}"
+    try {
+        $out = & .\makefont -font "$fontName" $redistDir\fonts.wad | Out-String
+    } catch {
+        Write-Error "$out> Could not makefont.`nReason: $_.Exception.Message"
         exit
     }
 }
