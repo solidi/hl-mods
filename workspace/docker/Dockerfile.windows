@@ -49,11 +49,11 @@ ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/lights.rad c:/bin
 #ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/qlumpy.exe c:/bin/
 
 # ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/qpakman.exe c:/bin/
-ADD http://glbsp.sourceforge.net/files/qpakman-062b.zip c:/qpakman-062b.zip
-RUN Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; \
-    Copy-Item c:/qpakman-062b/qpakman.exe -Destination c:/bin/ ; \
-    Remove-Item c:/qpakman-062b -Recurse ; \
-    Remove-Item c:/qpakman-062b.zip
+# ADD http://glbsp.sourceforge.net/files/qpakman-062b.zip c:/qpakman-062b.zip
+# RUN Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; \
+#     Copy-Item c:/qpakman-062b/qpakman.exe -Destination c:/bin/ ; \
+#     Remove-Item c:/qpakman-062b -Recurse ; \
+#     Remove-Item c:/qpakman-062b.zip
 
 #ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/sprgen.exe c:/bin/
 
