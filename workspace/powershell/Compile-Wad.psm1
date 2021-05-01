@@ -9,14 +9,16 @@ function Compile-Wad {
 
     Set-Location -Path $binDir
     echo "Compiling wad $wadsDir\$target.wad..."
-    $out = & .\makels $wadsDir\$target $wadsDir\$target $wadsDir\$target.ls | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not makels ${target}. Exit code: ${lastexitcode}"
+    try {
+        $out = & .\makels $wadsDir\$target $wadsDir\$target $wadsDir\$target.ls | Out-String
+    } catch {
+        Write-Error "$out> Could not makels ${target}.`nReason: $_.Exception.Message"
         exit
     }
-    $out = & .\qlumpy $wadsDir\$target.ls | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not qlumpy ${target}. Exit code: ${lastexitcode}"
+    try {
+        $out = & .\qlumpy $wadsDir\$target.ls | Out-String
+    } catch {
+        Write-Error "$out> Could not qlumpy ${target}.`nReason: $_.Exception.Message"
         exit
     }
     Remove-Item $wadsDir\$target.ls -Recurse -Force -ErrorAction Ignore

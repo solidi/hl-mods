@@ -33,3 +33,8 @@ workspace/redist_hd/
 *.swp
 
 wads.cfg
+
+makels.exe
+qlumpy.exe
+sprgen.exe
+makefont.exe

@@ -46,8 +46,40 @@ function Compile-DLL {
         exit
     }
 
+    if ($out -like "*FAILED*") {
+        Write-Error "$out> Could not compile $dllname.dll."
+        exit
+    }
+
     if ($out -match '^[1-9]\d* Error') {
-        echo "$out> Could not compile $dllname.dll."
+        Write-Error "$out> Could not compile $dllname.dll."
+        exit
+    }
+}
+
+function Compile-Exe {
+    param (
+        $msBuild,
+        $slnPath,
+        $exeName,
+        $buildConfiguration,
+        $rebuildAll
+    )
+
+    echo "Compiling exe $slnPath > $exeName.exe..."
+
+    try {
+        $out = & $msBuild $slnpath /t:"$rebuildAll" /p:Configuration=$buildConfiguration | Out-String
+        if (!$?) {
+            throw
+        }
+    } catch {
+        Write-Error "$out> Could not compile $exeName.exe`nReason: $_.Exception.Message"
+        exit
+    }
+
+    if ($out -like "*FAILED*") {
+        Write-Error "$out> Could not compile $exeName.exe."
         exit
     }
 }
