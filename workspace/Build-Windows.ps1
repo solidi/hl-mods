@@ -43,3 +43,8 @@ Remove-Item $redistDir\cl_dlls\client.dll -Force -ErrorAction Ignore
 Compile-DLL $msBuild "${RootDir}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $buildConfiguration $rebuild
 Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hldll.sln" "hl" $buildConfiguration $rebuild
 Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hl_cdll.sln" "client" $buildConfiguration $rebuild
+
+Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\qlumpy\qlumpy.sln" "qlumpy" $buildConfiguration $rebuild
