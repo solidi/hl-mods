@@ -11,7 +11,12 @@ function PAK-File {
     $folders = [String]::Join(" ", $targets)
     $in = ".\qpakman.exe ${folders} -o pak0.pak"
     echo "Creating pak0 file..."
-    $out = iex $in | Out-String
+    try {
+        $out = iex $in | Out-String
+    } catch {
+        Write-Error "$out> Could not pak project.`nReason: $_.Exception.Message"
+        exit
+    }
 
     # qpakman does not exit with failure.
     if ($out -match '[1-9] failures' -or $out.Contains("FAILURE")) {

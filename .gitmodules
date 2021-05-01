@@ -4,3 +4,6 @@
 [submodule "workspace/grave-bot-src"]
 	path = workspace/grave-bot-src
 	url = https://github.com/solidi/grave_bot.git
+[submodule "workspace/qpakman"]
+	path = workspace/qpakman
+	url = https://github.com/solidi/qpakman.git
