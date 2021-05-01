@@ -340,6 +340,5 @@ try {
     Compress-Archive -Path ${redistDir} -DestinationPath $zipFile -Force
     Compress-Archive -Path ${redisthddir} -DestinationPath $zipFile -Update
 } catch {
-    echo $_.Exception.GetType().FullName, $_.Exception.Message
-    echo "Could not create zip file."
+    Write-Error "Could not create zip file.`nReason: $_.Exception.Message"
 }
