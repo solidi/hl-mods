@@ -51,7 +51,7 @@
     - [x] so's?
     - [x] dylib's?
     - [x] Convert Windows endlines to Linux
-    - [ ] Debug build pipeline
+    - [x] Debug build pipeline
 - [x] Edict count
 - [x] Runes
 - [ ] Skins
@@ -60,6 +60,9 @@
 - [ ] Training Map
     - [ ] Debrief text file
     - [ ] Overview graphic
+- [ ] Menu Graphics
+    - [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
+    - [ ] Best effort weapon sprites
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
     - [ ] Remove dev.cfg
@@ -78,3 +81,4 @@
 - [x] Rename github repo to `coldice`
 - [x] Bot names loading on Linux?
 - [ ] Holster weapons [animation](https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm)
+- [ ] macOS zip file contains invalid paths?
