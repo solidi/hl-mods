@@ -10,10 +10,16 @@ function Invert-Skin {
     Get-ChildItem $path\$target -Filter *.bmp |
     Foreach-Object {
         if (!$_.BaseName.Contains("invert_")) {
-            if (!(Test-Path $path\$target\invert_$_)) {
+            $pathToBmp = "$path\$target\invert_$($_.Name)"
+            if (!(Test-Path $pathToBmp)) {
                 echo "$_ converting inverted skin!"
-                $out = & .\convert $_.FullName -negate -compress none BMP3:$path\$target\invert_$_
-                echo $out
+                try {
+                    $command = ".\convert $_ -negate -compress none BMP3:$path\$target\invert_$($_.Name)"
+                    $out = iex $command | Out-String
+                } catch {
+                    Write-Error "$out> Could not invert skin.`nReason: $_.Exception.Message"
+                    exit
+                }
             } else {
                 echo "$_ already generated inverted skin..."
             }
