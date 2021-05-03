@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+#Requires -Version 7.1
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0

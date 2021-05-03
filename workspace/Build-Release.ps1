@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+#Requires -Version 7.1
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
@@ -34,6 +34,7 @@ Import-Module $PSScriptRoot\powershell\Compile-Map.psm1 -Force -DisableNameCheck
 Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
+Import-Module $PSScriptRoot\powershell\Zip-Release.psm1 -Force -DisableNameChecking
 . ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
@@ -334,11 +335,4 @@ if ($verifyfiles) {
 
 PAK-File $binDir $redistDir @("models", "sound", "sprites")
 
-try {
-    echo "Creating zipped release..."
-    $zipFile = "${RootDir}\last-build.zip"
-    Compress-Archive -Path ${redistDir} -DestinationPath $zipFile -Force
-    Compress-Archive -Path ${redisthddir} -DestinationPath $zipFile -Update
-} catch {
-    Write-Error "Could not create zip file.`nReason: $_.Exception.Message"
-}
+Zip-Release $rootDir $redistDir $redistHdDir
