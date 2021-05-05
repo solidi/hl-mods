@@ -19,6 +19,11 @@ RUN c:/temp/vs_buildtools.exe --quiet --wait --norestart \
 
 SHELL ["powershell", "-Command"]
 
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/PowerShell-7.1.3-win-x64.msi', 'c:\PowerShell-7.1.3-win-x64.msi') ;\
+    Start-Process 'msiexec' -ArgumentList '/i c:\PowerShell-7.1.3-win-x64.msi /quiet /qn /norestart /log c:\installAuth.log'; \
+    Start-Sleep -s 30 ;\
+    Remove-Item c:\*.msi -force
+
 ADD https://github.com/GyanD/codexffmpeg/releases/download/2021-01-27-git-149bfc2445/ffmpeg-2021-01-27-git-149bfc2445-full_build.zip c:/ffmpeg.zip
 RUN Expand-Archive -Path c:/ffmpeg.zip -DestinationPath c:/ ; \
     New-Item -ItemType directory -Path c:/bin ; \

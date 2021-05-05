@@ -11,5 +11,5 @@ $cfg = "release"
     }
 }
 
-$cmd = "& docker -c win run -v ${pwd}:c:\build -it ice-windows-tools powershell -Command `"&c:\build\Build-Windows.ps1 -BuildConfig $cfg; &c:\build\Build-Release.ps1`""
+$cmd = "& docker -c win run -v ${pwd}:c:\build -it ice-windows-base pwsh -Command `"& c:\build\Build-Windows.ps1 -BuildConfig $cfg; & c:\build\Build-Release.ps1`""
 Invoke-Expression $cmd
