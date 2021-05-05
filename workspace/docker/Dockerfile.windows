@@ -19,28 +19,24 @@ RUN c:/temp/vs_buildtools.exe --quiet --wait --norestart \
 
 SHELL ["powershell", "-Command"]
 
-RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/PowerShell-7.1.3-win-x64.msi', 'c:\PowerShell-7.1.3-win-x64.msi') ;\
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/PowerShell/PowerShell/releases/download/v7.1.3/PowerShell-7.1.3-win-x64.msi', 'c:\PowerShell-7.1.3-win-x64.msi') ; \
     Start-Process 'msiexec' -ArgumentList '/i c:\PowerShell-7.1.3-win-x64.msi /quiet /qn /norestart /log c:\installAuth.log'; \
     Start-Sleep -s 30 ;\
     Remove-Item c:\*.msi -force
 
-ADD https://github.com/GyanD/codexffmpeg/releases/download/2021-01-27-git-149bfc2445/ffmpeg-2021-01-27-git-149bfc2445-full_build.zip c:/ffmpeg.zip
-RUN Expand-Archive -Path c:/ffmpeg.zip -DestinationPath c:/ ; \
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/GyanD/codexffmpeg/releases/download/2021-01-27-git-149bfc2445/ffmpeg-2021-01-27-git-149bfc2445-full_build.zip', 'c:\ffmpeg.zip') ; \
+    Expand-Archive -Path c:/ffmpeg.zip -DestinationPath c:/ ; \
     New-Item -ItemType directory -Path c:/bin ; \
     Copy-Item c:/ffmpeg-2021-01-27-git-149bfc2445-full_build/bin/ffmpeg.exe -Destination c:/bin/ ; \
     Remove-Item c:/ffmpeg-2021-01-27-git-149bfc2445-full_build -Recurse ; \
-    Remove-Item c:/ffmpeg.zip
-ADD https://github.com/moiamond/docker-ffmpeg-base-windowsservercore/raw/master/System32/avicap32.dll c:/Windows/System32/
-ADD https://github.com/moiamond/docker-ffmpeg-base-windowsservercore/raw/master/System32/msvfw32.dll c:/Windows/System32/
+    Remove-Item c:/ffmpeg.zip ; \
+    (New-Object System.Net.WebClient).DownloadFile('https://github.com/moiamond/docker-ffmpeg-base-windowsservercore/raw/master/System32/avicap32.dll', 'c:\Windows\System32\avicap32.dll') ; \
+    (New-Object System.Net.WebClient).DownloadFile('https://github.com/moiamond/docker-ffmpeg-base-windowsservercore/raw/master/System32/msvfw32.dll', 'c:\Windows\System32\msvfw32.dll')
 
-ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/convert.exe c:/bin/
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/master/workspace/bin/convert.exe', 'c:\bin\convert.exe')
 
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlbsp.exe c:/bin/
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlcsg.exe c:/bin/
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlrad.exe c:/bin/
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/hlvis.exe c:/bin/
-ADD https://downloads.ammahls.com/zhlt/zhlt34x64final.zip c:/zhlt34x64final.zip
-RUN Expand-Archive -Path c:/zhlt34x64final.zip -DestinationPath c:/zhlt34x64final ; \
+RUN (New-Object System.Net.WebClient).DownloadFile('https://downloads.ammahls.com/zhlt/zhlt34x64final.zip', 'c:/zhlt34x64final.zip') ; \
+    Expand-Archive -Path c:/zhlt34x64final.zip -DestinationPath c:/zhlt34x64final ; \
     Copy-Item c:/zhlt34x64final/hlbsp.exe -Destination c:/bin/ ; \
     Copy-Item c:/zhlt34x64final/hlcsg.exe -Destination c:/bin/ ; \
     Copy-Item c:/zhlt34x64final/hlrad.exe -Destination c:/bin/ ; \
@@ -48,28 +44,28 @@ RUN Expand-Archive -Path c:/zhlt34x64final.zip -DestinationPath c:/zhlt34x64fina
     Remove-Item c:/zhlt34x64final -Recurse ; \
     Remove-Item c:/zhlt34x64final.zip
 
-ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/lights.rad c:/bin/
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/makefont.exe c:/bin/
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/makels.exe c:/bin/
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/qlumpy.exe c:/bin/
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/master/workspace/bin/lights.rad', 'c:/bin/lights.rad')
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/makefont.exe ', 'c:/bin/makefont.exe')
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/makels.exe', 'c:/bin/makels.exe')
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/qlumpy.exe', 'c:/bin/qlumpy.exe')
 
-# ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/qpakman.exe c:/bin/
-# ADD http://glbsp.sourceforge.net/files/qpakman-062b.zip c:/qpakman-062b.zip
-# RUN Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; \
-#     Copy-Item c:/qpakman-062b/qpakman.exe -Destination c:/bin/ ; \
-#     Remove-Item c:/qpakman-062b -Recurse ; \
-#     Remove-Item c:/qpakman-062b.zip
+RUN (New-Object System.Net.WebClient).DownloadFile('http://glbsp.sourceforge.net/files/qpakman-062b.zip', 'c:/qpakman-062b.zip') ; \
+    Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; \
+    Copy-Item c:/qpakman-062b/qpakman.exe -Destination c:/bin/ ; \
+    Remove-Item c:/qpakman-062b -Recurse ; \
+    Remove-Item c:/qpakman-062b.zip
 
-#ADD https://github.com/solidi/hl-mods/raw/master/workspace/bin/sprgen.exe c:/bin/
+RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/sprgen.exe', 'c:/bin/sprgen.exe')
 
-ADD https://versaweb.dl.sourceforge.net/project/gnuwin32/unrar/3.4.3/unrar-3.4.3-bin.zip c:/unrar-3.4.3-bin.zip
-RUN Expand-Archive -Path c:/unrar-3.4.3-bin.zip -DestinationPath c:/unrar-3.4.3-bin ; \
+RUN (New-Object System.Net.WebClient).DownloadFile('https://versaweb.dl.sourceforge.net/project/gnuwin32/unrar/3.4.3/unrar-3.4.3-bin.zip', 'c:/unrar-3.4.3-bin.zip') ; \
+    Expand-Archive -Path c:/unrar-3.4.3-bin.zip -DestinationPath c:/unrar-3.4.3-bin ; \
     Copy-Item c:/unrar-3.4.3-bin/bin/unrar.exe -Destination c:/bin/ ; \
     Copy-Item c:/unrar-3.4.3-bin/bin/unrar3.dll -Destination c:/bin/ ; \
     Remove-Item c:/unrar-3.4.3-bin -Recurse ; \
     Remove-Item c:/unrar-3.4.3-bin.zip
-ADD https://www.gvme.org/dl/4605 c:/sven_studiomdl_2019.rar
-RUN & c:/bin/unrar.exe x c:/sven_studiomdl_2019.rar c:/bin ; \
+
+RUN (New-Object System.Net.WebClient).DownloadFile('https://www.gvme.org/dl/4605', 'c:/sven_studiomdl_2019.rar') ; \
+    & c:/bin/unrar.exe x c:/sven_studiomdl_2019.rar c:/bin ; \
     Remove-Item c:/sven_studiomdl_2019.rar
 
 # docker -c win build -t ice-windows-base -f .\docker\Dockerfile.windows .
