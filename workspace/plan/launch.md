@@ -71,7 +71,7 @@
 
 ## FIXES
 
-- [ ] Adjust Grappling hook trail origin on player
+- [x] Adjust Grappling hook trail origin on player
 - [ ] Third person muzzle flash placement
 - [ ] Knife
     - [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
@@ -81,4 +81,4 @@
 - [x] Rename github repo to `coldice`
 - [x] Bot names loading on Linux?
 - [ ] Holster weapons [animation](https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm)
-- [ ] macOS zip file contains invalid paths?
+- [x] macOS zip file contains invalid paths?
