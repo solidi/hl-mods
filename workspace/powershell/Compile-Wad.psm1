@@ -10,17 +10,23 @@ function Compile-Wad {
     Set-Location -Path $binDir
     echo "Compiling wad $wadsDir\$target.wad..."
     try {
-        $out = & .\makels $wadsDir\$target $wadsDir\$target $wadsDir\$target.ls | Out-String
+        $out = & .\makels $wadsDir\$target $wadsDir\$target $wadsDir\$target.l | Out-String
+        if (!$?) {
+            throw
+        }
     } catch {
-        Write-Error "$out> Could not makels ${target}.`nReason: $_.Exception.Message"
+        Write-Error "$out> Could not makels ${target}.`nReason: $($_.Exception)"
         exit
     }
     try {
-        $out = & .\qlumpy $wadsDir\$target.ls | Out-String
+        $out = & .\qlumpy $wadsDir\$target.l | Out-String
+        if (!$?) {
+            throw
+        }
     } catch {
-        Write-Error "$out> Could not qlumpy ${target}.`nReason: $_.Exception.Message"
+        Write-Error "$out> Could not qlumpy ${target}.`nReason: $($_.Exception)"
         exit
     }
-    Remove-Item $wadsDir\$target.ls -Recurse -Force -ErrorAction Ignore
+    Remove-Item $wadsDir\$target.l -Recurse -Force -ErrorAction Ignore
     Move-Item $wadsDir\$target.wad $redistDir -Force
 }

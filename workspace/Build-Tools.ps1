@@ -3,7 +3,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Building Cold Ice GoldSrc"
+$host.UI.RawUI.WindowTitle = "Building Cold Ice Tools"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -33,13 +33,17 @@ Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameCheck
 . ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
-$redistDir = "${rootDir}\redist"
 $msBuild = $Config['msBuild']
+$binDir = $Config['binDir']
 
-Remove-Item $redistDir\dlls\grave_bot.dll -Force -ErrorAction Ignore
-Remove-Item $redistDir\dlls\ice.dll -Force -ErrorAction Ignore
-Remove-Item $redistDir\cl_dlls\client.dll -Force -ErrorAction Ignore
+Remove-Item $binDir\makefont.exe -Force -ErrorAction Ignore
+Remove-Item $binDir\sprgen.exe -Force -ErrorAction Ignore
+Remove-Item $binDir\makels.exe -Force -ErrorAction Ignore
+Remove-Item $binDir\qlumpy.exe -Force -ErrorAction Ignore
+Remove-Item $binDir\qpakman.exe -Force -ErrorAction Ignore
 
-Compile-DLL $msBuild "${RootDir}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $buildConfiguration $rebuild
-Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hldll.sln" "hl" $buildConfiguration $rebuild
-Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hl_cdll.sln" "client" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\qlumpy\qlumpy.sln" "qlumpy" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\qpakman\qpakman.sln" "qpakman" $buildConfiguration $rebuild

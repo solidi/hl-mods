@@ -24,9 +24,16 @@ RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/PowerShel
     Start-Sleep -s 30 ;\
     Remove-Item c:\*.msi -force
 
+SHELL ["pwsh", "-Command"]
+
+COPY bin/makefont.exe c:/bin/
+COPY bin/sprgen.exe c:/bin/
+COPY bin/makels.exe c:/bin/
+COPY bin/qlumpy.exe c:/bin/
+COPY bin/qpakman.exe c:/bin/
+
 RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/GyanD/codexffmpeg/releases/download/2021-01-27-git-149bfc2445/ffmpeg-2021-01-27-git-149bfc2445-full_build.zip', 'c:\ffmpeg.zip') ; \
     Expand-Archive -Path c:/ffmpeg.zip -DestinationPath c:/ ; \
-    New-Item -ItemType directory -Path c:/bin ; \
     Copy-Item c:/ffmpeg-2021-01-27-git-149bfc2445-full_build/bin/ffmpeg.exe -Destination c:/bin/ ; \
     Remove-Item c:/ffmpeg-2021-01-27-git-149bfc2445-full_build -Recurse ; \
     Remove-Item c:/ffmpeg.zip ; \
@@ -45,17 +52,6 @@ RUN (New-Object System.Net.WebClient).DownloadFile('https://downloads.ammahls.co
     Remove-Item c:/zhlt34x64final.zip
 
 RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/master/workspace/bin/lights.rad', 'c:/bin/lights.rad')
-RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/makefont.exe ', 'c:/bin/makefont.exe')
-RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/makels.exe', 'c:/bin/makels.exe')
-RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/qlumpy.exe', 'c:/bin/qlumpy.exe')
-
-RUN (New-Object System.Net.WebClient).DownloadFile('http://glbsp.sourceforge.net/files/qpakman-062b.zip', 'c:/qpakman-062b.zip') ; \
-    Expand-Archive -Path c:/qpakman-062b.zip -DestinationPath c:/qpakman-062b ; \
-    Copy-Item c:/qpakman-062b/qpakman.exe -Destination c:/bin/ ; \
-    Remove-Item c:/qpakman-062b -Recurse ; \
-    Remove-Item c:/qpakman-062b.zip
-
-RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/7b012ddb1ed427798f94258003757e84a4131c72/workspace/bin/sprgen.exe', 'c:/bin/sprgen.exe')
 
 RUN (New-Object System.Net.WebClient).DownloadFile('https://versaweb.dl.sourceforge.net/project/gnuwin32/unrar/3.4.3/unrar-3.4.3-bin.zip', 'c:/unrar-3.4.3-bin.zip') ; \
     Expand-Archive -Path c:/unrar-3.4.3-bin.zip -DestinationPath c:/unrar-3.4.3-bin ; \
