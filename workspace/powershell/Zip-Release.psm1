@@ -12,6 +12,7 @@ function Zip-Release {
 
         New-Item -Force -ItemType Directory $env:TEMP\release
         Copy-Item -Recurse -Force $redistDir $env:TEMP\release
+        Remove-Item $env:TEMP\release\redist\dev.cfg
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\ice
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
         Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\ice_hd

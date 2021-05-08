@@ -65,7 +65,7 @@
     - [ ] Best effort weapon sprites
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
-    - [ ] Remove dev.cfg
+    - [x] Remove dev.cfg
     - [x] Remove pdb files
     - [ ] Remove dSYM files
 
