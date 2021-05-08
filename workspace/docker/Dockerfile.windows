@@ -51,8 +51,6 @@ RUN (New-Object System.Net.WebClient).DownloadFile('https://downloads.ammahls.co
     Remove-Item c:/zhlt34x64final -Recurse ; \
     Remove-Item c:/zhlt34x64final.zip
 
-RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/solidi/hl-mods/raw/master/workspace/bin/lights.rad', 'c:/bin/lights.rad')
-
 RUN (New-Object System.Net.WebClient).DownloadFile('https://versaweb.dl.sourceforge.net/project/gnuwin32/unrar/3.4.3/unrar-3.4.3-bin.zip', 'c:/unrar-3.4.3-bin.zip') ; \
     Expand-Archive -Path c:/unrar-3.4.3-bin.zip -DestinationPath c:/unrar-3.4.3-bin ; \
     Copy-Item c:/unrar-3.4.3-bin/bin/unrar.exe -Destination c:/bin/ ; \

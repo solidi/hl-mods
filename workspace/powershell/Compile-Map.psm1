@@ -24,26 +24,29 @@ function Compile-Map {
 
     Write-Wad-Config $mapsDir $wadsDir
 
+    # Clean directory if compile was unsuccessful last time
+    Remove-Item $mapsDir\$target -Recurse -Exclude "$target.map" -Force -ErrorAction Ignore
+
     Set-Location -Path $binDir
     echo "Compiling map $target..."
     $out = & .\hlcsg -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not qcsp ${target}. Exit code: ${lastexitcode}"
+    if (!$?) {
+        Write-Error  "$out`n> Could not hlcsg ${target}."
         exit
     }
     $out = & .\hlbsp $mapsDir\$target\$target.map | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not qbsp ${target}. Exit code: ${lastexitcode}"
+    if (!$?) {
+        Write-Error  "$out`n> Could not hlbsp ${target}."
         exit
     }
     $out = & .\hlvis $mapsDir\$target\$target.map | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not vis ${target}. Exit code: ${lastexitcode}"
+    if (!$?) {
+        Write-Error  "$out`n> Could not hlvis ${target}."
         exit
     }
-    $out = & .\hlrad $mapsDir\$target\$target.map | Out-String
-    if ($lastexitcode -ne 0) {
-        echo "$out> Could not qrad ${target}. Exit code: ${lastexitcode}"
+    $out = & .\hlrad -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
+    if (!$?) {
+        Write-Error "$out`n> Could not hlrad ${target}."
         exit
     }
     Move-Item $mapsDir\$target\$target.bsp $redistDir\maps\$target.bsp
