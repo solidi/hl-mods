@@ -73,3 +73,4 @@
 1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. [ ] Swap blue sprites with real sprites with cl_icemodels?
 1. [ ] Snowball Generator in place of Egon gun
+1. [ ] Decoy bombs that morph into AI assassins?
