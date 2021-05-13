@@ -1,3 +1,4 @@
+$ErrorActionPreference = "Stop"
 
 function Compile-Model {
     param (
@@ -7,16 +8,12 @@ function Compile-Model {
         $outDir
     )
 
-    Copy-Item $binDir\studiomdl.exe $modelsDir\$target
     Remove-Item $modelsDir\$target.mdl -ErrorAction Ignore
-    Set-Location -Path $modelsDir\$target
     echo "Compiling model $modelsDir\$target\$target.qc..."
-    try {
-        $out = & .\studiomdl $modelsDir\$target\$target.qc | Out-String
-    } catch {
-        Write-Error "$out> Could not compile ${target}.`nReason: $_.Exception.Message"
+    $out = & $binDir\studiomdl $modelsDir\$target\$target.qc | Out-String
+    if (!$?) {
+        Write-Error "$out`n> Could not compile ${target}."
         exit
     }
-    Move-Item $modelsDir\$target\$target.mdl $outDir\$target.mdl -force
-    Remove-Item $modelsDir\$target\studiomdl.exe
+    Move-Item $modelsDir\$target\$target.mdl $outDir\$target.mdl
 }
