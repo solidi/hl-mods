@@ -32,6 +32,11 @@ models\v_crossbow.mdl
 models\p_crossbow.mdl
 models\w_crossbow.mdl
 models\w_bolt.mdl
+models\v_satchel_radio.mdl
+models\v_satchel.mdl
+models\p_satchel_radio.mdl
+models\w_satchel.mdl
+models\p_satchel.mdl
 sound
 sound\knife_miss2.wav
 sprites

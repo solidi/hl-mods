@@ -7,6 +7,7 @@
     - [x] RPG
     - [x] Chumtoad
     - [x] Boltgun
+    - [x] Cannon
 - [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
@@ -40,7 +41,7 @@
     - [ ] 25-inch Chaingun
     - [x] 30mm Assault Cannon
     - [ ] 120-Pound Grenade Launcher
-    - [ ] Female Assassin Decoy Bombs
+    - [x] Female Assassin Decoy Bombs
     - [ ] Nuke Launcher
     - [ ] Pulse Rifle
 - [ ] Old School
