@@ -138,6 +138,17 @@ Invert-Skin $binDir "w_weaponbox" $modelsdir
 Invert-Skin $binDir "v_cannon" $modelsdir
 Invert-Skin $binDir "w_cannon" $modelsdir
 Invert-Skin $binDir "p_cannon" $modelsdir
+Invert-Skin $binDir "w_hassassin" $modelsdir
+Invert-Skin $binDir "w_satchel" $modelsdir\hd
+Invert-Skin $binDir "v_satchel" $modelsdir\hd
+Invert-Skin $binDir "v_satchel_radio" $modelsdir\hd
+Invert-Skin $binDir "p_satchel" $modelsdir\hd
+Invert-Skin $binDir "p_satchel_radio" $modelsdir\hd
+Invert-Skin $binDir "p_satchel" $modelsdir
+Invert-Skin $binDir "p_satchel_radio" $modelsdir
+Invert-Skin $binDir "v_satchel" $modelsdir
+Invert-Skin $binDir "v_satchel_radio" $modelsdir
+Invert-Skin $binDir "w_satchel" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -217,6 +228,17 @@ Compile-Model $binDir "w_runes" $modelsdir $redistDir\models
 Compile-Model $binDir "v_cannon" $modelsdir $redistDir\models
 Compile-Model $binDir "w_cannon" $modelsdir $redistDir\models
 Compile-Model $binDir "p_cannon" $modelsdir $redistDir\models
+Compile-Model $binDir "v_satchel_radio" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_hassassin" $modelsdir $redistDir\models
+Compile-Model $binDir "v_satchel" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_satchel" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_satchel" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_satchel_radio" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_satchel" $modelsdir $redistDir\models
+Compile-Model $binDir "p_satchel_radio" $modelsdir $redistDir\models
+Compile-Model $binDir "v_satchel" $modelsdir $redistDir\models
+Compile-Model $binDir "v_satchel_radio" $modelsdir $redistDir\models
+Compile-Model $binDir "w_satchel" $modelsdir $redistDir\models
 
 $spritesDir = "${rootDir}\sprites"
 
@@ -327,6 +349,8 @@ Copy-Item $soundDir\railgun_fire.wav $redistdir\sound
 Copy-Item $soundDir\rune_pickup.wav $redistdir\sound
 Copy-Item $soundDir\cannon_selected.wav $redistdir\sound
 Copy-Item $soundDir\cannon_fire.wav $redistdir\sound
+Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
+Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
 
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir
