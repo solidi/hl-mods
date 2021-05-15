@@ -9,6 +9,7 @@ function Compile-Model {
     )
 
     Remove-Item $modelsDir\$target.mdl -ErrorAction Ignore
+    Set-Location -Path $modelsDir\$target
     echo "Compiling model $modelsDir\$target\$target.qc..."
     $out = & $binDir\studiomdl $modelsDir\$target\$target.qc | Out-String
     if (!$?) {
