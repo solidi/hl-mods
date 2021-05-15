@@ -14,15 +14,19 @@ function Invert-Skin {
             if (!(Test-Path $pathToBmp)) {
                 echo "$_ converting inverted skin!"
                 try {
-                    $command = ".\convert $_ -negate -compress none BMP3:$path\$target\invert_$($_.Name)"
+                    $command = ".\convert `"$_`" -negate -compress none BMP3:`"$path\$target\invert_$($_.Name)`""
                     $out = iex $command | Out-String
                 } catch {
-                    Write-Error "$out> Could not invert skin.`nReason: $_.Exception.Message"
+                    Write-Error "$out> Could not invert skin.`nReason: $_"
                     exit
                 }
             } else {
                 echo "$_ already generated inverted skin..."
             }
         }
+    }
+
+    if (!$?) {
+        exit
     }
 }
