@@ -4,6 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 gameLib=ice.so
+clientLib=client.so
 cfg=release
 while getopts c: flag
 do
@@ -17,7 +18,7 @@ echo 'Cleaning old libs...'
 cd libs
 rm dlls/${gameLib} || true
 rm dlls/gravebot.so || true
-rm cl_dlls/client.so || true
+rm cl_dlls/${clientLib} || true
 
 echo 'Cleaning build folder...'
 cd ../src/linux
@@ -25,7 +26,7 @@ make clean CFG=$cfg
 
 echo "Compile Linux ${gameLib}..."
 output=`make hl CFG=$cfg 2>&1` || (echo $output && false)
-echo 'Compile Linux client lib...'
+echo "Compile Linux ${clientLib}..."
 output=`make hl_cdll CFG=$cfg 2>&1` || (echo $output && false)
 
 cd ../../grave-bot-src/dlls
@@ -39,4 +40,4 @@ cd ../../libs
 echo 'Copying so libs to redist...'
 cp dlls/${gameLib} ../redist/dlls/
 cp dlls/gravebot.so ../redist/dlls/
-cp cl_dlls/client.so ../redist/cl_dlls/
+cp cl_dlls/${clientLib} ../redist/cl_dlls/
