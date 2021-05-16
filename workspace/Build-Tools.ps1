@@ -47,3 +47,7 @@ Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildCon
 Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\qlumpy\qlumpy.sln" "qlumpy" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\qpakman\qpakman.sln" "qpakman" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlcsg" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlbsp" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlrad" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlvis" $buildConfiguration $rebuild

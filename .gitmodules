@@ -7,3 +7,6 @@
 [submodule "workspace/qpakman"]
 	path = workspace/qpakman
 	url = https://github.com/solidi/qpakman.git
+[submodule "workspace/zhlt"]
+	path = workspace/zhlt
+	url = https://github.com/solidi/zhlt.git
