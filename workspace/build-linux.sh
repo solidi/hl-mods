@@ -26,8 +26,10 @@ make clean CFG=$cfg
 
 echo "Compile Linux ${gameLib}..."
 output=`make hl CFG=$cfg 2>&1` || (echo $output && false)
+mv $cfg/${gameLib} ../../libs/dlls
 echo "Compile Linux ${clientLib}..."
 output=`make hl_cdll CFG=$cfg 2>&1` || (echo $output && false)
+mv $cfg/${clientLib} ../../libs/cl_dlls
 
 cd ../../grave-bot-src/dlls
 echo 'Compile Gravebot gravebot.so...'
