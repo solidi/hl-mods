@@ -188,3 +188,13 @@
 1. When passing build parameters to msbuild for pre-processor definitions, make sure to include the string separated by semi-colons with quotes. See [this thread](https://stackoverflow.com/questions/6051054/how-do-i-pass-a-property-to-msbuild-via-command-line-that-could-be-parsed-into-a) for details.
 1. See this thread on nots on how to execute a msi installer [during building](https://stackoverflow.com/questions/55846416/installing-msi-on-a-docker-container) a docker image.
 1. I learned that `Start-Process` is slow in comparison to the call operation `&`. Ulimately the use of the last command `$?` is a good option to check execution. See [this thread](https://stackoverflow.com/questions/49375418/start-process-redirect-output-to-null) for more detail.
+1. The texture pack in [Half-Life: Snow Edition](https://www.moddb.com/mods/half-life-snow-edition/images/last-testing-of-mod#imagebox) may be useful to be merged into Cold Ice.
+1. The `Invoke-Expression` and the call operator in PowerShell [produce different results](https://stackoverflow.com/questions/50018274/why-does-invoke-operator-and-invoke-expression-produce-different-results-for).
+1. Github actions [is free](https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy) for open source and public repos.
+1. Github actions has set `ubuntu-latest` as 20.04 [since October 2020](https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04/).
+1. To set the macOS.sdk, it is best to symlink the sdk folder following [these](https://apple.stackexchange.com/questions/225558/what-is-the-macosx-sdk-file-where-do-i-find-it) [threads](https://itectec.com/askdifferent/macos-the-macosx-sdk-file-where-do-i-find-it/).
+1. [This script](https://stackoverflow.com/questions/8557202/how-do-i-write-a-bash-script-to-download-and-unzip-file-on-a-mac) was helpful in download the macOS.sdk folder to Github actions. cURL needs the `-L` command to [follow redirects](https://stackoverflow.com/questions/16261100/cant-download-github-project-with-curl-command).
+1. [Tar bombs](https://stackoverflow.com/questions/51689294/how-to-extract-tar-file-in-mac-terminal) are still impossible for me.
+1. In yaml files there are literal scalar (`|`) and folded scalar (`>`) to represent the lines of code to be run in a block. See [this thread](https://stackoverflow.com/questions/59954185/github-action-split-long-command-into-multiple-lines) for details.
+1. Here [is a thread](https://stackoverflow.com/questions/2741708/makefile-contains-string) to find a substring in a `make` file.
+1. 
