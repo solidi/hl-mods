@@ -9,6 +9,7 @@ env:
   QLUMPY_FILE_PATH: workspace/src/utils/qlumpy/qlumpy.sln
   MAKEFONT_FILE_PATH: workspace/src/utils/makefont/makefont.sln
   ZHLT_FILE_PATH: workspace/zhlt/zhlt.sln
+  QPAKMAN_FILE_PATH: workspace/qpakman/qpakman.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -57,6 +58,10 @@ jobs:
     - name: Build zhlt map tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.ZHLT_FILE_PATH}}
+
+    - name: Build qpakman.exe
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.QPAKMAN_FILE_PATH}}
 
     - name: Compile Windows
       working-directory: ${{env.GITHUB_WORKSPACE}}
