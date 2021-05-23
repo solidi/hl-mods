@@ -18,5 +18,5 @@ $redistDir = "${rootDir}\redist"
 $modelsdir = "${rootDir}\models"
 $binDir = "${rootDir}\bin"
 
-[void](New-Item -ItemType directory -Path $modelsdir)
+[void](New-Item -ItemType directory -Path $redistDir\models)
 Compile-Model $binDir "w_satchel" $modelsdir $redistDir\models
