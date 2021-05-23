@@ -1,6 +1,6 @@
 [submodule "workspace/src"]
 	path = workspace/src
-	url = https://github.com/solidi/coldice.git
+	url = https://github.com/solidi/coldice-goldsrc.git
 [submodule "workspace/grave-bot-src"]
 	path = workspace/grave-bot-src
 	url = https://github.com/solidi/grave_bot.git
