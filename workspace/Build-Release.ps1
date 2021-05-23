@@ -55,11 +55,11 @@ Remove-Item $redistDir\cl_dlls\client.so -Force -ErrorAction Ignore
 Remove-Item $redistDir\dlls\gravebot.so -Force -ErrorAction Ignore
 
 # Copy Windows DLLs?
-Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistDir\dlls
-Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls
-Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls
-Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls
-Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls
+Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls -ErrorAction Ignore
 
 Remove-Item $redistDir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
