@@ -11,7 +11,6 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-[string]$configFile = "Config.Docker"
 $Config = @{ }
 [int]$verifyFiles = 1
 
@@ -19,6 +18,7 @@ $Config = @{ }
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
         $configFile = $_.Split(' ')[1]
+        . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVerify") {
         $verifyFiles = 0
@@ -36,7 +36,6 @@ Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChe
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Zip-Release.psm1 -Force -DisableNameChecking
-#. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
@@ -150,6 +149,8 @@ Invert-Skin $binDir "p_satchel_radio" $modelsdir
 Invert-Skin $binDir "v_satchel" $modelsdir
 Invert-Skin $binDir "v_satchel_radio" $modelsdir
 Invert-Skin $binDir "w_satchel" $modelsdir
+
+[void](New-Item -ItemType directory -Path $redistDir\models)
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models

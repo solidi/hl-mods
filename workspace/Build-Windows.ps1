@@ -11,7 +11,6 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-#[string]$configFile = "Config.Docker"
 $Config = @{ }
 [string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
@@ -20,6 +19,7 @@ $Config = @{ }
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
         $configFile = $_.Split(' ')[1]
+        . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "BuildConfig") {
         $buildConfiguration = $_.Split(' ')[1]
@@ -31,7 +31,6 @@ $Config = @{ }
 }
 
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
-#. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
