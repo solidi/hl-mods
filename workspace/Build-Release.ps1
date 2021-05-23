@@ -151,6 +151,7 @@ Invert-Skin $binDir "v_satchel_radio" $modelsdir
 Invert-Skin $binDir "w_satchel" $modelsdir
 
 [void](New-Item -ItemType directory -Path $redistDir\models)
+[void](New-Item -ItemType directory -Path $redisthddir\models)
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
