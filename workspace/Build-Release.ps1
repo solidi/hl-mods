@@ -283,6 +283,8 @@ $mapsDir = "${RootDir}\maps"
 
 Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
 
+[void](New-Item -ItemType directory -Path $redistDir\maps)
+
 Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
 Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
 Copy-Item $mapsDir\boot_camp.wpt $redistDir\maps
@@ -291,6 +293,9 @@ $soundDir = "${RootDir}\sound"
 
 Remove-Item $redistDir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
+
+[void](New-Item -ItemType directory -Path $redistDir\sound)
+[void](New-Item -ItemType directory -Path $redisthddir\sound)
 
 Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
 Compile-Sound $binDir $redistDir $soundDir "alive.wav" 1.5 "sound\vest_alive.wav"
