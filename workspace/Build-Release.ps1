@@ -296,6 +296,7 @@ Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
 
 [void](New-Item -ItemType directory -Path $redistDir\sound)
 [void](New-Item -ItemType directory -Path $redisthddir\sound)
+[void](New-Item -ItemType directory -Path $redistdir\media)
 
 Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
 Compile-Sound $binDir $redistDir $soundDir "alive.wav" 1.5 "sound\vest_alive.wav"
