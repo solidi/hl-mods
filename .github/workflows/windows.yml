@@ -8,6 +8,7 @@ env:
   MAKELS_FILE_PATH: workspace/src/utils/makels/makels.sln
   QLUMPY_FILE_PATH: workspace/src/utils/qlumpy/qlumpy.sln
   MAKEFONT_FILE_PATH: workspace/src/utils/makefont/makefont.sln
+  ZHLT_FILE_PATH: workspace/zhlt/zhlt.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -51,6 +52,10 @@ jobs:
     - name: Build makefont.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.MAKEFONT_FILE_PATH}}
+
+    - name: Build zhlt map tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.ZHLT_FILE_PATH}}
 
     - name: Compile Windows
       working-directory: ${{env.GITHUB_WORKSPACE}}
