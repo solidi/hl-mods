@@ -12,6 +12,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 [string]$configFile = "Config.Docker"
+$Config = @{ }
 [int]$verifyFiles = 1
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist

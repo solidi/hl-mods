@@ -12,6 +12,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 #[string]$configFile = "Config.Docker"
+$Config = @{ }
 [string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
 
