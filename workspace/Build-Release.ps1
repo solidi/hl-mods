@@ -248,6 +248,9 @@ $spritesDir = "${rootDir}\sprites"
 Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
 
+[void](New-Item -ItemType directory -Path $redistDir\sprites)
+[void](New-Item -ItemType directory -Path $redisthddir\sprites)
+
 Compile-Sprite $binDir "muzzleflash1" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "muzzleflash2" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
