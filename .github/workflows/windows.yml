@@ -1,0 +1,37 @@
+name: Windows
+
+on: [push]
+
+env:
+  STUDIOMDL_FILE_PATH: utils/studiomdl/studiomdl.sln
+
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  build_a_model:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Restore NuGet packages for ${{env.GAME_FILE_PATH}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.GAME_FILE_PATH}}
+
+    - name: Build studiomdl.exe
+      working-directory: ${{env.GITHUB_WORKSPACE}}/workspace/src
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.STUDIOMDL_FILE_PATH}}
+
+    - name: Compile a model
+      working-directory: ${{env.GITHUB_WORKSPACE}}/workspace
+      run: .\Build-Model.ps1
