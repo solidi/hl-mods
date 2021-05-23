@@ -23,7 +23,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Restore NuGet packages for ${{env.GAME_FILE_PATH}}
-      working-directory: ${{env.GITHUB_WORKSPACE}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}/workspace/src
       run: nuget restore ${{env.GAME_FILE_PATH}}
 
     - name: Build studiomdl.exe
