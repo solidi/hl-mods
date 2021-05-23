@@ -11,7 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-[string]$configFile = "Config.Docker"
+#[string]$configFile = "Config.Docker"
 [string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
 
@@ -30,12 +30,12 @@ Set-ConsoleColor 'DarkCyan' 'White'
 }
 
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
-. ("$PSScriptRoot\$configFile.ps1")
+#. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
-$msBuild = $Config['msBuild']
-$definitions = $Config['defintions']
+$msBuild = $Config['msBuild'] ?? "msbuild"
+$definitions = $Config['defintions'] ?? ""
 
 Remove-Item $redistDir\dlls\grave_bot.dll -Force -ErrorAction Ignore
 Remove-Item $redistDir\dlls\ice.dll -Force -ErrorAction Ignore

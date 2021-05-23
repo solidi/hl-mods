@@ -32,8 +32,12 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.STUDIOMDL_FILE_PATH}}
 
+    - name: Compile Windows
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Windows.ps1
+
     - name: Compile a model
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-        .\workspace\Build-Model.ps1
+        .\workspace\Build-Release.ps1

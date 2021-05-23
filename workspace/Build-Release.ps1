@@ -35,12 +35,12 @@ Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChe
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Zip-Release.psm1 -Force -DisableNameChecking
-. ("$PSScriptRoot\$configFile.ps1")
+#. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
-$binDir = $Config['binDir']
+$binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
 Remove-Item $redistDir\debug.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\qconsole.log -Force -ErrorAction Ignore
