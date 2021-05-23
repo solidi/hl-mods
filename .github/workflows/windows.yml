@@ -3,7 +3,7 @@ name: Windows
 on: [push]
 
 env:
-  STUDIOMDL_FILE_PATH: utils/studiomdl/studiomdl.sln
+  STUDIOMDL_FILE_PATH: workspace/src/utils/studiomdl/studiomdl.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -22,12 +22,12 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Restore NuGet packages for ${{env.GAME_FILE_PATH}}
-      working-directory: ${{env.GITHUB_WORKSPACE}}/workspace/src
+    - name: Restore NuGet packages for ${{env.STUDIOMDL_FILE_PATH}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.STUDIOMDL_FILE_PATH}}
 
     - name: Build studiomdl.exe
-      working-directory: ${{env.GITHUB_WORKSPACE}}/workspace/src
+      working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.STUDIOMDL_FILE_PATH}}
