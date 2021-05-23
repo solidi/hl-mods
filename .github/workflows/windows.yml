@@ -4,6 +4,7 @@ on: [push]
 
 env:
   STUDIOMDL_FILE_PATH: workspace/src/utils/studiomdl/studiomdl.sln
+  SPRGEN_FILE_PATH: workspace/src/utils/sprgen/sprgen.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -32,12 +33,16 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.STUDIOMDL_FILE_PATH}}
 
+    - name: Build sprgen.exe
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SPRGEN_FILE_PATH}}
+
     - name: Compile Windows
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         .\workspace\Build-Windows.ps1
 
-    - name: Compile a model
+    - name: Compile and package Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         .\workspace\Build-Release.ps1
