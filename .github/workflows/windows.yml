@@ -35,6 +35,5 @@ jobs:
     - name: Compile a model
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        pwd
-        $env:GITHUB_WORKSPACE
+        echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
         .\workspace\Build-Model.ps1

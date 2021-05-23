@@ -12,7 +12,6 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 Import-Module $PSScriptRoot\powershell\Compile-Model.psm1 -Force -DisableNameChecking
-. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
