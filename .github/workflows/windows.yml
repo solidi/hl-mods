@@ -33,5 +33,8 @@ jobs:
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.STUDIOMDL_FILE_PATH}}
 
     - name: Compile a model
-      working-directory: ${{env.GITHUB_WORKSPACE}}/workspace
-      run: .\Build-Model.ps1
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+      pwd
+      echo $(env.GITHUB_WORKSPACE)
+      .\workspace\Build-Model.ps1
