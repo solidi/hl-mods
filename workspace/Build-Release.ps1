@@ -364,6 +364,8 @@ Copy-Item $soundDir\cannon_fire.wav $redistdir\sound
 Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
 Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
 
+Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
+
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir
     Test-Manifest "${RootDir}\manifest_hd" $redisthddir
