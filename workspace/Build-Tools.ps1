@@ -51,3 +51,4 @@ Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlcsg" $buildConfiguration $reb
 Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlbsp" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlrad" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlvis" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\studiomdl\studiomdl.sln" "studiomdl" $buildConfiguration $rebuild

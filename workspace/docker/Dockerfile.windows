@@ -35,6 +35,7 @@ COPY bin/hlcsg.exe c:/bin/
 COPY bin/hlbsp.exe c:/bin/
 COPY bin/hlrad.exe c:/bin/
 COPY bin/hlvis.exe c:/bin/
+COPY bin/studiomdl.exe c:/bin/
 
 RUN (New-Object System.Net.WebClient).DownloadFile('https://github.com/GyanD/codexffmpeg/releases/download/2021-01-27-git-149bfc2445/ffmpeg-2021-01-27-git-149bfc2445-full_build.zip', 'c:\ffmpeg.zip') ; \
     Expand-Archive -Path c:/ffmpeg.zip -DestinationPath c:/ ; \
@@ -52,10 +53,6 @@ RUN (New-Object System.Net.WebClient).DownloadFile('https://versaweb.dl.sourcefo
     Copy-Item c:/unrar-3.4.3-bin/bin/unrar3.dll -Destination c:/bin/ ; \
     Remove-Item c:/unrar-3.4.3-bin -Recurse ; \
     Remove-Item c:/unrar-3.4.3-bin.zip
-
-RUN (New-Object System.Net.WebClient).DownloadFile('https://www.gvme.org/dl/4605', 'c:/sven_studiomdl_2019.rar') ; \
-    & c:/bin/unrar.exe x c:/sven_studiomdl_2019.rar c:/bin ; \
-    Remove-Item c:/sven_studiomdl_2019.rar
 
 # docker -c win build -t ice-windows-base -f .\docker\Dockerfile.windows .
 # docker -c win run -v z:\:c:\build -it ice-windows-base powershell
