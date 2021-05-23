@@ -7,6 +7,7 @@ env:
   SPRGEN_FILE_PATH: workspace/src/utils/sprgen/sprgen.sln
   MAKELS_FILE_PATH: workspace/src/utils/makels/makels.sln
   QLUMPY_FILE_PATH: workspace/src/utils/qlumpy/qlumpy.sln
+  MAKEFONT_FILE_PATH: workspace/src/utils/makefont/makefont.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -46,6 +47,10 @@ jobs:
     - name: Build qlumpy.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.QLUMPY_FILE_PATH}}
+
+    - name: Build makefont.exe
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.MAKEFONT_FILE_PATH}}
 
     - name: Compile Windows
       working-directory: ${{env.GITHUB_WORKSPACE}}
