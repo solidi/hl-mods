@@ -23,6 +23,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
+        lfs: 'true' #ffmpeg
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
