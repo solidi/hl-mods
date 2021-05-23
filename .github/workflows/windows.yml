@@ -72,3 +72,9 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         .\workspace\Build-Release.ps1
+
+    - name: Archive Cold Ice Release
+      uses: actions/upload-artifact@v2
+      with:
+        name: last-build
+        path: .\workspace\last-build.zip
