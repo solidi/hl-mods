@@ -5,6 +5,8 @@ on: [push]
 env:
   STUDIOMDL_FILE_PATH: workspace/src/utils/studiomdl/studiomdl.sln
   SPRGEN_FILE_PATH: workspace/src/utils/sprgen/sprgen.sln
+  MAKELS_FILE_PATH: workspace/src/utils/makels/makels.sln
+  QLUMPY_FILE_PATH: workspace/src/utils/qlumpy/qlumpy.sln
 
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
@@ -12,7 +14,7 @@ env:
   BUILD_CONFIGURATION: Release
 
 jobs:
-  build_a_model:
+  package_coldice:
     runs-on: windows-latest
 
     steps:
@@ -36,6 +38,14 @@ jobs:
     - name: Build sprgen.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SPRGEN_FILE_PATH}}
+
+    - name: Build makels.exe
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.MAKELS_FILE_PATH}}
+
+    - name: Build qlumpy.exe
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.QLUMPY_FILE_PATH}}
 
     - name: Compile Windows
       working-directory: ${{env.GITHUB_WORKSPACE}}
