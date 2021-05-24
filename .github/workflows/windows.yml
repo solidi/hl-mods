@@ -51,17 +51,15 @@ jobs:
 
     - name: Upload ice.so
       uses: actions/upload-artifact@v2
-      working-directory: ./workspace/linux/${{env.BUILD_CONFIGURATION}}
       with:
         name: linux_ice
-        path: ice.so
+        path: ./workspace/linux/${{env.BUILD_CONFIGURATION}}/ice.so
 
     - name: Upload client.so
       uses: actions/upload-artifact@v2
-      working-directory: ./workspace/linux/${{env.BUILD_CONFIGURATION}}
       with:
         name: linux_client
-        path: client.so
+        path: ./workspace/linux/${{env.BUILD_CONFIGURATION}}/client.so
 
   package_coldice:
     runs-on: windows-latest
