@@ -62,8 +62,8 @@ Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls -ErrorAction Ignore
 
 Remove-Item $redistDir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\models -Force
-Remove-Item $redisthddir\models -Force
+Remove-Item $redistDir\models -Force -ErrorAction Ignore
+Remove-Item $redisthddir\models -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\models)
 [void](New-Item -ItemType directory -Path $redisthddir\models)
 
@@ -248,8 +248,8 @@ $spritesDir = "${rootDir}\sprites"
 
 Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\sprites -Force
-Remove-Item $redisthddir\sprites -Force
+Remove-Item $redistDir\sprites -Force -ErrorAction Ignore
+Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\sprites)
 [void](New-Item -ItemType directory -Path $redisthddir\sprites)
 
@@ -284,7 +284,7 @@ Compile-Font $binDir $redistDir "Arial"
 $mapsDir = "${RootDir}\maps"
 
 Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\maps -Force
+Remove-Item $redistDir\maps -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\maps)
 
 Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
@@ -296,9 +296,9 @@ $soundDir = "${RootDir}\sound"
 Remove-Item $redistDir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistDir\media\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\sound -Force
-Remove-Item $redisthddir\sound -Force
-Remove-Item $redistDir\media -Force
+Remove-Item $redistDir\sound -Force -ErrorAction Ignore
+Remove-Item $redisthddir\sound -Force -ErrorAction Ignore
+Remove-Item $redistDir\media -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\sound)
 [void](New-Item -ItemType directory -Path $redisthddir\sound)
 [void](New-Item -ItemType directory -Path $redistDir\media)
