@@ -17,8 +17,55 @@ env:
   BUILD_CONFIGURATION: Release
 
 jobs:
+  ice_so_and_client_so:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update sources to include xenial main
+      run: sudo su -c "echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list"
+
+    - name: Update sources to include xenial universe
+      run: sudo su -c "echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe' >> /etc/apt/sources.list"
+
+    - name: Update packages
+      run: sudo apt update -y
+
+    - name: Install make
+      run: sudo apt-get install make
+
+    - name: Install g++-4.8
+      run: sudo apt install g++-4.8 gcc-4.8 -y
+
+    - name: Install headers
+      run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
+
+    - name: Build ice.so
+      working-directory: ./workspace/linux
+      run: make hl CFG=${{env.BUILD_CONFIGURATION}}
+
+    - name: Build client.so
+      working-directory: ./workspace/linux
+      run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
+
+    - name: Upload ice.so
+      uses: actions/upload-artifact@v2
+      working-directory: ./workspace/linux/${{env.BUILD_CONFIGURATION}}
+      with:
+        name: linux_ice
+        path: ice.so
+
+    - name: Upload client.so
+      uses: actions/upload-artifact@v2
+      working-directory: ./workspace/linux/${{env.BUILD_CONFIGURATION}}
+      with:
+        name: linux_client
+        path: client.so
+
   package_coldice:
     runs-on: windows-latest
+    needs: ice_so_and_client_so
 
     steps:
     - uses: actions/checkout@v2
@@ -32,6 +79,18 @@ jobs:
     - name: Restore NuGet packages for ${{env.STUDIOMDL_FILE_PATH}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.STUDIOMDL_FILE_PATH}}
+
+    - name: Download ice.so
+        uses: actions/download-artifact@v2
+        working-directory: ./workspace/libs
+        with:
+          name: linux_ice
+
+    - name: Download client.so
+        uses: actions/download-artifact@v2
+        working-directory: ./workspace/libs
+        with:
+          name: linux_client
 
     - name: Build studiomdl.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}

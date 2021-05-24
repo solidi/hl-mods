@@ -1,7 +1,9 @@
 cl_dlls
 cl_dlls\client.dll
+cl_dlls\client.so
 dlls
 dlls\ice.dll
+dlls\ice.so
 dlls\grave_bot.dll
 events
 events\knife.sc
