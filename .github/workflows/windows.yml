@@ -81,16 +81,16 @@ jobs:
       run: nuget restore ${{env.STUDIOMDL_FILE_PATH}}
 
     - name: Download ice.so
-        uses: actions/download-artifact@v2
-        working-directory: ./workspace/libs
-        with:
-          name: linux_ice
+      uses: actions/download-artifact@v2
+      working-directory: ./workspace/libs
+      with:
+        name: linux_ice
 
     - name: Download client.so
-        uses: actions/download-artifact@v2
-        working-directory: ./workspace/libs
-        with:
-          name: linux_client
+      uses: actions/download-artifact@v2
+      working-directory: ./workspace/libs
+      with:
+        name: linux_client
 
     - name: Build studiomdl.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
