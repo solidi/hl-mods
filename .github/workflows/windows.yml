@@ -80,15 +80,15 @@ jobs:
 
     - name: Download ice.so
       uses: actions/download-artifact@v2
-      working-directory: ./workspace/libs
       with:
         name: linux_ice
+        path: ./workspace/libs
 
     - name: Download client.so
       uses: actions/download-artifact@v2
-      working-directory: ./workspace/libs
       with:
         name: linux_client
+        path: ./workspace/libs
 
     - name: Build studiomdl.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
