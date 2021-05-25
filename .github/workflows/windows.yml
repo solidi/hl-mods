@@ -32,23 +32,19 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: .\workspace\Build-Windows.ps1
 
-    - name: Upload ice.dll
+    - name: Upload Windows Game dlls
       uses: actions/upload-artifact@v2
       with:
         name: windows_ice
-        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll
+        path: |
+          ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll
+          ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll
 
     - name: Upload client.dll
       uses: actions/upload-artifact@v2
       with:
         name: windows_client
         path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll
-
-    - name: Upload grave_bot.dll
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows_gravebot
-        path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll
 
   linux_libs:
     runs-on: ubuntu-18.04
@@ -158,16 +154,10 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Download ice.dll
+    - name: Download Windows game dlls
       uses: actions/download-artifact@v2
       with:
         name: windows_ice
-        path: ./workspace/libs/dlls
-
-    - name: Download grave_bot.dll
-      uses: actions/download-artifact@v2
-      with:
-        name: windows_gravebot
         path: ./workspace/libs/dlls
 
     - name: Download client.dll
