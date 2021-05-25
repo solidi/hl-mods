@@ -1,12 +1,13 @@
 cl_dlls
 cl_dlls\client.dll
-cl_dlls\client.so
 cl_dlls\client.dylib
+cl_dlls\client.so
 dlls
 dlls\ice.dll
-dlls\ice.so
 dlls\ice.dylib
+dlls\ice.so
 dlls\grave_bot.dll
+dlls\gravebot.so
 events
 events\knife.sc
 events\rpg_extreme.sc

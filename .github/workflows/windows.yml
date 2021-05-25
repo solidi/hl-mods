@@ -51,6 +51,10 @@ jobs:
       working-directory: ./workspace/src/linux
       run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
 
+    - name: Build gravebot.so
+      working-directory: ./workspace/grave-bot-src/dlls
+      run: make distclean CFG=${{env.BUILD_CONFIGURATION}} && make CFG=${{env.BUILD_CONFIGURATION}}
+
     - name: Upload ice.so
       uses: actions/upload-artifact@v2
       with:
@@ -62,6 +66,12 @@ jobs:
       with:
         name: linux_client
         path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/client.so
+
+    - name: Upload gravebot.so
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux_gravebot
+        path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/gravebot.so
 
   ice_dylib_and_client_dylib:
     runs-on: macOS-10.15
@@ -124,6 +134,12 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: linux_ice
+        path: ./workspace/libs/dlls
+
+    - name: Download gravebot.so
+      uses: actions/download-artifact@v2
+      with:
+        name: linux_gravebot
         path: ./workspace/libs/dlls
 
     - name: Download client.so
