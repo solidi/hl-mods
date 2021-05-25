@@ -84,21 +84,13 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: linux_ice
-        path: ./workspace/libs/ice.so
-
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: ./workspace/libs
+        path: ./workspace/libs/dlls
 
     - name: Download client.so
       uses: actions/download-artifact@v2
       with:
         name: linux_client
-        path: ./workspace/libs/client.so
-
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: ./workspace/libs
+        path: ./workspace/libs/cl_dlls
 
     - name: Build studiomdl.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
