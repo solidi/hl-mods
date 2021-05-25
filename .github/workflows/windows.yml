@@ -86,11 +86,19 @@ jobs:
         name: linux_ice
         path: ./workspace/libs/ice.so
 
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: ./workspace/libs
+
     - name: Download client.so
       uses: actions/download-artifact@v2
       with:
         name: linux_client
         path: ./workspace/libs/client.so
+
+    - name: Display structure of downloaded files
+      run: ls -R
+      working-directory: ./workspace/libs
 
     - name: Build studiomdl.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
