@@ -63,9 +63,49 @@ jobs:
         name: linux_client
         path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/client.so
 
+  ice_dylib_and_client_dylib:
+    runs-on: macOS-10.15
+      with:
+        submodules: recursive
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: What again?
+      run: sudo xcode-select -p
+
+    - name: Install MacOSX10.8.sdk
+      run: |
+        mkdir /tmp/sdk
+        cd /tmp/sdk
+        curl -sSL https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.8.sdk.tar.xz > sdk.tar
+        tar -xvf sdk.tar
+        sudo ln -s /tmp/sdk/MacOSX10.8.sdk $(/usr/bin/xcode-select -print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+        rm sdk.tar
+
+    - name: Build ice.dylib
+      working-directory: ./src/linux
+      run: make hl CFG=${{env.BUILD_CONFIGURATION}}
+
+    - name: Build client.dylib
+      working-directory: ./src/linux
+      run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
+
+    - name: Upload ice.dylib
+      uses: actions/upload-artifact@v2
+      with:
+        name: macOS_ice
+        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/ice.dylib
+
+    - name: Upload client.dylib
+      uses: actions/upload-artifact@v2
+      with:
+        name: macOS_client
+        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/client.dylib
+
   package_coldice:
     runs-on: windows-latest
-    needs: ice_so_and_client_so
+    needs: [ice_so_and_client_so, ice_dylib_and_client_dylib]
 
     steps:
     - uses: actions/checkout@v2
@@ -90,6 +130,18 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: linux_client
+        path: ./workspace/libs/cl_dlls
+
+    - name: Download ice.dylib
+      uses: actions/download-artifact@v2
+      with:
+        name: macOS_ice
+        path: ./workspace/libs/dlls
+
+    - name: Download client.dylib
+      uses: actions/download-artifact@v2
+      with:
+        name: macOS_client
         path: ./workspace/libs/cl_dlls
 
     - name: Build studiomdl.exe
