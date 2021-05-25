@@ -22,6 +22,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - name: Update sources to include xenial main
       run: sudo su -c "echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list"
