@@ -65,11 +65,11 @@ jobs:
 
   ice_dylib_and_client_dylib:
     runs-on: macOS-10.15
-      with:
-        submodules: recursive
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - name: What again?
       run: sudo xcode-select -p
