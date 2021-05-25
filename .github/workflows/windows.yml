@@ -36,13 +36,13 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: windows_ice
-        path: ./workspace/src/dlls/${{env.BUILD_CONFIGURATION}}/ice.dll
+        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll
 
     - name: Upload client.dll
       uses: actions/upload-artifact@v2
       with:
         name: windows_client
-        path: ./workspace/src/cl_dll/${{env.BUILD_CONFIGURATION}}/client.dll
+        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll
 
     - name: Upload grave_bot.dll
       uses: actions/upload-artifact@v2
@@ -157,10 +157,6 @@ jobs:
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-
-    - name: Restore NuGet packages for ${{env.STUDIOMDL_FILE_PATH}}
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore ${{env.STUDIOMDL_FILE_PATH}}
 
     - name: Download ice.dll
       uses: actions/download-artifact@v2
