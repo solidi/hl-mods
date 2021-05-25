@@ -16,6 +16,5 @@ function Compile-Model {
         Write-Error "$out`n> Could not compile ${target}."
         exit
     }
-    echo "Moving model $modelsDir\$target\$target.mdl >> $outDir\$target.mdl"
     Move-Item $modelsDir\$target\$target.mdl $outDir\$target.mdl
 }
