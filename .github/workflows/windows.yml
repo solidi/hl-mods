@@ -84,11 +84,11 @@ jobs:
         rm sdk.tar
 
     - name: Build ice.dylib
-      working-directory: ./src/linux
+      working-directory: ./workspace/src/linux
       run: make hl CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Build client.dylib
-      working-directory: ./src/linux
+      working-directory: ./workspace/src/linux
       run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.dylib
