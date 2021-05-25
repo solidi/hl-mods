@@ -42,24 +42,24 @@ jobs:
       run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
 
     - name: Build ice.so
-      working-directory: ./workspace/linux
+      working-directory: ./workspace/src/linux
       run: make hl CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Build client.so
-      working-directory: ./workspace/linux
+      working-directory: ./workspace/src/linux
       run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_ice
-        path: ./workspace/linux/${{env.BUILD_CONFIGURATION}}/ice.so
+        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/ice.so
 
     - name: Upload client.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_client
-        path: ./workspace/linux/${{env.BUILD_CONFIGURATION}}/client.so
+        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/client.so
 
   package_coldice:
     runs-on: windows-latest
