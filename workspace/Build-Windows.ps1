@@ -33,13 +33,13 @@ $Config = @{ }
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
-$redistDir = "${rootDir}\redist"
+$libsDir = "${rootDir}\libs"
 $msBuild = $Config['msBuild'] ?? "msbuild"
 $definitions = $Config['defintions'] ?? ""
 
-Remove-Item $redistDir\dlls\grave_bot.dll -Force -ErrorAction Ignore
-Remove-Item $redistDir\dlls\ice.dll -Force -ErrorAction Ignore
-Remove-Item $redistDir\cl_dlls\client.dll -Force -ErrorAction Ignore
+Remove-Item $libsDir\dlls\grave_bot.dll -Force -ErrorAction Ignore
+Remove-Item $libsDir\dlls\ice.dll -Force -ErrorAction Ignore
+Remove-Item $libsDir\cl_dlls\client.dll -Force -ErrorAction Ignore
 
 Compile-DLL $msBuild "${RootDir}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $buildConfiguration $definitions $rebuild
 Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hldll.sln" "hl" $buildConfiguration $definitions $rebuild

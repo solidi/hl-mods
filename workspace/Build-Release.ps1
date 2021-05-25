@@ -47,13 +47,18 @@ Remove-Item $redistDir\qconsole.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\steam_appid.txt -Force -ErrorAction Ignore
 Remove-Item $redistDir\htmlcache -Recurse -Force -ErrorAction Ignore
 
+Remove-Item $redistDir\dlls\ice.dll -Force -ErrorAction Ignore
+Remove-Item $redistDir\dlls\grave_bot.dll -Force -ErrorAction Ignore
+Remove-Item $redistDir\cl_dlls\client.dll -Force -ErrorAction Ignore
 Remove-Item $redistDir\dlls\ice.dylib -Force -ErrorAction Ignore
 Remove-Item $redistDir\dlls\ice.so -Force -ErrorAction Ignore
 Remove-Item $redistDir\cl_dlls\client.dylib -Force -ErrorAction Ignore
 Remove-Item $redistDir\cl_dlls\client.so -Force -ErrorAction Ignore
 Remove-Item $redistDir\dlls\gravebot.so -Force -ErrorAction Ignore
 
-# Copy Windows DLLs?
+Copy-Item ${RootDir}\libs\dlls\ice.dll $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\grave_bot.dll $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls -ErrorAction Ignore

@@ -17,7 +17,22 @@ env:
   BUILD_CONFIGURATION: Release
 
 jobs:
-  ice_so_and_client_so:
+  windows_libs:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Compile Windows
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\workspace\Build-Windows.ps1
+
+  linux_libs:
     runs-on: ubuntu-18.04
 
     steps:
@@ -73,7 +88,7 @@ jobs:
         name: linux_gravebot
         path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/gravebot.so
 
-  ice_dylib_and_client_dylib:
+  macOS_libs:
     runs-on: macOS-10.15
 
     steps:
@@ -115,7 +130,7 @@ jobs:
 
   package_coldice:
     runs-on: windows-latest
-    needs: [ice_so_and_client_so, ice_dylib_and_client_dylib]
+    needs: [windows_libs, linux_libs, macOS_libs]
 
     steps:
     - uses: actions/checkout@v2
@@ -189,11 +204,6 @@ jobs:
     - name: Build qpakman.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.QPAKMAN_FILE_PATH}}
-
-    - name: Compile Windows
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        .\workspace\Build-Windows.ps1
 
     - name: Compile and package Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
