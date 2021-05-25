@@ -1,16 +1,8 @@
-name: Windows
+name: Build Cold Ice
 
 on: [push]
 
 env:
-  STUDIOMDL_FILE_PATH: workspace/src/utils/studiomdl/studiomdl.sln
-  SPRGEN_FILE_PATH: workspace/src/utils/sprgen/sprgen.sln
-  MAKELS_FILE_PATH: workspace/src/utils/makels/makels.sln
-  QLUMPY_FILE_PATH: workspace/src/utils/qlumpy/qlumpy.sln
-  MAKEFONT_FILE_PATH: workspace/src/utils/makefont/makefont.sln
-  ZHLT_FILE_PATH: workspace/zhlt/zhlt.sln
-  QPAKMAN_FILE_PATH: workspace/qpakman/qpakman.sln
-
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
@@ -206,43 +198,16 @@ jobs:
         name: macOS_client
         path: ./workspace/libs/cl_dlls
 
-    - name: Build studiomdl.exe
+    - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      # Add additional options to the MSBuild command line here (like platform or verbosity level).
-      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.STUDIOMDL_FILE_PATH}}
-
-    - name: Build sprgen.exe
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SPRGEN_FILE_PATH}}
-
-    - name: Build makels.exe
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.MAKELS_FILE_PATH}}
-
-    - name: Build qlumpy.exe
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.QLUMPY_FILE_PATH}}
-
-    - name: Build makefont.exe
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.MAKEFONT_FILE_PATH}}
-
-    - name: Build zhlt map tools
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.ZHLT_FILE_PATH}}
-
-    - name: Build qpakman.exe
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.QPAKMAN_FILE_PATH}}
+      run: .\workspace\Build-Tools.ps1
 
     - name: Compile and package Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        .\workspace\Build-Release.ps1
+      run: .\workspace\Build-Release.ps1
 
     - name: Archive Cold Ice Release
       uses: actions/upload-artifact@v2
       with:
-        name: last-build
+        name: coldice-build
         path: .\workspace\last-build.zip
