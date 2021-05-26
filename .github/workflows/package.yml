@@ -68,35 +68,26 @@ jobs:
     - name: Install headers
       run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
 
-    - name: Build ice.so
-      working-directory: ./workspace/src/linux
-      run: make hl CFG=${{env.BUILD_CONFIGURATION}}
-
-    - name: Build client.so
-      working-directory: ./workspace/src/linux
-      run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
-
-    - name: Build gravebot.so
-      working-directory: ./workspace/grave-bot-src/dlls
-      run: make distclean CFG=${{env.BUILD_CONFIGURATION}} && make CFG=${{env.BUILD_CONFIGURATION}}
+    - name: Build linux so libs
+      run: ./workspace/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_ice
-        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/ice.so
-
-    - name: Upload client.so
-      uses: actions/upload-artifact@v2
-      with:
-        name: linux_client
-        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/client.so
+        path: ./workspace/libs/dlls/ice.so
 
     - name: Upload gravebot.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_gravebot
-        path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/gravebot.so
+        path: ./workspace/libs/dlls/gravebot.so
+
+    - name: Upload client.so
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux_client
+        path: ./workspace/libs/cl_dlls/client.so
 
   macOS_libs:
     runs-on: macOS-10.15
@@ -105,9 +96,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-
-    - name: What again?
-      run: sudo xcode-select -p
 
     - name: Install MacOSX10.8.sdk
       run: |
@@ -118,25 +106,20 @@ jobs:
         sudo ln -s /tmp/sdk/MacOSX10.8.sdk $(/usr/bin/xcode-select -print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
         rm sdk.tar
 
-    - name: Build ice.dylib
-      working-directory: ./workspace/src/linux
-      run: make hl CFG=${{env.BUILD_CONFIGURATION}}
-
-    - name: Build client.dylib
-      working-directory: ./workspace/src/linux
-      run: make hl_cdll CFG=${{env.BUILD_CONFIGURATION}}
+    - name: Build macOS dylibs
+      run: ./workspace/build-mac.sh CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.dylib
       uses: actions/upload-artifact@v2
       with:
         name: macOS_ice
-        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/ice.dylib
+        path: ./workspace/libs/dlls/ice.dylib
 
     - name: Upload client.dylib
       uses: actions/upload-artifact@v2
       with:
         name: macOS_client
-        path: ./workspace/src/linux/${{env.BUILD_CONFIGURATION}}/client.dylib
+        path: ./workspace/libs/cl_dlls/client.dylib
 
   package_coldice:
     runs-on: windows-latest
