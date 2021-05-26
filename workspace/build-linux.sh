@@ -39,9 +39,3 @@ make distclean CFG=$cfg
 make clean CFG=$cfg
 output=`make CFG=$cfg 2>&1` || (echo $output && false)
 mv $cfg/gravebot.so ../../libs/dlls
-
-cd ../../libs
-echo 'Copying so libs to redist...'
-cp dlls/${gameLib} ../redist/dlls/
-cp dlls/gravebot.so ../redist/dlls/
-cp cl_dlls/${clientLib} ../redist/cl_dlls/
