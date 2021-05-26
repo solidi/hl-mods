@@ -11,13 +11,14 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-[string]$configFile = "Config.Docker"
+$Config = @{ }
 [int]$verifyFiles = 1
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
         $configFile = $_.Split(' ')[1]
+        . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipVerify") {
         $verifyFiles = 0
@@ -35,33 +36,39 @@ Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChe
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Zip-Release.psm1 -Force -DisableNameChecking
-. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
-$binDir = $Config['binDir']
+$binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
 Remove-Item $redistDir\debug.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\qconsole.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\steam_appid.txt -Force -ErrorAction Ignore
 Remove-Item $redistDir\htmlcache -Recurse -Force -ErrorAction Ignore
 
-Remove-Item $redistDir\dlls\ice.dylib -Force -ErrorAction Ignore
-Remove-Item $redistDir\dlls\ice.so -Force -ErrorAction Ignore
-Remove-Item $redistDir\cl_dlls\client.dylib -Force -ErrorAction Ignore
-Remove-Item $redistDir\cl_dlls\client.so -Force -ErrorAction Ignore
-Remove-Item $redistDir\dlls\gravebot.so -Force -ErrorAction Ignore
+Remove-Item $redistDir\dlls\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\dlls -Force -ErrorAction Ignore
+Remove-Item $redistDir\cl_dlls -Force -ErrorAction Ignore
+[void](New-Item -ItemType directory -Path $redistDir\dlls)
+[void](New-Item -ItemType directory -Path $redistDir\cl_dlls)
 
-# Copy Windows DLLs?
-Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistDir\dlls
-Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls
-Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls
-Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls
-Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls
+Copy-Item ${RootDir}\libs\dlls\ice.dll $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\grave_bot.dll $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls -ErrorAction Ignore
 
 Remove-Item $redistDir\models\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\models -Force -ErrorAction Ignore
+Remove-Item $redisthddir\models -Force -ErrorAction Ignore
+[void](New-Item -ItemType directory -Path $redistDir\models)
+[void](New-Item -ItemType directory -Path $redisthddir\models)
 
 $modelsdir = "${rootDir}\models"
 
@@ -244,6 +251,10 @@ $spritesDir = "${rootDir}\sprites"
 
 Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\sprites -Force -ErrorAction Ignore
+Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
+[void](New-Item -ItemType directory -Path $redistDir\sprites)
+[void](New-Item -ItemType directory -Path $redisthddir\sprites)
 
 Compile-Sprite $binDir "muzzleflash1" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "muzzleflash2" $spritesDir $redistDir\sprites
@@ -276,6 +287,8 @@ Compile-Font $binDir $redistDir "Arial"
 $mapsDir = "${RootDir}\maps"
 
 Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\maps -Force -ErrorAction Ignore
+[void](New-Item -ItemType directory -Path $redistDir\maps)
 
 Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
 Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
@@ -285,6 +298,13 @@ $soundDir = "${RootDir}\sound"
 
 Remove-Item $redistDir\sound\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\media\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistDir\sound -Force -ErrorAction Ignore
+Remove-Item $redisthddir\sound -Force -ErrorAction Ignore
+Remove-Item $redistDir\media -Force -ErrorAction Ignore
+[void](New-Item -ItemType directory -Path $redistDir\sound)
+[void](New-Item -ItemType directory -Path $redisthddir\sound)
+[void](New-Item -ItemType directory -Path $redistDir\media)
 
 Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
 Compile-Sound $binDir $redistDir $soundDir "alive.wav" 1.5 "sound\vest_alive.wav"
@@ -351,6 +371,8 @@ Copy-Item $soundDir\cannon_selected.wav $redistdir\sound
 Copy-Item $soundDir\cannon_fire.wav $redistdir\sound
 Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
 Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
+
+Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir

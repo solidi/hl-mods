@@ -1,0 +1,196 @@
+name: Build Cold Ice
+
+on: [push]
+
+env:
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  windows_libs:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Compile Windows
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\workspace\Build-Windows.ps1
+
+    - name: Upload ice.dll
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows_ice
+        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll
+
+    - name: Upload client.dll
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows_client
+        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll
+
+    - name: Upload grave_bot.dll
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows_gravebot
+        path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll
+
+  linux_libs:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Update sources to include xenial main
+      run: sudo su -c "echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list"
+
+    - name: Update sources to include xenial universe
+      run: sudo su -c "echo 'deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe' >> /etc/apt/sources.list"
+
+    - name: Update packages
+      run: sudo apt update -y
+
+    - name: Install make
+      run: sudo apt-get install make
+
+    - name: Install g++-4.8
+      run: sudo apt install g++-4.8 gcc-4.8 -y
+
+    - name: Install headers
+      run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
+
+    - name: Build linux so libs
+      run: ./workspace/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
+
+    - name: Upload ice.so
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux_ice
+        path: ./workspace/libs/dlls/ice.so
+
+    - name: Upload gravebot.so
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux_gravebot
+        path: ./workspace/libs/dlls/gravebot.so
+
+    - name: Upload client.so
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux_client
+        path: ./workspace/libs/cl_dlls/client.so
+
+  macOS_libs:
+    runs-on: macOS-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Install MacOSX10.8.sdk
+      run: |
+        mkdir /tmp/sdk
+        cd /tmp/sdk
+        curl -sSL https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.8.sdk.tar.xz > sdk.tar
+        tar -xvf sdk.tar
+        sudo ln -s /tmp/sdk/MacOSX10.8.sdk $(/usr/bin/xcode-select -print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+        rm sdk.tar
+
+    - name: Build macOS dylibs
+      run: ./workspace/build-mac.sh CFG=${{env.BUILD_CONFIGURATION}}
+
+    - name: Upload ice.dylib
+      uses: actions/upload-artifact@v2
+      with:
+        name: macOS_ice
+        path: ./workspace/libs/dlls/ice.dylib
+
+    - name: Upload client.dylib
+      uses: actions/upload-artifact@v2
+      with:
+        name: macOS_client
+        path: ./workspace/libs/cl_dlls/client.dylib
+
+  package_coldice:
+    runs-on: windows-latest
+    needs: [windows_libs, linux_libs, macOS_libs]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Download ice.dll
+      uses: actions/download-artifact@v2
+      with:
+        name: windows_ice
+        path: ./workspace/libs/dlls
+
+    - name: Download grave_bot.dll
+      uses: actions/download-artifact@v2
+      with:
+        name: windows_gravebot
+        path: ./workspace/libs/dlls
+
+    - name: Download client.dll
+      uses: actions/download-artifact@v2
+      with:
+        name: windows_client
+        path: ./workspace/libs/cl_dlls
+
+    - name: Download ice.so
+      uses: actions/download-artifact@v2
+      with:
+        name: linux_ice
+        path: ./workspace/libs/dlls
+
+    - name: Download gravebot.so
+      uses: actions/download-artifact@v2
+      with:
+        name: linux_gravebot
+        path: ./workspace/libs/dlls
+
+    - name: Download client.so
+      uses: actions/download-artifact@v2
+      with:
+        name: linux_client
+        path: ./workspace/libs/cl_dlls
+
+    - name: Download ice.dylib
+      uses: actions/download-artifact@v2
+      with:
+        name: macOS_ice
+        path: ./workspace/libs/dlls
+
+    - name: Download client.dylib
+      uses: actions/download-artifact@v2
+      with:
+        name: macOS_client
+        path: ./workspace/libs/cl_dlls
+
+    - name: Compile tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\workspace\Build-Tools.ps1
+
+    - name: Compile and package Cold Ice
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\workspace\Build-Release.ps1
+
+    - name: Archive Cold Ice Release
+      uses: actions/upload-artifact@v2
+      with:
+        name: coldice-build
+        path: .\workspace\last-build.zip

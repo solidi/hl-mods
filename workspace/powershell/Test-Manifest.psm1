@@ -12,7 +12,7 @@ function Test-Manifest {
         echo "locating $file in directory..."
         if (!(Test-Path "${file}")) {
             echo "Could not find $file in $target"
-            exit
+            exit 1
         }
     }
 
@@ -23,7 +23,7 @@ function Test-Manifest {
         echo "locating $file in $manifest..."
         if (!$files.Contains($fileName)) {
             echo "Could not find $fileName in $manifest"
-            exit
+            exit 1
         }
     }
 }

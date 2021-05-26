@@ -10,7 +10,7 @@ function Zip-Release {
         echo "Creating zipped release..."
         $zipFile = "${rootDir}\last-build.zip"
 
-        New-Item -Force -ItemType Directory $env:TEMP\release
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force $redistDir $env:TEMP\release
         Remove-Item $env:TEMP\release\redist\dev.cfg
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\ice

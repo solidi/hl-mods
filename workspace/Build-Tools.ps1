@@ -11,7 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-[string]$configFile = "Config.Docker"
+$Config = @{ }
 [string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
 
@@ -19,6 +19,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
         $configFile = $_.Split(' ')[1]
+        . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "BuildConfig") {
         $buildConfiguration = $_.Split(' ')[1]
@@ -30,17 +31,10 @@ Set-ConsoleColor 'DarkCyan' 'White'
 }
 
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
-. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
-$msBuild = $Config['msBuild']
-$binDir = $Config['binDir']
-
-Remove-Item $binDir\makefont.exe -Force -ErrorAction Ignore
-Remove-Item $binDir\sprgen.exe -Force -ErrorAction Ignore
-Remove-Item $binDir\makels.exe -Force -ErrorAction Ignore
-Remove-Item $binDir\qlumpy.exe -Force -ErrorAction Ignore
-Remove-Item $binDir\qpakman.exe -Force -ErrorAction Ignore
+$msBuild = $Config['msBuild'] ?? "msbuild"
+$binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
 Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild

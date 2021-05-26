@@ -19,7 +19,7 @@ workspace/redist/maps/
 workspace/redist/models/
 workspace/redist/sprites/
 workspace/redist/sound/
-workspace/redist/media/gamestartup.mp3
+workspace/redist/media/
 htmlcache
 debug.log
 steam_appid.txt

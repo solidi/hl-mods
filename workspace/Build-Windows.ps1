@@ -11,7 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
-[string]$configFile = "Config.Docker"
+$Config = @{ }
 [string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
 
@@ -19,6 +19,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
         $configFile = $_.Split(' ')[1]
+        . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "BuildConfig") {
         $buildConfiguration = $_.Split(' ')[1]
@@ -30,16 +31,11 @@ Set-ConsoleColor 'DarkCyan' 'White'
 }
 
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
-. ("$PSScriptRoot\$configFile.ps1")
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
-$redistDir = "${rootDir}\redist"
-$msBuild = $Config['msBuild']
-$definitions = $Config['defintions']
-
-Remove-Item $redistDir\dlls\grave_bot.dll -Force -ErrorAction Ignore
-Remove-Item $redistDir\dlls\ice.dll -Force -ErrorAction Ignore
-Remove-Item $redistDir\cl_dlls\client.dll -Force -ErrorAction Ignore
+$libsDir = "${rootDir}\libs"
+$msBuild = $Config['msBuild'] ?? "msbuild"
+$definitions = $Config['defintions'] ?? ""
 
 Compile-DLL $msBuild "${RootDir}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $buildConfiguration $definitions $rebuild
 Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hldll.sln" "hl" $buildConfiguration $definitions $rebuild
