@@ -14,6 +14,8 @@ do
 done
 echo "build config is $cfg...";
 
+cd "$(dirname "$0")"
+
 echo 'Cleaning old libs...'
 cd libs
 rm dlls/${gameLib} || true
