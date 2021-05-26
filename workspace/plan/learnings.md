@@ -197,4 +197,8 @@
 1. [Tar bombs](https://stackoverflow.com/questions/51689294/how-to-extract-tar-file-in-mac-terminal) are still impossible for me.
 1. In yaml files there are literal scalar (`|`) and folded scalar (`>`) to represent the lines of code to be run in a block. See [this thread](https://stackoverflow.com/questions/59954185/github-action-split-long-command-into-multiple-lines) for details.
 1. Here [is a thread](https://stackoverflow.com/questions/2741708/makefile-contains-string) to find a substring in a `make` file.
-1. 
+1. Here is a thread about [null coalesing](https://stackoverflow.com/questions/10623907/null-coalescing-in-powershell/17647824) in Powershell. Additionally [some notes](https://stackoverflow.com/questions/7909167/how-to-quietly-remove-a-directory-with-content-in-powershell) about deleting folders in Powershells.
+1. In Github actions workflow, I had to force the script to end using `exit 1`. See [this thread](https://stackoverflow.com/questions/21901377/powershell-return-error-exit-code-if-not-match-a-string/21902496) for more info.
+1. Like a tar bomb, how to [check out](http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/) files from another branch to the current working directory. Use `git checkout <branch> -- <files>`
+1. [These](https://github.com/actions/download-artifact) [threads](https://github.com/actions/upload-artifact) for `upload-artifact` and `download-artifact` where helpful in developing the build pipeline.
+1. The linux and macOS scripts in the github actions workflow were not tuned for the local setup. [This thread](https://www.tjelvarolsson.com/blog/using-relative-paths-in-linux-scripts/) was helpful in using `cd "$(dirname "$0")"`
