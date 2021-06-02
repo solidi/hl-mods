@@ -8,10 +8,14 @@
     - [x] Chumtoad
     - [x] Boltgun
     - [x] Cannon
+    - [ ] Knife
+    - [ ] Crowbar
+    - [x] Sniper Rifle
 - [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
 - [ ] Steam Community Forums
+- [ ] Update url_dl in liblist.gam
 
 ## TODO
 
@@ -48,6 +52,7 @@
     - [x] Scoreboard
     - [x] MOTD
     - [x] [Screen tilting](https://github.com/ValveSoftware/halflife/issues/1544)
+    - [x] Holstering weapons
 - [x] Environment Compile
     - [x] so's?
     - [x] dylib's?
@@ -81,6 +86,6 @@
 - [x] Rename folder and libs to `ice`
 - [x] Rename github repo to `coldice`
 - [x] Bot names loading on Linux?
-- [ ] Holster weapons [animation](https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm)
+- [x] Holster weapons [animation](https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm)
 - [x] macOS zip file contains invalid paths?
 - [ ] Railgun follows through multiple targets

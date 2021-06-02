@@ -36,6 +36,7 @@ Features:
 - Option to switch between ice model skins and real model skins!
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
+- Holster weapon animations!
 
 Commands:
 
@@ -46,6 +47,7 @@ Server:
 - Add a bot - Use "addbot"
 - Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_crowbar;weapon_knife;weapon_9mmhandgun""
 - Allow powerup runes on server - "mp_allowrunes 1"
+- Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
 
 Client:
 
@@ -84,3 +86,4 @@ Thanks To:
 - Valve for select models from Team Fortress Classic
 - JoelTroch for the crowbar idle weapon fix https://github.com/ValveSoftware/halflife/issues/1585
 - Powerup deathmatch runes tutorial by Phantasiere (nrich@iinet.net.au)
+- Trond for the Holster animation fix tutorial https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm

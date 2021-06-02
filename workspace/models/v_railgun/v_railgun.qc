@@ -66,7 +66,7 @@ $sequence "spinup" "spinup" fps 30 loop
 $sequence "spin" "spin" fps 30 loop 
 $sequence "fire" "fire" fps 30 
 $sequence "fire2" "fire2" fps 30 
-$sequence "holster" "holster" fps 45 
+$sequence "holster" "holster" fps 30
 $sequence "draw" "draw" fps 60 { event 5004 0 "railgun_selected.wav" }
 
 // End of QC script.
