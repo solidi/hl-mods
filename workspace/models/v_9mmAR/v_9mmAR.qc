@@ -54,5 +54,6 @@ $sequence "deploy" "deploy" fps 12
 $sequence "shoot_1" "shoot_1" fps 10 { event 5001 0 "20" } 
 $sequence "shoot_2" "shoot_2" fps 10 { event 5001 0 "20" } 
 $sequence "shoot_3" "shoot_3" fps 10 { event 5001 0 "20" } 
+$sequence "holster" "holster" fps 12 
 
 // End of QC script.

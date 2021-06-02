@@ -56,7 +56,7 @@
 1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
 1. [x] Have humorous sound effect with each weapon?
 1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
-1. [Wall jumping](http://articles.thewavelength.net/226/)
+1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. [ ] Akimbo models
 1. [x] Third model mode - real skins
 1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
@@ -74,3 +74,4 @@
 1. [ ] Swap blue sprites with real sprites with cl_icemodels?
 1. [ ] Snowball Generator in place of Egon gun
 1. [ ] Decoy bombs that morph into AI assassins?
+1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)

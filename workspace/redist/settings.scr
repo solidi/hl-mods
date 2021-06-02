@@ -131,4 +131,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_holsterweapons"
+	{
+		"#Ice_HolsterWeapons"
+		{ BOOL }
+		{ "1" }
+	}
 }
