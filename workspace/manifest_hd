@@ -37,6 +37,7 @@ models\v_satchel.mdl
 models\p_satchel_radio.mdl
 models\w_satchel.mdl
 models\p_satchel.mdl
+models\w_shell.mdl
 sound
 sound\knife_miss2.wav
 sprites

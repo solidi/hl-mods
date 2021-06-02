@@ -79,6 +79,7 @@ models\p_satchel_radio.mdl
 models\v_satchel.mdl
 models\v_satchel_radio.mdl
 models\w_satchel.mdl
+models\w_shell.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf

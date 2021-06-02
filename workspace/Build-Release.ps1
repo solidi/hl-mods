@@ -156,6 +156,8 @@ Invert-Skin $binDir "p_satchel_radio" $modelsdir
 Invert-Skin $binDir "v_satchel" $modelsdir
 Invert-Skin $binDir "v_satchel_radio" $modelsdir
 Invert-Skin $binDir "w_satchel" $modelsdir
+Invert-Skin $binDir "w_shell" $modelsdir
+Invert-Skin $binDir "w_shell" $modelsdir\hd
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -246,6 +248,8 @@ Compile-Model $binDir "p_satchel_radio" $modelsdir $redistDir\models
 Compile-Model $binDir "v_satchel" $modelsdir $redistDir\models
 Compile-Model $binDir "v_satchel_radio" $modelsdir $redistDir\models
 Compile-Model $binDir "w_satchel" $modelsdir $redistDir\models
+Compile-Model $binDir "w_shell" $modelsdir $redistDir\models
+Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
 
 $spritesDir = "${rootDir}\sprites"
 
@@ -382,3 +386,5 @@ if ($verifyfiles) {
 PAK-File $binDir $redistDir @("models", "sound", "sprites")
 
 Zip-Release $rootDir $redistDir $redistHdDir
+
+Set-Location -Path ${PSScriptRoot}
