@@ -202,3 +202,4 @@
 1. Like a tar bomb, how to [check out](http://nicolasgallagher.com/git-checkout-specific-files-from-another-branch/) files from another branch to the current working directory. Use `git checkout <branch> -- <files>`
 1. [These](https://github.com/actions/download-artifact) [threads](https://github.com/actions/upload-artifact) for `upload-artifact` and `download-artifact` where helpful in developing the build pipeline.
 1. The linux and macOS scripts in the github actions workflow were not tuned for the local setup. [This thread](https://www.tjelvarolsson.com/blog/using-relative-paths-in-linux-scripts/) was helpful in using `cd "$(dirname "$0")"`
+1. The source code for Half-Life mods has user available fields on `pev->` (`integer`, `float`, `vec3_t`, and `edict_t`). See [github source here.](https://github.com/ValveSoftware/halflife/blob/master/engine/progdefs.h#L204)
