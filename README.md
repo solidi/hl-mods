@@ -1,3 +1,5 @@
+[![Build Cold Ice](https://github.com/solidi/hl-mods/actions/workflows/package.yml/badge.svg)](https://github.com/solidi/hl-mods/actions/workflows/package.yml)
+
 # Half-Life Mods
 
 Modifications for Half-Life developed from 1999 to 2004 by Doug "Surreal" Arcuri and contributors.
