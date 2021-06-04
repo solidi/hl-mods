@@ -11,7 +11,7 @@ function Launch-HL {
     $players = $botcount + 2
     $hlexe = "${hlDir}\hl.exe"
 
-    # Set hdmodels
+    # Set hdmodels or +_sethdmodels <0 or 1>
     Get-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings
     Set-ItemProperty -Path HKCU:\Software\Valve\Half-Life\Settings -Name hdmodels -Value $hdModels
 
@@ -23,10 +23,9 @@ function Launch-HL {
             +developer 2 +log on `
             +sv_lan 1 +map $map +deathmatch 1 +maxplayers $players | Out-String
 
-    echo $out
-
-    if ($lastexitcode -ne 0) {
-        echo "Something went wrong with Half-Life. Exit code: ${lastexitcode}"
-        exit
+    if (!$?) {
+        echo $out
+        echo "Something went wrong with Half-Life. Exit code: $?"
+        exit -1
     }
 }

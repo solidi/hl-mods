@@ -89,4 +89,6 @@ for ($bot = 0; $bot -lt $botCount; $bot++) {
     "pause 3" | Add-Content $iceDir\grave_bot.cfg
 }
 
+Set-Location -Path $hldir
 Launch-HL $botCount $hdModels $map $hldir $iceFolder
+Set-Location -Path ${PSScriptRoot}

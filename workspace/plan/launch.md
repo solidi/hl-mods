@@ -8,7 +8,7 @@
     - [x] Chumtoad
     - [x] Boltgun
     - [x] Cannon
-    - [ ] Knife
+    - [x] Knife
     - [ ] Crowbar
     - [x] Sniper Rifle
 - [ ] Test weapons and behaviors under water
@@ -74,6 +74,7 @@
     - [x] Remove dev.cfg
     - [x] Remove pdb files
     - [ ] Remove dSYM files
+    - [ ] Remove models/ and sprites/
 
 ## FIXES
 
