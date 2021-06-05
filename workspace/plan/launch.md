@@ -60,6 +60,7 @@
     - [x] Debug build pipeline
 - [x] Edict count
 - [x] Runes
+    - [ ] Glowing shell on view model
 - [ ] Skins
     - [ ] Blue blood?
     - [x] Inverted original weapons
