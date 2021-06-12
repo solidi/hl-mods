@@ -43,3 +43,5 @@ hlcsg.exe
 hlbsp.exe
 hlrad.exe
 hlvis.exe
+
+workspace/Config.ps1
