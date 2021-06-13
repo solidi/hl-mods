@@ -20,27 +20,25 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Compile Windows
+    - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\workspace\Build-Windows.ps1
+      run: |
+        .\workspace\Build-Windows.ps1
+        $zipFile = ".\dlls.zip"
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release\dlls)
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release\cl_dlls)
+        Copy-Item -Recurse -Force ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll $env:TEMP\release\dlls
+        Copy-Item -Recurse -Force ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll $env:TEMP\release\dlls
+        Copy-Item -Recurse -Force ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll $env:TEMP\release\cl_dlls
+        Compress-Archive -LiteralPath $env:TEMP\release\dlls -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\cl_dlls -DestinationPath $zipFile -Update
 
-    - name: Upload ice.dll
+    - name: Upload windows dlls
       uses: actions/upload-artifact@v2
       with:
-        name: windows_ice
-        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll
-
-    - name: Upload client.dll
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows_client
-        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll
-
-    - name: Upload grave_bot.dll
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows_gravebot
-        path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll
+        name: windows_dlls
+        path: ./workspace/dlls.zip
 
   linux_libs:
     runs-on: ubuntu-18.04
@@ -314,23 +312,20 @@ jobs:
       run: |
         "`$Config = @{ 'binDir' = ''; 'msBuild' = ''; 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60' }" | Add-Content .\workspace\Config.ps1
 
-    - name: Download ice.dll
+    - name: Download windows dlls
       uses: actions/download-artifact@v2
       with:
-        name: windows_ice
-        path: ./workspace/libs/dlls
+        name: window_dlls
+        path: ./workspace
 
-    - name: Download grave_bot.dll
-      uses: actions/download-artifact@v2
-      with:
-        name: windows_gravebot
-        path: ./workspace/libs/dlls
-
-    - name: Download client.dll
-      uses: actions/download-artifact@v2
-      with:
-        name: windows_client
-        path: ./workspace/libs/cl_dlls
+    - name: Unpack windows dlls
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\dlls.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\libs\\* -Recurse -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\dlls .\workspace\libs\dlls
+        Move-Item $env:TEMP\cl_dlls .\workspace\libs\cl_dlls
+        Remove-Item .\workspace\dlls.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download ice.so
       uses: actions/download-artifact@v2

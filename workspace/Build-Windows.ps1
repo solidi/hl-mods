@@ -40,3 +40,5 @@ $definitions = $Config['defintions'] ?? ""
 Compile-DLL $msBuild "${RootDir}\grave-bot-src\dlls\grave_bot.sln" "grave_bot" $buildConfiguration $definitions $rebuild
 Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hldll.sln" "hl" $buildConfiguration $definitions $rebuild
 Compile-DLL $msBuild "${RootDir}\src\projects\vs2019\hl_cdll.sln" "client" $buildConfiguration $definitions $rebuild
+
+Set-Location -Path ${PSScriptRoot}
