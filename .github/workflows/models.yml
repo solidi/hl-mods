@@ -17,6 +17,10 @@ jobs:
       with:
         submodules: recursive
 
+    - name: Compile tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\workspace\Build-Tools.ps1
+
     - name: Compile Models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
