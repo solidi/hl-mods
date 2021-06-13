@@ -17,6 +17,9 @@ jobs:
       with:
         submodules: recursive
 
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: .\workspace\Build-Tools.ps1
