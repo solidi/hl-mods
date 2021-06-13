@@ -28,7 +28,7 @@ jobs:
     - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Windows.ps1
+        .\workspace\Build-Windows.ps1 -ConfigFile Config
         $zipFile = ".\dlls.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         [void](New-Item -Force -ItemType Directory $env:TEMP\release\dlls)
@@ -429,7 +429,7 @@ jobs:
         Move-Item $env:TEMP\bin .\workspace
         Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
 
-    - name: Compile and package Cold Ice
+    - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: .\workspace\Build-Release.ps1
 
