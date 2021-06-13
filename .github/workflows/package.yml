@@ -137,8 +137,8 @@ jobs:
       run: |
         .\workspace\Build-Tools.ps1
         [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
-        Copy-Item -Recurse -Force .\workspace\bin $env:TEMP
-        Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\workspace\tools.zip -Force
+        Copy-Item -Recurse -Force .\bin $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
 
     - name: Upload tools
       uses: actions/upload-artifact@v2
@@ -154,9 +154,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -220,7 +217,7 @@ jobs:
       run: |
         .\workspace\Build-Maps.ps1
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
-        Copy-Item -Recurse -Force .\workspace\redist\maps $env:TEMP
+        Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\workspace\maps.zip -Force
 
     - name: Upload Maps
@@ -237,9 +234,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
