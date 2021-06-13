@@ -28,9 +28,9 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         .\workspace\Build-Models.ps1
-        $redistDir =  ".\workspace\redist"
-        $redistHdDir =  ".\workspace\redist_hd"
-        $zipFile = ".\workspace\models.zip"
+        $redistDir =  ".\redist"
+        $redistHdDir =  ".\redist_hd"
+        $zipFile = ".\models.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force $redistHdDir\models $env:TEMP\release
         Rename-Item $env:TEMP\release\models $env:TEMP\release\models_hd
