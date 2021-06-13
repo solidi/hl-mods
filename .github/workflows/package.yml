@@ -28,9 +28,9 @@ jobs:
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         [void](New-Item -Force -ItemType Directory $env:TEMP\release\dlls)
         [void](New-Item -Force -ItemType Directory $env:TEMP\release\cl_dlls)
-        Copy-Item -Recurse -Force ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll $env:TEMP\release\dlls
-        Copy-Item -Recurse -Force ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll $env:TEMP\release\dlls
-        Copy-Item -Recurse -Force ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll $env:TEMP\release\cl_dlls
+        Copy-Item -Recurse -Force ./grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll $env:TEMP\release\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll $env:TEMP\release\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll $env:TEMP\release\cl_dlls
         Compress-Archive -LiteralPath $env:TEMP\release\dlls -DestinationPath $zipFile -Force
         Compress-Archive -LiteralPath $env:TEMP\release\cl_dlls -DestinationPath $zipFile -Update
 
