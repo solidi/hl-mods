@@ -26,12 +26,8 @@ $Config = @{ }
     }
 }
 
-Import-Module $PSScriptRoot\powershell\Compile-Model.psm1 -Force -DisableNameChecking
-Import-Module $PSScriptRoot\powershell\Invert-Skin.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Sprite.psm1 -Force -DisableNameChecking
-Import-Module $PSScriptRoot\powershell\Compile-Wad.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
-Import-Module $PSScriptRoot\powershell\Compile-Map.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
@@ -93,23 +89,7 @@ Copy-Item $spritesDir\weapon_cannon.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
-$wadsDir = "${RootDir}\wads"
-
-Remove-Item $redistDir\wads\\* -Recurse -Force -ErrorAction Ignore
-
-Compile-Wad $binDir "coldice" $wadsDir $redistDir
-
 Compile-Font $binDir $redistDir "Arial"
-
-$mapsDir = "${RootDir}\maps"
-
-Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\maps -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\maps)
-
-Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
-Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
-Copy-Item $mapsDir\boot_camp.wpt $redistDir\maps
 
 $soundDir = "${RootDir}\sound"
 

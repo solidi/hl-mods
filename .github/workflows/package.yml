@@ -136,11 +136,9 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         .\workspace\Build-Tools.ps1
-        $binFolder =  ".\workspace\bin"
-        $zipFile = ".\workspace\tools.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
-        Copy-Item -Recurse -Force $binFolder $env:TEMP
-        Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath $zipFile -Force
+        Copy-Item -Recurse -Force .\workspace\bin $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\workspace\tools.zip -Force
 
     - name: Upload tools
       uses: actions/upload-artifact@v2
@@ -166,7 +164,7 @@ jobs:
         name: compiled_tools
         path: ./workspace
 
-    - name: Place tools
+    - name: Unpack tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
@@ -179,13 +177,11 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         .\workspace\Build-Models.ps1
-        $redistDir =  ".\redist"
-        $redistHdDir =  ".\redist_hd"
         $zipFile = ".\models.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
-        Copy-Item -Recurse -Force $redistHdDir\models $env:TEMP\release
+        Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\release
         Rename-Item $env:TEMP\release\models $env:TEMP\release\models_hd
-        Copy-Item -Recurse -Force $redistDir\models $env:TEMP\release
+        Copy-Item -Recurse -Force .\redist\models $env:TEMP\release
         Compress-Archive -LiteralPath $env:TEMP\release\models -DestinationPath $zipFile -Force
         Compress-Archive -LiteralPath $env:TEMP\release\models_hd -DestinationPath $zipFile -Update
 
@@ -195,9 +191,47 @@ jobs:
         name: compiled_models
         path: ./workspace/models.zip
 
+  compile_maps:
+    runs-on: windows-latest
+    needs: [compile_tools]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Download tools
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_tools
+        path: ./workspace
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\workspace
+        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Compile Maps
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Maps.ps1
+        [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
+        Copy-Item -Recurse -Force .\workspace\redist\maps $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\workspace\maps.zip -Force
+
+    - name: Upload Maps
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_maps
+        path: ./workspace/maps.zip
+
   package_coldice:
     runs-on: windows-latest
-    needs: [windows_libs, linux_libs, macOS_libs, compile_models]
+    needs: [windows_libs, linux_libs, macOS_libs, compile_models, compile_maps]
 
     steps:
     - uses: actions/checkout@v2
@@ -266,7 +300,7 @@ jobs:
         name: compiled_models
         path: ./workspace
 
-    - name: Place models
+    - name: Unpack models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         Expand-Archive -Path .\workspace\models.zip -DestinationPath $env:TEMP
@@ -274,13 +308,26 @@ jobs:
         Move-Item $env:TEMP\models_hd .\workspace\redist_hd\models
         Remove-Item .\workspace\models.zip -Recurse -Force -ErrorAction Ignore
 
+    - name: Download maps
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_maps
+        path: ./workspace
+
+    - name: Unpack maps
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\maps.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\maps .\workspace\redist
+        Remove-Item .\workspace\maps.zip -Recurse -Force -ErrorAction Ignore
+
     - name: Download tools
       uses: actions/download-artifact@v2
       with:
         name: compiled_tools
         path: ./workspace
 
-    - name: Place tools
+    - name: Unpack tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
