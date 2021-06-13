@@ -197,7 +197,7 @@ jobs:
 
   package_coldice:
     runs-on: windows-latest
-    needs: [windows_libs, linux_libs, macOS_lib, compile_models]
+    needs: [windows_libs, linux_libs, macOS_libs, compile_models]
 
     steps:
     - uses: actions/checkout@v2
