@@ -43,3 +43,23 @@ jobs:
       with:
         name: compiled_models
         path: ./workspace/models.zip
+
+  unpack_models:
+    runs-on: windows-latest
+    needs: [compile_models]
+
+    - name: Download models
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_models
+        path: ./workspace
+
+    - name: Place models
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\compiled_models.zip -DestinationPath .\workspace
+        Move-Item .\workspace\models\models .\workspace\redist\models
+        Move-Item .\workspace\models\models_hd .\workspace\redist_hd\models
+        Remove-Item .\workspace\compiled_models.zip -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\models\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\models -Force -ErrorAction Ignore
