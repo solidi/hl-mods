@@ -59,10 +59,10 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         ls workspace
-        Expand-Archive -Path .\workspace\models.zip -DestinationPath .\workspace
-        ls workspace\models
-        Move-Item .\workspace\models\models .\workspace\redist\models
-        Move-Item .\workspace\models\models_hd .\workspace\redist_hd\models
+        Expand-Archive -Path .\workspace\models.zip -DestinationPath $env:TEMP
+        ls $env:TEMP
+        Move-Item $env:TEMP\models .\workspace\redist\models
+        Move-Item $env:TEMP\models_hd .\workspace\redist_hd\models
+        ls workspace\redist\models
+        ls workspace\redist_hd\models
         Remove-Item .\workspace\models.zip -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\workspace\models\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\workspace\models -Force -ErrorAction Ignore
