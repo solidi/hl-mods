@@ -36,13 +36,13 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $msBuild = $Config['msBuild'] ?? "msbuild"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
-#Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\src\utils\qlumpy\qlumpy.sln" "qlumpy" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\qpakman\qpakman.sln" "qpakman" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlcsg" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlbsp" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlrad" $buildConfiguration $rebuild
-#Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlvis" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\qlumpy\qlumpy.sln" "qlumpy" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\qpakman\qpakman.sln" "qpakman" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlcsg" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlbsp" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlrad" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\zhlt\zhlt.sln" "hlvis" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\studiomdl\studiomdl.sln" "studiomdl" $buildConfiguration $rebuild
