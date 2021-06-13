@@ -28,7 +28,6 @@ $Config = @{ }
 
 Import-Module $PSScriptRoot\powershell\Compile-Sprite.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
-Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Zip-Release.psm1 -Force -DisableNameChecking
@@ -90,87 +89,6 @@ Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Compile-Font $binDir $redistDir "Arial"
-
-$soundDir = "${RootDir}\sound"
-
-Remove-Item $redistDir\sound\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\media\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\sound -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sound -Force -ErrorAction Ignore
-Remove-Item $redistDir\media -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\sound)
-[void](New-Item -ItemType directory -Path $redisthddir\sound)
-[void](New-Item -ItemType directory -Path $redistDir\media)
-
-Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
-Compile-Sound $binDir $redistDir $soundDir "alive.wav" 1.5 "sound\vest_alive.wav"
-Compile-Sound $binDir $redistDir $soundDir "buddha.wav" 1.0 "sound\knife_thecore.wav" "wav" 0 3
-Compile-Sound $binDir $redistDir $soundDir "limp.wav" 1.0 "media\gamestartup.mp3" "mp3"
-Compile-Sound $binDir $redistDir $soundDir "zeke.mp3" 1.0 "sound\crowbar_zeke.wav" "wav" 2 6
-Compile-Sound $binDir $redistDir $soundDir "rocket1.wav" 1.0 "sound\rocket1.wav" "wav" 0 2
-Compile-Sound $binDir $redistDir $soundDir "rocket_1.mp3" 2.0 "sound\rpg_igotone.wav" "wav" 0 4
-Compile-Sound $binDir $redistDir $soundDir "yakety-sax-music.mp3" 1.5 "sound\chumtoad_release.wav" "wav" 0 4
-Compile-Sound $binDir $redistDir $soundDir "target-to-destroy.mp3" 1.0 "sound\rifle_destroy.wav" "wav"
-Compile-Sound $binDir $redistDir $soundDir "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
-Compile-Sound $binDir $redistDir $soundDir "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
-Compile-Sound $binDir $redistdir $soundDir "m2burnbaby.mp3" 1.0 "sound\cannon_burn.wav" "wav"
-Compile-Sound $binDir $redistDir $soundDir "i-am-turok.mp3" 1.5 "sound\mag60_turok.wav" "wav"
-Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
-Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
-Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
-Copy-Item $soundDir\handgun_bond.wav $redistdir\sound
-Copy-Item $soundDir\handgun_selected.wav $redistdir\sound
-Copy-Item $soundDir\handgun_silenced.wav $redistdir\sound
-Copy-Item $soundDir\handgun.wav $redistdir\sound
-Copy-Item $soundDir\vest_attack.wav $redistdir\sound
-Copy-Item $soundDir\vest_equip.wav $redistdir\sound
-Copy-Item $soundDir\vest_selected.wav $redistdir\sound
-[void](New-Item -ItemType directory -Path $redistdir\sound\weapons)
-Copy-Item $soundDir\explode3.wav $redistdir\sound\weapons
-Copy-Item $soundDir\explode4.wav $redistdir\sound\weapons
-Copy-Item $soundDir\explode5.wav $redistdir\sound\weapons
-Copy-Item $soundDir\knife_selected.wav $redistdir\sound
-Copy-Item $soundDir\knife_miss2.wav $redistdir\sound
-Copy-Item $soundDir\hd\knife_miss2.wav $redisthddir\sound
-Copy-Item $soundDir\knife_hit_flesh1.wav $redistdir\sound
-Copy-Item $soundDir\knife_hit_flesh2.wav $redistdir\sound
-Copy-Item $soundDir\knife_hit_wall1.wav $redistdir\sound
-Copy-Item $soundDir\knife_hit_wall2.wav $redistdir\sound
-Copy-Item $soundDir\crowbar_selected.wav $redistdir\sound
-Copy-Item $soundDir\cbar_hit1.wav $redistdir\sound
-Copy-Item $soundDir\cbar_hitbod1.wav $redistdir\sound
-Copy-Item $soundDir\cbar_hitbod2.wav $redistdir\sound
-Copy-Item $soundDir\cbar_hitbod3.wav $redistdir\sound
-Copy-Item $soundDir\talk.wav $redistdir\sound
-Copy-Item $soundDir\wpn_hudoff.wav $redistdir\sound
-Copy-Item $soundDir\wpn_hudon.wav $redistdir\sound
-Copy-Item $soundDir\wpn_moveselect.wav $redistdir\sound
-Copy-Item $soundDir\wpn_select.wav $redistdir\sound
-Copy-Item $soundDir\rpg_selected.wav $redistdir\sound
-Copy-Item $soundDir\tripmine_selected.wav $redistdir\sound
-Copy-Item $soundDir\mine_activate.wav $redistdir\sound
-Copy-Item $soundDir\chumtoad_selected.wav $redistdir\sound
-Copy-Item $soundDir\chumtoad_hunt1.wav $redistdir\sound
-Copy-Item $soundDir\chumtoad_hunt2.wav $redistdir\sound
-Copy-Item $soundDir\chumtoad_hunt3.wav $redistdir\sound
-Copy-Item $soundDir\chumtoad_blast1.wav $redistdir\sound
-Copy-Item $soundDir\chumtoad_bite.wav $redistdir\sound
-Copy-Item $soundDir\rifle1.wav $redistdir\sound
-Copy-Item $soundDir\rifle_selected.wav $redistdir\sound
-Copy-Item $soundDir\rifle_reload_1.wav $redistdir\sound
-Copy-Item $soundDir\rifle_reload_2.wav $redistdir\sound
-Copy-Item $soundDir\rifle_zoomout.wav $redistdir\sound
-Copy-Item $soundDir\boltgun_fire.wav $redistdir\sound
-Copy-Item $soundDir\boltgun_selected.wav $redistdir\sound
-Copy-Item $soundDir\railgun_fire.wav $redistdir\sound
-Copy-Item $soundDir\rune_pickup.wav $redistdir\sound
-Copy-Item $soundDir\cannon_selected.wav $redistdir\sound
-Copy-Item $soundDir\cannon_fire.wav $redistdir\sound
-Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
-Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
-Copy-Item $soundDir\mag60_fire.wav $redistdir\sound
-Copy-Item $soundDir\mag60_selected.wav $redistdir\sound
 
 Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 
