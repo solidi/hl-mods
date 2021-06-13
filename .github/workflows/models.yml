@@ -1,0 +1,38 @@
+name: Model Test
+
+on: [push]
+
+env:
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  compile_models:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Compile Models
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Models.ps1
+        $redistDir =  ".\workspace\redist"
+        $redistHdDir =  ".\workspace\redist_hd"
+        $zipFile = ".\workspace\models.zip"
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
+        Copy-Item -Recurse -Force $redistHdDir\models $env:TEMP\release
+        Rename-Item $env:TEMP\release\models $env:TEMP\release\models_hd
+        Copy-Item -Recurse -Force $redistDir\models $env:TEMP\release
+        Compress-Archive -LiteralPath $env:TEMP\release\models -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\models_hd -DestinationPath $zipFile -Update
+
+    - name: Upload models
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_models
+        path: ./workspace/models.zip
