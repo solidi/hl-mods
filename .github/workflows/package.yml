@@ -215,7 +215,7 @@ jobs:
     - name: Compile sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Sounds.ps1
+        .\workspace\Build-Sound.ps1
         $zipFile = ".\sounds.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\sound $env:TEMP\release
