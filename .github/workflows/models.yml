@@ -39,7 +39,7 @@ jobs:
 
   compile_models:
     runs-on: windows-latest
-      needs: [compile_tools]
+    needs: [compile_tools]
 
     steps:
     - uses: actions/checkout@v2
