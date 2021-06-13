@@ -48,6 +48,7 @@ jobs:
     runs-on: windows-latest
     needs: [compile_models]
 
+    steps:
     - name: Download models
       uses: actions/download-artifact@v2
       with:
