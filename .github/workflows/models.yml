@@ -59,7 +59,7 @@ jobs:
       run: |
         Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
         ls $env:TEMP\bin
-        Move-Item $env:TEMP\bin .\workspace\bin
+        Move-Item $env:TEMP\bin .\workspace
         ls workspace\bin
         Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
 
