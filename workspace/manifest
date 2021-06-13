@@ -16,6 +16,7 @@ events\chumtoadrelease.sc
 events\sniper_rifle.sc
 events\cannon.sc
 events\cannon_flak.sc
+events\mag60.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -80,6 +81,9 @@ models\v_satchel.mdl
 models\v_satchel_radio.mdl
 models\w_satchel.mdl
 models\w_shell.mdl
+models\v_mag60.mdl
+models\w_mag60.mdl
+models\p_mag60.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -162,6 +166,9 @@ sound\cannon_fire.wav
 sound\cannon_burn.wav
 sound\decoy_pushthatbutton.wav
 sound\decoy_selected.wav
+sound\mag60_fire.wav
+sound\mag60_selected.wav
+sound\mag60_turok.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -179,6 +186,7 @@ sprites\weapon_chumtoad.txt
 sprites\weapon_sniperrifle.txt
 sprites\weapon_railgun.txt
 sprites\weapon_cannon.txt
+sprites\weapon_mag60.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

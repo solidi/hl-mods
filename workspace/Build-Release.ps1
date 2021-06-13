@@ -158,6 +158,12 @@ Invert-Skin $binDir "v_satchel_radio" $modelsdir
 Invert-Skin $binDir "w_satchel" $modelsdir
 Invert-Skin $binDir "w_shell" $modelsdir
 Invert-Skin $binDir "w_shell" $modelsdir\hd
+Invert-Skin $binDir "p_mag60" $modelsdir\hd
+Invert-Skin $binDir "w_mag60" $modelsdir\hd
+Invert-Skin $binDir "v_mag60" $modelsdir\hd
+Invert-Skin $binDir "p_mag60" $modelsdir
+Invert-Skin $binDir "w_mag60" $modelsdir
+Invert-Skin $binDir "v_mag60" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -250,6 +256,12 @@ Compile-Model $binDir "v_satchel_radio" $modelsdir $redistDir\models
 Compile-Model $binDir "w_satchel" $modelsdir $redistDir\models
 Compile-Model $binDir "w_shell" $modelsdir $redistDir\models
 Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_mag60" $modelsdir $redistDir\models
+Compile-Model $binDir "v_mag60" $modelsdir $redistDir\models
+Compile-Model $binDir "p_mag60" $modelsdir $redistDir\models
+Compile-Model $binDir "w_mag60" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_mag60" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_mag60" $modelsdir\hd $redisthddir\models
 
 $spritesDir = "${rootDir}\sprites"
 
@@ -278,6 +290,7 @@ Copy-Item $spritesDir\weapon_chumtoad.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_sniperrifle.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_railgun.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_cannon.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 $wadsDir = "${RootDir}\wads"
@@ -322,6 +335,7 @@ Compile-Sound $binDir $redistDir $soundDir "target-to-destroy.mp3" 1.0 "sound\ri
 Compile-Sound $binDir $redistDir $soundDir "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
 Compile-Sound $binDir $redistdir $soundDir "m2burnbaby.mp3" 1.0 "sound\cannon_burn.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "i-am-turok.mp3" 1.5 "sound\mag60_turok.wav" "wav"
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
@@ -375,6 +389,8 @@ Copy-Item $soundDir\cannon_selected.wav $redistdir\sound
 Copy-Item $soundDir\cannon_fire.wav $redistdir\sound
 Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
 Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
+Copy-Item $soundDir\mag60_fire.wav $redistdir\sound
+Copy-Item $soundDir\mag60_selected.wav $redistdir\sound
 
 Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 

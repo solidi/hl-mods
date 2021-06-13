@@ -9,8 +9,9 @@
     - [x] Boltgun
     - [x] Cannon
     - [x] Knife
-    - [ ] Crowbar
+    - [ ] Crowbar (bots disappeared?)
     - [x] Sniper Rifle
+    - [x] Mag60
 - [ ] Test weapons and behaviors under water
 - [ ] ModDB Entry
 - [ ] Steam Workshop
@@ -26,15 +27,18 @@
     - [ ] Bot support for mac
 - [ ] Weapons
     - [ ] Spawn extra weapons with other matching slot number
+    - [ ] Tighten up all idle animation times to match code
     - [x] Vest
     - [x] Silencer
     - [x] Cluster Grenades
+        - [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     - [x] Knife
     - [x] Rocket Launcher
     - [x] Inivisible Tripmines
     - [x] Chumtoad
     - [x] Sniper Rifle
     - [x] Boltgun
+        - [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     - [x] Rail Gun
     - [ ] Monkey Wrench
     - [ ] Mag 60
@@ -60,7 +64,7 @@
     - [x] Debug build pipeline
 - [x] Edict count
 - [x] Runes
-    - [ ] Glowing shell on view model
+    - [x] Glowing shell on view model
 - [ ] Skins
     - [ ] Blue blood?
     - [x] Inverted original weapons
@@ -75,7 +79,7 @@
     - [x] Remove dev.cfg
     - [x] Remove pdb files
     - [ ] Remove dSYM files
-    - [ ] Remove models/ and sprites/
+    - [ ] Remove empty models/ and sprites/
 
 ## FIXES
 

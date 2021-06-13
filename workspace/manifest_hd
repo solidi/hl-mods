@@ -38,6 +38,9 @@ models\p_satchel_radio.mdl
 models\w_satchel.mdl
 models\p_satchel.mdl
 models\w_shell.mdl
+models\w_mag60.mdl
+models\p_mag60.mdl
+models\v_mag60.mdl
 sound
 sound\knife_miss2.wav
 sprites
