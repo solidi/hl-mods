@@ -26,7 +26,6 @@ $Config = @{ }
     }
 }
 
-Import-Module $PSScriptRoot\powershell\Compile-Sprite.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
@@ -57,36 +56,6 @@ Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls -ErrorAction Ignore
-
-$spritesDir = "${rootDir}\sprites"
-
-Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\sprites -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\sprites)
-[void](New-Item -ItemType directory -Path $redisthddir\sprites)
-
-Compile-Sprite $binDir "muzzleflash1" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "muzzleflash2" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "xspark4" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hud1" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hud1" $spritesDir\hd $redisthddir\sprites
-Compile-Sprite $binDir "640hud4" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hud4" $spritesDir\hd $redisthddir\sprites
-Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_rpg.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_chumtoad.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_sniperrifle.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_railgun.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_cannon.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
-Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Compile-Font $binDir $redistDir "Arial"
 
