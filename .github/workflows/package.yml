@@ -20,27 +20,30 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Compile Windows
+    - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\workspace\Build-Windows.ps1
+      run: |
+        "`$Config = @{ 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60' }" | Add-Content .\workspace\Config.ps1
 
-    - name: Upload ice.dll
+    - name: Compile windows dlls
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Windows.ps1 -ConfigFile Config
+        $zipFile = ".\dlls.zip"
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release\dlls)
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release\cl_dlls)
+        Copy-Item -Recurse -Force ./grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll $env:TEMP\release\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll $env:TEMP\release\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll $env:TEMP\release\cl_dlls
+        Compress-Archive -LiteralPath $env:TEMP\release\dlls -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\cl_dlls -DestinationPath $zipFile -Update
+
+    - name: Upload windows dlls
       uses: actions/upload-artifact@v2
       with:
-        name: windows_ice
-        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll
-
-    - name: Upload client.dll
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows_client
-        path: ./workspace/src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll
-
-    - name: Upload grave_bot.dll
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows_gravebot
-        path: ./workspace/grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll
+        name: windows_dlls
+        path: ./workspace/dlls.zip
 
   linux_libs:
     runs-on: ubuntu-18.04
@@ -121,9 +124,8 @@ jobs:
         name: macOS_client
         path: ./workspace/libs/cl_dlls/client.dylib
 
-  package_coldice:
+  compile_tools:
     runs-on: windows-latest
-    needs: [windows_libs, linux_libs, macOS_libs]
 
     steps:
     - uses: actions/checkout@v2
@@ -133,28 +135,197 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Write Config File
+    - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'binDir' = ''; 'msBuild' = ''; 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60' }" | Add-Content .\workspace\Config.ps1
+        .\workspace\Build-Tools.ps1
+        [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
+        Copy-Item -Recurse -Force .\bin $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
 
-    - name: Download ice.dll
+    - name: Upload tools
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_tools
+        path: ./workspace/tools.zip
+
+  compile_models:
+    runs-on: windows-latest
+    needs: [compile_tools]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Download tools
       uses: actions/download-artifact@v2
       with:
-        name: windows_ice
-        path: ./workspace/libs/dlls
+        name: compiled_tools
+        path: ./workspace
 
-    - name: Download grave_bot.dll
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\workspace
+        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Compile models
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Models.ps1
+        $zipFile = ".\models.zip"
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
+        Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\release
+        Rename-Item $env:TEMP\release\models $env:TEMP\release\models_hd
+        Copy-Item -Recurse -Force .\redist\models $env:TEMP\release
+        Compress-Archive -LiteralPath $env:TEMP\release\models -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\models_hd -DestinationPath $zipFile -Update
+
+    - name: Upload models
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_models
+        path: ./workspace/models.zip
+
+  compile_sounds:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Compile sounds
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Sound.ps1
+        $zipFile = ".\sounds.zip"
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
+        Copy-Item -Recurse -Force .\redist_hd\sound $env:TEMP\release
+        Rename-Item $env:TEMP\release\sound $env:TEMP\release\sound_hd
+        Copy-Item -Recurse -Force .\redist\sound $env:TEMP\release
+        Copy-Item -Recurse -Force .\redist\media $env:TEMP\release
+        Compress-Archive -LiteralPath $env:TEMP\release\sound -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\sound_hd -DestinationPath $zipFile -Update
+        Compress-Archive -LiteralPath $env:TEMP\release\media -DestinationPath $zipFile -Update
+
+    - name: Upload sounds
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_sounds
+        path: ./workspace/sounds.zip
+
+  compile_sprites:
+    runs-on: windows-latest
+    needs: [compile_tools]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Download tools
       uses: actions/download-artifact@v2
       with:
-        name: windows_gravebot
-        path: ./workspace/libs/dlls
+        name: compiled_tools
+        path: ./workspace
 
-    - name: Download client.dll
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\workspace
+        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Compile sprites
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Sprites.ps1
+        $zipFile = ".\sprites.zip"
+        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
+        Copy-Item -Recurse -Force .\redist_hd\sprites $env:TEMP\release
+        Rename-Item $env:TEMP\release\sprites $env:TEMP\release\sprites_hd
+        Copy-Item -Recurse -Force .\redist\sprites $env:TEMP\release
+        Compress-Archive -LiteralPath $env:TEMP\release\sprites -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\sprites_hd -DestinationPath $zipFile -Update
+
+    - name: Upload sprites
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_sprites
+        path: ./workspace/sprites.zip
+
+  compile_maps:
+    runs-on: windows-latest
+    needs: [compile_tools]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Download tools
       uses: actions/download-artifact@v2
       with:
-        name: windows_client
-        path: ./workspace/libs/cl_dlls
+        name: compiled_tools
+        path: ./workspace
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\workspace
+        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Compile Maps
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\workspace\Build-Maps.ps1
+        [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
+        ls redist\maps
+        Copy-Item -Recurse -Force .\redist\maps $env:TEMP
+        ls redist
+        Copy-Item -Recurse -Force .\redist\coldice.wad $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\maps.zip -Force
+        Compress-Archive -LiteralPath $env:TEMP\coldice.wad -DestinationPath .\maps.zip -Update
+
+    - name: Upload Maps
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_maps
+        path: ./workspace/maps.zip
+
+  package_coldice:
+    runs-on: windows-latest
+    needs: [windows_libs, linux_libs, macOS_libs, compile_models, compile_maps, compile_sprites, compile_sounds]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Download windows dlls
+      uses: actions/download-artifact@v2
+      with:
+        name: windows_dlls
+        path: ./workspace
+
+    - name: Unpack windows dlls
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\dlls.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\libs\\* -Recurse -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\dlls .\workspace\libs\dlls
+        Move-Item $env:TEMP\cl_dlls .\workspace\libs\cl_dlls
+        Remove-Item .\workspace\dlls.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download ice.so
       uses: actions/download-artifact@v2
@@ -186,11 +357,79 @@ jobs:
         name: macOS_client
         path: ./workspace/libs/cl_dlls
 
-    - name: Compile tools
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\workspace\Build-Tools.ps1
+    - name: Download models
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_models
+        path: ./workspace
 
-    - name: Compile and package Cold Ice
+    - name: Unpack models
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\models.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\models .\workspace\redist\models
+        Move-Item $env:TEMP\models_hd .\workspace\redist_hd\models
+        Remove-Item .\workspace\models.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download maps
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_maps
+        path: ./workspace
+
+    - name: Unpack maps
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\maps.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\maps .\workspace\redist
+        Move-Item $env:TEMP\coldice.wad .\workspace\redist\coldice.wad
+        Remove-Item .\workspace\maps.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download sounds
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_sounds
+        path: ./workspace
+
+    - name: Unpack sounds
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\sounds.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\sound .\workspace\redist\sound
+        Move-Item $env:TEMP\sound_hd .\workspace\redist_hd\sound
+        Move-Item $env:TEMP\media .\workspace\redist\media
+        Remove-Item .\workspace\sound.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download sprites
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_sprites
+        path: ./workspace
+
+    - name: Unpack sprites
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\sprites.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\sprites .\workspace\redist\sprites
+        Move-Item $env:TEMP\sprites_hd .\workspace\redist_hd\sprites
+        Remove-Item .\workspace\sprites.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download tools
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_tools
+        path: ./workspace
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\workspace
+        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: .\workspace\Build-Release.ps1
 
