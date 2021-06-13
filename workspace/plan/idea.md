@@ -75,3 +75,6 @@
 1. [ ] Snowball Generator in place of Egon gun
 1. [ ] Decoy bombs that morph into AI assassins?
 1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
+1. [ ] Codegen for generating new weapons
+1. [ ] Contribute back to valve halflife repo with github actions to build the full suite
+1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
