@@ -317,8 +317,6 @@ jobs:
       run: |
         Expand-Archive -Path .\workspace\maps.zip -DestinationPath $env:TEMP
         Move-Item $env:TEMP\maps .\workspace\redist
-        ls $env:TEMP
-        ls $env:TEMP\maps
         Move-Item $env:TEMP\coldice.wad .\workspace\redist\coldice.wad
         Remove-Item .\workspace\maps.zip -Recurse -Force -ErrorAction Ignore
 
