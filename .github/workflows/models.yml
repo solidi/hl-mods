@@ -26,7 +26,7 @@ jobs:
         .\workspace\Build-Tools.ps1
         ls workspace\bin
         $binFolder =  ".\workspace\bin"
-        $zipFile = ".\tools.zip"
+        $zipFile = ".\workspace\tools.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
         Copy-Item -Recurse -Force $binFolder $env:TEMP\bin
         Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath $zipFile -Force
