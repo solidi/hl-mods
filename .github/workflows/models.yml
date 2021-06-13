@@ -59,7 +59,8 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         ls workspace
-        Expand-Archive -Path .\workspace\compiled_models -DestinationPath .\workspace\compiled_models.zip
+        Expand-Archive -Path .\workspace\models.zip -DestinationPath .\workspace
+        ls workspace\models
         Move-Item .\workspace\models\models .\workspace\redist\models
         Move-Item .\workspace\models\models_hd .\workspace\redist_hd\models
         Remove-Item .\workspace\models.zip -Recurse -Force -ErrorAction Ignore
