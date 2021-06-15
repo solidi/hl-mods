@@ -75,4 +75,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_righthand"
+	{
+		"#Ice_RightHand"
+		{ BOOL }
+		{ "1" }
+	}
 }

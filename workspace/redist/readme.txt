@@ -2,7 +2,8 @@ Cold Ice GoldSrc Edition
 
 This project is a rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
-Source code: https://github.com/solidi/coldice
+Source code: https://github.com/solidi/coldice-goldsrc
+Project code: https://github.com/solidi/hl-mods
 
 Features:
 
@@ -20,6 +21,7 @@ Features:
     - Air-Compressed Auto Boltgun
     - Quake II Railgun
     - 30mm Assault Cannon
+    - Mag 60 Automatic Handgun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -37,6 +39,7 @@ Features:
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
 - Holster weapon animations!
+- Right handed or left handed models
 
 Commands:
 
@@ -63,6 +66,7 @@ Client:
 - Old MOTD (Message of the Day) - "cl_oldmotd 1" - To switch between old and new style message of the day
 - Old View Roll - "cl_viewroll 1" - To switch between view roll during movement
 - Old Bob Tilt - "cl_bobtilt 1" - To switch between bob tilt walking animation
+- Right Hand Models - "cl_righthand 1" - To switch between right and left handed models
 
 Thanks To:
 
@@ -87,3 +91,4 @@ Thanks To:
 - JoelTroch for the crowbar idle weapon fix https://github.com/ValveSoftware/halflife/issues/1585
 - Powerup deathmatch runes tutorial by Phantasiere (nrich@iinet.net.au)
 - Trond for the Holster animation fix tutorial https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm
+- Maxxiii for HLSources/Headcrab Frenzy for left handed view model code https://github.com/HLSources
