@@ -38,6 +38,7 @@
 "use weapon_knife"			"#Ice_CombatKnife"
 "slot2"			"#Valve_Weapon_Category_2"
 "use weapon_9mmhandgun"			"#Ice_PPK"
+"use weapon_mag60"			"#Ice_Mag60"
 "slot3" 		"#Valve_Weapon_Category_3"
 "use weapon_crossbow"			"#Ice_Boltgun"
 "use weapon_sniperrifle"			"#Ice_SniperRifle"
