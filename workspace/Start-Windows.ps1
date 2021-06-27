@@ -59,7 +59,7 @@ $icehddir = "${hldir}\${iceFolder}_hd"
 
 # Prepare distribution folders
 Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
 if (!(Test-Path $iceDir)) {
     New-Item -ItemType directory -Path $iceDir
 }
