@@ -131,6 +131,12 @@ Invert-Skin $binDir "v_mag60" $modelsdir\hd
 Invert-Skin $binDir "p_mag60" $modelsdir
 Invert-Skin $binDir "w_mag60" $modelsdir
 Invert-Skin $binDir "v_mag60" $modelsdir
+Invert-Skin $binDir "p_chaingun" $modelsdir\hd
+Invert-Skin $binDir "w_chaingun" $modelsdir\hd
+Invert-Skin $binDir "v_chaingun" $modelsdir\hd
+Invert-Skin $binDir "p_chaingun" $modelsdir
+Invert-Skin $binDir "w_chaingun" $modelsdir
+Invert-Skin $binDir "v_chaingun" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -229,5 +235,11 @@ Compile-Model $binDir "p_mag60" $modelsdir $redistDir\models
 Compile-Model $binDir "w_mag60" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_mag60" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_mag60" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_chaingun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_chaingun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_chaingun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_chaingun" $modelsdir $redistDir\models
+Compile-Model $binDir "v_chaingun" $modelsdir $redistDir\models
+Compile-Model $binDir "p_chaingun" $modelsdir $redistDir\models
 
 Set-Location -Path ${PSScriptRoot}

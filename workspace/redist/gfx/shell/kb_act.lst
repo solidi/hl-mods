@@ -42,6 +42,7 @@
 "slot3" 		"#Valve_Weapon_Category_3"
 "use weapon_crossbow"			"#Ice_Boltgun"
 "use weapon_sniperrifle"			"#Ice_SniperRifle"
+"use weapon_chaingun"			"#Ice_Chaingun"
 "slot4"			"#Valve_Weapon_Category_4"
 "use weapon_rpg"			"#Ice_ExtremeRPG"
 "use weapon_railgun"			"#Ice_Railgun"

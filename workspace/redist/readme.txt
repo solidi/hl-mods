@@ -22,6 +22,7 @@ Features:
     - Quake II Railgun
     - 30mm Assault Cannon
     - Mag 60 Automatic Handgun
+    - 25-Inch Chaingun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
