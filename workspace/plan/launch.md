@@ -12,7 +12,10 @@
     - [ ] Crowbar (bots disappeared?)
     - [x] Sniper Rifle
     - [x] Mag60
-- [ ] Test weapons and behaviors under water
+    - [x] Chaingun
+- [ ] Testing
+    - [ ] Weapons behaviors under water
+    - [ ] Fakelag with weapons
 - [ ] ModDB Entry
 - [ ] Steam Workshop
 - [ ] Steam Community Forums
@@ -41,17 +44,20 @@
         - [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     - [x] Rail Gun
     - [ ] Monkey Wrench
-    - [ ] Mag 60
+    - [x] Mag 60
+        - [ ] Akimbo support?
     - [ ] M16 Assault Rifle
     - [ ] 12 Gauge Shotgun
     - [ ] Assault Shotgun
     - [ ] USAS-12 Auto Shotgun
-    - [ ] 25-inch Chaingun
+    - [x] 25-Inch Chaingun
     - [x] 30mm Assault Cannon
     - [ ] 120-Pound Grenade Launcher
     - [x] Female Assassin Decoy Bombs
     - [ ] Nuke Launcher
     - [ ] Pulse Rifle
+    - [ ] Pulse Pistol
+    - [ ] Snowball Machine
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
@@ -95,3 +101,5 @@
 - [x] Holster weapons [animation](https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm)
 - [x] macOS zip file contains invalid paths?
 - [ ] Railgun follows through multiple targets
+- [ ] Secondary chaingun idea?
+    - [ ] Faster spin?

@@ -54,6 +54,7 @@ Compile-Sound $binDir $redistDir $soundDir "139-item-catch.mp3" 1.0 "sound\boltg
 Compile-Sound $binDir $redistDir $soundDir "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
 Compile-Sound $binDir $redistdir $soundDir "m2burnbaby.mp3" 1.0 "sound\cannon_burn.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "i-am-turok.mp3" 1.5 "sound\mag60_turok.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "hell-yeah_dBN35mW.mp3" 1.5 "sound\chaingun_hellyeah.wav" "wav"
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
@@ -109,5 +110,10 @@ Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
 Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
 Copy-Item $soundDir\mag60_fire.wav $redistdir\sound
 Copy-Item $soundDir\mag60_selected.wav $redistdir\sound
+Copy-Item $soundDir\chaingun_fire.wav $redistdir\sound
+Copy-Item $soundDir\chaingun_spinup.wav $redistdir\sound
+Copy-Item $soundDir\chaingun_spindown.wav $redistdir\sound
+Copy-Item $soundDir\chaingun_selected.wav $redistdir\sound
+Copy-Item $soundDir\chaingun_reload.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}
