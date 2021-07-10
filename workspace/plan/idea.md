@@ -53,6 +53,8 @@
 ## Nice to Haves
 
 1. [ ] Convert weaponbox to dropped weapon
+  1. [ ] Convert all weapons to ground
+  1. [ ] Two models for w_ models - ground, and floating/spinning
 1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
 1. [x] Have humorous sound effect with each weapon?
 1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?

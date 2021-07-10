@@ -44,6 +44,9 @@ models\v_mag60.mdl
 models\w_chaingun.mdl
 models\p_chaingun.mdl
 models\v_chaingun.mdl
+models\w_glauncher.mdl
+models\p_glauncher.mdl
+models\v_glauncher.mdl
 sound
 sound\knife_miss2.wav
 sprites

@@ -137,6 +137,12 @@ Invert-Skin $binDir "v_chaingun" $modelsdir\hd
 Invert-Skin $binDir "p_chaingun" $modelsdir
 Invert-Skin $binDir "w_chaingun" $modelsdir
 Invert-Skin $binDir "v_chaingun" $modelsdir
+Invert-Skin $binDir "p_glauncher" $modelsdir\hd
+Invert-Skin $binDir "w_glauncher" $modelsdir\hd
+Invert-Skin $binDir "v_glauncher" $modelsdir\hd
+Invert-Skin $binDir "p_glauncher" $modelsdir
+Invert-Skin $binDir "w_glauncher" $modelsdir
+Invert-Skin $binDir "v_glauncher" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -241,5 +247,11 @@ Compile-Model $binDir "v_chaingun" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_chaingun" $modelsdir $redistDir\models
 Compile-Model $binDir "v_chaingun" $modelsdir $redistDir\models
 Compile-Model $binDir "p_chaingun" $modelsdir $redistDir\models
+Compile-Model $binDir "w_glauncher" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_glauncher" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_glauncher" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_glauncher" $modelsdir $redistdir\models
+Compile-Model $binDir "p_glauncher" $modelsdir $redistdir\models
+Compile-Model $binDir "v_glauncher" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}
