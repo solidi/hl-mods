@@ -185,7 +185,7 @@ sound\chaingun_hellyeah.wav
 sound\chaingun_reload.wav
 sound\glauncher_selected.wav
 sound\glauncher_reload.wav
-sound\glauncher_bad.waw
+sound\glauncher_bad.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
