@@ -18,6 +18,7 @@ events\cannon.sc
 events\cannon_flak.sc
 events\mag60.sc
 events\chaingun.sc
+events\glauncher.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -88,6 +89,9 @@ models\p_mag60.mdl
 models\w_chaingun.mdl
 models\p_chaingun.mdl
 models\v_chaingun.mdl
+models\w_glauncher.mdl
+models\p_glauncher.mdl
+models\v_glauncher.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -179,6 +183,9 @@ sound\chaingun_spindown.wav
 sound\chaingun_selected.wav
 sound\chaingun_hellyeah.wav
 sound\chaingun_reload.wav
+sound\glauncher_selected.wav
+sound\glauncher_reload.wav
+sound\glauncher_bad.waw
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -198,6 +205,7 @@ sprites\weapon_railgun.txt
 sprites\weapon_cannon.txt
 sprites\weapon_mag60.txt
 sprites\weapon_chaingun.txt
+sprites\weapon_glauncher.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

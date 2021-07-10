@@ -13,9 +13,11 @@
     - [x] Sniper Rifle
     - [x] Mag60
     - [x] Chaingun
+    - [x] Grenade Launcher
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
+    - [ ] Map changes with all weapons
 - [ ] ModDB Entry
 - [ ] Steam Workshop
 - [ ] Steam Community Forums
@@ -52,7 +54,7 @@
     - [ ] USAS-12 Auto Shotgun
     - [x] 25-Inch Chaingun
     - [x] 30mm Assault Cannon
-    - [ ] 120-Pound Grenade Launcher
+    - [x] 120-Pound Grenade Launcher
     - [x] Female Assassin Decoy Bombs
     - [ ] Nuke Launcher
     - [ ] Pulse Rifle
@@ -103,3 +105,4 @@
 - [ ] Railgun follows through multiple targets
 - [ ] Secondary chaingun idea?
     - [ ] Faster spin?
+- [ ] Normalize arm skins (orange default)

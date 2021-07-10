@@ -55,6 +55,7 @@ Compile-Sound $binDir $redistDir $soundDir "excellent.mp3" 1.0 "sound\railgun_se
 Compile-Sound $binDir $redistdir $soundDir "m2burnbaby.mp3" 1.0 "sound\cannon_burn.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "i-am-turok.mp3" 1.5 "sound\mag60_turok.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "hell-yeah_dBN35mW.mp3" 1.5 "sound\chaingun_hellyeah.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "team-fortress-2-heavy-oh-this-is-bad.mp3" 1.0 "sound\glauncher_bad.wav" "wav"
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
@@ -115,5 +116,7 @@ Copy-Item $soundDir\chaingun_spinup.wav $redistdir\sound
 Copy-Item $soundDir\chaingun_spindown.wav $redistdir\sound
 Copy-Item $soundDir\chaingun_selected.wav $redistdir\sound
 Copy-Item $soundDir\chaingun_reload.wav $redistdir\sound
+Copy-Item $soundDir\glauncher_selected.wav $redistdir\sound
+Copy-Item $soundDir\glauncher_reload.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}
