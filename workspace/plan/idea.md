@@ -52,31 +52,39 @@
 
 ## Nice to Haves
 
-1. [ ] Convert weaponbox to dropped weapon
-  1. [ ] Convert all weapons to ground
-  1. [ ] Two models for w_ models - ground, and floating/spinning
-1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
-1. [x] Have humorous sound effect with each weapon?
-1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
-1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
-1. [ ] Akimbo models
-1. [x] Third model mode - real skins
-1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
-1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY)
-1. [ ] Jetpack?
-1. [ ] C4 mine placement with satchels.
-1. [x] Invisible tripmines
-1. [ ] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
-1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
-1. [ ] Taser
-1. [ ] Nuke launcher (Cold Ice 2.5 model)
-1. [ ] Pulse Rifle
-1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
-1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
-1. [ ] Swap blue sprites with real sprites with cl_icemodels?
-1. [ ] Snowball Generator in place of Egon gun
-1. [ ] Decoy bombs that morph into AI assassins?
-1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
-1. [ ] Codegen for generating new weapons
-1. [ ] Contribute back to valve halflife repo with github actions to build the full suite
-1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
+1. Game Mechanics
+    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
+    1. [ ] Jetpack?
+1. Environment look and feel
+    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
+    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+1. Gameplay
+    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
+    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
+    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
+1. Weapons
+    1. [x] Have humorous sound effect with each weapon?
+    1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
+    1. [x] Invisible tripmines
+    1. [ ] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
+    1. [ ] C4 mine placement with satchels.
+    1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY)
+    1. [ ] Akimbo models
+    1. [ ] Taser
+    1. [ ] Nuke launcher (Cold Ice 2.5 model)
+    1. [ ] Pulse Rifle
+    1. [ ] Snowball Generator in place of Egon gun
+    1. [ ] Decoy bombs that morph into AI assassins?
+1. Model Ideas
+    1. [x] Third model mode - real skins
+        1. [ ] Convert weaponbox to dropped weapon
+            1. [ ] Convert all weapons to ground
+            1. [ ] Two models for w_ models - ground, and floating/spinning
+    1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
+    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
+    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
+1. Game Dev Tools
+    1. [x] Contribute back to valve halflife repo with github actions to build the full suite
+    1. [ ] Codegen for generating new weapons
+    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
