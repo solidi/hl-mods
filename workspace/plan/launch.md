@@ -18,10 +18,15 @@
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
     - [ ] Map changes with all weapons
-- [ ] ModDB Entry
-- [ ] Steam Workshop
-- [ ] Steam Community Forums
-- [ ] Update url_dl in liblist.gam
+- [ ] Publish
+    - [ ] ModDB Entry
+    - [ ] Gamebanana Entry
+    - [ ] Write short post
+        - [ ] r/halflife
+        - [ ] fb ragegroup
+        - [ ] Steam Workshop?
+    - [ ] Steam Community Forums
+    - [ ] Update url_dl in liblist.gam
 
 ## TODO
 
