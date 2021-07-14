@@ -84,6 +84,7 @@
     1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
+    1. [ ] [Weapon fidget effect](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=540s) when jumping or landing a jump.
 1. Game Dev Tools
     1. [x] Contribute back to valve halflife repo with github actions to build the full suite
     1. [ ] Codegen for generating new weapons
