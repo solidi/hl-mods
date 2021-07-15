@@ -76,6 +76,7 @@
     1. [ ] Pulse Rifle
     1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
+    1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
 1. Model Ideas
     1. [x] Third model mode - real skins
         1. [ ] Convert weaponbox to dropped weapon
