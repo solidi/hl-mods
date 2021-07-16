@@ -27,6 +27,22 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "mp5sd"
 
+$texturegroup ice
+{
+  {
+    "PLAYER_ForeArm1.bmp"
+  }
+  {
+    "..\PLAYER_ForeArm1.bmp"
+  }
+  {
+    "..\PLAYER_ForeArm1.bmp"
+  }
+  {
+    "..\PLAYER_ForeArm1.bmp"
+  }
+}
+
 
 // 1 attachment(s)
 $attachment 0 "Bone09" -14.000000 1.000000 -0.500000

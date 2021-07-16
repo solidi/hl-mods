@@ -219,3 +219,4 @@
 1. [This thread](https://forum.blockland.us/index.php?topic=229530.0) helped me determine that Ctrl+Swipe is zoom in/out with MilkShape. Shift+Right click will unselect items (vertices).
 1. To fix the broken view in Milk Shape 3D, [this thread](https://gamebanana.com/tuts/12753) was important to uncover the config files needed to be cleaned here: `C:\Users\USERNAME\AppData\Roaming\MilkShape 3D 1.x.x`
 1. To create numerous directories at once in Powershell, use `New-Item -Path @('abc','def','jkl') -ItemType Directory`. See [this thread](https://superuser.com/questions/1128113/multiple-directories-powershell-equivalent-of-mkdir-dir1-9) for details.
+1. In Milkshape 3d, a reference model can be generated from a sequence animation frame. Load the frame in animation mode, and then select all joints. In the `Animate` menu, select `Adjust SMD Keys.` Select the default values. Click the button to lock in the reference for use.

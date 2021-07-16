@@ -23,6 +23,8 @@ Features:
     - 30mm Assault Cannon
     - Mag 60 Automatic Handgun
     - 25-Inch Chaingun
+    - 120-Pound Grenade Launcher
+    - Hans Gruber's Submachine gun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -81,7 +83,7 @@ Thanks To:
 - RR2DO2 for the cluster grenades tutorial http://web.archive.org/web/20010720214509/http://www.contaminated.net/whenitsdone/tutorials/coding/clustergrenades/index.shtml
 - APGRoboCop for grave bot https://github.com/APGRoboCop/grave_bot
 - MachIII for the weapons label tutorial http://web.archive.org/web/20040702181915/http://www.contaminated.net/mach3/tutorials/weapons/weapon_names.html
-- MyInstants.com and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
+- MyInstants.com, movie-sounds.org and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
 - RealPatryQVortex for the combat knife https://gamebanana.com/skins/174427
 - Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
 - GearBox for select sound effects from Opposing Force

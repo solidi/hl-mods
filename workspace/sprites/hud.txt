@@ -1,4 +1,4 @@
-141
+143
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -77,6 +77,7 @@ d_flak_bomb 	320	320hud1	96	208	48	16
 d_flak_bomb 	320	320hud1	96	208	48	16
 d_mag60			320	320hud1	0	240	32	16
 d_chaingun		320	320hud1	48	208	48	16
+d_smg			320	320hud1	48	208	48	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -167,6 +168,7 @@ d_flak      	640	640hud1	192	96	48	16
 d_flak_bomb 	640	640hud1	192	96	48	16
 d_mag60			640	640hud1	192	32	32	16
 d_chaingun		640	640hud1	192	48	48	16
+d_smg			640	640hud1	192	48	48	16
 
 item_battery	640 640hud2	176	0	44	44
 item_healthkit	640 640hud2	176	48	44	44
