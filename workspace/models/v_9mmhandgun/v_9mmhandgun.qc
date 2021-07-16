@@ -90,7 +90,8 @@ $sequence "shoot_empty" "shoot_empty" fps 25 { event 5001 0 "11" }
 $sequence "reload" "reload" fps 18 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
 $sequence "reload_noshot" "reload_noshot" fps 18 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
 $sequence "draw" "draw" fps 16 { event 5004 5 "handgun_selected.wav" }
-$sequence "holster" "holster" fps 16 { event 5004 0 "handgun_bond.wav" } 
+$sequence "holster" "holster" fps 16 
+$sequence "silencer" "holster" fps 16 { event 5004 0 "handgun_bond.wav" } 
 $sequence "add_silencer" "add_silencer" fps 18 
 
 // End of QC script.

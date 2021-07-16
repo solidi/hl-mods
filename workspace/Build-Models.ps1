@@ -143,6 +143,14 @@ Invert-Skin $binDir "v_glauncher" $modelsdir\hd
 Invert-Skin $binDir "p_glauncher" $modelsdir
 Invert-Skin $binDir "w_glauncher" $modelsdir
 Invert-Skin $binDir "v_glauncher" $modelsdir
+Invert-Skin $binDir "w_contact_grenade" $modelsdir
+Invert-Skin $binDir "w_contact_grenade" $modelsdir\hd
+Invert-Skin $binDir "p_smg" $modelsdir\hd
+Invert-Skin $binDir "w_smg" $modelsdir\hd
+Invert-Skin $binDir "v_smg" $modelsdir\hd
+Invert-Skin $binDir "p_smg" $modelsdir
+Invert-Skin $binDir "w_smg" $modelsdir
+Invert-Skin $binDir "v_smg" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -253,5 +261,13 @@ Compile-Model $binDir "v_glauncher" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_glauncher" $modelsdir $redistdir\models
 Compile-Model $binDir "p_glauncher" $modelsdir $redistdir\models
 Compile-Model $binDir "v_glauncher" $modelsdir $redistdir\models
+Compile-Model $binDir "w_contact_grenade" $modelsdir $redistdir\models
+Compile-Model $binDir "w_contact_grenade" $modelsdir $redisthddir\models
+Compile-Model $binDir "w_smg" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_smg" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_smg" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_smg" $modelsdir $redistdir\models
+Compile-Model $binDir "p_smg" $modelsdir $redistdir\models
+Compile-Model $binDir "v_smg" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}

@@ -14,6 +14,7 @@
     - [x] Mag60
     - [x] Chaingun
     - [x] Grenade Launcher
+    - [x] mp5k
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
