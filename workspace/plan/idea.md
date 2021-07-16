@@ -90,3 +90,6 @@
     1. [x] Contribute back to valve halflife repo with github actions to build the full suite
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
+1. Supported Systems
+    1. [ ] macOS support for grave_bot
+    1. [ ] Android and iOS support (Xash3d?)

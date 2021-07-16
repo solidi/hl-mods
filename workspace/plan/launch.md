@@ -35,7 +35,7 @@
 - [x] Bot support
     - [ ] Bot support for hook
     - [ ] Custom map waypoints for bots
-    - [ ] Bot support for mac
+    - [ ] Bot support for macOS
 - [ ] Weapons
     - [ ] Spawn extra weapons with other matching slot number
     - [ ] Tighten up all idle animation times to match code
@@ -66,6 +66,7 @@
     - [ ] Pulse Rifle
     - [ ] Pulse Pistol
     - [ ] Snowball Machine
+    - [ ] mp5k
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
