@@ -220,3 +220,10 @@
 1. To fix the broken view in Milk Shape 3D, [this thread](https://gamebanana.com/tuts/12753) was important to uncover the config files needed to be cleaned here: `C:\Users\USERNAME\AppData\Roaming\MilkShape 3D 1.x.x`
 1. To create numerous directories at once in Powershell, use `New-Item -Path @('abc','def','jkl') -ItemType Directory`. See [this thread](https://superuser.com/questions/1128113/multiple-directories-powershell-equivalent-of-mkdir-dir1-9) for details.
 1. In Milkshape 3d, a reference model can be generated from a sequence animation frame. Load the frame in animation mode, and then select all joints. In the `Animate` menu, select `Adjust SMD Keys.` Select the default values. Click the button to lock in the reference for use.
+1. An [excellent video](https://www.youtube.com/watch?v=AQNznlxlmNE) in animating in Milkshape 3d by MTB.
+1. When ready to [compile ImageMagick](https://imagemagick.org/script/install-source.php), use [this github repo here](https://github.com/ImageMagick/ImageMagick) and for Windows [here](https://github.com/ImageMagick/ImageMagick-Windows).
+1. For switches in msbuild.exe, see [this thread](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019). For msbuild project switches, [see this thread](https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/msbuild/common-msbuild-project-properties?view=vs-2015&redirectedfrom=MSDN)
+1. Valves overview of Half-Life modeling guide [can be found here](https://mrl.cs.nyu.edu/~dzorin/ig04/lecture22/modeling.pdf).
+1. To unrar a file to a path, use `rar x archive.rar path/to/extract/to`
+1. Here is an old tutorial of how to build a [Half-Life model](https://www.oocities.org/vs49688/hlsdk2/sdk/MS3d_to_HL.htm).
+1. Here [is a full breakdown](https://www.shouldiremoveit.com/Ricochet-48209-program.aspx) of all libraries in the valve folder with labels. This includes cg.dll and cgGL.dll. The [NativeDllTester](https://github.com/Solokiller/NativeDllTester) was helpful in discovering loaded libraries from [this problem thread](https://github.com/ValveSoftware/halflife/issues/2086).
