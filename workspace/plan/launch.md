@@ -94,7 +94,7 @@
     - [x] Remove dev.cfg
     - [x] Remove pdb files
     - [ ] Remove dSYM files
-    - [ ] Remove empty models/ and sprites/
+    - [x] Remove empty models/ and sprites/
 
 ## FIXES
 

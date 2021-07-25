@@ -24,8 +24,5 @@ function PAK-File {
         exit
     }
 
-    foreach ($folder in $targets) {
-        Remove-Item "${targetDir}\${folder}\\*" -Recurse -Force
-    }
     Remove-Item "${targetDir}\qpakman.exe"
 }
