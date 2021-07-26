@@ -12,6 +12,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
+[bool]$clean = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -19,6 +20,9 @@ $Config = @{ }
         $configFile = $_.Split(' ')[1]
         . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
+        $clean = $true
+        echo "rebuilding all models..."
     }
 }
 
@@ -30,12 +34,14 @@ $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
-Remove-Item $redistDir\models\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\models -Force -ErrorAction Ignore
-Remove-Item $redisthddir\models -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\models)
-[void](New-Item -ItemType directory -Path $redisthddir\models)
+if ($clean -eq $true) {
+    Remove-Item $redistDir\models\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redisthddir\models\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redistDir\models -Force -ErrorAction Ignore
+    Remove-Item $redisthddir\models -Force -ErrorAction Ignore
+    [void](New-Item -ItemType directory -Path $redistDir\models)
+    [void](New-Item -ItemType directory -Path $redisthddir\models)
+}
 
 $modelsdir = "${rootDir}\models"
 
