@@ -39,6 +39,7 @@ Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
 
 Compile-Sprite $binDir "muzzleflash1" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "muzzleflash2" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "muzzleflash3" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "xspark4" $spritesDir $redistDir\sprites
@@ -59,6 +60,7 @@ Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_chaingun.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_glauncher.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_smg.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_usas.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

@@ -15,6 +15,7 @@
     - [x] Chaingun
     - [x] Grenade Launcher
     - [x] mp5k
+    - [x] Usas
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
@@ -57,7 +58,7 @@
     - [ ] M16 Assault Rifle
     - [ ] 12 Gauge Shotgun
     - [ ] Assault Shotgun
-    - [ ] USAS-12 Auto Shotgun
+    - [x] USAS-12 Auto Shotgun
     - [x] 25-Inch Chaingun
     - [x] 30mm Assault Cannon
     - [x] 120-Pound Grenade Launcher
@@ -66,7 +67,7 @@
     - [ ] Pulse Rifle
     - [ ] Pulse Pistol
     - [ ] Snowball Machine
-    - [ ] mp5k
+    - [x] mp5k
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD

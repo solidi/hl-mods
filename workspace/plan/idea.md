@@ -76,7 +76,9 @@
     1. [ ] Pulse Rifle
     1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
+1. Weapon Effects
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
+    1. [ ] A generic draw/holster sound? (like CS:GO)
 1. Model Ideas
     1. [x] Third model mode - real skins
         1. [ ] Convert weaponbox to dropped weapon
@@ -90,6 +92,8 @@
     1. [x] Contribute back to valve halflife repo with github actions to build the full suite
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
+    1. [ ] Timestamps for building artifacts
+        1. If timestamp of built artifact is newer than all source artifacts, skip building again
 1. Supported Systems
     1. [ ] macOS support for grave_bot
     1. [ ] Android and iOS support (Xash3d?)

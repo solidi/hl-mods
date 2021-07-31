@@ -51,6 +51,10 @@ models\w_smg.mdl
 models\p_smg.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
+models\v_usas.mdl
+models\p_usas.mdl
+models\w_usas.mdl
+models\w_shotgunshell.mdl
 sound
 sound\knife_miss2.wav
 sprites

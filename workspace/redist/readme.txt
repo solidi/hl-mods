@@ -25,6 +25,7 @@ Features:
     - 25-Inch Chaingun
     - 120-Pound Grenade Launcher
     - Hans Gruber's Submachine gun
+    - USAS-12 Auto Shotgun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -95,3 +96,4 @@ Thanks To:
 - Powerup deathmatch runes tutorial by Phantasiere (nrich@iinet.net.au)
 - Trond for the Holster animation fix tutorial https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm
 - Maxxiii for HLSources/Headcrab Frenzy for left handed view model code https://github.com/HLSources
+- Teh Snake for the USAS-12 model https://gamebanana.com/mods/230345
