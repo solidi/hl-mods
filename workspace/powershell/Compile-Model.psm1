@@ -18,7 +18,7 @@ function Compile-Model {
     echo "$target source files: $lastestSourceFileStamp >? mdl file: $mdlTimestamp"
 
     if ($lastestSourceFileStamp -gt $mdlTimestamp) {
-        Remove-Item $modelsDir\$target.mdl -ErrorAction Ignore
+        Remove-Item $modelsDir\$target.mdl -ErrorAction Ignore # Clean up a failed move prior.
         Set-Location -Path $modelsDir\$target
         echo "Compiling model $modelsDir\$target\$target.qc..."
         $out = & $binDir\studiomdl $modelsDir\$target\$target.qc | Out-String
