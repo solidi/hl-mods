@@ -176,7 +176,7 @@ jobs:
     - name: Compile models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Models.ps1
+        .\workspace\Build-Models.ps1 -Clean
         $zipFile = ".\models.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\release
