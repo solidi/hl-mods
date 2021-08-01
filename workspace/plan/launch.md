@@ -68,6 +68,7 @@
     - [ ] Pulse Pistol
     - [ ] Snowball Machine
     - [x] mp5k
+    - [ ] Spinning w_ models as a server option
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD
@@ -114,3 +115,4 @@
 - [ ] Secondary chaingun idea?
     - [ ] Faster spin?
 - [ ] Normalize arm skins (orange default)
+- [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.

@@ -69,16 +69,19 @@
     1. [ ] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
     1. [ ] C4 mine placement with satchels.
     1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
-    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY)
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
     1. [ ] Akimbo models
     1. [ ] Taser
     1. [ ] Nuke launcher (Cold Ice 2.5 model)
     1. [ ] Pulse Rifle
     1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
+    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+    1. [ ] [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
 1. Weapon Effects
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [ ] A generic draw/holster sound? (like CS:GO)
+    1. [ ] [Gun fidget / movement on landing a jump](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=526s)
 1. Model Ideas
     1. [x] Third model mode - real skins
         1. [ ] Convert weaponbox to dropped weapon
