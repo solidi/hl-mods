@@ -82,6 +82,7 @@
 - [x] Edict count
 - [x] Runes
     - [x] Glowing shell on view model
+    - [ ] Cloak rune
 - [ ] Skins
     - [ ] Blue blood?
     - [x] Inverted original weapons
@@ -90,7 +91,10 @@
     - [ ] Overview graphic
 - [ ] Menu Graphics
     - [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
+- [ ] HUD
     - [ ] Best effort weapon sprites
+    - [ ] Original CI numbers / Overhaul numbers
+    - [ ] Re-enable suit voice updates?
 - [ ] Package for release script
     - [ ] Remove config or replace with default one
     - [x] Remove dev.cfg

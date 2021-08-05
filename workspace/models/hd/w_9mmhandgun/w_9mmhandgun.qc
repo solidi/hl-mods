@@ -48,5 +48,6 @@ $hbox 0 "w_beretta" -4.890000 -6.370000 -0.840000 4.890000 6.370000 0.840000
 
 // 1 animation sequence(s)
 $sequence "idle" "idle" fps 30 
+$sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.
