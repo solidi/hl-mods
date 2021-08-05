@@ -95,7 +95,8 @@ $hbox 0 "joint19" -9.260000 -9.270000 -1.140000 9.410000 9.500000 1.750000
 $hbox 0 "joint20" -8.220000 -8.930000 0.000000 8.080000 8.740000 4.000199
 $hbox 0 "joint21" -5.430000 -5.440000 -0.140000 5.300000 5.330000 1.570000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 20 loop 
+$sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

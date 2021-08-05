@@ -53,6 +53,6 @@ $hbox 0 "Line01" -27.520000 -5.730000 -24.730000 36.980000 9.250000 24.740000
 
 // 2 animation sequence(s)
 $sequence "idle" "idle" fps 30 
-$sequence "onside" "onside" fps 30 
+$sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

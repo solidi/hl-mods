@@ -59,10 +59,11 @@ $texturegroup ice
   }
 }
 
-// 7 hit box(es)
+// hit box(es)
 $hbox 0 "chaingun" 0.000000 0.380367 0.118497 1.570796 -0.000000 0.000000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
+$sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

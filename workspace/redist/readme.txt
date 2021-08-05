@@ -55,6 +55,7 @@ Server:
 - Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_crowbar;weapon_knife;weapon_9mmhandgun""
 - Allow powerup runes on server - "mp_allowrunes 1"
 - Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
+- Floating wrold weapons ala Quake - "mp_floatingweapons 1"
 
 Client:
 

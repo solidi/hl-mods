@@ -53,6 +53,7 @@ $hbox 0 "w_satchel" -8.280000 -5.940000 -7.640000 6.690000 5.940000 12.630000
 
 // 2 animation sequence(s)
 $sequence "idle" "idle" fps 30 
+$sequence "spin" "spin" fps 21 loop 
 $sequence "onback" "onback" fps 30 
 
 // End of QC script.

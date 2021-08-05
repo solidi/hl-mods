@@ -50,7 +50,7 @@ $texturegroup ice
 // 1 hit box(es)
 $hbox 0 "Line01" -47.169998 -16.750000 0.000000 29.910000 12.190000 13.760000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 

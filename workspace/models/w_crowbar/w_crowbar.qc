@@ -50,7 +50,8 @@ $texturegroup ice
 // 1 hit box(es)
 $hbox 0 "Box01" -2.580000 -1.360000 -4.290000 7.550000 1.360000 39.070000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
+$sequence "spin" "spin" loop fps 21 
 
 // End of QC script.

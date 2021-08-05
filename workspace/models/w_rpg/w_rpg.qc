@@ -45,8 +45,8 @@ $texturegroup ice
 // 1 hit box(es)
 $hbox 0 "Cylinder01" -10.650000 -9.870000 -1.520000 3.970000 5.900000 74.070000
 
-// 2 animation sequence(s)
+// animation sequence(s)
 $sequence "stayput" "stayput" fps 30 
-$sequence "onside" "onside" fps 30 
+$sequence "spin" "spin" loop fps 21 
 
 // End of QC script.

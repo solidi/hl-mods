@@ -51,6 +51,7 @@ $hbox 0 "Line02" -7.090000 -8.610000 -2.960000 2.220000 5.670000 5.560000
 
 // 7 animation sequence(s)
 $sequence "idle" "idle" fps 30 
+$sequence "spin" "spin" fps 21 loop 
 $sequence "roll1" "roll1" fps 15 loop 
 $sequence "roll2" "roll2" fps 15 loop 
 $sequence "toss_1" "toss_1" fps 10 loop 
