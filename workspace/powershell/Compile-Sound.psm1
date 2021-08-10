@@ -8,8 +8,8 @@ function Compile-Sound {
         [float]$volume,
         $outsound,
         $type="wav",
-        [int]$trimfrom=0,
-        [int]$trimto=0
+        [float]$trimfrom=0,
+        [float]$trimto=0
     )
 
     $trimcmd = ""
@@ -31,6 +31,8 @@ function Compile-Sound {
           + "$trimcmd " `
           + "-hide_banner -loglevel error " `
           + "$redistDir\$outsound"
+    echo "command: $in"
+    #+ "-af `"firequalizer=gain_entry='entry(0,8);entry(250,4);entry(1000,-8);entry(4000,0);entry(16000,-8)'`" " `
 
     $out = iex $in | Out-String
     if ($lastexitcode -ne 0) {

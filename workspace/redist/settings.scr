@@ -122,7 +122,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_Spawn_Weapon_List"
 		{ STRING }
-		{ "weapon_crowbar;weapon_knife;weapon_9mmhandgun" }
+		{ "weapon_fists;weapon_crowbar;weapon_knife;weapon_9mmhandgun" }
 	}
 
 	"mp_allowrunes"
