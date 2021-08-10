@@ -34,6 +34,7 @@
 "impulse 100"	"#Valve_Flashlight"
 "impulse 201"	"#Valve_Spray_Logo"
 "slot1"			"#Valve_Weapon_Category_1"
+"use weapon_fists"			"#Ice_Fists"
 "use weapon_crowbar"			"#Ice_StandardCrowbar"
 "use weapon_knife"			"#Ice_CombatKnife"
 "slot2"			"#Valve_Weapon_Category_2"

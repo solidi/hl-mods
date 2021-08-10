@@ -26,6 +26,7 @@ Features:
     - 120-Pound Grenade Launcher
     - Hans Gruber's Submachine gun
     - USAS-12 Auto Shotgun
+    - Manos de Piedras
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -52,7 +53,7 @@ Server:
 - Allow grappling hook on server - "mp_grapplinghook 1"
 - Time (seconds) when next grappling hook can deploy - "mp_grapplinghookdeploytime 1.0"
 - Add a bot - Use "addbot"
-- Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_crowbar;weapon_knife;weapon_9mmhandgun""
+- Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_knife;weapon_9mmhandgun""
 - Allow powerup runes on server - "mp_allowrunes 1"
 - Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
 - Floating wrold weapons ala Quake - "mp_floatingweapons 1"
@@ -76,6 +77,7 @@ Client:
 Thanks To:
 
 - Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
+- Gamebanana for "the" archive of models, effects, and everything https://gamebanana.com/
 - Various for documenting all cut items from Half-Life https://tcrf.net/Half-Life_(Windows)
 - the303 for full mdl spec documentation https://the303.org/tutorials/gold_qc.htm
 - Sparken for OzMod grapple hook source https://www.facebook.com/HalfLifeOzDMMod
@@ -98,3 +100,8 @@ Thanks To:
 - Trond for the Holster animation fix tutorial https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm
 - Maxxiii for HLSources/Headcrab Frenzy for left handed view model code https://github.com/HLSources
 - Teh Snake for the USAS-12 model https://gamebanana.com/mods/230345
+- Sgt.Leon and the HIT Forum for the HIT Fist pack https://gamebanana.com/mods/180184
+- Gaming Sound FX for sound and effects https://www.youtube.com/channel/UCi-xN4ZB6e-0JcXzvBEomlw
+- Audio Library - Free Sound Effects for sound and effects https://www.youtube.com/channel/UCkq5JZ2yOF7b0rkMQMgdAIA
+- WastelandHL for sound effects and inspiration http://wastelandhalflife.com/screenshots.shtml
+

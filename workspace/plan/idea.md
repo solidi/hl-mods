@@ -34,7 +34,7 @@
   | - | Mag 60 Automatic Handgun | 2 | fast fire | 22 | 150 | slow fire | 0 | no
   | - | M-16 Assault Rifle | 3 | fire | 30 | 75 | zoom | 0 | no
   | - | 12 Gauge Shotgun | 4 | fire | 2 | 45 | double fire | 0 | no
-  | - | Assault Shotgun | 4 | fire | 8 | 45 | explosive buskshot | 8 | no
+  | - | Assault Shotgun | 4 | fire | 8 | 45 | explosive buckshot | 8 | no
   | - | USAS-12 Auto Shotgun | 4 | fire | 40 | 80 | no | 0 | no
   | - | 25-inch Chaingun | 5 | fire | 60 | 200 | buckshot | 45 | no
   | - | 7.65mm Sniper Rifle | 6 | fire | 10 | 20 | zoom | 0 | no
@@ -66,7 +66,7 @@
     1. [x] Have humorous sound effect with each weapon?
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
     1. [x] Invisible tripmines
-    1. [ ] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
+    1. [x] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
     1. [ ] C4 mine placement with satchels.
     1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
     1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
@@ -78,6 +78,7 @@
     1. [ ] Decoy bombs that morph into AI assassins?
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
+    1. [ ] Big uppercut punch secondary fire with fists
 1. Weapon Effects
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [ ] A generic draw/holster sound? (like CS:GO)

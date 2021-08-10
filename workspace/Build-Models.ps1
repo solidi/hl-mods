@@ -165,6 +165,7 @@ Invert-Skin $binDir "w_usas" $modelsdir
 Invert-Skin $binDir "p_usas" $modelsdir
 Invert-Skin $binDir "w_shotgunshell" $modelsdir
 Invert-Skin $binDir "w_shotgunshell" $modelsdir\hd
+Invert-Skin $binDir "v_fists" $modelsdir\hd
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -290,6 +291,8 @@ Compile-Model $binDir "v_usas" $modelsdir $redistdir\models
 Compile-Model $binDir "w_usas" $modelsdir $redistdir\models
 Compile-Model $binDir "p_usas" $modelsdir $redistdir\models
 Compile-Model $binDir "w_shotgunshell" $modelsdir $redistdir\models
-Compile-Model $binDir "w_shotgunshell" $modelsdir $redisthddir\models
+Compile-Model $binDir "w_shotgunshell" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_fists" $modelsdir $redistdir\models
+Compile-Model $binDir "v_fists" $modelsdir\hd $redisthddir\models
 
 Set-Location -Path ${PSScriptRoot}

@@ -16,6 +16,7 @@
     - [x] Grenade Launcher
     - [x] mp5k
     - [x] Usas
+    - [ ] Fists
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
@@ -68,7 +69,7 @@
     - [ ] Pulse Pistol
     - [ ] Snowball Machine
     - [x] mp5k
-    - [ ] Spinning w_ models as a server option
+    - [x] Spinning w_ models as a server option
 - [ ] Old School
     - [x] Scoreboard
     - [x] MOTD

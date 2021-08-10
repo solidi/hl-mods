@@ -72,6 +72,8 @@ Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ign
 Copy-Item $redistdir\\* $iceDir -Recurse -Force
 Copy-Item $redisthddir\\* $icehddir -Recurse -Force
 
+New-Item $iceDir\game.cfg
+
 if ($teamplay) {
     "mp_teamplay 1" | Add-Content $iceDir\game.cfg
 }
@@ -81,7 +83,7 @@ if (!$runes) {
 }
 
 if ($spawnweaponlist) {
-    "mp_spawnweaponlist $spawnweaponlist" | Add-Content $iceDir\game.cfg
+    "mp_spawnweaponlist `"$spawnweaponlist`"" | Add-Content $iceDir\game.cfg
 }
 
 for ($bot = 0; $bot -lt $botCount; $bot++) {
