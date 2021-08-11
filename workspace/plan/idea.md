@@ -79,6 +79,8 @@
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [ ] Big uppercut punch secondary fire with fists
+        1. [ ] Or kick?
+    1. [ ] Chainsaw
 1. Weapon Effects
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [ ] A generic draw/holster sound? (like CS:GO)
