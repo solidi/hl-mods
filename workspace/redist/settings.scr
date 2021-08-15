@@ -138,4 +138,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_floatingweapons"
+	{
+		"#Ice_FloatingWeapons"
+		{ BOOL }
+		{ "1" }
+	}
 }
