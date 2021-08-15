@@ -56,6 +56,9 @@ models\p_usas.mdl
 models\w_usas.mdl
 models\w_shotgunshell.mdl
 models\v_fists.mdl
+models\v_wrench.mdl
+models\p_wrench.mdl
+models\w_wrench.mdl
 sound
 sound\knife_miss2.wav
 sprites

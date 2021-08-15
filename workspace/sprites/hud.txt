@@ -1,4 +1,4 @@
-147
+151
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -80,6 +80,8 @@ d_chaingun		320	320hud1	48	208	48	16
 d_smg			320	320hud1	48	208	48	16
 d_usas  		320	320hud1	48	224	48	16
 d_fists 		320	320hud1	0	208	48	16
+d_wrench 		320	320hud1	0	208	48	16
+d_flying_wrench		320	320hud1	0	208	48	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -173,6 +175,8 @@ d_chaingun		640	640hud1	192	48	48	16
 d_smg			640	640hud1	192	48	48	16
 d_usas  		640	640hud1	192	64	48	16
 d_fists 		640	640hud1	192	0	48	16
+d_wrench		640	640hud1	192	0	48	16
+d_flying_wrench  640	640hud1	192	0	48	16
 
 item_battery	640 640hud2	176	0	44	44
 item_healthkit	640 640hud2	176	48	44	44

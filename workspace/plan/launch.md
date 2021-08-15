@@ -16,7 +16,9 @@
     - [x] Grenade Launcher
     - [x] mp5k
     - [x] Usas
-    - [ ] Fists
+    - [x] Fists
+        - Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
+    - [x] Wrench
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
@@ -53,7 +55,7 @@
     - [x] Boltgun
         - [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     - [x] Rail Gun
-    - [ ] Monkey Wrench
+    - [x] Monkey Wrench
     - [x] Mag 60
         - [ ] Akimbo support?
     - [ ] M16 Assault Rifle
@@ -67,6 +69,7 @@
     - [ ] Nuke Launcher
     - [ ] Pulse Rifle
     - [ ] Pulse Pistol
+    - [ ] Snowball
     - [ ] Snowball Machine
     - [x] mp5k
     - [x] Spinning w_ models as a server option

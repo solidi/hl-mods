@@ -23,7 +23,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH' }" | Add-Content .\workspace\Config.ps1
 
     - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}

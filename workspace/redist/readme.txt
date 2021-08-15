@@ -27,6 +27,7 @@ Features:
     - Hans Gruber's Submachine gun
     - USAS-12 Auto Shotgun
     - Manos de Piedras
+    - 40 Pound Monkey Wrench
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -104,4 +105,5 @@ Thanks To:
 - Gaming Sound FX for sound and effects https://www.youtube.com/channel/UCi-xN4ZB6e-0JcXzvBEomlw
 - Audio Library - Free Sound Effects for sound and effects https://www.youtube.com/channel/UCkq5JZ2yOF7b0rkMQMgdAIA
 - WastelandHL for sound effects and inspiration http://wastelandhalflife.com/screenshots.shtml
-
+- Nucleo for the excellent pipe wrench https://gamebanana.com/mods/180196
+- The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
