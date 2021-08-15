@@ -131,5 +131,13 @@ Copy-Item $soundDir\usas_cock.wav $redistdir\sound
 Copy-Item $soundDir\usas_release.wav $redistdir\sound
 Copy-Item $soundDir\usas_insert.wav $redistdir\sound
 Copy-Item $soundDir\fists_hitbod.wav $redistdir\sound
+Copy-Item $soundDir\wrench_selected.wav $redistdir\sound
+Copy-Item $soundDir\wrench_hit1.wav $redistdir\sound
+Copy-Item $soundDir\wrench_hit2.wav $redistdir\sound
+Copy-Item $soundDir\wrench_hitbod1.wav $redistdir\sound
+Copy-Item $soundDir\wrench_hitbod2.wav $redistdir\sound
+Copy-Item $soundDir\wrench_hitbod3.wav $redistdir\sound
+Copy-Item $soundDir\wrench_miss1.wav $redistdir\sound
+Copy-Item $soundDir\wrench_getsome.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}

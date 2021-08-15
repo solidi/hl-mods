@@ -22,6 +22,7 @@ events\glauncher.sc
 events\smg.sc
 events\usas.sc
 events\fists.sc
+events\wrench.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -104,6 +105,9 @@ models\p_usas.mdl
 models\v_usas.mdl
 models\w_shotgunshell.mdl
 models\v_fists.mdl
+models\v_wrench.mdl
+models\p_wrench.mdl
+models\w_wrench.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -211,6 +215,14 @@ sound\fists_selected.wav
 sound\fists_hit.wav
 sound\fists_miss.wav
 sound\fists_hitbod.wav
+sound\wrench_selected.wav
+sound\wrench_hit1.wav
+sound\wrench_hit2.wav
+sound\wrench_hitbod1.wav
+sound\wrench_hitbod2.wav
+sound\wrench_hitbod3.wav
+sound\wrench_miss1.wav
+sound\wrench_getsome.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -235,6 +247,7 @@ sprites\weapon_glauncher.txt
 sprites\weapon_smg.txt
 sprites\weapon_usas.txt
 sprites\weapon_fists.txt
+sprites\weapon_wrench.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

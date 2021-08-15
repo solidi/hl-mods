@@ -46,6 +46,7 @@
   | - | 6-pack cluster grenades | 8 | throw | 4 | 0 | no | 0 | no
   | - | Chumtoad | 9 | throw | 3 | 0 | no | 0 | no
   | - | Kamikaze Dynamite Vest | 10 | detonate | 1 | 0 | no | 0 | no
+  
 
 1. HUD notification system
     1. Identity of weapons from Rory
@@ -81,6 +82,8 @@
     1. [ ] Big uppercut punch secondary fire with fists
         1. [ ] Or kick?
     1. [ ] Chainsaw
+    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
+    1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
 1. Weapon Effects
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [ ] A generic draw/holster sound? (like CS:GO)
