@@ -293,7 +293,7 @@ jobs:
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\maps.zip -Force
-        Get-ChildItem -Path .\redist\ -Filter *.wad | Compress-Archive -DestinationPath .\maps.zip -Update
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Compress-Archive -DestinationPath .\maps.zip -Update
 
     - name: Upload Maps
       uses: actions/upload-artifact@v2
@@ -380,7 +380,7 @@ jobs:
       run: |
         Expand-Archive -Path .\workspace\maps.zip -DestinationPath $env:TEMP
         Move-Item $env:TEMP\maps .\workspace\redist
-        Move-Item $env:TEMP\coldice.wad .\workspace\redist\coldice.wad
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\workspace\redist -Force -PassThru
         Remove-Item .\workspace\maps.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download sounds
