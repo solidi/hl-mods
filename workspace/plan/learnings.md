@@ -237,3 +237,7 @@
 1. To invert the weapon skins, I've used the [convert.exe](https://www.thebest3d.com/dogwaffle/patches/im/) from ImageMagick.
 1. Here are some demo commands I've learned. `viewdemo`, `playdemo`, `listdemo`, `stopdemo`, `timedemo`, `appenddemo`, `record`, and `stop`.
 1. To adjust treble and bass settings in ffmpeg, [this thread was helpful](https://stackoverflow.com/questions/39607741/ffmpeg-how-to-reduce-bass-and-increase-treble-like-audacity) in discovering `fireequalizer`.
+1. [This thread](https://www.pcmag.com/how-to/how-to-convert-youtube-videos-to-mp3-files) was a good primer on how to record audio from YouTube videos. [YouTubeToMp3Music](https://youtubetomp3music.com/) is useful tool.
+1. [whereis](https://kb.iu.edu/d/acec) tool is good to find the path of an executable on Linux.
+1. The use of `#ifndef CLIENT_DLL` is important for entities and items that should not be included in the `client.dll` library. I learned that this was critical for the snowball implementation.
+1. I learned there are major weapon mods in the community. There is [MMOD](https://www.moddb.com/mods/half-life-mmod) inwhich changes the weapons and explosions. There is [brutal mod](https://www.moddb.com/mods/brutal-half-life), adding more weapons, gore and realism with physics. There is [overhauled](https://www.moddb.com/mods/half-life-overhaul-pack), which revamps all viewmodels. And finally there is the [overhaul supercharged](https://www.youtube.com/watch?v=ktk0wxVhFqs), inwhich adds new animations and physics.

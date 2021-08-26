@@ -108,6 +108,9 @@ models\v_fists.mdl
 models\v_wrench.mdl
 models\p_wrench.mdl
 models\w_wrench.mdl
+models\v_snowball.mdl
+models\p_snowball.mdl
+models\w_snowball.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -223,6 +226,10 @@ sound\wrench_hitbod2.wav
 sound\wrench_hitbod3.wav
 sound\wrench_miss1.wav
 sound\wrench_getsome.wav
+sound\snowball_throw.wav
+sound\snowball_miss.wav
+sound\snowball_hitbod.wav
+sound\snowball_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -233,6 +240,7 @@ sprites\xspark4.spr
 sprites\crosshairs.spr
 sprites\640hud1.spr
 sprites\640hud4.spr
+sprites\snowballhit.spr
 sprites\weapon_vest.txt
 sprites\weapon_knife.txt
 sprites\weapon_9mmhandgun.txt
@@ -248,6 +256,7 @@ sprites\weapon_smg.txt
 sprites\weapon_usas.txt
 sprites\weapon_fists.txt
 sprites\weapon_wrench.txt
+sprites\weapon_snowball.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt
@@ -268,3 +277,4 @@ gfx.wad
 skill.cfg
 user.scr
 motd.txt
+decals.wad

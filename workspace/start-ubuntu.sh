@@ -17,16 +17,16 @@ sudo cp libs/dlls/ice.so redist/dlls/
 sudo cp libs/dlls/gravebot.so redist/dlls/
 sudo cp libs/cl_dlls/client.so redist/cl_dlls/
 
-rm -r  /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
-rm -r  /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
-cp -a redist/. /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
-cp -a redist_hd/. /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
+rm -r  /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
+rm -r  /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
+cp -a redist/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
+cp -a redist_hd/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
 
-cd /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/
-chgrp -R surreal ${icefolder}/
-chgrp -R surreal ${icefolder}_hd/
-chmod 775 -R ${icefolder}/
-chmod 775 -R ${icefolder}_hd/
+# cd /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/
+# chgrp -R surreal ${icefolder}/
+# chgrp -R surreal ${icefolder}_hd/
+# chmod 775 -R ${icefolder}/
+# chmod 775 -R ${icefolder}_hd/
 
 # export LD_LIBRARY_PATH=.
 # /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/hl_linux -steam -console -dev -condebug -game ${icefolder} -windowed -gl -w 640 -h 480 +developer 2 +log on +sv_lan 1 +map stalkyard +deathmatch 1 +maxplayers 8 -windowed

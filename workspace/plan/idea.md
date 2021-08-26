@@ -84,10 +84,13 @@
     1. [ ] Chainsaw
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
+    1. [ ] Counter-Strike penguin
 1. Weapon Effects
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] [Gun fidget / movement on landing a jump](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=526s)
+    1. [ ] Bullet smoke like [brutal mod](https://www.moddb.com/mods/brutal-half-life)
+    1. [ ] Viewmodel delay on yaw movement like seen in [MiniMod](https://www.youtube.com/watch?v=g3qMHpLMYPk&t=690s)
 1. Model Ideas
     1. [x] Third model mode - real skins
         1. [ ] Convert weaponbox to dropped weapon
@@ -106,3 +109,5 @@
 1. Supported Systems
     1. [ ] macOS support for grave_bot
     1. [ ] Android and iOS support (Xash3d?)
+1. Collaboration
+    1. [ ] Reach out to [BlueNightHawk](trovymam@gmail.com) 
