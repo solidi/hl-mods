@@ -7,8 +7,12 @@ For weapon generation scripting.
         1. [ ] Damage
     1. [ ] Slot / Position
     1. Client dll
+      1. [ ] Punch angles
+      1. [ ] Brass ejection
 1. [ ] Models
+    1. [ ] Ice Texture
 1. [ ] Sounds
+    1. [ ] Humorus sound effect
 1. [ ] Sprites
     1. [ ] Update hud.txt
     1. [ ] Add weapon_name.txt

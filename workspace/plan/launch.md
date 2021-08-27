@@ -105,6 +105,7 @@
     - [x] Remove pdb files
     - [ ] Remove dSYM files
     - [x] Remove empty models/ and sprites/
+    - [ ] Build hash number in package
 
 ## FIXES
 
@@ -124,3 +125,5 @@
     - [ ] Faster spin?
 - [ ] Normalize arm skins (orange default)
 - [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
+- [ ] Punch angles for all weapons
+- [ ] Correct all brass shell ejection points

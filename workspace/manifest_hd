@@ -59,6 +59,7 @@ models\v_fists.mdl
 models\v_wrench.mdl
 models\p_wrench.mdl
 models\w_wrench.mdl
+models\v_snowball.mdl
 sound
 sound\knife_miss2.wav
 sprites

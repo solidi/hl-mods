@@ -35,6 +35,7 @@ $wadsDir = "${RootDir}\wads"
 Remove-Item $redistDir\wads\\* -Recurse -Force -ErrorAction Ignore
 
 Compile-Wad $binDir "coldice" $wadsDir $redistDir
+Compile-Wad $binDir "decals" $wadsDir $redistDir
 
 $mapsDir = "${RootDir}\maps"
 

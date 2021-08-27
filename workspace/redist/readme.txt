@@ -28,6 +28,7 @@ Features:
     - USAS-12 Auto Shotgun
     - Manos de Piedras
     - 40 Pound Monkey Wrench
+    - Snowballs
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -107,3 +108,4 @@ Thanks To:
 - WastelandHL for sound effects and inspiration http://wastelandhalflife.com/screenshots.shtml
 - Nucleo for the excellent pipe wrench https://gamebanana.com/mods/180196
 - The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
+- Snow-War for snowball models https://www.moddb.com/mods/snow-war

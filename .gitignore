@@ -12,8 +12,12 @@ gravebot.so
 Thumbs.db*
 last-build.zip
 
+workspace/redist/halflife.wad
+workspace/redist/decals.wad
+workspace/wads/decals.wad
 workspace/redist/fonts.wad
 workspace/redist/coldice.wad
+workspace/wads/coldice.wad
 workspace/redist/pak0.pak
 workspace/redist/maps/
 workspace/redist/models/

@@ -10,6 +10,7 @@ function Compile-Wad {
     Set-Location -Path $binDir
     echo "Compiling wad $wadsDir\$target.wad..."
     try {
+        echo "& .\makels $wadsDir\$target $wadsDir\$target $wadsDir\$target.l"
         $out = & .\makels $wadsDir\$target $wadsDir\$target $wadsDir\$target.l | Out-String
         if (!$?) {
             throw
@@ -28,5 +29,5 @@ function Compile-Wad {
         exit
     }
     Remove-Item $wadsDir\$target.l -Recurse -Force -ErrorAction Ignore
-    Move-Item $wadsDir\$target.wad $redistDir -Force
+    Copy-Item $wadsDir\$target.wad $redistDir -Force
 }

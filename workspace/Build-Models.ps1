@@ -172,6 +172,10 @@ Invert-Skin $binDir "w_wrench" $modelsdir
 Invert-Skin $binDir "v_wrench" $modelsdir\hd
 Invert-Skin $binDir "w_wrench" $modelsdir\hd
 Invert-Skin $binDir "p_wrench" $modelsdir\hd
+Invert-Skin $binDir "v_snowball" $modelsdir\hd
+Invert-Skin $binDir "v_snowball" $modelsdir
+Invert-Skin $binDir "p_snowball" $modelsdir
+Invert-Skin $binDir "w_snowball" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -306,5 +310,9 @@ Compile-Model $binDir "w_wrench" $modelsdir $redistdir\models
 Compile-Model $binDir "p_wrench" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_wrench" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_wrench" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_snowball" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_snowball" $modelsdir $redistdir\models
+Compile-Model $binDir "p_snowball" $modelsdir $redistdir\models
+Compile-Model $binDir "w_snowball" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}
