@@ -113,3 +113,4 @@ Thanks To:
 - Nucleo for the excellent pipe wrench https://gamebanana.com/mods/180196
 - The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
+- Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
