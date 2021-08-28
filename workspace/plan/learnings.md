@@ -241,3 +241,4 @@
 1. [whereis](https://kb.iu.edu/d/acec) tool is good to find the path of an executable on Linux.
 1. The use of `#ifndef CLIENT_DLL` is important for entities and items that should not be included in the `client.dll` library. I learned that this was critical for the snowball implementation.
 1. I learned there are major weapon mods in the community. There is [MMOD](https://www.moddb.com/mods/half-life-mmod) inwhich changes the weapons and explosions. There is [brutal mod](https://www.moddb.com/mods/brutal-half-life), adding more weapons, gore and realism with physics. There is [overhauled](https://www.moddb.com/mods/half-life-overhaul-pack), which revamps all viewmodels. And finally there is the [overhaul supercharged](https://www.youtube.com/watch?v=ktk0wxVhFqs), inwhich adds new animations and physics.
+1. [Here](https://twhl.info/wiki/page/Half-Life_Programming_-_Debugging) is a very good article on how to set up debugging with both Windows and Linux using gdb.

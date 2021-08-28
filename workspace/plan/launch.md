@@ -19,6 +19,7 @@
     - [x] Fists
         - Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     - [x] Wrench
+    - [x] Snowball
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons
@@ -30,6 +31,7 @@
         - [ ] r/halflife
         - [ ] fb ragegroup
         - [ ] Steam Workshop?
+        - [ ] [TWHL](https://twhl.info/forum/view/mods)
     - [ ] Steam Community Forums
     - [ ] Update url_dl in liblist.gam
 
@@ -127,3 +129,4 @@
 - [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
 - [ ] Punch angles for all weapons
 - [ ] Correct all brass shell ejection points
+- [ ] Convert throw-hold effect to all other weapons for control
