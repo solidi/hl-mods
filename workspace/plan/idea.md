@@ -91,8 +91,9 @@
     1. [ ] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] [Gun fidget / movement on landing a jump](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=526s)
-    1. [ ] Bullet smoke like [brutal mod](https://www.moddb.com/mods/brutal-half-life)
-    1. [ ] Viewmodel delay on yaw movement like seen in [MiniMod](https://www.youtube.com/watch?v=g3qMHpLMYPk&t=690s)
+    1. [x] Bullet smoke like [brutal mod](https://www.moddb.com/mods/brutal-half-life)
+    1. [x] Viewmodel delay on yaw movement like seen in [MiniMod](https://www.youtube.com/watch?v=g3qMHpLMYPk&t=690s)
+    1. [ ] Gun smoke as seen in MiniMod
 1. Model Ideas
     1. [x] Third model mode - real skins
         1. [ ] Convert weaponbox to dropped weapon
