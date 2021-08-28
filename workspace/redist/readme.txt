@@ -47,6 +47,7 @@ Features:
 - Original Scoreboard, MOTD, view roll options!
 - Holster weapon animations!
 - Right handed or left handed models
+- Weapon sway animation for realism
 
 Commands:
 
@@ -75,6 +76,7 @@ Client:
 - Old View Roll - "cl_viewroll 1" - To switch between view roll during movement
 - Old Bob Tilt - "cl_bobtilt 1" - To switch between bob tilt walking animation
 - Right Hand Models - "cl_righthand 1" - To switch between right and left handed models
+- Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 
 Thanks To:
 

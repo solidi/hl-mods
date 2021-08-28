@@ -56,6 +56,9 @@
 1. Game Mechanics
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
     1. [ ] Jetpack?
+    1. [ ] Ironsite like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
+    1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
+    1. [ ] Weapon whip like WastelandHL (most weapons)
 1. Environment look and feel
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
@@ -80,7 +83,6 @@
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [ ] Big uppercut punch secondary fire with fists
-        1. [ ] Or kick?
     1. [ ] Chainsaw
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)

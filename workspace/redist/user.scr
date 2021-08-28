@@ -82,4 +82,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_weaponsway"
+	{
+		"#Ice_WeaponSway"
+		{ BOOL }
+		{ "1" }
+	}
 }
