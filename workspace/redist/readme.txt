@@ -48,6 +48,7 @@ Features:
 - Holster weapon animations!
 - Right handed or left handed models
 - Weapon sway animation for realism
+- Bullet smoke sway animation for effect
 
 Commands:
 
@@ -77,6 +78,7 @@ Client:
 - Old Bob Tilt - "cl_bobtilt 1" - To switch between bob tilt walking animation
 - Right Hand Models - "cl_righthand 1" - To switch between right and left handed models
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
+- Bullet Smoke - "cl_bulletsmoke 1" - To switch between bullets creating smoke where they land
 
 Thanks To:
 
@@ -111,3 +113,4 @@ Thanks To:
 - Nucleo for the excellent pipe wrench https://gamebanana.com/mods/180196
 - The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
+- Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
