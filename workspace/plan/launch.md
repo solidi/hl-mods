@@ -71,7 +71,7 @@
     - [ ] Nuke Launcher
     - [ ] Pulse Rifle
     - [ ] Pulse Pistol
-    - [ ] Snowball
+    - [x] Snowball
     - [ ] Snowball Machine
     - [x] mp5k
     - [x] Spinning w_ models as a server option
@@ -107,7 +107,7 @@
     - [x] Remove pdb files
     - [ ] Remove dSYM files
     - [x] Remove empty models/ and sprites/
-    - [ ] Build hash number in package
+    - [x] Build hash number in package
 
 ## FIXES
 
