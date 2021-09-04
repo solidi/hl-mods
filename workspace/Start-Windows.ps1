@@ -11,6 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
+$Config = @{ }
 [int]$botCount = 0
 [int]$hdModels = 1
 [string]$map = "stalkyard"
@@ -20,7 +21,11 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
-    if ($_.Split(' ')[0].ToUpper() -eq "Bots") {
+    if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
+        $configFile = $_.Split(' ')[1]
+        . ("$PSScriptRoot\$configFile.ps1")
+        echo "configuration file is $configFile..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Bots") {
         $botCount = $_.Split(' ')[1]
         echo "adding ${botCount} bots..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Map") {
@@ -47,13 +52,15 @@ Set-ConsoleColor 'DarkCyan' 'White'
     }
 }
 
-Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -DisableNameChecking
+Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameChecking
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
 $iceFolder = "ice"
-$hldir = "C:\Program Files (x86)\Steam\steamapps\common\half-life"
+$hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
+$hlexe = $Config['hlExe'] ?? "hl.exe"
+$gameParameters = $Config['gameParameters'] ?? "-console -dev -condebug -gl -windowed -width 640 -height 480"
 $iceDir = "${hldir}\${iceFolder}"
 $icehddir = "${hldir}\${iceFolder}_hd"
 
@@ -92,5 +99,5 @@ for ($bot = 0; $bot -lt $botCount; $bot++) {
 }
 
 Set-Location -Path $hldir
-Launch-HL $botCount $hdModels $map $hldir $iceFolder
+Launch-HL $botCount $hdModels $map $hldir $hlexe $gameParameters $iceFolder
 Set-Location -Path ${PSScriptRoot}
