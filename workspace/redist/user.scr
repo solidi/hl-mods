@@ -83,6 +83,13 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
+	"cl_bulletsmoke"
+	{
+		"#Ice_BulletSmoke"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"cl_weaponsway"
 	{
 		"#Ice_WeaponSway"
@@ -90,9 +97,9 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
-	"cl_bulletsmoke"
+	"cl_weaponfidget"
 	{
-		"#Ice_BulletSmoke"
+		"#Ice_WeaponFidget"
 		{ BOOL }
 		{ "1" }
 	}
