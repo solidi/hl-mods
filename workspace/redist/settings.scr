@@ -145,4 +145,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_blueblood"
+	{
+		"#Ice_BlueBlood"
+		{ BOOL }
+		{ "1" }
+	}
 }

@@ -94,6 +94,7 @@
     1. [x] Bullet smoke like [brutal mod](https://www.moddb.com/mods/brutal-half-life)
     1. [x] Viewmodel delay on yaw movement like seen in [MiniMod](https://www.youtube.com/watch?v=g3qMHpLMYPk&t=690s)
     1. [ ] Gun smoke as seen in MiniMod
+    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
 1. Model Ideas
     1. [x] Third model mode - real skins
         1. [ ] Convert weaponbox to dropped weapon

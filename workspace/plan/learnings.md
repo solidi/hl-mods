@@ -242,3 +242,13 @@
 1. The use of `#ifndef CLIENT_DLL` is important for entities and items that should not be included in the `client.dll` library. I learned that this was critical for the snowball implementation.
 1. I learned there are major weapon mods in the community. There is [MMOD](https://www.moddb.com/mods/half-life-mmod) inwhich changes the weapons and explosions. There is [brutal mod](https://www.moddb.com/mods/brutal-half-life), adding more weapons, gore and realism with physics. There is [overhauled](https://www.moddb.com/mods/half-life-overhaul-pack), which revamps all viewmodels. And finally there is the [overhaul supercharged](https://www.youtube.com/watch?v=ktk0wxVhFqs), inwhich adds new animations and physics.
 1. [Here](https://twhl.info/wiki/page/Half-Life_Programming_-_Debugging) is a very good article on how to set up debugging with both Windows and Linux using gdb.
+1. Using `min(max(x, some_min), some_max)` allows for a [range without branching](https://stackoverflow.com/questions/2868439/is-there-a-way-to-limit-an-integer-value-to-a-certain-range-without-branching).
+1. The letters as switches [are required](https://sookocheff.com/post/bash/parsing-bash-script-arguments-with-shopts/) in the `getopts` portion in bash.
+1. This is a good thread on how [to constrain the framerate](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe) for animation frames.
+1. The [file transer util](https://www.android.com/filetransfer/) can be used to upload files to Android devices.
+1. The latest xash3d builds [can be found here](https://github.com/FWGS/xash3d-fwgs/releases/tag/continuous).
+1. The `gameinfo.txt` file is automatically generated when a mod is loaded into xash3d. See [this code](https://github.com/FWGS/xash3d/blob/master/engine/common/filesystem.c) for full details.
+1. [A good guide](https://stackoverflow.com/a/43966266) on how to get the  git hash within Powershell.
+1. When escaping a path for execution in Powershell is difficult, use the `Set-Location` as a hack. See [this thread](https://stackoverflow.com/a/26981940) for details.
+1. [All output in a function is returned](https://stackoverflow.com/a/10288256) in Powershell.
+1. [This graphic](https://en.wikipedia.org/wiki/Aircraft_principal_axes#/media/File:Yaw_Axis_Corrected.svg) helps better understand the three axises of yaw, pitch, and roll.
