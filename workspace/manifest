@@ -111,6 +111,7 @@ models\w_wrench.mdl
 models\v_snowball.mdl
 models\p_snowball.mdl
 models\w_snowball.mdl
+models\w_hgibs.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf

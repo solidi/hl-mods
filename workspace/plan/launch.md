@@ -90,7 +90,7 @@
     - [x] Glowing shell on view model
     - [ ] Cloak rune
 - [ ] Skins
-    - [ ] Blue blood?
+    - [x] Blue blood?
     - [x] Inverted original weapons
 - [ ] Training Map
     - [ ] Debrief text file
@@ -117,6 +117,7 @@
     - [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
     - [ ] Cold Ice 2.5 model?
     - [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
+    - [ ] Match a better decal
 - [x] Rename folder and libs to `ice`
 - [x] Rename github repo to `coldice`
 - [x] Bot names loading on Linux?
@@ -129,4 +130,7 @@
 - [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
 - [ ] Punch angles for all weapons
 - [ ] Correct all brass shell ejection points
+    - [ ] Use attachment point for each model
 - [ ] Convert throw-hold effect to all other weapons for control
+    - [ ] Knife, Crowbar, Pipe, Wrench
+- [ ] Single shot weapons for semi-auto effect
