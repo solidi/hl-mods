@@ -48,7 +48,7 @@ Features:
 - Holster weapon animations!
 - Right handed or left handed models
 - Weapon sway and fidet animation for realism
-- Bullet smoke sway animation for effect
+- Bullet and gun smoke animation for effect
 
 Commands:
 
@@ -78,6 +78,7 @@ Client:
 - Old Bob Tilt - "cl_bobtilt 1" - To switch between bob tilt walking animation
 - Right Hand Models - "cl_righthand 1" - To switch between right and left handed models
 - Bullet Smoke - "cl_bulletsmoke 1" - To switch between bullets creating smoke where they land
+- Gun Smoke - "cl_gunsmoke 1" - To switch between weapons creating smoke when fired
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 - Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
 

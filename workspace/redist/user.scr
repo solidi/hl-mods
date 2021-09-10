@@ -103,4 +103,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_gunsmoke"
+	{
+		"#Ice_GunSmoke"
+		{ BOOL }
+		{ "1" }
+	}
 }
