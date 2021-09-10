@@ -10,6 +10,17 @@
     1. #ifndef `CLIENT_DLL` else `LoadVModel`
 1. dlls/util.h
     1. The use of `ASSERT` for debugging
+1. dlls/scientist.cpp
+    1. 1291:
+```c++
+if (yaxw > 180) yaw -= 360;
+if (yaw < -180) yaw += 360;
+
+if (yaw > 0)
+    pev->sequence = m_baseSequence + SITTING_ANIM_sitlookleft;
+else
+    pev->sequence = m_baseSequence + SITTING_ANIM_sitlookright;
+```
 
 ## Gestalt
 
