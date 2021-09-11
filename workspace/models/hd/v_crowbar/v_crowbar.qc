@@ -33,25 +33,33 @@ $texturegroup ice
     "bottom.bmp"
     "nut.bmp"
     "top.bmp"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_bottom.bmp"
     "invert_nut.bmp"
     "invert_top.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 
-// 8 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 R Hand" -0.860000 -1.420000 -8.024288 8.433241 20.037769 4.150000
 $hbox 0 "Hands mesh" -1.140000 -1.150000 -0.060000 1.150000 4.730000 20.820000
 $hbox 0 "Hands mesh 3" -1.450000 -1.470000 -0.600000 1.470000 1.460000 0.580000
@@ -61,7 +69,7 @@ $hbox 0 "L_Arm_bone" -2.690000 -2.240000 -8.240000 1.970000 4.170000 2.570000
 $hbox 0 "Bip01 R Finger0" -0.700000 -0.380000 0.000000 0.670000 0.690000 2.373688
 $hbox 0 "R_Arm_bone" -2.560000 -4.170000 -8.250000 2.100000 2.240000 2.560000
 
-// 11 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 9 loop ACT_IDLE 1 
 $sequence "draw" "draw" fps 30 { event 5004 0 "crowbar_selected.wav" }
 $sequence "holster" "holster" fps 15 

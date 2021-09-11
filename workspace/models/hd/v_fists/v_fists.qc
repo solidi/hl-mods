@@ -27,8 +27,27 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "studio" "base"
 
+$texturegroup ice
+{
+  {
+    "HEV_arm.bmp"
+    "HEV_leg_&_glove.bmp"
+  }
+  {
+    "ice_HEV_arm.bmp"
+    "ice_HEV_leg_&_glove.bmp"
+  }
+  {
+    "ice_HEV_arm.bmp"
+    "ice_HEV_leg_&_glove.bmp"
+  }
+  {
+    "ice_HEV_arm.bmp"
+    "ice_HEV_leg_&_glove.bmp"
+  }
+}
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Box01" -19.214220 -25.787498 -67.399994 25.810778 0.000000 0.000000
 $hbox 0 "Box57" -3.762500 -7.850000 -4.412500 2.975000 20.362501 3.375000
 $hbox 0 "Box85" -5.175000 -8.412500 -4.662500 3.725000 24.337500 3.462500

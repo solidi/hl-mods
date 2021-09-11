@@ -31,26 +31,34 @@ $texturegroup ice
 {
   {
     "pipewrench.bmp"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_pipewrench.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 
 $origin 0 0 -2
 
 
-// 2 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 R Arm2" 0.000000 -2.120000 -1.980000 11.368422 2.100000 2.180000
 $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -5.930000 7.850000 2.940000 19.950001
 
-// 11 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 13 
 $sequence "draw" "draw" fps 24 { event 5004 0 "wrench_selected.wav" } 
 $sequence "holster" "holster" fps 24 

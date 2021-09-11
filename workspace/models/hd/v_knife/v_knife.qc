@@ -33,19 +33,27 @@ $texturegroup ice
 {
   {
     "body.bmp"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_body.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 
-// 6 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 R Hand" 0.000000 -0.990000 -2.620000 4.620000 1.920000 12.010000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.950000 -1.820000 3.900000 0.900000 1.710000
 $hbox 0 "Bip01 L Finger0" 0.000000 -0.950000 -0.570000 2.440000 0.370000 0.960000
@@ -53,7 +61,7 @@ $hbox 0 "L_Arm_bone" -1.920000 -2.640000 -2.290000 2.750000 2.480000 7.980000
 $hbox 0 "Bip01 R Finger0" 0.000000 -0.940000 -1.000000 2.450000 0.380000 0.530000
 $hbox 0 "R_Arm_bone" -2.610000 -2.630000 -2.280000 2.060000 2.490000 7.990000
 
-// 11 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 30 
 $sequence "draw" "draw" fps 30 { event 5004 5 "knife_selected.wav" }
 $sequence "holster" "holster" fps 30 
