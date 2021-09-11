@@ -33,29 +33,41 @@ $texturegroup ice
     "blade_chrome.bmp"
     "guard_chrome.bmp"
     "handle.bmp"
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
   }
   {
     "invert_blade_chrome.bmp"
     "invert_guard_chrome.bmp"
     "invert_handle.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
   {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
 }
 
-// 2 hit box(es)
+// hit box(es)
 $hbox 0 "Hands biped R Forearm" -5.030000 -2.170000 -4.030000 11.368420 5.260000 1.710000
 $hbox 0 "Hands biped R Hand" 0.000000 -0.760000 -1.860000 5.310000 2.970000 5.643987
 
-// 11 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle" fps 12 loop 
 $sequence "draw" "draw" fps 30 { event 5004 5 "knife_selected.wav" }
 $sequence "holster" "holster" fps 30 

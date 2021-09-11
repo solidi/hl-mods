@@ -32,9 +32,9 @@ $texturegroup ice
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "DM_base.bmp"
-    "GLOVE_handpak.bmp.BMP"
-    "GLOVED_knuckle.BMP"
+    "..\gordon_GLOVED_sleeve.bmp"
+    "..\gordon_GLOVE_handpak.bmp.BMP"
+    "..\gordon_GLOVED_knuckle.BMP"
   }
   {
     "invert_spanner_text.bmp"
@@ -60,12 +60,12 @@ $texturegroup ice
 }
 
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Hands biped R UpperArm" 0.000000 -2.560000 -5.610000 14.220000 4.730000 2.130000
 $hbox 0 "Hands biped R Forearm" 0.000000 -2.640000 -3.860000 14.250000 3.100000 1.940000
 $hbox 0 "Hands biped R Hand" 0.000000 -1.130000 -6.210000 7.210000 5.530000 11.480000
 
-// 6 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
 $sequence "draw" "draw" fps 30 { event 5004 0 "wrench_selected.wav" } 
 $sequence "holster" "holster" fps 30 
