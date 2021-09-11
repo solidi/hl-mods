@@ -39,7 +39,7 @@ $texturegroup ice
     "HK_chrome.bmp"
     "sighttop.bmp"
     "Silencerback.bmp"
-    "PLAYER_ForeArm1.bmp"
+    "..\gordon_PLAYER_ForeArm1.bmp"
   }
   {
     "invert_buttstockrear.bmp"
@@ -80,10 +80,10 @@ $texturegroup ice
 }
 
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Bone09" -14.000000 1.000000 -0.500000
 
-// 12 hit box(es)
+// hit box(es)
 $hbox 0 "Bone02" -13.236908 -3.969946 -1.142586 0.000000 0.000000 9.111436
 $hbox 0 "Bone03" -12.130000 -2.110000 -2.240000 2.220000 2.670000 2.230000
 $hbox 0 "Bone04" -2.870000 -0.380000 -1.340000 0.000000 2.780000 1.620000
@@ -97,7 +97,7 @@ $hbox 0 "Bone22" -1.870000 -1.760000 -3.700000 0.730000 1.676258 1.730000
 $hbox 0 "Bone23" -1.020000 -0.230000 -1.020000 0.000000 1.580000 0.720000
 $hbox 0 "Bone24" -1.040000 -0.290000 -0.650000 0.030000 0.750000 0.540000
 
-// 8 animation sequence(s)
+// animation sequence(s)
 $sequence "longidle" "longidle" fps 8 
 $sequence "idle1" "idle1" fps 35 
 $sequence "idle2" "idle1" fps 35 

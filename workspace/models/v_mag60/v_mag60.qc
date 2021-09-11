@@ -44,9 +44,9 @@ $texturegroup ice
     "top.bmp"
     "gclip.bmp"
     "gclipinside.bmp"
-    "GLOVE_handpak.bmp.bmp"
-    "GLOVED_knuckle.bmp"
-    "GLOVED_sleeve.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
   }
   {
     "invert_back.bmp"
@@ -55,9 +55,9 @@ $texturegroup ice
     "invert_top.bmp"
     "invert_gclip.bmp"
     "invert_gclipinside.bmp"
-    "invert_GLOVE_handpak.bmp.bmp"
-    "invert_GLOVED_knuckle.bmp"
-    "invert_GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -83,17 +83,17 @@ $texturegroup ice
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Bip01 R Hand" 10.000000 2.250000 4.250000
 
-// 5 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -1.950000 -1.490000 11.368419 2.460000 2.850000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.730000 4.170000 1.030000 1.870000
 $hbox 0 "Bip01 R Arm2" 0.000000 -2.090000 -2.990000 11.368422 2.600000 1.630000
 $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -2.210000 18.139999 3.320000 5.040000
 $hbox 0 "Bone02" -0.650000 -8.120000 -0.690000 3.330000 1.110000 0.790000
 
-// 10 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "idle2" "idle2" fps 16 loop 
 $sequence "idle3" "idle3" fps 14 loop 

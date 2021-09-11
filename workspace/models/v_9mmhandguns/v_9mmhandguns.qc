@@ -40,6 +40,9 @@ $texturegroup ice
     "top.bmp"
     "gclip.bmp"
     "gclipinside.bmp"
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
   }
   {
     "invert_back.bmp"
@@ -48,6 +51,9 @@ $texturegroup ice
     "invert_top.bmp"
     "invert_gclip.bmp"
     "invert_gclipinside.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
   { 
     "..\ringchrome.bmp"
@@ -56,6 +62,9 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
@@ -64,6 +73,9 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
 }
 
