@@ -40,6 +40,8 @@ $texturegroup ice
     "gclipinside.bmp"
     "v_beretta_bottom.BMP"
     "v_beretta_main.BMP"
+    "..\gordon_sleeve.bmp"
+    "..\gordon_glove.bmp"
   }
   {
     "invert_bulletCHROME.BMP"
@@ -48,6 +50,8 @@ $texturegroup ice
     "invert_gclipinside.bmp"
     "invert_v_beretta_bottom.BMP"
     "invert_v_beretta_main.BMP"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -56,6 +60,8 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
   }
   {
     "..\iceCHROME.bmp"
@@ -64,13 +70,15 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Hands biped R Hand" 12.000000 2.250000 4.250000
 
-// 8 hit box(es)
+// hit box(es)
 $hbox 0 "Hands biped R Forearm" -0.690000 -2.150000 -2.460000 11.368418 2.820000 1.950000
 $hbox 0 "Hands biped R Hand" -0.560000 -1.560000 -2.450000 3.890000 1.200000 1.887007
 $hbox 0 "Hands mesh" -0.880000 -6.500000 -6.800000 1.240000 3.550000 2.760000
@@ -80,7 +88,7 @@ $hbox 0 "Hands biped L Hand" -0.560000 -1.540000 -1.910000 3.890000 1.220000 2.4
 $hbox 0 "Hands biped L Finger0" 0.000000 -0.730000 -0.560000 2.380000 0.370000 0.750000
 $hbox 0 "Hands biped R Finger0" -0.040000 -0.700000 -0.730000 2.380000 0.370000 0.570000
 
-// 9 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "idle2" "idle2" fps 16 loop 
 $sequence "idle3" "idle3" fps 14 loop 

@@ -177,6 +177,7 @@ Invert-Skin $binDir "v_snowball" $modelsdir
 Invert-Skin $binDir "p_snowball" $modelsdir
 Invert-Skin $binDir "w_snowball" $modelsdir
 Invert-Skin $binDir "w_hgibs" $modelsdir
+Invert-Skin $binDir "v_9mmAR" $modelsdir\hd
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models

@@ -37,6 +37,8 @@ $texturegroup ice
     "foregrip.bmp"
     "mag.bmp"
     "rearsight.bmp"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_barrel.bmp"
@@ -44,6 +46,8 @@ $texturegroup ice
     "invert_foregrip.bmp"
     "invert_mag.bmp"
     "invert_rearsight.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -51,6 +55,8 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
@@ -58,21 +64,23 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Bip01 R Hand" 10.000000 2.250000 4.250000
 
-// 5 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -1.950000 -1.490000 11.368419 2.460000 2.850000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.730000 4.170000 1.030000 1.870000
 $hbox 0 "Bip01 R Arm2" 0.000000 -2.090000 -2.990000 11.368422 2.600000 1.630000
 $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -2.210000 18.139999 3.320000 5.040000
 $hbox 0 "Bone02" -0.650000 -8.120000 -0.690000 3.330000 1.110000 0.790000
 
-// 7 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 3 
 $sequence "idle2" "idle2" fps 3 
 $sequence "idle3" "idle3" fps 3 

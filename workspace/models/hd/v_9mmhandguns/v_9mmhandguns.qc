@@ -43,6 +43,8 @@ $texturegroup ice
     "gclipinside.bmp"
     "v_beretta_bottom.BMP"
     "v_beretta_main.BMP"
+    "..\gordon_sleeve.bmp"
+    "..\gordon_glove.bmp"
   }
   {
     "invert_bulletCHROME.BMP"
@@ -52,6 +54,8 @@ $texturegroup ice
     "invert_gclipinside.bmp"
     "invert_v_beretta_bottom.BMP"
     "invert_v_beretta_main.BMP"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -61,6 +65,8 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
   }
   {
     "..\iceCHROME.bmp"
@@ -70,6 +76,8 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
   }
 }
 
