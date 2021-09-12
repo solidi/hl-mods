@@ -32,6 +32,9 @@ $body "body" "gauss_hand"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
     "box1.bmp"
     "button.bmp"
     "chrome1.bmp"
@@ -44,6 +47,9 @@ $texturegroup ice
     "ring.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "invert_box1.bmp"
     "invert_button.bmp"
     "invert_chrome1.bmp"
@@ -56,6 +62,9 @@ $texturegroup ice
     "invert_ring.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -68,6 +77,9 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -82,15 +94,15 @@ $texturegroup ice
 }
 
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Gauss Master" 17.000000 -1.000000 0.000000
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Gauss Master" -7.870000 -5.000000 -5.450000 16.980000 3.700000 2.680000
 $hbox 0 "Bip01 L Arm2" 0.000000 -2.800000 -1.730000 11.680000 3.020000 4.000000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 
-// 9 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
 $sequence "idle2" "idle2" fps 15 loop 
 $sequence "fidget" "fidget" fps 30 

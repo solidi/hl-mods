@@ -34,6 +34,9 @@ $body "body" "rpg_hand"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
     "join.bmp"
     "M1CL.bmp"
     "M2cl.bmp"
@@ -56,6 +59,9 @@ $texturegroup ice
     "sboxback.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "invert_join.bmp"
     "invert_M1CL.bmp"
     "invert_M2cl.bmp"
@@ -78,6 +84,9 @@ $texturegroup ice
     "invert_sboxback.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -99,7 +108,9 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }
-  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -124,14 +135,14 @@ $texturegroup ice
 }
 
 
-// 5 hit box(es)
+// hit box(es)
 $hbox 0 "rocket_master" -1.860000 -8.620000 -1.650000 1.930000 4.140000 2.140000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 8.085783 1.563943 7.994959
 $hbox 0 "Dummy22" -3.070000 -10.940000 -5.990000 5.370000 10.850000 2.290000
 $hbox 0 "Bip01 L Arm2" 0.000000 -2.030000 -1.390000 11.320000 2.410000 2.980000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.930000 -1.850000 4.180000 1.040000 1.780000
 
-// 10 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
 $sequence "fidget" "fidget" fps 15 loop 
 $sequence "reload" "reload" fps 30 

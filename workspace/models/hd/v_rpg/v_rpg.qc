@@ -32,24 +32,32 @@ $body "studio" "v_gordon_hands_reference"
 $texturegroup ice
 {
   {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
     "v_rpg_monitor_reference.BMP"
     "v_rpg_primer.BMP"
     "v_rpg_reference.BMP"
     "v_rpg_rocket.BMP"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "invert_v_rpg_monitor_reference.BMP"
     "invert_v_rpg_primer.BMP"
     "invert_v_rpg_reference.BMP"
     "invert_v_rpg_rocket.BMP"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -57,7 +65,7 @@ $texturegroup ice
   }
 }
 
-// 9 hit box(es)
+// hit box(es)
 $hbox 0 "Rlauncher" -4.280000 -16.423262 -8.050000 2.550000 9.460000 5.940000
 $hbox 0 "Cylinder01" -0.770000 -1.020000 0.000000 0.770000 1.050000 3.450000
 $hbox 0 "Rocket" -1.860000 -1.860000 -6.380000 1.860000 1.860000 7.030000
@@ -68,7 +76,7 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.990000 -1.710000 3.920000 0.870000 1.820000
 $hbox 0 "Bip01 R Finger0" 0.000000 -0.940000 -1.000000 2.450000 0.390000 0.540000
 $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
-// 9 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
 $sequence "fidget" "fidget" fps 15 loop 
 $sequence "reload" "reload" fps 30 
