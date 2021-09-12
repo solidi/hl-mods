@@ -32,18 +32,26 @@ $body "body" "satchel_radio_detonator"
 $texturegroup ice
 {
   {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
     "det_chrome.bmp"
     "detonata'  bod.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "invert_det_chrome.bmp"
     "invert_detonata'  bod.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }

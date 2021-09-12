@@ -32,28 +32,36 @@ $body "body" "vchub_Template(toad)2"
 $texturegroup ice
 {
   {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
     "CHB_Side1.BMP"
     "CHB_Tounge1.BMP"
     "eye.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "invert_CHB_Side1.BMP"
     "invert_CHB_Tounge1.BMP"
     "invert_eye.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
 }
 
-// 6 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 R Hand" -0.190000 -0.860000 -1.780000 3.890000 3.006830 1.800000
 $hbox 0 "Bip02 L Leg" -1.330000 -1.640000 -0.330000 2.030000 0.990000 0.850000
 $hbox 0 "Bip02 R Leg" -1.140000 -1.610000 -0.850000 2.090000 0.870000 0.350000
@@ -61,7 +69,7 @@ $hbox 0 "Bip02 Spine" -1.520000 -2.000000 -2.530000 1.793749 1.570000 2.330000
 $hbox 0 "Bip02 Spine1" 0.000000 -1.950000 -3.020000 2.598145 2.120000 3.020000
 $hbox 0 "Bip02 Neck" -1.430381 -1.620000 -1.970000 1.800000 1.117694 2.010000
 
-// 8 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "fidgetfit" "fidgetfit" fps 16 
 $sequence "fidgetnip" "fidgetnip" fps 16 { event 5004 5 "squeek/idle_2.wav" } { event 5004 22 "squeek/idle_1.wav" } 

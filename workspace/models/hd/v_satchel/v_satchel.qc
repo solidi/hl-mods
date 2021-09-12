@@ -32,24 +32,32 @@ $body "body" "gordon_hands"
 $texturegroup ice
 {
   {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
     "brass_chrome.BMP"
     "psx_v_satchel.BMP"
     "psx_v_satchel2.BMP"
     "psx_v_satchel3.BMP"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "invert_brass_chrome.BMP"
     "invert_psx_v_satchel.BMP"
     "invert_psx_v_satchel2.BMP"
     "invert_psx_v_satchel3.BMP"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"

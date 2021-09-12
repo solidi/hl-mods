@@ -40,24 +40,32 @@ studio "w_tripmine_Reference"
 $texturegroup ice
 {
   {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
     "lensCHROME.bmp"
     "tripmine_reference.BMP"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "invert_lensCHROME.bmp"
     "invert_tripmine_reference.BMP"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
 }
 
-// 7 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -1.820000 3.910000 0.900000 1.710000
 $hbox 0 "Bip01 L Finger0" 0.000000 -0.950000 -0.570000 2.450000 0.380000 0.970000
 $hbox 0 "L_Arm_bone" -1.920000 -2.640000 -2.300000 2.760000 2.490000 7.980000
