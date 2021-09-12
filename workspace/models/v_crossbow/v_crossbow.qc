@@ -32,6 +32,9 @@ $body "body" "crossbow_hand"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
     "bowCHROME.bmp"
     "bowtip.bmp"
     "cliprear.bmp"
@@ -51,6 +54,9 @@ $texturegroup ice
     "stock.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "invert_bowCHROME.bmp"
     "invert_bowtip.bmp"
     "invert_cliprear.bmp"
@@ -70,6 +76,9 @@ $texturegroup ice
     "invert_stock.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -89,6 +98,9 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -109,7 +121,7 @@ $texturegroup ice
   }
 }
 
-// 6 hit box(es)
+// hit box(es)
 $hbox 0 "Xbow biped R Hand" 0.000000 0.000000 0.000000 3.791503 1.946522 4.704311
 $hbox 0 "crossbow parent" -3.940000 -20.540001 -5.310000 3.960000 6.860000 3.870000
 $hbox 0 "grip" -4.000001 -16.859829 -11.834427 4.000000 0.554309 0.485728
@@ -117,7 +129,7 @@ $hbox 0 "Slide" -1.640000 -3.389289 -3.600000 4.050000 1.690000 0.440000
 $hbox 0 "Xbow biped L Arm2" 0.000000 -1.790000 -1.210000 11.680000 3.020000 4.000000
 $hbox 0 "Xbow biped L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 
-// 12 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 30 loop 
 $sequence "idle2" "idle2" fps 30 loop 
 $sequence "fidget1" "fidget1" fps 30 

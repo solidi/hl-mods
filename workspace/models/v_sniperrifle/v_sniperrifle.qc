@@ -30,6 +30,7 @@ $body "body" "sniper_reference5_remap"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVED_sleeve.bmp"
     "barrelchrome.bmp"
     "bodyside.bmp"
     "clip.bmp"
@@ -41,6 +42,7 @@ $texturegroup ice
     "sightclip.bmp"
   }
   {
+    "..\GLOVED_sleeve.bmp"
     "invert_barrelchrome.bmp"
     "invert_bodyside.bmp"
     "invert_clip.bmp"
@@ -52,6 +54,7 @@ $texturegroup ice
     "invert_sightclip.bmp"
   }
   {
+    "..\GLOVED_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -63,6 +66,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -75,15 +79,15 @@ $texturegroup ice
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Dummy22" 35.000000 4.000000 -1.000000
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Hands biped L Forearm" -0.390000 -1.980000 -1.410000 9.690512 1.000000 2.200000
 $hbox 0 "Hands biped L Hand" -1.030000 -2.930000 -2.420000 7.410000 2.140000 2.180000
 $hbox 0 "Dummy22" -7.400000 -7.820000 -1.850000 34.930000 4.550000 1.150000
 
-// 9 animation sequence(s)
+// animation sequence(s)
 $sequence "draw" "draw" fps 30 { event 5004 0 "rifle_selected.wav" } 
 $sequence "idle" "idle" fps 10 loop 
 $sequence "fire" "fire" fps 35 { event 5001 0 "20" } 

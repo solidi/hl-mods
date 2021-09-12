@@ -30,40 +30,40 @@ $body "body" "tfc_gl"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
     "CHROME1.bmp"
-    "DM_base.bmp"
-    "GLOVE_handpak.bmp.bmp"
-    "GLOVED_knuckle.bmp"
     "tfcgl_clip.bmp"
     "tfcgl_mech.bmp"
     "tfcglCHROME2.bmp"
     "tfgl_butt.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "invert_CHROME1.bmp"
-    "invert_DM_base.bmp"
-    "invert_GLOVE_handpak.bmp.bmp"
-    "invert_GLOVED_knuckle.bmp"
     "invert_tfcgl_clip.bmp"
     "invert_tfcgl_mech.bmp"
     "invert_tfcglCHROME2.bmp"
     "invert_tfgl_butt.bmp"
   }
   {
-    "..\ringchrome.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }
   {
-    "..\hd\iceCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -71,7 +71,7 @@ $texturegroup ice
   }
 }
 
-// 6 hit box(es)
+// hit box(es)
 $hbox 0 "Hands biped L Forearm" -0.750000 -3.040000 -2.280000 15.650000 2.190000 3.140000
 $hbox 0 "Hands biped L Hand" -0.010000 -1.420000 -2.230000 4.770000 1.640000 1.940000
 $hbox 0 "Hands biped R Hand" 0.000000 -1.069523 0.000000 3.586162 0.000000 5.914250
@@ -79,7 +79,7 @@ $hbox 0 "TfC_gl" -24.410000 -5.723794 -3.220000 5.400000 3.380000 3.440000
 $hbox 0 "sight" -0.350000 -0.490000 -1.160000 0.740000 5.940000 1.110000
 $hbox 0 "Clip" -3.020000 -6.010000 -1.930000 2.690000 2.530000 2.070000
 
-// 12 animation sequence(s)
+// animation sequence(s)
 $sequence "gidle1" "gidle" fps 10 loop 
 $sequence "gidle2" "gidle" fps 10 loop 
 $sequence "gdraw" "gdraw" fps 30 { event 5004 0 "glauncher_selected.wav" }
