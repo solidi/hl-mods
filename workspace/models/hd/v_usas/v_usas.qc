@@ -35,21 +35,29 @@ $texturegroup ice
     "USAS-1.bmp"
     "USAS-2.bmp"
     "USAS-3.bmp"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_USAS-1.bmp"
     "invert_USAS-2.bmp"
     "invert_USAS-3.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 

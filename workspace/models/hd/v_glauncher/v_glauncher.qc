@@ -33,35 +33,43 @@ $texturegroup ice
     "barrel.bmp"
     "body.bmp"
     "drummag.bmp"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_barrel.bmp"
     "invert_body.bmp"
     "invert_drummag.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Bip01 R Hand" 3.100000 5.100000 21.959999
 
-// 5 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -1.950000 -1.490000 11.368419 2.460000 2.850000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.730000 4.170000 1.030000 1.870000
 $hbox 0 "Bip01 R Arm2" 0.000000 -2.090000 -2.990000 11.368422 2.600000 1.630000
 $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -2.210000 18.139999 3.320000 5.040000
 $hbox 0 "Bone02" -0.650000 -8.120000 -0.690000 3.330000 1.110000 0.790000
 
-// 6 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "idle2" "idle2" fps 2 
 $sequence "draw" "draw" fps 14 { event 5004 0 "glauncher_selected.wav" }

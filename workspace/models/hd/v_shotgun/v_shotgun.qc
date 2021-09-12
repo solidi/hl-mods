@@ -29,11 +29,35 @@ $body "studio" "v_spas12_reference_test"
 
 $body "studio" "v_gordon_hands_reference"
 
+$texturegroup ice
+{
+  {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
+    "Spas12_Reference.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "invert_Spas12_Reference.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceCHROME.bmp"
+  }
+}
 
-// 1 attachment(s)
+
+// attachment(s)
 $attachment 0 "Bip01 R Hand" 30.000000 1.000000 6.000000
 
-// 11 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -1.820000 3.910000 0.900000 1.710000
 $hbox 0 "Bip01 L Finger0" 0.000000 -0.950000 -0.570000 2.450000 0.380000 0.970000
 $hbox 0 "Bip01 L Finger02" -43.012970 -24.259079 -42.173767 0.310000 0.270000 0.400000
@@ -46,7 +70,7 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.990000 -1.710000 3.920000 0.870000 1.820000
 $hbox 0 "Bip01 R Finger0" 0.000000 -0.940000 -1.000000 2.450000 0.390000 0.540000
 $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
-// 10 animation sequence(s)
+// animation sequence(s)
 $sequence "sm_idle" "sm_idle" fps 9 loop 
 $sequence "shoot" "shoot" fps 30 { event 5001 0 "41" } 
 $sequence "shoot_big" "shoot_big" fps 30 { event 5001 0 "41" } { event 5001 1 "41" } 

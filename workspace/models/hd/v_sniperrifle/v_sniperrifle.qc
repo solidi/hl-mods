@@ -40,6 +40,8 @@ $texturegroup ice
     "scope_clamp.BMP"
     "scope.BMP"
     "scopelens.BMP"
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
   }
   {
     "invert_barrel.BMP"
@@ -52,6 +54,8 @@ $texturegroup ice
     "invert_scope_clamp.BMP"
     "invert_scope.BMP"
     "invert_scopelens.BMP"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -64,6 +68,8 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
   {
     "..\iceCHROME.bmp"
@@ -76,25 +82,15 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
-  }
-  {
-    "invert_barrel.bmp"
-    "invert_body.bmp"
-    "invert_bolt.bmp"
-    "invert_foregrip.bmp"
-    "invert_grip.bmp"
-    "invert_magazine.bmp"
-    "invert_round.bmp"
-    "invert_scope_clamp.bmp"
-    "invert_scope.bmp"
-    "invert_scopelens.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "weapon" -2.800000 65.700000 2.650000
 
-// 9 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 R Hand" -0.860000 -1.420000 -7.991936 8.293511 20.035532 4.150000
 $hbox 0 "weapon" -2.250000 -17.139999 -4.490000 1.830000 29.049999 6.690000
 $hbox 0 "Bip01 L Hand" -0.960000 -2.510000 -0.160000 0.890000 1.260000 4.150000
@@ -105,7 +101,7 @@ $hbox 0 "R_Arm_bone" -2.560000 -4.170000 -8.250000 2.100000 2.240000 2.560000
 $hbox 0 "bolt" -1.090000 -3.300000 -0.780000 0.480000 4.350000 2.287561
 $hbox 0 "magazine" -0.670000 -2.480000 -1.800000 0.760000 2.490000 1.884617
 
-// 6 animation sequence(s)
+// animation sequence(s)
 $sequence "draw" "draw" fps 25 { event 5004 0 "rifle_selected.wav" } 
 $sequence "idle" "idle" fps 9 loop ACT_IDLE 1 
 $sequence "shoot" "shoot" fps 26  { event 5001 0 "11" } 

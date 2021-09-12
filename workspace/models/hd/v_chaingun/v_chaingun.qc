@@ -34,27 +34,35 @@ $origin 0 2 0 2
 $texturegroup ice
 {
   {
+    "..\gordon_glove.bmp"
+    "..\gordon_sleeve.bmp"
     "chrome1.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "invert_chrome1.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\..\ringchrome.bmp"
   }
   {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Bip01 R Arm2" 0.000000 1.920000 25.049999
 
-// 2 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -2.800000 -1.730000 11.680000 3.020000 4.000000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 
-// 7 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 30 
 $sequence "idle2" "idle2" fps 3 
 $sequence "spinup" "spinup" loop fps 20 
