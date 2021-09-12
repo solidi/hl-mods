@@ -35,28 +35,40 @@ $body "body" "vchub_Template(toad)1"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
     "CHB_Eye1.bmp"
     "CHB_Side1.bmp"
     "CHB_Tounge1.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "invert_CHB_Eye1.bmp"
     "invert_CHB_Side1.bmp"
     "invert_CHB_Tounge1.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
 }
 
-// 11 hit box(es)
+// hit box(es)
 $hbox 0 "MDLDEC_Bone9" 0.290000 -2.800000 -1.730000 11.680000 3.020000 4.000000
 $hbox 0 "MDLDEC_Bone10" 0.130000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 $hbox 0 "MDLDEC_Bone28" 2.400000 -1.570000 -3.220000 11.368421 4.270000 2.510000
@@ -69,7 +81,7 @@ $hbox 0 "MDLDEC_Bone56" 0.180000 -1.950000 -3.020000 2.598145 2.120000 3.030000
 $hbox 0 "MDLDEC_Bone57" -1.430381 -1.620000 -1.586158 0.300000 1.117694 1.863878
 $hbox 0 "MDLDEC_Bone58" 0.080000 -1.140000 -2.010000 1.610000 0.380000 2.120000
 
-// 8 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "fidgetLick" "fidgetLick" fps 16 
 $sequence "fidgetCroak" "fidgetCroak" fps 16 

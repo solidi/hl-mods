@@ -40,6 +40,9 @@ studio "tripmine_boned_world"
 $texturegroup ice
 {
   {
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
     "box.bmp"
     "face.bmp"
     "lensCHROME.bmp"
@@ -47,6 +50,9 @@ $texturegroup ice
     "side.bmp"
   }
   {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
     "invert_box.bmp"
     "invert_face.bmp"
     "invert_lensCHROME.bmp"
@@ -54,6 +60,9 @@ $texturegroup ice
     "invert_side.bmp"
   }
   {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -61,6 +70,9 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -69,7 +81,7 @@ $texturegroup ice
   }
 }
 
-// 5 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -1.770000 -1.570000 11.680000 1.030000 2.620000
 $hbox 0 "Bip01 L Hand" -0.070000 -0.870000 -1.950000 3.890000 1.030000 1.700000
 $hbox 0 "Bip01 R Arm2" 0.000000 -1.770000 -2.590000 11.368423 1.000000 1.570000

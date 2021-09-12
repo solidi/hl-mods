@@ -37,9 +37,9 @@ $texturegroup ice
     "radioside.bmp"
     "satchel_body.bmp"
     "strap.bmp"
-    "GLOVE_handpak.bmp.bmp"
-    "GLOVED_knuckle.bmp"
-    "GLOVED_sleeve.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVED_sleeve.bmp"
   }
   {
     "invert_buckleCHROME.bmp"
@@ -47,9 +47,9 @@ $texturegroup ice
     "invert_radioside.bmp"
     "invert_satchel_body.bmp"
     "invert_strap.bmp"
-    "invert_GLOVE_handpak.bmp.bmp"
-    "invert_GLOVED_knuckle.bmp"
-    "invert_GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -74,14 +74,14 @@ $texturegroup ice
 }
 
 
-// 5 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -2.030000 -1.900000 11.800000 1.730000 2.960000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.860000 -1.850000 4.170000 4.149754 1.780000
 $hbox 0 "Bip01 L Finger0" 0.000000 -0.450000 -0.620000 2.090000 0.740000 0.580000
 $hbox 0 "Dummy22" -0.464522 -3.607854 0.000000 2.239859 2.210740 3.768721
 $hbox 0 "Bone03" -7.400000 -1.640000 -4.610000 2.840000 11.610000 5.320000
 
-// 4 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 20 loop 
 $sequence "fidget1" "fidget1" fps 30 
 $sequence "draw" "draw" fps 30 

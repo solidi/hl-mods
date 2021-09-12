@@ -31,29 +31,41 @@ $body "body" "grenade_hand"
 
 $texturegroup ice
 {
-  { 
+  {
+    "..\gordon_GLOVED_knuckle.bmp"
+    "..\gordon_GLOVE_handpak.bmp.bmp"
+    "..\gordon_xbow_sleeve.bmp"
     "spoont.bmp"
     "grenCHROME.bmp"
     "grenade3.bmp"
   }
-  { 
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
     "invert_spoont.bmp"
     "invert_grenCHROME.bmp"
     "invert_grenade3.bmp"
   }
-  { 
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }
   {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
 }
 
-// 6 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 R Arm1" 0.000000 -2.810000 -3.310000 12.350000 3.490000 2.620000
 $hbox 0 "Bip01 R Arm2" 0.000000 -2.610000 -3.140000 11.368420 3.210000 2.340000
 $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -1.790000 3.890000 1.030000 1.940000
@@ -61,7 +73,7 @@ $hbox 0 "Dummy22" -1.010000 -1.220000 -2.130000 1.620000 1.920000 3.110000
 $hbox 0 "Bip01 L Arm2" 0.000000 -2.280000 -2.120000 11.680000 2.740000 2.380000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 
-// 8 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 loop 
 $sequence "fidget" "fidget" fps 30 loop 
 $sequence "pinpull" "pinpull" fps 45 { event 5004 0 "holy_handgrenade.wav" }
