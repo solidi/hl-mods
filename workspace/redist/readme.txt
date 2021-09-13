@@ -49,6 +49,7 @@ Features:
 - Right handed or left handed models
 - Weapon sway and fidet animation for realism
 - Bullet and gun smoke animation for effect
+- Experimental iron sights support for select weapons
 
 Commands:
 
@@ -81,6 +82,7 @@ Client:
 - Gun Smoke - "cl_gunsmoke 1" - To switch between weapons creating smoke when fired
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 - Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
+- Use iron sights when available - Use "+ironsight"
 
 Thanks To:
 
@@ -116,3 +118,4 @@ Thanks To:
 - The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
 - Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
+- BlueNightHawk for modern camera and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
