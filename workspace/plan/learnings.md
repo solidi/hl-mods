@@ -252,3 +252,4 @@
 1. When escaping a path for execution in Powershell is difficult, use the `Set-Location` as a hack. See [this thread](https://stackoverflow.com/a/26981940) for details.
 1. [All output in a function is returned](https://stackoverflow.com/a/10288256) in Powershell.
 1. [This graphic](https://en.wikipedia.org/wiki/Aircraft_principal_axes#/media/File:Yaw_Axis_Corrected.svg) helps better understand the three axises of yaw, pitch, and roll.
+1. [SteamCharts](https://steamcharts.com/search/?q=half-life) is a great place to understand how many players are playing steam games.

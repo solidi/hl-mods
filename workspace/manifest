@@ -231,6 +231,7 @@ sound\snowball_throw.wav
 sound\snowball_miss.wav
 sound\snowball_hitbod.wav
 sound\snowball_selected.wav
+sound\pull_back.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

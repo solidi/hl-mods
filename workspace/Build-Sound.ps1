@@ -61,6 +61,7 @@ Compile-Sound $binDir $redistDir $soundDir "8e8118_counter_strike_go_go_go_sound
 Compile-Sound $binDir $redistDir $soundDir "manos.m4a" 5.5 "sound\fists_selected.wav" "wav" 1 5
 Compile-Sound $binDir $redistDir $soundDir "punch_hit_sfx.mp3" 1.0 "sound\fists_hit.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 1.0 "sound\fists_miss.wav" "wav" 0 0.55
+Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back.wav" "wav" 1.25 3
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound

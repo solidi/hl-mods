@@ -73,7 +73,6 @@ $hbox 0 "R_Arm_bone" -2.560000 -4.170000 -8.250000 2.100000 2.240000 2.560000
 $sequence "idle1" "idle1" fps 9 loop ACT_IDLE 1 
 $sequence "draw" "draw" fps 30 { event 5004 0 "crowbar_selected.wav" }
 $sequence "holster" "holster" fps 15 
-$sequence "throw" "hit1" fps 30 { event 5004 0 "crowbar_zeke.wav" }
 $sequence "attack1" "hit1" fps 30 
 $sequence "attack1miss" "miss1" fps 30 
 $sequence "attack2" "hit2" fps 30 
@@ -82,5 +81,7 @@ $sequence "attack3" "hit1" fps 30
 $sequence "attack3miss" "smash_miss" fps 25 
 $sequence "idle2" "idle2" fps 3 ACT_IDLE 1 
 $sequence "idle3" "idle3" fps 8 ACT_IDLE 1 
+$sequence "pull_back" "pull_back" fps 30 { event 5004 0 "pull_back.wav" }
+$sequence "throw" "throw" fps 45 { event 5004 0 "crowbar_zeke.wav" }
 
 // End of QC script.
