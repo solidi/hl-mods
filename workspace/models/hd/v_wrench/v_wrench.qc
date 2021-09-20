@@ -62,7 +62,6 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -5.930000 7.850000 2.940000 19.950001
 $sequence "idle1" "idle1" fps 13 
 $sequence "draw" "draw" fps 24 { event 5004 0 "wrench_selected.wav" } 
 $sequence "holster" "holster" fps 24 
-$sequence "throw" "attack1" fps 22 { event 5004 0 "wrench_getsome.wav" } 
 $sequence "attack1" "attack1" fps 22 
 $sequence "attack1miss" "attack1miss" fps 22 
 $sequence "attack2" "attack2" fps 22 
@@ -71,5 +70,7 @@ $sequence "attack3" "attack3" fps 24
 $sequence "attack3hit" "attack3hit" fps 24 
 $sequence "idle2" "idle2" fps 15 loop 
 $sequence "idle3" "idle3" fps 15 loop 
+$sequence "pull_back" "pull_back" fps 30 { event 5004 0 "pull_back.wav" }
+$sequence "throw" "throw" fps 45 { event 5004 0 "wrench_getsome.wav" } 
 
 // End of QC script.

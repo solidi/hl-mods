@@ -71,7 +71,6 @@ $hbox 0 "Hands biped R Hand" 0.000000 -0.760000 -1.860000 5.310000 2.970000 5.64
 $sequence "idle1" "idle" fps 12 loop 
 $sequence "draw" "draw" fps 30 { event 5004 5 "knife_selected.wav" }
 $sequence "holster" "holster" fps 30 
-$sequence "throw" "slash" fps 30 { event 5004 5 "knife_thecore.wav" }
 $sequence "attack1" "slash" fps 30 
 $sequence "attack1miss" "slash" fps 30 
 $sequence "attack2" "stab" fps 30 
@@ -80,5 +79,7 @@ $sequence "attack3" "slash" fps 30
 $sequence "attack3hit" "slash" fps 30 
 $sequence "idle2" "idle2" fps 12 loop 
 $sequence "idle3" "idle" fps 12 loop 
+$sequence "pull_back" "pull_back" fps 30 { event 5004 0 "pull_back.wav" }
+$sequence "throw" "throw" fps 45 { event 5004 5 "knife_thecore.wav" }
 
 // End of QC script.

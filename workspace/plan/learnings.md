@@ -252,3 +252,7 @@
 1. When escaping a path for execution in Powershell is difficult, use the `Set-Location` as a hack. See [this thread](https://stackoverflow.com/a/26981940) for details.
 1. [All output in a function is returned](https://stackoverflow.com/a/10288256) in Powershell.
 1. [This graphic](https://en.wikipedia.org/wiki/Aircraft_principal_axes#/media/File:Yaw_Axis_Corrected.svg) helps better understand the three axises of yaw, pitch, and roll.
+1. [SteamCharts](https://steamcharts.com/search/?q=half-life) is a great place to understand how many players are playing steam games.
+1. [The use of %p](https://stackoverflow.com/questions/9053658/correct-format-specifier-to-print-pointer-or-address) in debug statements is used to print out the address of the pointer. 
+1. [Directory.Build.props](https://newbedev.com/how-to-set-preprocessordefinitions-as-a-task-propery-for-the-msbuild-task) file can be used for configuration of the current build.
+1. <signal.h> and `raise(SIGSEV)` [can be used](https://stackoverflow.com/questions/8481783/what-is-the-easiest-way-to-make-a-c-program-crash) to raise and crash a c++ program.

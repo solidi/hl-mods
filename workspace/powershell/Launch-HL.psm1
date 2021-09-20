@@ -1,4 +1,31 @@
 
+function copyDistributionFiles {
+    param (
+        $redistDir,
+        $redisthddir,
+        $iceDir,
+        $icehddir
+    )
+
+    echo "Copying distribution files..."
+
+    Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
+    if (!(Test-Path $iceDir)) {
+        New-Item -ItemType directory -Path $iceDir
+    }
+    if (!(Test-Path $icehddir)) {
+        New-Item -ItemType directory -Path $icehddir
+    }
+    Copy-Item ${RootDir}\libs\dlls\ice.dll $redistDir\dlls -ErrorAction Ignore
+    Copy-Item ${RootDir}\libs\dlls\grave_bot.dll $redistDir\dlls -ErrorAction Ignore
+    Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ignore
+    Copy-Item $redistdir\\* $iceDir -Recurse -Force
+    Copy-Item $redisthddir\\* $icehddir -Recurse -Force
+
+    echo "Done with distribution files."
+}
+
 function Launch-HL {
     param (
         $botcount,

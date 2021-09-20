@@ -64,20 +64,7 @@ $gameParameters = $Config['gameParameters'] ?? "-console -dev -condebug -gl -win
 $iceDir = "${hldir}\${iceFolder}"
 $icehddir = "${hldir}\${iceFolder}_hd"
 
-# Prepare distribution folders
-Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
-if (!(Test-Path $iceDir)) {
-    New-Item -ItemType directory -Path $iceDir
-}
-if (!(Test-Path $icehddir)) {
-    New-Item -ItemType directory -Path $icehddir
-}
-Copy-Item ${RootDir}\libs\dlls\ice.dll $redistDir\dlls -ErrorAction Ignore
-Copy-Item ${RootDir}\libs\dlls\grave_bot.dll $redistDir\dlls -ErrorAction Ignore
-Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ignore
-Copy-Item $redistdir\\* $iceDir -Recurse -Force
-Copy-Item $redisthddir\\* $icehddir -Recurse -Force
+copyDistributionFiles $redistDir $redisthddir $iceDir $icehddir
 
 New-Item $iceDir\game.cfg
 
