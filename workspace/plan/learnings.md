@@ -256,3 +256,4 @@
 1. [The use of %p](https://stackoverflow.com/questions/9053658/correct-format-specifier-to-print-pointer-or-address) in debug statements is used to print out the address of the pointer. 
 1. [Directory.Build.props](https://newbedev.com/how-to-set-preprocessordefinitions-as-a-task-propery-for-the-msbuild-task) file can be used for configuration of the current build.
 1. <signal.h> and `raise(SIGSEV)` [can be used](https://stackoverflow.com/questions/8481783/what-is-the-easiest-way-to-make-a-c-program-crash) to raise and crash a c++ program.
+1. I learned that vertices should be arranged in a counter-clockwise fashion. Each face ihas a front face and a back face. To switch between bace and front face, use reverse vertex under faces.

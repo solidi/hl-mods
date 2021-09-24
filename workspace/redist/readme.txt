@@ -32,13 +32,14 @@ Features:
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
-    - "Frag" - obtain twice the amount of frags
-    - "Vampire" - obtain health when inflicting damage
-    - "Protect" - soften the damage sustained by half
-    - "Regen" - continually repair health
-    - "Haste" - walk and run 50% faster
-    - "Gravity" - jump 40% farther
-    - "Strength" - inflict 50% more damage
+    - "Frag" - purple - obtain twice the amount of frags
+    - "Vampire" - red - obtain health when inflicting damage
+    - "Protect" - green - soften the damage sustained by half
+    - "Regen" - pink - continually repair health
+    - "Haste" - orange - walk and run 50% faster
+    - "Gravity" - blue - jump 40% farther
+    - "Strength" - yellow - inflict 50% more damage
+    - "Cloak" - white - 90% invisibility
 - Option for origin models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
