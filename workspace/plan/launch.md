@@ -88,7 +88,7 @@
 - [x] Edict count
 - [x] Runes
     - [x] Glowing shell on view model
-    - [ ] Cloak rune
+    - [x] Cloak rune
 - [ ] Skins
     - [x] Blue blood?
     - [x] Inverted original weapons
@@ -126,11 +126,11 @@
 - [ ] Railgun follows through multiple targets
 - [ ] Secondary chaingun idea?
     - [ ] Faster spin?
-- [ ] Normalize arm skins (orange default)
+- [x] Normalize arm skins (orange default)
 - [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
 - [ ] Punch angles for all weapons
 - [ ] Correct all brass shell ejection points
     - [ ] Use attachment point for each model
 - [ ] Convert throw-hold effect to all other weapons for control
-    - [ ] Knife, Crowbar, Pipe, Wrench
+    - [x] Knife, Crowbar, Pipe, Wrench
 - [ ] Single shot weapons for semi-auto effect

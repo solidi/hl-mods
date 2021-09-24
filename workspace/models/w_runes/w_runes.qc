@@ -37,6 +37,7 @@ studio "regeneration"
 studio "haste"
 studio "gravity"
 studio "power"
+studio "cloak"
 }
 
 
