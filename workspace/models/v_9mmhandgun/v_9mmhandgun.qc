@@ -94,6 +94,7 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -2.210000 18.139999 3.320000 5.040000
 $hbox 0 "Bone02" -0.650000 -8.120000 -0.690000 3.330000 1.110000 0.790000
 
 // animation sequence(s)
+$sequence "aim" "aim" fps 16 loop 
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "idle2" "idle2" fps 16 loop 
 $sequence "idle3" "idle3" fps 14 loop 

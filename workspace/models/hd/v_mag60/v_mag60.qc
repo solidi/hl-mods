@@ -78,6 +78,7 @@ $hbox 0 "bladegun" -1.010000 -8.540000 -11.550000 0.930000 2.990000 5.030000
 $hbox 0 "clip" -0.520000 -2.630000 -3.570000 0.590000 6.950000 1.630000
 
 // animation sequence(s)
+$sequence "aim" "aim" fps 9 loop ACT_IDLE 1 
 $sequence "idle" "idle" fps 9 loop ACT_IDLE 1 
 $sequence "idle2" "idle2" fps 8 
 $sequence "idle3" "idle" fps 9 loop ACT_IDLE 1 

@@ -80,6 +80,7 @@ $hbox 0 "sight" -0.350000 -0.490000 -1.160000 0.740000 5.940000 1.110000
 $hbox 0 "Clip" -3.020000 -6.010000 -1.930000 2.690000 2.530000 2.070000
 
 // animation sequence(s)
+$sequence "aim" "aim" fps 10 loop 
 $sequence "gidle1" "gidle" fps 10 loop 
 $sequence "gidle2" "gidle" fps 10 loop 
 $sequence "gdraw" "gdraw" fps 30 { event 5004 0 "glauncher_selected.wav" }

@@ -71,6 +71,7 @@ $hbox 0 "Bip01 R Finger0" 0.000000 -0.940000 -1.000000 2.450000 0.390000 0.54000
 $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
 // animation sequence(s)
+$sequence "aim" "aim" fps 12 loop 
 $sequence "sm_idle" "sm_idle" fps 9 loop 
 $sequence "shoot" "shoot" fps 30 { event 5001 0 "41" } 
 $sequence "shoot_big" "shoot_big" fps 30 { event 5001 0 "41" } { event 5001 1 "41" } 

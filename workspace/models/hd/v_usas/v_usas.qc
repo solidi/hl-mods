@@ -62,10 +62,10 @@ $texturegroup ice
 }
 
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "carbine" 0.500000 -27.000000 2.000000
 
-// 8 hit box(es)
+// hit box(es)
 $hbox 0 "carbine" -0.390000 -26.900000 -4.740000 1.880000 5.480000 6.030000
 $hbox 0 "tube" -1.340000 -7.290000 -3.780000 1.340000 7.190000 0.120000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -1.820000 3.910000 0.900000 1.710000
@@ -75,7 +75,8 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.990000 -1.710000 3.920000 0.870000 1.820000
 $hbox 0 "Bip01 R Finger0" 0.000000 -0.940000 -1.000000 2.450000 0.390000 0.540000
 $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
-// 8 animation sequence(s)
+// animation sequence(s)
+$sequence "aim" "aim" fps 35
 $sequence "longidle" "longidle" fps 8  
 $sequence "idle1" "idle1" fps 35
 $sequence "idle2" "idle1" fps 35

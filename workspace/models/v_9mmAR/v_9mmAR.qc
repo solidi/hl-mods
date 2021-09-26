@@ -98,6 +98,7 @@ $hbox 0 "Bone23" -1.020000 -0.230000 -1.020000 0.000000 1.580000 0.720000
 $hbox 0 "Bone24" -1.040000 -0.290000 -0.650000 0.030000 0.750000 0.540000
 
 // animation sequence(s)
+$sequence "aim" "aim" fps 35 
 $sequence "longidle" "longidle" fps 8 
 $sequence "idle1" "idle1" fps 35 
 $sequence "grenade" "grenade" fps 30 

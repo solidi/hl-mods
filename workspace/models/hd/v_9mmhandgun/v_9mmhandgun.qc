@@ -89,6 +89,7 @@ $hbox 0 "Hands biped L Finger0" 0.000000 -0.730000 -0.560000 2.380000 0.370000 0
 $hbox 0 "Hands biped R Finger0" -0.040000 -0.700000 -0.730000 2.380000 0.370000 0.570000
 
 // animation sequence(s)
+$sequence "aim" "aim" fps 16 loop 
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "idle2" "idle2" fps 16 loop 
 $sequence "idle3" "idle3" fps 14 loop 
