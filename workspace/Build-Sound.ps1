@@ -62,6 +62,8 @@ Compile-Sound $binDir $redistDir $soundDir "manos.m4a" 5.5 "sound\fists_selected
 Compile-Sound $binDir $redistDir $soundDir "punch_hit_sfx.mp3" 1.0 "sound\fists_hit.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 1.0 "sound\fists_miss.wav" "wav" 0 0.55
 Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back.wav" "wav" 1.25 3
+Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
+
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
@@ -144,5 +146,12 @@ Copy-Item $soundDir\snowball_throw.wav $redistdir\sound
 Copy-Item $soundDir\snowball_miss.wav $redistdir\sound
 Copy-Item $soundDir\snowball_hitbod.wav $redistdir\sound
 Copy-Item $soundDir\snowball_selected.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_attack1_start.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_attack1_loop.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_attack1_end.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_draw.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_hit.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_slash.wav $redistdir\sound
+Copy-Item $soundDir\chainsaw_idle.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}

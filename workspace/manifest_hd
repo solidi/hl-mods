@@ -60,6 +60,9 @@ models\v_wrench.mdl
 models\p_wrench.mdl
 models\w_wrench.mdl
 models\v_snowball.mdl
+models\v_chainsaw.mdl
+models\w_chainsaw.mdl
+models\p_chainsaw.mdl
 sound
 sound\knife_miss2.wav
 sprites

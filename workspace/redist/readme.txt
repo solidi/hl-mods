@@ -1,9 +1,12 @@
 Cold Ice GoldSrc Edition
 
 This project is a rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
+
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
 Source code: https://github.com/solidi/coldice-goldsrc
 Project code: https://github.com/solidi/hl-mods
+
+This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
 Features:
 
@@ -29,6 +32,7 @@ Features:
     - Manos de Piedras
     - 40 Pound Monkey Wrench
     - Snowballs
+    - Koshak's Chainsaw
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -120,3 +124,5 @@ Thanks To:
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
 - Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
 - BlueNightHawk for modern camera and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
+- Koshak_HL for the HD chainsaw model and others http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
+- Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
