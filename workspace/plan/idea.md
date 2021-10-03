@@ -67,6 +67,7 @@
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] Bell when a frag is committed (ala CS:GO)
+    1. [ ] Weapon filter list
 1. Weapons
     1. [x] Have humorous sound effect with each weapon?
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
@@ -84,7 +85,7 @@
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [ ] Big uppercut punch secondary fire with fists
-    1. [ ] Chainsaw
+    1. [x] Chainsaw
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
     1. [ ] Counter-Strike penguin

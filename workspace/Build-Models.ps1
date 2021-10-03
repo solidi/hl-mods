@@ -180,6 +180,12 @@ Invert-Skin $binDir "w_hgibs" $modelsdir
 Invert-Skin $binDir "v_9mmAR" $modelsdir
 Invert-Skin $binDir "v_9mmAR" $modelsdir\hd
 Invert-Skin $binDir "v_shotgun" $modelsdir\hd
+Invert-Skin $binDir "v_chainsaw" $modelsdir\hd
+Invert-Skin $binDir "w_chainsaw" $modelsdir\hd
+Invert-Skin $binDir "p_chainsaw" $modelsdir\hd
+Invert-Skin $binDir "v_chainsaw" $modelsdir
+Invert-Skin $binDir "w_chainsaw" $modelsdir
+Invert-Skin $binDir "p_chainsaw" $modelsdir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -319,5 +325,11 @@ Compile-Model $binDir "v_snowball" $modelsdir $redistdir\models
 Compile-Model $binDir "p_snowball" $modelsdir $redistdir\models
 Compile-Model $binDir "w_snowball" $modelsdir $redistdir\models
 Compile-Model $binDir "w_hgibs" $modelsdir $redistdir\models
+Compile-Model $binDir "v_chainsaw" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_chainsaw" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_chainsaw" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_chainsaw" $modelsdir $redistdir\models
+Compile-Model $binDir "v_chainsaw" $modelsdir $redistdir\models
+Compile-Model $binDir "p_chainsaw" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}

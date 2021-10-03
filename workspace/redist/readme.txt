@@ -29,6 +29,7 @@ Features:
     - Manos de Piedras
     - 40 Pound Monkey Wrench
     - Snowballs
+    - Koshak's Chainsaw
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -120,3 +121,4 @@ Thanks To:
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
 - Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
 - BlueNightHawk for modern camera and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
+- Koshak_HL for the chainsaw model and others http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file

@@ -23,6 +23,7 @@ events\smg.sc
 events\usas.sc
 events\fists.sc
 events\wrench.sc
+events\chainsaw.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -112,6 +113,9 @@ models\v_snowball.mdl
 models\p_snowball.mdl
 models\w_snowball.mdl
 models\w_hgibs.mdl
+models\v_chainsaw.mdl
+models\p_chainsaw.mdl
+models\w_chainsaw.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -232,6 +236,14 @@ sound\snowball_miss.wav
 sound\snowball_hitbod.wav
 sound\snowball_selected.wav
 sound\pull_back.wav
+sound\chainsaw_attack1_start.wav
+sound\chainsaw_attack1_loop.wav
+sound\chainsaw_attack1_end.wav
+sound\chainsaw_draw.wav
+sound\chainsaw_slash.wav
+sound\chainsaw_hit.wav
+sound\chainsaw_idle.wav
+sound\chainsaw_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -261,6 +273,7 @@ sprites\weapon_usas.txt
 sprites\weapon_fists.txt
 sprites\weapon_wrench.txt
 sprites\weapon_snowball.txt
+sprites\weapon_chainsaw.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt
