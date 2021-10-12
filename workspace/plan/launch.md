@@ -20,6 +20,8 @@
         - Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     - [x] Wrench
     - [x] Snowball
+    - [x] Chainsaw
+    - [ ] 12 Gauge
 - [ ] Testing
     - [ ] Weapons behaviors under water
     - [ ] Fakelag with weapons

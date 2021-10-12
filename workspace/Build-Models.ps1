@@ -186,6 +186,12 @@ Invert-Skin $binDir "p_chainsaw" $modelsdir\hd
 Invert-Skin $binDir "v_chainsaw" $modelsdir
 Invert-Skin $binDir "w_chainsaw" $modelsdir
 Invert-Skin $binDir "p_chainsaw" $modelsdir
+Invert-Skin $binDir "v_12gauge" $modelsdir
+Invert-Skin $binDir "p_12gauge" $modelsdir
+Invert-Skin $binDir "w_12gauge" $modelsdir
+Invert-Skin $binDir "p_12gauge" $modelsdir\hd
+Invert-Skin $binDir "w_12gauge" $modelsdir\hd
+Invert-Skin $binDir "v_12gauge" $modelsdir\hd
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
@@ -331,5 +337,11 @@ Compile-Model $binDir "p_chainsaw" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_chainsaw" $modelsdir $redistdir\models
 Compile-Model $binDir "v_chainsaw" $modelsdir $redistdir\models
 Compile-Model $binDir "p_chainsaw" $modelsdir $redistdir\models
+Compile-Model $binDir "v_12gauge" $modelsdir $redistdir\models
+Compile-Model $binDir "p_12gauge" $modelsdir $redistdir\models
+Compile-Model $binDir "w_12gauge" $modelsdir $redistdir\models
+Compile-Model $binDir "v_12gauge" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_12gauge" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_12gauge" $modelsdir\hd $redisthddir\models
 
 Set-Location -Path ${PSScriptRoot}

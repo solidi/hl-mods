@@ -24,6 +24,8 @@ events\usas.sc
 events\fists.sc
 events\wrench.sc
 events\chainsaw.sc
+events\gauge_single.sc
+events\gauge_double.sc
 gfx
 gfx\shell
 gfx\shell\kb_act.lst
@@ -116,6 +118,9 @@ models\w_hgibs.mdl
 models\v_chainsaw.mdl
 models\p_chainsaw.mdl
 models\w_chainsaw.mdl
+models\v_12gauge.mdl
+models\p_12gauge.mdl
+models\w_12gauge.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -244,6 +249,9 @@ sound\chainsaw_slash.wav
 sound\chainsaw_hit.wav
 sound\chainsaw_idle.wav
 sound\chainsaw_selected.wav
+sound\12gauge_selected.wav
+sound\12gauge_jackson.wav
+sound\12gauge_fire.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -274,6 +282,7 @@ sprites\weapon_fists.txt
 sprites\weapon_wrench.txt
 sprites\weapon_snowball.txt
 sprites\weapon_chainsaw.txt
+sprites\weapon_12gauge.txt
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

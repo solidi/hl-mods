@@ -44,6 +44,7 @@
 "use weapon_mag60"			"#Ice_Mag60"
 "use weapon_smg"			"#Ice_Smg"
 "slot3" 		"#Valve_Weapon_Category_3"
+"use weapon_12gauage"			"#Ice_12Gauge"
 "use weapon_crossbow"			"#Ice_Boltgun"
 "use weapon_sniperrifle"			"#Ice_SniperRifle"
 "use weapon_chaingun"			"#Ice_Chaingun"

@@ -9,6 +9,7 @@ For weapon generation scripting.
     1. Client dll
       1. [ ] Punch angles
       1. [ ] Brass ejection
+      1. [ ] Iron sight
 1. [ ] Models
     1. [ ] HD and SD
     1. [ ] Ice Texture
