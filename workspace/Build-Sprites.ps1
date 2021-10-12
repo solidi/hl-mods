@@ -68,6 +68,7 @@ Copy-Item $spritesDir\weapon_fists.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_wrench.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_snowball.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_chainsaw.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_12gauge.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

@@ -62,12 +62,14 @@
 1. Environment look and feel
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+    1. [ ] Bullet hole decals like BHL
 1. Gameplay
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] Bell when a frag is committed (ala CS:GO)
     1. [ ] Weapon filter list
+    1. [ ] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
 1. Weapons
     1. [x] Have humorous sound effect with each weapon?
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?

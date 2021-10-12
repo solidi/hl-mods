@@ -33,6 +33,7 @@ Features:
     - 40 Pound Monkey Wrench
     - Snowballs
     - Koshak's Chainsaw
+    - Samel L. Jackson's 12 Gauge Shotgun
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -91,6 +92,7 @@ Client:
 
 Thanks To:
 
+- Infinity for all the Cold-Ice models https://www.chaosworx.net/
 - Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
 - Gamebanana for "the" archive of models, effects, and everything https://gamebanana.com/
 - Various for documenting all cut items from Half-Life https://tcrf.net/Half-Life_(Windows)

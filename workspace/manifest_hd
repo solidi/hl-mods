@@ -63,6 +63,9 @@ models\v_snowball.mdl
 models\v_chainsaw.mdl
 models\w_chainsaw.mdl
 models\p_chainsaw.mdl
+models\v_12gauge.mdl
+models\p_12gauge.mdl
+models\w_12gauge.mdl
 sound
 sound\knife_miss2.wav
 sprites
