@@ -13,3 +13,4 @@ See [this recent post](https://medium.com/super-jump/building-a-popular-half-lif
 1. [Half-Life Pro](https://web.archive.org/web/20011006015111/http://www.planethalflife.com/features/motw/hlpro.shtm)
 1. Half-Life Advanced
 1. Pong
+1. Cold-Ice GoldSrc Remastered

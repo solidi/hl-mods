@@ -1,0 +1,19 @@
+Hi there, and welcome to the HHEV assault suit, version. 666
+
+///HHEV --Heavy Hazardous Environment Suit version .666///
+
+
+This is the first version, utilizing the Standard HalfLife DM animations, so there might be a few cosmetic problems with intersecting joints, and the like.. I'm currently animating all 120 or something friggin' animations...I will make it available as soon as it is done..
+
+please point the zip file to extract to the drive that Half Life is in, as I have put the proper directory structure into the zip file.. SIERRA/Half-Life/valve/models/player/HHEV
+
+
+Please let me know if you have any problems, or have any questions regarding the model..
+
+
+Thanks,
+-Fritz the Cat!
+
+mail-  morourke@thegrid.net
+
+web-   www.thegrid.net/morourke
