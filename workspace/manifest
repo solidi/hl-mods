@@ -287,6 +287,8 @@ sound\chainsaw_selected.wav
 sound\12gauge_selected.wav
 sound\12gauge_jackson.wav
 sound\12gauge_fire.wav
+sound\ironsight_on.wav
+sound\ironsight_off.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

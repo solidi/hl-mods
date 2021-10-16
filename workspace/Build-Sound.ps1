@@ -156,5 +156,7 @@ Copy-Item $soundDir\chainsaw_slash.wav $redistdir\sound
 Copy-Item $soundDir\chainsaw_idle.wav $redistdir\sound
 Copy-Item $soundDir\12gauge_selected.wav $redistdir\sound
 Copy-Item $soundDir\12gauge_fire.wav $redistdir\sound
+Copy-Item $soundDir\ironsight_on.wav $redistdir\sound
+Copy-Item $soundDir\ironsight_off.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}

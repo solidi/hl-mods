@@ -129,3 +129,4 @@ Thanks To:
 - Koshak_HL for the HD chainsaw model and others http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
 - Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
 - Fritz the Cat! for the hhev player model
+- SMOD series for the iron sights switch sounds effects https://www.moddb.com/mods/smod-40a
