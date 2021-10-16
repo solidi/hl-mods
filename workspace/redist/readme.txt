@@ -128,3 +128,4 @@ Thanks To:
 - BlueNightHawk for modern camera and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
 - Koshak_HL for the HD chainsaw model and others http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
 - Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
+- Fritz the Cat! for the hhev player model

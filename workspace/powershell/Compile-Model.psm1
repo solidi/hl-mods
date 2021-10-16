@@ -31,3 +31,9 @@ function Compile-Model {
         echo "Skipping model $target as mdl timestamp is greater than source files."
     }
 }
+
+function Compile-Player($name, $binDir, $modelsdir, $redistDir) {
+    Compile-Model $binDir $name $modelsdir $redistDir\models\player\$name
+    Copy-Item $modelsdir\$name\$name.bmp $redistDir\models\player\$name
+    Copy-Item $modelsdir\$name\$name.txt $redistDir\models\player\$name -ErrorAction SilentlyContinue
+}

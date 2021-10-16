@@ -14,3 +14,4 @@ Gitbgff
 EnemeyZero  
 ToonCop  
 Hero  
+Jolteon  

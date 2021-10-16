@@ -40,6 +40,18 @@ if ($clean -eq $true) {
     Remove-Item $redistDir\models -Force -ErrorAction Ignore
     Remove-Item $redisthddir\models -Force -ErrorAction Ignore
     [void](New-Item -ItemType directory -Path $redistDir\models)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\alpina)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\commando)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\grunt)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\hhev)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\holo)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\hotfire)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\iceman)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\navy)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\recon)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\stormtrooper)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\swat)
     [void](New-Item -ItemType directory -Path $redisthddir\models)
 }
 
@@ -192,6 +204,18 @@ Invert-Skin $binDir "w_12gauge" $modelsdir
 Invert-Skin $binDir "p_12gauge" $modelsdir\hd
 Invert-Skin $binDir "w_12gauge" $modelsdir\hd
 Invert-Skin $binDir "v_12gauge" $modelsdir\hd
+
+Compile-Player "alpina" $binDir $modelsdir $redistDir
+Compile-Player "commando" $binDir $modelsdir $redistDir
+Compile-Player "grunt" $binDir $modelsdir $redistDir
+Compile-Player "hhev" $binDir $modelsdir $redistDir
+Compile-Player "holo" $binDir $modelsdir $redistDir
+Compile-Player "hotfire" $binDir $modelsdir $redistDir
+Compile-Player "iceman" $binDir $modelsdir $redistDir
+Compile-Player "navy" $binDir $modelsdir $redistDir
+Compile-Player "recon" $binDir $modelsdir $redistDir
+Compile-Player "stormtrooper" $binDir $modelsdir $redistDir
+Compile-Player "swat" $binDir $modelsdir $redistDir
 
 Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
