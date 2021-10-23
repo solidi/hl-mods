@@ -1,7 +1,7 @@
 {
 "classname" "worldspawn"
 "skyname" "desert"
-"sounds" "25"
+"message" "Training"
 "light" "0"
 "MaxRange" "4500"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\gfx.wad;..\wads\spraypaint.wad;..\wads\xeno.wad;..\wads\decals.wad"

@@ -12,6 +12,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
+[bool]$clean = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -19,6 +20,9 @@ $Config = @{ }
         $configFile = $_.Split(' ')[1]
         . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
+        $clean = $true
+        echo "rebuilding all wads and maps..."
     }
 }
 
@@ -32,18 +36,32 @@ $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
 $wadsDir = "${RootDir}\wads"
 
-Remove-Item $redistDir\wads\\* -Recurse -Force -ErrorAction Ignore
+if ($clean -eq $true) {
+    Remove-Item $redistDir\* -Recurse -Include *.wad -Force -ErrorAction Ignore
+}
 
 Compile-Wad $binDir "coldice" $wadsDir $redistDir
 Compile-Wad $binDir "decals" $wadsDir $redistDir
 
 $mapsDir = "${RootDir}\maps"
 
-Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\maps -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\maps)
+if ($clean -eq $true) {
+    Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redistDir\maps -Force -ErrorAction Ignore
+    [void](New-Item -ItemType directory -Path $redistDir\maps)
+}
 
 Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "stalkyard3" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir
+Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir
 Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
 Copy-Item $mapsDir\boot_camp.wpt $redistDir\maps
 

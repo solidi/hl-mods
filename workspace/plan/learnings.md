@@ -259,3 +259,5 @@
 1. I learned that vertices should be arranged in a counter-clockwise fashion. Each face ihas a front face and a back face. To switch between bace and front face, use reverse vertex under faces.
 1. As of October 2021, [Virtual Box 6.1.26](https://docs.microsoft.com/en-us/windows/release-health/status-windows-11-21h2#1704msgdesc) has compatbility problems with Windows 11. Oracle is working on a fix.
 1. There is a hard limit of 500 temporary entities in Half-Life - even a NULL check will not work.
+1. [This webpage](http://zhlt.info/settings-for-final-compiles.html) discusses the full listing of "final" settings recommended in compiling Half-Life maps using ZHLT tools.
+1. [This webpage](https://valvedev.info/guides/goldsrc-map-decompilers-bsptwomap-vs-winbspc/) discusses the differences between bsptwomap and winbspc decompile outcomes.
