@@ -2363,7 +2363,7 @@
 "classname" "light_environment"
 "angles" "-90 0 0"
 "pitch" "-70"
-"_light" "192 192 192 8"
+"_light" "192 192 192 64"
 "_fade" "1.0"
 "origin" "32 -256 64"
 }
@@ -3111,4 +3111,36 @@
 "_light" "255 255 255 75"
 "_fade" "1.0"
 "origin" "1168 320 32"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-96 350 -8"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1329 499 32"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1329 -136 32"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "553 352 -8"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1023 525 0"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "896 289 8"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1767 -347 48"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "744 -478 -24"
 }

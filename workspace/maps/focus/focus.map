@@ -12723,6 +12723,7 @@
 }
 {
 "classname" "trigger_once"
+"origin" "0 0 0"
 }
 {
 "classname" "ambient_generic"
@@ -12839,4 +12840,28 @@
 {
 "classname" "ammo_357"
 "origin" "1152 -272 -144"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "263 -196 -112"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1783 680 -120"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-207 930 -448"
+}
+{
+"classname" "nfo_player_deathmatch"
+"origin" "695 1546 32"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "504 2441 48"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "271 1845 -112"
 }

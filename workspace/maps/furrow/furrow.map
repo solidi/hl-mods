@@ -2938,7 +2938,6 @@
 "pitch" "-110"
 "origin" "1184 -928 384"
 }
-
 {
 "classname" "func_wall"
 "rendercolor" "0 0 0"
@@ -3812,4 +3811,24 @@
 "pitchstart" "100"
 "message" "AMBIENCE/Wind1.wav"
 "origin" "744 216 200"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "351 208 232"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-160 -725 8"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "351 154 104"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1119 -94 256"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-664 -185 192"
 }

@@ -11,6 +11,7 @@ grave_bot.dll
 gravebot.so
 Thumbs.db*
 last-build.zip
+*.max
 
 workspace/redist/halflife.wad
 workspace/redist/decals.wad

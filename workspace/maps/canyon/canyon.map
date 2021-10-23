@@ -4372,3 +4372,19 @@
 "classname" "weapon_rpg"
 "origin" "151 283 -552"
 }
+{
+"classname" "weapon_egon"
+"origin" "219 -864 -112"
+}
+{
+"classname" "ammo_gaussclip"
+"origin" "279 -860 -112"
+}
+{
+"classname" "ammo_gaussclip"
+"origin" "212 -821 -112"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1728 -23 -400"
+}

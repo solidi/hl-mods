@@ -11088,3 +11088,23 @@
 "_light" "255 255 128 75"
 "origin" "368 224 96"
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "-913 1583 -64"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "144 728 -184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1492 176 -184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "2751 -88 128"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1488 -1122 88"
+}

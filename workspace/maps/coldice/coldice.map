@@ -5737,3 +5737,27 @@
 "classname" "weapon_egon"
 "origin" "64 1409 -608"
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "-129 854 -448"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-304 864 -1120"
+}
+{
+"classname" "weapon_shotgun"
+"origin" "-302 941 -1184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "17 225 0"
+}
+{
+"classname" "weapon_handgrenade"
+"origin" "-126 168 -64"
+}
+{
+"classname" "weapon_handgrenade"
+"origin" "-20 99 -64"
+}

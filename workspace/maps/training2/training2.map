@@ -3536,3 +3536,31 @@
 ( -636 714 -96 ) ( -630 708 -96 ) ( -630 708 160 ) {BLUE [ -0.707107 0.707107 0 13.6485 ] [ 0 0 -1 8 ] 0 1 1 
 }
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "333 -31 -136"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "34 -184 -128"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-717 -128 -48"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-760 1470 -48"
+}
+{
+"classname" "weapon_shotgun"
+"origin" "-729 1184 -48"
+}
+{
+"classname" "weapon_357"
+"origin" "-160 1183 -48"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-825 -23 112"
+}
