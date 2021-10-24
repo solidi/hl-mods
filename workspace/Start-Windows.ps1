@@ -18,6 +18,7 @@ $Config = @{ }
 [int]$teamplay = 0
 [string]$spawnweaponList = ""
 [int]$runes = 1
+[int]$timelimit = 0
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -43,6 +44,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipRunes") {
         $runes = 0
         echo "skipping runes..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "TimeLimit") {
+        $timelimit = $_.Split(' ')[1]
+        echo "timelimit is ${timelimit}..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -78,6 +82,10 @@ if (!$runes) {
 
 if ($spawnweaponlist) {
     "mp_spawnweaponlist `"$spawnweaponlist`"" | Add-Content $iceDir\game.cfg
+}
+
+if ($timelimit) {
+    "mp_timelimit `"$timelimt`"" | Add-Content $iceDir\game.cfg
 }
 
 for ($bot = 0; $bot -lt $botCount; $bot++) {
