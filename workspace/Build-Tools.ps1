@@ -36,6 +36,7 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $msBuild = $Config['msBuild'] ?? "msbuild"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
+Compile-Exe $msBuild "${RootDir}\bsp-tools\BSP_tool\BSP_tool.sln" "BSP_tool" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild

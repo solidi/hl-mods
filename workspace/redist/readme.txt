@@ -34,6 +34,18 @@ Features:
     - Snowballs
     - Koshak's Chainsaw
     - Samel L. Jackson's 12 Gauge Shotgun
+- Original and new maps are back too!
+    - Training Facility
+    - Stalkyard 2
+    - Stalkyard 3
+    - Cold Ice
+    - Canyon
+    - Focus
+    - Furrow
+    - Training Facility 2
+    - Bounce 2
+    - Catacombs
+    - Yard
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes
@@ -130,3 +142,5 @@ Thanks To:
 - Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
 - Fritz the Cat! for the hhev player model
 - SMOD series for the iron sights switch sounds effects https://www.moddb.com/mods/smod-40a
+- Jouko "Rapturer" Karvinen for the original Cold Ice map
+- Schrade for the focus map and Apo for the furrow map

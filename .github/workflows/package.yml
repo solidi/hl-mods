@@ -288,7 +288,7 @@ jobs:
     - name: Compile Maps
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Maps.ps1
+        .\workspace\Build-Maps.ps1 -Clean
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru

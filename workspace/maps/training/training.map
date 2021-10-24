@@ -1,7 +1,7 @@
 {
 "classname" "worldspawn"
 "skyname" "desert"
-"sounds" "25"
+"message" "Training"
 "light" "0"
 "MaxRange" "4500"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\gfx.wad;..\wads\spraypaint.wad;..\wads\xeno.wad;..\wads\decals.wad"
@@ -4655,6 +4655,7 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "357 -1552 -178"
 }
 {
@@ -4733,7 +4734,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -4765,7 +4766,7 @@
 }
 {
 "classname" "func_breakable"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -4844,7 +4845,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -4865,7 +4866,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -4908,7 +4909,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -5549,7 +5550,7 @@
 }
 {
 "classname" "func_breakable"
-"health" "30"
+"health" "10"
 "material" "0"
 "explosion" "0"
 "delay" "0"
@@ -6353,7 +6354,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -6397,7 +6398,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -6497,7 +6498,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -6518,7 +6519,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -6539,7 +6540,7 @@
 "rendermode" "2"
 "renderamt" "100"
 "rendercolor" "0 0 0"
-"health" "100"
+"health" "10"
 "material" "7"
 "explosion" "0"
 "delay" "0"
@@ -6631,7 +6632,7 @@
 "classname" "func_breakable"
 "renderfx" "0"
 "rendermode" "2"
-"renderamt" "100"
+"renderamt" "10"
 "rendercolor" "0 0 0"
 "health" "100"
 "material" "7"
@@ -6687,4 +6688,28 @@
 {
 "classname" "weapon_snark"
 "origin" "920 200 -242"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-1632 -1304 -176"
+}
+{
+"classname" "weapon_crossbow"
+"origin" "-1216 -478 -181"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-112 -291 112"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-560 -934 -192"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-328 -1164 -408"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "873 -1128 -280"
 }

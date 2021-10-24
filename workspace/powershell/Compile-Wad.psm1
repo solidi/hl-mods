@@ -7,6 +7,19 @@ function Compile-Wad {
         $redistDir
     )
 
+    $wadTimestamp = (Get-Item $redistDir\$target.wad -ErrorAction Ignore).LastWriteTime
+    $lastestSourceFileStamp = 0;
+    Get-ChildItem $wadsDir\$target | Foreach-Object {
+        if ($_.LastWriteTime -gt $lastestSourceFileStamp) {
+            $lastestSourceFileStamp = $_.LastWriteTime
+        }
+    }
+
+    if ($lastestSourceFileStamp -lt $wadTimestamp) {
+        echo "$target.wad - source files: $lastestSourceFileStamp >? wad file: $wadTimestamp"
+        return
+    }
+
     Set-Location -Path $binDir
     echo "Compiling wad $wadsDir\$target.wad..."
     try {
