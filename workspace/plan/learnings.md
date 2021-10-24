@@ -261,3 +261,7 @@
 1. There is a hard limit of 500 temporary entities in Half-Life - even a NULL check will not work.
 1. [This webpage](http://zhlt.info/settings-for-final-compiles.html) discusses the full listing of "final" settings recommended in compiling Half-Life maps using ZHLT tools.
 1. [This webpage](https://valvedev.info/guides/goldsrc-map-decompilers-bsptwomap-vs-winbspc/) discusses the differences between bsptwomap and winbspc decompile outcomes.
+1. HPB has created a suite of tools to generate overviews and waypoints. See [this thread](http://hpb-bot.bots-united.com/bsp_tool.html) on the tools.
+1. The fix to the game icon was found in [this thread](https://twhl.info/wiki/page/Icons_for_Half-Life_mods_%28game.tga%29)
+1. VHE (Valve Hammer Editor) requires a new line at the end of the file, otherwise it will not load the file.
+
