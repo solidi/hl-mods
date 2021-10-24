@@ -13,6 +13,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
 [bool]$clean = $false
+[string]$mapName = ""
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -23,6 +24,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
         $clean = $true
         echo "rebuilding all wads and maps..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Map") {
+        $mapName = $_.Split(' ')[1]
+        echo "building map $mapName..."
     }
 }
 
@@ -51,17 +55,22 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\maps)
 }
 
-Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "stalkyard3" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir
-Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir
+if ([string]::IsNullOrEmpty($mapName)) {
+    Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "stalkyard3" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir
+} else {
+    Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir
+}
+
 Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
 Copy-Item $mapsDir\boot_camp.wpt $redistDir\maps
 
