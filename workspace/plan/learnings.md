@@ -264,4 +264,5 @@
 1. HPB has created a suite of tools to generate overviews and waypoints. See [this thread](http://hpb-bot.bots-united.com/bsp_tool.html) on the tools.
 1. The fix to the game icon was found in [this thread](https://twhl.info/wiki/page/Icons_for_Half-Life_mods_%28game.tga%29)
 1. VHE (Valve Hammer Editor) requires a new line at the end of the file, otherwise it will not load the file.
-
+1. To install Windows 11 on macOS virtuabox, [this thread](https://forums.macrumors.com/threads/windows-11-on-boot-camp-no-tpm-2-0.2302214/) and these [registry keys](https://dannyda.com/2021/06/29/how-to-fix-bypass-this-pc-cant-run-windows-11-error-when-installing-microsoft-windows-11/) are needed to bypass TPMS,SecureBoot.
+1. [This thread](https://devconnected.com/how-to-add-and-update-git-submodules/) was helpful in setting up a new git submodule to hl-mods.

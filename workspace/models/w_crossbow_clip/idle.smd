@@ -1,0 +1,8 @@
+version 1
+nodes
+  0 "Crossbow08" -1
+end
+skeleton
+time 0
+  0   -16.196369 -19.599705 0.874208 -1.570796 -1.570451 0.000000
+end

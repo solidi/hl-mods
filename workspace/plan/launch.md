@@ -37,7 +37,7 @@
     1. [ ] Steam Community Forums
     1. [ ] Update url_dl in liblist.gam
 
-## TODO
+## Roadmap
 
 ### Beta 1
 
@@ -55,7 +55,7 @@
     1. [ ] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
 1. Weapons
     1. [ ] Skin Egon, Gauss, Python, Snark
-    1. [ ] Spin ammo, battery, healthkit, and longjump
+    1. [x] Spin ammo, battery, healthkit, and longjump
     1. [ ] Punch angles for all weapons
     1. [ ] Spawn extra weapons with other matching slot number
     1. [ ] Tighten up all idle animation times to match code
@@ -208,6 +208,8 @@
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+1. Configuration Support
+    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
 1. Maps
     1. All Maps
         1. [ ] Debrief text file
@@ -215,13 +217,17 @@
     1. [ ] fgd file
 1. HUD
     1. [ ] Re-enable suit voice updates?
+1. Runes
+    1. [ ] Ammo regeneration
 1. Fixes
+    1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
 1. Player Models
     1. [ ] Santa
     1. [ ] Snowman
 1. Game Dev Tools
+    1. [ ] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
     1. [ ] Timestamps for building artifacts
