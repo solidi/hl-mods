@@ -33,4 +33,4 @@ $iceFolder = "ice"
 $iceDir = "${hldir}\${iceFolder}"
 $icehddir = "${hldir}\${iceFolder}_hd"
 
-copyDistributionFiles $redistDir $redisthddir $iceDir $icehddir
+copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir

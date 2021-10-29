@@ -204,6 +204,24 @@ Invert-Skin $binDir "w_12gauge" $modelsdir
 Invert-Skin $binDir "p_12gauge" $modelsdir\hd
 Invert-Skin $binDir "w_12gauge" $modelsdir\hd
 Invert-Skin $binDir "v_12gauge" $modelsdir\hd
+Invert-Skin $binDir "w_battery" $modelsdir
+Invert-Skin $binDir "w_longjump" $modelsdir
+Invert-Skin $binDir "w_medkit" $modelsdir
+Invert-Skin $binDir "w_357ammobox" $modelsdir
+Invert-Skin $binDir "w_357ammobox" $modelsdir\hd
+Invert-Skin $binDir "w_9mmclip" $modelsdir
+Invert-Skin $binDir "w_9mmarclip" $modelsdir
+Invert-Skin $binDir "w_9mmarclip" $modelsdir\hd
+Invert-Skin $binDir "w_argrenade" $modelsdir
+Invert-Skin $binDir "w_argrenade" $modelsdir\hd
+Invert-Skin $binDir "w_crossbow_clip" $modelsdir
+Invert-Skin $binDir "w_crossbow_clip" $modelsdir\hd
+Invert-Skin $binDir "w_shotbox" $modelsdir
+Invert-Skin $binDir "w_shotbox" $modelsdir\hd
+Invert-Skin $binDir "w_gaussammo" $modelsdir
+Invert-Skin $binDir "w_gaussammo" $modelsdir\hd
+Invert-Skin $binDir "w_rpgammo" $modelsdir
+Invert-Skin $binDir "w_rpgammo" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
@@ -367,5 +385,23 @@ Compile-Model $binDir "w_12gauge" $modelsdir $redistdir\models
 Compile-Model $binDir "v_12gauge" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_12gauge" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_12gauge" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_battery" $modelsdir $redistdir\models
+Compile-Model $binDir "w_medkit" $modelsdir $redistdir\models
+Compile-Model $binDir "w_longjump" $modelsdir $redistdir\models
+Compile-Model $binDir "w_357ammobox" $modelsdir $redistdir\models
+Compile-Model $binDir "w_357ammobox" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_9mmclip" $modelsdir $redistdir\models
+Compile-Model $binDir "w_9mmarclip" $modelsdir $redistdir\models
+Compile-Model $binDir "w_9mmarclip" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_argrenade" $modelsdir $redistdir\models
+Compile-Model $binDir "w_argrenade" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_crossbow_clip" $modelsdir $redistdir\models
+Compile-Model $binDir "w_crossbow_clip" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_shotbox" $modelsdir $redistdir\models
+Compile-Model $binDir "w_shotbox" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_gaussammo" $modelsdir $redistdir\models
+Compile-Model $binDir "w_gaussammo" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_rpgammo" $modelsdir $redistdir\models
+Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
 
 Set-Location -Path ${PSScriptRoot}

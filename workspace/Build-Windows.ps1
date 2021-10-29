@@ -33,7 +33,6 @@ $Config = @{ }
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
-$libsDir = "${rootDir}\libs"
 $msBuild = $Config['msBuild'] ?? "msbuild"
 $definitions = $Config['defintions'] ?? ""
 
