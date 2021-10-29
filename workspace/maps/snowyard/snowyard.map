@@ -5,7 +5,7 @@
 "skyname" "cirnightmont1"
 "MaxRange" "4096"
 "mapversion" "220"
-"sounds" "1"
+"sounds" "0"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\coldice.wad;..\wads\decals.wad"
 {
 ( -1184 1184 168 ) ( -1184 1504 168 ) ( -1184 1504 368 ) CIR_STONE06 [ 0 1 0 0 ] [ 0 0 -1 0 ] 0 1 1 

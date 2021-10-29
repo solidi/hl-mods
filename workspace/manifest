@@ -50,8 +50,8 @@ gfx\shell
 gfx\shell\kb_act.lst
 gfx\shell\kb_def.lst
 maps
-maps\yard.bsp
-maps\yard.wpt
+maps\fences.bsp
+maps\fences.wpt
 maps\training.bsp
 maps\training.wpt
 maps\stalkyard2.bsp
@@ -64,8 +64,8 @@ maps\focus.bsp
 maps\focus.wpt
 maps\furrow.bsp
 maps\furrow.wpt
-maps\stalkyard3.bsp
-maps\stalkyard3.wpt
+maps\snowyard.bsp
+maps\snowyard.wpt
 maps\canyon.bsp
 maps\canyon.wpt
 maps\bounce2.bsp

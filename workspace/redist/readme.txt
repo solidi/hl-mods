@@ -37,7 +37,7 @@ Features:
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
-    - Stalkyard 3
+    - Snowyard
     - Cold Ice
     - Canyon
     - Focus
@@ -45,7 +45,7 @@ Features:
     - Training Facility 2
     - Bounce 2
     - Catacombs
-    - Yard
+    - Fences
 - Offhand Grappling Hook
 - Bot support using Grave Bots
 - Powerup Runes

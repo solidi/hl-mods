@@ -5,7 +5,7 @@
 "message" "Black Mesa Inbound"
 "MaxRange" "7200"
 "mapversion" "220"
-"sounds" "1"
+"sounds" "0"
 "mapversion" "220"
 "wad" "\workspace\wads\coldice.wad;\workspace\wads\halflife.wad;\workspace\wads\xeno.wad"
 {

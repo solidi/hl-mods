@@ -56,14 +56,14 @@ if ($clean -eq $true) {
 }
 
 if ([string]::IsNullOrEmpty($mapName)) {
-    Compile-Map $binDir "yard" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "fences" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "stalkyard3" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "snowyard" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir

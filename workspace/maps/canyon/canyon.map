@@ -1,9 +1,9 @@
 {
 "classname" "worldspawn"
 "classname" "worldspawn"
-"sounds" "1"
+"sounds" "0"
 "skyname" "cirduskmont1"
-"MaxRange" "4096"
+"MaxRange" "8192"
 "message" "Canyon"
 "mapversion" "220"
 "mapversion" "220"
@@ -4128,14 +4128,14 @@
 "classname" "func_conveyor"
 "spawnflags" "2"
 "rendercolor" "0 0 0"
-"speed" "100"
+"speed" "200"
 {
-( 1215 640 81 ) ( 1215 816 81 ) ( 1216 816 89 ) SCROLLWATER [ 0 -1 -1.22461e-016 0 ] [ 0 -1.22461e-016 1 0 ] 180 1 1 
-( 1215 816 -416 ) ( 1215 640 -416 ) ( 1216 640 -416 ) SCROLLWATER [ -1 0 0 -18 ] [ 0 -1 0 0 ] 0 1 1 
-( 1215 640 -416 ) ( 1215 816 -416 ) ( 1215 816 81 ) SCROLLWATER [ 0 -1 -1.22461e-016 0 ] [ 0 -1.22461e-016 1 0 ] 180 1 1 
-( 1216 816 -416 ) ( 1216 640 -416 ) ( 1216 640 89 ) SCROLLWATER [ 0 1 0 0 ] [ 0 0 -1 7 ] 0 1 1 
-( 1216 816 89 ) ( 1215 816 81 ) ( 1215 816 -416 ) SCROLLWATER [ -1 0 0 -18 ] [ 0 0 -1 7 ] 0 1 1 
-( 1216 640 -416 ) ( 1215 640 -416 ) ( 1215 640 81 ) SCROLLWATER [ 1 0 0 18 ] [ 0 0 -1 7 ] 0 1 1 
+( 1216 640 88 ) ( 1216 640 -544 ) ( 1215 643 -544 ) SCROLLWATER [ 0 1.22461e-016 -1 -123 ] [ 0 -1 -1.22461e-016 51 ] 180 1 1 
+( 1215 816 88 ) ( 1215 816 -544 ) ( 1216 816 -544 ) SCROLLWATER [ -1 0 0 -18 ] [ 0 0 -1 -123 ] 0 1 1 
+( 1215 643 88 ) ( 1215 643 -544 ) ( 1215 816 -544 ) SCROLLWATER [ 0 1.22461e-016 -1 -123 ] [ 0 -1 -1.22461e-016 51 ] 180 1 1 
+( 1216 816 88 ) ( 1216 816 -544 ) ( 1216 640 -544 ) SCROLLWATER [ 0 0 1 123 ] [ 0 1 0 -44 ] 0 1 1 
+( 1216 640 88 ) ( 1215 643 88 ) ( 1215 816 88 ) SCROLLWATER [ -1 0 0 -18 ] [ 0 1 0 -44 ] 0 1 1 
+( 1216 816 -544 ) ( 1215 816 -544 ) ( 1215 643 -544 ) SCROLLWATER [ 1 0 0 18 ] [ 0 1 0 -44 ] 0 1 1 
 }
 }
 {
@@ -4195,7 +4195,7 @@
 }
 {
 "classname" "info_player_deathmatch"
-"origin" "641 252 -96"
+"origin" "641 248 -64"
 }
 {
 "classname" "info_player_deathmatch"
@@ -4387,4 +4387,29 @@
 {
 "classname" "info_player_deathmatch"
 "origin" "1728 -23 -400"
+}
+{
+"classname" "ambient_generic"
+"spawnflags" "2"
+"message" "ambience/waterfall2.wav"
+"health" "8"
+"pitch" "100"
+"pitchstart" "100"
+"origin" "1192 727 -342"
+}
+{
+"classname" "ambient_generic"
+"spawnflags" "2"
+"message" "ambience/waterfall2.wav"
+"health" "8"
+"pitch" "100"
+"pitchstart" "100"
+"origin" "1192 728 160"
+}
+{
+"classname" "ambient_generic"
+"spawnflags" "8"
+"message" "ambience/wind2.wav"
+"health" "9"
+"origin" "1280 128 -320"
 }

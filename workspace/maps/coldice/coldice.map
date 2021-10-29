@@ -2,7 +2,7 @@
 "classname" "worldspawn"
 "classname" "worldspawn"
 "skyname" "cirdaymont1"
-"sounds" "1"
+"sounds" "0"
 "MaxRange" "4200"
 "mapversion" "220"
 "message" "Cold Ice"

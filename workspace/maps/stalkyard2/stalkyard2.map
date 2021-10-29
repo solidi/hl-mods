@@ -1,6 +1,6 @@
 {
 "classname" "worldspawn"
-"sounds" "1"
+"sounds" "0"
 "light" "0"
 "MaxRange" "4096"
 "skyname" "cirnightmont1"
