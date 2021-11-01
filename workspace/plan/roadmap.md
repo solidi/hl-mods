@@ -98,10 +98,13 @@
         1. Add [bots](http://hpb-bot.bots-united.com/index.html)
 1. Game Mechanics
     1. [ ] In-game help menu
+    1. [ ] Player jump and land sound effects
+    1. [ ] Player snow footstep sounds / materials
     1. [x] HUD notification system - Identity of weapons from Rory
 1. Gameplay
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
+    1. [x] Bell when a frag is committed (ala CS:GO)
 1. Weapons
     1. [ ] Skin Egon, Gauss, Python, Snark
     1. [x] Spin ammo, battery, healthkit, and longjump
@@ -212,13 +215,13 @@
 1. Gameplay
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
-    1. [ ] Bell when a frag is committed (ala CS:GO)
     1. [ ] Weapon filter list
 1. Environment look and feel
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
     1. [ ] Bullet hole decals like BHL
 1. Weapons
+    1. [ ] Hand cannon
     1. [ ] Snowball Machine
     1. [ ] Pulse Rifle
     1. [ ] Pulse Pistol

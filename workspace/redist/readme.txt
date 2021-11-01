@@ -34,6 +34,7 @@ Features:
     - Snowballs
     - Koshak's Chainsaw
     - Samel L. Jackson's 12 Gauge Shotgun
+    - 44 Magnum Revolver
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
@@ -104,7 +105,7 @@ Client:
 
 Thanks To:
 
-- Infinity for all the Cold-Ice models https://www.chaosworx.net/
+- Infinity for original and resurrection Cold-Ice models https://www.chaosworx.net/
 - Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
 - Gamebanana for "the" archive of models, effects, and everything https://gamebanana.com/
 - Various for documenting all cut items from Half-Life https://tcrf.net/Half-Life_(Windows)
@@ -144,3 +145,4 @@ Thanks To:
 - SMOD series for the iron sights switch sounds effects https://www.moddb.com/mods/smod-40a
 - Jouko "Rapturer" Karvinen for the original Cold Ice map
 - Schrade for the focus map and Apo for the furrow map
+- zoonyarts and Brutal Half-Life for select sound and model assets https://www.moddb.com/mods/brutal-half-life

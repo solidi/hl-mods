@@ -73,6 +73,9 @@ models\w_crossbow_clip.mdl
 models\w_shotbox.mdl
 models\w_gaussammo.mdl
 models\w_rpgammo.mdl
+models\v_357.mdl
+models\p_357.mdl
+models\w_357.mdl
 sound
 sound\knife_miss2.wav
 sprites

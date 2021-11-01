@@ -222,6 +222,12 @@ Invert-Skin $binDir "w_gaussammo" $modelsdir
 Invert-Skin $binDir "w_gaussammo" $modelsdir\hd
 Invert-Skin $binDir "w_rpgammo" $modelsdir
 Invert-Skin $binDir "w_rpgammo" $modelsdir\hd
+Invert-Skin $binDir "v_357" $modelsdir
+Invert-Skin $binDir "p_357" $modelsdir
+Invert-Skin $binDir "w_357" $modelsdir
+Invert-Skin $binDir "p_357" $modelsdir\hd
+Invert-Skin $binDir "w_357" $modelsdir\hd
+Invert-Skin $binDir "v_357" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
@@ -403,5 +409,11 @@ Compile-Model $binDir "w_gaussammo" $modelsdir $redistdir\models
 Compile-Model $binDir "w_gaussammo" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_rpgammo" $modelsdir $redistdir\models
 Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_357" $modelsdir $redistdir\models
+Compile-Model $binDir "p_357" $modelsdir $redistdir\models
+Compile-Model $binDir "w_357" $modelsdir $redistdir\models
+Compile-Model $binDir "v_357" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_357" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_357" $modelsdir\hd $redisthddir\models
 
 Set-Location -Path ${PSScriptRoot}

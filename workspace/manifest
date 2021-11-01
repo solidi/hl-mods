@@ -207,6 +207,9 @@ models\w_crossbow_clip.mdl
 models\w_shotbox.mdl
 models\w_gaussammo.mdl
 models\w_rpgammo.mdl
+models\v_357.mdl
+models\p_357.mdl
+models\w_357.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -340,6 +343,9 @@ sound\12gauge_jackson.wav
 sound\12gauge_fire.wav
 sound\ironsight_on.wav
 sound\ironsight_off.wav
+sound\357_selected.wav
+sound\revolver_fire.wav
+sound\revolver_draw.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
