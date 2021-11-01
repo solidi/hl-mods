@@ -261,8 +261,17 @@
 1. There is a hard limit of 500 temporary entities in Half-Life - even a NULL check will not work.
 1. [This webpage](http://zhlt.info/settings-for-final-compiles.html) discusses the full listing of "final" settings recommended in compiling Half-Life maps using ZHLT tools.
 1. [This webpage](https://valvedev.info/guides/goldsrc-map-decompilers-bsptwomap-vs-winbspc/) discusses the differences between bsptwomap and winbspc decompile outcomes.
-1. HPB has created a suite of tools to generate overviews and waypoints. See [this thread](http://hpb-bot.bots-united.com/bsp_tool.html) on the tools.
+1. HPB has created a suite of tools to generate overviews and waypoints. See [this thread](http://hpb-bot.bots-united.com/bsp_tool.html) on the tools. This [original thread](https://steamcommunity.com/app/30/discussions/0/351660338712291564/) pointed me to automatic waypoint generation.
 1. The fix to the game icon was found in [this thread](https://twhl.info/wiki/page/Icons_for_Half-Life_mods_%28game.tga%29)
 1. VHE (Valve Hammer Editor) requires a new line at the end of the file, otherwise it will not load the file.
 1. To install Windows 11 on macOS virtuabox, [this thread](https://forums.macrumors.com/threads/windows-11-on-boot-camp-no-tpm-2-0.2302214/) and these [registry keys](https://dannyda.com/2021/06/29/how-to-fix-bypass-this-pc-cant-run-windows-11-error-when-installing-microsoft-windows-11/) are needed to bypass TPMS,SecureBoot.
 1. [This thread](https://devconnected.com/how-to-add-and-update-git-submodules/) was helpful in setting up a new git submodule to hl-mods.
+1. [This guide](https://techrechard.com/install-macos-mojave-on-virtualbox-on-windows-pc/) walks through setting up Mojave on VirtalBox, which may be useful.
+1. This [stackoverflow thread](https://stackoverflow.com/questions/44035920/functions-in-powershell-can-they-be-called-within-a-string) does a good job in explaining how parameters are passed to Powershell functions.
+1. Pass in `_sethdmodels 1` to hl.exe for support of [high-definition models](http://profile.lunaticrage.com/drippy/forum.php?a=rt&f=1&t=17288&m=348303).
+1. Always forgetting pointers and addresses, this [stackoverflow thread](https://stackoverflow.com/a/44013360) confirms what they mean.
+1. I learned a bit on how to mdoel in Milkshape 3D from scratch. These two tutorials in [creating a sword](https://www.hiveworkshop.com/threads/milkshape-attachment-modeling.53734/) and [unwrapping a model](https://www.hiveworkshop.com/threads/milkshape-tutorial-a-simple-way-to-unwrap-your-models.156766/) were helpful.
+1. I learned alittle bit about extruding and low poly modeling with [this thread](https://www.moddb.com/tutorials/milkshape-3d-basics-fundamentals) and [building a human body](https://www.hiveworkshop.com/threads/making-a-humanbody-from-scratch-in-milkshape-3d.110990/) from nothing.
+1. [This thread](https://developer.valvesoftware.com/wiki/Half-Life.fgd) hosts the latest Half-Life fgd dated from 2003.
+1. [This thread](https://quakewiki.org/wiki/Quake_Map_Format) discusses the original map format, and Valve's "220" version. There are [converters](https://www.ogier-editor.com/mapconv/) out there that change the format between 220 and original formats. I also learned that the map file structure all devires from [worldspawn classname](https://twhl.info/wiki/page/worldspawn).
+1. A short post on [how to pass parameters to a steam uri](https://steamcommunity.com/discussions/forum/1/144513128846060662/?ref=dtf.ru)

@@ -64,6 +64,7 @@ Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 1.0 "sound\fis
 Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back.wav" "wav" 1.25 3
 Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson.wav" "wav" 8.5 11.5
+Compile-Sound $binDir $redistDir $soundDir "clint-eastwood.mp3" 2.0 "sound\357_selected.wav" "wav" 0 4.5
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
@@ -158,5 +159,7 @@ Copy-Item $soundDir\12gauge_selected.wav $redistdir\sound
 Copy-Item $soundDir\12gauge_fire.wav $redistdir\sound
 Copy-Item $soundDir\ironsight_on.wav $redistdir\sound
 Copy-Item $soundDir\ironsight_off.wav $redistdir\sound
+Copy-Item $soundDir\revolver_fire.wav $redistdir\sound
+Copy-Item $soundDir\revolver_draw.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}
