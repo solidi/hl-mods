@@ -98,6 +98,8 @@
         1. Add [bots](http://hpb-bot.bots-united.com/index.html)
 1. Game Mechanics
     1. [ ] In-game help menu
+    1. [ ] Player jump and land sound effects
+    1. [ ] Player snow footstep sounds / materials
     1. [x] HUD notification system - Identity of weapons from Rory
 1. Gameplay
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
