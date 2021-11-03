@@ -10853,7 +10853,7 @@
 }
 }
 {
-"classname" "weapon_minigun"
+"classname" "weapon_gauss"
 "origin" "960 -384 0"
 }
 {
@@ -11060,7 +11060,7 @@
 "origin" "179 2273 -176"
 }
 {
-"classname" "weapon_slugrifle"
+"classname" "weapon_shotgun"
 "origin" "256 784 -256"
 }
 {
@@ -11172,7 +11172,7 @@
 "origin" "-256 1558 113"
 }
 {
-"classname" "weapon_blaser"
+"classname" "weapon_crossbow"
 "origin" "888 1856 40"
 }
 {
@@ -11217,19 +11217,19 @@
 "origin" "-1280 1904 0"
 }
 {
-"classname" "weapon_slugrifle"
+"classname" "weapon_shotgun"
 "origin" "664 1360 8"
 }
 {
-"classname" "weapon_slugrifle"
+"classname" "weapon_shotgun"
 "origin" "720 1360 8"
 }
 {
-"classname" "weapon_c4mine"
+"classname" "weapon_tripmine"
 "origin" "312 2408 -104"
 }
 {
-"classname" "weapon_c4mine"
+"classname" "weapon_tripmine"
 "origin" "200 2408 -104"
 }
 {
@@ -12561,7 +12561,7 @@
 "origin" "1344 2512 16"
 }
 {
-"classname" "weapon_shtogun"
+"classname" "weapon_shotgun"
 "targetname" "p3_1"
 "target" "p3_2"
 "origin" "1488 2520 48"
@@ -12681,11 +12681,11 @@
 "origin" "1352 808 -488"
 }
 {
-"classname" "weapon_c4mine"
+"classname" "weapon_tripmine"
 "origin" "-184 1024 -504"
 }
 {
-"classname" "weapon_freezer"
+"classname" "weapon_egon"
 "origin" "-64 2432 48"
 }
 {
@@ -12798,7 +12798,7 @@
 "origin" "-832 768 -192"
 }
 {
-"classname" "weapon_sigrifle"
+"classname" "weapon_9mmAR"
 "origin" "32 608 80"
 }
 {
@@ -12854,7 +12854,7 @@
 "origin" "-207 930 -448"
 }
 {
-"classname" "nfo_player_deathmatch"
+"classname" "info_player_deathmatch"
 "origin" "695 1546 32"
 }
 {
