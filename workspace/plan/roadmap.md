@@ -72,6 +72,7 @@
     1. [x] Snowball
     1. [x] Chainsaw
     1. [x] 12 Gauge
+    1. [ ] 44 Magnum
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -93,20 +94,21 @@
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
     1. [x] Add offhand [grappling hook]grapple hook](https://github.com/solidi/hl-mods/blob/c91828511f455f9fe323f652379cdb287414ea0b/ci/src/dlls/player.cpp#L4863)
 1. Bot support
-    1. [ ] Custom map waypoints for bots
+    1. [x] Custom map waypoints for bots
     1. [x] Add bots
         1. Add [bots](http://hpb-bot.bots-united.com/index.html)
 1. Game Mechanics
     1. [ ] In-game help menu
+        1. [ ] Show version in message
     1. [ ] Player jump and land sound effects
     1. [ ] Player snow footstep sounds / materials
     1. [x] HUD notification system - Identity of weapons from Rory
 1. Gameplay
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
-    1. [ ] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
+    1. [x] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
     1. [x] Bell when a frag is committed (ala CS:GO)
 1. Weapons
-    1. [ ] Skin Egon, Gauss, Python, Snark
+    1. [ ] Skin Egon, Gauss, Hornetgun, Snark
     1. [x] Spin ammo, battery, healthkit, and longjump
     1. [ ] Punch angles for all weapons
     1. [ ] Spawn extra weapons with other matching slot number
@@ -181,7 +183,7 @@
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
     1. [x] All CIR player models
-    1. [ ] Assassin and army models from Cold Ice 2.6
+    1. [ ] Assassin and army models from Cold Ice 2.5
 1. Package for release script
     1. [ ] Rename folder to cirm_beta1
     1. [ ] Remove config or replace with default one
@@ -271,9 +273,12 @@
     1. [ ] Frozen Lake map idea
 1. HUD
     1. [ ] Re-enable suit voice updates?
+    1. [ ] Add map name to the scoreboard
 1. Runes
     1. [ ] Ammo regeneration
 1. Fixes
+    1. [ ] Knife / Crowbar / Wrench next attack instant after death
+    1. [ ] Bots harder to see player with cloak rune.
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.

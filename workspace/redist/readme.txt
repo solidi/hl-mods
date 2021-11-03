@@ -10,7 +10,8 @@ This mod features works from the community. Without their dedication and hard wo
 
 Features:
 
-- Supports Windows, Linux, and macOS 
+- Supports Steam on Windows, Linux, and macOS 
+    - Supports Xash3d (see installation for details)
 - Original Weapons are back (and more)!
     - Vest Device
     - Silenced Handgun
@@ -70,6 +71,11 @@ Features:
 - Bullet and gun smoke animation for effect
 - Experimental iron sights support for select weapons
 
+Installation:
+
+- For Steam: Place both ice and ice_hd folders in the same folder as where hl.exe is installed.
+- For Xash3d: Since the app does not support SD/HD model switching, install ice folder first where xash3d.exe is located. Then copy ice_hd contents, and paste over the ice folder, overwriting the SD models.
+
 Commands:
 
 Server:
@@ -81,6 +87,9 @@ Server:
 - Allow powerup runes on server - "mp_allowrunes 1"
 - Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
 - Floating wrold weapons ala Quake - "mp_floatingweapons 1"
+- Infinite ammo ala CS 1.6 - "mp_infiniteammo 1"
+    - "1" - makes the weapon clip infinite
+    - "2" - makes the weapon have infinite ammo for reloading
 
 Client:
 
@@ -102,6 +111,10 @@ Client:
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 - Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
 - Use iron sights when available - Use "+ironsight"
+
+Report Bugs:
+
+Please report defects by creating an issue here: https://github.com/solidi/hl-mods/issues
 
 Thanks To:
 
@@ -146,3 +159,4 @@ Thanks To:
 - Jouko "Rapturer" Karvinen for the original Cold Ice map
 - Schrade for the focus map and Apo for the furrow map
 - zoonyarts and Brutal Half-Life for select sound and model assets https://www.moddb.com/mods/brutal-half-life
+- mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
