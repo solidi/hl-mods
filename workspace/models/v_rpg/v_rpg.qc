@@ -108,6 +108,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
   }
+  {
     "..\GLOVED_knuckle.bmp"
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_sleeve.bmp"
