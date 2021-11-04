@@ -152,4 +152,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_infiniteammo"
+	{
+		"#Ice_InfiniteAmmo"
+		{ BOOL }
+		{ "0" }
+	}
 }
