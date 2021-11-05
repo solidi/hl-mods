@@ -59,7 +59,7 @@ Features:
     - "Gravity" - blue - jump 40% farther
     - "Strength" - yellow - inflict 50% more damage
     - "Cloak" - white - 90% invisibility
-- Option for origin models and high res models
+- Option for original models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
 - Option to switch between ice model skins and real model skins!
@@ -111,6 +111,7 @@ Client:
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 - Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
 - Use iron sights when available - Use "+ironsight"
+- Play buzzer/bell when frag achieved - "cl_playpoint 1" - To switch between playing the sound effect
 
 Report Bugs:
 

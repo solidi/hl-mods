@@ -156,6 +156,7 @@
         1. [x] Convert weaponbox to dropped weapon
             1. [x] Convert all weapons to ground
             1. [x] Two models for w_ models - ground, and floating/spinning
+    1. [ ] Increase ammo total counts to match bhl
 1. Old School
     1. [x] Scoreboard
     1. [x] MOTD
@@ -283,8 +284,8 @@
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
 1. Player Models
-    1. [ ] Santa
-    1. [ ] Snowman
+    1. [ ] [Santa](https://gamebanana.com/mods/179616)
+    1. [ ] [Snowman](https://gamebanana.com/mods/179220)
 1. Game Dev Tools
     1. [ ] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
     1. [ ] Codegen for generating new weapons
