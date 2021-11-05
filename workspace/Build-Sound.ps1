@@ -65,6 +65,7 @@ Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back
 Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson.wav" "wav" 8.5 11.5
 Compile-Sound $binDir $redistDir $soundDir "clint-eastwood.mp3" 2.0 "sound\357_selected.wav" "wav" 0 4.5
+Compile-Sound $binDir $redistDir $soundDir "point.wav" 5.0 "sound\point.wav" "wav"
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound

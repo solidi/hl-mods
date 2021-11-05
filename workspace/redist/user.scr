@@ -110,4 +110,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_playpoint"
+	{
+		"#Ice_PlayPoint"
+		{ BOOL }
+		{ "1" }
+	}
 }

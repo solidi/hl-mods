@@ -346,6 +346,7 @@ sound\ironsight_off.wav
 sound\357_selected.wav
 sound\revolver_fire.wav
 sound\revolver_draw.wav
+sound\point.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
