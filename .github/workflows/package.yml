@@ -7,6 +7,7 @@ env:
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
+  FOLDER_NAME: workspace
 
 jobs:
   windows_libs:
@@ -23,12 +24,12 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Windows.ps1 -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Windows.ps1 -ConfigFile Config
         $zipFile = ".\dlls.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         [void](New-Item -Force -ItemType Directory $env:TEMP\release\dlls)
@@ -43,7 +44,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: windows_dlls
-        path: ./workspace/dlls.zip
+        path: ./${{env.FOLDER_NAME}}/dlls.zip
 
   linux_libs:
     runs-on: ubuntu-18.04
@@ -72,25 +73,25 @@ jobs:
       run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
 
     - name: Build linux so libs
-      run: ./workspace/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
+      run: ./${{env.FOLDER_NAME}}/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_ice
-        path: ./workspace/libs/dlls/ice.so
+        path: ./${{env.FOLDER_NAME}}/libs/dlls/ice.so
 
     - name: Upload gravebot.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_gravebot
-        path: ./workspace/libs/dlls/gravebot.so
+        path: ./${{env.FOLDER_NAME}}/libs/dlls/gravebot.so
 
     - name: Upload client.so
       uses: actions/upload-artifact@v2
       with:
         name: linux_client
-        path: ./workspace/libs/cl_dlls/client.so
+        path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.so
 
   macOS_libs:
     runs-on: macOS-10.15
@@ -110,19 +111,19 @@ jobs:
         rm sdk.tar
 
     - name: Build macOS dylibs
-      run: ./workspace/build-mac.sh CFG=${{env.BUILD_CONFIGURATION}}
+      run: ./${{env.FOLDER_NAME}}/build-mac.sh CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.dylib
       uses: actions/upload-artifact@v2
       with:
         name: macOS_ice
-        path: ./workspace/libs/dlls/ice.dylib
+        path: ./${{env.FOLDER_NAME}}/libs/dlls/ice.dylib
 
     - name: Upload client.dylib
       uses: actions/upload-artifact@v2
       with:
         name: macOS_client
-        path: ./workspace/libs/cl_dlls/client.dylib
+        path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.dylib
 
   compile_tools:
     runs-on: windows-latest
@@ -138,12 +139,12 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Tools.ps1 -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Tools.ps1 -ConfigFile Config
         [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
         Copy-Item -Recurse -Force .\bin $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
@@ -152,7 +153,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: compiled_tools
-        path: ./workspace/tools.zip
+        path: ./${{env.FOLDER_NAME}}/tools.zip
 
   compile_models:
     runs-on: windows-latest
@@ -167,26 +168,26 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: compiled_tools
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
-        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
-        Move-Item $env:TEMP\bin .\workspace
-        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Models.ps1 -Clean -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Models.ps1 -Clean -ConfigFile Config
         $zipFile = ".\models.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\release
@@ -199,7 +200,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: compiled_models
-        path: ./workspace/models.zip
+        path: ./${{env.FOLDER_NAME}}/models.zip
 
   compile_sounds:
     runs-on: windows-latest
@@ -212,12 +213,12 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Sound.ps1 -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Sound.ps1 -ConfigFile Config
         $zipFile = ".\sounds.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\sound $env:TEMP\release
@@ -232,7 +233,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: compiled_sounds
-        path: ./workspace/sounds.zip
+        path: ./${{env.FOLDER_NAME}}/sounds.zip
 
   compile_sprites:
     runs-on: windows-latest
@@ -247,26 +248,26 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: compiled_tools
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
-        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
-        Move-Item $env:TEMP\bin .\workspace
-        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Sprites.ps1 -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config
         $zipFile = ".\sprites.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\sprites $env:TEMP\release
@@ -279,7 +280,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: compiled_sprites
-        path: ./workspace/sprites.zip
+        path: ./${{env.FOLDER_NAME}}/sprites.zip
 
   compile_maps:
     runs-on: windows-latest
@@ -294,26 +295,26 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: compiled_tools
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
-        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
-        Move-Item $env:TEMP\bin .\workspace
-        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile Maps
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Maps.ps1 -Clean -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
@@ -324,7 +325,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: compiled_maps
-        path: ./workspace/maps.zip
+        path: ./${{env.FOLDER_NAME}}/maps.zip
 
   package_coldice:
     runs-on: windows-latest
@@ -339,130 +340,130 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: windows_dlls
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\dlls.zip -DestinationPath $env:TEMP
-        Remove-Item .\workspace\libs\\* -Recurse -Force -ErrorAction Ignore
-        Move-Item $env:TEMP\dlls .\workspace\libs\dlls
-        Move-Item $env:TEMP\cl_dlls .\workspace\libs\cl_dlls
-        Remove-Item .\workspace\dlls.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\dlls.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\libs\\* -Recurse -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\dlls .\${{env.FOLDER_NAME}}\libs\dlls
+        Move-Item $env:TEMP\cl_dlls .\${{env.FOLDER_NAME}}\libs\cl_dlls
+        Remove-Item .\${{env.FOLDER_NAME}}\dlls.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download ice.so
       uses: actions/download-artifact@v2
       with:
         name: linux_ice
-        path: ./workspace/libs/dlls
+        path: ./${{env.FOLDER_NAME}}/libs/dlls
 
     - name: Download gravebot.so
       uses: actions/download-artifact@v2
       with:
         name: linux_gravebot
-        path: ./workspace/libs/dlls
+        path: ./${{env.FOLDER_NAME}}/libs/dlls
 
     - name: Download client.so
       uses: actions/download-artifact@v2
       with:
         name: linux_client
-        path: ./workspace/libs/cl_dlls
+        path: ./${{env.FOLDER_NAME}}/libs/cl_dlls
 
     - name: Download ice.dylib
       uses: actions/download-artifact@v2
       with:
         name: macOS_ice
-        path: ./workspace/libs/dlls
+        path: ./${{env.FOLDER_NAME}}/libs/dlls
 
     - name: Download client.dylib
       uses: actions/download-artifact@v2
       with:
         name: macOS_client
-        path: ./workspace/libs/cl_dlls
+        path: ./${{env.FOLDER_NAME}}/libs/cl_dlls
 
     - name: Download models
       uses: actions/download-artifact@v2
       with:
         name: compiled_models
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\models.zip -DestinationPath $env:TEMP
-        Move-Item $env:TEMP\models .\workspace\redist\models
-        Move-Item $env:TEMP\models_hd .\workspace\redist_hd\models
-        Remove-Item .\workspace\models.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\models.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\models .\${{env.FOLDER_NAME}}\redist\models
+        Move-Item $env:TEMP\models_hd .\${{env.FOLDER_NAME}}\redist_hd\models
+        Remove-Item .\${{env.FOLDER_NAME}}\models.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download maps
       uses: actions/download-artifact@v2
       with:
         name: compiled_maps
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack maps
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\maps.zip -DestinationPath $env:TEMP
-        Move-Item $env:TEMP\maps .\workspace\redist
-        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\workspace\redist -Force -PassThru
-        Remove-Item .\workspace\maps.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\maps.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\maps .\${{env.FOLDER_NAME}}\redist
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
+        Remove-Item .\${{env.FOLDER_NAME}}\maps.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download sounds
       uses: actions/download-artifact@v2
       with:
         name: compiled_sounds
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\sounds.zip -DestinationPath $env:TEMP
-        Move-Item $env:TEMP\sound .\workspace\redist\sound
-        Move-Item $env:TEMP\sound_hd .\workspace\redist_hd\sound
-        Move-Item $env:TEMP\media .\workspace\redist\media
-        Remove-Item .\workspace\sound.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\sounds.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\sound .\${{env.FOLDER_NAME}}\redist\sound
+        Move-Item $env:TEMP\sound_hd .\${{env.FOLDER_NAME}}\redist_hd\sound
+        Move-Item $env:TEMP\media .\${{env.FOLDER_NAME}}\redist\media
+        Remove-Item .\${{env.FOLDER_NAME}}\sound.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download sprites
       uses: actions/download-artifact@v2
       with:
         name: compiled_sprites
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\sprites.zip -DestinationPath $env:TEMP
-        Move-Item $env:TEMP\sprites .\workspace\redist\sprites
-        Move-Item $env:TEMP\sprites_hd .\workspace\redist_hd\sprites
-        Remove-Item .\workspace\sprites.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\sprites.zip -DestinationPath $env:TEMP
+        Move-Item $env:TEMP\sprites .\${{env.FOLDER_NAME}}\redist\sprites
+        Move-Item $env:TEMP\sprites_hd .\${{env.FOLDER_NAME}}\redist_hd\sprites
+        Remove-Item .\${{env.FOLDER_NAME}}\sprites.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download tools
       uses: actions/download-artifact@v2
       with:
         name: compiled_tools
-        path: ./workspace
+        path: ./${{env.FOLDER_NAME}}
 
     - name: Unpack tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        Expand-Archive -Path .\workspace\tools.zip -DestinationPath $env:TEMP
-        Remove-Item .\workspace\bin\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\workspace\bin -Force -ErrorAction Ignore
-        Move-Item $env:TEMP\bin .\workspace
-        Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\workspace\Build-Release.ps1 -ConfigFile Config
+      run: .\${{env.FOLDER_NAME}}\Build-Release.ps1 -ConfigFile Config
 
     - name: Archive Cold Ice Release
       uses: actions/upload-artifact@v2
       with:
         name: coldice-build
-        path: .\workspace\last-build.zip
+        path: .\${{env.FOLDER_NAME}}\last-build.zip

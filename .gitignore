@@ -13,27 +13,27 @@ Thumbs.db*
 last-build.zip
 *.max
 
-workspace/redist/halflife.wad
-workspace/redist/decals.wad
-workspace/wads/decals.wad
-workspace/redist/fonts.wad
-workspace/redist/coldice.wad
-workspace/wads/coldice.wad
-workspace/redist/pak0.pak
-workspace/redist/maps/
-workspace/redist/models/
-workspace/redist/sprites/
-workspace/redist/sound/
-workspace/redist/media/
+*/redist/halflife.wad
+*/redist/decals.wad
+*/wads/decals.wad
+*/redist/fonts.wad
+*/redist/coldice.wad
+*/wads/coldice.wad
+*/redist/pak0.pak
+*/redist/maps/
+*/redist/models/
+*/redist/sprites/
+*/redist/sound/
+*/redist/media/
 htmlcache
 debug.log
 steam_appid.txt
 qconsole.log
 
-workspace/redist_hd/models/
+*/redist_hd/models/
 
 .vscode/
-workspace/redist_hd/
+*/redist_hd/
 
 *.swp
 
@@ -49,4 +49,4 @@ hlbsp.exe
 hlrad.exe
 hlvis.exe
 
-workspace/Config.ps1
+*/Config.ps1
