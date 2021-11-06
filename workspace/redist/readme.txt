@@ -1,9 +1,9 @@
-Cold Ice GoldSrc Edition
+Cold Ice Remastered Edition
 
 This project is a rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
-Source code: https://github.com/solidi/coldice-goldsrc
+Source code: https://github.com/solidi/coldice-remastered
 Project code: https://github.com/solidi/hl-mods
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
@@ -99,7 +99,7 @@ Client:
     - "0" - real skin
     - "1" - original inverted skin
     - "2" - 1.75 blue ice skin
-    - "3" - Cold Ice Goldsrc edition skin
+    - "3" - Cold Ice Remastered edition skin
 - Switch between original and HD models using the "Enable HD models if available" in Video options
 - Old Scoreboard - "cl_oldscoreboard 1" - To switch between old and new style scoreboards
 - Old MOTD (Message of the Day) - "cl_oldmotd 1" - To switch between old and new style message of the day

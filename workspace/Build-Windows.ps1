@@ -3,7 +3,6 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Building Cold Ice GoldSrc"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -29,6 +28,8 @@ $Config = @{ }
         echo "rebuilding all code sources..."
     }
 }
+
+$host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Libraries"
 
 Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameChecking
 

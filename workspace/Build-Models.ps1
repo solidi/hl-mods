@@ -3,7 +3,6 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Build Cold Ice GoldSrc Models"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -25,6 +24,8 @@ $Config = @{ }
         echo "rebuilding all models..."
     }
 }
+
+$host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Models"
 
 Import-Module $PSScriptRoot\powershell\Compile-Model.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Invert-Skin.psm1 -Force -DisableNameChecking

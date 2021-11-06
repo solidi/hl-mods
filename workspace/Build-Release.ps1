@@ -3,7 +3,6 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Packaging Cold Ice GoldSrc"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -25,6 +24,8 @@ $Config = @{ }
         echo "skipping file verification..."
     }
 }
+
+$host.UI.RawUI.WindowTitle = "Packaging $($Config['projectName'])"
 
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking

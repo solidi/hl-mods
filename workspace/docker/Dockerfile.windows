@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/windows/servercore:2004
 LABEL maintainer="solidi"
 LABEL version="0.1"
-LABEL description="Base Windows image to compile libs and project of Cold Ice Goldsrc."
+LABEL description="Base Windows image to compile libs and project of Cold Ice Remastered."
 
 #ADD https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x64.exe /vc_redist.x64.exe
 #RUN c:/vc_redist.x64.exe /quiet /install

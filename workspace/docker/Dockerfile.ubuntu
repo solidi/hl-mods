@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer="solidi"
 LABEL version="0.1"
-LABEL description="Base linux image to compile libs for Cold Ice Goldsrc."
+LABEL description="Base linux image to compile libs for Cold Ice Remastered."
 
 RUN echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial main" >> /etc/apt/sources.list
 RUN echo "deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe" >> /etc/apt/sources.list
