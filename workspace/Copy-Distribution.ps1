@@ -3,7 +3,6 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Copy Distribution for Cold Ice GoldSrc"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -22,6 +21,8 @@ $Config = @{ }
         echo "configuration file is $configFile..."
     }
 }
+
+$host.UI.RawUI.WindowTitle = "Copy Distribution $($Config['projectName'])"
 
 Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameChecking
 

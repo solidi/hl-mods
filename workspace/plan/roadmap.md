@@ -1,4 +1,4 @@
-# Cold Ice Goldsrc Roadmap
+# Cold Ice Remastered Roadmap
 
 ## Mission
 

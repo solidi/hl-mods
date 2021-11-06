@@ -3,7 +3,6 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Build Cold Ice GoldSrc Sound"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -21,6 +20,8 @@ $Config = @{ }
         echo "configuration file is $configFile..."
     }
 }
+
+$host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Sound"
 
 Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChecking
 

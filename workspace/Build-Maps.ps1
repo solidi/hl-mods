@@ -3,7 +3,6 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 Set-PSDebug -Trace 0
 
-$host.UI.RawUI.WindowTitle = "Build Cold Ice GoldSrc Maps"
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
@@ -29,6 +28,8 @@ $Config = @{ }
         echo "building map $mapName..."
     }
 }
+
+$host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Maps"
 
 Import-Module $PSScriptRoot\powershell\Compile-Map.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Wad.psm1 -Force -DisableNameChecking
