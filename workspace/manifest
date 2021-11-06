@@ -352,7 +352,7 @@ sound\revolver_draw.wav
 sound\point.wav
 sound\egon_selected.wav
 sound\egon_switch.wav
-sound\default_deploy.wav
+sound\default_draw.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
