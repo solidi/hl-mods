@@ -18,7 +18,7 @@ function Zip-Release {
     param (
         $rootDir,
         $redistDir,
-        $redistHdDir
+        $redistHdDir,
         $gameFolder
     )
     
