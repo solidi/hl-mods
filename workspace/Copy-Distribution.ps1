@@ -30,8 +30,8 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
-$iceFolder = "ice"
-$iceDir = "${hldir}\${iceFolder}"
-$icehddir = "${hldir}\${iceFolder}_hd"
+$gameFolder = $Config['gameFolder'] ?? "ice"
+$iceDir = "${hldir}\${gameFolder}"
+$icehddir = "${hldir}\${gameFolder}_hd"
 
 copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir

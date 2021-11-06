@@ -36,6 +36,7 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
+$gameFolder = $Config['gameFolder'] ?? "ice"
 
 Remove-Item $redistDir\debug.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\qconsole.log -Force -ErrorAction Ignore
@@ -69,6 +70,6 @@ if ($verifyfiles) {
 
 PAK-File $binDir $redistDir @("models", "sound", "sprites")
 
-Zip-Release $rootDir $redistDir $redistHdDir
+Zip-Release $rootDir $redistDir $redistHdDir $gameFolder
 
 Set-Location -Path ${PSScriptRoot}

@@ -19,6 +19,7 @@ function Zip-Release {
         $rootDir,
         $redistDir,
         $redistHdDir
+        $gameFolder
     )
     
     try {
@@ -40,11 +41,11 @@ function Zip-Release {
         echo $version
         $version | Add-Content $env:TEMP\release\redist\readme.txt
 
-        Rename-Item $env:TEMP\release\redist $env:TEMP\release\ice
+        Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
         Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\ice_hd
-        Compress-Archive -LiteralPath $env:TEMP\release\ice -DestinationPath $zipFile -Force
-        Compress-Archive -LiteralPath $env:TEMP\release\ice_hd -DestinationPath $zipFile -Update
+        Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
     } catch {
         Write-Error "Could not create zip file.`nReason: $($_.Exception.Message)"

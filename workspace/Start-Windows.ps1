@@ -62,12 +62,12 @@ Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameCheckin
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
-$iceFolder = "ice"
+$gameFolder = $Config['gameFolder'] ?? "ice"
 $hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hlexe = $Config['hlExe'] ?? "hl.exe"
 $gameParameters = $Config['gameParameters'] ?? "-console -dev -condebug -gl -windowed -width 640 -height 480"
-$iceDir = "${hldir}\${iceFolder}"
-$icehddir = "${hldir}\${iceFolder}_hd"
+$iceDir = "${hldir}\${gameFolder}"
+$icehddir = "${hldir}\${gameFolder}_hd"
 
 copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir
 
@@ -95,5 +95,5 @@ for ($bot = 0; $bot -lt $botCount; $bot++) {
 }
 
 Set-Location -Path $hldir
-Launch-HL $botCount $hdModels $map $hldir $hlexe $gameParameters $iceFolder
+Launch-HL $botCount $hdModels $map $hldir $hlexe $gameParameters $gameFolder
 Set-Location -Path ${PSScriptRoot}
