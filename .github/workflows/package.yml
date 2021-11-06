@@ -135,6 +135,11 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
@@ -173,6 +178,11 @@ jobs:
         Move-Item $env:TEMP\bin .\workspace
         Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
 
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+
     - name: Compile models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
@@ -198,6 +208,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
 
     - name: Compile sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -243,6 +258,11 @@ jobs:
         Move-Item $env:TEMP\bin .\workspace
         Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
 
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
+
     - name: Compile sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
@@ -284,6 +304,11 @@ jobs:
         Remove-Item .\workspace\bin -Force -ErrorAction Ignore
         Move-Item $env:TEMP\bin .\workspace
         Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
 
     - name: Compile Maps
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -426,6 +451,11 @@ jobs:
         Remove-Item .\workspace\bin -Force -ErrorAction Ignore
         Move-Item $env:TEMP\bin .\workspace
         Remove-Item .\workspace\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\workspace\Config.ps1
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
