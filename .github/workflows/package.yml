@@ -23,7 +23,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER' }" | Add-Content .\workspace\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' 'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON' }" | Add-Content .\workspace\Config.ps1
 
     - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -138,7 +138,7 @@ jobs:
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Tools.ps1
+        .\workspace\Build-Tools.ps1 -ConfigFile Config
         [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
         Copy-Item -Recurse -Force .\bin $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
@@ -176,7 +176,7 @@ jobs:
     - name: Compile models
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Models.ps1 -Clean
+        .\workspace\Build-Models.ps1 -Clean -ConfigFile Config
         $zipFile = ".\models.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\release
@@ -202,7 +202,7 @@ jobs:
     - name: Compile sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Sound.ps1
+        .\workspace\Build-Sound.ps1 -ConfigFile Config
         $zipFile = ".\sounds.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\sound $env:TEMP\release
@@ -246,7 +246,7 @@ jobs:
     - name: Compile sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Sprites.ps1
+        .\workspace\Build-Sprites.ps1 -ConfigFile Config
         $zipFile = ".\sprites.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
         Copy-Item -Recurse -Force .\redist_hd\sprites $env:TEMP\release
@@ -288,7 +288,7 @@ jobs:
     - name: Compile Maps
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\workspace\Build-Maps.ps1 -Clean
+        .\workspace\Build-Maps.ps1 -Clean -ConfigFile Config
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
@@ -429,7 +429,7 @@ jobs:
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\workspace\Build-Release.ps1
+      run: .\workspace\Build-Release.ps1 -ConfigFile Config
 
     - name: Archive Cold Ice Release
       uses: actions/upload-artifact@v2
