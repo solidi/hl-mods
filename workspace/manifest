@@ -210,6 +210,9 @@ models\w_rpgammo.mdl
 models\v_357.mdl
 models\p_357.mdl
 models\w_357.mdl
+models\v_egon.mdl
+models\p_egon.mdl
+models\w_egon.mdl
 resource
 resource\TrackerScheme.res.old
 resource\westminster.ttf
@@ -347,6 +350,9 @@ sound\357_selected.wav
 sound\revolver_fire.wav
 sound\revolver_draw.wav
 sound\point.wav
+sound\egon_selected.wav
+sound\egon_switch.wav
+sound\default_draw.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

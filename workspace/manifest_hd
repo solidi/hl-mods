@@ -76,6 +76,9 @@ models\w_rpgammo.mdl
 models\v_357.mdl
 models\p_357.mdl
 models\w_357.mdl
+models\v_egon.mdl
+models\p_egon.mdl
+models\w_egon.mdl
 sound
 sound\knife_miss2.wav
 sprites
