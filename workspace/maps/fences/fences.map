@@ -1,6 +1,7 @@
 {
 "classname" "worldspawn"
 "skyname" "cirnightmont1"
+"message" "Fences"
 "sounds" "0"
 "MaxRange" "4096"
 "mapversion" "220"

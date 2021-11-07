@@ -1,6 +1,7 @@
 {
 "classname" "worldspawn"
 "classname" "worldspawn"
+"message" "Canyon"
 "sounds" "0"
 "skyname" "cirduskmont1"
 "MaxRange" "8192"
