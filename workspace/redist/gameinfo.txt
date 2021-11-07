@@ -1,0 +1,21 @@
+basedir		"valve"
+gamedir		"ice"
+title		"Cold Ice Remastered"
+startmap		"c0a0"
+trainmap		"t0a0"
+version		1
+url_info		"https://medium.com/@solidi"
+url_update		"https://github.com/solidi"
+type		"Multiplayer"
+dllpath		"cl_dlls"
+gamedll		"dlls/grave_bot.dll"
+gamedll_linux		"dlls/gravebot.so"
+gamedll_osx		"dlls/ice.dylib"
+icon		"game.ico"
+gamemode		"multiplayer_only"
+sp_entity		"info_player_start"
+mp_entity		"info_player_start"
+max_edicts	4096
+max_tempents	1000
+max_beams		256
+max_particles	8192
