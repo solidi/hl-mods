@@ -90,7 +90,7 @@ if ($timelimit) {
 }
 
 for ($bot = 0; $bot -lt $botCount; $bot++) {
-    "addbot 5" | Add-Content $iceDir\grave_bot.cfg
+    "addbot 3" | Add-Content $iceDir\grave_bot.cfg
     "pause 3" | Add-Content $iceDir\grave_bot.cfg
 }
 

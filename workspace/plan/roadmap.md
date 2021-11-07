@@ -72,7 +72,7 @@
     1. [x] Snowball
     1. [x] Chainsaw
     1. [x] 12 Gauge
-    1. [ ] 44 Magnum
+    1. [x] 44 Magnum
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -98,7 +98,7 @@
     1. [x] Add bots
         1. Add [bots](http://hpb-bot.bots-united.com/index.html)
 1. Game Mechanics
-    1. [ ] In-game help menu
+    1. [x] In-game help menu
         1. [ ] Show version in message
     1. [ ] Player jump and land sound effects
     1. [ ] Player snow footstep sounds / materials

@@ -21,8 +21,15 @@ if (yaw > 0)
 else
     pev->sequence = m_baseSequence + SITTING_ANIM_sitlookright;
 ```
+1. dlls/tentacle.cpp
+    1. 319: `PRECACHE_SOUND_ARRAY`
+1. dlls/triggers.cpp
+    1. 84: `pOther->pev->friction`
+    1. 715: `CLIENT_COMMAND`
 
 ## Gestalt
 
 1. Server/client messaging architecture
 1. String capture for entities
+1. Saverestore system
+1. KeyValue
