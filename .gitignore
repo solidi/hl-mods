@@ -12,6 +12,14 @@ gravebot.so
 Thumbs.db*
 last-build.zip
 *.max
+*.err
+*.log
+*.p0
+*.p1
+*.p2
+*.p3
+*.wic
+*.bsp
 
 */redist/halflife.wad
 */redist/decals.wad
