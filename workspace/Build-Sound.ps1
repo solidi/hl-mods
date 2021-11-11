@@ -166,5 +166,20 @@ Copy-Item $soundDir\ironsight_off.wav $redistdir\sound
 Copy-Item $soundDir\revolver_fire.wav $redistdir\sound
 Copy-Item $soundDir\revolver_draw.wav $redistdir\sound
 Copy-Item $soundDir\default_draw.wav $redistdir\sound
+Copy-Item $soundDir\m16_boltpull.wav $redistdir\sound
+Copy-Item $soundDir\m16_close.wav $redistdir\sound
+Copy-Item $soundDir\m16_draw_heavy.wav $redistdir\sound
+Copy-Item $soundDir\m16_glauncher.wav $redistdir\sound
+Copy-Item $soundDir\m16_glauncher2.wav $redistdir\sound
+Copy-Item $soundDir\m16_hks1.wav $redistdir\sound
+Copy-Item $soundDir\m16_hks2.wav $redistdir\sound
+Copy-Item $soundDir\m16_hks3.wav $redistdir\sound
+Copy-Item $soundDir\m16_hold.wav $redistdir\sound
+Copy-Item $soundDir\m16_insert.wav $redistdir\sound
+Copy-Item $soundDir\m16_magin.wav $redistdir\sound
+Copy-Item $soundDir\m16_magout.wav $redistdir\sound
+Copy-Item $soundDir\m16_magplace.wav $redistdir\sound
+Copy-Item $soundDir\m16_open.wav $redistdir\sound
+Copy-Item $soundDir\m16_selected.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}

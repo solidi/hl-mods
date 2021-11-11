@@ -123,6 +123,7 @@
     1. [x] Vest
     1. [x] Silencer
     1. [x] Cluster Grenades
+        1. [ ] Pin pull sfx
     1. [x] Knife
     1. [x] Rocket Launcher
     1. [x] Inivisible Tripmines
@@ -265,12 +266,15 @@
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
 1. Configuration Support
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
+    1. [ ] cl_weaponvoice - disable or enable humor/voice sound effects
 1. Maps
     1. All Maps
         1. [ ] Debrief text file
         1. [ ] Overview graphic
     1. [ ] fgd file
     1. [ ] Finish arena, texture in Cold Ice style
+    1. [ ] Training 2
+        1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
 1. HUD
     1. [ ] Re-enable suit voice updates?

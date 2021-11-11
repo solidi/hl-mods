@@ -161,3 +161,5 @@ Thanks To:
 - Schrade for the focus map and Apo for the furrow map
 - zoonyarts and Brutal Half-Life for select sound and model assets https://www.moddb.com/mods/brutal-half-life
 - mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
+- Bobito Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
+- The Cold-Ice 2.5 for the m16 weapon model
