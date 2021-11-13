@@ -6,7 +6,7 @@ Set-PSDebug -Trace 0
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
-    Clear-Host
+    # Clear-Host
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 

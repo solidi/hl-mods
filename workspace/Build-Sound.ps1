@@ -6,7 +6,7 @@ Set-PSDebug -Trace 0
 function Set-ConsoleColor ($bc, $fc) {
     $Host.UI.RawUI.BackgroundColor = $bc
     $Host.UI.RawUI.ForegroundColor = $fc
-    Clear-Host
+    # Clear-Host
 }
 Set-ConsoleColor 'DarkCyan' 'White'
 
@@ -21,7 +21,7 @@ $Config = @{ }
     }
 }
 
-$host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Sound"
+$Host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Sound"
 
 Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChecking
 

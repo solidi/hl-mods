@@ -117,7 +117,7 @@
         1. [ ] Use attachment point for each model
     1. [ ] Deagle
         1. [ ] Single shot weapons for semi-auto effect
-    1. [ ] M16 Assault Rifle
+    1. [x] M16 Assault Rifle
     1. [ ] Nuke launcher (Cold Ice 2.5 model) / [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [ ] Assault Shotgun
     1. [x] Vest
@@ -152,12 +152,13 @@
     1. [x] Have humorous sound effect with each weapon?
     1. [x] Bullet smoke like [brutal mod](https://www.moddb.com/mods/brutal-half-life)
     1. [x] Viewmodel delay on yaw movement like seen in [MiniMod](https://www.youtube.com/watch?v=g3qMHpLMYPk&t=690s)
-    1. [x] [Weapon fidget effect](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=540s) when jumping or landing a jump.
+    1. [x] [Weapon fidget effect / movement on landing a jump](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=540s) when jumping or landing a jump.
+    1. [x] Pull back viewmodel on moving forward 
     1. [x] Third model mode - real skins
         1. [x] Convert weaponbox to dropped weapon
             1. [x] Convert all weapons to ground
             1. [x] Two models for w_ models - ground, and floating/spinning
-    1. [ ] Increase ammo total counts to match bhl
+    1. [x] Increase ammo total counts to match bhl
 1. Old School
     1. [x] Scoreboard
     1. [x] MOTD
@@ -257,9 +258,8 @@
         1. [ ] Faster spin?
     1. [ ] Third person muzzle flash placement
 1. Weapon ViewModel / Effects
+    1. [ ] Move HUD elements based on movement to give glass heads up like effect
     1. [ ] A generic draw/holster sound? (like CS:GO)
-    1. [ ] [Gun fidget / movement on landing a jump](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=526s)
-    1. [ ] Gun smoke as seen in MiniMod
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
@@ -267,6 +267,7 @@
 1. Configuration Support
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [ ] cl_weaponvoice - disable or enable humor/voice sound effects
+    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
 1. Maps
     1. All Maps
         1. [ ] Debrief text file
