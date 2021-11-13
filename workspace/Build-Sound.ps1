@@ -21,7 +21,7 @@ $Config = @{ }
     }
 }
 
-$host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Sound"
+$Host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Sound"
 
 Import-Module $PSScriptRoot\powershell\Compile-Sound.psm1 -Force -DisableNameChecking
 
