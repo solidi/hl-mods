@@ -34,7 +34,7 @@ $texturegroup ice
   {
     "..\gordon_GLOVED_knuckle.bmp"
     "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\gordon_xbow_sleeve.bmp"
     "bowCHROME.bmp"
     "bowtip.bmp"
     "cliprear.bmp"
@@ -56,7 +56,7 @@ $texturegroup ice
   {
     "..\GLOVED_knuckle.bmp"
     "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\xbow_sleeve.bmp"
     "invert_bowCHROME.bmp"
     "invert_bowtip.bmp"
     "invert_cliprear.bmp"
@@ -78,7 +78,7 @@ $texturegroup ice
   {
     "..\GLOVED_knuckle.bmp"
     "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\xbow_sleeve.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -100,7 +100,7 @@ $texturegroup ice
   {
     "..\GLOVED_knuckle.bmp"
     "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\xbow_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
