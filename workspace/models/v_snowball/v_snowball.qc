@@ -34,25 +34,25 @@ $texturegroup ice
   {
     "..\gordon_GLOVE_handpak.bmp.bmp"
     "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\gordon_xbow_sleeve.bmp"
     "pallo.bmp"
   }
   {
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\xbow_sleeve.bmp"
     "invert_pallo.bmp"
   }
   {
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\xbow_sleeve.bmp"
     "..\ringchrome.bmp"
   }
   {
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\xbow_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
   }
 }
