@@ -188,7 +188,7 @@
     1. [x] All CIR player models
     1. [ ] Assassin and army models from Cold Ice 2.5
 1. Package for release script
-    1. [ ] Rename folder to cirm_beta1
+    1. [x] Rename folder to ice_beta1
     1. [ ] Remove config or replace with default one
     1. [x] Remove dev.cfg
     1. [x] Remove pdb files

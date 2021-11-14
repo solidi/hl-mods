@@ -456,7 +456,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta1' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}

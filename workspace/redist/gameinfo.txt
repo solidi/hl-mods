@@ -1,9 +1,9 @@
 basedir		"valve"
 gamedir		"ice"
-title		"Cold Ice Remastered"
+title		"Cold Ice Remastered Beta 1"
 startmap		"c0a0"
 trainmap		"t0a0"
-version		1
+version		"Beta 1"
 url_info		"https://medium.com/@solidi"
 url_update		"https://github.com/solidi"
 type		"Multiplayer"

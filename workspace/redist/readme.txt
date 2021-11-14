@@ -73,8 +73,8 @@ Features:
 
 Installation:
 
-- For Steam: Place both ice and ice_hd folders in the same folder as where hl.exe is installed.
-- For Xash3d: Since the app does not support SD/HD model switching, install ice folder first where xash3d.exe is located. Then copy ice_hd contents, and paste over the ice folder, overwriting the SD models.
+- For Steam: Place both ice_betax and ice_betax_hd folders in the same folder as where hl.exe is installed.
+- For Xash3d: Since the app does not support SD/HD model switching, install ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste over the ice folder, overwriting the SD models.
 
 Commands:
 
@@ -86,7 +86,7 @@ Server:
 - Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_knife;weapon_9mmhandgun""
 - Allow powerup runes on server - "mp_allowrunes 1"
 - Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
-- Floating wrold weapons ala Quake - "mp_floatingweapons 1"
+- Floating world weapons ala Quake - "mp_floatingweapons 1"
 - Infinite ammo ala CS 1.6 - "mp_infiniteammo 1"
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
