@@ -256,8 +256,8 @@ Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "p_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "w_9mmAR" $modelsdir $redistDir\models
 Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
-Compile-Model $binDir "p_9mmar" $modelsdir\hd $redisthddir\models
-Compile-Model $binDir "w_9mmar" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_9mmAR" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_9mmAR" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_shotgun" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_vest" $modelsdir $redistDir\models
 Compile-Model $binDir "v_vest_radio" $modelsdir $redistDir\models
