@@ -12,7 +12,7 @@ Original internal name:
 ==============================================================================
 */
 
-$modelname "w_9mmar.mdl"
+$modelname "w_9mmAR.mdl"
 $cd ".\"
 $cdtexture ".\"
 $scale 1.0
