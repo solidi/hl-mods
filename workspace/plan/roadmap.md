@@ -73,6 +73,8 @@
     1. [x] Chainsaw
     1. [x] 12 Gauge
     1. [x] 44 Magnum
+    1. [ ] M16
+    1. [ ] Explosive Assault Shotgun
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -111,6 +113,7 @@
     1. [ ] Skin Egon, Gauss, Hornetgun, Snark
     1. [x] Spin ammo, battery, healthkit, and longjump
     1. [ ] Punch angles for all weapons
+        1. [ ] Punch angle for draw and holstering
     1. [ ] Spawn extra weapons with other matching slot number
     1. [ ] Tighten up all idle animation times to match code
     1. [ ] Correct all brass shell ejection points
@@ -119,7 +122,7 @@
         1. [ ] Single shot weapons for semi-auto effect
     1. [x] M16 Assault Rifle
     1. [ ] Nuke launcher (Cold Ice 2.5 model) / [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
-    1. [ ] Assault Shotgun
+    1. [x] Assault Shotgun
     1. [x] Vest
     1. [x] Silencer
     1. [x] Cluster Grenades
@@ -145,6 +148,7 @@
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
     1. [x] Invisible tripmines
     1. [x] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
+    1. [x] Increase ammo total counts to match bhl
 1. Weapon ViewModel / Effects
     1. [x] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
     1. [x] Iron sights like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
@@ -158,7 +162,7 @@
         1. [x] Convert weaponbox to dropped weapon
             1. [x] Convert all weapons to ground
             1. [x] Two models for w_ models - ground, and floating/spinning
-    1. [x] Increase ammo total counts to match bhl
+    1. [x] Move HUD elements based on movement to give glass heads up like effect
 1. Old School
     1. [x] Scoreboard
     1. [x] MOTD
@@ -212,7 +216,7 @@
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Supported Systems
-    1. [ ] Android and iOS support (Xash3d?)
+    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
 1. Game Mechanics
     1. [ ] Jetpack?
     1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
@@ -258,7 +262,6 @@
         1. [ ] Faster spin?
     1. [ ] Third person muzzle flash placement
 1. Weapon ViewModel / Effects
-    1. [ ] Move HUD elements based on movement to give glass heads up like effect
     1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
@@ -277,6 +280,8 @@
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
+    1. [ ] Depot
+    1. [ ] Crossfire re-skinned
 1. HUD
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard

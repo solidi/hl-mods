@@ -117,4 +117,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_glasshud"
+	{
+		"#Ice_GlassHud"
+		{ BOOL }
+		{ "1" }
+	}
 }

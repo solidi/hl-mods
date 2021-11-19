@@ -108,6 +108,7 @@ Client:
 - Right Hand Models - "cl_righthand 1" - To switch between right and left handed models
 - Bullet Smoke - "cl_bulletsmoke 1" - To switch between bullets creating smoke where they land
 - Gun Smoke - "cl_gunsmoke 1" - To switch between weapons creating smoke when fired
+- Glass Hud - "cl_glasshud 1" - To switch between motion interactive HUD elements
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 - Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
 - Use iron sights when available - Use "+ironsight"
