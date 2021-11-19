@@ -36,7 +36,7 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
-$gameFolder = $Config['gameFolder'] ?? "ice"
+$gameFolder = $Config['gameFolder'] ?? "ice_beta1"
 
 Remove-Item $redistDir\debug.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\qconsole.log -Force -ErrorAction Ignore

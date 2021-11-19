@@ -1,5 +1,5 @@
 basedir		"valve"
-gamedir		"ice"
+gamedir		"ice_beta1"
 title		"Cold Ice Remastered Beta 1"
 startmap		"c0a0"
 trainmap		"t0a0"

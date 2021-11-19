@@ -62,7 +62,7 @@ Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameCheckin
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
-$gameFolder = $Config['gameFolder'] ?? "ice"
+$gameFolder = $Config['gameFolder'] ?? "ice_beta1"
 $hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hlexe = $Config['hlExe'] ?? "hl.exe"
 $gameParameters = $Config['gameParameters'] ?? "-console -dev -condebug -gl -windowed -width 640 -height 480"
