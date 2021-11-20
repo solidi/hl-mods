@@ -69,6 +69,7 @@ Compile-Sound $binDir $redistDir $soundDir "clint-eastwood.mp3" 2.0 "sound\357_s
 Compile-Sound $binDir $redistDir $soundDir "point.wav" 5.0 "sound\point.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters_eNjs1Aq.mp3" 1.0 "sound\egon_selected.wav" "wav" 0 5
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters-bad.mp3" 2.0 "sound\egon_switch.wav" "wav" 3.5 6
+Compile-Sound $binDir $redistDir $soundDir "boomstick.mp3" 1.0 "sound\shotgun_boomstick.wav" "wav"
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
@@ -181,5 +182,7 @@ Copy-Item $soundDir\m16_magout.wav $redistdir\sound
 Copy-Item $soundDir\m16_magplace.wav $redistdir\sound
 Copy-Item $soundDir\m16_open.wav $redistdir\sound
 Copy-Item $soundDir\m16_selected.wav $redistdir\sound
+Copy-Item $soundDir\shotgun_deploy.wav $redistdir\sound
+Copy-Item $soundDir\shotgun_selected.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}

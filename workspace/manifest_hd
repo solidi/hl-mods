@@ -2,7 +2,9 @@ models
 models\p_9mmAR.mdl
 models\v_9mmAR.mdl
 models\w_9mmAR.mdl
+models\p_shotgun.mdl
 models\v_shotgun.mdl
+models\w_shotgun.mdl
 models\v_vest_radio.mdl
 models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
