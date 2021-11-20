@@ -36,6 +36,7 @@ Features:
     - Koshak's Chainsaw
     - Samel L. Jackson's 12 Gauge Shotgun
     - 44 Magnum Revolver
+    - Explosive Assault Shotgun
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
