@@ -1,6 +1,6 @@
 Cold Ice Remastered Edition
 
-This project is a rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
+This project is a modern rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
 Source code: https://github.com/solidi/coldice-remastered
@@ -49,8 +49,18 @@ Features:
     - Bounce 2
     - Catacombs
     - Fences
-- Offhand Grappling Hook
 - Bot support using Grave Bots
+- Modern weapon viewmodel improvements
+    - Holster weapon animations!
+    - Right handed or left handed models
+    - Weapon sway and fidet animation for realism
+    - Bullet and gun smoke animation for effect
+    - Option to switch between ice model skins and real model skins!
+    - Option for original models and high res models
+- Modern HUD improvements
+    - Hud response to motion in a glass-like effect
+    - Experimental iron sights support for select weapons
+- Offhand Grappling Hook
 - Powerup Runes
     - "Frag" - purple - obtain twice the amount of frags
     - "Vampire" - red - obtain health when inflicting damage
@@ -60,17 +70,10 @@ Features:
     - "Gravity" - blue - jump 40% farther
     - "Strength" - yellow - inflict 50% more damage
     - "Cloak" - white - 90% invisibility
-- Option for original models and high res models
 - More humorous movie sound clips!
 - Throwing meele weapons!
-- Option to switch between ice model skins and real model skins!
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
-- Holster weapon animations!
-- Right handed or left handed models
-- Weapon sway and fidet animation for realism
-- Bullet and gun smoke animation for effect
-- Experimental iron sights support for select weapons
 
 Installation:
 
@@ -165,3 +168,4 @@ Thanks To:
 - mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
 - Bobito Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
 - The Cold-Ice 2.5 for the m16 weapon model
+- malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
