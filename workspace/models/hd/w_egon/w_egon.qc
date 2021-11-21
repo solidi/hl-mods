@@ -36,10 +36,10 @@ $texturegroup ice
     "invert_w_egon_reference.BMP"
   }
   {
-    "..\iceCHROME.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
-    "..\..\ringchrome.bmp"
+    "..\iceCHROME.bmp"
   }
 }
 
