@@ -275,3 +275,16 @@
 1. [This thread](https://developer.valvesoftware.com/wiki/Half-Life.fgd) hosts the latest Half-Life fgd dated from 2003.
 1. [This thread](https://quakewiki.org/wiki/Quake_Map_Format) discusses the original map format, and Valve's "220" version. There are [converters](https://www.ogier-editor.com/mapconv/) out there that change the format between 220 and original formats. I also learned that the map file structure all devires from [worldspawn classname](https://twhl.info/wiki/page/worldspawn).
 1. A short post on [how to pass parameters to a steam uri](https://steamcommunity.com/discussions/forum/1/144513128846060662/?ref=dtf.ru)
+1. In case there are questions about the parameter usage of the engine calls, use the [xash3d engine codebase](https://github.com/FWGS/xash3d-fwgs/blob/e5e1570aed435acc3216bf73a39e812853d2aa0c/engine) to determine what it may determine.
+1. Use `-dev 5` and `-log` [when debugging](https://github.com/FWGS/xash3d/issues/58) on xash3d.
+1. These [three](http://www.garagegames.com/community/forums/viewthread/87197) [threads](https://forum.blockland.us/index.php?topic=75076.0) [where](https://modthesims.info/t/515221) helpful in understanding how to flip faces drawn backward.
+1. A [thread](https://stackoverflow.com/questions/17461079/how-to-get-the-error-code-when-there-is-error-in-powershell/17461604) on how to silently continue in a powershell script.
+1. There are nine ways to [multi-line text](https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines/21699210) in yaml.
+1. A [hint](https://github.com/HLSources/Tyrian-GroundAssault/blob/9411deab882dd4ae444c0e24debe5bbbff9cfc50/cl_dll/cdll_int.cpp#L266) on how to detect the xash3d engine in a game modification, which uses cvar detection `host_clientloaded`.
+1. A [Windows 11](https://news.ycombinator.com/item?id=29129358) thread that has hints of how to install the version without checks.
+1. I learned that the zip version on the mac was incompatible with `.7z` that caused corruption of file unpacks. I [looked for a cmd util](https://apple.stackexchange.com/questions/307377/how-can-i-unpack-7z-files-via-macos-terminal) and found `p7zip`.
+1. A [thread](https://github.com/ValveSoftware/halflife/issues/2955) on the old feature of glowing textures in early versions of Half-Life.
+1. Temporary entities seems unconfigurable in the Half-Life version, [stuck at 500](https://developer.valvesoftware.com/wiki/Temporary_Entity at any time.)
+1. [This is](https://valvedev.info/tools/) a good list of modern Half-Life development tools.
+1. The steam wiki has information about entities key values, like [func_conveyor](https://developer.valvesoftware.com/wiki/Func_conveyor).
+1. [This wiki](https://twhl.info/wiki/page/Entity_Programming_-_Overview) was important to understand alittle bit more on how the Half-Life engine handles `edict_t` and `entvars_t`.
