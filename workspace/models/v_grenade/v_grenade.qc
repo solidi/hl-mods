@@ -76,10 +76,10 @@ $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 loop 
 $sequence "fidget" "fidget" fps 30 loop 
-$sequence "pinpull" "pinpull" fps 45 { event 5004 0 "holy_handgrenade.wav" }
-$sequence "throw1" "throw1" fps 13 
-$sequence "throw2" "throw2" fps 20 
-$sequence "throw3" "throw3" fps 30 
+$sequence "pinpull" "pinpull" fps 45 { event 5004 0 "holy_handgrenade.wav" } { event 5004 3 "pinpull.wav" } 
+$sequence "throw1" "throw1" fps 13 { event 5004 0 "grenade_throw.wav" } 
+$sequence "throw2" "throw2" fps 20 { event 5004 0 "grenade_throw.wav" } 
+$sequence "throw3" "throw3" fps 30 { event 5004 0 "grenade_throw.wav" } 
 $sequence "holster" "holster" fps 30 
 $sequence "draw" "draw" fps 30 { event 5004 5 "clustergrenades_selected.wav" }
 

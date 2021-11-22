@@ -376,6 +376,8 @@ sound\m16_selected.wav
 sound\shotgun_selected.wav
 sound\shotgun_deploy.wav
 sound\shotgun_boomstick.wav
+sound\pinpull.wav
+sound\grenade_throw.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

@@ -169,3 +169,4 @@ Thanks To:
 - Bobito Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
 - The Cold-Ice 2.5 for the m16 weapon model
 - malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
+- The overhaul pack for select sound effects https://www.moddb.com/mods/half-life-overhaul-pack

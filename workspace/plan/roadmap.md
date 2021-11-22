@@ -74,7 +74,7 @@
     1. [x] 12 Gauge
     1. [x] 44 Magnum
     1. [ ] M16
-    1. [ ] Explosive Assault Shotgun
+    1. [x] Explosive Assault Shotgun
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -126,7 +126,7 @@
     1. [x] Vest
     1. [x] Silencer
     1. [x] Cluster Grenades
-        1. [ ] Pin pull sfx
+        1. [x] Pin pull sfx
     1. [x] Knife
     1. [x] Rocket Launcher
     1. [x] Inivisible Tripmines
