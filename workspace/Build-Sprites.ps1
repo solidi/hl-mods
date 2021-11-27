@@ -31,6 +31,8 @@ $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $spritesDir = "${rootDir}\sprites"
 
+# Colorize-Folder $binDir $spritesDir\nuke2 "16,50,90" 100
+
 Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistDir\sprites -Force -ErrorAction Ignore
@@ -52,6 +54,7 @@ Compile-Sprite $binDir "640hud4" $spritesDir\hd $redisthddir\sprites
 Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "nuke2" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
@@ -70,6 +73,7 @@ Copy-Item $spritesDir\weapon_wrench.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_snowball.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_chainsaw.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_12gauge.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_nuke.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

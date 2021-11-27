@@ -70,6 +70,8 @@ Compile-Sound $binDir $redistDir $soundDir "point.wav" 5.0 "sound\point.wav" "wa
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters_eNjs1Aq.mp3" 1.0 "sound\egon_selected.wav" "wav" 0 5
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters-bad.mp3" 2.0 "sound\egon_switch.wav" "wav" 3.5 6
 Compile-Sound $binDir $redistDir $soundDir "boomstick.mp3" 1.0 "sound\shotgun_boomstick.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "modern-warfare-2-tactical-nuke-sound.mp3" 1.0 "sound\nuke_selected.wav" "wav" 0 2.5
+Compile-Sound $binDir $redistDir $soundDir "nuke_explosion.mp3" 2.0 "sound\nuke_explosion.wav" "wav"
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
@@ -186,5 +188,6 @@ Copy-Item $soundDir\shotgun_deploy.wav $redistdir\sound
 Copy-Item $soundDir\shotgun_selected.wav $redistdir\sound
 Copy-Item $soundDir\pinpull.wav $redistdir\sound
 Copy-Item $soundDir\grenade_throw.wav $redistdir\sound
+Copy-Item $soundDir\nuke_draw.wav $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}

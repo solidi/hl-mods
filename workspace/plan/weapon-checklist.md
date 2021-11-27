@@ -21,6 +21,9 @@ For weapon generation scripting.
     1. [ ] Update hud.txt
     1. [ ] Add weapon_name.txt
 1. [ ] Wiring
+    1. [ ] Add cpp files to VS project
+    1. [ ] Add cpp files to Make files
+    1. [ ] Add compile switch
     1. [ ] Add to Gravebot
         1. [ ] Link class
         1. [ ] Configuration settings
@@ -28,6 +31,7 @@ For weapon generation scripting.
     1. [ ] Precache
     1. [ ] Impulse 101
     1. [ ] Weaponbox model
+    1. [ ] Spawn replacement
 1. [ ] Game updates
     1. [ ] Readme.txt
     1. [ ] Resources / lst files

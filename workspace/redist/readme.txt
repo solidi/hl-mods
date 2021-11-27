@@ -37,6 +37,7 @@ Features:
     - Samel L. Jackson's 12 Gauge Shotgun
     - 44 Magnum Revolver
     - Explosive Assault Shotgun
+    - Tactical Nuke Launcher
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
@@ -170,3 +171,6 @@ Thanks To:
 - The Cold-Ice 2.5 for the m16 weapon model
 - malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
 - The overhaul pack for select sound effects https://www.moddb.com/mods/half-life-overhaul-pack
+- The BFG model from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
+- The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
+

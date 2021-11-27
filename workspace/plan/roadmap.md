@@ -75,6 +75,7 @@
     1. [x] 44 Magnum
     1. [ ] M16
     1. [x] Explosive Assault Shotgun
+    1. [x] Nuke Launcher
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -107,6 +108,8 @@
     1. [x] HUD notification system - Identity of weapons from Rory
 1. Gameplay
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
+    1. [ ] mp_startonlywith "weapon_*"
+    1. [ ] mp_startwithall "1"
     1. [x] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
     1. [x] Bell when a frag is committed (ala CS:GO)
 1. Weapons
@@ -121,7 +124,7 @@
     1. [ ] Deagle
         1. [ ] Single shot weapons for semi-auto effect
     1. [x] M16 Assault Rifle
-    1. [ ] Nuke launcher (Cold Ice 2.5 model) / [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
+    1. [x] Nuke launcher (Cold Ice 2.5 model) / [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [x] Assault Shotgun
     1. [x] Vest
     1. [x] Silencer
