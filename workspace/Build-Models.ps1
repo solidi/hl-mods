@@ -244,6 +244,12 @@ Invert-Skin $binDir "w_egon" $modelsdir
 Invert-Skin $binDir "p_egon" $modelsdir\hd
 Invert-Skin $binDir "w_egon" $modelsdir\hd
 Invert-Skin $binDir "v_egon" $modelsdir\hd
+Invert-Skin $binDir "v_nuke" $modelsdir
+Invert-Skin $binDir "p_nuke" $modelsdir
+Invert-Skin $binDir "w_nuke" $modelsdir
+Invert-Skin $binDir "p_nuke" $modelsdir\hd
+Invert-Skin $binDir "w_nuke" $modelsdir\hd
+Invert-Skin $binDir "v_nuke" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
@@ -445,5 +451,11 @@ Compile-Model $binDir "w_egon" $modelsdir $redistdir\models
 Compile-Model $binDir "v_egon" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_egon" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_egon" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_nuke" $modelsdir $redistdir\models
+Compile-Model $binDir "p_nuke" $modelsdir $redistdir\models
+Compile-Model $binDir "w_nuke" $modelsdir $redistdir\models
+Compile-Model $binDir "v_nuke" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_nuke" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_nuke" $modelsdir\hd $redisthddir\models
 
 Set-Location -Path ${PSScriptRoot}

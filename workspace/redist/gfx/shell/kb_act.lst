@@ -57,6 +57,7 @@
 "use weapon_rpg"			"#Ice_ExtremeRPG"
 "use weapon_railgun"			"#Ice_Railgun"
 "use weapon_cannon"			"#Ice_Cannon"
+"use weapon_nuke"			"#Ice_TacticalNuke"
 "slot5"			"#Valve_Weapon_Category_5"
 "use weapon_snowball"			"#Ice_Snowball"
 "use weapon_grenade"			"#Ice_ClusterGrenades"
