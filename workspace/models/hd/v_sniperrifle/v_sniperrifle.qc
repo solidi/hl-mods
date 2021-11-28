@@ -102,13 +102,13 @@ $hbox 0 "bolt" -1.090000 -3.300000 -0.780000 0.480000 4.350000 2.287561
 $hbox 0 "magazine" -0.670000 -2.480000 -1.800000 0.760000 2.490000 1.884617
 
 // animation sequence(s)
-$sequence "draw" "draw" fps 25 { event 5004 0 "rifle_selected.wav" } 
+$sequence "draw" "draw" fps 25 { event 5004 0 "default_draw.wav" } { event 5005 0 "rifle_selected.wav" } 
 $sequence "idle" "idle" fps 9 loop ACT_IDLE 1 
 $sequence "shoot" "shoot" fps 26  { event 5001 0 "11" } 
 $sequence "shoot_empty" "shoot_empty" fps 25  { event 5001 0 "11" } 
 $sequence "reload" "reload" fps 11 { event 5004 5 "rifle_reload_1.wav" } { event 5004 10 "rifle_reload_2.wav" } 
 $sequence "holster" "holster" fps 10 
-$sequence "zoom_in" "idle" fps 9 loop { event 5004 0 "rifle_destroy.wav" } 
+$sequence "zoom_in" "idle" fps 9 loop { event 5005 0 "rifle_destroy.wav" } 
 $sequence "zoom_out" "idle" fps 9 loop { event 5004 0 "rifle_zoomout.wav" } 
 
 // End of QC script.

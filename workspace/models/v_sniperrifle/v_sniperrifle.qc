@@ -88,13 +88,13 @@ $hbox 0 "Hands biped L Hand" -1.030000 -2.930000 -2.420000 7.410000 2.140000 2.1
 $hbox 0 "Dummy22" -7.400000 -7.820000 -1.850000 34.930000 4.550000 1.150000
 
 // animation sequence(s)
-$sequence "draw" "draw" fps 30 { event 5004 0 "rifle_selected.wav" } 
+$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "rifle_selected.wav" } 
 $sequence "idle" "idle" fps 10 loop 
 $sequence "fire" "fire" fps 35 { event 5001 0 "20" } 
 $sequence "fire_empty" "fire" fps 35 { event 5001 0 "20" } 
 $sequence "reload" "aim" fps 20 
 $sequence "holster" "holster" fps 30 
-$sequence "zoom_in" "idle" fps 10 loop { event 5004 0 "rifle_destroy.wav" } 
+$sequence "zoom_in" "idle" fps 10 loop { event 5005 0 "rifle_destroy.wav" } 
 $sequence "zoom_out" "idle" fps 10 loop { event 5004 0 "rifle_zoomout.wav" } 
 //$sequence "autoidle" "autoidle" fps 15 loop 
 //$sequence "autofire" "autofire" fps 30 loop { event 5001 0 "40" } 

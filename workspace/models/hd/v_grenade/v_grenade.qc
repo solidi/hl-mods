@@ -65,11 +65,11 @@ $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 loop 
 $sequence "fidget" "fidget" fps 30 loop 
-$sequence "pinpull" "pinpull" fps 45 { event 5004 0 "holy_handgrenade.wav" }  { event 5004 3 "pinpull.wav" } 
+$sequence "pinpull" "pinpull" fps 45 { event 5005 0 "holy_handgrenade.wav" }  { event 5004 3 "pinpull.wav" } 
 $sequence "throw1" "throw1" fps 13 { event 5004 0 "grenade_throw.wav" } 
 $sequence "throw2" "throw2" fps 20 { event 5004 0 "grenade_throw.wav" } 
 $sequence "throw3" "throw3" fps 30 { event 5004 0 "grenade_throw.wav" } 
 $sequence "holster" "holster" fps 30 
-$sequence "draw" "draw" fps 30 { event 5004 5 "clustergrenades_selected.wav" }
+$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 5 "clustergrenades_selected.wav" }
 
 // End of QC script.

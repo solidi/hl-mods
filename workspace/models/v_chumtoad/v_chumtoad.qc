@@ -85,10 +85,10 @@ $hbox 0 "MDLDEC_Bone58" 0.080000 -1.140000 -2.010000 1.610000 0.380000 2.120000
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "fidgetLick" "fidgetLick" fps 16 
 $sequence "fidgetCroak" "fidgetCroak" fps 16 
-$sequence "down" "down" fps 16 
+$sequence "down" "down" fps 24 
 $sequence "up" "up" fps 30 
 $sequence "Throw" "Throw" fps 24 
-$sequence "release" "Throw" fps 24 { event 5004 0 "chumtoad_release.wav" }
-$sequence "draw" "up" fps 30  { event 5004 0 "chumtoad_selected.wav" }
+$sequence "release" "Throw" fps 24 { event 5005 0 "chumtoad_release.wav" }
+$sequence "draw" "up" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "chumtoad_selected.wav" }
 
 // End of QC script.

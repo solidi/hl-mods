@@ -59,21 +59,21 @@ $texturegroup ice
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Hands biped R Hand" 45.000000 -7.500000 10.000000
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Hands biped R Hand" 0.000000 -1.427086 0.000000 1.069065 0.000000 6.472652
 $hbox 0 "AC_parent" -3.930000 -25.450001 -4.460000 7.370000 0.050000 4.270000
 $hbox 0 "AC_barrels" -3.470000 -18.150000 -2.990000 3.480000 1.070000 3.680000
 
-// 7 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 10 loop ACT_IDLE 5 
 $sequence "idle2" "idle2" fps 10 loop ACT_IDLE 4 
 $sequence "spinup" "spinup" loop fps 32 
-$sequence "spindown" "spindown" fps 32 { event 5004 15 "chaingun_hellyeah.wav" }
+$sequence "spindown" "spindown" fps 32 { event 5005 15 "chaingun_hellyeah.wav" }
 $sequence "fire" "fire" fps 64 loop { event 5001 0 "4" } 
-$sequence "draw" "draw" fps 32 { event 5004 0 "chaingun_selected.wav" }
+$sequence "draw" "draw" fps 40 { event 5004 0 "default_draw.wav" } { event 5005 0 "chaingun_selected.wav" }
 $sequence "holster" "holster" fps 32 
 $sequence "reload" "reload" fps 13
 

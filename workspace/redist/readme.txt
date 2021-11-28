@@ -117,7 +117,8 @@ Client:
 - Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
 - Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
 - Use iron sights when available - Use "+ironsight"
-- Play buzzer/bell when frag achieved - "cl_playpoint 1" - To switch between playing the sound effect
+- Play buzzer/bell when frag achieved - "cl_playpoint 1" - To switch onoff playing this sound effect
+- Play voice annouce / humor on weapons - "cl_annoucehumor 1" - To switch on/off playing these sound effects
 
 Report Bugs:
 

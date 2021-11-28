@@ -73,10 +73,10 @@ $hbox 0 "Bip02 Neck" -1.430381 -1.620000 -1.970000 1.800000 1.117694 2.010000
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "fidgetfit" "fidgetfit" fps 16 
 $sequence "fidgetnip" "fidgetnip" fps 16 { event 5004 5 "squeek/idle_2.wav" } { event 5004 22 "squeek/idle_1.wav" } 
-$sequence "down" "down" fps 16 
+$sequence "down" "down" fps 32 
 $sequence "up" "up" fps 30 
 $sequence "throw" "throw" fps 32 
 $sequence "release" "throw" fps 32 { event 5004 0 "chumtoad_release.wav" }
-$sequence "draw" "up" fps 30 { event 5004 0 "chumtoad_selected.wav" }
+$sequence "draw" "up" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "chumtoad_selected.wav" }
 
 // End of QC script.

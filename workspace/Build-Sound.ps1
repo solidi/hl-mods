@@ -151,6 +151,7 @@ Copy-Item $soundDir\wrench_hitbod2.wav $redistdir\sound
 Copy-Item $soundDir\wrench_hitbod3.wav $redistdir\sound
 Copy-Item $soundDir\wrench_miss1.wav $redistdir\sound
 Copy-Item $soundDir\wrench_getsome.wav $redistdir\sound
+Copy-Item $soundDir\wrench_draw.wav $redistdir\sound
 Copy-Item $soundDir\snowball_throw.wav $redistdir\sound
 Copy-Item $soundDir\snowball_miss.wav $redistdir\sound
 Copy-Item $soundDir\snowball_hitbod.wav $redistdir\sound

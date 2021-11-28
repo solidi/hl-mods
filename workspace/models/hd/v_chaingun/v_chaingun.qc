@@ -66,9 +66,9 @@ $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 $sequence "idle1" "idle1" fps 30 
 $sequence "idle2" "idle2" fps 3 
 $sequence "spinup" "spinup" loop fps 20 
-$sequence "spindown" "spindown" fps 21 { event 5004 15 "chaingun_hellyeah.wav" }
+$sequence "spindown" "spindown" fps 21 { event 5005 15 "chaingun_hellyeah.wav" }
 $sequence "shoot" "shoot" fps 45 loop { event 5001 0 "4" } 
-$sequence "draw" "draw" fps 5 { event 5004 0 "chaingun_selected.wav" }
+$sequence "draw" "draw" fps 10 { event 5004 0 "default_draw.wav" } { event 5005 0 "chaingun_selected.wav" }
 $sequence "holster" "holster" fps 9 
 $sequence "reload" "reload" fps 4
 

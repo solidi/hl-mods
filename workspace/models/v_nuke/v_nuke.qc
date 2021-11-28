@@ -18,6 +18,9 @@ $cdtexture ".\"
 $scale 1.0
 $cliptotextures
 
+// Correct original model origin to left
+$origin -8 0 0
+
 
 $bbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 $cbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
@@ -102,7 +105,7 @@ $sequence "reload" "reload" fps 30
 $sequence "fire" "fire" fps 30 
 $sequence "fire2" "fire" fps 30 
 $sequence "holster1" "holster1" fps 30 
-$sequence "draw1" "draw1" fps 30 { event 5004 0 "nuke_draw.wav" } { event 5004 0 "nuke_selected.wav" } 
+$sequence "draw1" "draw1" fps 30 { event 5004 0 "nuke_draw.wav" } { event 5005 0 "nuke_selected.wav" } 
 $sequence "holster2" "holster2" fps 30 
 $sequence "draw2" "draw2" fps 30 
 $sequence "idle2" "idle2" fps 15 loop 

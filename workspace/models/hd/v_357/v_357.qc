@@ -89,7 +89,7 @@ $sequence "idle2" "idle2" fps 6
 $sequence "shoot" "shoot" fps 32 { event 5001 0 "2" } 
 $sequence "reload" "reload" fps 24 { event 5004 4 "weapons/357_reload1.wav" } 
 $sequence "holster" "holster" fps 9 { event 5004 0 "revolver_draw.wav" } 
-$sequence "draw" "draw" fps 9 { event 5004 0 "revolver_draw.wav" } { event 5004 3 "357_selected.wav" } 
+$sequence "draw" "draw" fps 9 { event 5004 0 "revolver_draw.wav" } { event 5005 3 "357_selected.wav" } 
 $sequence "idle2" "idle2" fps 6 
 $sequence "idle1" "idle1" fps 8 
 

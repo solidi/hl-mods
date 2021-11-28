@@ -49,16 +49,16 @@ $texturegroup ice
   }
 }
 
-// 1 attachment(s)
+// attachment(s)
 $attachment 0 "Gauss Master" 17.000000 -1.000000 0.000000
 
-// 4 hit box(es)
+// hit box(es)
 $hbox 0 "Gauss Master" -7.870000 -5.000000 -5.450000 16.980000 3.700000 2.680000
 $hbox 0 "Spinner" -3.020000 -1.750000 -2.480000 0.000000 2.550000 2.480000
 //$hbox 0 "Bip01 L Arm2" 0.000000 -2.800000 -1.730000 11.680000 3.020000 4.000000
 //$hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 
-// 9 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
 $sequence "idle2" "idle2" fps 15 loop 
 $sequence "fidget" "fidget" fps 30 
@@ -67,6 +67,6 @@ $sequence "spin" "spin" fps 30 loop
 $sequence "fire" "fire" fps 30 
 $sequence "fire2" "fire2" fps 30 
 $sequence "holster" "holster" fps 30
-$sequence "draw" "draw" fps 60 { event 5004 0 "railgun_selected.wav" }
+$sequence "draw" "draw" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "railgun_selected.wav" }
 
 // End of QC script.

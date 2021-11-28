@@ -124,4 +124,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_annoucehumor"
+	{
+		"#Ice_AnnouceHumor"
+		{ BOOL }
+		{ "1" }
+	}
 }
