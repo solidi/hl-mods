@@ -11,8 +11,7 @@ function Test-Manifest {
     foreach ($file in $files) {
         echo "locating $file in directory..."
         if (!(Test-Path "${file}")) {
-            echo "Could not find $file in $target"
-            exit 1
+            Throw "Could not find $file in $target"
         }
     }
 
@@ -22,8 +21,7 @@ function Test-Manifest {
         $fileName = $file.FullName.Replace("$target\","")
         echo "locating $file in $manifest..."
         if (!$files.Contains($fileName)) {
-            echo "Could not find $fileName in $manifest"
-            exit 1
+            Throw "Could not find $fileName in $manifest"
         }
     }
 }
