@@ -35,6 +35,9 @@ models\v_crossbow.mdl
 models\p_crossbow.mdl
 models\w_crossbow.mdl
 models\w_bolt.mdl
+models\v_cannon.mdl
+models\w_cannon.mdl
+models\p_cannon.mdl
 models\v_satchel_radio.mdl
 models\v_satchel.mdl
 models\p_satchel_radio.mdl

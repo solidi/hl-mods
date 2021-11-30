@@ -124,6 +124,8 @@ Copy-Item $soundDir\railgun_fire.wav $redistdir\sound
 Copy-Item $soundDir\rune_pickup.wav $redistdir\sound
 Copy-Item $soundDir\cannon_selected.wav $redistdir\sound
 Copy-Item $soundDir\cannon_fire.wav $redistdir\sound
+Copy-Item $soundDir\cannon_pump.wav $redistdir\sound
+Copy-Item $soundDir\cannon_loadammo.wav $redistdir\sound
 Copy-Item $soundDir\decoy_selected.wav $redistdir\sound
 Copy-Item $soundDir\decoy_pushthatbutton.wav $redistdir\sound
 Copy-Item $soundDir\mag60_fire.wav $redistdir\sound

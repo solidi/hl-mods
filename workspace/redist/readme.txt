@@ -172,6 +172,6 @@ Thanks To:
 - The Cold-Ice 2.5 for the m16 weapon model
 - malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
 - The overhaul pack for select sound effects https://www.moddb.com/mods/half-life-overhaul-pack
-- The BFG model from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
+- The BFG model and flakcannon from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
 
