@@ -189,7 +189,7 @@
     1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
 1. HUD
     1. [ ] Best effort weapon sprites
-    1. [ ] Original CI numbers / Overhaul numbers
+    1. [x] Original CI numbers / Overhaul numbers
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
     1. [x] All CIR player models
