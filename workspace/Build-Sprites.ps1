@@ -47,10 +47,12 @@ Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "xspark4" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "320hud2" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hud1" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hud1" $spritesDir\hd $redisthddir\sprites
 Compile-Sprite $binDir "640hud4" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hud4" $spritesDir\hd $redisthddir\sprites
+Compile-Sprite $binDir "640hud7" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
