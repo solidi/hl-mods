@@ -131,6 +131,9 @@ Invert-Skin $binDir "w_weaponbox" $modelsdir
 Invert-Skin $binDir "v_cannon" $modelsdir
 Invert-Skin $binDir "w_cannon" $modelsdir
 Invert-Skin $binDir "p_cannon" $modelsdir
+Invert-Skin $binDir "p_cannon" $modelsdir\hd
+Invert-Skin $binDir "w_cannon" $modelsdir\hd
+Invert-Skin $binDir "v_cannon" $modelsdir\hd
 Invert-Skin $binDir "w_hassassin" $modelsdir
 Invert-Skin $binDir "w_satchel" $modelsdir\hd
 Invert-Skin $binDir "v_satchel" $modelsdir\hd
@@ -349,6 +352,9 @@ Compile-Model $binDir "w_runes" $modelsdir $redistDir\models
 Compile-Model $binDir "v_cannon" $modelsdir $redistDir\models
 Compile-Model $binDir "w_cannon" $modelsdir $redistDir\models
 Compile-Model $binDir "p_cannon" $modelsdir $redistDir\models
+Compile-Model $binDir "v_cannon" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_cannon" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_cannon" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_satchel_radio" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_hassassin" $modelsdir $redistDir\models
 Compile-Model $binDir "v_satchel" $modelsdir\hd $redisthddir\models
