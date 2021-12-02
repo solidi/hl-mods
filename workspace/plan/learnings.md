@@ -288,3 +288,9 @@
 1. [This is](https://valvedev.info/tools/) a good list of modern Half-Life development tools.
 1. The steam wiki has information about entities key values, like [func_conveyor](https://developer.valvesoftware.com/wiki/Func_conveyor).
 1. [This wiki](https://twhl.info/wiki/page/Entity_Programming_-_Overview) was important to understand alittle bit more on how the Half-Life engine handles `edict_t` and `entvars_t`.
+1. [This thread](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=33380) and understanding imagemagick's convert util using `tint` comes close to [colorizing](https://legacy.imagemagick.org/Usage/color_mods/#tinting) images to blue. 
+1. I learned that `Wrie-Information` [does not](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/write-information?view=powershell-7.2) print to console under a default setting.
+1. `convert` in 6.x was changed to `magick` in 7.x. [This thread](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=35929) was [the source](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=29582) of [this information](https://tex.stackexchange.com/questions/419958/standalone-convert-doesnt-work).
+1. Use `-remap` in convert.exe to use a [pallette of the same](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=33582) for image conversion.
+1. `Throw` [is recommended](https://stackoverflow.com/questions/2022326/terminating-a-script-in-powershell) to terminate a Powershell script that cannot recover, with a message.
+1. I learned that bash will have a problem [executing a script](https://askubuntu.com/questions/834853/ubuntu-bash-functions-syntax-error-or-unexpected) if the line breaks are CRLF instead of LF.

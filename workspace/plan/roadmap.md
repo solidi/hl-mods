@@ -207,7 +207,7 @@
     1. [x] Remove empty models/ and sprites/
     1. [x] Build hash number in package
 1. Fixes
-    1. [ ] Shells and smoke are being shown from others
+    1. [x] Shells and smoke are being shown from others
     1. [x] Adjust Grappling hook trail origin on player
     1. [x] Rename folder and libs to `ice`
     1. [x] Rename github repo to `coldice`
