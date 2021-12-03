@@ -68,6 +68,7 @@ if ([string]::IsNullOrEmpty($mapName)) {
     Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir
     Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "depot" $mapsDir $redistDir $wadsDir
 } else {
     Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir
 }

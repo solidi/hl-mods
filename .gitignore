@@ -20,6 +20,9 @@ last-build.zip
 *.p3
 *.wic
 *.bsp
+*.lin
+*.prt
+*.pts
 
 */redist/halflife.wad
 */redist/decals.wad

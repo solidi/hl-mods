@@ -32,11 +32,10 @@ function Compile-WPT {
 
     echo "Writing ${target}.wpt..."
     $out = & .\BSP_tool -w $target | Out-String
-    [void](Get-Item -Path "$target.HPB_wpt")
     if (!$?) {
-        Write-Error "$out`n> Could not wpt ${target}."
-        exit
+        Throw "$out`n> Could not wpt ${target}."
     }
+    [void](Get-Item -Path "$target.HPB_wpt")
     Move-Item $binDir\$target.HPB_wpt $redistDir\maps\$target.wpt -Force
     echo "Done writing ${target}.wpt."
 }
