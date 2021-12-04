@@ -64,10 +64,10 @@ $sequence "draw" "draw" fps 30 { event 5004 5 "wrench_draw.wav" } { event 5005 0
 $sequence "holster" "holster" fps 24 
 $sequence "attack1" "attack1" fps 22 
 $sequence "attack1miss" "attack1miss" fps 22 
-$sequence "attack2" "attack2" fps 22 
 $sequence "attack2hit" "attack2hit" fps 22 
-$sequence "attack3" "attack3" fps 24 
+$sequence "attack2" "attack2" fps 22 
 $sequence "attack3hit" "attack3hit" fps 24 
+$sequence "attack3" "attack3" fps 24 
 $sequence "idle2" "idle2" fps 15 loop 
 $sequence "idle3" "idle3" fps 15 loop 
 $sequence "pull_back" "pull_back" fps 30 { event 5004 0 "pull_back.wav" }

@@ -72,9 +72,9 @@ $sequence "holster" "holster" fps 30
 $sequence "attack1" "attack1" fps 40 
 $sequence "attack1miss" "attack1" fps 40 
 $sequence "attack2" "attack2" fps 40 
-$sequence "attack2hit" "attack2" fps 40 
+$sequence "attack2miss" "attack2" fps 40 
 $sequence "attack3" "attack2" fps 40 
-$sequence "attack3hit" "attack2" fps 40 
+$sequence "attack3miss" "attack2" fps 40 
 $sequence "idle2" "idle" fps 15 loop 
 $sequence "idle3" "idle" fps 15 loop 
 $sequence "pull_back" "pull_back" fps 30 { event 5004 0 "pull_back.wav" }
