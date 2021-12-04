@@ -50,6 +50,7 @@ Features:
     - Bounce 2
     - Catacombs
     - Fences
+    - Depot
 - Bot support using Grave Bots
 - Modern weapon viewmodel improvements
     - Holster weapon animations!
@@ -79,7 +80,7 @@ Features:
 Installation:
 
 - For Steam: Place both ice_betax and ice_betax_hd folders in the same folder as where hl.exe is installed.
-- For Xash3d: Since the app does not support SD/HD model switching, install ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste over the ice folder, overwriting the SD models.
+- For Xash3d: Since Xash3d does not support SD/HD model switching, install the ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste over the ice_betax folder, overwriting the SD models.
 
 Commands:
 
@@ -174,4 +175,3 @@ Thanks To:
 - The overhaul pack for select sound effects https://www.moddb.com/mods/half-life-overhaul-pack
 - The BFG model and flakcannon from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
-
