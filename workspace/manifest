@@ -225,7 +225,7 @@ models\v_nuke.mdl
 models\p_nuke.mdl
 models\w_nuke.mdl
 resource
-resource\TrackerScheme.res.old
+resource\TrackerScheme.res
 resource\westminster.ttf
 resource\ice_beta1_english.txt
 resource\game_menu.tga
