@@ -59,5 +59,7 @@ hlcsg.exe
 hlbsp.exe
 hlrad.exe
 hlvis.exe
+BSP_tool.exe
+BSP_tool.cfg
 
 */Config.ps1
