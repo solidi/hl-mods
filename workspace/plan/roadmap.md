@@ -94,7 +94,6 @@
 ### Beta 1
 
 1. Movement
-    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
     1. [x] Add offhand [grappling hook]grapple hook](https://github.com/solidi/hl-mods/blob/c91828511f455f9fe323f652379cdb287414ea0b/ci/src/dlls/player.cpp#L4863)
 1. Bot support
     1. [x] Custom map waypoints for bots
@@ -117,12 +116,10 @@
     1. [x] Spin ammo, battery, healthkit, and longjump
     1. [ ] Punch angles for all weapons
         1. [ ] Punch angle for draw and holstering
-    1. [ ] Spawn extra weapons with other matching slot number
+    1. [x] Spawn extra weapons with other matching slot number
     1. [ ] Tighten up all idle animation times to match code
     1. [ ] Correct all brass shell ejection points
         1. [ ] Use attachment point for each model
-    1. [ ] Deagle
-        1. [ ] Single shot weapons for semi-auto effect
     1. [x] M16 Assault Rifle
     1. [x] Nuke launcher (Cold Ice 2.5 model) / [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [x] Assault Shotgun
@@ -219,6 +216,8 @@
 
 ### Beta 2
 
+1. Movement
+    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
@@ -237,6 +236,9 @@
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
     1. [ ] Bullet hole decals like BHL
 1. Weapons
+    1. [ ] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
+    1. [ ] Deagle
+        1. [x] Single shot weapons for semi-auto effect
     1. [ ] Hand cannon
     1. [ ] Snowball Machine
     1. [ ] Pulse Rifle
@@ -250,7 +252,7 @@
     1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
     1. Fists
-        1. [ ] Big uppercut punch secondary fire with fists
+        1. [ ] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
     1. [ ] Counter-Strike penguin

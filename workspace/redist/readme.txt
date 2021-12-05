@@ -3,8 +3,9 @@ Cold Ice Remastered Edition
 This project is a modern rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
-Source code: https://github.com/solidi/coldice-remastered
-Project code: https://github.com/solidi/hl-mods
+Library Game code: https://github.com/solidi/coldice-remastered
+Project redist and assets: https://github.com/solidi/hl-mods
+Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
@@ -89,7 +90,7 @@ Server:
 - Allow grappling hook on server - "mp_grapplinghook 1"
 - Time (seconds) when next grappling hook can deploy - "mp_grapplinghookdeploytime 1.0"
 - Add a bot - Use "addbot"
-- Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_knife;weapon_9mmhandgun""
+- Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun""
 - Allow powerup runes on server - "mp_allowrunes 1"
 - Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
 - Floating world weapons ala Quake - "mp_floatingweapons 1"
