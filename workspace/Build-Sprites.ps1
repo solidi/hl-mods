@@ -57,6 +57,7 @@ Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "nuke2" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "hotglow" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites

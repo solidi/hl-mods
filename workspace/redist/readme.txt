@@ -39,6 +39,7 @@ Features:
     - 44 Magnum Revolver
     - Explosive Assault Shotgun
     - Tactical Nuke Launcher
+    - Gauss
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
