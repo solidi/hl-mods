@@ -87,16 +87,19 @@ Commands:
 
 Server:
 
-- Allow grappling hook on server - "mp_grapplinghook 1"
-- Time (seconds) when next grappling hook can deploy - "mp_grapplinghookdeploytime 1.0"
-- Add a bot - Use "addbot"
-- Modify the player's spawn weapons - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun""
-- Allow powerup runes on server - "mp_allowrunes 1"
-- Holstering weapons for more realistic gameplay - "mp_holsterweapons 1"
-- Floating world weapons ala Quake - "mp_floatingweapons 1"
-- Infinite ammo ala CS 1.6 - "mp_infiniteammo 1"
+- "addbot" - Add a bot
+- "mp_grapplinghook 1" - Allow grappling hook on server
+- "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
+- "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun"" Modify the player's spawn weapons
+- "mp_allowrunes 1" - Allow powerup runes on server
+- "mp_holsterweapons 1" - Holstering weapons for more realistic gameplay
+- "mp_floatingweapons 1" - Floating world weapons ala Quake
+- "mp_infiniteammo 1" - Infinite ammo ala CS 1.6
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
+- "mp_blueblood 1" - Enable blue blood
+- "mp_moreblood 2" - Increase blood up to 0-5 times
+- "mp_startwithall 0" - Start with all weapons
 
 Client:
 

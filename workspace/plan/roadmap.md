@@ -270,6 +270,7 @@
         1. [ ] Secondary chaingun idea?
         1. [ ] Faster spin?
     1. [ ] Third person muzzle flash placement
+    1. [ ] Compact w_ models into p_
 1. Weapon ViewModel / Effects
     1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
@@ -280,6 +281,7 @@
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [ ] cl_weaponvoice - disable or enable humor/voice sound effects
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
+    1. [ ] Damage / blood / stains on view model as seen in bhl
 1. Maps
     1. All Maps
         1. [ ] Debrief text file
