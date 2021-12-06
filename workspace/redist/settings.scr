@@ -156,6 +156,20 @@ DESCRIPTION SERVER_OPTIONS
 	"mp_infiniteammo"
 	{
 		"#Ice_InfiniteAmmo"
+		{ NUMBER 0.000000 2.000000 }
+		{ "0" }
+	}
+
+	"mp_moreblood"
+	{
+		"#Ice_MoreBlood"
+		{ NUMBER 0.000000 5.000000 }
+		{ "0" }
+	}
+
+	"mp_startwithall"
+	{
+		"#Ice_StartWithAll"
 		{ BOOL }
 		{ "0" }
 	}
