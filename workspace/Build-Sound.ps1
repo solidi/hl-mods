@@ -72,6 +72,7 @@ Compile-Sound $binDir $redistDir $soundDir "ghostbusters-bad.mp3" 2.0 "sound\ego
 Compile-Sound $binDir $redistDir $soundDir "boomstick.mp3" 1.0 "sound\shotgun_boomstick.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "modern-warfare-2-tactical-nuke-sound.mp3" 1.0 "sound\nuke_selected.wav" "wav" 0 2.5
 Compile-Sound $binDir $redistDir $soundDir "nuke_explosion.mp3" 2.0 "sound\nuke_explosion.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "laser-lips1.mp3" 1.0 "sound\gauss_selected.wav" "wav" 1 4
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound

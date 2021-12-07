@@ -224,6 +224,9 @@ models\w_egon.mdl
 models\v_nuke.mdl
 models\p_nuke.mdl
 models\w_nuke.mdl
+models\v_gauss.mdl
+models\p_gauss.mdl
+models\w_gauss.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -390,6 +393,7 @@ sound\grenade_throw.wav
 sound\nuke_selected.wav
 sound\nuke_draw.wav
 sound\nuke_explosion.wav
+sound\gauss_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -425,6 +429,7 @@ sprites\weapon_chainsaw.txt
 sprites\weapon_12gauge.txt
 sprites\weapon_nuke.txt
 sprites\nuke2.spr
+sprites\hotglow.spr
 sprites\hud.txt
 liblist.gam
 ReadMe.txt
