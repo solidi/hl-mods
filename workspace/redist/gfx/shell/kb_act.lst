@@ -57,6 +57,7 @@
 "use weapon_rpg"			"#Ice_ExtremeRPG"
 "use weapon_gauss"			"#Ice_Gauss"
 "use weapon_railgun"			"#Ice_Railgun"
+"use weapon_hornetgun"			"#Ice_Hivehand"
 "use weapon_egon"			"#Ice_EgonsEgon"
 "use weapon_cannon"			"#Ice_Cannon"
 "use weapon_nuke"			"#Ice_TacticalNuke"

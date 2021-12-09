@@ -40,6 +40,7 @@ Features:
     - Explosive Assault Shotgun
     - Tactical Nuke Launcher
     - Gauss
+    - Hivehand
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2

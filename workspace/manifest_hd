@@ -91,6 +91,9 @@ models\w_nuke.mdl
 models\v_gauss.mdl
 models\p_gauss.mdl
 models\w_gauss.mdl
+models\v_hgun.mdl
+models\p_hgun.mdl
+models\w_hgun.mdl
 sound
 sound\knife_miss2.wav
 sprites
