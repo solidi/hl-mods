@@ -259,6 +259,13 @@ Invert-Skin $binDir "w_gauss" $modelsdir
 Invert-Skin $binDir "p_gauss" $modelsdir\hd
 Invert-Skin $binDir "w_gauss" $modelsdir\hd
 Invert-Skin $binDir "v_gauss" $modelsdir\hd
+Invert-Skin $binDir "v_hgun" $modelsdir
+Invert-Skin $binDir "p_hgun" $modelsdir
+Invert-Skin $binDir "w_hgun" $modelsdir
+Invert-Skin $binDir "p_hgun" $modelsdir\hd
+Invert-Skin $binDir "w_hgun" $modelsdir\hd
+Invert-Skin $binDir "v_hgun" $modelsdir\hd
+Invert-Skin $binDir "w_hornet" $modelsdir
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
@@ -475,5 +482,12 @@ Compile-Model $binDir "w_gauss" $modelsdir $redistdir\models
 Compile-Model $binDir "v_gauss" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_gauss" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_gauss" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_hgun" $modelsdir $redistdir\models
+Compile-Model $binDir "p_hgun" $modelsdir $redistdir\models
+Compile-Model $binDir "w_hgun" $modelsdir $redistdir\models
+Compile-Model $binDir "v_hgun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_hgun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_hgun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_hornet" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}

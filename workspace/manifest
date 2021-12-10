@@ -227,6 +227,10 @@ models\w_nuke.mdl
 models\v_gauss.mdl
 models\p_gauss.mdl
 models\w_gauss.mdl
+models\w_hornet.mdl
+models\v_hgun.mdl
+models\p_hgun.mdl
+models\w_hgun.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -394,6 +398,7 @@ sound\nuke_selected.wav
 sound\nuke_draw.wav
 sound\nuke_explosion.wav
 sound\gauss_selected.wav
+sound\hgun_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
