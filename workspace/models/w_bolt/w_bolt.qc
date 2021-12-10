@@ -38,19 +38,19 @@ $texturegroup ice
     "invert_finCHOME.bmp"
   }
   {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
 }
 
-// 1 hit box(es)
+// hit box(es)
 $hbox 0 "Crossbow03" -1.900000 -0.140000 -1.910000 1.900000 25.000000 1.910000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.
