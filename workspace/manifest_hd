@@ -94,6 +94,10 @@ models\w_gauss.mdl
 models\v_hgun.mdl
 models\p_hgun.mdl
 models\w_hgun.mdl
+models\v_squeak.mdl
+models\p_squeak.mdl
+models\w_sqknest.mdl
+models\w_squeak.mdl
 sound
 sound\knife_miss2.wav
 sprites

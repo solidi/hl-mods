@@ -41,6 +41,7 @@ Features:
     - Tactical Nuke Launcher
     - Gauss
     - Hivehand
+    - Squeak Grenade
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2

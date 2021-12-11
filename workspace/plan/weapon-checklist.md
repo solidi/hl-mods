@@ -15,6 +15,7 @@ For weapon generation scripting.
     1. [ ] HD and SD
     1. [ ] Ice Texture
     1. [ ] w_ spin animation
+    1. [ ] Holster and draw speed
 1. [ ] Sounds
     1. [ ] Humorus sound effect
 1. [ ] Sprites

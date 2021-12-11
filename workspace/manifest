@@ -27,6 +27,7 @@ events\chainsaw.sc
 events\gauge_single.sc
 events\gauge_double.sc
 events\nuke1.sc
+events\snarkrelease.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -231,6 +232,10 @@ models\w_hornet.mdl
 models\v_hgun.mdl
 models\p_hgun.mdl
 models\w_hgun.mdl
+models\v_squeak.mdl
+models\p_squeak.mdl
+models\w_sqknest.mdl
+models\w_squeak.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -399,6 +404,7 @@ sound\nuke_draw.wav
 sound\nuke_explosion.wav
 sound\gauss_selected.wav
 sound\hgun_selected.wav
+sound\squeak_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
