@@ -43,6 +43,8 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\models)
     [void](New-Item -ItemType directory -Path $redistDir\models\player)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\alpina)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\army)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\assassin)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\commando)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\grunt)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\hhev)
@@ -276,6 +278,8 @@ Invert-Skin $binDir "v_squeak" $modelsdir\hd
 Invert-Skin $binDir "w_squeak" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
+Compile-Player "army" $binDir $modelsdir $redistDir
+Compile-Player "assassin" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
 Compile-Player "grunt" $binDir $modelsdir $redistDir
 Compile-Player "hhev" $binDir $modelsdir $redistDir
