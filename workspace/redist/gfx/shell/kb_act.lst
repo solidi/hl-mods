@@ -66,6 +66,7 @@
 "use weapon_grenade"			"#Ice_ClusterGrenades"
 "use weapon_tripmine"			"#Ice_Tripmine"
 "use weapon_satchel"			"#Ice_Decoy"
+"use weapon_snark"			"#Ice_SqueakGrenade"
 "use weapon_chumtoad"			"#Ice_Chumtoad"
 "use weapon_vest"			"#Ice_Vest"
 "invprev"		"#Valve_Previous_Weapon"

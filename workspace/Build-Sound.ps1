@@ -49,7 +49,7 @@ Compile-Sound $binDir $redistDir $soundDir "limp.wav" 1.0 "media\gamestartup.mp3
 Compile-Sound $binDir $redistDir $soundDir "zeke.mp3" 1.0 "sound\crowbar_zeke.wav" "wav" 2 6
 Compile-Sound $binDir $redistDir $soundDir "rocket1.wav" 1.0 "sound\rocket1.wav" "wav" 0 2
 Compile-Sound $binDir $redistDir $soundDir "rocket_1.mp3" 2.0 "sound\rpg_igotone.wav" "wav" 0 4
-Compile-Sound $binDir $redistDir $soundDir "yakety-sax-music.mp3" 1.5 "sound\chumtoad_release.wav" "wav" 0 4
+Compile-Sound $binDir $redistDir $soundDir "yakety-sax-music.mp3" 1.5 "sound\chumtoad_release.wav" "wav" 0 6
 Compile-Sound $binDir $redistDir $soundDir "target-to-destroy.mp3" 1.0 "sound\rifle_destroy.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "139-item-catch.mp3" 1.0 "sound\boltgun_gotitem.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "excellent.mp3" 1.0 "sound\railgun_selected.wav" "wav"
@@ -74,6 +74,7 @@ Compile-Sound $binDir $redistDir $soundDir "modern-warfare-2-tactical-nuke-sound
 Compile-Sound $binDir $redistDir $soundDir "nuke_explosion.mp3" 2.0 "sound\nuke_explosion.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "laser-lips1.mp3" 1.0 "sound\gauss_selected.wav" "wav" 1 4
 Compile-Sound $binDir $redistDir $soundDir "the-five-notes.mp3" 1.0 "sound\hgun_selected.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "expedientes-secretos-x-musica22.mp3" 1.0 "sound\squeak_selected.wav" "wav" 0 8
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound

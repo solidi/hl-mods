@@ -266,6 +266,14 @@ Invert-Skin $binDir "p_hgun" $modelsdir\hd
 Invert-Skin $binDir "w_hgun" $modelsdir\hd
 Invert-Skin $binDir "v_hgun" $modelsdir\hd
 Invert-Skin $binDir "w_hornet" $modelsdir
+Invert-Skin $binDir "v_squeak" $modelsdir
+Invert-Skin $binDir "p_squeak" $modelsdir
+Invert-Skin $binDir "w_sqknest" $modelsdir
+Invert-Skin $binDir "w_squeak" $modelsdir
+Invert-Skin $binDir "p_squeak" $modelsdir\hd
+Invert-Skin $binDir "w_sqknest" $modelsdir\hd
+Invert-Skin $binDir "v_squeak" $modelsdir\hd
+Invert-Skin $binDir "w_squeak" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
@@ -489,5 +497,13 @@ Compile-Model $binDir "v_hgun" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_hgun" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_hgun" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_hornet" $modelsdir $redistdir\models
+Compile-Model $binDir "v_squeak" $modelsdir $redistdir\models
+Compile-Model $binDir "p_squeak" $modelsdir $redistdir\models
+Compile-Model $binDir "w_sqknest" $modelsdir $redistdir\models
+Compile-Model $binDir "w_squeak" $modelsdir $redistdir\models
+Compile-Model $binDir "v_squeak" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_sqknest" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_squeak" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_squeak" $modelsdir\hd $redisthddir\models
 
 Set-Location -Path ${PSScriptRoot}
