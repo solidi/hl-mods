@@ -12,36 +12,39 @@ This mod features works from the community. Without their dedication and hard wo
 Features:
 
 - Supports Steam on Windows, Linux, and macOS 
-    - Supports Xash3d (see installation for details)
-- Original Weapons are back (and more)!
-    - Vest Device
-    - Silenced Handgun
-    - Cluster Grenades
-    - 12-Inch Combat Knife
+    - Supports desktop Xash3d (see installation for details - Android support coming in Beta 2)
+- 31 weapons with originals included (and more)!
+    - Manos de Piedras
     - Standard Crowbar
-    - 50-lb Automatic LAW Rocket Launcher
-    - Invisible Beam Tripmine
-    - Chumtoads
-    - 7.65mm Sniper Rifle
-    - Air-Compressed Auto Boltgun
-    - Quake II Railgun
-    - 30mm Assault Cannon
+    - 12-Inch Combat Knife
+    - 40 Pound Monkey Wrench
+    - Koshak's Chainsaw
+    - PPK Silenced Handgun
+    - 44 Magnum Revolver
     - Mag 60 Automatic Handgun
+    - Hans Gruber's Submachine gun
+    - M16 Machine gun
+    - Samel L. Jackson's 12 Gauge Shotgun
+    - Explosive Assault Shotgun
+    - Air-Compressed Auto Boltgun
+    - 7.65mm Sniper Rifle
     - 25-Inch Chaingun
     - 120-Pound Grenade Launcher
-    - Hans Gruber's Submachine gun
     - USAS-12 Auto Shotgun
-    - Manos de Piedras
-    - 40 Pound Monkey Wrench
-    - Snowballs
-    - Koshak's Chainsaw
-    - Samel L. Jackson's 12 Gauge Shotgun
-    - 44 Magnum Revolver
-    - Explosive Assault Shotgun
-    - Tactical Nuke Launcher
+    - 50-lb Automatic LAW Rocket Launcher
     - Gauss
+    - Quake II Railgun
     - Hivehand
+    - Egon's Egon
+    - 30mm Assault Cannon
+    - Tactical Nuke Launcher
+    - Snowballs
+    - Cluster Grenades
+    - Invisible Beam Tripmines
+    - Assassin Decoy Bombs
     - Squeak Grenade
+    - Chumtoads
+    - Vest Device
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
@@ -55,6 +58,20 @@ Features:
     - Catacombs
     - Fences
     - Depot
+- 13 new player models
+    - Alpina
+    - Army
+    - Assassin
+    - Commando
+    - Grunt
+    - HHev
+    - Holo
+    - Hotfire
+    - Iceman (default)
+    - Navy
+    - Recon
+    - Stormtrooper
+    - Swat
 - Bot support using Grave Bots
 - Modern weapon viewmodel improvements
     - Holster weapon animations!
@@ -106,31 +123,31 @@ Server:
 
 Client:
 
-- Deploy grappling hook - Use "+hook"
-- Drop rune - Use "drop_rune"
-- Ice Models - "cl_icemodels 2" - To switch between weapon ice skins and real skins
+- "+hook" - Deploy offhand grappling hook
+- "+ironsight" - Use experimental iron sights when available 
+- "drop_rune" - Drop rune
+- "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
     - "0" - real skin
     - "1" - original inverted skin
     - "2" - 1.75 blue ice skin
     - "3" - Cold Ice Remastered edition skin
 - Switch between original and HD models using the "Enable HD models if available" in Video options
-- Old Scoreboard - "cl_oldscoreboard 1" - To switch between old and new style scoreboards
-- Old MOTD (Message of the Day) - "cl_oldmotd 1" - To switch between old and new style message of the day
-- Old View Roll - "cl_viewroll 1" - To switch between view roll during movement
-- Old Bob Tilt - "cl_bobtilt 1" - To switch between bob tilt walking animation
-- Right Hand Models - "cl_righthand 1" - To switch between right and left handed models
-- Bullet Smoke - "cl_bulletsmoke 1" - To switch between bullets creating smoke where they land
-- Gun Smoke - "cl_gunsmoke 1" - To switch between weapons creating smoke when fired
-- Glass Hud - "cl_glasshud 1" - To switch between motion interactive HUD elements
-- Weapon Sway - "cl_weaponsway 1" - To switch between view models swaying with turn movement
-- Weapon Fidget - "cl_weaponfidget 1" - To switch between view models fidgeting with jump landings
-- Use iron sights when available - Use "+ironsight"
-- Play buzzer/bell when frag achieved - "cl_playpoint 1" - To switch onoff playing this sound effect
-- Play voice annouce / humor on weapons - "cl_annoucehumor 1" - To switch on/off playing these sound effects
+- "cl_oldscoreboard 1" - Old Scoreboard - To switch between old and new style scoreboards
+- "cl_oldmotd 1" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
+- "cl_viewroll 1" - Old View Roll - To switch between view roll during movement
+- "cl_bobtilt 1" - Old Bob Tilt - To switch between bob tilt walking animation
+- "cl_righthand 1" - Right Hand Models - To switch between right and left handed models
+- "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
+- "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
+- "cl_glasshud 1" - Glass Hud - To switch between motion interactive HUD elements
+- "cl_weaponsway 1" - Weapon Sway - To switch between view models swaying with turn movement
+- "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
+- "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
+- "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
 
 Report Bugs:
 
-Please report defects by creating an issue here: https://github.com/solidi/hl-mods/issues
+Please report defects by creating an issue here or in discord: https://github.com/solidi/hl-mods/issues
 
 Thanks To:
 
@@ -177,7 +194,7 @@ Thanks To:
 - zoonyarts and Brutal Half-Life for select sound and model assets https://www.moddb.com/mods/brutal-half-life
 - mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
 - Bobito Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
-- The Cold-Ice 2.5 for the m16 weapon model
+- The Cold-Ice team 2.5 for the m16 weapon model
 - malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
 - The overhaul pack for select sound effects https://www.moddb.com/mods/half-life-overhaul-pack
 - The BFG model and flakcannon from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition

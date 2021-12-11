@@ -82,6 +82,12 @@ media
 media\gamestartup.mp3
 models
 models\player
+models\player\army
+models\player\army\army.bmp
+models\player\army\army.mdl
+models\player\assassin
+models\player\assassin\assassin.bmp
+models\player\assassin\assassin.mdl
 models\player\alpina
 models\player\alpina\alpina.bmp
 models\player\alpina\alpina.mdl
