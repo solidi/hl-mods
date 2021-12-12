@@ -1,5 +1,9 @@
 
 function Git-Hash {
+    param (
+        $withDate
+    )
+
     $commitHash = "unknown"
 
     try {
@@ -8,8 +12,10 @@ function Git-Hash {
         Write-Error "git is unavailable"
     }
 
-    $versionDate = [System.DateTime]::Now.ToString('yyyy-MM-dd.HH:mm:ss')
-    $version = "$versionDate-git-$commitHash"
+    if ($withDate) {
+        $versionDate = [System.DateTime]::Now.ToString('yyyy-MM-dd.HH:mm:ss') + "-"
+    }
+    $version = "${versionDate}git-$commitHash"
 
     return $version
 }
@@ -23,8 +29,9 @@ function Zip-Release {
     )
     
     try {
-        echo "Creating zipped release..."
-        $zipFile = "${rootDir}\last-build.zip"
+        $gitHash = $(Git-Hash)
+        echo "Creating $Package version: $gitHash`r`n..."
+        $zipFile = "${rootDir}\cold-ice-remastered-${gitHash}.zip"
 
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
 
@@ -38,9 +45,7 @@ function Zip-Release {
         Remove-Item $env:TEMP\release\redist\sprites\\* -Recurse -Force
         Remove-Item $env:TEMP\release\redist\sprites -Force
 
-        $version = "`r`nPackage version: $(Git-Hash)`r`n"
-        echo $version
-        $version | Add-Content $env:TEMP\release\redist\readme.txt
+        "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\readme.txt
 
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
