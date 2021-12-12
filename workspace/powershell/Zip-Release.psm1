@@ -30,6 +30,7 @@ function Zip-Release {
 
         Copy-Item -Recurse -Force $redistDir $env:TEMP\release
         Remove-Item $env:TEMP\release\redist\dev.cfg
+        Remove-Item $env:TEMP\release\redist\userconfig.cfg
         Remove-Item $env:TEMP\release\redist\models\\* -Recurse -Force
         Remove-Item $env:TEMP\release\redist\models -Force
         Remove-Item $env:TEMP\release\redist\sound\\* -Recurse -Force
