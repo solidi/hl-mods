@@ -1,6 +1,6 @@
 Cold Ice Remastered Edition
 
-This project is a modern rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999.
+This project is a modern open sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a scene of winter, its philosophy is to deliver deathmatch that doesn't take it self seriously.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
 Library Game code: https://github.com/solidi/coldice-remastered
@@ -9,42 +9,71 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
-Features:
+Beta 1 Features:
 
 - Supports Steam on Windows, Linux, and macOS 
     - Supports desktop Xash3d (see installation for details - Android support coming in Beta 2)
-- 31 weapons with originals included (and more)!
+- 30 weapons with originals included (and more)!
     - Manos de Piedras
+        - Right / Left Jabs / Shoryuken
     - Standard Crowbar
+        - Right / Left Swing / Throw
     - 12-Inch Combat Knife
+        - Right / Left Stab / Throw
     - 40 Pound Monkey Wrench
+        - Right / Left Swing / Throw
     - Koshak's Chainsaw
+        - Right / Left Swing / Full Throttle
     - PPK Silenced Handgun
+        - Shoot / Add Silencer
     - 44 Magnum Revolver
+        - Shoot / Zoom
     - Mag 60 Automatic Handgun
+        - Shoot / Turok mode
     - Hans Gruber's Submachine gun
+        - Shoot / Burst Mode
     - M16 Machine gun
+        - Shoot / M203 Grenade
     - Samel L. Jackson's 12 Gauge Shotgun
+        - Shoot / Pump + Voice
     - Explosive Assault Shotgun
+        - Shoot / Double
     - Air-Compressed Auto Boltgun
+        - Shoot / Zoom
     - 7.65mm Sniper Rifle
+        - Shoot / Zoom
     - 25-Inch Chaingun
+        - Spin up / Shoot 
     - 120-Pound Grenade Launcher
+        - Shoot M203 / Shoot Cluster
     - USAS-12 Auto Shotgun
+        - Shoot
     - 50-lb Automatic LAW Rocket Launcher
+        - Shoot Rocket / Shoot Extreme Rockets
     - Gauss
+        - Shoot / Power Shot
     - Quake II Railgun
+        - Shoot Rail
     - Hivehand
+        - Shoot M203 / Shoot Cluster
     - Egon's Egon
+        - Fire / Change Wide + Narrow
     - 30mm Assault Cannon
+        - Shoot Flak / Shoot Flak Bomb
     - Tactical Nuke Launcher
+        - Shoot Nuke (Goodbye all!)
     - Snowballs
+        - Throw / Long Throw
     - Cluster Grenades
+        - Throw Cluster / Throw Grenade
     - Invisible Beam Tripmines
+        - Place Tripmine
     - Assassin Decoy Bombs
-    - Squeak Grenade
+        - Throw Decoy
     - Chumtoads
+        - Throw / Release All
     - Vest Device
+        - Detonate / Cancel
 - Original and new maps are back too!
     - Training Facility
     - Stalkyard 2
@@ -98,12 +127,53 @@ Features:
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
 
+Beta 2 Highly-Valued Upcoming Features:
+
+- Xash3d Android support
+- Kick
+- Pistol whip (all weapons)
+- Akimbos (all weapons)
+- Iron sights refinements
+- See more on our living roadmap: https://github.com/solidi/hl-mods/blob/master/workspace/plan/roadmap.md
+
 Installation:
 
 - For Steam: Place both ice_betax and ice_betax_hd folders in the same folder as where hl.exe is installed.
 - For Xash3d: Since Xash3d does not support SD/HD model switching, install the ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste over the ice_betax folder, overwriting the SD models.
 
+How to Play:
+
+Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dedicate gameplay. Then, have fun.
+
+If you dislike the "blue" theme, this mod has the optional to switch to real skins! (See below)
+
 Commands:
+
+Client:
+
+- Steam only: Switch between original and HD models using the "Enable HD models if available" in Video options
+    - Or use "+_sethdmodels" in game startup parameters
+    - See Installation above for Xash3d for support of HD models
+- "+hook" - Deploy offhand grappling hook
+- "+ironsight" - Use experimental iron sights when available 
+- "drop_rune" - Drop rune
+- "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
+    - "0" - real skin
+    - "1" - original inverted skin
+    - "2" - 1.75 blue ice skin
+    - "3" - Cold Ice Remastered edition skin
+- "cl_oldscoreboard 1" - Old Scoreboard - To switch between old and new style scoreboards
+- "cl_oldmotd 1" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
+- "cl_viewroll 1" - Old View Roll - To switch between view roll during movement
+- "cl_bobtilt 1" - Old Bob Tilt - To switch between bob tilt walking animation
+- "cl_righthand 1" - Right Hand Models - To switch between right and left handed models
+- "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
+- "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
+- "cl_glasshud 1" - Glass Hud - To switch between motion interactive HUD elements
+- "cl_weaponsway 1" - Weapon Sway - To switch between view models swaying with turn movement
+- "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
+- "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
+- "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
 
 Server:
 
@@ -120,30 +190,6 @@ Server:
 - "mp_blueblood 1" - Enable blue blood
 - "mp_moreblood 2" - Increase blood up to 0-5 times
 - "mp_startwithall 0" - Start with all weapons
-
-Client:
-
-- "+hook" - Deploy offhand grappling hook
-- "+ironsight" - Use experimental iron sights when available 
-- "drop_rune" - Drop rune
-- "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
-    - "0" - real skin
-    - "1" - original inverted skin
-    - "2" - 1.75 blue ice skin
-    - "3" - Cold Ice Remastered edition skin
-- Switch between original and HD models using the "Enable HD models if available" in Video options
-- "cl_oldscoreboard 1" - Old Scoreboard - To switch between old and new style scoreboards
-- "cl_oldmotd 1" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
-- "cl_viewroll 1" - Old View Roll - To switch between view roll during movement
-- "cl_bobtilt 1" - Old Bob Tilt - To switch between bob tilt walking animation
-- "cl_righthand 1" - Right Hand Models - To switch between right and left handed models
-- "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
-- "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
-- "cl_glasshud 1" - Glass Hud - To switch between motion interactive HUD elements
-- "cl_weaponsway 1" - Weapon Sway - To switch between view models swaying with turn movement
-- "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
-- "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
-- "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
 
 Report Bugs:
 
