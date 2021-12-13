@@ -75,6 +75,7 @@ Compile-Sound $binDir $redistDir $soundDir "nuke_explosion.mp3" 2.0 "sound\nuke_
 Compile-Sound $binDir $redistDir $soundDir "laser-lips1.mp3" 1.0 "sound\gauss_selected.wav" "wav" 1 4
 Compile-Sound $binDir $redistDir $soundDir "the-five-notes.mp3" 1.0 "sound\hgun_selected.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "expedientes-secretos-x-musica22.mp3" 1.0 "sound\squeak_selected.wav" "wav" 0 8
+Compile-Sound $binDir $redistDir $soundDir "ryu_shoryuken.mp3" 2.5 "sound\fists_shoryuken.wav" "wav"
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound

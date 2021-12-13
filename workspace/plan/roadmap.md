@@ -252,7 +252,7 @@
     1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
     1. Fists
-        1. [ ] Big uppercut punch secondary fire with fists (Shoryuken)
+        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
     1. [ ] Counter-Strike penguin
