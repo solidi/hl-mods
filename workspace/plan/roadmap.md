@@ -114,7 +114,7 @@
 1. Weapons
     1. [ ] Skin Egon, Gauss, Hornetgun, Snark
     1. [x] Spin ammo, battery, healthkit, and longjump
-    1. [ ] Punch angles for all weapons
+    1. [x] Punch angles for all weapons
         1. [ ] Punch angle for draw and holstering
     1. [x] Spawn extra weapons with other matching slot number
     1. [ ] Tighten up all idle animation times to match code
