@@ -65,12 +65,12 @@ $hbox 0 "R_Arm_bone" -2.610000 -2.630000 -2.280000 2.060000 2.490000 7.990000
 $sequence "idle1" "idle1" fps 30 
 $sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 5 "knife_selected.wav" }
 $sequence "holster" "holster" fps 30 
-$sequence "attack1" "attack1" fps 30 
-$sequence "attack1miss" "attack1miss" fps 30 
-$sequence "attack2" "attack2" fps 30
-$sequence "attack2hit" "attack2hit" fps 30
-$sequence "attack3" "attack3" fps 30 
-$sequence "attack3hit" "attack3hit" fps 30 
+$sequence "attack1" "attack1" fps 45 
+$sequence "attack1miss" "attack1miss" fps 45 
+$sequence "attack2" "attack2" fps 45
+$sequence "attack2hit" "attack2hit" fps 45
+$sequence "attack3" "attack3" fps 45 
+$sequence "attack3hit" "attack3hit" fps 45 
 $sequence "idle2" "idle2" fps 30 loop 
 $sequence "idle3" "idle3" fps 30 loop 
 $sequence "pull_back" "pull_back" fps 30 { event 5004 0 "pull_back.wav" }
