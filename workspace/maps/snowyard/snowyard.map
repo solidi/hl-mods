@@ -3815,7 +3815,7 @@
 "origin" "-80 720 64"
 }
 {
-"classname" "weapon_gauss"
+"classname" "weapon_rpg"
 "origin" "266 1206 96"
 }
 {
