@@ -75,6 +75,6 @@ $sequence "idle2" "idle2" fps 2
 $sequence "draw" "draw" fps 20 { event 5004 0 "default_draw.wav" } { event 5005 0 "glauncher_selected.wav" }
 $sequence "holster" "holster" fps 14 
 $sequence "reload" "reload" fps 13 
-$sequence "shoot" "shoot" fps 13 { event 5001 0 "11" } 
+$sequence "shoot" "shoot" fps 13 { event 5001 0 "2" } 
 
 // End of QC script.
