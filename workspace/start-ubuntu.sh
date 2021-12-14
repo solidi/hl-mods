@@ -15,15 +15,19 @@ done
 echo "maxplayers is $maxplayers...";
 echo "hi-def models is $hiDef...";
 
-echo 'Copying so libs to redist...'
-sudo cp libs/dlls/ice.so redist/dlls/
-sudo cp libs/dlls/gravebot.so redist/dlls/
-sudo cp libs/cl_dlls/client.so redist/cl_dlls/
+function doCopy() {
+    echo 'Copying so libs to redist...'
+    sudo cp libs/dlls/ice.so redist/dlls/
+    sudo cp libs/dlls/gravebot.so redist/dlls/
+    sudo cp libs/cl_dlls/client.so redist/cl_dlls/
 
-rm -r  /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
-rm -r  /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
-cp -a redist/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
-cp -a redist_hd/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
+    rm -r  /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
+    rm -r  /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
+    cp -a redist/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
+    cp -a redist_hd/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
+}
+
+doCopy()
 
 # cd /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/
 # chgrp -R surreal ${icefolder}/
