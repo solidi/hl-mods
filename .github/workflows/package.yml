@@ -466,4 +466,5 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: coldice-build
-        path: .\${{env.FOLDER_NAME}}\last-build.zip
+        path: .\${{env.FOLDER_NAME}}\cold-ice-remastered-git-*.zip
+        if-no-files-found: error
