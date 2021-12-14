@@ -194,7 +194,8 @@
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
     1. [x] All CIR player models
-    1. [ ] Assassin and army models from Cold Ice 2.5
+    1. [x] Assassin and army models from Cold Ice 2.5
+    1. [x] [Santa](https://www.moddb.com/games/half-life/addons/santa-claus)
 1. Package for release script
     1. [x] Rename folder to ice_beta1
     1. [x] Remove config or replace with default one
@@ -305,7 +306,6 @@
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
 1. Player Models
-    1. [ ] [Santa](https://gamebanana.com/mods/179616)
     1. [ ] [Snowman](https://gamebanana.com/mods/179220)
 1. Game Dev Tools
     1. [ ] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
