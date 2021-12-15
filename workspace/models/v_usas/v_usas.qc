@@ -50,6 +50,8 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Bone44" 0.000000 0.000000 -0.500000
+// aim
+$attachment 1 "Bone44" 1.0 0.0 7.0
 
 // hit box(es)
 $hbox 0 "Bone01" -15.844328 -26.411289 -17.778130 8.022320 0.000000 0.000000

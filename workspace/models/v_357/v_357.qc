@@ -87,6 +87,8 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "python_master" 0.000000 -14.000000 6.000000
+// aim
+$attachment 0 "python_master" 2.0 4.5 6.0
 
 // hit box(es)
 $hbox 0 "Bip01 R Arm2" 0.000000 -2.800000 -4.000000 11.368423 3.020000 1.730000

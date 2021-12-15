@@ -51,6 +51,8 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Gauss Master" 17.000000 -1.000000 0.000000
+// aim
+$attachment 1 "Gauss Master" 2.0 4.0 3.0
 
 // hit box(es)
 $hbox 0 "Gauss Master" -7.870000 -5.000000 -5.450000 16.980000 3.700000 2.680000

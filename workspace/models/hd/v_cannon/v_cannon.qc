@@ -55,6 +55,8 @@ $texrendermode "flak_coolant.bmp" "masked"
 
 // attachment(s)
 $attachment 0 "weapon" 0.500000 -37.000000 -5.000000
+// aim
+$attachment 1 "weapon" 5.0 1.0 9.25
 
 // hit box(es)
 $hbox 0 "weapon" -4.280000 -16.423262 -8.050000 2.550000 9.460000 5.940000

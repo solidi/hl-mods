@@ -71,6 +71,10 @@ $texturegroup ice
   }
 }
 
+$attachment 0 "Hands biped L Forearm" 0.00000 0.00000 0.00000
+// aim
+$attachment 1 "Hands biped L Forearm" 3.0 6.0 6.5
+
 // hit box(es)
 $hbox 0 "Hands biped L Forearm" -0.750000 -3.040000 -2.280000 15.650000 2.190000 3.140000
 $hbox 0 "Hands biped L Hand" -0.010000 -1.420000 -2.230000 4.770000 1.640000 1.940000
