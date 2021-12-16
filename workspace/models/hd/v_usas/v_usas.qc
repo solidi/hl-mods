@@ -64,6 +64,8 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "carbine" 0.500000 -27.000000 2.000000
+// aim
+$attachment 1 "carbine" 3.0 3.0 5.5
 
 // hit box(es)
 $hbox 0 "carbine" -0.390000 -26.900000 -4.740000 1.880000 5.480000 6.030000

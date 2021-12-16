@@ -70,8 +70,6 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Rlauncher" 5.000000 -38.000000 5.000000
-$attachment 1 "Rlauncher" 8.000000 -75.000000 7.000000
-$attachment 2 "Rlauncher" -3.000000 -2.000000 5.000000
 
 // hit box(es)
 $hbox 0 "Rlauncher" -4.280000 -16.423262 -8.050000 2.550000 9.460000 5.940000

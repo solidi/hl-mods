@@ -121,6 +121,13 @@ $texturegroup ice
   }
 }
 
+// attachment(s)
+$attachment 0 "Xbow biped R Hand" 0.0 0.0 0.0
+// aim
+$attachment 1 "Xbow biped R Hand" 2.0 5.0 8.0
+// angles
+$attachment 2 "Xbow biped R Hand" 0.0 -8.0 0.0
+
 // hit box(es)
 $hbox 0 "Xbow biped R Hand" 0.000000 0.000000 0.000000 3.791503 1.946522 4.704311
 $hbox 0 "crossbow parent" -3.940000 -20.540001 -5.310000 3.960000 6.860000 3.870000

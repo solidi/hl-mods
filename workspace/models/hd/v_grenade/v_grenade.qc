@@ -53,6 +53,11 @@ $texturegroup ice
   }
 }
 
+// attachment(s)
+$attachment 0 "Bip01 R Hand" 0.000000 0.000000 0.000000
+// aim
+$attachment 1 "Bip01 R Hand" 2.0 4.0 4.0
+
 // hit box(es)
 $hbox 0 "pine" -1.300000 -1.310000 -2.370000 1.300000 1.210000 2.350000
 $hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -1.820000 3.910000 0.900000 1.710000

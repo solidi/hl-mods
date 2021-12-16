@@ -91,7 +91,8 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "M4_muzzle" 0.000000 0.000000 0.000000
-$attachment 1 "M4_muzzle" 0.000000 -10.000000 -10.000000
+// aim
+$attachment 1 "M4_muzzle" 10.0 4.0 12.5
 
 // hit box(es)
 $hbox 0 "Bip01 R Arm2" 0.000000 0.000000 0.000000 1.856658 6.776076 33.308624
