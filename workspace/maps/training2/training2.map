@@ -3227,7 +3227,7 @@
 }
 {
 "classname" "ambient_generic"
-"message" "ambience/drips1.wav"
+"message" "ambience/drips.wav"
 "health" "10"
 "pitch" "100"
 "pitchstart" "100"
