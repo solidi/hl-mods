@@ -30,19 +30,15 @@ $body "studio" "mp5sd"
 $texturegroup ice
 {
   {
-    "ringchrome.bmp"
-    "ringchrome1.bmp"
+    "body.bmp"
   }
   {
-    "invert_ringchrome.bmp"
-    "invert_ringchrome1.bmp"
+    "invert_body.bmp"
   }
   {
     "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
   }
   {
-    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
 }
