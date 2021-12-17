@@ -261,7 +261,7 @@
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
         1. [ ] Cold Ice 2.5 model?
         1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
-        1. [ ] Match a better decal
+        1. [x] Match a better decal
     1. Crossbow
         1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     1. Handgrenades
