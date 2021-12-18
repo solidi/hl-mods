@@ -4096,3 +4096,35 @@
 "classname" "item_battery"
 "origin" "-1041 -624 224"
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "-624 -218 80"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-1338 -617 184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-191 -323 168"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "503 -341 216"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-455 -85 72"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-409 -362 72"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "57 -675 64"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "568 -667 208"
+}
