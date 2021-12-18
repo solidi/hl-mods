@@ -27,7 +27,7 @@ function doCopy() {
     cp -a redist_hd/. /root/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
 }
 
-doCopy()
+doCopy
 
 # cd /home/surreal/.steam/debian-installation/steamapps/common/Half-Life/
 # chgrp -R surreal ${icefolder}/
