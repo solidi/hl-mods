@@ -77,22 +77,22 @@ Compile-Sound $binDir $redistDir $soundDir "nuke_explosion.mp3" 2.0 "sound\nuke_
 Compile-Sound $binDir $redistDir $soundDir "laser-lips1.mp3" 1.0 "sound\gauss_selected.wav" "wav" 1 4
 Compile-Sound $binDir $redistDir $soundDir "the-five-notes.mp3" 1.0 "sound\hgun_selected.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "expedientes-secretos-x-musica22.mp3" 1.0 "sound\squeak_selected.wav" "wav" 0 8
-Compile-Sound $binDir $redistDir $soundDir "ryu_shoryuken.mp3" 2.5 "sound\fists_shoryuken.wav" "wav"
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_shutup.wav" "wav" 4.0 7.0
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_moneyout.wav" "wav" 7.0 8.5
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_moneyall.wav" "wav" 12.0 14.5
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_comeon.wav" "wav" 18 19
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_buddy.wav" "wav" 28 29.5
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_dontstallme.wav" "wav" 38 42.0
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_nolossoflife.wav" "wav" 17 22
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_nicesuit.wav" "wav" 71 72
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_doitmyself.wav" "wav" 77 79
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_shes.wav" "wav" 84 85.5
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_nolossoflife.wav" "wav" 17 22.5
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 4.0 "sound\smg_gruber_shootglass.wav" "wav" 93 95
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_timemagazine.wav" "wav" 118 120
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 8.0 "sound\smg_gruber_hohoho.wav" "wav" 125 128
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 7.0 "sound\smg_gruber_troublesome.wav" "wav" 142.5 144.5
+Compile-Sound $binDir $redistDir $soundDir "ryu_shoryuken.mp3" 4.5 "sound\fists_shoryuken.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 4.5 "sound\12gauge_jackson_shutup.wav" "wav" 4.0 7.0
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 4.5 "sound\12gauge_jackson_moneyout.wav" "wav" 7.0 8.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 4.5 "sound\12gauge_jackson_moneyall.wav" "wav" 12.0 14.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 4.5 "sound\12gauge_jackson_comeon.wav" "wav" 18 19
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 4.5 "sound\12gauge_jackson_buddy.wav" "wav" 28 29.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 4.5 "sound\12gauge_jackson_dontstallme.wav" "wav" 38 42.0
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_nolossoflife.wav" "wav" 17 22
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_nicesuit.wav" "wav" 71 72
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_doitmyself.wav" "wav" 77 79
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_shes.wav" "wav" 84 85.5
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_nolossoflife.wav" "wav" 17 22.5
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 6.0 "sound\smg_gruber_shootglass.wav" "wav" 93 95
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_timemagazine.wav" "wav" 118 120
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_hohoho.wav" "wav" 125 128
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 9.0 "sound\smg_gruber_troublesome.wav" "wav" 142.5 144.5
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
