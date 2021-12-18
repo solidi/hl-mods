@@ -6713,3 +6713,35 @@
 "classname" "info_player_deathmatch"
 "origin" "873 -1128 -280"
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "-1583 153 -192"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-863 -776 -152"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-311 -1410 -176"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-608 -1008 40"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1073 -479 -160"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-72 154 -184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-808 -54 -192"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-1023 -1264 -184"
+}
