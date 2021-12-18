@@ -36,7 +36,7 @@ Beta 1 Features:
     - M16 Machine gun
         - Shoot / M203 Grenade
     - Samuel L. Jackson's 12 Gauge Shotgun
-        - Shoot / Pump + Voice
+        - Shoot / Pump + Voiceovers
     - Explosive Assault Shotgun
         - Shoot / Double
     - Air-Compressed Auto Boltgun
