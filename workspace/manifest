@@ -25,7 +25,6 @@ events\fists.sc
 events\wrench.sc
 events\chainsaw.sc
 events\gauge_single.sc
-events\gauge_double.sc
 events\nuke1.sc
 events\snarkrelease.sc
 gfx
@@ -380,6 +379,13 @@ sound\chainsaw_selected.wav
 sound\12gauge_selected.wav
 sound\12gauge_jackson.wav
 sound\12gauge_fire.wav
+sound\12gauge_cock.wav
+sound\12gauge_jackson_shutup.wav
+sound\12gauge_jackson_moneyout.wav
+sound\12gauge_jackson_moneyall.wav
+sound\12gauge_jackson_comeon.wav
+sound\12gauge_jackson_buddy.wav
+sound\12gauge_jackson_dontstallme.wav
 sound\ironsight_on.wav
 sound\ironsight_off.wav
 sound\357_selected.wav

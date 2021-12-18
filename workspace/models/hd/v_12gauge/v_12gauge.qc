@@ -78,7 +78,7 @@ $sequence "draw" "draw" fps 8 { event 5004 0 "default_draw.wav" } { event 5005 0
 $sequence "shoot" "shoot" fps 13 { event 5001 0 "11" } 
 $sequence "start_reload" "start_reload" fps 8 
 $sequence "reload" "reload" fps 12 
-$sequence "end_reload" "end_reload" fps 10 { event 5005 0 "12gauge_jackson.wav" } 
+$sequence "end_reload" "end_reload" fps 10 
 $sequence "holster" "holster" fps 8 
 
 // End of QC script.

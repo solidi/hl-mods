@@ -78,6 +78,12 @@ Compile-Sound $binDir $redistDir $soundDir "laser-lips1.mp3" 1.0 "sound\gauss_se
 Compile-Sound $binDir $redistDir $soundDir "the-five-notes.mp3" 1.0 "sound\hgun_selected.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "expedientes-secretos-x-musica22.mp3" 1.0 "sound\squeak_selected.wav" "wav" 0 8
 Compile-Sound $binDir $redistDir $soundDir "ryu_shoryuken.mp3" 2.5 "sound\fists_shoryuken.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_shutup.wav" "wav" 4.0 7.0
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_moneyout.wav" "wav" 7.0 8.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_moneyall.wav" "wav" 12.0 14.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_comeon.wav" "wav" 18 19
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_buddy.wav" "wav" 28 29.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson_dontstallme.wav" "wav" 38 42.0
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
@@ -171,6 +177,7 @@ Copy-Item $soundDir\chainsaw_slash.wav $redistdir\sound
 Copy-Item $soundDir\chainsaw_idle.wav $redistdir\sound
 Copy-Item $soundDir\12gauge_selected.wav $redistdir\sound
 Copy-Item $soundDir\12gauge_fire.wav $redistdir\sound
+Copy-Item $soundDir\12gauge_cock.wav $redistdir\sound
 Copy-Item $soundDir\ironsight_on.wav $redistdir\sound
 Copy-Item $soundDir\ironsight_off.wav $redistdir\sound
 Copy-Item $soundDir\revolver_fire.wav $redistdir\sound

@@ -86,7 +86,7 @@ $sequence "draw" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5005 
 $sequence "shoot" "shoot" fps 20 { event 5001 0 "31" } 
 $sequence "start_reload" "start_reload" fps 12 
 $sequence "reload" "reload" fps 16 
-$sequence "pump" "pump" fps 13 { event 5005 0 "12gauge_jackson.wav" }
+$sequence "pump" "pump" fps 13 
 $sequence "reholster" "reholster" fps 30 
 $sequence "shoot_big" "shoot_big" fps 13 { event 5001 0 "41" } 
 $sequence "deepidle" "deepidle" fps 12 loop 
