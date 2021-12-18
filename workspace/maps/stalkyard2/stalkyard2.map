@@ -3046,3 +3046,59 @@
 "classname" "ammo_rpgclip"
 "origin" "2250 1537 -226"
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "559 770 -184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "944 112 -176"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1767 250 -184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "2009 416 -176"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1496 1130 -160"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "886 1617 0"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1154 1425 -9"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1513 1170 -32"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "536 907 -104"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "552 1121 -104"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1695 89 -56"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1008 664 -128"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "225 411 -184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "393 1568 -184"
+}
