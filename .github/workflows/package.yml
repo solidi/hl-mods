@@ -1,4 +1,4 @@
-name: Build Cold Ice
+name: Package Cold Ice Remastered
 
 on: [push]
 
