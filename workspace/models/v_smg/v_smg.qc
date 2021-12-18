@@ -105,7 +105,7 @@ $sequence "longidle" "longidle" fps 8
 $sequence "idle1" "idle1" fps 35 
 $sequence "idle2" "idle1" fps 35 
 $sequence "reload" "reload" fps 30 { event 5004 5 "items/cliprelease1.wav" } { event 5004 24 "items/clipinsert1.wav" } 
-$sequence "deploy" "deploy" fps 12  { event 5004 0 "default_draw.wav" } { event 5005 0 "smg_selected.wav" } 
+$sequence "deploy" "deploy" fps 12  { event 5004 0 "default_draw.wav" } 
 $sequence "shoot_1" "shoot_1" fps 10 { event 5001 0 "20" } 
 $sequence "select" "shoot_2" fps 10 { event 5004 0 "smg_select.wav" } 
 $sequence "holster" "holster" fps 24 

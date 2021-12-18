@@ -139,7 +139,7 @@
     1. [x] Monkey Wrench
     1. [x] Mag 60
     1. [x] 12 Gauge Shotgun
-        1. [ ] Jackson randomized sayings during pump select
+        1. [x] Jackson randomized sayings during pump select
     1. [x] USAS-12 Auto Shotgun
     1. [x] 25-Inch Chaingun
     1. [x] 30mm Assault Cannon
@@ -149,7 +149,7 @@
     1. [x] Female Assassin Decoy Bombs
     1. [x] Snowball
     1. [x] mp5k
-        1. [ ] Hans randomized sayings during fire select
+        1. [x] Hans randomized sayings during fire select
     1. [x] Chainsaw
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
     1. [x] Invisible tripmines
