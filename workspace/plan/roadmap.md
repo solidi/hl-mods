@@ -59,6 +59,7 @@
     1. [x] Boltgun
     1. [x] Cannon
     1. [x] Knife
+        1. [x] Match a better decal
     1. [ ] Crowbar (bots disappeared?)
     1. [x] Sniper Rifle
     1. [x] Mag60
@@ -68,6 +69,7 @@
     1. [x] Usas
     1. [x] Fists
         1. Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
+        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [x] Wrench
     1. [x] Snowball
     1. [x] Chainsaw
@@ -108,11 +110,11 @@
 1. Gameplay
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
-    1. [ ] mp_startwithall "1"
+    1. [x] mp_startwithall "1"
     1. [x] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
     1. [x] Bell when a frag is committed (ala CS:GO)
 1. Weapons
-    1. [ ] Skin Egon, Gauss, Hornetgun, Snark
+    1. [x] Skin Egon, Gauss, Hornetgun, Snark
     1. [x] Spin ammo, battery, healthkit, and longjump
     1. [x] Punch angles for all weapons
         1. [ ] Punch angle for draw and holstering
@@ -186,6 +188,7 @@
     1. [x] Inverted original weapons
 1. Maps
     1. [x] Compile originals
+    1. [x] Depot
 1. Menu Graphics
     1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
 1. HUD
@@ -228,6 +231,7 @@
     1. [ ] Jetpack?
     1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
     1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
+    1. [ ] Visual hitpoint deductions during play?
 1. Gameplay
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
@@ -252,8 +256,6 @@
     1. [ ] Taser
     1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
-    1. Fists
-        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
     1. [ ] Counter-Strike penguin
@@ -261,7 +263,6 @@
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
         1. [ ] Cold Ice 2.5 model?
         1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
-        1. [x] Match a better decal
     1. Crossbow
         1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     1. Handgrenades
@@ -292,7 +293,6 @@
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
-    1. [ ] Depot
     1. [ ] Crossfire re-skinned
 1. HUD
     1. [ ] Re-enable suit voice updates?

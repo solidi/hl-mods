@@ -1,6 +1,6 @@
 Cold Ice Remastered Edition
 
-This project is a modern open sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a scene of winter, its philosophy is to deliver deathmatch that doesn't take it self seriously.
+This project is a modern open-sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a winter scene, its philosophy is to deliver deathmatch that doesn't take itself seriously.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
 Library Game code: https://github.com/solidi/coldice-remastered
@@ -14,6 +14,7 @@ Beta 1 Features:
 - Supports Steam on Windows, Linux, and macOS 
     - Supports desktop Xash3d (see installation for details - Android support coming in Beta 2)
 - 30 weapons with originals included (and more)!
+- Includes SD/HD models with the ability to switch blue/orange skins
     - Manos de Piedras
         - Right / Left Jabs / Shoryuken
     - Standard Crowbar
@@ -34,7 +35,7 @@ Beta 1 Features:
         - Shoot / Burst Mode
     - M16 Machine gun
         - Shoot / M203 Grenade
-    - Samel L. Jackson's 12 Gauge Shotgun
+    - Samuel L. Jackson's 12 Gauge Shotgun
         - Shoot / Pump + Voice
     - Explosive Assault Shotgun
         - Shoot / Double
@@ -102,11 +103,15 @@ Beta 1 Features:
     - Santa
     - Stormtrooper
     - Swat
-- Bot support using Grave Bots
+- Server Support
+    - Bot support using Grave Bots
+    - Spawn starting weapons list (and spawn "with all")
+    - Infinite Ammo options (for extreme/insane play)
+    - Blood amount configuration
 - Modern weapon viewmodel improvements
     - Holster weapon animations!
-    - Right handed or left handed models
-    - Weapon sway and fidet animation for realism
+    - Right-handed or left-handed models
+    - Weapon sway and fidget animation for realism
     - Bullet and gun smoke animation for effect
     - Option to switch between ice model skins and real model skins!
     - Option for original models and high res models
@@ -124,7 +129,7 @@ Beta 1 Features:
     - "Strength" - yellow - inflict 50% more damage
     - "Cloak" - white - 90% invisibility
 - More humorous movie sound clips!
-- Throwing meele weapons!
+- Throwing melee weapons!
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
 
@@ -134,6 +139,7 @@ Beta 2 Highly-Valued Upcoming Features:
 - Kick
 - Pistol whip (all weapons)
 - Akimbos (all weapons)
+- Throw (all weapons)
 - Iron sights refinements
 - See more on our living roadmap: https://github.com/solidi/hl-mods/blob/master/workspace/plan/roadmap.md
 
@@ -144,7 +150,7 @@ Installation:
 
 How to Play:
 
-Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dedicate gameplay. Then, have fun.
+Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dictate gameplay. Then, have fun.
 
 If you dislike the "blue" theme, this mod has the optional to switch to real skins! (See below)
 
@@ -167,7 +173,7 @@ Client:
 - "cl_oldmotd 1" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
 - "cl_viewroll 1" - Old View Roll - To switch between view roll during movement
 - "cl_bobtilt 1" - Old Bob Tilt - To switch between bob tilt walking animation
-- "cl_righthand 1" - Right Hand Models - To switch between right and left handed models
+- "cl_righthand 1" - Right Hand Models - To switch between right and left-handed models
 - "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
 - "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
 - "cl_glasshud 1" - Glass Hud - To switch between motion interactive HUD elements
