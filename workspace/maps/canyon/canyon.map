@@ -4414,3 +4414,35 @@
 "health" "9"
 "origin" "1280 128 -320"
 }
+{
+"classname" "info_player_deathmatch"
+"origin" "61 -256 -96"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "15 890 -312"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "217 530 -344"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "2135 1305 200"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "3105 709 288"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "2568 424 200"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "1808 844 184"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "3055 253 288"
+}
