@@ -5761,3 +5761,39 @@
 "classname" "weapon_handgrenade"
 "origin" "-20 99 -64"
 }
+{
+"classname" "info_player_start"
+"origin" "-280 1471 -1097"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-888 1640 -1080"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-1393 1323 -504"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-1184 351 -496"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "591 -1474 -512"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "217 -718 -495"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-788 344 176"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-688 1415 -520"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "120 1185 -1096"
+}
