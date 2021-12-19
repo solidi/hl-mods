@@ -31,7 +31,7 @@ $Config = @{
 }
 ```
 1. Execute each script `Build-*.ps1 -ConfigFile <your file>`
-    1. Start with `Build-Tools.ps1` first. Then run
+    1. Start with `Build-Tools.ps1 -ConfigFile <your file>` first. Then run
         1. `Build-Maps.ps1 -ConfigFile <your file>`
         1. `Build-Models.ps1 -ConfigFile <your file>`
         1. `Build-Sprites.ps1 -ConfigFile f<your file>ile`
