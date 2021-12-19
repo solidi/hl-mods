@@ -30,10 +30,14 @@ $Config = @{
     'gameParameters' = '-console -dev 5 -log -windowed -width 640 -height 480'
 }
 ```
-1. Execute each script `Build-*.ps1 -ConfigFile file`
-    1. Start with `Build-Tools.ps1` first.
-    1. `Build-Maps.ps1`, ``Build-Models.ps1`, `Build-Sprites.ps1`, `Build-Sound.ps1`, `Build-Windows.ps1`
-1. Execute `Start-Windows.ps1 -ConfigFile file` to run
+1. Execute each script `Build-*.ps1 -ConfigFile <your file>`
+    1. Start with `Build-Tools.ps1` first. Then run
+        1. `Build-Maps.ps1 -ConfigFile <your file>`
+        1. `Build-Models.ps1 -ConfigFile <your file>`
+        1. `Build-Sprites.ps1 -ConfigFile f<your file>ile`
+        1. `Build-Sound.ps1 -ConfigFile <your file>`
+        1. `Build-Windows.ps1 -ConfigFile <your file>`
+1. Execute `Start-Windows.ps1 -ConfigFile <your file>` to run
 
 ## Build for Linux and MacOS
 
