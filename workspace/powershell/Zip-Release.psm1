@@ -46,6 +46,7 @@ function Zip-Release {
         Remove-Item $env:TEMP\release\redist\sprites -Force
 
         "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\readme.txt
+        "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\motd.txt
 
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
