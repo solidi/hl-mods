@@ -45,6 +45,10 @@ $Config = @{
 1. One can build Linux libs or MacOS dlybs using the scripts `build-linux.sh` and `build-mac.sh` on a native machine
 1. Run `start-ubuntu.sh` to copy and run the package on Ubuntu.
 
+## Independent OS Building with Docker 
+
+Docker support is available in `docker/`. However its building time is very slow (30 minutes to an hour) for the full pipeline, so was abandoned. It remains a work in progress. Your milage may vary.
+
 ## Support Scripts
 
 1. Execute `Copy-Distribution.ps1` to copy files to game directory
