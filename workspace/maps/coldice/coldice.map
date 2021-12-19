@@ -5797,3 +5797,23 @@
 "classname" "info_player_deathmatch"
 "origin" "120 1185 -1096"
 }
+{
+"classname" "weapon_hornetgun"
+"origin" "-1369 -1390 -560"
+}
+{
+"classname" "weapon_shotgun"
+"origin" "-708 -664 -520"
+}
+{
+"classname" "weapon_9mmAR"
+"origin" "535 -1476 -552"
+}
+{
+"classname" "weapon_handgrenade"
+"origin" "-1312 1086 -560"
+}
+{
+"classname" "weapon_handgrenade"
+"origin" "-1312 1046 -560"
+}
