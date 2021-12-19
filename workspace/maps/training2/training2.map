@@ -3603,3 +3603,39 @@
 "classname" "info_player_start"
 "origin" "-1016 267 -8"
 }
+{
+"classname" "weapon_9mmAR"
+"origin" "463 -873 -113"
+}
+{
+"classname" "ammo_9mmAR"
+"origin" "417 -888 -113"
+}
+{
+"classname" "ammo_ARgrenades"
+"origin" "503 -853 -113"
+}
+{
+"classname" "weapon_egon"
+"origin" "939 857 -152"
+}
+{
+"classname" "ammo_gaussclip"
+"origin" "981 823 -152"
+}
+{
+"classname" "ammo_gaussclip"
+"origin" "903 888 -152"
+}
+{
+"classname" "weapon_satchel"
+"origin" "-32 -625 -96"
+}
+{
+"classname" "weapon_satchel"
+"origin" "-32 -744 -96"
+}
+{
+"classname" "weapon_handgrenade"
+"origin" "-864 -613 -88"
+}
