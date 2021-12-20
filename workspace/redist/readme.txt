@@ -1,6 +1,6 @@
 Cold Ice Remastered Edition
 
-This project is a modern open-sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a winter scene, its philosophy is to deliver deathmatch that doesn't take itself seriously.
+This project is a modern open-sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a winter scene, its philosophy is to deliver deathmatch that doesn't take itself seriously. Only in this mod will you find voiceover cameos from Samuel L. Jackson, Hans Gruber, and "Leeroy Jenkins" by Ben Schulz. Its ethos delivers an explosively frantic fast-paced gameplay that was and always will be Cold Ice.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
 Library Game code: https://github.com/solidi/coldice-remastered
@@ -14,7 +14,7 @@ Beta 1 Features:
 - Supports Steam on Windows, Linux, and macOS 
     - Supports desktop Xash3d (see installation for details - Android support coming in Beta 2)
 - 30 weapons with originals included (and more)!
-- Includes SD/HD models with the ability to switch blue/orange skins
+- Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
     - Manos de Piedras
         - Right / Left Jabs / Shoryuken
     - Standard Crowbar
@@ -25,47 +25,47 @@ Beta 1 Features:
         - Right / Left Swing / Throw
     - Koshak's Chainsaw
         - Right / Left Swing / Full Throttle
-    - PPK Silenced Handgun
+    - PPK Silenced Handgun (+)
         - Shoot / Add Silencer
-    - 44 Magnum Revolver
+    - 44 Magnum Revolver (+)
         - Shoot / Zoom
-    - Mag 60 Automatic Handgun
+    - Mag 60 Automatic Handgun (+)
         - Shoot / Turok mode
-    - Hans Gruber's Submachine gun
-        - Shoot / Burst Mode
-    - M16 Machine gun
+    - Hans Gruber's Submachine gun (+)
+        - Shoot / Burst Mode + Voiceovers
+    - M16 Machine gun (+)
         - Shoot / M203 Grenade
-    - Samuel L. Jackson's 12 Gauge Shotgun
+    - Samuel L. Jackson's 12 Gauge Shotgun (+)
         - Shoot / Pump + Voiceovers
-    - Explosive Assault Shotgun
+    - Explosive Assault Shotgun (+)
         - Shoot / Double
-    - Air-Compressed Auto Boltgun
+    - USAS-12 Auto Shotgun (+)
+        - Shoot
+    - Air-Compressed Auto Boltgun (+)
         - Shoot / Zoom
     - 7.65mm Sniper Rifle
         - Shoot / Zoom
-    - 25-Inch Chaingun
+    - 25-Inch Chaingun (+)
         - Spin up / Shoot 
-    - 120-Pound Grenade Launcher
+    - 120-Pound Grenade Launcher (+)
         - Shoot M203 / Shoot Cluster
-    - USAS-12 Auto Shotgun
-        - Shoot
-    - 50-lb Automatic LAW Rocket Launcher
+    - 50-lb Automatic LAW Rocket Launcher (+)
         - Shoot Rocket / Shoot Extreme Rockets
     - Gauss
         - Shoot / Power Shot
-    - Quake II Railgun
+    - Quake II Railgun (+)
         - Shoot Rail
     - Hivehand
         - Shoot M203 / Shoot Cluster
     - Egon's Egon
         - Fire / Change Wide + Narrow
-    - 30mm Assault Cannon
+    - 30mm Assault Cannon (+)
         - Shoot Flak / Shoot Flak Bomb
     - Tactical Nuke Launcher
         - Shoot Nuke (Goodbye all!)
-    - Snowballs
+    - Snowballs (+)
         - Throw / Long Throw
-    - Cluster Grenades
+    - Cluster Grenades (+)
         - Throw Cluster / Throw Grenade
     - Invisible Beam Tripmines
         - Place Tripmine
@@ -73,7 +73,7 @@ Beta 1 Features:
         - Throw Decoy
     - Chumtoads
         - Throw / Release All
-    - Vest Device
+    - Leeroy Jenkins Dynamite Vest
         - Detonate / Cancel
 - Original and new maps are back too!
     - Training Facility
@@ -138,9 +138,11 @@ Beta 2 Highly-Valued Upcoming Features:
 - Xash3d Android support
 - Kick
 - Pistol whip (all weapons)
-- Akimbos (all weapons)
+- Akimbo's (all weapons)
 - Throw (all weapons)
 - Iron sights refinements
+- More weapons like the Portal gun
+- More Valve maps reskinned
 - See more on our living roadmap: https://github.com/solidi/hl-mods/blob/master/workspace/plan/roadmap.md
 
 Installation:
@@ -253,3 +255,4 @@ Thanks To:
 - The BFG model and flakcannon from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
 - Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
+- Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
