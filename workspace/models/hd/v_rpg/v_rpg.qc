@@ -65,6 +65,13 @@ $texturegroup ice
   }
 }
 
+// attachment(s)
+$attachment 0 "Bip01 R Hand" -0.000000 0.000000 0.000000
+// aim
+$attachment 1 "Bip01 R Hand" 6.0 0.5 10.0
+// angles
+$attachment 2 "Bip01 R Hand" 0.0 2.0 0.0
+
 // hit box(es)
 $hbox 0 "Rlauncher" -4.280000 -16.423262 -8.050000 2.550000 9.460000 5.940000
 $hbox 0 "Cylinder01" -0.770000 -1.020000 0.000000 0.770000 1.050000 3.450000
