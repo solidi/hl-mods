@@ -83,7 +83,7 @@
     1. [ ] Fakelag with weapons
     1. [ ] Map changes with all weapons
 1. [ ] Publish
-    1. [ ] ModDB Entry
+    1. [x] [ModDB Entry](https://www.moddb.com/mods/cold-ice-remastered)
     1. [ ] Gamebanana Entry
     1. [ ] Write short post
         1. [ ] r/halflife
@@ -215,6 +215,7 @@
     1. [x] Bot names loading on Linux?
     1. [x] macOS zip file contains invalid paths?
     1. [x] Normalize arm skins (orange default)
+    1. [x] [Xash3d orange menu items](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Game Dev Tools
     1. [x] Contribute back to valve halflife repo with github actions to build the full suite
 

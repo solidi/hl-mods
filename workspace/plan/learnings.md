@@ -294,3 +294,7 @@
 1. Use `-remap` in convert.exe to use a [pallette of the same](https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=33582) for image conversion.
 1. `Throw` [is recommended](https://stackoverflow.com/questions/2022326/terminating-a-script-in-powershell) to terminate a Powershell script that cannot recover, with a message.
 1. I learned that bash will have a problem [executing a script](https://askubuntu.com/questions/834853/ubuntu-bash-functions-syntax-error-or-unexpected) if the line breaks are CRLF instead of LF.
+1. The two most important commands in Half-Life are `cvarlist` and `cmdlist.` These commands print out all possible bindings in the game.
+1. My Ubuntu virtual machine locked up every 30 minutes. The solution was to disable 3d acceleration following [this guide](https://tipsmake.com/how-to-fix-ubuntu-freezing-in-virtualbox).
+1. In GIMP, to promote a selection to a layer, use the [select -> float](https://logosbynick.com/gimp-make-selection-new-layer/) option. There is also no default shortcut to quickly delete layers. Use [this guide](https://superuser.com/questions/603406/whats-the-shortcut-to-delete-selected-layer-in-gimp) on how to set the shortcuts.
+1. Using Loopback, [this article](https://blogs.reed.edu/ed-tech/recording-your-macs-video-screen-with-audio/) was important in understanding how to record audio to a screen recording.
