@@ -135,6 +135,12 @@ $texturegroup ice
   }
 }
 
+// attachment(s)
+$attachment 0 "Bip01 R Hand" -0.000000 0.000000 0.000000
+// aim
+$attachment 1 "Bip01 R Hand" 10.0 0.0 9.0
+// angles
+$attachment 2 "Bip01 R Hand" 0.0 3.0 0.0
 
 // hit box(es)
 $hbox 0 "rocket_master" -1.860000 -8.620000 -1.650000 1.930000 4.140000 2.140000
