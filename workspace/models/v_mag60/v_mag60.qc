@@ -109,7 +109,7 @@ $sequence "reload_noshot" "reload_noshot" fps 30 { event 5004 4 "items/9mmclip2.
 $sequence "draw" "draw" fps 32 { event 5004 0 "default_draw.wav" } { event 5005 0 "mag60_selected.wav" }
 $sequence "holster" "holster" fps 16 
 $sequence "add_silencer" "add_silencer" fps 18 
-$sequence "rotate_down" "rotate_down" fps 18 { event 5005 0 "mag60_turok.wav" }
+$sequence "rotate_down" "rotate_down" fps 18
 $sequence "rotate_up" "rotate_up" fps 18 
 
 

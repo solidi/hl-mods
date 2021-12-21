@@ -29,8 +29,8 @@ Beta 1 Features:
         - Shoot / Add Silencer
     - 44 Magnum Revolver (+)
         - Shoot / Zoom
-    - Mag 60 Automatic Handgun (+)
-        - Shoot / Turok mode
+    - Blade's Mag 60 Automatic Handgun (+)
+        - Shoot / Sideways + Voiceovers
     - Hans Gruber's Submachine gun (+)
         - Shoot / Burst Mode + Voiceovers
     - M16 Machine gun (+)
