@@ -11,6 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
+[bool]$clean = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -18,6 +19,9 @@ $Config = @{ }
         $configFile = $_.Split(' ')[1]
         . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
+        $clean = $true
+        echo "rebuilding all sounds..."
     }
 }
 
@@ -32,15 +36,18 @@ $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
 $soundDir = "${RootDir}\sound"
 
-Remove-Item $redistDir\sound\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\media\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\sound -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sound -Force -ErrorAction Ignore
-Remove-Item $redistDir\media -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\sound)
-[void](New-Item -ItemType directory -Path $redisthddir\sound)
-[void](New-Item -ItemType directory -Path $redistDir\media)
+if ($clean -eq $true) {
+    Remove-Item $redistDir\sound\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redisthddir\sound\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redistDir\media\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redistDir\sound -Force -ErrorAction Ignore
+    Remove-Item $redisthddir\sound -Force -ErrorAction Ignore
+    Remove-Item $redistDir\media -Force -ErrorAction Ignore
+    [void](New-Item -ItemType directory -Path $redistDir\sound)
+    [void](New-Item -ItemType directory -Path $redisthddir\sound)
+    [void](New-Item -ItemType directory -Path $redistdir\sound\weapons)
+    [void](New-Item -ItemType directory -Path $redistDir\media)
+}
 
 Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
 Compile-Sound $binDir $redistDir $soundDir "vest_selected.wav" 1.5 "sound\vest_selected.wav" "wav" 1.1 5
@@ -102,7 +109,6 @@ Copy-Item $soundDir\handgun_selected.wav $redistdir\sound
 Copy-Item $soundDir\handgun_silenced.wav $redistdir\sound
 Copy-Item $soundDir\handgun.wav $redistdir\sound
 Copy-Item $soundDir\vest_equip.wav $redistdir\sound
-[void](New-Item -ItemType directory -Path $redistdir\sound\weapons)
 Copy-Item $soundDir\explode3.wav $redistdir\sound\weapons
 Copy-Item $soundDir\explode4.wav $redistdir\sound\weapons
 Copy-Item $soundDir\explode5.wav $redistdir\sound\weapons
