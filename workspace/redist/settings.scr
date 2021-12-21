@@ -146,7 +146,7 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"mp_blueblood"
+	"mp_iceblood"
 	{
 		"#Ice_BlueBlood"
 		{ BOOL }
@@ -172,5 +172,12 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_StartWithAll"
 		{ BOOL }
 		{ "0" }
+	}
+
+	"mp_allowvoiceovers"
+	{
+		"#Ice_AllowVoiceovers"
+		{ BOOL }
+		{ "1" }
 	}
 }

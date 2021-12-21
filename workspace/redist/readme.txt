@@ -163,6 +163,7 @@ Client:
 - Steam only: Switch between original and HD models using the "Enable HD models if available" in Video options
     - Or use "+_sethdmodels" in game startup parameters
     - See Installation above for Xash3d for support of HD models
+- "help" - Displays specific client Cold Ice Remastered options
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
 - "drop_rune" - Drop rune
@@ -186,7 +187,9 @@ Client:
 
 Server:
 
+- "help_server" - Displays specific server Cold Ice Remastered options
 - "addbot" - Add a bot
+- "botdontshoot 0" - Enable or disable bots attacking others
 - "mp_grapplinghook 1" - Allow grappling hook on server
 - "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
 - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun"" Modify the player's spawn weapons
@@ -196,9 +199,10 @@ Server:
 - "mp_infiniteammo 1" - Infinite ammo ala CS 1.6
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
-- "mp_blueblood 1" - Enable blue blood
+- "mp_iceblood 1" - Enable blue blood
 - "mp_moreblood 2" - Increase blood up to 0-5 times
 - "mp_startwithall 0" - Start with all weapons
+- "mp_allowvoiceovers 1" - Allow public voiceovers
 
 Report Bugs:
 
