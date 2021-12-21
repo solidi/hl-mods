@@ -93,7 +93,7 @@ $sequence "reload_not_empty" "reload" fps 16 { event 5004 5 "items/9mmclip2.wav"
 $sequence "draw" "draw" fps 9 { event 5004 0 "default_draw.wav" } { event 5005 0 "mag60_selected.wav" }
 $sequence "holster" "holster" fps 9 
 $sequence "switch" "switch" fps 10 
-$sequence "rotate_down" "rotate_down" fps 18 { event 5005 0 "mag60_turok.wav" }
+$sequence "rotate_down" "rotate_down" fps 18
 $sequence "rotate_up" "rotate_up" fps 18
 
 // End of QC script.

@@ -100,6 +100,18 @@ Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 8.0 "so
 Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_timemagazine.wav" "wav" 118 120
 Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_hohoho.wav" "wav" 125 128
 Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_troublesome.wav" "wav" 142.5 144.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_music.wav" "wav" 0 3.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_suckaheads.wav" "wav" 19 24
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_arrangement.wav" "wav" 35.5 37
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_usethem.wav" "wav" 37.75 40.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_frost.wav" "wav" 53.5 55
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_nature.wav" "wav" 75 77
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_capable.wav" "wav" 77.5 79.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_uphill.wav" "wav" 89 91.5
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_topping.wav" "wav" 9.5 12
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_trigger.wav" "wav" 16 20
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_pass.wav" "wav" 37 38.5
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_dead.wav" "wav" 48.5 54
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
