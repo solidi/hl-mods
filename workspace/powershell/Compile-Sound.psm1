@@ -5,7 +5,7 @@ function Compile-Sound {
         $redistDir,
         $soundDir,
         $target,
-        [float]$volume,
+        $volume,
         $outsound,
         $type="wav",
         [float]$trimfrom=0,

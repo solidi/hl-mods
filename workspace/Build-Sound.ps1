@@ -73,7 +73,7 @@ Compile-Sound $binDir $redistDir $soundDir "punch_hit_sfx.mp3" 1.0 "sound\fists_
 Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 1.0 "sound\fists_miss.wav" "wav" 0 0.55
 Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back.wav" "wav" 1.25 3
 Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
-Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 2.5 "sound\12gauge_jackson.wav" "wav" 9.5 11.5
+Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_jackson.wav" "wav" 9.5 11.5
 Compile-Sound $binDir $redistDir $soundDir "clint-eastwood.mp3" 2.0 "sound\357_selected.wav" "wav" 0 4.5
 Compile-Sound $binDir $redistDir $soundDir "point.wav" 5.0 "sound\point.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters_eNjs1Aq.mp3" 1.0 "sound\egon_selected.wav" "wav" 0 5
@@ -91,27 +91,27 @@ Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_j
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_jackson_comeon.wav" "wav" 18 19
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_jackson_buddy.wav" "wav" 28 29.5
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_jackson_dontstallme.wav" "wav" 38 42.0
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_nolossoflife.wav" "wav" 17 22
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_nicesuit.wav" "wav" 71 72
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_doitmyself.wav" "wav" 77 79
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_shes.wav" "wav" 84 85.5
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_nolossoflife.wav" "wav" 17 22.5
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 8.0 "sound\smg_gruber_shootglass.wav" "wav" 93 95
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_timemagazine.wav" "wav" 118 120
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_hohoho.wav" "wav" 125 128
-Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 11.0 "sound\smg_gruber_troublesome.wav" "wav" 142.5 144.5
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_music.wav" "wav" 0 3.5
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_suckaheads.wav" "wav" 19 24
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_arrangement.wav" "wav" 35.5 37
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_usethem.wav" "wav" 37.75 40.5
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_frost.wav" "wav" 53.5 55
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_nature.wav" "wav" 75 77
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_capable.wav" "wav" 77.5 79.5
-Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 2.0 "sound\mag60_blade_uphill.wav" "wav" 89 91.5
-Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_topping.wav" "wav" 9.5 12
-Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_trigger.wav" "wav" 16 20
-Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_pass.wav" "wav" 37 38.5
-Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 2.0 "sound\mag60_blade_dead.wav" "wav" 48.5 54
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_nolossoflife.wav" "wav" 17 22
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_nicesuit.wav" "wav" 71 72
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_doitmyself.wav" "wav" 77 79
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_shes.wav" "wav" 84 85.5
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_nolossoflife.wav" "wav" 17 22.5
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 20dB "sound\smg_gruber_shootglass.wav" "wav" 93 95
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_timemagazine.wav" "wav" 118 120
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 30dB "sound\smg_gruber_hohoho.wav" "wav" 125 128
+Compile-Sound $binDir $redistDir $soundDir "the-best-of-hans-gruber.mp3" 25dB "sound\smg_gruber_troublesome.wav" "wav" 142.5 144.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_music.wav" "wav" 0 3.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_suckaheads.wav" "wav" 19 24
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_arrangement.wav" "wav" 35.5 37
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_usethem.wav" "wav" 37.75 40.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_frost.wav" "wav" 53.5 55
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_nature.wav" "wav" 75 77
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_capable.wav" "wav" 77.5 79.5
+Compile-Sound $binDir $redistDir $soundDir "blade-10-best-quotes.mp3" 1.5 "sound\mag60_blade_uphill.wav" "wav" 89 91.5
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.5 "sound\mag60_blade_topping.wav" "wav" 9.5 12
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.5 "sound\mag60_blade_trigger.wav" "wav" 16 20
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.5 "sound\mag60_blade_pass.wav" "wav" 37 38.5
+Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.5 "sound\mag60_blade_dead.wav" "wav" 48.5 54
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
