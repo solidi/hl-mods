@@ -260,3 +260,4 @@ Thanks To:
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
 - Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
+- AudioCraZ for the dedicated server and last minute testing
