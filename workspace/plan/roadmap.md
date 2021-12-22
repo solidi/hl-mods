@@ -315,3 +315,4 @@
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
+    1. [ ] Separate arms cleanly from weapon models in v_ files

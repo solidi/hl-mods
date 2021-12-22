@@ -298,3 +298,4 @@
 1. My Ubuntu virtual machine locked up every 30 minutes. The solution was to disable 3d acceleration following [this guide](https://tipsmake.com/how-to-fix-ubuntu-freezing-in-virtualbox).
 1. In GIMP, to promote a selection to a layer, use the [select -> float](https://logosbynick.com/gimp-make-selection-new-layer/) option. There is also no default shortcut to quickly delete layers. Use [this guide](https://superuser.com/questions/603406/whats-the-shortcut-to-delete-selected-layer-in-gimp) on how to set the shortcuts.
 1. Using Loopback, [this article](https://blogs.reed.edu/ed-tech/recording-your-macs-video-screen-with-audio/) was important in understanding how to record audio to a screen recording.
+1. If the HLDS server from steamcmd is not visible, make sure that the Windows firewall rules are enabled for hlds.exe to connect from the outside.
