@@ -81,17 +81,17 @@
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
-    1. [ ] Map changes with all weapons
+    1. [x] Map changes with all weapons
 1. [ ] Publish
     1. [x] [ModDB Entry](https://www.moddb.com/mods/cold-ice-remastered)
     1. [ ] Gamebanana Entry
-    1. [ ] Write short post
-        1. [ ] r/halflife
-        1. [ ] fb ragegroup
+    1. [x] Write short post
+        1. [x] r/halflife
+        1. [x] fb ragegroup
         1. [ ] Steam Workshop?
         1. [ ] [TWHL](https://twhl.info/forum/view/mods)
-    1. [ ] Steam Community Forums
-    1. [ ] Update url_dl in liblist.gam
+    1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
+    1. [x] Update url_dl in liblist.gam
 
 ### Beta 1
 
@@ -232,7 +232,7 @@
     1. [ ] Jetpack?
     1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
     1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] Visual hitpoint deductions during play?
+    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
 1. Gameplay
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
@@ -274,17 +274,29 @@
         1. [ ] Faster spin?
     1. [ ] Third person muzzle flash placement
     1. [ ] Compact w_ models into p_
+    1. [ ] mag60 sd model from cold ice 2.5
+    1. [ ] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
+    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
+    1. [ ] Python v_ from brutal HL for focusing animation
 1. Weapon ViewModel / Effects
     1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+    1. [ ] Ice hands in addition
+    1. [ ] Blue arms + real skins
 1. Configuration Support
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [ ] cl_weaponvoice - disable or enable humor/voice sound effects
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Damage / blood / stains on view model as seen in bhl
+1. Server Support
+    1. [ ] mp_semiauto
+        1. Wire server to client message when changed
+1. UI / Menu
+    1. [ ] Cold Ice logo at bottom of menu
+    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Maps
     1. All Maps
         1. [ ] Debrief text file
@@ -298,6 +310,7 @@
 1. HUD
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
+    1. [ ] Weapon Sprite + text at bottom as compromise
 1. Runes
     1. [ ] Ammo regeneration
 1. Fixes
@@ -306,6 +319,12 @@
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
+    1. [ ] mp_infiniteammo -> sv_infiniteammo
+    1. [x] Make grappling hook default enabled
+    1. [ ] Rename release zip to `cold-ice-remastered-<hash>`
+    1. [ ] Throwable crowbar sometimes not iced?
+    1. [ ] Snowball not exhaustable?
+    1. [ ] Spawn x / 2 runes per currently connected players?
 1. Player Models
     1. [ ] [Snowman](https://gamebanana.com/mods/179220)
 1. Game Dev Tools
@@ -316,3 +335,6 @@
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
     1. [ ] Separate arms cleanly from weapon models in v_ files
+1. Community ideas
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
+    1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
