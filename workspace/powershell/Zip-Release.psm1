@@ -38,12 +38,12 @@ function Zip-Release {
         Copy-Item -Recurse -Force $redistDir $env:TEMP\release
         Remove-Item $env:TEMP\release\redist\dev.cfg
         Remove-Item $env:TEMP\release\redist\userconfig.cfg
-        Remove-Item $env:TEMP\release\redist\models\\* -Recurse -Force
-        Remove-Item $env:TEMP\release\redist\models -Force
-        Remove-Item $env:TEMP\release\redist\sound\\* -Recurse -Force
-        Remove-Item $env:TEMP\release\redist\sound -Force
-        Remove-Item $env:TEMP\release\redist\sprites\\* -Recurse -Force
-        Remove-Item $env:TEMP\release\redist\sprites -Force
+        Remove-Item $env:TEMP\release\redist\models\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\models -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sound\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sound -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sprites\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sprites -Force -ErrorAction Ignore
 
         "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\readme.txt
         "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\motd.txt
@@ -55,7 +55,6 @@ function Zip-Release {
         Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
     } catch {
-        Write-Error "Could not create zip file.`nReason: $($_.Exception.Message)"
-        exit
+        Throw "Could not create zip file.`nReason: $($_.Exception.Message)"
     }
 }
