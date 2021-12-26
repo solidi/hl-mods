@@ -9,6 +9,11 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+Beta 2 Features:
+
+- Fixes
+    - "mp_grapplinghook" default value set to 1
+
 Beta 1 Features:
 
 - Supports Steam on Windows, Linux, and macOS 
@@ -133,16 +138,8 @@ Beta 1 Features:
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
 
-Beta 2 Highly-Valued Upcoming Features:
+Beta 3 Highly-Valued Upcoming Features:
 
-- Xash3d Android support
-- Kick
-- Pistol whip (all weapons)
-- Akimbo's (all weapons)
-- Throw (all weapons)
-- Iron sights refinements
-- More weapons like the Portal gun
-- More Valve maps reskinned
 - See more on our living roadmap: https://github.com/solidi/hl-mods/blob/master/workspace/plan/roadmap.md
 
 Installation:

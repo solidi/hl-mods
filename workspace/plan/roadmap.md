@@ -2,51 +2,13 @@
 
 ## Mission
 
-1. More is more with weapons - if the game can handle it, add more of it
+To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life GoldSrc.
 
 ## First Principles
 
-1. To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life GoldSource
 1. To reuse models, maps, and sound effects as they were back in the original version
+1. More is more with weapons - if the game can handle it, add more of it
 1. To listen to the community on playability and update direction on suggestive feedback
-
-## Upgrades
-
-1. Unless otherise noted, use hi-definition models in place of lower resolution models
-1. Borrow CIR beta 2 models with ice over effect to this mod
-
-## Cvars
-
-1. Switch between iced models and standard skins
-
-## Weapon Outline
-
-1. Weapons (add behavior noes of each weapon after in-game review)
-
-  | entity name | title | slot | primary | clip | amount | secondary | clip | humor? |
-  | - | - | - | - | - | - | - | - | - 
-  | - | 12-inch Combat Knife | 1 | swing | 0 | 0 | no | 0 | no
-  | - | Standard Crowbar | 1 | swing | 0 | 0 | no | 0 | no
-  | - | 40-pound Monkey Wrench | 1 | swing | 0 | 0 |  no | 0 | no
-  | - | PPK, Bond Style | 2 | fire | 8 | 64 | change to silencer | 0 | yes
-  | - | Mag 60 Automatic Handgun | 2 | fast fire | 22 | 150 | slow fire | 0 | no
-  | - | M-16 Assault Rifle | 3 | fire | 30 | 75 | zoom | 0 | no
-  | - | 12 Gauge Shotgun | 4 | fire | 2 | 45 | double fire | 0 | no
-  | - | Assault Shotgun | 4 | fire | 8 | 45 | explosive buckshot | 8 | no
-  | - | USAS-12 Auto Shotgun | 4 | fire | 40 | 80 | no | 0 | no
-  | - | 25-inch Chaingun | 5 | fire | 60 | 200 | buckshot | 45 | no
-  | - | 7.65mm Sniper Rifle | 6 | fire | 10 | 20 | zoom | 0 | no
-  | - | Air Compressed Auto BoltGun | 6 | fire | 30 | 45 | no | 0 | no
-  | - | 30mm Assault Cannon | 7 | fire | 6 | 18 | no | 0 | no 
-  | - | 120-Pound Grenade Launcher | 7 | impact grenade | 6 | 18  | timed grenade | 8 | no
-  | - | 50-pound automatic LAW rocket Launcher | 7 | rocket | 5 | 5 | 5x rockets | 2 | no
-  | - | female assassin decoy bombs | 8 | throw | 4 | 0 | no | 0 | yes
-  | - | 6-pack cluster grenades | 8 | throw | 4 | 0 | no | 0 | no
-  | - | Chumtoad | 9 | throw | 3 | 0 | no | 0 | no
-  | - | Kamikaze Dynamite Vest | 10 | detonate | 1 | 0 | no | 0 | no
-
-1. Collaboration
-    1. [ ] Reach out to [BlueNightHawk](trovymam@gmail.com) 
 
 # Launch List
 
@@ -93,6 +55,152 @@
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
+### Beta 2
+
+1. Themes
+    1. Source version
+    1. Xash3d Android support
+    1. Kick
+    1. Pistol whip (all weapons)
+    1. Akimbo's (all weapons)
+    1. Throw (all weapons)
+    1. Weapons
+        1. [ ] Freeze gun
+        1. [ ] Portal gun
+    1. More Valve maps reskinned
+        1. [ ] Crossfire
+1. Movement
+    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
+1. Bot support
+    1. [ ] Bot support for hook
+    1. [ ] Bot support for macOS
+1. Supported Systems
+    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
+1. Game Mechanics
+    1. [ ] Jetpack?
+    1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
+    1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
+    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
+    1. In-game help menu
+        1. [ ] Show version in message
+    1. [ ] Player jump and land sound effects
+    1. [ ] Player snow footstep sounds / materials
+1. Gameplay
+    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
+    1. [ ] mp_startonlywith "weapon_*"
+    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
+    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
+    1. [ ] Weapon filter list
+1. Environment look and feel
+    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
+    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+    1. [ ] Bullet hole decals like BHL
+1. Weapons
+    1. [ ] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
+    1. [ ] Deagle
+        1. [x] Single shot weapons for semi-auto effect
+    1. [ ] Hand cannon
+    1. [ ] Snowball Machine
+    1. [ ] Pulse Rifle
+    1. [ ] Pulse Pistol
+    1. [ ] Akimbo support
+    1. [ ] C4 mine placement with satchels
+    1. [ ] Convert throw-hold effect to all other weapons for control
+    1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
+    1. [ ] Taser
+    1. [ ] Snowball Generator in place of Egon gun
+    1. [ ] Decoy bombs that morph into AI assassins?
+    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
+    1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
+    1. [ ] Counter-Strike penguin
+    1. Knife
+        1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
+        1. [ ] Cold Ice 2.5 model?
+        1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
+    1. Crossbow
+        1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
+    1. Handgrenades
+        1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
+        1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
+    1. Chaingun
+        1. [ ] Secondary chaingun idea?
+        1. [ ] Faster spin?
+    1. [ ] Third person muzzle flash placement
+    1. [ ] mag60 sd model from cold ice 2.5
+    1. [ ] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
+    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
+    1. [ ] Python v_ from brutal HL for focusing animation
+    1. [ ] Punch angle for draw and holstering
+    1. [ ] Tighten up all idle animation times to match code
+    1. [ ] Correct all brass shell ejection points
+    1. [ ] Use attachment point for each model
+1. Weapon ViewModel / Effects
+    1. [ ] A generic draw/holster sound? (like CS:GO)
+    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
+    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
+    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
+    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+    1. [ ] Ice hands in addition
+    1. [ ] Blue arms + real skins
+1. Configuration Support
+    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
+    1. [x] cl_weaponvoice - disable or enable humor/voice sound effects
+    1. [ ] Damage / blood / stains on view model as seen in bhl
+1. Server Support
+    1. [ ] mp_semiauto
+        1. Wire server to client message when changed
+1. UI / Menu
+    1. [ ] Cold Ice logo at bottom of menu
+    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
+1. Maps
+    1. All Maps
+        1. [ ] Debrief text file
+        1. [ ] Overview graphic
+    1. [ ] fgd file
+    1. [ ] Finish arena, texture in Cold Ice style
+    1. [ ] Training 2
+        1. [ ] Frozen pool in new area opposite of garage
+    1. [ ] Frozen Lake map idea
+    1. [ ] Crossfire re-skinned
+1. HUD
+    1. [ ] Best effort weapon sprites
+    1. [ ] Re-enable suit voice updates?
+    1. [ ] Add map name to the scoreboard
+    1. [ ] Weapon Sprite + text at bottom as compromise
+1. Menu Graphics
+    1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
+1. Runes
+    1. [ ] Ammo regeneration
+1. Fixes
+    1. [ ] Knife / Crowbar / Wrench next attack instant after death
+    1. [ ] Bots harder to see player with cloak rune.
+    1. [ ] Add faces to bottom/back of item models
+    1. [ ] Railgun follows through multiple targets
+    1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
+    1. [ ] mp_infiniteammo -> sv_infiniteammo
+    1. [x] Make grappling hook default enabled
+    1. [ ] Rename release zip to `cold-ice-remastered-<hash>`
+    1. [ ] Throwable crowbar sometimes not iced?
+    1. [ ] Snowball not exhaustable?
+    1. [ ] Spawn x / 2 runes per currently connected players?
+1. Player Models
+    1. [ ] [Snowman](https://gamebanana.com/mods/179220)
+    1. [ ] All Cold Ice 1.6 player models
+1. Game Dev Tools
+    1. [ ] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
+    1. [ ] Codegen for generating new weapons
+    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
+    1. [ ] Timestamps for building artifacts
+        1. If timestamp of built artifact is newer than all source artifacts, skip building again
+    1. [ ] Compile mdl tool for Linux
+1. Clean up
+    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
+    1. [ ] Compact w_ models into p_
+1. Community ideas
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
+    1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
+
 ### Beta 1
 
 1. Movement
@@ -103,13 +211,8 @@
         1. Add [bots](http://hpb-bot.bots-united.com/index.html)
 1. Game Mechanics
     1. [x] In-game help menu
-        1. [ ] Show version in message
-    1. [ ] Player jump and land sound effects
-    1. [ ] Player snow footstep sounds / materials
     1. [x] HUD notification system - Identity of weapons from Rory
 1. Gameplay
-    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
-    1. [ ] mp_startonlywith "weapon_*"
     1. [x] mp_startwithall "1"
     1. [x] [sv_inifinite_ammo](https://github.com/ValveSoftware/halflife/issues/2598) idea
     1. [x] Bell when a frag is committed (ala CS:GO)
@@ -117,11 +220,7 @@
     1. [x] Skin Egon, Gauss, Hornetgun, Snark
     1. [x] Spin ammo, battery, healthkit, and longjump
     1. [x] Punch angles for all weapons
-        1. [ ] Punch angle for draw and holstering
     1. [x] Spawn extra weapons with other matching slot number
-    1. [ ] Tighten up all idle animation times to match code
-    1. [ ] Correct all brass shell ejection points
-        1. [ ] Use attachment point for each model
     1. [x] M16 Assault Rifle
     1. [x] Nuke launcher (Cold Ice 2.5 model) / [Futuristic RPG model swap](https://gamebanana.com/mods/239023)
     1. [x] Assault Shotgun
@@ -189,13 +288,9 @@
 1. Maps
     1. [x] Compile originals
     1. [x] Depot
-1. Menu Graphics
-    1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
 1. HUD
-    1. [ ] Best effort weapon sprites
     1. [x] Original CI numbers / Overhaul numbers
 1. Player Models
-    1. [ ] All Cold Ice 1.6 player models
     1. [x] All CIR player models
     1. [x] Assassin and army models from Cold Ice 2.5
     1. [x] [Santa](https://www.moddb.com/games/half-life/addons/santa-claus)
@@ -219,122 +314,6 @@
 1. Game Dev Tools
     1. [x] Contribute back to valve halflife repo with github actions to build the full suite
 
-### Beta 2
+## Collaboration
 
-1. Movement
-    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
-1. Bot support
-    1. [ ] Bot support for hook
-    1. [ ] Bot support for macOS
-1. Supported Systems
-    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
-1. Game Mechanics
-    1. [ ] Jetpack?
-    1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
-    1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
-1. Gameplay
-    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
-    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
-    1. [ ] Weapon filter list
-1. Environment look and feel
-    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
-    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
-    1. [ ] Bullet hole decals like BHL
-1. Weapons
-    1. [ ] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
-    1. [ ] Deagle
-        1. [x] Single shot weapons for semi-auto effect
-    1. [ ] Hand cannon
-    1. [ ] Snowball Machine
-    1. [ ] Pulse Rifle
-    1. [ ] Pulse Pistol
-    1. [ ] Akimbo support
-    1. [ ] C4 mine placement with satchels
-    1. [ ] Convert throw-hold effect to all other weapons for control
-    1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
-    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
-    1. [ ] Taser
-    1. [ ] Snowball Generator in place of Egon gun
-    1. [ ] Decoy bombs that morph into AI assassins?
-    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
-    1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
-    1. [ ] Counter-Strike penguin
-    1. Knife
-        1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
-        1. [ ] Cold Ice 2.5 model?
-        1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
-    1. Crossbow
-        1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
-    1. Handgrenades
-        1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
-        1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
-    1. Chaingun
-        1. [ ] Secondary chaingun idea?
-        1. [ ] Faster spin?
-    1. [ ] Third person muzzle flash placement
-    1. [ ] Compact w_ models into p_
-    1. [ ] mag60 sd model from cold ice 2.5
-    1. [ ] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
-    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
-    1. [ ] Python v_ from brutal HL for focusing animation
-1. Weapon ViewModel / Effects
-    1. [ ] A generic draw/holster sound? (like CS:GO)
-    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
-    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
-    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
-    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
-    1. [ ] Ice hands in addition
-    1. [ ] Blue arms + real skins
-1. Configuration Support
-    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
-    1. [ ] cl_weaponvoice - disable or enable humor/voice sound effects
-    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
-    1. [ ] Damage / blood / stains on view model as seen in bhl
-1. Server Support
-    1. [ ] mp_semiauto
-        1. Wire server to client message when changed
-1. UI / Menu
-    1. [ ] Cold Ice logo at bottom of menu
-    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
-1. Maps
-    1. All Maps
-        1. [ ] Debrief text file
-        1. [ ] Overview graphic
-    1. [ ] fgd file
-    1. [ ] Finish arena, texture in Cold Ice style
-    1. [ ] Training 2
-        1. [ ] Frozen pool in new area opposite of garage
-    1. [ ] Frozen Lake map idea
-    1. [ ] Crossfire re-skinned
-1. HUD
-    1. [ ] Re-enable suit voice updates?
-    1. [ ] Add map name to the scoreboard
-    1. [ ] Weapon Sprite + text at bottom as compromise
-1. Runes
-    1. [ ] Ammo regeneration
-1. Fixes
-    1. [ ] Knife / Crowbar / Wrench next attack instant after death
-    1. [ ] Bots harder to see player with cloak rune.
-    1. [ ] Add faces to bottom/back of item models
-    1. [ ] Railgun follows through multiple targets
-    1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
-    1. [ ] mp_infiniteammo -> sv_infiniteammo
-    1. [x] Make grappling hook default enabled
-    1. [ ] Rename release zip to `cold-ice-remastered-<hash>`
-    1. [ ] Throwable crowbar sometimes not iced?
-    1. [ ] Snowball not exhaustable?
-    1. [ ] Spawn x / 2 runes per currently connected players?
-1. Player Models
-    1. [ ] [Snowman](https://gamebanana.com/mods/179220)
-1. Game Dev Tools
-    1. [ ] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
-    1. [ ] Codegen for generating new weapons
-    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
-    1. [ ] Timestamps for building artifacts
-        1. If timestamp of built artifact is newer than all source artifacts, skip building again
-    1. [ ] Compile mdl tool for Linux
-    1. [ ] Separate arms cleanly from weapon models in v_ files
-1. Community ideas
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
-    1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
+1. [ ] Reach out to [BlueNightHawk](trovymam@gmail.com)
