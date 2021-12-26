@@ -68,7 +68,13 @@ if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest_hd" $redisthddir
 }
 
-PAK-File $binDir $redistDir @("models", "sound", "sprites")
+try {
+    PAK-File $binDir $redistDir @("models", "sound", "sprites")
+} catch {
+    if ($verifyfiles) {
+        Throw
+    }
+}
 
 Zip-Release $rootDir $redistDir $redistHdDir $gameFolder
 
