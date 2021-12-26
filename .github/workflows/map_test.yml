@@ -99,9 +99,9 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
-        Expand-Archive -Path .\${{env.FOLDER_NAME}}\snowyard.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\snowyard\snowyard.zip -DestinationPath $env:TEMP
         Move-Item $env:TEMP\snowyard $env:TEMP\maps
-        Expand-Archive -Path .\${{env.FOLDER_NAME}}\fences.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\fences\fences.zip -DestinationPath $env:TEMP
         Move-Item $env:TEMP\fences $env:TEMP\maps
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
