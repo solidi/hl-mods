@@ -38,6 +38,7 @@ $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
+$wadsDir = "${RootDir}\wads"
 $mapsDir = "${RootDir}\maps"
 
 if ($clean -eq $true) {
