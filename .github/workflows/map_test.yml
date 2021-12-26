@@ -155,7 +155,7 @@ jobs:
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\snowyard\snowyard.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\fences\fences.zip -DestinationPath $env:TEMP
-        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\maps.zip -Force
+        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
       uses: actions/upload-artifact@v2
