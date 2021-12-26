@@ -50,7 +50,7 @@ function Zip-Release {
 
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
-        Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd
+        Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
         Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
         Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
