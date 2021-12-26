@@ -73,7 +73,4 @@ if ([string]::IsNullOrEmpty($mapName)) {
     Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir
 }
 
-Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
-Copy-Item $mapsDir\boot_camp.wpt $redistDir\maps
-
 Set-Location -Path ${PSScriptRoot}

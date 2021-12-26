@@ -1,6 +1,9 @@
 name: Package Cold Ice Remastered
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - '**'
 
 env:
   # Configuration type to build.
@@ -460,7 +463,7 @@ jobs:
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\${{env.FOLDER_NAME}}\Build-Release.ps1 -ConfigFile Config
+      run: .\${{env.FOLDER_NAME}}\Build-Release.ps1 -ConfigFile Config -SkipVerify
 
     - name: Archive Cold Ice Release
       uses: actions/upload-artifact@v2
