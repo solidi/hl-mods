@@ -44,8 +44,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -89,8 +87,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -169,8 +165,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download wads
       uses: actions/download-artifact@v2

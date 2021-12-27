@@ -30,7 +30,7 @@ function Zip-Release {
     
     try {
         $gitHash = $(Git-Hash)
-        echo "Creating $Package version: $gitHash`r`n..."
+        echo "Creating version: $gitHash`r`n..."
         $zipFile = "${rootDir}\cold-ice-remastered-${gitHash}.zip"
 
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
@@ -50,7 +50,7 @@ function Zip-Release {
 
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
-        Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
+        #Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
         Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
         #Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
