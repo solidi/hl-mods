@@ -30,7 +30,7 @@ function Zip-Release {
     
     try {
         $gitHash = $(Git-Hash)
-        echo "Creating $Package version: $gitHash`r`n..."
+        echo "Creating version: $gitHash`r`n..."
         $zipFile = "${rootDir}\cold-ice-remastered-${gitHash}.zip"
 
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
@@ -38,24 +38,23 @@ function Zip-Release {
         Copy-Item -Recurse -Force $redistDir $env:TEMP\release
         Remove-Item $env:TEMP\release\redist\dev.cfg
         Remove-Item $env:TEMP\release\redist\userconfig.cfg
-        Remove-Item $env:TEMP\release\redist\models\\* -Recurse -Force
-        Remove-Item $env:TEMP\release\redist\models -Force
-        Remove-Item $env:TEMP\release\redist\sound\\* -Recurse -Force
-        Remove-Item $env:TEMP\release\redist\sound -Force
-        Remove-Item $env:TEMP\release\redist\sprites\\* -Recurse -Force
-        Remove-Item $env:TEMP\release\redist\sprites -Force
+        Remove-Item $env:TEMP\release\redist\models\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\models -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sound\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sound -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sprites\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\sprites -Force -ErrorAction Ignore
 
         "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\readme.txt
         "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\motd.txt
 
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
-        Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
-        Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd
+        Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release -ErrorAction Ignore
+        Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
         Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
         Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
     } catch {
-        Write-Error "Could not create zip file.`nReason: $($_.Exception.Message)"
-        exit
+        Throw "Could not create zip file.`nReason: $($_.Exception.Message)"
     }
 }

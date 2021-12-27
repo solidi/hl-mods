@@ -14,14 +14,12 @@ function PAK-File {
     try {
         $out = iex $in | Out-String
     } catch {
-        Write-Error "$out> Could not pak project.`nReason: $_.Exception.Message"
-        exit
+        Throw "$out> Could not pak project.`nReason: $_.Exception.Message"
     }
 
     # qpakman does not exit with failure.
     if ($out -match '[1-9] failures' -or $out.Contains("FAILURE")) {
-        echo "$out> Could not create pak file."
-        exit
+        Throw "$out> Could not create pak file."
     }
 
     Remove-Item "${targetDir}\qpakman.exe"

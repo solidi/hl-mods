@@ -161,8 +161,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -207,8 +205,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -241,8 +237,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -282,14 +276,12 @@ jobs:
         name: compiled_sprites
         path: ./${{env.FOLDER_NAME}}/sprites.zip
 
-  compile_maps:
+  compile_wads:
     runs-on: windows-latest
     needs: [compile_tools]
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -311,15 +303,103 @@ jobs:
       run: |
         "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
-    - name: Compile Maps
+    - name: Compile Wads
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Wads.ps1 -Clean -ConfigFile Config
+        Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Compress-Archive -DestinationPath .\wads.zip -Force
+
+    - name: Upload Wads
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled_wads
+        path: ./${{env.FOLDER_NAME}}/wads.zip
+
+  compile_maps:
+    runs-on: windows-latest
+    needs: [compile_tools, compile_wads]
+    strategy:
+      matrix:
+        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Download tools
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_tools
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download wads
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_wads
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack wads
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\wads.zip -DestinationPath $env:TEMP
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\wads -Force -PassThru
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
+        Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+
+    - name: Compile ${{matrix.map}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Map ${{matrix.map}}
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
-        Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
-        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\maps.zip -Force
-        Get-ChildItem -Path $env:TEMP -Filter *.wad | Compress-Archive -DestinationPath .\maps.zip -Update
+        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
+
+    - name: Upload ${{matrix.map}}
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{matrix.map}}
+        path: ./${{env.FOLDER_NAME}}/${{matrix.map}}.zip
+
+  combine_maps:
+    runs-on: windows-latest
+    needs: [compile_maps]
+
+    steps:
+    - uses: actions/download-artifact@v2
+      with:
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Combine Maps
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\training\training.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\stalkyard2\stalkyard2.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\snowyard\snowyard.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\coldice\coldice.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\canyon\canyon.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\focus\focus.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\furrow\furrow.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\training2\training2.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\bounce2\bounce2.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\catacombs\catacombs.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\fences\fences.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\depot\depot.zip -DestinationPath $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
       uses: actions/upload-artifact@v2
@@ -329,12 +409,10 @@ jobs:
 
   package_coldice:
     runs-on: windows-latest
-    needs: [windows_libs, linux_libs, macOS_libs, compile_models, compile_maps, compile_sprites, compile_sounds]
+    needs: [windows_libs, linux_libs, macOS_libs, compile_models, combine_maps, compile_sprites, compile_sounds]
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        submodules: recursive
 
     - name: Download windows dlls
       uses: actions/download-artifact@v2
@@ -395,6 +473,19 @@ jobs:
         Move-Item $env:TEMP\models_hd .\${{env.FOLDER_NAME}}\redist_hd\models
         Remove-Item .\${{env.FOLDER_NAME}}\models.zip -Recurse -Force -ErrorAction Ignore
 
+    - name: Download wads
+      uses: actions/download-artifact@v2
+      with:
+        name: compiled_wads
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack wads
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\wads.zip -DestinationPath $env:TEMP
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
+        Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
+
     - name: Download maps
       uses: actions/download-artifact@v2
       with:
@@ -406,7 +497,6 @@ jobs:
       run: |
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\maps.zip -DestinationPath $env:TEMP
         Move-Item $env:TEMP\maps .\${{env.FOLDER_NAME}}\redist
-        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
         Remove-Item .\${{env.FOLDER_NAME}}\maps.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download sounds

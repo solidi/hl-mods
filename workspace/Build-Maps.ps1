@@ -22,7 +22,7 @@ $Config = @{ }
         echo "configuration file is $configFile..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
         $clean = $true
-        echo "rebuilding all wads and maps..."
+        echo "rebuilding all maps..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Map") {
         $mapName = $_.Split(' ')[1]
         echo "building map $mapName..."
@@ -32,7 +32,6 @@ $Config = @{ }
 $host.UI.RawUI.WindowTitle = "Building $($Config['projectName']) Maps"
 
 Import-Module $PSScriptRoot\powershell\Compile-Map.psm1 -Force -DisableNameChecking
-Import-Module $PSScriptRoot\powershell\Compile-Wad.psm1 -Force -DisableNameChecking
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
@@ -40,14 +39,6 @@ $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 
 $wadsDir = "${RootDir}\wads"
-
-if ($clean -eq $true) {
-    Remove-Item $redistDir\* -Recurse -Include *.wad -Force -ErrorAction Ignore
-}
-
-Compile-Wad $binDir "coldice" $wadsDir $redistDir
-Compile-Wad $binDir "decals" $wadsDir $redistDir
-
 $mapsDir = "${RootDir}\maps"
 
 if ($clean -eq $true) {
@@ -72,8 +63,5 @@ if ([string]::IsNullOrEmpty($mapName)) {
 } else {
     Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir
 }
-
-Copy-Item $mapsDir\stalkyard.wpt $redistDir\maps
-Copy-Item $mapsDir\boot_camp.wpt $redistDir\maps
 
 Set-Location -Path ${PSScriptRoot}
