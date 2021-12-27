@@ -49,10 +49,10 @@ function Zip-Release {
         "`r`nPackage version: $(Git-Hash 1)`r`n" | Add-Content $env:TEMP\release\redist\motd.txt
 
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
-        Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release
-        #Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
+        Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release -ErrorAction Ignore
+        Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
         Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
-        #Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
+        Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update -ErrorAction Ignore
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
     } catch {
         Throw "Could not create zip file.`nReason: $($_.Exception.Message)"
