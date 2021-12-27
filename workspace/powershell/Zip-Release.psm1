@@ -52,7 +52,7 @@ function Zip-Release {
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release -ErrorAction Ignore
         Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
         Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
-        #Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update -ErrorAction Ignore
+        Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
     } catch {
         Throw "Could not create zip file.`nReason: $($_.Exception.Message)"

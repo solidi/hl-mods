@@ -180,7 +180,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [x] Make grappling hook default enabled
-    1. [ ] Rename release zip to `cold-ice-remastered-<hash>`
+    1. [x] Rename release zip to `cold-ice-remastered-<hash>`
     1. [ ] Throwable crowbar sometimes not iced?
     1. [ ] Snowball not exhaustable?
     1. [ ] Spawn x / 2 runes per currently connected players?
@@ -188,12 +188,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Snowman](https://gamebanana.com/mods/179220)
     1. [ ] All Cold Ice 1.6 player models
 1. Game Dev Tools
-    1. [ ] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
+    1. [x] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
+    1. [ ] God mode
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
