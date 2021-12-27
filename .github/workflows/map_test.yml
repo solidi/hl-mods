@@ -1,6 +1,9 @@
 name: Matrix Map Test
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - '**'
 
 env:
   BUILD_CONFIGURATION: Release
