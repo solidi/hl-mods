@@ -15,7 +15,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-    - run: git config --global http.postBuffer 524288000
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
@@ -47,7 +46,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-    - run: git config --global http.postBuffer 524288000
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -93,7 +91,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-    - run: git config --global http.postBuffer 524288000
 
     - name: Download tools
       uses: actions/download-artifact@v2
@@ -174,7 +171,6 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-    - run: git config --global http.postBuffer 524288000
 
     - name: Download wads
       uses: actions/download-artifact@v2
