@@ -27,6 +27,16 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "body" "hheva"
 
+// 3 attachment(s)
+$attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
+$attachment 1 "Bip01 R Hand" 15.000000 1.500000 3.750000
+$attachment 2 "Bip01 R Hand" 30.000000 3.000000 7.500000
+
+// 4 bone controller(s)
+$controller 0 "Bip01 Spine" XR -30.000000 30.000000
+$controller 1 "Bip01 Spine1" XR -30.000000 30.000000
+$controller 2 "Bip01 Spine2" XR -30.000000 30.000000
+$controller 3 "Bip01 Spine3" XR -30.000000 30.000000
 
 // 22 hit box(es)
 $hbox 0 "Bip01 Pelvis" -4.610000 -4.430000 -8.040000 3.330000 6.190000 7.730000
