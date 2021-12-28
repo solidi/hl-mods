@@ -15,6 +15,7 @@ Beta 2 Features:
     - "mp_grapplinghook" default value set to 1
     - Added w_egon model spin
     - Fixed hhev attachments
+    - Fixed vest crash in single player
 
 Beta 1 Features:
 
