@@ -58,6 +58,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 2
 
 1. Themes
+    1. 64 weapons
     1. Source version
     1. Xash3d Android support
     1. Kick
@@ -65,7 +66,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Akimbo's (all weapons)
     1. Throw (all weapons)
     1. Weapons
-        1. [ ] Freeze gun
+        1. [ ] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
         1. [ ] Portal gun
     1. More Valve maps reskinned
         1. [ ] Crossfire

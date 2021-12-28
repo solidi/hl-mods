@@ -13,6 +13,8 @@ Beta 2 Features:
 
 - Fixes
     - "mp_grapplinghook" default value set to 1
+    - Added w_egon model spin
+    - Fixed hhev attachments
 
 Beta 1 Features:
 

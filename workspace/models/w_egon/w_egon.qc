@@ -53,5 +53,6 @@ $hbox 0 "Box02" -28.680000 -36.290001 -32.209999 12.370000 3.900000 0.000000
 
 // animation sequence(s)
 $sequence "stayput" "stayput" fps 1 
+$sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.
