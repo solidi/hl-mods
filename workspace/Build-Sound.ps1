@@ -50,7 +50,6 @@ if ($clean -eq $true) {
 }
 
 Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
-Compile-Sound $binDir $redistDir $soundDir "vest_selected.wav" 1.5 "sound\vest_selected.wav" "wav" 1.1 5
 Compile-Sound $binDir $redistDir $soundDir "leroy.swf.mp3" 1.0 "sound\vest_attack.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "alive.wav" 2.0 "sound\vest_alive.wav" "wav" 1 5
 Compile-Sound $binDir $redistDir $soundDir "buddha.wav" 1.0 "sound\knife_thecore.wav" "wav" 0 3
@@ -121,6 +120,7 @@ Copy-Item $soundDir\handgun_selected.wav $redistdir\sound
 Copy-Item $soundDir\handgun_silenced.wav $redistdir\sound
 Copy-Item $soundDir\handgun.wav $redistdir\sound
 Copy-Item $soundDir\vest_equip.wav $redistdir\sound
+Copy-Item $soundDir\vest_selected.wav $redistdir\sound
 Copy-Item $soundDir\explode3.wav $redistdir\sound\weapons
 Copy-Item $soundDir\explode4.wav $redistdir\sound\weapons
 Copy-Item $soundDir\explode5.wav $redistdir\sound\weapons
