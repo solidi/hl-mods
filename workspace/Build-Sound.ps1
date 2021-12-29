@@ -231,4 +231,6 @@ Copy-Item $soundDir\pinpull.wav $redistdir\sound
 Copy-Item $soundDir\grenade_throw.wav $redistdir\sound
 Copy-Item $soundDir\nuke_draw.wav $redistdir\sound
 
+Copy-Item $soundDir\sentences.txt $redistdir\sound
+
 Set-Location -Path ${PSScriptRoot}
