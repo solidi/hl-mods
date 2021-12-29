@@ -16,6 +16,7 @@ Beta 2 Features:
     - Added w_egon model spin
     - Fixed hhev attachments
     - Fixed vest crash in single player
+    - Fixed WILD sounds in coldice
 
 Beta 1 Features:
 
