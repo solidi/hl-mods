@@ -699,7 +699,7 @@ BA_SHOT3 barney/ba_whatyou
 BA_SHOT4 barney/ba_friends
 BA_SHOT5 barney/ba_pissme
 
-//When Barney’s really pissed at you:
+//When Barneyï¿½s really pissed at you:
 BA_MAD0 barney/ba_stepoff
 BA_MAD1 barney/ba_iwish
 BA_MAD2 barney/ba_uwish
@@ -708,7 +708,7 @@ BA_MAD4 barney/ba_endline
 BA_MAD5 barney/ba_dontmake
 BA_MAD6 barney/ba_tomb
 
-//When Barney’s killed something
+//When Barneyï¿½s killed something
 BA_KILL0 barney/ba_gotone
 BA_KILL1 barney/ba_another
 BA_KILL2 barney/ba_buttugly
@@ -1204,9 +1204,6 @@ WILD8 ambience/quail1(p98 v20))
 WILD9 ambience/des_wind1(v50)
 WILD10 ambience/des_wind2(v50)
 WILD11 ambience/des_wind3(v50)
-WILD9 ambience/des_wind1(v40 p105)
-WILD10 ambience/des_wind2(v40 p98)
-WILD11 ambience/des_wind3(v40 p103)
 WILD12 ambience/wren1(v80)
 
 // rocket
