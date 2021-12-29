@@ -17,6 +17,7 @@ Beta 2 Features:
     - Fixed hhev attachments
     - Fixed vest crash in single player
     - Fixed WILD sounds in coldice
+    - Normalized sound loudness
 
 Beta 1 Features:
 
