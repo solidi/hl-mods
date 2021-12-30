@@ -151,6 +151,7 @@ Beta 3 Highly-Valued Upcoming Features:
 Installation:
 
 - For Steam: Place both ice_betax and ice_betax_hd folders in the same folder as where hl.exe is installed.
+    - See this guide for a step by step guide on how to install this mod: https://steamcommunity.com/sharedfiles/filedetails/?id=174908119
 - For Xash3d: Since Xash3d does not support SD/HD model switching, install the ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste over the ice_betax folder, overwriting the SD models.
 
 How to Play:

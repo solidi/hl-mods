@@ -300,3 +300,13 @@
 1. Using Loopback, [this article](https://blogs.reed.edu/ed-tech/recording-your-macs-video-screen-with-audio/) was important in understanding how to record audio to a screen recording.
 1. If the HLDS server from steamcmd is not visible, make sure that the Windows firewall rules are enabled for hlds.exe to connect from the outside.
 1. I learned that SteamCmd will report a 0x202 error when file permissions rejected or out of disk space. See [this thread](https://steamcommunity.com/groups/linuxgsm/discussions/0/135508031951230808/) for details, or look in `logs/` folder of steamcmd.
+1. I learned that Github workflow archives are [only available](https://github.com/actions/upload-artifact/issues/51) to those that are logged into Github.
+1. ffmpeg volume controls also support the flag NdB, for example, `-filter:a volume=25dB`. [See this guide](https://trac.ffmpeg.org/wiki/AudioVolume) for more information about volume controls.
+1. To see all those that star a Github repository, use the `/stargazers` [path](https://webapps.stackexchange.com/questions/41799/how-can-i-list-people-who-have-starred-my-github-repository) at the end of the repo path.
+1. For the [download-artifact](https://giters.com/actions/download-artifact), all artifacts can be downloaded at once if no name is specified.
+1. To temporary stop a Github workflow, use the declaration `on: push: branches-ignore: - '**'`
+1. The [Github Community board for actions](https://github.community/c/code-to-cloud/github-actions/41) was important to determine when an outtage occured. The [status page](https://www.githubstatus.com/) was not sufficient.
+1. Audacity is a good free audio editor. It includes support to [reduce background noise](https://filmstro.com/blog/how-to-remove-background-noise-in-audacity).
+1. A [very good article](https://flatline-arena.droppages.com/tutorials/Skelswapping/) on how to swap player skeletons in GoldSrc using Milkshape3d.
+1. I learned that you can control framerate by using the commands `fps_override 1` and `fps_max`. This is helpful to debug ironsights. [This thread](https://steamcommunity.com/app/70/discussions/0/3315110799612677127/) was the source.
+1. You can combine gif's by simply using Imagemagick command `convert gi1 gif2 combined`. [See this thread](https://askubuntu.com/questions/833842/how-can-i-combine-two-animated-gif-images-into-one) for details.
