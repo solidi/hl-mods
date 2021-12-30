@@ -18,6 +18,7 @@ Beta 2 Features:
     - Fixed vest crash in single player
     - Fixed WILD sounds in coldice
     - Normalized sound loudness
+    - Fixed medkit backface bug
 
 Beta 1 Features:
 

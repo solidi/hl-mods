@@ -169,6 +169,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
     1. [ ] Weapon Sprite + text at bottom as compromise
+    1. [ ] Slanted health and armor sprites like Blue Shift
 1. Menu Graphics
     1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
 1. Runes
@@ -185,6 +186,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Throwable crowbar sometimes not iced?
     1. [ ] Snowball not exhaustable?
     1. [ ] Spawn x / 2 runes per currently connected players?
+    1. [x] Repair backs of health kits
 1. Player Models
     1. [ ] [Snowman](https://gamebanana.com/mods/179220)
     1. [ ] All Cold Ice 1.6 player models
@@ -202,6 +204,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
+
 
 ### Beta 1
 
