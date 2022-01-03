@@ -264,4 +264,5 @@ Thanks To:
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
 - Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
-- AudioCraZ for the dedicated server and last minute testing
+- AudioCraZ for the dedicated server and last minute testing for Beta 1
+- Napoleon for 64+ weapon support tutorial https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
