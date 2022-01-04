@@ -40,6 +40,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] M16
     1. [x] Explosive Assault Shotgun
     1. [x] Nuke Launcher
+    1. [x] Snarks
+        1. [ ] Odd sz_getspace error, bots walking slowly?
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -58,13 +60,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 2
 
 1. Themes
-    1. 64 weapons
-    1. Source version
-    1. Xash3d Android support
-    1. Kick
-    1. Pistol whip (all weapons)
-    1. Akimbo's (all weapons)
+    1. [x] 64 weapons
+    1. [ ] Kick
+    1. [ ] Source version
+    1. [ ] Xash3d Android support
+    1. [ ] Pistol whip (all weapons)
+    1. [ ] Akimbo's (all weapons)
     1. Throw (all weapons)
+        1. Throw back grenade
     1. Weapons
         1. [ ] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
         1. [ ] Portal gun
@@ -84,6 +87,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. In-game help menu
         1. [ ] Show version in message
+        1. [ ] Random "did you know" messages during play to expose options
     1. [ ] Player jump and land sound effects
     1. [ ] Player snow footstep sounds / materials
 1. Gameplay
@@ -97,7 +101,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
     1. [ ] Bullet hole decals like BHL
 1. Weapons
-    1. [ ] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
+    1. [x] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
     1. [ ] Deagle
         1. [x] Single shot weapons for semi-auto effect
     1. [ ] Hand cannon
@@ -127,6 +131,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Chaingun
         1. [ ] Secondary chaingun idea?
         1. [ ] Faster spin?
+        1. [ ] Tracers on all bullets?
     1. [ ] Third person muzzle flash placement
     1. [ ] mag60 sd model from cold ice 2.5
     1. [ ] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
@@ -137,6 +142,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Correct all brass shell ejection points
     1. [ ] Use attachment point for each model
 1. Weapon ViewModel / Effects
+    1. [ ] Bob up/down like HL New Light v3
     1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
@@ -204,7 +210,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
-
 
 ### Beta 1
 
