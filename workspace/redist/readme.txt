@@ -11,6 +11,8 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 2 Features:
 
+- Client Support
+    - God mode (when sv_cheats 1)
 - Fixes
     - "mp_grapplinghook" default value set to 1
     - Added w_egon model spin
