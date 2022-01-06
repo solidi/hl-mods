@@ -171,6 +171,7 @@ Client:
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
 - "drop_rune" - Drop rune
+- "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
     - "0" - real skin
     - "1" - original inverted skin

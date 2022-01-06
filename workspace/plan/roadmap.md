@@ -76,6 +76,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Movement
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
+    1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Supported Systems
@@ -198,18 +199,20 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] All Cold Ice 1.6 player models
 1. Game Dev Tools
     1. [x] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
+    1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
-    1. [ ] God mode
+    1. [x] God mode
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
 1. Community ideas
     1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
+    1. [ ] Improve crosshair visibility
 
 ### Beta 1
 
