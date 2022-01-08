@@ -242,6 +242,7 @@ models\v_squeak.mdl
 models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
+models\v_leg.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
