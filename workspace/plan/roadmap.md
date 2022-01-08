@@ -61,7 +61,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. Themes
     1. [x] 64 weapons
-    1. [ ] Kick
+    1. [x] Kick
     1. [ ] Source version
     1. [ ] Xash3d Android support
     1. [ ] Pistol whip (all weapons)
@@ -83,7 +83,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
 1. Game Mechanics
     1. [ ] Jetpack?
-    1. [ ] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
+    1. [x] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
     1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. In-game help menu

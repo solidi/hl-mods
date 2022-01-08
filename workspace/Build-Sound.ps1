@@ -230,6 +230,7 @@ Copy-Item $soundDir\shotgun_selected.wav $redistdir\sound
 Copy-Item $soundDir\pinpull.wav $redistdir\sound
 Copy-Item $soundDir\grenade_throw.wav $redistdir\sound
 Copy-Item $soundDir\nuke_draw.wav $redistdir\sound
+Copy-Item $soundDir\kick.wav $redistdir\sound
 
 Copy-Item $soundDir\sentences.txt $redistdir\sound
 

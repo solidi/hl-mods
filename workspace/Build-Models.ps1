@@ -511,5 +511,6 @@ Compile-Model $binDir "v_squeak" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_sqknest" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_squeak" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_squeak" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_leg" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}

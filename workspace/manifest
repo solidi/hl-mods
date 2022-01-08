@@ -242,6 +242,7 @@ models\v_squeak.mdl
 models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
+models\v_leg.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -441,6 +442,7 @@ sound\nuke_explosion.wav
 sound\gauss_selected.wav
 sound\hgun_selected.wav
 sound\squeak_selected.wav
+sound\kick.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

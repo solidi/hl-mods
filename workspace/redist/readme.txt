@@ -11,6 +11,8 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 2 Features:
 
+- Kick
+    - "impulse 202" supports the kick function
 - Client Support
     - God mode (when sv_cheats 1)
 - Fixes
@@ -172,6 +174,7 @@ Client:
 - "help" - Displays specific client Cold Ice Remastered options
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
+- "impulse 202" - Use for kick function
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
@@ -268,4 +271,4 @@ Thanks To:
 - Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
 - AudioCraZ for the dedicated server and last minute testing for Beta 1
-- Napoleon for 64+ weapon support tutorial https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
+- Napoleon for 64+ weapon support tutorial and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299

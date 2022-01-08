@@ -1,4 +1,4 @@
-161
+163
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -87,6 +87,7 @@ d_flying_snowball	320	320hud1	144	224	32	16
 d_chainsaw		320	320hud1	0	208	48	16
 d_12gauge		320	320hud1	48	224	48	16
 d_nuke_rocket	320	320hud1	96	208	48	16
+d_kick		320	320hud1	0	208	48	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -187,6 +188,7 @@ d_flying_snowball	640	640hud1	192	160	32	16
 d_chainsaw		640	640hud1	192	0	48	16
 d_12gauge		640	640hud1	192	64	48	16
 d_nuke_rocket	640	640hud1	192	96	48	16
+d_kick			640	640hud1	224	208	32	16
 
 item_battery	640 640hud2	176	0	44	44
 item_healthkit	640 640hud2	176	48	44	44
