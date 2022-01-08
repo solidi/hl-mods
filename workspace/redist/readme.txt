@@ -11,6 +11,9 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 2 Features:
 
+- New Weapons
+    - Snarks
+        - Throw / Release All
 - Kick
     - "impulse 202" supports the kick function
 - Client Support
