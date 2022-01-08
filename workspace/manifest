@@ -441,6 +441,7 @@ sound\nuke_explosion.wav
 sound\gauss_selected.wav
 sound\hgun_selected.wav
 sound\squeak_selected.wav
+sound\kick.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr

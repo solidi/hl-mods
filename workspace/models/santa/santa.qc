@@ -139,5 +139,6 @@ $sequence "deadback" "deadback" fps 10
 $sequence "deadsitting" "deadsitting" fps 10 
 $sequence "deadstomach" "deadstomach" fps 10 
 $sequence "deadtable" "deadtable" fps 10 
+$sequence "kick" "../kick" fps 25 ACT_KICK 1 
 
 // End of QC script.

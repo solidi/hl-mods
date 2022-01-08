@@ -28,18 +28,18 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "body" "cigartrooper"
 
 
-// 3 attachment(s)
+// attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
 $attachment 1 "Bip01 R Hand" 15.000000 1.500000 3.750000
 $attachment 2 "Bip01 R Hand" 30.000000 3.000000 7.500000
 
-// 4 bone controller(s)
+// bone controller(s)
 $controller 0 "Bip01 Spine" XR -30.000000 30.000000
 $controller 1 "Bip01 Spine1" XR -30.000000 30.000000
 $controller 2 "Bip01 Spine2" XR -30.000000 30.000000
 $controller 3 "Bip01 Spine3" XR -30.000000 30.000000
 
-// 20 hit box(es)
+// hit box(es)
 $hbox 3 "Bip01 Pelvis" -4.690000 -4.440000 -6.750000 4.000000 5.560000 6.750000
 $hbox 6 "Bip01 L Leg" 2.660000 -3.690000 -3.090000 18.160000 4.880000 3.310000
 $hbox 6 "Bip01 L Leg1" 0.380000 -3.970000 -2.840000 17.600000 4.000000 2.940000
@@ -61,7 +61,7 @@ $hbox 5 "Bip01 R Arm1" -1.880000 -2.470000 -2.160000 11.810000 3.280000 2.810000
 $hbox 5 "Bip01 R Arm2" 0.440000 -1.970000 -2.340000 10.590000 2.720000 2.220000
 $hbox 5 "Bip01 R Hand" 0.000000 -1.000000 -2.000000 3.000000 1.500000 3.500000
 
-// 77 animation sequence(s)
+// animation sequence(s)
 $sequence "look_idle" "look_idle" fps 14 loop ACT_IDLE 2 
 $sequence "idle" "idle" fps 14 loop ACT_IDLE 1 
 $sequence "deep_idle" "deep_idle" fps 12 loop ACT_IDLE 4 
@@ -139,5 +139,6 @@ $sequence "deadback" "deadback" fps 10
 $sequence "deadsitting" "deadsitting" fps 10 
 $sequence "deadstomach" "deadstomach" fps 10 
 $sequence "deadtable" "deadtable" fps 10 
+$sequence "kick" "../kick" fps 25 ACT_KICK 1 
 
 // End of QC script.
