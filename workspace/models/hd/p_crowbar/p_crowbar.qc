@@ -35,6 +35,11 @@ $texturegroup ice
     "wtop.bmp"
   }
   {
+    "invert_wbottom.bmp"
+    "invert_wnut.bmp"
+    "invert_wtop.bmp"
+  }
+  {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -46,11 +51,11 @@ $texturegroup ice
   }
 }
 
-// 2 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
 $hbox 0 "Crowbar" -0.730000 -1.330000 -13.150000 4.860000 1.200000 13.170000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

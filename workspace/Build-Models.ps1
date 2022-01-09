@@ -96,6 +96,7 @@ Invert-Skin $binDir "p_9mmhandguns" $modelsdir
 Invert-Skin $binDir "p_chumtoad" $modelsdir
 Invert-Skin $binDir "p_crossbow" $modelsdir
 Invert-Skin $binDir "p_crowbar" $modelsdir
+Invert-Skin $binDir "p_crowbar" $modelsdir\hd
 Invert-Skin $binDir "p_grenade" $modelsdir
 Invert-Skin $binDir "p_knife" $modelsdir
 Invert-Skin $binDir "p_railgun" $modelsdir

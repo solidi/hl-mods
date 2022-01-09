@@ -26,6 +26,7 @@ Beta 2 Features:
     - Fixed WILD sounds in coldice
     - Normalized sound loudness
     - Fixed medkit backface bug
+    - Fixed missing inverted skin for the crowbar
 
 Beta 1 Features:
 
