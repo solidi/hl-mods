@@ -310,3 +310,12 @@
 1. A [very good article](https://flatline-arena.droppages.com/tutorials/Skelswapping/) on how to swap player skeletons in GoldSrc using Milkshape3d.
 1. I learned that you can control framerate by using the commands `fps_override 1` and `fps_max`. This is helpful to debug ironsights. [This thread](https://steamcommunity.com/app/70/discussions/0/3315110799612677127/) was the source.
 1. You can combine gif's by simply using Imagemagick command `convert gi1 gif2 combined`. [See this thread](https://askubuntu.com/questions/833842/how-can-i-combine-two-animated-gif-images-into-one) for details.
+1. [A good article](https://help.steampowered.com/en/faqs/view/081A-106F-B906-1A7A) on how to setup a dedicate Half-Life server. Included is [setting up a router](https://help.steampowered.com/en/faqs/view/6F46-9698-9682-8DB8) and [starting the server](https://steamcommunity.com/sharedfiles/filedetails/?id=2028698488)
+1. How to [setup SteamCMD](https://blog.eldernode.com/install-and-run-steamcmd-on-windows/) and and [setting up a game server on Azure](https://pumpingco.de/blog/your-own-game-server-on-azure-create-a-dedicated-counter-strike-server/)
+1. I learned during editing Quicktime videos, editing videos [in the middle](https://apple.stackexchange.com/questions/37426/how-can-i-remove-a-portion-of-from-the-middle-of-a-movie) is possible with the `Split Clip` feature.
+1. [This commit](https://github.com/SamVanheer/halflife-updated/commit/e01645e239f730870041bb9e10e728f896b1a736) was helpful in understanding how to update to 64 weapons with predictive client weapon support in Half-Life.
+1. [Here is an article](http://www.half-life.ru/forum/showthread.php?threadid=6129) on how to update the Half-Life SDk to 64 weapons using the data point `iuser4` as a mask for another 32 weapons.
+1. [Here is a matrix](https://www.arj.no/2013/10/18/bits/) of bit conversions for figuring out which integer number to declare in `delta.lst`
+1. To save a dump file in Microsoft Visual Studio, select [Edit > Save Debug Dump File As](https://docs.microsoft.com/en-us/visualstudio/debugger/using-dump-files?view=vs-2022)
+1. [gl_polyoffset 0.1](https://steamcommunity.com/app/70/discussions/0/3615773009892169726/?l=greek) maybe useful for clearing up flickering decals in Half-Life
+1. In Gimp, [here is a good guide](https://tipsmake.com/how-to-create-clipping-mask-in-gimp) on creating a clipping mask within a layer.
