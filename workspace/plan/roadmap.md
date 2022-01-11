@@ -62,10 +62,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Themes
     1. [x] 64 weapons
     1. [x] Kick
+    1. [ ] Akimbo's (select weapons)
+        1. One each slot?
+            1. [ ] Crowbar
+            1. [ ] Deagle
+            1. [ ] M-16
+            1. [ ] Grenade launcher
+            1. [ ] Clusters
     1. [ ] Source version
     1. [ ] Xash3d Android support
     1. [ ] Pistol whip (all weapons)
-    1. [ ] Akimbo's (all weapons)
     1. Throw (all weapons)
         1. Throw back grenade
     1. Weapons
@@ -127,6 +133,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Crossbow
         1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     1. Handgrenades
+        1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
     1. Chaingun
@@ -151,6 +158,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] Ice hands in addition
     1. [ ] Blue arms + real skins
+    1. [ ] Additional attachment values for configurable speeds and fov
 1. Configuration Support
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [x] cl_weaponvoice - disable or enable humor/voice sound effects
@@ -205,7 +213,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
-    1. [x] God mode
+    1. [x] God mode (for recording, etc)
+    1. [ ] Verify sound loudness before packaging with ffmpeg?
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
@@ -213,6 +222,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
     1. [ ] Improve crosshair visibility
+    1. [ ] Rune power degradation / Power consumption of the cloak rune? 
 
 ### Beta 1
 

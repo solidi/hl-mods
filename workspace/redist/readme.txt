@@ -12,12 +12,17 @@ This mod features works from the community. Without their dedication and hard wo
 Beta 2 Features:
 
 - New Weapons
+- Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
+    - Desert Eagle (+)
+        - Shoot
     - Snarks
         - Throw / Release All
+- Weapon Updates
+    - Crowbar/Throw decals
 - Kick
     - "impulse 202" supports the kick function
 - Client Support
-    - God mode (when sv_cheats 1)
+    - "snowman" supports god mode (when sv_cheats 1)
 - Fixes
     - "mp_grapplinghook" default value set to 1
     - Added w_egon model spin
@@ -264,7 +269,7 @@ Thanks To:
 - SMOD series for the iron sights switch sounds effects https://www.moddb.com/mods/smod-40a
 - Jouko "Rapturer" Karvinen for the original Cold Ice map
 - Schrade for the focus map and Apo for the furrow map
-- zoonyarts and Brutal Half-Life for select sound and model assets https://www.moddb.com/mods/brutal-half-life
+- zoonyarts and Brutal Half-Life for select sound, decals, and model assets https://www.moddb.com/mods/brutal-half-life
 - mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
 - Bobito Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
 - The Cold-Ice team 2.5 for the m16 weapon model
