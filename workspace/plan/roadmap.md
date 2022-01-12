@@ -106,7 +106,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Environment look and feel
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
-    1. [ ] Bullet hole decals like BHL
+    1. [x] Bullet hole decals like BHL
+    1. [ ] Random fire sprite at end of explosion like BHL
 1. Weapons
     1. [x] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
     1. [ ] Deagle
@@ -180,6 +181,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Frozen Lake map idea
     1. [ ] Crossfire re-skinned
 1. HUD
+    1. [ ] Highlight HUD when picking up item (bhl)
     1. [ ] Best effort weapon sprites
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
@@ -191,6 +193,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Ammo regeneration
 1. Fixes
     1. [ ] Knife / Crowbar / Wrench next attack instant after death
+    1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] Bots harder to see player with cloak rune.
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets

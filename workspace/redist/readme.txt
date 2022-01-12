@@ -19,6 +19,7 @@ Beta 2 Features:
         - Throw / Release All
 - Weapon Updates
     - Crowbar/Throw decals
+    - Bullet decals
 - Kick
     - "impulse 202" supports the kick function
 - Client Support
@@ -271,7 +272,7 @@ Thanks To:
 - Schrade for the focus map and Apo for the furrow map
 - zoonyarts and Brutal Half-Life for select sound, decals, and model assets https://www.moddb.com/mods/brutal-half-life
 - mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
-- Bobito Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
+- Bobito_Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
 - The Cold-Ice team 2.5 for the m16 weapon model
 - malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
 - The overhaul pack for select sound effects https://www.moddb.com/mods/half-life-overhaul-pack
@@ -281,3 +282,4 @@ Thanks To:
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
 - AudioCraZ for the dedicated server and last minute testing for Beta 1
 - Napoleon for 64+ weapon support tutorial and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
+- Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
