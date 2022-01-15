@@ -27,6 +27,7 @@ events\chainsaw.sc
 events\gauge_single.sc
 events\nuke1.sc
 events\snarkrelease.sc
+events\deagle.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -243,6 +244,9 @@ models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
 models\v_leg.mdl
+models\v_deagle.mdl
+models\w_deagle.mdl
+models\p_deagle.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -443,6 +447,12 @@ sound\gauss_selected.wav
 sound\hgun_selected.wav
 sound\squeak_selected.wav
 sound\kick.wav
+sound\deagle_deploy.wav
+sound\deagle_reload1.wav
+sound\deagle_reload2.wav
+sound\deagle_reload3.wav
+sound\deagle_fire.wav
+sound\deagle_selected.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
@@ -477,6 +487,7 @@ sprites\weapon_snowball.txt
 sprites\weapon_chainsaw.txt
 sprites\weapon_12gauge.txt
 sprites\weapon_nuke.txt
+sprites\weapon_deagle.txt
 sprites\nuke2.spr
 sprites\hotglow.spr
 sprites\hud.txt

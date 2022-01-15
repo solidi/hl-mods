@@ -33,6 +33,7 @@ Beta 2 Features:
     - Normalized sound loudness
     - Fixed medkit backface bug
     - Fixed missing inverted skin for the crowbar
+    - Patch bots in slow motion after many map changes
 
 Beta 1 Features:
 

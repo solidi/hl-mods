@@ -98,6 +98,9 @@ models\v_squeak.mdl
 models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
+models\v_deagle.mdl
+models\w_deagle.mdl
+models\p_deagle.mdl
 sound
 sound\knife_miss2.wav
 sprites

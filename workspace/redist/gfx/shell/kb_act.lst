@@ -54,6 +54,7 @@
 "blank"			"=========================="
 "use weapon_9mmhandgun"			"#Ice_PPK"
 "use weapon_357"			"#Ice_Revolver"
+"use weapon_deagle"			"#Ice_Deagle"
 "use weapon_mag60"			"#Ice_Mag60"
 "use weapon_smg"			"#Ice_Smg"
 "blank"			"=========================="
