@@ -278,6 +278,9 @@ Invert-Skin $binDir "p_squeak" $modelsdir\hd
 Invert-Skin $binDir "w_sqknest" $modelsdir\hd
 Invert-Skin $binDir "v_squeak" $modelsdir\hd
 Invert-Skin $binDir "w_squeak" $modelsdir\hd
+Invert-Skin $binDir "v_deagle" $modelsdir\hd
+Invert-Skin $binDir "p_deagle" $modelsdir\hd
+Invert-Skin $binDir "w_deagle" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "army" $binDir $modelsdir $redistDir
@@ -513,5 +516,11 @@ Compile-Model $binDir "w_sqknest" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_squeak" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_squeak" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_leg" $modelsdir $redistdir\models
+Compile-Model $binDir "v_deagle" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_deagle" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_deagle" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_deagle" $modelsdir $redistdir\models
+Compile-Model $binDir "w_deagle" $modelsdir $redistdir\models
+Compile-Model $binDir "p_deagle" $modelsdir $redistdir\models
 
 Set-Location -Path ${PSScriptRoot}

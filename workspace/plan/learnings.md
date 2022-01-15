@@ -319,3 +319,5 @@
 1. To save a dump file in Microsoft Visual Studio, select [Edit > Save Debug Dump File As](https://docs.microsoft.com/en-us/visualstudio/debugger/using-dump-files?view=vs-2022)
 1. [gl_polyoffset 0.1](https://steamcommunity.com/app/70/discussions/0/3615773009892169726/?l=greek) maybe useful for clearing up flickering decals in Half-Life
 1. In Gimp, [here is a good guide](https://tipsmake.com/how-to-create-clipping-mask-in-gimp) on creating a clipping mask within a layer.
+1. I learned that the three last values in the skeleton model is `pitch`, `roll`, and `yaw`, also known as AZR, AXR, AYR.
+1. The reference in weapons as `m_pPlayer` is not reliable for giving or assessing weapon inventory.
