@@ -131,4 +131,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_showtips"
+	{
+		"#Ice_ShowTips"
+		{ BOOL }
+		{ "1" }
+	}
 }

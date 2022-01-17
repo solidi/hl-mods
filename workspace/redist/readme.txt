@@ -24,8 +24,9 @@ Beta 2 Features:
     - "impulse 202" supports the kick function
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
+    - "cl_showtips" to show random text tips during gameplay
 - Fixes
-    - "mp_grapplinghook" default value set to 1
+    - "mp_grapplinghook" default value now set to 1
     - Added w_egon model spin
     - Fixed hhev attachments
     - Fixed vest crash in single player
@@ -205,6 +206,7 @@ Client:
 - "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
 - "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
 - "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
+- "cl_showtips 1" - Show helpful text tips during game play
 
 Server:
 
