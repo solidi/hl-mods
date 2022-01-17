@@ -321,3 +321,4 @@
 1. In Gimp, [here is a good guide](https://tipsmake.com/how-to-create-clipping-mask-in-gimp) on creating a clipping mask within a layer.
 1. I learned that the three last values in the skeleton model is `pitch`, `roll`, and `yaw`, also known as AZR, AXR, AYR.
 1. The reference in weapons as `m_pPlayer` is not reliable for giving or assessing weapon inventory.
+1. In order to provide a mirror of a left arm in milkshape, copied from a right arm, use the mirror front to back, and allow the attached joint to flip itself naturally when recombining it.

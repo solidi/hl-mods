@@ -41,7 +41,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Explosive Assault Shotgun
     1. [x] Nuke Launcher
     1. [x] Snarks
-        1. [ ] Odd sz_getspace error, bots walking slowly?
+        1. [x] Odd sz_getspace error, bots walking slowly?
+    1. [x] Deagle
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -64,10 +65,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Kick
     1. [ ] Akimbo's (select weapons)
         1. One each slot?
-            1. [ ] Crowbar
+            1. [ ] Wrench
             1. [ ] Deagle
             1. [ ] M-16
-            1. [ ] Grenade launcher
+            1. [ ] RPG
             1. [ ] Clusters
     1. [ ] Source version
     1. [ ] Xash3d Android support
@@ -94,7 +95,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. In-game help menu
         1. [ ] Show version in message
-        1. [ ] Random "did you know" messages during play to expose options
+        1. [x] Random "did you know" messages during play to expose options
     1. [ ] Player jump and land sound effects
     1. [ ] Player snow footstep sounds / materials
 1. Gameplay
@@ -108,9 +109,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
     1. [x] Bullet hole decals like BHL
     1. [ ] Random fire sprite at end of explosion like BHL
+    1. [ ] [r_shadows tutorial](https://twhl.info/thread/view/20220)
 1. Weapons
     1. [x] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
-    1. [ ] Deagle
+    1. [x] Deagle
         1. [x] Single shot weapons for semi-auto effect
     1. [ ] Hand cannon
     1. [ ] Snowball Machine
@@ -217,7 +219,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
     1. [x] God mode (for recording, etc)
-    1. [ ] Verify sound loudness before packaging with ffmpeg?
+    1. [ ] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
