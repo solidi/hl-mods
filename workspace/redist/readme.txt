@@ -21,7 +21,7 @@ Beta 2 Features:
     - Crowbar/Throw decals
     - Bullet decals
 - Kick
-    - "impulse 202" supports the kick function
+    - "impulse 204" supports the kick function
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
@@ -186,7 +186,7 @@ Client:
 - "help" - Displays specific client Cold Ice Remastered options
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
-- "impulse 202" - Use for kick function
+- "impulse 204" - Use for kick function
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
