@@ -43,6 +43,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Snarks
         1. [x] Odd sz_getspace error, bots walking slowly?
     1. [x] Deagle
+    1. [x] Dual Deagles
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -66,7 +67,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Akimbo's (select weapons)
         1. One each slot?
             1. [ ] Wrench
-            1. [ ] Deagle
+            1. [x] Deagle
             1. [ ] M-16
             1. [ ] RPG
             1. [ ] Clusters
@@ -193,6 +194,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
 1. Runes
     1. [ ] Ammo regeneration
+    1. [ ] Quad damage (Napoleon's idea)
 1. Fixes
     1. [ ] Knife / Crowbar / Wrench next attack instant after death
     1. [ ] Improve Crowbar animation from another v_ model
@@ -207,6 +209,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Snowball not exhaustable?
     1. [ ] Spawn x / 2 runes per currently connected players?
     1. [x] Repair backs of health kits
+    1. [ ] Skin blue item_suit
+    1. [ ] Twisted assassin player model
 1. Player Models
     1. [ ] [Snowman](https://gamebanana.com/mods/179220)
     1. [ ] All Cold Ice 1.6 player models

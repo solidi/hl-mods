@@ -20,6 +20,9 @@ Beta 2 Features:
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals
+- Dual Wielded Weapons
+    - Support for the pipe wrench, desert eagles, smgs, rpgs, and cluster grenades!
+    - "impulse 205" to swap between single and dual weapons
 - Kick
     - "impulse 204" supports the kick function
 - Client Support
@@ -187,6 +190,7 @@ Client:
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
 - "impulse 204" - Use for kick function
+- "impulse 205" - Swap between single and dual weapon, if available
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
@@ -261,7 +265,7 @@ Thanks To:
 - Sgt.Leon and the HIT Forum for the HIT Fist pack https://gamebanana.com/mods/180184
 - Gaming Sound FX for sound and effects https://www.youtube.com/channel/UCi-xN4ZB6e-0JcXzvBEomlw
 - Audio Library - Free Sound Effects for sound and effects https://www.youtube.com/channel/UCkq5JZ2yOF7b0rkMQMgdAIA
-- WastelandHL for sound effects and inspiration http://wastelandhalflife.com/screenshots.shtml
+- WastelandHL for sound effects, animation, models, and inspiration http://wastelandhalflife.com/screenshots.shtml
 - Nucleo for the excellent pipe wrench https://gamebanana.com/mods/180196
 - The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war

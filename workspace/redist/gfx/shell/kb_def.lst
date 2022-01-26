@@ -35,6 +35,7 @@
 "3"				"slot3"
 "4"				"slot4"
 "5"				"slot5"
+"6"				"slot6"
 "MWHEELUP"		"invprev"
 "["				"invprev"
 "MWHEELDOWN"	"invnext"
@@ -55,3 +56,4 @@
 "j"				"drop_rune"
 "g"				"+ironsight"
 "k"				"impulse 204"
+"n"				"impulse 205"

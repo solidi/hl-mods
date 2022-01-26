@@ -32,6 +32,7 @@ $body "body" "kringle"
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
 $attachment 1 "Bip01 R Hand" 15.000000 1.500000 3.750000
 $attachment 2 "Bip01 R Hand" 30.000000 3.000000 7.500000
+$attachment 3 "Bip01 L Hand" 15.000000 3.000000 -3.500000
 
 // bone controller(s)
 $controller 0 "Bip01 Spine" XR -30.000000 30.000000
@@ -140,5 +141,9 @@ $sequence "deadsitting" "deadsitting" fps 10
 $sequence "deadstomach" "deadstomach" fps 10 
 $sequence "deadtable" "deadtable" fps 10 
 $sequence "kick" "../kick" fps 25 ACT_KICK 1 
+$sequence "ref_aim_akimbo" "../ref_aim_akimbo_blend1" "../ref_aim_akimbo_blend2" blend XR -45 45 fps 20 loop 
+$sequence "ref_shoot_akimbo" "../ref_shoot_akimbo_blend1" "../ref_shoot_akimbo_blend2" blend XR -45 45 fps 32 { event 5001 0 "31" } { event 5031 1 "31" } 
+$sequence "crouch_aim_akimbo" "../crouch_aim_akimbo_blend1" "../crouch_aim_akimbo_blend2" blend XR -45 45 fps 12 loop 
+$sequence "crouch_shoot_akimbo" "../crouch_shoot_akimbo_blend1" "../crouch_shoot_akimbo_blend2" blend XR -45 45 fps 30 { event 5001 0 "31" } { event 5031 1 "31" }
 
 // End of QC script.
