@@ -1,4 +1,4 @@
-163
+169
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -6,6 +6,7 @@ bucket2			320 320hud2	108	28	12	12
 bucket3			320 320hud2	108	40	12	12
 bucket4			320 320hud2	108	52	12	12
 bucket5			320 320hud2	108	64	12	12
+bucket6			320 320hud2	108	64	12	12
 bucket0			320 320hud2	108	76	12	12
 
 dmg_bio			320 320hud4	0	0	32	32
@@ -88,6 +89,8 @@ d_chainsaw		320	320hud1	0	208	48	16
 d_12gauge		320	320hud1	48	224	48	16
 d_nuke_rocket	320	320hud1	96	208	48	16
 d_kick		320	320hud1	0	208	48	16
+d_deagle		320	320hud1	0	240	32	16
+d_dual_deagle	320	320hud1	0	240	32	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -105,6 +108,7 @@ bucket2			640 640hud7	188	72	20	20
 bucket3			640 640hud7	208	72	20	20
 bucket4			640 640hud7	168	92	20	20
 bucket5			640 640hud7	188	92	20	20
+bucket6			640 640hud7	188	92	20	20
 bucket0			640 640hud7	208	92	20	20
 
 dmg_bio			640 640hud8	128	0	64	64
@@ -189,6 +193,8 @@ d_chainsaw		640	640hud1	192	0	48	16
 d_12gauge		640	640hud1	192	64	48	16
 d_nuke_rocket	640	640hud1	192	96	48	16
 d_kick			640	640hud1	224	208	32	16
+d_deagle		640	640hud1	192	32	32	16
+d_dual_deagle	640	640hud1	192	32	32	16
 
 item_battery	640 640hud2	176	0	44	44
 item_healthkit	640 640hud2	176	48	44	44

@@ -12,6 +12,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
 [bool]$clean = $false
+[string]$playerModel = ""
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -22,6 +23,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
         $clean = $true
         echo "rebuilding all models..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Player") {
+        $playerModel = $_.Split(' ')[1]
+        echo "building player $playerModel..."
     }
 }
 
@@ -61,6 +65,7 @@ if ($clean -eq $true) {
 
 $modelsdir = "${rootDir}\models"
 
+if ([string]::IsNullOrEmpty($playerModel)) {
 Invert-Skin $binDir "p_9mmhandgun" $modelsdir\hd
 Invert-Skin $binDir "p_9mmhandguns" $modelsdir\hd
 Invert-Skin $binDir "p_crossbow" $modelsdir\hd
@@ -281,6 +286,12 @@ Invert-Skin $binDir "w_squeak" $modelsdir\hd
 Invert-Skin $binDir "v_deagle" $modelsdir\hd
 Invert-Skin $binDir "p_deagle" $modelsdir\hd
 Invert-Skin $binDir "w_deagle" $modelsdir\hd
+Invert-Skin $binDir "v_dual_deagle" $modelsdir
+Invert-Skin $binDir "p_dual_deagle" $modelsdir
+Invert-Skin $binDir "w_dual_deagle" $modelsdir
+Invert-Skin $binDir "v_dual_deagle" $modelsdir\hd
+Invert-Skin $binDir "p_dual_deagle" $modelsdir\hd
+Invert-Skin $binDir "w_dual_deagle" $modelsdir\hd
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "army" $binDir $modelsdir $redistDir
@@ -522,5 +533,14 @@ Compile-Model $binDir "w_deagle" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_deagle" $modelsdir $redistdir\models
 Compile-Model $binDir "w_deagle" $modelsdir $redistdir\models
 Compile-Model $binDir "p_deagle" $modelsdir $redistdir\models
+Compile-Model $binDir "v_dual_deagle" $modelsdir $redistdir\models
+Compile-Model $binDir "p_dual_deagle" $modelsdir $redistdir\models
+Compile-Model $binDir "w_dual_deagle" $modelsdir $redistdir\models
+Compile-Model $binDir "v_dual_deagle" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_dual_deagle" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_dual_deagle" $modelsdir\hd $redisthddir\models
+} else {
+    Compile-Player $playerModel $binDir $modelsdir $redistDir
+}
 
 Set-Location -Path ${PSScriptRoot}
