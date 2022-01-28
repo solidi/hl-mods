@@ -15,6 +15,8 @@ Beta 2 Features:
 - Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
     - Desert Eagle (+)
         - Shoot
+    - Dual Desert Eagles
+        - Shoot / Shoot Both
     - Snarks
         - Throw / Release All
 - Weapon Updates

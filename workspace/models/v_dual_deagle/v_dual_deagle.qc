@@ -125,6 +125,7 @@ $sequence "RELOAD" "RELOAD" fps 39 {
  }
 $sequence "DEPLOY" "DEPLOY" fps 65 { event 5004 1 "deagle_deploy.wav" } 
 $sequence "HOLSTER" "HOLSTER" fps 42 
+$sequence "FIRE_BOTH" "FIRE_BOTH" fps 30 { event 5001 0 "31" } { event 5001 4 "31" }
 $sequence "IDLE_LEFTEMPTY" "IDLE_LEFTEMPTY" fps 30 loop 
 $sequence "FIRE_LEFT_LEFTEMPTY" "FIRE_LEFT_LEFTEMPTY" fps 30 
 $sequence "FIRE_RIGHT_LEFTEMPTY" "FIRE_RIGHT_LEFTEMPTY" fps 30 { event 5001 0 "31" } 
