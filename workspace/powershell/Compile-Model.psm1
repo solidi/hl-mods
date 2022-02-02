@@ -15,6 +15,15 @@ function Compile-Model {
             $lastestSourceFileStamp = $_.LastWriteTime
         }
     }
+    $containsCommon = Select-String -Path $modelsDir\$target\$target.qc -Pattern "common"
+    if ($containsCommon -ne $null)
+    {
+        Get-ChildItem $modelsDir\common | Foreach-Object {
+            if ($_.LastWriteTime -gt $lastestSourceFileStamp) {
+                $lastestSourceFileStamp = $_.LastWriteTime
+            }
+        }
+    }
     echo "$target source files: $lastestSourceFileStamp >? mdl file: $mdlTimestamp"
 
     if ($lastestSourceFileStamp -gt $mdlTimestamp) {

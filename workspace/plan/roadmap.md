@@ -232,6 +232,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
     1. [ ] Improve crosshair visibility
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
+    1. [ ] OICW weapon
 
 ### Beta 1
 

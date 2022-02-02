@@ -30,6 +30,7 @@ events\snarkrelease.sc
 events\deagle.sc
 events\dual_deagle.sc
 events\dual_deagle_both.sc
+events\dual_rpg_both.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -252,6 +253,9 @@ models\p_deagle.mdl
 models\v_dual_deagle.mdl
 models\w_dual_deagle.mdl
 models\p_dual_deagle.mdl
+models\v_dual_rpg.mdl
+models\w_dual_rpg.mdl
+models\p_dual_rpg.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -494,6 +498,7 @@ sprites\weapon_12gauge.txt
 sprites\weapon_nuke.txt
 sprites\weapon_deagle.txt
 sprites\weapon_dual_deagle.txt
+sprites\weapon_dual_rpg.txt
 sprites\nuke2.spr
 sprites\hotglow.spr
 sprites\hud.txt

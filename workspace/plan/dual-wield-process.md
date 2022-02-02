@@ -8,6 +8,12 @@
 1. For arm remapping, create key of old to new bone values
     1. Pad the number after replace so it doesnt overwrite other values.
 
+# Akimbo Tool Utility
+
+1. Key mapping swap
+1. Sliding selected bones to later frames
+1. Transform bone / childern from right to left
+
 ## Example Key Mapping
 
 Converting to SD arms,
