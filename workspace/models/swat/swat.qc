@@ -149,5 +149,9 @@ $sequence "ref_aim_akimbo" "../ref_aim_akimbo_blend1" "../ref_aim_akimbo_blend2"
 $sequence "ref_shoot_akimbo" "../ref_shoot_akimbo_blend1" "../ref_shoot_akimbo_blend2" blend XR -45 45 fps 32 { event 5001 0 "31" } { event 5031 1 "31" } 
 $sequence "crouch_aim_akimbo" "../crouch_aim_akimbo_blend1" "../crouch_aim_akimbo_blend2" blend XR -45 45 fps 12 loop 
 $sequence "crouch_shoot_akimbo" "../crouch_shoot_akimbo_blend1" "../crouch_shoot_akimbo_blend2" blend XR -45 45 fps 30 { event 5001 0 "31" } { event 5031 1 "31" }
+$sequence "ref_aim_dual_rpg" "../common/ref_aim_dual_rpg_blend1" "../common/ref_aim_dual_rpg_blend2" blend XR -45 40 fps 12 loop
+$sequence "ref_shoot_dual_rpg" "../common/ref_shoot_dual_rpg_blend1" "../common/ref_shoot_dual_rpg_blend2" blend XR -45 40 fps 12 loop
+$sequence "crouch_aim_dual_rpg" "../common/crouch_aim_dual_rpg_blend1" "../common/crouch_aim_dual_rpg_blend2" blend XR -45 40 fps 12 loop 
+$sequence "crouch_shoot_dual_rpg" "../common/crouch_shoot_dual_rpg_blend1" "../common/crouch_shoot_dual_rpg_blend2" blend XR -45 45 fps 30
 
 // End of QC script.

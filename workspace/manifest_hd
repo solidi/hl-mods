@@ -104,6 +104,9 @@ models\p_deagle.mdl
 models\v_dual_deagle.mdl
 models\w_dual_deagle.mdl
 models\p_dual_deagle.mdl
+models\v_dual_rpg.mdl
+models\p_dual_rpg.mdl
+models\w_dual_rpg.mdl
 sound
 sound\knife_miss2.wav
 sprites

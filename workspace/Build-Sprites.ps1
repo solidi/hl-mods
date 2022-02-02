@@ -79,6 +79,7 @@ Copy-Item $spritesDir\weapon_12gauge.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_nuke.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_deagle.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_deagle.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_dual_rpg.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

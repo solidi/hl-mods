@@ -17,6 +17,8 @@ Beta 2 Features:
         - Shoot
     - Dual Desert Eagles
         - Shoot / Shoot Both
+    - Dual RPGs
+        - Shoot Both / Extreme Rockets
     - Snarks
         - Throw / Release All
 - Weapon Updates
