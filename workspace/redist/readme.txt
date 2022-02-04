@@ -19,6 +19,8 @@ Beta 2 Features:
         - Shoot / Shoot Both
     - Dual RPGs
         - Shoot Both / Extreme Rockets
+    - Dual Wrenchs
+        - Swing Both / Throw Both
     - Snarks
         - Throw / Release All
 - Weapon Updates

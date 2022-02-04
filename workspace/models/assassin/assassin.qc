@@ -153,5 +153,9 @@ $sequence "ref_aim_dual_rpg" "../common/ref_aim_dual_rpg_blend1" "../common/ref_
 $sequence "ref_shoot_dual_rpg" "../common/ref_shoot_dual_rpg_blend1" "../common/ref_shoot_dual_rpg_blend2" blend XR -45 40 fps 12 loop
 $sequence "crouch_aim_dual_rpg" "../common/crouch_aim_dual_rpg_blend1" "../common/crouch_aim_dual_rpg_blend2" blend XR -45 40 fps 12 loop 
 $sequence "crouch_shoot_dual_rpg" "../common/crouch_shoot_dual_rpg_blend1" "../common/crouch_shoot_dual_rpg_blend2" blend XR -45 45 fps 30
+$sequence "ref_aim_dual_club" "ref_aim_crowbar_blend1" "ref_aim_crowbar_blend2" blend XR -45 40 fps 12 loop
+$sequence "ref_shoot_dual_club" "../common/ref_shoot_dual_club_blend1_shift" "../common/ref_shoot_dual_club_blend2_shift" blend XR -45 40 fps 24 loop
+$sequence "crouch_aim_dual_club" "crouch_aim_crowbar_blend1" "crouch_aim_crowbar_blend2" blend XR -45 40 fps 12 loop 
+$sequence "crouch_shoot_dual_club" "../common/crouch_shoot_dual_club_blend1_shift" "../common/crouch_shoot_dual_club_blend2_shift" blend XR -45 45 fps 24
 
 // End of QC script.
