@@ -1,4 +1,4 @@
-169
+173
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -91,6 +91,8 @@ d_nuke_rocket	320	320hud1	96	208	48	16
 d_kick		320	320hud1	0	208	48	16
 d_deagle		320	320hud1	0	240	32	16
 d_dual_deagle	320	320hud1	0	240	32	16
+d_dual_smg		320	320hud1	48	208	48	16
+d_dual_wrench 	320	320hud1	0	208	48	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -184,6 +186,7 @@ d_flak_bomb 	640	640hud1	192	96	48	16
 d_mag60			640	640hud1	192	32	32	16
 d_chaingun		640	640hud1	192	48	48	16
 d_smg			640	640hud1	192	48	48	16
+d_dual_smg		640	640hud1	192	48	48	16
 d_usas  		640	640hud1	192	64	48	16
 d_fists 		640	640hud1	192	0	48	16
 d_wrench		640	640hud1	192	0	48	16
@@ -195,6 +198,7 @@ d_nuke_rocket	640	640hud1	192	96	48	16
 d_kick			640	640hud1	224	208	32	16
 d_deagle		640	640hud1	192	32	32	16
 d_dual_deagle	640	640hud1	192	32	32	16
+d_dual_wrench	640	640hud1	192	0	48	16
 
 item_battery	640 640hud2	176	0	44	44
 item_healthkit	640 640hud2	176	48	44	44
