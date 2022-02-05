@@ -44,6 +44,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Odd sz_getspace error, bots walking slowly?
     1. [x] Deagle
     1. [x] Dual Deagles
+    1. [x] Dual RPG
+    1. [ ] Dual Wrench
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -66,10 +68,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Kick
     1. [ ] Akimbo's (select weapons)
         1. One each slot?
-            1. [ ] Wrench
+            1. [x] Wrench
             1. [x] Deagle
-            1. [ ] M-16
-            1. [ ] RPG
+            1. [ ] SMG
+            1. [ ] USAS
+            1. [x] RPG
             1. [ ] Clusters
     1. [ ] Source version
     1. [ ] Xash3d Android support
@@ -78,6 +81,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Throw back grenade
     1. Weapons
         1. [ ] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
+            1. [ ] Freeze player, explode in pieces
         1. [ ] Portal gun
     1. More Valve maps reskinned
         1. [ ] Crossfire

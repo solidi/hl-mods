@@ -9,7 +9,7 @@ See [this recent post](https://medium.com/super-jump/building-a-popular-half-lif
 
 ## In Development
 
-1. Cold-Ice GoldSrc Remastered - [libraries](https://github.com/solidi/coldice-remastered) and [assets and redistribution](https://github.com/solidi/hl-mods/tree/master/workspace)
+1. [Cold-Ice GoldSrc Remastered](https://www.moddb.com/mods/cold-ice-remastered) - [libraries](https://github.com/solidi/coldice-remastered) and [assets and redistribution](https://github.com/solidi/hl-mods/tree/master/workspace)
 ## Archived
 
 1. [Cold-Ice](https://www.moddb.com/mods/cold-ice)
