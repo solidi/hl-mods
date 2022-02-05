@@ -155,17 +155,7 @@ $sequence "draw_left" "draw_left" fps 30
 $sequence "draw_both" "draw_both_shift3" fps 30 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
 $sequence "idle_both" "idle_both" fps 30 
 $sequence "fire_both" "fire_both_shift4" fps 30 
-$sequence "holster_both" "holster_both" fps 30 
+$sequence "holster_both" "holster_both_shift2" fps 30 
 $sequence "reload_both" "reload_both" fps 20 
-//$sequence "idle" "idle" fps 15 loop 
-//$sequence "fidget" "fidget" fps 15 loop 
-//$sequence "reload" "reload" fps 30 
-//$sequence "fire" "fire" fps 30 
-//$sequence "fire2" "fire" fps 30 { event 5005 0 "rpg_igotone.wav" }
-//$sequence "holster1" "holster1" fps 30 
-//$sequence "draw1" "draw1" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "rpg_selected.wav" }
-//$sequence "holster2" "holster2" fps 30 
-//$sequence "draw2" "draw2" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "rpg_selected.wav" }
-//$sequence "idle2" "idle2" fps 15 loop 
 
 // End of QC script.
