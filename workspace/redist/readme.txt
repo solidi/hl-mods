@@ -46,6 +46,8 @@ Beta 2 Features:
     - Fixed medkit backface bug
     - Fixed missing inverted skin for the crowbar
     - Patch bots in slow motion after many map changes
+    - Improved Bot weapon select and engagement of player
+    - Bots no longer engage player with a cloak rune
 
 Beta 1 Features:
 
