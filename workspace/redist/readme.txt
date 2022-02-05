@@ -32,7 +32,7 @@ Beta 2 Features:
     - Support for the pipe wrench, desert eagles, smgs, rpgs, and cluster grenades!
     - "impulse 205" to swap between single and dual weapons
 - Kick
-    - "impulse 204" supports the kick function
+    - "impulse 206" supports the kick function
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
@@ -197,7 +197,7 @@ Client:
 - "help" - Displays specific client Cold Ice Remastered options
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
-- "impulse 204" - Use for kick function
+- "impulse 206" - Use for kick function
 - "impulse 205" - Swap between single and dual weapon, if available
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)

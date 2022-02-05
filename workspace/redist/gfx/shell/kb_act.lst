@@ -111,5 +111,5 @@
 "+hook"			"#Ice_Grappling_Hook"
 "drop_rune"		"#Ice_Drop_Rune"
 "+ironsight"	"#Ice_Iron_Sight"
-"impulse 204"	"#Ice_Kick"
+"impulse 206"	"#Ice_Kick"
 "impulse 205"	"#Ice_SwapDual"
