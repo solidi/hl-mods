@@ -63,12 +63,12 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -5.930000 7.850000 2.940000 19.950001
 
 // animation sequence(s)
 $sequence "idle_both" "idle_both" fps 13 
-$sequence "attack1hit_both" "attack1hit_both_shift" fps 2 
-$sequence "attack1miss_both" "attack1miss_both_shift" fps 2
-$sequence "attack2hit_both" "attack2hit_both_shift" fps 2  
-$sequence "attack2miss_both" "attack2miss_both_shift" fps 2 
-$sequence "attack3hit_both" "attack3hit_both_shift" fps 2
-$sequence "attack3miss_both" "attack3miss_both_shift" fps 2 
+$sequence "attack1hit_both" "attack1hit_both_shift" fps 22 
+$sequence "attack1miss_both" "attack1miss_both_shift" fps 22
+$sequence "attack2hit_both" "attack2hit_both_shift" fps 22  
+$sequence "attack2miss_both" "attack2miss_both_shift" fps 22 
+$sequence "attack3hit_both" "attack3hit_both_shift" fps 24
+$sequence "attack3miss_both" "attack3miss_both_shift" fps 24 
 $sequence "pull_back_both" "pull_back_both_shift" fps 30 { event 5004 0 "pull_back.wav" }
 $sequence "throw_both" "throw_both_shift" fps 45 { event 5005 0 "wrench_getsome.wav" } 
 $sequence "draw_both" "draw_both_shift" fps 30 { event 5004 5 "wrench_draw.wav" }
