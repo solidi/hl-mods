@@ -82,6 +82,7 @@ Copy-Item $spritesDir\weapon_dual_deagle.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_rpg.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_smg.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

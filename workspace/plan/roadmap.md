@@ -71,7 +71,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. One each slot?
             1. [x] Wrench
             1. [x] Deagle
-            1. [ ] SMG
+            1. [x] SMG
             1. [ ] USAS
             1. [x] RPG
             1. [ ] Clusters
@@ -191,7 +191,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Crossfire re-skinned
 1. HUD
     1. [ ] Highlight HUD when picking up item (bhl)
-    1. [ ] Best effort weapon sprites
+    1. [ ] Best effort weapon 
+        1. [ ] Pipewrench, knife, deagle, and rifler from OpFor?
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
     1. [ ] Weapon Sprite + text at bottom as compromise
@@ -204,7 +205,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Fixes
     1. [ ] Knife / Crowbar / Wrench next attack instant after death
     1. [ ] Improve Crowbar animation from another v_ model
-    1. [ ] Bots harder to see player with cloak rune.
+    1. [x] Bots harder to see player with cloak rune.
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
@@ -236,7 +237,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
-    1. [ ] Improve crosshair visibility
+    1. [x] Improve crosshair visibility
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon
 
