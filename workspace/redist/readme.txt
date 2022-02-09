@@ -28,6 +28,7 @@ Beta 2 Features:
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals
+    - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
 - Dual Wielded Weapons
     - Support for the pipe wrench, desert eagles, smgs, rpgs, and cluster grenades!
     - "impulse 205" to swap between single and dual weapons
@@ -300,3 +301,4 @@ Thanks To:
 - AudioCraZ for the dedicated server and last minute testing for Beta 1
 - Napoleon for 64+ weapon support tutorial and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
 - Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
+- BlueNightHawk for thicker crosshairs from New Light https://www.moddb.com/mods/half-life-new-light

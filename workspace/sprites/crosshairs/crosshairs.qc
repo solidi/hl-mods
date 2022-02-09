@@ -5,7 +5,7 @@
 $spritename    crosshairs
 $type          vp_parallel
 $texture		alphatest
-$load		crosshairs001.BMP
+$load		crosshairs002.BMP
 $frame		0   0   128   128
 
 
