@@ -49,6 +49,8 @@ Beta 2 Features:
     - Patch bots in slow motion after many map changes
     - Improved Bot weapon select and engagement of player
     - Bots no longer engage player with a cloak rune
+    - Modernized bot library code
+    - Updated Bot velocity calculations to projectiles
 
 Beta 1 Features:
 
