@@ -72,6 +72,9 @@ jobs:
     - name: Install headers
       run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
 
+    - name: Install modern headers
+      run: sudo apt-get install gcc-multilib g++-multilib -y
+
     - name: Build linux so libs
       run: ./${{env.FOLDER_NAME}}/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
 
