@@ -157,5 +157,9 @@ $sequence "ref_aim_dual_club" "ref_aim_crowbar_blend1" "ref_aim_crowbar_blend2" 
 $sequence "ref_shoot_dual_club" "../common/ref_shoot_dual_club_blend1_shift" "../common/ref_shoot_dual_club_blend2_shift" blend XR -45 40 fps 24 loop
 $sequence "crouch_aim_dual_club" "crouch_aim_crowbar_blend1" "crouch_aim_crowbar_blend2" blend XR -45 40 fps 12 loop 
 $sequence "crouch_shoot_dual_club" "../common/crouch_shoot_dual_club_blend1_shift" "../common/crouch_shoot_dual_club_blend2_shift" blend XR -45 45 fps 24
+$sequence "ref_aim_dual_shotgun" "../common/ref_aim_dual_shotgun_blend1" "../common/ref_aim_dual_shotgun_blend2" blend XR -45 45 fps 12 loop 
+$sequence "ref_shoot_dual_shotgun" "../common/ref_shoot_dual_shotgun_blend1_shift" "../common/ref_shoot_dual_shotgun_blend2_shift" blend XR -45 45 fps 25 { event 5001 0 "51" } { event 5031 1 "51" } 
+$sequence "crouch_aim_dual_shotgun" "../common/crouch_aim_dual_shotgun_blend1" "../common/crouch_aim_dual_shotgun_blend2" blend XR -45 45 fps 12 loop 
+$sequence "crouch_shoot_dual_shotgun" "../common/crouch_shoot_dual_shotgun_blend1_shift" "../common/crouch_shoot_dual_shotgun_blend2_shift" blend XR -45 45 fps 25 { event 5001 0 "51" } { event 5031 1 "51" }
 
 // End of QC script.

@@ -23,6 +23,8 @@ Beta 2 Features:
         - Shoot Both
     - Dual Wrenchs
         - Swing Both / Throw Both
+    - Dual USAS-12
+        - Shoot / Shoot Both
     - Snarks
         - Throw / Release All
 - Weapon Updates
@@ -51,6 +53,7 @@ Beta 2 Features:
     - Bots no longer engage player with a cloak rune
     - Modernized bot library code
     - Updated Bot velocity calculations to projectiles
+    - Fixed USAS-12 backface bug
 
 Beta 1 Features:
 

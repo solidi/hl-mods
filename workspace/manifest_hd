@@ -113,6 +113,9 @@ models\p_dual_smg.mdl
 models\w_dual_wrench.mdl
 models\v_dual_wrench.mdl
 models\p_dual_wrench.mdl
+models\v_dual_usas.mdl
+models\w_dual_usas.mdl
+models\p_dual_usas.mdl
 sound
 sound\knife_miss2.wav
 sprites
