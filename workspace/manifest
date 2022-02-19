@@ -33,6 +33,8 @@ events\dual_deagle_both.sc
 events\dual_rpg_both.sc
 events\dual_smg.sc
 events\dual_wrench.sc
+events\dual_usas.sc
+events\dual_usas_both.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -264,6 +266,9 @@ models\v_dual_smg.mdl
 models\w_dual_wrench.mdl
 models\p_dual_wrench.mdl
 models\v_dual_wrench.mdl
+models\w_dual_usas.mdl
+models\p_dual_usas.mdl
+models\v_dual_usas.mdl
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf
@@ -509,6 +514,7 @@ sprites\weapon_dual_deagle.txt
 sprites\weapon_dual_rpg.txt
 sprites\weapon_dual_smg.txt
 sprites\weapon_dual_wrench.txt
+sprites\weapon_dual_usas.txt
 sprites\weapon_crowbar.txt
 sprites\nuke2.spr
 sprites\hotglow.spr

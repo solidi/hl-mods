@@ -323,3 +323,5 @@
 1. The reference in weapons as `m_pPlayer` is not reliable for giving or assessing weapon inventory.
 1. In order to provide a mirror of a left arm in milkshape, copied from a right arm, use the mirror front to back, and allow the attached joint to flip itself naturally when recombining it.
 1. I learned that in order to flip verticies after mirroring front to back, invert the value of pitch (AZR) and roll (AXR).
+1. When using the SMD adjust keys, to move the joint by "2" in a text file, use 0.065.
+1. In order to reduce the vertice count on a model in Milkshape 3d, [this thread](https://modthesims.info/t/468785) was important. First, increase the scale of the model to 1000. Next, select all vertices. Select merge vertices to nearist neighbor. Finally, reduce scale and review. Use the Tools > Show Model Statistics for the vertice count and monitor the reducion of the tirangles.

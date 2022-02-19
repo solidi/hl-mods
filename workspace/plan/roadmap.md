@@ -47,6 +47,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual RPG
     1. [x] Dual Wrench
     1. [ ] Dual SMG
+    1. [ ] Dual USAS
 1. [ ] Testing
     1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -72,7 +73,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             1. [x] Wrench
             1. [x] Deagle
             1. [x] SMG
-            1. [ ] USAS
+            1. [X] USAS
             1. [x] RPG
             1. [ ] Clusters
     1. [ ] Source version
