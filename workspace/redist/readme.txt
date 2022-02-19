@@ -54,6 +54,9 @@ Beta 2 Features:
     - Modernized bot library code
     - Updated Bot velocity calculations to projectiles
     - Fixed USAS-12 backface bug
+    - Fixed bug where bots did not use all player models
+    - Fixed weapon idle during iron sight mode
+    - Fixed weapons firing underwater
 
 Beta 1 Features:
 
