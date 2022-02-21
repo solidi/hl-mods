@@ -33,13 +33,13 @@ $texturegroup ice
     "w_deagle.bmp"
   }
   {
-      "invert_w_deagle.bmp"
-  }
-  {
-    "..\iceCHROME.bmp"
+    "invert_w_deagle.bmp"
   }
   {
     "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
   }
 }
 

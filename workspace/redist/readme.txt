@@ -47,7 +47,7 @@ Beta 2 Features:
     - Fixed WILD sounds in coldice
     - Normalized sound loudness
     - Fixed medkit backface bug
-    - Fixed missing inverted skin for the crowbar
+    - Fixed missing inverted and iced skin for the player crowbar
     - Patch bots in slow motion after many map changes
     - Improved Bot weapon select and engagement of player
     - Bots no longer engage player with a cloak rune
