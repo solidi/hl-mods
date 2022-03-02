@@ -25,18 +25,34 @@ function Compile-Sprite {
 function Colorize-Folder {
     param (
         $binDir,
+        $folder,
         $target,
         $rgb,
         $tint
     )
 
-    Get-ChildItem -Path $target -Filter "*.bmp" | Foreach-Object {
+    Copy-Item $folder\$target\${target}001.BMP -Destination $folder\$target\${target}000.BMP
+
+    $out = & $binDir\convert $folder\$target\${target}000.BMP -colorspace gray -fill "rgb($rgb)" -tint $tint -depth 8 -type palette -compress none BMP3:$folder\$target\${target}000.BMP | Out-String
+
+    if (!$?) {
+        Write-Error "$out`n> Could not colorize first image $folder\$target\${target}001.BMP."
+        exit
+    }
+
+    Get-ChildItem -Path $folder\$target -Filter "*.bmp" | Foreach-Object {
+        if ($_.Name.Contains("000.BMP")) {
+            return
+        }
+
         Echo "Colorizing $($_.FullName)..."
-        $out = & $binDir\convert $_.FullName -colorspace gray -fill "rgb($rgb)" -tint $tint -depth 8 -type palette -remap $target\nuke2001.BMP -compress none BMP3:$_ | Out-String
+        $out = & $binDir\convert $_.FullName -colorspace gray -fill "rgb($rgb)" -tint $tint -depth 8 -type palette -remap $folder\$target\${target}000.BMP -compress none BMP3:$_ | Out-String
 
         if (!$?) {
             Write-Error "$out`n> Could not colorize $($_.FullName)."
             exit
         }
     }
+
+    Remove-Item $folder\$target\${target}000.BMP
 }

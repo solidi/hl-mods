@@ -31,7 +31,7 @@ $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $spritesDir = "${rootDir}\sprites"
 
-# Colorize-Folder $binDir $spritesDir\nuke2 "16,50,90" 100
+# Colorize-Folder $binDir $spritesDir plasmablue5 "16,50,90" 100
 
 Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
@@ -58,6 +58,11 @@ Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "nuke2" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "hotglow" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "muzzleflashplasma" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "particles_blue" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "plasmablue5" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "plasmatrail" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "tsplasma" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
@@ -84,6 +89,7 @@ Copy-Item $spritesDir\weapon_dual_smg.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_freezegun.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

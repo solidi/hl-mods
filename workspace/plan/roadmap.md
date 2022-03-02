@@ -48,8 +48,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual Wrench
     1. [ ] Dual SMG
     1. [x] Dual USAS
+    1. [x] Freezegun
 1. [ ] Testing
-    1. [ ] Weapons behaviors under water
+    1. [x] Weapons behaviors under water
     1. [ ] Fakelag with weapons
     1. [x] Map changes with all weapons
 1. [ ] Publish
@@ -82,8 +83,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Throw (all weapons)
         1. Throw back grenade
     1. Weapons
-        1. [ ] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
-            1. [ ] Freeze player, explode in pieces
+        1. [x] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
+            1. [x] Freeze player, explode in pieces
         1. [ ] Portal gun
     1. More Valve maps reskinned
         1. [ ] Crossfire
@@ -126,7 +127,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Snowball Machine
     1. [ ] Pulse Rifle
     1. [ ] Pulse Pistol
-    1. [ ] Akimbo support
+    1. [x] Akimbo support
     1. [ ] C4 mine placement with satchels
     1. [ ] Convert throw-hold effect to all other weapons for control
     1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
@@ -219,6 +220,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Repair backs of health kits
     1. [ ] Skin blue item_suit
     1. [ ] Twisted assassin player model
+    1. [ ] Turn 180 spawn point in training by range / door
 1. Player Models
     1. [ ] [Snowman](https://gamebanana.com/mods/179220)
     1. [ ] All Cold Ice 1.6 player models

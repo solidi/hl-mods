@@ -112,6 +112,8 @@ Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.
 Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.5 "sound\mag60_blade_pass.wav" "wav" 37 38.5
 Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.5 "sound\mag60_blade_dead.wav" "wav" 48.5 54
 Compile-Sound $binDir $redistDir $soundDir "dodge_bullets.wav" 1.0 "sound\deagle_selected.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "freezing-sound-effect.mp3" 2.0 "sound\freezing.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "phasers.mp3" 1.5 "sound\freezegun_deploy.wav" "wav"
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
@@ -237,6 +239,15 @@ Copy-Item $soundDir\deagle_reload1.wav $redistdir\sound
 Copy-Item $soundDir\deagle_reload2.wav $redistdir\sound
 Copy-Item $soundDir\deagle_reload3.wav $redistdir\sound
 Copy-Item $soundDir\deagle_fire.wav $redistdir\sound
+Copy-Item $soundDir\plasma_hitwall.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_fire.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_reload.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_spin.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_draw.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_idle.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_clipin1.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_clipin2.wav $redistdir\sound
+Copy-Item $soundDir\freezegun_clipout.wav $redistdir\sound
 
 Copy-Item $soundDir\sentences.txt $redistdir\sound
 
