@@ -325,3 +325,6 @@
 1. I learned that in order to flip verticies after mirroring front to back, invert the value of pitch (AZR) and roll (AXR).
 1. When using the SMD adjust keys, to move the joint by "2" in a text file, use 0.065.
 1. In order to reduce the vertice count on a model in Milkshape 3d, [this thread](https://modthesims.info/t/468785) was important. First, increase the scale of the model to 1000. Next, select all vertices. Select merge vertices to nearist neighbor. Finally, reduce scale and review. Use the Tools > Show Model Statistics for the vertice count and monitor the reducion of the tirangles.
+1. [This guide](https://gist.github.com/jagrosh/5b1761213e33fc5b54ec7f6379034a22) was helpful in setting up a discord webhook from github.
+1. [This thread](http://www.garagegames.com/community/forums/viewthread/8974) dscusses all the shortcuts available for MilkShape.
+1. To show the current stashed work in git, use the command `git stash show -p`. See [this thread](https://stackoverflow.com/questions/7677736/git-diff-against-a-stash) for more information.

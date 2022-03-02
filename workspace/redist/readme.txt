@@ -15,6 +15,8 @@ Beta 2 Features:
 - Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
     - Desert Eagle (+)
         - Shoot
+    - Xero n2o Freeze Gun (+)
+        - Shoot
     - Dual Desert Eagles
         - Shoot / Shoot Both
     - Dual RPGs
@@ -310,3 +312,4 @@ Thanks To:
 - Napoleon for 64+ weapon support tutorial and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
 - Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
 - BlueNightHawk for thicker crosshairs from New Light https://www.moddb.com/mods/half-life-new-light
+- Illya and Ku2zoff for plasma rifle / freeze gun code

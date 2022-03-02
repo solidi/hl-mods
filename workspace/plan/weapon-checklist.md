@@ -28,6 +28,7 @@ For weapon generation scripting.
     1. [ ] Add to Gravebot
         1. [ ] Link class
         1. [ ] Configuration settings
+        1. [ ] Velocity projectile
     1. [ ] Definition
     1. [ ] Precache
     1. [ ] Impulse 101

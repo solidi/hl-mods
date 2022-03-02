@@ -316,6 +316,12 @@ Invert-Skin $binDir "p_dual_usas" $modelsdir\hd
 Invert-Skin $binDir "v_dual_usas" $modelsdir
 Invert-Skin $binDir "w_dual_usas" $modelsdir
 Invert-Skin $binDir "p_dual_usas" $modelsdir
+Invert-Skin $binDir "v_freezegun" $modelsdir\hd
+Invert-Skin $binDir "w_freezegun" $modelsdir\hd
+Invert-Skin $binDir "p_freezegun" $modelsdir\hd
+Invert-Skin $binDir "v_freezegun" $modelsdir
+Invert-Skin $binDir "w_freezegun" $modelsdir
+Invert-Skin $binDir "p_freezegun" $modelsdir
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "army" $binDir $modelsdir $redistDir
@@ -587,6 +593,13 @@ Compile-Model $binDir "p_dual_usas" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_dual_usas" $modelsdir $redistdir\models
 Compile-Model $binDir "w_dual_usas" $modelsdir $redistdir\models
 Compile-Model $binDir "p_dual_usas" $modelsdir $redistdir\models
+Compile-Model $binDir "v_freezegun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_freezegun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_freezegun" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_freezegun" $modelsdir $redistdir\models
+Compile-Model $binDir "w_freezegun" $modelsdir $redistdir\models
+Compile-Model $binDir "p_freezegun" $modelsdir $redistdir\models
+Compile-Model $binDir "plasma" $modelsdir $redistdir\models
 } else {
     Compile-Player $playerModel $binDir $modelsdir $redistDir
 }
