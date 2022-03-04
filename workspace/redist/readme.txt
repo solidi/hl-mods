@@ -59,6 +59,8 @@ Beta 2 Features:
     - Fixed bug where bots did not use all player models
     - Fixed weapon idle during iron sight mode
     - Fixed weapons firing underwater
+    - Fixed revolver weaponbox model
+    - Added 12 gauge muzzle flash
 
 Beta 1 Features:
 
