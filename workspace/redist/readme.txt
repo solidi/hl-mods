@@ -62,6 +62,7 @@ Beta 2 Features:
     - Fixed revolver weaponbox model
     - Added 12 gauge muzzle flash
     - Fixed chainsaw hev arms
+    - Increased flak cannon size and repaired spinning animation
 
 Beta 1 Features:
 

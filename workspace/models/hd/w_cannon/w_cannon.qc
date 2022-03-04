@@ -67,7 +67,7 @@ $hbox 0 "w_gauss" -1.356000 -10.386000 -2.760000 1.308000 10.422001 2.346000
 
 // animation sequence(s)
 $sequence "idle_ground" "idle_ground" fps 30 
-$sequence "spin" "spin" fps 30 
+$sequence "spin" "spin" fps 21 loop 
 $sequence "idle_hands" "idle_hands" fps 30 
 
 
