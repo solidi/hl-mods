@@ -34,22 +34,22 @@ $body "weapon" "v_ref"
 $texturegroup ice
 {
   {
-    "..\gordon_sleeve.bmp"
+    "..\gordon_sleeve_ext.bmp"
     "..\gordon_glove.bmp"
     "chainsaw_v.BMP"
   }
   {
-    "..\iceSleeve.bmp"
+    "..\iceSleeveExt.bmp"
     "..\iceGlove.bmp"
     "invert_chainsaw_v.BMP"
   }
   {
-    "..\iceSleeve.bmp"
+    "..\iceSleeveExt.bmp"
     "..\iceGlove.bmp"
     "..\..\ringchrome.bmp"
   }
   {
-    "..\iceSleeve.bmp"
+    "..\iceSleeveExt.bmp"
     "..\iceGlove.bmp"
     "..\iceCHROME.bmp"
   }

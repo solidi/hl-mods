@@ -61,6 +61,7 @@ Beta 2 Features:
     - Fixed weapons firing underwater
     - Fixed revolver weaponbox model
     - Added 12 gauge muzzle flash
+    - Fixed chainsaw hev arms
 
 Beta 1 Features:
 
