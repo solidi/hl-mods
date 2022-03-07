@@ -180,4 +180,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_dualsonly"
+	{
+		"#Ice_DualsOnly"
+		{ BOOL }
+		{ "0" }
+	}
 }
