@@ -34,8 +34,9 @@ Beta 2 Features:
     - Bullet decals
     - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
 - Dual Wielded Weapons
-    - Support for the pipe wrench, desert eagles, smgs, rpgs, and cluster grenades!
+    - Support for the pipe wrench, desert eagles, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
+    - "mp_dualsonly" to play with all dual weapons
 - Kick
     - "impulse 206" supports the kick function
 - Client Support
@@ -255,6 +256,7 @@ Server:
 - "mp_moreblood 2" - Increase blood up to 0-5 times
 - "mp_startwithall 0" - Start with all weapons
 - "mp_allowvoiceovers 1" - Allow public voiceovers
+- "mp_dualsonly 0" - Allow dual weapons only
 
 Report Bugs:
 

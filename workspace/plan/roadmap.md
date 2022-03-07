@@ -107,7 +107,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Player jump and land sound effects
     1. [ ] Player snow footstep sounds / materials
 1. Gameplay
-    1. [ ] mp_dualsonly - only allow dual type weapons
+    1. [x] mp_dualsonly - only allow dual type weapons
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
