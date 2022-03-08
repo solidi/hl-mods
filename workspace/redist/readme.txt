@@ -66,6 +66,7 @@ Beta 2 Features:
     - Added 12 gauge muzzle flash
     - Fixed chainsaw hev arms
     - Increased flak cannon size and repaired spinning animation
+    - Removed missing chumtoad sound effects
 
 Beta 1 Features:
 

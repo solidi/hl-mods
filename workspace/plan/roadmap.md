@@ -87,7 +87,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             1. [x] Freeze player, explode in pieces
         1. [ ] Portal gun
     1. More Valve maps reskinned
-        1. [ ] Crossfire
+        1. [x] Crossfire
 1. Movement
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
@@ -108,6 +108,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Player snow footstep sounds / materials
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
+    1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
@@ -190,7 +191,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
-    1. [ ] Crossfire re-skinned
+    1. [x] Crossfire re-skinned
 1. HUD
     1. [ ] Highlight HUD when picking up item (bhl)
     1. [ ] Best effort weapon 
