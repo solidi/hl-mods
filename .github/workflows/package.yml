@@ -366,7 +366,7 @@ jobs:
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Map ${{matrix.map}}
+        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Fast -Map ${{matrix.map}}
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
