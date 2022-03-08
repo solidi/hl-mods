@@ -45,8 +45,12 @@ $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $wadsDir = "${RootDir}\wads"
 $mapsDir = "${RootDir}\maps"
 
-if ($(Git-Branch-Name) -eq "snowcross-map") {
-    echo "branch is snowcross-map, setting full compilation of maps..."
+$currentBranchName = $(Git-Current-Branch-Name)
+$headBranchName = $(Git-Head-Branch-Name)
+
+echo "checking branches [currentBranchName=$currentBranchName, headBranchName=$headBranchName]"
+if ($currentBranchName -eq $headBranchName) {
+    echo "current branch is head branch, setting full compilation of maps..."
     $finalCompile = $true
 }
 
