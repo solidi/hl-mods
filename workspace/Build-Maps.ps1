@@ -45,6 +45,11 @@ $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $wadsDir = "${RootDir}\wads"
 $mapsDir = "${RootDir}\maps"
 
+if ($(Git-Branch-Name) -eq "snowcross-map") {
+    echo "branch is snowcross-map, setting full compilation of maps..."
+    $finalCompile = $true
+}
+
 if ($clean -eq $true) {
     Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
     Remove-Item $redistDir\maps -Force -ErrorAction Ignore

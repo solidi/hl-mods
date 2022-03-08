@@ -1,4 +1,16 @@
 
+function Git-Branch-Name {
+    $branchName = "unknown"
+
+    try {
+        $branchName = (git rev-parse --abbrev-ref HEAD)
+    } catch {
+        Write-Error "git is unavailable"
+    }
+
+    return $branchName
+}
+
 function Write-Wad-Config {
     param (
         $mapsDir,
