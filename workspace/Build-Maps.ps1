@@ -13,6 +13,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 $Config = @{ }
 [bool]$clean = $false
 [string]$mapName = ""
+[bool]$finalCompile = $true
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -26,6 +27,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Map") {
         $mapName = $_.Split(' ')[1]
         echo "building map $mapName..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Fast") {
+        $finalCompile = $false
+        echo "building map as draft..."
     }
 }
 
@@ -41,6 +45,15 @@ $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $wadsDir = "${RootDir}\wads"
 $mapsDir = "${RootDir}\maps"
 
+$currentBranchName = $(Git-Current-Branch-Name)
+$headBranchName = $(Git-Head-Branch-Name)
+
+echo "checking branches [currentBranchName=$currentBranchName, headBranchName=$headBranchName]"
+if ($currentBranchName -eq $headBranchName) {
+    echo "current branch is head branch, setting full compilation of maps..."
+    $finalCompile = $true
+}
+
 if ($clean -eq $true) {
     Remove-Item $redistDir\maps\\* -Recurse -Force -ErrorAction Ignore
     Remove-Item $redistDir\maps -Force -ErrorAction Ignore
@@ -48,20 +61,21 @@ if ($clean -eq $true) {
 }
 
 if ([string]::IsNullOrEmpty($mapName)) {
-    Compile-Map $binDir "fences" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "snowyard" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir
-    Compile-Map $binDir "depot" $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir "fences" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "snowyard" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "depot" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "snowcross" $mapsDir $redistDir $wadsDir $finalCompile
 } else {
-    Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir
+    Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile
 }
 
 Set-Location -Path ${PSScriptRoot}

@@ -29,6 +29,8 @@ Beta 2 Features:
         - Shoot / Shoot Both
     - Snarks
         - Throw / Release All
+- New Maps
+    - Snowcross, an expanded reskin of crossfire!
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals
@@ -318,4 +320,5 @@ Thanks To:
 - Napoleon for 64+ weapon support tutorial and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
 - Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
 - BlueNightHawk for thicker crosshairs from New Light https://www.moddb.com/mods/half-life-new-light
-- Illya and Ku2zoff for plasma rifle / freeze gun code
+- Illya and Ku2zoff for plasma rifle / freeze gun code, CSO's plasma gun model https://cso.fandom.com/wiki/Plasma_Gun
+- Zarko 'Napoleon' Dinev for crossfire2k source as reskinned as snowcross https://gamebanana.com/mods/59331

@@ -10,3 +10,4 @@ bounce2
 canyon
 catacombs
 depot
+snowcross

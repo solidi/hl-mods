@@ -324,7 +324,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot]
+        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross]
 
     steps:
     - uses: actions/checkout@v2
@@ -366,7 +366,7 @@ jobs:
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Map ${{matrix.map}}
+        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Fast -Map ${{matrix.map}}
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Copy-Item -Recurse -Force .\redist\maps $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
@@ -402,6 +402,7 @@ jobs:
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\catacombs\catacombs.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\fences\fences.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\depot\depot.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\snowcross\snowcross.zip -DestinationPath $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps

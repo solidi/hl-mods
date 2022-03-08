@@ -1,4 +1,28 @@
 
+function Git-Head-Branch-Name {
+    $branchName = "unknown-head-branch"
+
+    try {
+        $branchName = (git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+    } catch {
+        Write-Error "git is unavailable"
+    }
+
+    return $branchName
+}
+
+function Git-Current-Branch-Name {
+    $branchName = "unknown-current-branch"
+
+    try {
+        $branchName = (git rev-parse --abbrev-ref HEAD)
+    } catch {
+        Write-Error "git is unavailable"
+    }
+
+    return $branchName
+}
+
 function Write-Wad-Config {
     param (
         $mapsDir,
@@ -46,7 +70,8 @@ function Compile-Map {
         $target,
         $mapsDir,
         $redistDir,
-        $wadsDir
+        $wadsDir,
+        $finalCompile
     )
 
     $bspTimestamp = (Get-Item $redistDir\maps\$target.bsp -ErrorAction Ignore).LastWriteTime
@@ -61,6 +86,9 @@ function Compile-Map {
         echo "$target.bsp - source files: $lastestSourceFileStamp >? bsp file: $bspTimestamp"
         return
     }
+
+    $visOptions = if ($finalCompile) { "-full" } else { "-fast" }
+    $radOptions = if ($finalCompile) { "-extra" } else { "" }
 
     Write-Wad-Config $mapsDir $wadsDir
 
@@ -79,12 +107,12 @@ function Compile-Map {
         Write-Error "$out`n> Could not hlbsp ${target}."
         exit
     }
-    $out = & .\hlvis -full $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlvis $visOptions $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlvis ${target}."
         exit
     }
-    $out = & .\hlrad -extra -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlrad $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
