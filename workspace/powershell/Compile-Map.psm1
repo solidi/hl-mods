@@ -15,7 +15,7 @@ function Git-Current-Branch-Name {
     $branchName = "unknown-current-branch"
 
     try {
-        $branchName = (git rev-parse --abbrev-ref HEAD | grep 'HEAD branch' | cut -d' ' -f5)
+        $branchName = (git rev-parse --abbrev-ref HEAD)
     } catch {
         Write-Error "git is unavailable"
     }
