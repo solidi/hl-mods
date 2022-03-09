@@ -46,6 +46,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\sound)
     [void](New-Item -ItemType directory -Path $redisthddir\sound)
     [void](New-Item -ItemType directory -Path $redistdir\sound\weapons)
+    [void](New-Item -ItemType directory -Path $redistdir\sound\player)
     [void](New-Item -ItemType directory -Path $redistDir\media)
 }
 
@@ -248,7 +249,12 @@ Copy-Item $soundDir\freezegun_idle.wav $redistdir\sound
 Copy-Item $soundDir\freezegun_clipin1.wav $redistdir\sound
 Copy-Item $soundDir\freezegun_clipin2.wav $redistdir\sound
 Copy-Item $soundDir\freezegun_clipout.wav $redistdir\sound
+Copy-Item $soundDir\pl_snow1.wav $redistdir\sound\player\
+Copy-Item $soundDir\pl_snow2.wav $redistdir\sound\player\
+Copy-Item $soundDir\pl_snow3.wav $redistdir\sound\player\
+Copy-Item $soundDir\pl_snow4.wav $redistdir\sound\player\
 
 Copy-Item $soundDir\sentences.txt $redistdir\sound
+Copy-Item $soundDir\materials.txt $redistdir\sound
 
 Set-Location -Path ${PSScriptRoot}
