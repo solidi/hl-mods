@@ -296,6 +296,7 @@ resource\background\800_3_c_loading.tga
 resource\background\800_3_d_loading.tga
 sound
 sound\sentences.txt
+sound\materials.txt
 sound\vest_selected.wav
 sound\vest_attack.wav
 sound\vest_equip.wav
@@ -308,6 +309,11 @@ sound\clustergrenades_selected.wav
 sound\holy_handgrenade.wav
 sound\grapple_hit.wav
 sound\grapple_deploy.wav
+sound\player
+sound\player\pl_snow1.wav
+sound\player\pl_snow2.wav
+sound\player\pl_snow3.wav
+sound\player\pl_snow4.wav
 sound\weapons
 sound\weapons\explode3.wav
 sound\weapons\explode4.wav

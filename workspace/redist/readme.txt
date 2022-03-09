@@ -44,6 +44,7 @@ Beta 2 Features:
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
+    - Footstep sound effects for snow and other textures
 - Fixes
     - "mp_grapplinghook" default value now set to 1
     - Added w_egon model spin

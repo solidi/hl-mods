@@ -105,7 +105,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Show version in message
         1. [x] Random "did you know" messages during play to expose options
     1. [ ] Player jump and land sound effects
-    1. [ ] Player snow footstep sounds / materials
+    1. [x] Player snow footstep sounds / materials
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
     1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
