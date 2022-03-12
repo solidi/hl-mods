@@ -102,7 +102,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. In-game help menu
-        1. [ ] Show version in message
+        1. [x] Show version in message
         1. [x] Random "did you know" messages during play to expose options
     1. [ ] Player jump and land sound effects
     1. [x] Player snow footstep sounds / materials
