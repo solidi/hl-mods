@@ -30,7 +30,7 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
-$gameFolder = $Config['gameFolder'] ?? "ice_beta1"
+$gameFolder = $Config['gameFolder'] ?? "ice_beta2"
 $iceDir = "${hldir}\${gameFolder}"
 $icehddir = "${hldir}\${gameFolder}_hd"
 

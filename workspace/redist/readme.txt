@@ -45,6 +45,8 @@ Beta 2 Features:
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
     - Footstep sound effects for snow and other textures
+- Hud
+    - Include glass HUD effect to death notice and weapon identification 
 - Fixes
     - "mp_grapplinghook" default value now set to 1
     - Added w_egon model spin
@@ -68,6 +70,9 @@ Beta 2 Features:
     - Fixed chainsaw hev arms
     - Increased flak cannon size and repaired spinning animation
     - Removed missing chumtoad sound effects
+    - Fix flak bomb crash
+    - Fix owner credit to the nuke launcher
+    - Fixed bot crash during holstering weapons
 
 Beta 1 Features:
 

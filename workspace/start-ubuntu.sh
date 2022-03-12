@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-icefolder=ice_beta1
+icefolder=ice_beta2
 maxplayers=16
 hiDef=1
 while getopts "mh:" flag
