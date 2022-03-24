@@ -138,4 +138,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_shadows"
+	{
+		"#Ice_Shadows"
+		{ BOOL }
+		{ "0" }
+	}
 }

@@ -44,6 +44,7 @@ Beta 2 Features:
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
+    - "cl_shadows" draws rendered shadows
     - Footstep sound effects for snow and other textures
 - Hud
     - Include glass HUD effect to death notice and weapon identification 
@@ -246,6 +247,7 @@ Client:
 - "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
 - "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
 - "cl_showtips 1" - Show helpful text tips during game play
+- "cl_shadows 1" - Show rendered shadows underneath models
 
 Server:
 
@@ -329,3 +331,4 @@ Thanks To:
 - BlueNightHawk for thicker crosshairs from New Light https://www.moddb.com/mods/half-life-new-light
 - Illya and Ku2zoff for plasma rifle / freeze gun code, CSO's plasma gun model https://cso.fandom.com/wiki/Plasma_Gun
 - Zarko 'Napoleon' Dinev for crossfire2k source as reskinned as snowcross https://gamebanana.com/mods/59331
+- BlackShadow306 for the cl_shadows tutorial https://twhl.info/thread/view/20220 
