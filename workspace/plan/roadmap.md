@@ -119,7 +119,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
     1. [x] Bullet hole decals like BHL
     1. [ ] Random fire sprite at end of explosion like BHL
-    1. [ ] [r_shadows tutorial](https://twhl.info/thread/view/20220)
+    1. [x] [r_shadows tutorial](https://twhl.info/thread/view/20220)
 1. Weapons
     1. [x] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
     1. [x] Deagle
