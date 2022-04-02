@@ -12,23 +12,24 @@ This mod features works from the community. Without their dedication and hard wo
 Beta 2 Features:
 
 - New Weapons
-- Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
-    - Desert Eagle (+)
-        - Shoot
-    - Xero n2o Freeze Gun (+)
-        - Shoot
-    - Dual Desert Eagles
-        - Shoot / Shoot Both
-    - Dual RPGs
-        - Shoot Both / Extreme Rockets
-    - Dual SMGs
-        - Shoot Both
-    - Dual Wrenchs
-        - Swing Both / Throw Both
-    - Dual USAS-12
-        - Shoot / Shoot Both
-    - Snarks
-        - Throw / Release All
+    - Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
+        - Desert Eagle (+)
+            - Shoot
+        - Xero n2o Freeze Gun (+)
+            - Shoot
+        - Dual Desert Eagles
+            - Shoot / Shoot Both
+        - Dual RPGs
+            - Shoot Both / Extreme Rockets
+        - Dual SMGs
+            - Shoot Both
+        - Dual Wrenchs
+            - Swing Both / Throw Both
+        - Dual USAS-12
+            - Shoot / Shoot Both
+        - Snarks
+            - Throw / Release All
+    - Unique hud sprites for all weapons
 - New Maps
     - Snowcross, an expanded reskin of crossfire!
 - Weapon Updates
@@ -290,7 +291,7 @@ Thanks To:
 - MyInstants.com, soundboard.com, movie-sounds.org and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
 - RealPatryQVortex for the combat knife https://gamebanana.com/skins/174427
 - Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
-- GearBox for select sound effects from Opposing Force
+- GearBox for select sound effects and hud sprites from Opposing Force
 - [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26
 - Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694
 - L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544
@@ -309,7 +310,7 @@ Thanks To:
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
 - Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
 - BlueNightHawk for modern camera and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
-- Koshak_HL for the HD chainsaw model and others http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
+- Koshak_HL for the HD chainsaw model and hud sprites http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
 - Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
 - Fritz the Cat! for the hhev player model
 - SMOD series for the iron sights switch sounds effects https://www.moddb.com/mods/smod-40a
