@@ -53,6 +53,10 @@ Compile-Sprite $binDir "640hud1" $spritesDir\hd $redisthddir\sprites
 Compile-Sprite $binDir "640hud4" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hud4" $spritesDir\hd $redisthddir\sprites
 Compile-Sprite $binDir "640hud7" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "640hudof01" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "640hudof02" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "640hudof03" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "640hudof04" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
