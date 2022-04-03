@@ -85,6 +85,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Weapons
         1. [x] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
             1. [x] Freeze player, explode in pieces
+            1. [ ] A shoryuken on a frozen player automatically blows them up
         1. [ ] Portal gun
     1. More Valve maps reskinned
         1. [x] Crossfire
@@ -244,6 +245,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Improve crosshair visibility
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon
+    1. [ ] Freeze grenades (Audiocraz)
 
 ### Beta 1
 

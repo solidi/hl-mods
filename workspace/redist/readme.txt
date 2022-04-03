@@ -75,6 +75,7 @@ Beta 2 Features:
     - Fix flak bomb crash
     - Fix owner credit to the nuke launcher
     - Fixed bot crash during holstering weapons
+    - Fixed bot waypoint crash
 
 Beta 1 Features:
 
