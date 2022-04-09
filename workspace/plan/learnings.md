@@ -328,3 +328,10 @@
 1. [This guide](https://gist.github.com/jagrosh/5b1761213e33fc5b54ec7f6379034a22) was helpful in setting up a discord webhook from github.
 1. [This thread](http://www.garagegames.com/community/forums/viewthread/8974) dscusses all the shortcuts available for MilkShape.
 1. To show the current stashed work in git, use the command `git stash show -p`. See [this thread](https://stackoverflow.com/questions/7677736/git-diff-against-a-stash) for more information.
+1. [How to get the current branch name](https://stackoverflow.com/questions/6245570/how-to-get-the-current-branch-name-in-gitD) - `git rev-parse --abbrev-ref HEAD`
+1. [A good example of how](https://davidwalsh.name/get-default-branch-name) to get the head default branch name in a repo. `git remote show REMOTE_REPO_NAME | grep 'HEAD branch' | cut -d' ' -f5`
+1. A good discussion of [bullet time](https://www.reddit.com/r/gamedesign/comments/ijmpgr/is_it_possible_to_have_bullet_time_in_a/) in a multi-player setting.
+1. A thread on how to make precompiler variables contain values. [This thread](https://stackoverflow.com/questions/1305422/how-to-make-a-string-preprocessor-definition-from-command-line-in-vc-2005-c) was helpful when adding configuration to display the git hash in game.
+1. This [is a simple scanline effect](https://www.gimpusers.com/tutorials/simple-scanline-effect) that can be deployed in Gimp.
+1. [A discussion](https://stackoverflow.com/questions/31341998/ternary-operator-in-powershell) of ternary usage in Powershell. There isn't a shorthand, but an expression like `$myVar = if ($condition) {"true"} else {"false"}`
+1. There [original thread of bounfire](https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/) on Reddit. Maybe this could lead to an idea about stringing together Cold Ice maps?

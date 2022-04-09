@@ -107,6 +107,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Random "did you know" messages during play to expose options
     1. [ ] Player jump and land sound effects
     1. [x] Player snow footstep sounds / materials
+    1. [ ] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
     1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
@@ -242,10 +243,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
     1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
-    1. [x] Improve crosshair visibility
+    1. [x] Improve crosshair visibility ([Bonhomme](https://discord.com/channels/790549024373604353/790549024373604356/927735897959575572))
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
-    1. [ ] OICW weapon
-    1. [ ] Freeze grenades (Audiocraz)
+    1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
+    1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
+    1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
 
 ### Beta 1
 
