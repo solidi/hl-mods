@@ -187,4 +187,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "0" }
 	}
+
+	"sv_jumpheight"
+	{
+		"#Ice_JumpHeight"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "45" }
+	}
 }
