@@ -91,6 +91,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Crossfire
 1. Movement
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
+    1. [x] [Jump height](https://twitter.com/gvarados/status/1510759376247734274)
 1. Bot support
     1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
     1. [ ] Bot support for hook
@@ -207,6 +208,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Runes
     1. [ ] Ammo regeneration
     1. [ ] Quad damage (Napoleon's idea)
+    1. [ ] Super jump rune
 1. Fixes
     1. [ ] Knife / Crowbar / Wrench next attack instant after death
     1. [ ] Improve Crowbar animation from another v_ model

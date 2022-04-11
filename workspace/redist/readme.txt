@@ -47,6 +47,8 @@ Beta 2 Features:
     - "cl_showtips" to show random text tips during gameplay
     - "cl_shadows" draws rendered shadows
     - Footstep sound effects for snow and other textures
+- Movement
+    - Added "sv_jumpheight" to adjust amount of player's jump height
 - Hud
     - Include glass HUD effect to death notice and weapon identification 
 - Fixes
@@ -270,6 +272,7 @@ Server:
 - "mp_startwithall 0" - Start with all weapons
 - "mp_allowvoiceovers 1" - Allow public voiceovers
 - "mp_dualsonly 0" - Allow dual weapons only
+- "sv_jumpheight 45" - Adjustable player's jump height
 
 Report Bugs:
 
