@@ -281,6 +281,7 @@ resource\TrackerScheme.res
 resource\westminster.ttf
 resource\ice_beta2_english.txt
 resource\game_menu.tga
+resource\game_menu_mouseover.tga
 resource\background
 resource\background\800_1_a_loading.tga
 resource\background\800_1_b_loading.tga
