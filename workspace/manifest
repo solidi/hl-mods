@@ -276,6 +276,9 @@ models\v_freezegun.mdl
 models\p_freezegun.mdl
 models\w_freezegun.mdl
 models\plasma.mdl
+overviews
+overviews\snowyard.bmp
+overviews\snowyard.txt
 resource
 resource\TrackerScheme.res
 resource\westminster.ttf

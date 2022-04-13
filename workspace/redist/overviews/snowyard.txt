@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	3.23
+	ORIGIN	16 	552	200
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/snowyard.bmp"
+	HEIGHT	-17
+}

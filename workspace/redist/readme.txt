@@ -32,6 +32,7 @@ Beta 2 Features:
     - Unique hud sprites for all weapons
 - New Maps
     - Snowcross, an expanded reskin of crossfire!
+    - Spectator overviews for all maps
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals
@@ -50,7 +51,9 @@ Beta 2 Features:
 - Movement
     - Added "sv_jumpheight" to adjust amount of player's jump height
 - Hud
-    - Include glass HUD effect to death notice and weapon identification 
+    - Include glass HUD effect to death notice and weapon identification
+- Menu
+    - Updated corner logo
 - Fixes
     - "mp_grapplinghook" default value now set to 1
     - Added w_egon model spin
