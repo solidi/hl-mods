@@ -335,3 +335,4 @@
 1. This [is a simple scanline effect](https://www.gimpusers.com/tutorials/simple-scanline-effect) that can be deployed in Gimp.
 1. [A discussion](https://stackoverflow.com/questions/31341998/ternary-operator-in-powershell) of ternary usage in Powershell. There isn't a shorthand, but an expression like `$myVar = if ($condition) {"true"} else {"false"}`
 1. There [original thread of bounfire](https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/) on Reddit. Maybe this could lead to an idea about stringing together Cold Ice maps?
+1. [This is the best tutorial](https://twhl.info/wiki/page/Tutorial%3A_Creating_Overviews) on how to create overview maps of HLDM maps.
