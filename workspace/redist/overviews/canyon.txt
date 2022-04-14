@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.26
+	ORIGIN	1560 	224	-128
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/canyon.bmp"
+	HEIGHT	-993
+}

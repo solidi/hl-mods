@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.16
+	ORIGIN	-264 	456	-1680
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/bounce2.bmp"
+	HEIGHT	-2785
+}

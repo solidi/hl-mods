@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.70
+	ORIGIN	864 	310.50	152
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/catacombs.bmp"
+	HEIGHT	-257
+}

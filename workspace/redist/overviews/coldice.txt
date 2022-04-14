@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.78
+	ORIGIN	-384 	48	-200
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/coldice.bmp"
+	HEIGHT	-1233
+}

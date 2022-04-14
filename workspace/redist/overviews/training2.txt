@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.70
+	ORIGIN	-292.31 	315.13	48
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/training2.bmp"
+	HEIGHT	-353
+}
