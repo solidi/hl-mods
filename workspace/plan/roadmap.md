@@ -188,7 +188,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Maps
     1. All Maps
         1. [ ] Debrief text file
-        1. [ ] Overview graphic
+        1. [x] Overview graphic
     1. [ ] fgd file
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Training 2
@@ -205,6 +205,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Slanted health and armor sprites like Blue Shift
 1. Menu Graphics
     1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
+1. Integrations
+    1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing
 1. Runes
     1. [ ] Ammo regeneration
     1. [ ] Quad damage (Napoleon's idea)

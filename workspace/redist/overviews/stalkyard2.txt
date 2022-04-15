@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.53
+	ORIGIN	1189.50 	1170	55
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/stalkyard2.bmp"
+	HEIGHT	-347
+}

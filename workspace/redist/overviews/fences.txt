@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.98
+	ORIGIN	808 	-232	24
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/fences.bmp"
+	HEIGHT	-81
+}

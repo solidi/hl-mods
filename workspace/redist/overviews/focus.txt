@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.70
+	ORIGIN	496 	840	64
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/focus.bmp"
+	HEIGHT	-545
+}

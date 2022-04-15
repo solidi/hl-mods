@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.82
+	ORIGIN	-3.13 	-515.03	56
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/snowcross.bmp"
+	HEIGHT	-1937
+}

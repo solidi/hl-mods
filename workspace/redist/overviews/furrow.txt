@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.94
+	ORIGIN	-16 	-80	240
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/furrow.bmp"
+	HEIGHT	-129
+}

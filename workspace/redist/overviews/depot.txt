@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	3.44
+	ORIGIN	-216 	-336	232
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/depot.bmp"
+	HEIGHT	-65
+}
