@@ -14,12 +14,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: recursive
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -41,7 +41,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\release\cl_dlls -DestinationPath $zipFile -Update
 
     - name: Upload windows dlls
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: windows_dlls
         path: ./${{env.FOLDER_NAME}}/dlls.zip
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: recursive
 
@@ -79,19 +79,19 @@ jobs:
       run: ./${{env.FOLDER_NAME}}/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.so
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: linux_ice
         path: ./${{env.FOLDER_NAME}}/libs/dlls/ice.so
 
     - name: Upload gravebot.so
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: linux_gravebot
         path: ./${{env.FOLDER_NAME}}/libs/dlls/gravebot.so
 
     - name: Upload client.so
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: linux_client
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.so
@@ -100,7 +100,7 @@ jobs:
     runs-on: macOS-10.15
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: recursive
 
@@ -117,13 +117,13 @@ jobs:
       run: ./${{env.FOLDER_NAME}}/build-mac.sh CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.dylib
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: macOS_ice
         path: ./${{env.FOLDER_NAME}}/libs/dlls/ice.dylib
 
     - name: Upload client.dylib
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: macOS_client
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.dylib
@@ -132,12 +132,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v
       with:
         submodules: recursive
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -153,7 +153,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
 
     - name: Upload tools
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}/tools.zip
@@ -163,10 +163,10 @@ jobs:
     needs: [compile_tools]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Download tools
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -198,7 +198,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\release\models_hd -DestinationPath $zipFile -Update
 
     - name: Upload models
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled_models
         path: ./${{env.FOLDER_NAME}}/models.zip
@@ -207,7 +207,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -229,7 +229,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\release\media -DestinationPath $zipFile -Update
 
     - name: Upload sounds
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled_sounds
         path: ./${{env.FOLDER_NAME}}/sounds.zip
@@ -239,10 +239,10 @@ jobs:
     needs: [compile_tools]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Download tools
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -274,7 +274,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\release\sprites_hd -DestinationPath $zipFile -Update
 
     - name: Upload sprites
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled_sprites
         path: ./${{env.FOLDER_NAME}}/sprites.zip
@@ -284,10 +284,10 @@ jobs:
     needs: [compile_tools]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Download tools
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -314,7 +314,7 @@ jobs:
         Get-ChildItem -Path $env:TEMP -Filter *.wad | Compress-Archive -DestinationPath .\wads.zip -Force
 
     - name: Upload Wads
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}/wads.zip
@@ -327,10 +327,10 @@ jobs:
         map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Download tools
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -345,7 +345,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download wads
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}
@@ -372,7 +372,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
 
     - name: Upload ${{matrix.map}}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ${{matrix.map}}
         path: ./${{env.FOLDER_NAME}}/${{matrix.map}}.zip
@@ -382,7 +382,7 @@ jobs:
     needs: [compile_maps]
 
     steps:
-    - uses: actions/download-artifact@v2
+    - uses: actions/download-artifact@v3
       with:
         path: ./${{env.FOLDER_NAME}}
 
@@ -406,7 +406,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: compiled_maps
         path: ./${{env.FOLDER_NAME}}/maps.zip
@@ -416,10 +416,10 @@ jobs:
     needs: [windows_libs, linux_libs, macOS_libs, compile_models, combine_maps, compile_sprites, compile_sounds]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Download windows dlls
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: windows_dlls
         path: ./${{env.FOLDER_NAME}}
@@ -434,37 +434,37 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\dlls.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download ice.so
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: linux_ice
         path: ./${{env.FOLDER_NAME}}/libs/dlls
 
     - name: Download gravebot.so
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: linux_gravebot
         path: ./${{env.FOLDER_NAME}}/libs/dlls
 
     - name: Download client.so
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: linux_client
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls
 
     - name: Download ice.dylib
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: macOS_ice
         path: ./${{env.FOLDER_NAME}}/libs/dlls
 
     - name: Download client.dylib
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: macOS_client
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls
 
     - name: Download models
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_models
         path: ./${{env.FOLDER_NAME}}
@@ -478,7 +478,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\models.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download wads
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}
@@ -491,7 +491,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download maps
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_maps
         path: ./${{env.FOLDER_NAME}}
@@ -504,7 +504,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\maps.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download sounds
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_sounds
         path: ./${{env.FOLDER_NAME}}
@@ -519,7 +519,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\sound.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download sprites
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_sprites
         path: ./${{env.FOLDER_NAME}}
@@ -533,7 +533,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\sprites.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download tools
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -557,7 +557,7 @@ jobs:
       run: .\${{env.FOLDER_NAME}}\Build-Release.ps1 -ConfigFile Config
 
     - name: Archive Cold Ice Release
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: coldice-build
         path: .\${{env.FOLDER_NAME}}\cold-ice-remastered-git-*.zip
