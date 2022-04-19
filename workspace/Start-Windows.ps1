@@ -77,7 +77,7 @@ if ($copyDistro) {
     copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir
 }
 
-New-Item $iceDir\game.cfg
+New-Item $iceDir\game.cfg -Force
 
 if ($teamplay) {
     "mp_teamplay 1" | Add-Content $iceDir\game.cfg

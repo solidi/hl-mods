@@ -66,48 +66,35 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ### Beta 2
 
-1. Themes
+1. Weapon Themes
     1. [x] 64 weapons
-    1. [x] Kick
-    1. [ ] Akimbo's (select weapons)
+    1. [x] Akimbo's (select weapons)
         1. One each slot?
             1. [x] Wrench
             1. [x] Deagle
             1. [x] SMG
             1. [X] USAS
             1. [x] RPG
-            1. [ ] Clusters
-    1. [ ] Source version
-    1. [ ] Xash3d Android support
-    1. [ ] Pistol whip (all weapons)
     1. Throw (all weapons)
-        1. Throw back grenade
-    1. Weapons
-        1. [x] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
-            1. [x] Freeze player, explode in pieces
-            1. [ ] A shoryuken on a frozen player automatically blows them up
-        1. [ ] Portal gun
-    1. More Valve maps reskinned
-        1. [x] Crossfire
+        1. [ ] Throw back grenade
+    1. [x] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
+        1. [x] Freeze player, explode in pieces
+        1. [ ] A shoryuken on a frozen player automatically blows them up
+1. More Valve maps reskinned
+    1. [x] Crossfire
 1. Movement
-    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
     1. [x] [Jump height](https://twitter.com/gvarados/status/1510759376247734274)
 1. Bot support
-    1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
-    1. [ ] Bot support for hook
-    1. [ ] Bot support for macOS
-1. Supported Systems
-    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
+    1. [x] Tweaked support for grave_bot
 1. Game Mechanics
-    1. [ ] Jetpack?
     1. [x] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
-    1. [ ] Weapon whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. In-game help menu
         1. [x] Show version in message
         1. [x] Random "did you know" messages during play to expose options
-    1. [ ] Player jump and land sound effects
     1. [x] Player snow footstep sounds / materials
+    1. [ ] Player jump and land sound effects
+    1. [ ] Punch while holding weapon?
+    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
     1. [ ] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
@@ -118,26 +105,23 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] Weapon filter list
 1. Environment look and feel
-    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
-    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
     1. [x] Bullet hole decals like BHL
-    1. [ ] Random fire sprite at end of explosion like BHL
     1. [x] [r_shadows tutorial](https://twhl.info/thread/view/20220)
+    1. [ ] Random fire sprite at end of explosion like BHL
 1. Weapons
     1. [x] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
     1. [x] Deagle
         1. [x] Single shot weapons for semi-auto effect
+    1. [x] Akimbo support
     1. [ ] Hand cannon
-    1. [ ] Snowball Machine
+    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
     1. [ ] Pulse Rifle
     1. [ ] Pulse Pistol
-    1. [x] Akimbo support
     1. [ ] C4 mine placement with satchels
     1. [ ] Convert throw-hold effect to all other weapons for control
     1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
     1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
     1. [ ] Taser
-    1. [ ] Snowball Generator in place of Egon gun
     1. [ ] Decoy bombs that morph into AI assassins?
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
@@ -166,8 +150,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Correct all brass shell ejection points
     1. [ ] Use attachment point for each model
 1. Weapon ViewModel / Effects
+    1. [x] A generic draw/holster sound? (like CS:GO)
     1. [ ] Bob up/down like HL New Light v3
-    1. [ ] A generic draw/holster sound? (like CS:GO)
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
@@ -176,56 +160,46 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Blue arms + real skins
     1. [ ] Additional attachment values for configurable speeds and fov
 1. Configuration Support
-    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [x] cl_weaponvoice - disable or enable humor/voice sound effects
+    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [ ] Damage / blood / stains on view model as seen in bhl
 1. Server Support
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
 1. UI / Menu
-    1. [ ] Cold Ice logo at bottom of menu
-    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
+    1. [x] Cold Ice logo at bottom of menu
+    1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Iceman + Cold Ice Logo in HEV suit
 1. Maps
     1. All Maps
-        1. [ ] Debrief text file
         1. [x] Overview graphic
-    1. [ ] fgd file
-    1. [ ] Finish arena, texture in Cold Ice style
-    1. [ ] Training 2
-        1. [ ] Frozen pool in new area opposite of garage
-    1. [ ] Frozen Lake map idea
     1. [x] Crossfire re-skinned
+    1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
 1. HUD
     1. [ ] Highlight HUD when picking up item (bhl)
-    1. [ ] Best effort weapon 
-        1. [ ] Pipewrench, knife, deagle, and rifler from OpFor?
+    1. [ ] Best sprite effort weapon 
+        1. [x] Pipewrench, knife, deagle, and rifler from OpFor?
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
     1. [ ] Weapon Sprite + text at bottom as compromise
     1. [ ] Slanted health and armor sprites like Blue Shift
-1. Menu Graphics
-    1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Cold Ice
-1. Integrations
-    1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing
 1. Runes
     1. [ ] Ammo regeneration
-    1. [ ] Quad damage (Napoleon's idea)
-    1. [ ] Super jump rune
 1. Fixes
+    1. [x] Bots harder to see player with cloak rune.
+    1. [x] Make grappling hook default enabled
+    1. [x] Rename release zip to `cold-ice-remastered-<hash>`
+    1. [x] Repair backs of health kits
+    1. [ ] mp_infiniteammo -> sv_infiniteammo
+    1. [ ] Skin blue item_suit
+    1. [ ] Add git hash to server name in dll
+    1. [ ] Throwable crowbar sometimes not iced?
     1. [ ] Knife / Crowbar / Wrench next attack instant after death
     1. [ ] Improve Crowbar animation from another v_ model
-    1. [x] Bots harder to see player with cloak rune.
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
-    1. [ ] mp_infiniteammo -> sv_infiniteammo
-    1. [x] Make grappling hook default enabled
-    1. [x] Rename release zip to `cold-ice-remastered-<hash>`
-    1. [ ] Throwable crowbar sometimes not iced?
     1. [ ] Snowball not exhaustable?
     1. [ ] Spawn x / 2 runes per currently connected players?
-    1. [x] Repair backs of health kits
-    1. [ ] Skin blue item_suit
     1. [ ] Twisted assassin player model
     1. [ ] Turn 180 spawn point in training by range / door
 1. Player Models
@@ -233,13 +207,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] All Cold Ice 1.6 player models
 1. Game Dev Tools
     1. [x] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
+    1. [x] God mode (for recording, etc)
     1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
-    1. [x] God mode (for recording, etc)
     1. [ ] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
@@ -252,6 +226,43 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
     1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
+
+### Beta 3
+
+1. Supported Systems
+    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
+    1. [ ] Source version
+1. Weapons
+    1. [ ] Portal gun
+    1. [ ] Weapon/pistal whip like WastelandHL (most weapons) / Gun slap / punch all weapons
+    1. [ ] Akimbo's (select weapons)
+        1. [ ] Clusters
+1. Movement
+    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
+1. Bot support
+    1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
+    1. [ ] Bot support for hook
+    1. [ ] Bot support for macOS
+1. Game Mechanics
+    1. [ ] Jetpack?
+    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
+1. Environment look and feel
+    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
+    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+1. UI / Menu
+    1. [x] Cold Ice logo at bottom of menu
+    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
+1. Runes
+    1. [ ] Quad damage (Napoleon's idea)
+    1. [ ] Super jump rune
+1. Maps
+    1. [ ] fgd file
+    1. [ ] Finish arena, texture in Cold Ice style
+    1. [ ] Training 2
+        1. [ ] Frozen pool in new area opposite of garage
+    1. [ ] Frozen Lake map idea
+1. Integrations
+    1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing
 
 ### Beta 1
 
