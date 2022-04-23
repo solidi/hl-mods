@@ -83,6 +83,7 @@ Beta 2 Features:
     - Fix owner credit to the nuke launcher
     - Fixed bot crash during holstering weapons
     - Fixed bot waypoint crash
+    - Fixed view model lag for different framerates
 
 Beta 1 Features:
 

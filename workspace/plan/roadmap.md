@@ -113,19 +113,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Deagle
         1. [x] Single shot weapons for semi-auto effect
     1. [x] Akimbo support
+    1. [x] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
     1. [ ] Hand cannon
-    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
-    1. [ ] Pulse Rifle
-    1. [ ] Pulse Pistol
-    1. [ ] C4 mine placement with satchels
-    1. [ ] Convert throw-hold effect to all other weapons for control
-    1. [ ] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
-    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
-    1. [ ] Taser
-    1. [ ] Decoy bombs that morph into AI assassins?
-    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
-    1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
-    1. [ ] Counter-Strike penguin
     1. Knife
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
         1. [ ] Cold Ice 2.5 model?
@@ -178,10 +167,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Highlight HUD when picking up item (bhl)
     1. [ ] Best sprite effort weapon 
         1. [x] Pipewrench, knife, deagle, and rifler from OpFor?
+        1. [ ] Weapon Sprite + text at bottom as compromise?
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
-    1. [ ] Weapon Sprite + text at bottom as compromise
-    1. [ ] Slanted health and armor sprites like Blue Shift
+    1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Runes
     1. [ ] Ammo regeneration
 1. Fixes
@@ -219,13 +208,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
 1. Community ideas
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
-    1. [ ] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
+    1. [x] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
     1. [x] Improve crosshair visibility ([Bonhomme](https://discord.com/channels/790549024373604353/790549024373604356/927735897959575572))
-    1. [ ] Rune power degradation / Power consumption of the cloak rune? 
-    1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
-    1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
-    1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
 
 ### Beta 3
 
@@ -233,10 +218,21 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
     1. [ ] Source version
 1. Weapons
-    1. [ ] Portal gun
-    1. [ ] Weapon/pistal whip like WastelandHL (most weapons) / Gun slap / punch all weapons
+    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
+    1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] Akimbo's (select weapons)
         1. [ ] Clusters
+    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
+    1. [ ] Pulse Rifle
+    1. [ ] Pulse Pistol
+    1. [ ] C4 mine placement with satchels
+    1. [ ] Convert throw-hold effect to all other weapons for control
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
+        1. [ ] Customizable color
+    1. [ ] Taser
+    1. [ ] Decoy bombs that morph into AI assassins?
+    1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
+    1. [ ] Counter-Strike penguin
 1. Movement
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
@@ -263,6 +259,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Frozen Lake map idea
 1. Integrations
     1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing
+1. Community ideas
+    1. [ ] Rune power degradation / Power consumption of the cloak rune? 
+    1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
+    1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
+    1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
 
 ### Beta 1
 
