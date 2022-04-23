@@ -1,10 +1,10 @@
 # Work for Cold Ice Remastered
 
-This is the directory for all assets of Cold Ice Remastered, including its submodule for game libraries. Building is holistic (all assets are built from sources). It is heremetic for all small utils.
+This is the directory for all assets of [Cold Ice Remastered](https://www.moddb.com/mods/cold-ice-remastered), including its submodule for game libraries. Building is holistic (all assets are built from sources). It is heremetic for all small utils.
 
 ## Dependencies Needed
 
-1. See `.github/workflows/packacge.yml` for full details on how its built on a remote machine.
+1. See `.github/workflows/package.yml` for full details on how its built on a remote machine.
 1. All valve/mod small utils are built or included in pipeline (for recombination experimentation, e.g. changes to studiomdl can automatically rebuild models.)
 1. Two dependenices are required
     1. On Windows (10, or 11), install portable [Powershell 7.2.0+](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.1).
