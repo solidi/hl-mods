@@ -84,6 +84,7 @@ Beta 2 Features:
     - Fixed bot crash during holstering weapons
     - Fixed bot waypoint crash
     - Fixed view model lag for different framerates
+    - Patched some models like the throwable crowbar are not iced over
 
 Beta 1 Features:
 
