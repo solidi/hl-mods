@@ -58,6 +58,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\models\player\navy)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\recon)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\santa)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\snowman)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\stormtrooper)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\swat)
     [void](New-Item -ItemType directory -Path $redisthddir\models)
@@ -335,6 +336,7 @@ Compile-Player "iceman" $binDir $modelsdir $redistDir
 Compile-Player "navy" $binDir $modelsdir $redistDir
 Compile-Player "recon" $binDir $modelsdir $redistDir
 Compile-Player "santa" $binDir $modelsdir $redistDir
+Compile-Player "snowman" $binDir $modelsdir $redistDir
 Compile-Player "stormtrooper" $binDir $modelsdir $redistDir
 Compile-Player "swat" $binDir $modelsdir $redistDir
 

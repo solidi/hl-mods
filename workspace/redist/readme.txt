@@ -33,6 +33,8 @@ Beta 2 Features:
 - New Maps
     - Snowcross, an expanded reskin of crossfire!
     - Spectator overviews for all maps
+- New Player Models
+    - Snowman
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals
