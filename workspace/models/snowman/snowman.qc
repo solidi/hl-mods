@@ -27,8 +27,8 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $bodygroup "body"
 {
-studio "snowman3"
-studio "snowman3"
+studio "snowman"
+studio "snowman"
 }
 
 
