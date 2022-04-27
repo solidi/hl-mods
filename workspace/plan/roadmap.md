@@ -192,7 +192,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Twisted assassin player model
     1. [ ] Turn 180 spawn point in training by range / door
 1. Player Models
-    1. [ ] [Snowman](https://gamebanana.com/mods/179220)
+    1. [x] [Snowman](https://gamebanana.com/mods/179220)
     1. [ ] All Cold Ice 1.6 player models
 1. Game Dev Tools
     1. [x] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
