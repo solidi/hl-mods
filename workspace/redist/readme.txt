@@ -59,6 +59,7 @@ Beta 2 Features:
 - Menu
     - Updated corner logo
 - Fixes
+    - Skinned the hev to blue
     - "mp_grapplinghook" default value now set to 1
     - Added w_egon model spin
     - Fixed hhev attachments

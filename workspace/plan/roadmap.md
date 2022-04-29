@@ -179,8 +179,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Rename release zip to `cold-ice-remastered-<hash>`
     1. [x] Repair backs of health kits
     1. [x] Throwable crowbar sometimes not iced?
+    1. [x] Skin blue item_suit
     1. [ ] mp_infiniteammo -> sv_infiniteammo
-    1. [ ] Skin blue item_suit
     1. [ ] Add git hash to server name in dll
     1. [ ] Knife / Crowbar / Wrench next attack instant after death
     1. [ ] Improve Crowbar animation from another v_ model
