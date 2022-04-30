@@ -1,0 +1,8 @@
+version 1
+nodes
+  0 "Player_Mesh" -1
+end
+skeleton
+time 0
+  0   -4.430845 -1.881565 51.374069 1.569998 0.000000 0.000000
+end
