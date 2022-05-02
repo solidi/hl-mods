@@ -2374,11 +2374,6 @@
 "origin" "-96 -256 -32"
 }
 {
-"classname" "info_player_start"
-"angles" "0 0 0"
-"origin" "-96 0 16"
-}
-{
 "classname" "ambient_generic"
 "message" "ambience/rocketrumble1.wav"
 "health" "10"
@@ -2437,16 +2432,6 @@
 ( 496 -384 -64 ) ( 496 -352 -64 ) ( 496 -368 64 ) FADE2 [ 0 1 0 32 ] [ 0 0 -1 122.98 ] 0 1 0.51 
 ( 560 -352 -64 ) ( 560 -384 -64 ) ( 560 -384 64 ) FADE2 [ 0 1 0 32 ] [ 0 0 -1 122.98 ] 0 1 0.51 
 }
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "-96 -912 -32"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "528 0 -32"
 }
 {
 "classname" "light_environment"
@@ -2956,16 +2941,6 @@
 }
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "224 520 8"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "880 -1072 16"
-}
-{
 "classname" "weapon_satchel"
 "angles" "0 0 0"
 "origin" "656 496 -64"
@@ -3114,11 +3089,18 @@
 "origin" "1168 320 32"
 }
 {
+"classname" "info_player_start"
+"angles" "0 0 0"
+"origin" "-96 0 16"
+}
+{
 "classname" "info_player_deathmatch"
+"angles" "0 270 0"
 "origin" "-96 350 -8"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 270 0"
 "origin" "1329 499 32"
 }
 {
@@ -3127,6 +3109,7 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "553 352 -8"
 }
 {
@@ -3135,10 +3118,12 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 270 0"
 "origin" "896 289 8"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "1767 -347 48"
 }
 {
@@ -3147,10 +3132,12 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "144 -1064 8"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 270 0"
 "origin" "429 -713 16"
 }
 {
@@ -3159,21 +3146,45 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "1318 -472 32"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 315 0"
 "origin" "1199 72 40"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 270 0"
 "origin" "1711 309 48"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 270 0"
 "origin" "1441 339 32"
 }
 {
 "classname" "info_player_deathmatch"
 "origin" "831 722 16"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "-96 -912 -32"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "528 0 -32"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "224 520 8"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "880 -1072 16"
 }
