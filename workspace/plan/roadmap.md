@@ -190,7 +190,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Snowball not exhaustable?
     1. [ ] Spawn x / 2 runes per currently connected players?
     1. [ ] Twisted assassin player model
-    1. [ ] Turn 180 spawn point in training by range / door
+    1. [x] Turn 180 spawn point in training by range / door
 1. Player Models
     1. [x] [Snowman](https://gamebanana.com/mods/179220)
     1. [ ] All Cold Ice 1.6 player models
