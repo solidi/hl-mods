@@ -11,3 +11,4 @@ canyon
 catacombs
 depot
 snowcross
+frostfire

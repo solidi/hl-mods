@@ -3,7 +3,7 @@ Cold Ice Remastered Edition
 This project is a modern open-sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a winter scene, its philosophy is to deliver deathmatch that doesn't take itself seriously. Only in this mod will you find voiceover cameos from Samuel L. Jackson, Hans Gruber, and "Leeroy Jenkins" by Ben Schulz. Its ethos delivers an explosively frantic fast-paced gameplay that was and always will be Cold Ice.
 
 The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
-Library Game code: https://github.com/solidi/coldice-remastered
+Library game code: https://github.com/solidi/coldice-remastered
 Project redist and assets: https://github.com/solidi/hl-mods
 Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
@@ -31,7 +31,8 @@ Beta 2 Features:
             - Throw / Release All
     - Unique hud sprites for all weapons
 - New Maps
-    - Snowcross, an expanded reskin of crossfire!
+    - Snowcross, an expanded reskin of crossfire
+    - Frostfire, a reskin of bounfire by TheSpacePirate
     - Spectator overviews for all maps
 - New Player Models
     - Snowman
@@ -88,6 +89,7 @@ Beta 2 Features:
     - Fixed bot waypoint crash
     - Fixed view model lag for different framerates
     - Patched some models like the throwable crowbar are not iced over
+    - Fixed spawn point angles in stalkyard2, training and fences
 
 Beta 1 Features:
 
@@ -349,3 +351,4 @@ Thanks To:
 - Zarko 'Napoleon' Dinev for crossfire2k source as reskinned as snowcross https://gamebanana.com/mods/59331
 - BlackShadow306 for the cl_shadows tutorial https://twhl.info/thread/view/20220 
 - BlueNightHawk for weapon retract code https://github.com/BlueNightHawk/hl-newlight / https://www.moddb.com/mods/half-life-new-light
+- TheSpacePirate for frostfire, a reskin of bounfire https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/ / https://twhl.info/vault/view/6608

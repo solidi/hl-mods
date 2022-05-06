@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.27
+	ORIGIN	-1036 	313.50	-1291
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/frostfire.bmp"
+	HEIGHT	-2593
+}

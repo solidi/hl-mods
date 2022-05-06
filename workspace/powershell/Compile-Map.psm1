@@ -36,6 +36,7 @@ all {
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\liquids.wad
+    $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
     $wadsDir\xeno.wad
 }
@@ -97,7 +98,7 @@ function Compile-Map {
 
     Set-Location -Path $binDir
     echo "Compiling map $target..."
-    $out = & .\hlcsg -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlcsg -texdata 8192 -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlcsg ${target}."
         exit

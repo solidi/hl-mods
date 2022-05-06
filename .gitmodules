@@ -13,3 +13,6 @@
 [submodule "workspace/bsp-tools"]
 	path = workspace/bsp-tools
 	url = https://github.com/solidi/BSP-Slicer.git
+[submodule "workspace/vhlt"]
+	path = workspace/vhlt
+	url = https://github.com/solidi/vhlt
