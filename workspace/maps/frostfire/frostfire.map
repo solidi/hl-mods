@@ -14461,7 +14461,7 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 0 0"
-"origin" "-168 232 -1932"
+"origin" "-168 232 -1920"
 }
 {
 "classname" "ammo_gaussclip"
