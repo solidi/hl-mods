@@ -58,10 +58,10 @@ function Compile-WPT {
     $success = $false
     while (!$success) {
         echo "Writing ${target}.wpt..."
-        $out = & .\BSP_tool -s -m -v -p -l -n -t -mip -f -e -ent -w $target | Out-String
+        $out = & .\BSP_tool -w $target | Out-String
         $success = $?
         if (!$success) {
-            Throw "$out`n> Could not wpt ${target}, trying again."
+            Write-Error "$out`n> Could not wpt ${target}, trying again."
         }
     }
     [void](Get-Item -Path "$target.HPB_wpt")
