@@ -55,10 +55,14 @@ function Compile-WPT {
     '$spawnpoint info_player_deathmatch' | Add-Content $binDir\BSP_tool.cfg
     "`$halflife_dir `"..\`"" | Add-Content $binDir\BSP_tool.cfg
 
-    echo "Writing ${target}.wpt..."
-    $out = & .\BSP_tool -w $target | Out-String
-    if (!$?) {
-        Throw "$out`n> Could not wpt ${target}."
+    $success = $false
+    while (!$success) {
+        echo "Writing ${target}.wpt..."
+        $out = & .\BSP_tool -s -m -v -p -l -n -t -mip -f -e -ent -w $target | Out-String
+        $success = $?
+        if (!$success) {
+            Throw "$out`n> Could not wpt ${target}, trying again."
+        }
     }
     [void](Get-Item -Path "$target.HPB_wpt")
     Move-Item $binDir\$target.HPB_wpt $redistDir\maps\$target.wpt -Force
@@ -98,21 +102,25 @@ function Compile-Map {
 
     Set-Location -Path $binDir
     echo "Compiling map $target..."
-    $out = & .\hlcsg -texdata 8192 -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
+    Write-Output "hlcsg $target..."
+    $out = & .\hlcsg -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlcsg ${target}."
         exit
     }
+    Write-Output "`nhlbsp $target..."
     $out = & .\hlbsp $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlbsp ${target}."
         exit
     }
+    Write-Output "`nhlvis $target..."
     $out = & .\hlvis $visOptions $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlvis ${target}."
         exit
     }
+    Write-Output "`nhlrad $target..."
     $out = & .\hlrad $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlrad ${target}."
