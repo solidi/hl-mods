@@ -335,4 +335,14 @@
 1. This [is a simple scanline effect](https://www.gimpusers.com/tutorials/simple-scanline-effect) that can be deployed in Gimp.
 1. [A discussion](https://stackoverflow.com/questions/31341998/ternary-operator-in-powershell) of ternary usage in Powershell. There isn't a shorthand, but an expression like `$myVar = if ($condition) {"true"} else {"false"}`
 1. There [original thread of bounfire](https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/) on Reddit. Maybe this could lead to an idea about stringing together Cold Ice maps?
-1. [This is the best tutorial](https://twhl.info/wiki/page/Tutorial%3A_Creating_Overviews) on how to create overview maps of HLDM maps.
+1. [This is the best tutorial](https://twhl.info/wiki/page/Tutorial%3A_Creating_Overviews) on how to create overview maps of HLDM maps. [Napolean's](https://gamebanana.com/tuts/14495) is better though :)
+1. [Two](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nsg-quickstart-portal) [good](https://docs.bitnami.com/azure/faq/administration/use-firewall/) articles on how to open ports on Azure virtual machines.
+1. To determine the audio levels of an audio file using ffmpeg, in case of pipelining a range to fail the build if out of that range, [this article](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) notes the use of `astats`.
+1. Another tool to decompile [mdl models](https://www.moddb.com/downloads/half-life-studio-model-decompilerwin32-linux)
+1. To see the manifest of an dll, [use this tool](https://www.nirsoft.net/utils/dll_export_viewer.html), to see all of its exports.
+1. [This article](https://blog.kowalczyk.info/articles/pefileformat.html) defines all of the [portable executable](http://blog.omega-prime.co.uk/2011/07/04/everything-you-never-wanted-to-know-about-dlls/) [format](https://en.wikipedia.org/wiki/Portable_Executable#/media/File:Portable_Executable_32_bit_Structure_in_SVG_fixed.svg) in [dlls](https://en.wikipedia.org/wiki/Portable_Executable).
+1. [Notes about Metamod](http://metamod.org/metamod.html) and its client commands.
+1. Breaking out of a nested loop [requires a variable](https://stackoverflow.com/questions/9695902/how-to-break-out-of-nested-loops) to flag that the loop is completed.
+1. `atof()` is used in [c++98](https://stackoverflow.com/questions/43810190/string-to-long-double-conversion-in-c98) to convert strings to floats.
+1. [DIN 1451](https://www.reddit.com/r/HalfLife/comments/248tzb/the_font_used_in_the_half_life_and_and_portal/) is the font used in the original Half-Life logo. [Alte DIN](https://www.1001fonts.com/alte-din-1451-mittelschrift-font.html) is a good replacement.
+1. [Here is an alterative](https://stackoverflow.com/questions/4353525/floating-point-linear-interpolation) floating point linear interpolation method (lerp).
