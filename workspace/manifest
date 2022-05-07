@@ -86,6 +86,8 @@ maps\depot.bsp
 maps\depot.wpt
 maps\snowcross.bsp
 maps\snowcross.wpt
+maps\frostfire.bsp
+maps\frostfire.wpt
 media
 media\gamestartup.mp3
 models
@@ -299,6 +301,8 @@ overviews\furrow.bmp
 overviews\furrow.txt
 overviews\snowcross.bmp
 overviews\snowcross.txt
+overviews\frostfire.bmp
+overviews\frostfire.txt
 overviews\snowyard.bmp
 overviews\snowyard.txt
 overviews\stalkyard2.bmp
@@ -609,3 +613,4 @@ motd.txt
 decals.wad
 gameinfo.txt
 delta.lst
+spacepirate.wad

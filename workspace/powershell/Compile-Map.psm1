@@ -36,6 +36,7 @@ all {
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\liquids.wad
+    $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
     $wadsDir\xeno.wad
 }
@@ -54,10 +55,14 @@ function Compile-WPT {
     '$spawnpoint info_player_deathmatch' | Add-Content $binDir\BSP_tool.cfg
     "`$halflife_dir `"..\`"" | Add-Content $binDir\BSP_tool.cfg
 
-    echo "Writing ${target}.wpt..."
-    $out = & .\BSP_tool -w $target | Out-String
-    if (!$?) {
-        Throw "$out`n> Could not wpt ${target}."
+    $success = $false
+    while (!$success) {
+        echo "Writing ${target}.wpt..."
+        $out = & .\BSP_tool -w $target | Out-String
+        $success = $?
+        if (!$success) {
+            Write-Output "$out`n> Could not wpt ${target}, trying again."
+        }
     }
     [void](Get-Item -Path "$target.HPB_wpt")
     Move-Item $binDir\$target.HPB_wpt $redistDir\maps\$target.wpt -Force
@@ -96,22 +101,26 @@ function Compile-Map {
     Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*wpt -Force -ErrorAction Ignore
 
     Set-Location -Path $binDir
-    echo "Compiling map $target..."
+    Write-Output "Compiling map $target..."
+    Write-Output "hlcsg $target..."
     $out = & .\hlcsg -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlcsg ${target}."
         exit
     }
+    Write-Output "hlbsp $target..."
     $out = & .\hlbsp $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlbsp ${target}."
         exit
     }
+    Write-Output "hlvis $target..."
     $out = & .\hlvis $visOptions $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlvis ${target}."
         exit
     }
+    Write-Output "hlrad $target..."
     $out = & .\hlrad $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlrad ${target}."

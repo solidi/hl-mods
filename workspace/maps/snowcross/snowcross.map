@@ -8,7 +8,7 @@
 "light" "0"
 "mapversion" "220"
 "mapversion" "220"
-"wad" "\workspace\wads\coldice.wad;\workspace\wads\halflife.wad;\workspace\wads\liquids.wad;\workspace\wads\xeno.wad;\workspace\wads\spraypaint.wad"
+"wad" "..\wads\coldice.wad;..\wads\halflife.wad;..\wads\liquids.wad;..\wads\xeno.wad;..\wads\spraypaint.wad"
 {
 ( 896 -1632 -1472 ) ( 896 -1632 -1696 ) ( 896 1536 -1696 ) CIR_WOOD13 [ 0 1 0 0 ] [ 0 0 -1 -128 ] 0 1.5 1.5 
 ( 1024 1536 -1472 ) ( 1024 1536 -1696 ) ( 1024 -1792 -1696 ) OUT_W6B [ 0 1 0 0 ] [ 0 0 -1 -32 ] 0 2.5 2.5 

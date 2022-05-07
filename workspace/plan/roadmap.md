@@ -37,7 +37,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Chainsaw
     1. [x] 12 Gauge
     1. [x] 44 Magnum
-    1. [ ] M16
+    1. [x] M16
     1. [x] Explosive Assault Shotgun
     1. [x] Nuke Launcher
     1. [x] Snarks
