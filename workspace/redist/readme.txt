@@ -50,6 +50,7 @@ Beta 2 Features:
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
     - "cl_shadows" draws rendered shadows
+    - "cl_glowmodels" draws glow models if available
     - Footstep sound effects for snow and other textures
 - Modern weapon viewmodel improvements
     - Weapon retracts when up against a wall
@@ -67,7 +68,7 @@ Beta 2 Features:
     - Fixed vest crash in single player
     - Fixed WILD sounds in coldice
     - Normalized sound loudness
-    - Fixed medkit backface bug
+    - Fixed medkit/battery/gauss ammo backface bug
     - Fixed missing inverted and iced skin for the player crowbar
     - Patch bots in slow motion after many map changes
     - Improved Bot weapon select and engagement of player
@@ -90,6 +91,7 @@ Beta 2 Features:
     - Fixed view model lag for different framerates
     - Patched some models like the throwable crowbar are not iced over
     - Fixed spawn point angles in stalkyard2, training and fences
+    - Fixed incorrect placement of gauss ammo model on floor
 
 Beta 1 Features:
 
@@ -265,6 +267,7 @@ Client:
 - "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
 - "cl_showtips 1" - Show helpful text tips during game play
 - "cl_shadows 1" - Show rendered shadows underneath models
+- "cl_glowmodels 1" - Show models with a glow effect if available
 
 Server:
 
@@ -352,3 +355,4 @@ Thanks To:
 - BlackShadow306 for the cl_shadows tutorial https://twhl.info/thread/view/20220 
 - BlueNightHawk for weapon retract code https://github.com/BlueNightHawk/hl-newlight / https://www.moddb.com/mods/half-life-new-light
 - TheSpacePirate for frostfire, a reskin of bounfire https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/ / https://twhl.info/vault/view/6608
+- Bacontsu and others for glow model code found in Half-Life Extended SDK https://github.com/bacontsu/halflife-extended

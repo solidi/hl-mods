@@ -152,4 +152,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "0" }
 	}
+
+	"cl_glowmodels"
+	{
+		"#Ice_GlowModels"
+		{ BOOL }
+		{ "1" }
+	}
 }

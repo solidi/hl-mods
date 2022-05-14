@@ -518,6 +518,7 @@ Compile-Model $binDir "w_shotbox" $modelsdir $redistdir\models
 Compile-Model $binDir "w_shotbox" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_gaussammo" $modelsdir $redistdir\models
 Compile-Model $binDir "w_gaussammo" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_gaussammo_light" $modelsdir $redistdir\models
 Compile-Model $binDir "w_rpgammo" $modelsdir $redistdir\models
 Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_357" $modelsdir $redistdir\models
@@ -604,6 +605,8 @@ Compile-Model $binDir "w_freezegun" $modelsdir $redistdir\models
 Compile-Model $binDir "p_freezegun" $modelsdir $redistdir\models
 Compile-Model $binDir "plasma" $modelsdir $redistdir\models
 Compile-Model $binDir "w_suit" $modelsdir $redistdir\models
+Compile-Model $binDir "w_battery_light" $modelsdir $redistdir\models
+Compile-Model $binDir "w_medkit_light" $modelsdir $redistdir\models
 } else {
     Compile-Player $playerModel $binDir $modelsdir $redistDir
 }

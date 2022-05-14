@@ -228,8 +228,10 @@ models\v_12gauge.mdl
 models\p_12gauge.mdl
 models\w_12gauge.mdl
 models\w_battery.mdl
+models\w_battery_light.mdl
 models\w_longjump.mdl
 models\w_medkit.mdl
+models\w_medkit_light.mdl
 models\w_357ammobox.mdl
 models\w_9mmclip.mdl
 models\w_9mmarclip.mdl
@@ -237,6 +239,7 @@ models\w_argrenade.mdl
 models\w_crossbow_clip.mdl
 models\w_shotbox.mdl
 models\w_gaussammo.mdl
+models\w_gaussammo_light.mdl
 models\w_rpgammo.mdl
 models\v_357.mdl
 models\p_357.mdl
