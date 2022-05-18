@@ -346,3 +346,8 @@
 1. `atof()` is used in [c++98](https://stackoverflow.com/questions/43810190/string-to-long-double-conversion-in-c98) to convert strings to floats.
 1. [DIN 1451](https://www.reddit.com/r/HalfLife/comments/248tzb/the_font_used_in_the_half_life_and_and_portal/) is the font used in the original Half-Life logo. [Alte DIN](https://www.1001fonts.com/alte-din-1451-mittelschrift-font.html) is a good replacement.
 1. [Here is an alterative](https://stackoverflow.com/questions/4353525/floating-point-linear-interpolation) floating point linear interpolation method (lerp).
+1. To [fix leaks](https://developer.valvesoftware.com/wiki/Leak) in [map compilation](https://documentation.help/Valve-Hammer-Editor-3.4/How_do_I_fix_leaks_in_my_level_.htm), there are numerous threads about errors. This include [MAX_MAP_ENTITIES](http://www.slackiller.com/tommy14/errors.htm#entlim), [MAX_MAP_CLIPNODES](https://twhl.info/wiki/page/Goldsource_Error%3A_Exceeded_MAX_MAP_CLIPNODES). There are plenty of guides to help determine [leak sources](https://twhl.info/wiki/page/Tutorial%3A_How_to_fix_those_leaks).
+1. [Here is a thread](https://www.celephais.net/board/view_thread.php?id=61784) on how best to convert a rm file to a map file.
+1. Here are two Gimp tutorials, including how to [create scanlines](https://www.gimp-forum.net/Thread-Erase-Every-Other-Line) and [how to add shadows underneath text](https://www.alphr.com/how-to-add-shadows-to-text-in-gimp/)
+1. [Half-Life New Light](https://github.com/BlueNightHawk/hl-newlight) sources are now available for advanced view model and modern touches.
+1. [Half-Life Extended](https://github.com/bacontsu/halflife-extended) source allows for glowmodels and swappable view model engine.
