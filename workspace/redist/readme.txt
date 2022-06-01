@@ -44,8 +44,11 @@ Beta 2 Features:
     - Support for the pipe wrench, desert eagles, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
     - "mp_dualsonly" to play with all dual weapons
-- Kick
+- Offhanded Punch and Kick
     - "impulse 206" supports the kick function
+    - "impulse 207" supports the punch function
+- Pick up and Punch Back
+    - Use button can pick up grenades and satchels, throwing them back
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay

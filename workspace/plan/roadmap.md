@@ -76,7 +76,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             1. [X] USAS
             1. [x] RPG
     1. Throw (all weapons)
-        1. [ ] Throw back grenade
+        1. [x] Throw back grenade
     1. [x] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
         1. [x] Freeze player, explode in pieces
         1. [ ] A shoryuken on a frozen player automatically blows them up
@@ -93,7 +93,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Random "did you know" messages during play to expose options
     1. [x] Player snow footstep sounds / materials
     1. [ ] Player jump and land sound effects
-    1. [ ] Punch while holding weapon?
+    1. [x] Punch while holding weapon?
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
     1. [ ] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
 1. Gameplay
@@ -182,7 +182,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Skin blue item_suit
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
-    1. [ ] Knife / Crowbar / Wrench next attack instant after death
+    1. [ ] Knife / Crowbar / Wrench next attack instant after death: (Fix [can be found](https://github.com/FWGS/hlsdk-xash3d/pull/251/files) in xash3d)
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
@@ -204,6 +204,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
     1. [ ] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
+    1. [ ] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
