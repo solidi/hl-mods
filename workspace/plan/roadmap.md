@@ -182,7 +182,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Skin blue item_suit
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
-    1. [ ] Knife / Crowbar / Wrench next attack instant after death: (Fix [can be found](https://github.com/FWGS/hlsdk-xash3d/pull/251/files) in xash3d)
+    1. [x] Knife / Crowbar / Wrench next attack instant after death: (Fix [can be found](https://github.com/FWGS/hlsdk-xash3d/pull/251/files) in xash3d)
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets

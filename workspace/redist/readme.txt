@@ -95,6 +95,7 @@ Beta 2 Features:
     - Patched some models like the throwable crowbar are not iced over
     - Fixed spawn point angles in stalkyard2, training and fences
     - Fixed incorrect placement of gauss ammo model on floor
+    - Fixed rapid fists/crowbar/knife/wrench hits
 
 Beta 1 Features:
 
