@@ -96,6 +96,7 @@ Beta 2 Features:
     - Fixed spawn point angles in stalkyard2, training and fences
     - Fixed incorrect placement of gauss ammo model on floor
     - Fixed rapid fists/crowbar/knife/wrench hits
+    - Fixed twisted Assassin player model
 
 Beta 1 Features:
 

@@ -92,18 +92,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Show version in message
         1. [x] Random "did you know" messages during play to expose options
     1. [x] Player snow footstep sounds / materials
-    1. [ ] Player jump and land sound effects
     1. [x] Punch while holding weapon?
+    1. [ ] Player jump and land sound effects
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
     1. [ ] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
-    1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
-    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
-    1. [ ] mp_startonlywith "weapon_*"
-    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
-    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
-    1. [ ] Weapon filter list
 1. Environment look and feel
     1. [x] Bullet hole decals like BHL
     1. [x] [r_shadows tutorial](https://twhl.info/thread/view/20220)
@@ -115,10 +109,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Akimbo support
     1. [x] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
     1. [ ] Hand cannon
-    1. Knife
-        1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
-        1. [ ] Cold Ice 2.5 model?
-        1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
     1. Crossbow
         1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
     1. Handgrenades
@@ -129,32 +119,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Secondary chaingun idea?
         1. [ ] Faster spin?
         1. [ ] Tracers on all bullets?
-    1. [ ] Third person muzzle flash placement
-    1. [ ] mag60 sd model from cold ice 2.5
     1. [ ] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
-    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
-    1. [ ] Python v_ from brutal HL for focusing animation
-    1. [ ] Punch angle for draw and holstering
-    1. [ ] Tighten up all idle animation times to match code
-    1. [ ] Correct all brass shell ejection points
-    1. [ ] Use attachment point for each model
 1. Weapon ViewModel / Effects
     1. [x] A generic draw/holster sound? (like CS:GO)
-    1. [ ] Bob up/down like HL New Light v3
-    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
-    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
-    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
-    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
-    1. [ ] Ice hands in addition
-    1. [ ] Blue arms + real skins
-    1. [ ] Additional attachment values for configurable speeds and fov
 1. Configuration Support
     1. [x] cl_weaponvoice - disable or enable humor/voice sound effects
-    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
-    1. [ ] Damage / blood / stains on view model as seen in bhl
-1. Server Support
-    1. [ ] mp_semiauto
-        1. Wire server to client message when changed
 1. UI / Menu
     1. [x] Cold Ice logo at bottom of menu
     1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Iceman + Cold Ice Logo in HEV suit
@@ -162,7 +131,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. All Maps
         1. [x] Overview graphic
     1. [x] Crossfire re-skinned
-    1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
 1. HUD
     1. [ ] Highlight HUD when picking up item (bhl)
     1. [ ] Best sprite effort weapon 
@@ -180,34 +148,22 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Repair backs of health kits
     1. [x] Throwable crowbar sometimes not iced?
     1. [x] Skin blue item_suit
+    1. [x] Knife / Crowbar / Wrench next attack instant after death: (Fix [can be found](https://github.com/FWGS/hlsdk-xash3d/pull/251/files) in xash3d)
+    1. [x] Add faces to bottom/back of item models
+    1. [x] Turn 180 spawn point in training by range / door
+    1. [x] Twisted assassin player model
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
-    1. [x] Knife / Crowbar / Wrench next attack instant after death: (Fix [can be found](https://github.com/FWGS/hlsdk-xash3d/pull/251/files) in xash3d)
     1. [ ] Improve Crowbar animation from another v_ model
-    1. [ ] Add faces to bottom/back of item models
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] Snowball not exhaustable?
     1. [ ] Spawn x / 2 runes per currently connected players?
-    1. [ ] Twisted assassin player model
-    1. [x] Turn 180 spawn point in training by range / door
 1. Player Models
     1. [x] [Snowman](https://gamebanana.com/mods/179220)
-    1. [ ] All Cold Ice 1.6 player models
 1. Game Dev Tools
     1. [x] Compile maps in a [parallel](https://www.provartesting.com/documentation/devops/continuous-integration/github-actions/parallel-execution-in-github-actions-using-job-matrix/) [matrix](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions) [job](https://github.community/t/merge-matrix-build-artifacts-for-release/118190) setup.
     1. [x] God mode (for recording, etc)
-    1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
-    1. [ ] Codegen for generating new weapons
-    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
-    1. [ ] Timestamps for building artifacts
-        1. If timestamp of built artifact is newer than all source artifacts, skip building again
-    1. [ ] Compile mdl tool for Linux
-    1. [ ] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
-    1. [ ] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
-1. Clean up
-    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
-    1. [ ] Compact w_ models into p_
 1. Community ideas
     1. [x] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
     1. [x] Improve crosshair visibility ([Bonhomme](https://discord.com/channels/790549024373604353/790549024373604356/927735897959575572))
@@ -234,6 +190,32 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Decoy bombs that morph into AI assassins?
     1. [ ] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
     1. [ ] Counter-Strike penguin
+    1. Knife
+        1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
+        1. [ ] Cold Ice 2.5 model?
+        1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
+    1. [ ] Third person muzzle flash placement
+    1. [ ] mag60 sd model from cold ice 2.5
+    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
+    1. [ ] Python v_ from brutal HL for focusing animation
+    1. [ ] Punch angle for draw and holstering
+    1. [ ] Tighten up all idle animation times to match code
+    1. [ ] Correct all brass shell ejection points
+    1. [ ] Use attachment point for each model
+1. Weapon ViewModel / Effects
+    1. [ ] Bob up/down like HL New Light v3
+    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
+    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
+    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
+    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+    1. [ ] Ice hands in addition
+    1. [ ] Blue arms + real skins
+    1. [ ] Additional attachment values for configurable speeds and fov
+    1. [ ] Damage / blood / stains on view model and player as seen in bhl
+    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
+1. Server Support
+    1. [ ] mp_semiauto
+        1. Wire server to client message when changed
 1. Movement
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
@@ -243,6 +225,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mechanics
     1. [ ] Jetpack?
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
+1. Game Play
+    1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
+    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
+    1. [ ] mp_startonlywith "weapon_*"
+    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
+    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
+    1. [ ] Weapon filter list
 1. Environment look and feel
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
@@ -258,8 +247,23 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
+    1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
+1. Player Models
+    1. [ ] All Cold Ice 1.6 player models
 1. Integrations
     1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing
+1. Clean up
+    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
+    1. [ ] Compact w_ models into p_
+1. Game Dev Tools
+    1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
+    1. [ ] Codegen for generating new weapons
+    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
+    1. [ ] Timestamps for building artifacts
+        1. If timestamp of built artifact is newer than all source artifacts, skip building again
+    1. [ ] Compile mdl tool for Linux
+    1. [ ] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
+    1. [ ] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
