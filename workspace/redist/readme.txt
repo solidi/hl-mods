@@ -97,6 +97,7 @@ Beta 2 Features:
     - Fixed incorrect placement of gauss ammo model on floor
     - Fixed rapid fists/crowbar/knife/wrench hits
     - Fixed twisted Assassin player model
+    - Fixed chumtoad and snark blood color
 
 Beta 1 Features:
 
