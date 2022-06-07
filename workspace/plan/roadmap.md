@@ -88,6 +88,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Tweaked support for grave_bot
 1. Game Mechanics
     1. [x] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
+        1. [ ] Improved player kick animation from grunt
     1. In-game help menu
         1. [x] Show version in message
         1. [x] Random "did you know" messages during play to expose options
@@ -115,10 +116,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
-    1. Chaingun
-        1. [ ] Secondary chaingun idea?
-        1. [ ] Faster spin?
-        1. [ ] Tracers on all bullets?
     1. [ ] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
 1. Weapon ViewModel / Effects
     1. [x] A generic draw/holster sound? (like CS:GO)
@@ -140,7 +137,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Runes
-    1. [ ] Ammo regeneration
+    1. [ ] Quad damage (Napoleon's idea)
 1. Fixes
     1. [x] Bots harder to see player with cloak rune.
     1. [x] Make grappling hook default enabled
@@ -202,6 +199,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Tighten up all idle animation times to match code
     1. [ ] Correct all brass shell ejection points
     1. [ ] Use attachment point for each model
+    1. Chaingun
+        1. [ ] Secondary chaingun idea?
+        1. [ ] Faster spin?
+        1. [ ] Tracers on all bullets?
 1. Weapon ViewModel / Effects
     1. [ ] Bob up/down like HL New Light v3
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
@@ -239,7 +240,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Cold Ice logo at bottom of menu
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
-    1. [ ] Quad damage (Napoleon's idea)
+    1. [ ] Ammo regeneration
     1. [ ] Super jump rune
 1. Maps
     1. [ ] fgd file
@@ -251,7 +252,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Integrations
-    1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing
+    1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/halflife-extended/tree/main/source-code)
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
