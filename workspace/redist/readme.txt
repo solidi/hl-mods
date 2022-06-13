@@ -61,6 +61,7 @@ Beta 2 Features:
     - Added "sv_jumpheight" to adjust amount of player's jump height
 - Hud
     - Include glass HUD effect to death notice and weapon identification
+    - "cl_flashonpickup" flashes HUD on picking up weapon or item
 - Menu
     - Updated corner logo
 - Fixes
@@ -275,6 +276,7 @@ Client:
 - "cl_showtips 1" - Show helpful text tips during game play
 - "cl_shadows 1" - Show rendered shadows underneath models
 - "cl_glowmodels 1" - Show models with a glow effect if available
+- "cl_flashonpickup 1" - Flash HUD when pickuping up a weapon or item
 
 Server:
 

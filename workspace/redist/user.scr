@@ -159,4 +159,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_flashonpickup"
+	{
+		"#Ice_FlashOnPickup"
+		{ BOOL }
+		{ "1" }
+	}
 }
