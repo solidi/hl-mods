@@ -129,7 +129,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Overview graphic
     1. [x] Crossfire re-skinned
 1. HUD
-    1. [ ] Highlight HUD when picking up item (bhl)
+    1. [x] Highlight HUD when picking up item (bhl)
     1. [ ] Best sprite effort weapon 
         1. [x] Pipewrench, knife, deagle, and rifler from OpFor?
         1. [ ] Weapon Sprite + text at bottom as compromise?
