@@ -539,6 +539,7 @@ sound\freezegun_clipin2.wav
 sound\freezegun_clipout.wav
 sound\freezing.wav
 sound\freezegun_deploy.wav
+sound\slide_on_gravel.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
