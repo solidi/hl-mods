@@ -33,7 +33,7 @@ Beta 2 Features:
 - New Maps
     - Snowcross, an expanded reskin of crossfire
     - Frostfire, a reskin of bounfire by TheSpacePirate
-    - Spectator overviews for all maps
+    - Graphic spectator overviews for all maps
 - New Player Models
     - Snowman
 - Weapon Updates
@@ -44,6 +44,8 @@ Beta 2 Features:
     - Support for the pipe wrench, desert eagles, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
     - "mp_dualsonly" to play with all dual weapons
+- Fear / Trepang2 / Selaco Slide
+    - While looking ahead, press "+forward" three times in a row to slide
 - Offhanded Punch and Kick
     - "impulse 206" supports the kick function
     - "impulse 207" supports the punch function

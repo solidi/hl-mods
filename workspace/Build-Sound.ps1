@@ -69,7 +69,7 @@ Compile-Sound $binDir $redistDir $soundDir "team-fortress-2-heavy-oh-this-is-bad
 Compile-Sound $binDir $redistDir $soundDir "this-is-hans-gruber.wav" 1.25 "sound\smg_selected.wav" "wav" 1.5 3.2
 Compile-Sound $binDir $redistDir $soundDir "8e8118_counter_strike_go_go_go_sound_effect.mp3" 1.25 "sound\usas_gogogo.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "manos.m4a" 5.5 "sound\fists_selected.wav" "wav" 1 5
-Compile-Sound $binDir $redistDir $soundDir "punch_hit_sfx.mp3" 1.0 "sound\fists_hit.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "punch_hit_sfx.mp3" 1.0 "sound\fists_hit.wav" "wav" 0.25 1.5
 Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 1.0 "sound\fists_miss.wav" "wav" 0 0.55
 Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back.wav" "wav" 1.25 3
 Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
@@ -115,6 +115,7 @@ Compile-Sound $binDir $redistDir $soundDir "blade-another-10-best-quotes.mp3" 1.
 Compile-Sound $binDir $redistDir $soundDir "dodge_bullets.wav" 1.0 "sound\deagle_selected.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "freezing-sound-effect.mp3" 2.0 "sound\freezing.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "phasers.mp3" 1.5 "sound\freezegun_deploy.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "slide_on_gravel.mp3" 2.0 "sound\slide_on_gravel.wav" "wav" 12.25 13.5
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound

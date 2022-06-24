@@ -351,3 +351,4 @@
 1. Here are two Gimp tutorials, including how to [create scanlines](https://www.gimp-forum.net/Thread-Erase-Every-Other-Line) and [how to add shadows underneath text](https://www.alphr.com/how-to-add-shadows-to-text-in-gimp/)
 1. [Half-Life New Light](https://github.com/BlueNightHawk/hl-newlight) sources are now available for advanced view model and modern touches.
 1. [Half-Life Extended](https://github.com/bacontsu/halflife-extended) source allows for glowmodels and swappable view model engine.
+1. Opening VirtualBox in [low resolution mode](https://mkyong.com/mac/virtualbox-running-slow-and-lag-on-macos-macbook-pro/) has seriously helped the loading of windows apps, and increasing snappiness of the VM during gameplay.

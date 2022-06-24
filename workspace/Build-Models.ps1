@@ -561,6 +561,7 @@ Compile-Model $binDir "w_sqknest" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_squeak" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_squeak" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_leg" $modelsdir $redistdir\models
+Compile-Model $binDir "v_dual_leg" $modelsdir $redistdir\models
 Compile-Model $binDir "v_deagle" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "p_deagle" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "w_deagle" $modelsdir\hd $redisthddir\models
