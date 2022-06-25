@@ -262,6 +262,7 @@ models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
 models\v_leg.mdl
+models\v_dual_leg.mdl
 models\v_deagle.mdl
 models\w_deagle.mdl
 models\p_deagle.mdl
@@ -538,6 +539,7 @@ sound\freezegun_clipin2.wav
 sound\freezegun_clipout.wav
 sound\freezing.wav
 sound\freezegun_deploy.wav
+sound\slide_on_gravel.wav
 sprites
 sprites\muzzleflash1.spr
 sprites\muzzleflash2.spr
