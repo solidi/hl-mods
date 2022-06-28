@@ -36,10 +36,6 @@ Beta 2 Features:
     - Graphic spectator overviews for all maps
 - New Player Models
     - Snowman
-- Weapon Updates
-    - Crowbar/Throw decals
-    - Bullet decals
-    - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
 - Dual Wielded Weapons
     - Support for the pipe wrench, desert eagles, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
@@ -51,6 +47,11 @@ Beta 2 Features:
     - "impulse 207" supports the punch function
 - Pick up and Punch Back
     - Use button can pick up grenades and satchels, throwing them back
+- Weapon Updates
+    - Crowbar/Throw decals
+    - Bullet decals
+    - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
+    - Support for real muzzle flash using cl_icemodels 0
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay

@@ -2,7 +2,7 @@
 // Z:\workspace\sprites\muzzleflash3\muzzleflash3
 //
 
-$spritename    muzzleflash3
+$spritename    ice_muzzleflash3
 $type          vp_parallel
 $texture		additive
 $load		muzzleflash3001.BMP

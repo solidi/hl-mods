@@ -40,10 +40,9 @@ Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\sprites)
 [void](New-Item -ItemType directory -Path $redisthddir\sprites)
 
-Compile-Sprite $binDir "muzzleflash1" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "muzzleflash2" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "muzzleflash3" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "ice_muzzleflash1" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "ice_muzzleflash2" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "ice_muzzleflash3" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "xspark4" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
