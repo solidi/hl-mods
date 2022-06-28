@@ -541,9 +541,9 @@ sound\freezing.wav
 sound\freezegun_deploy.wav
 sound\slide_on_gravel.wav
 sprites
-sprites\muzzleflash1.spr
-sprites\muzzleflash2.spr
-sprites\muzzleflash3.spr
+sprites\ice_muzzleflash1.spr
+sprites\ice_muzzleflash2.spr
+sprites\ice_muzzleflash3.spr
 sprites\zerogxplode.spr
 sprites\animglow01.spr
 sprites\xspark4.spr

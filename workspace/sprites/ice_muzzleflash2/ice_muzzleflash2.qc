@@ -2,7 +2,7 @@
 // Z:\sprites\muzzleflash\muzzleflash2
 //
 
-$spritename    muzzleflash2
+$spritename    ice_muzzleflash2
 $type          vp_parallel
 $texture		additive
 $load		muzzleflash2001.BMP
