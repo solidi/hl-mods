@@ -43,6 +43,7 @@ Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
 Compile-Sprite $binDir "ice_muzzleflash1" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "ice_muzzleflash2" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "ice_muzzleflash3" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "xspark4" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
