@@ -194,4 +194,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "45" }
 	}
+
+	"mp_icesprites"
+	{
+		"#Ice_IceSprites"
+		{ BOOL }
+		{ "1" }
+	}
 }

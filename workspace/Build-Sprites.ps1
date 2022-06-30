@@ -43,9 +43,9 @@ Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
 Compile-Sprite $binDir "ice_muzzleflash1" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "ice_muzzleflash2" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "ice_muzzleflash3" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "zerogxplode" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "ice_zerogxplode" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "xspark4" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "ice_xspark4" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "320hud2" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hud1" $spritesDir $redistDir\sprites
@@ -60,11 +60,16 @@ Compile-Sprite $binDir "640hudof04" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_nuke2" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "nuke2" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "hotglow" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_hotglow" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_muzzleflashplasma" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "muzzleflashplasma" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "particles_blue" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "plasmablue5" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_particles" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "particles" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_plasma5" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "plasma5" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_plasmatrail" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "plasmatrail" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "tsplasma" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites

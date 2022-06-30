@@ -67,6 +67,8 @@ Beta 2 Features:
     - "cl_flashonpickup" flashes HUD on picking up weapon or item
 - Menu
     - Updated corner logo
+- Server
+    - Added "mp_icesprites 1" to switch between select ice and real environment sprites
 - Fixes
     - Skinned the hev to blue
     - "mp_grapplinghook" default value now set to 1
@@ -301,6 +303,7 @@ Server:
 - "mp_allowvoiceovers 1" - Allow public voiceovers
 - "mp_dualsonly 0" - Allow dual weapons only
 - "sv_jumpheight 45" - Adjustable player's jump height
+- "mp_icesprites 1" - Switch between select ice and real environment sprites
 
 Report Bugs:
 
