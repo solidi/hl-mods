@@ -52,6 +52,7 @@ Beta 2 Features:
     - Bullet decals
     - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
     - Support for real muzzle flash using cl_icemodels 0
+    - Randomized fire sprites at end of explosions
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
@@ -62,6 +63,8 @@ Beta 2 Features:
     - Weapon retracts when up against a wall
 - Movement
     - Added "sv_jumpheight" to adjust amount of player's jump height
+- Powerup Runes
+    - Amount of runes spawned now related to amount of connected players
 - Hud
     - Include glass HUD effect to death notice and weapon identification
     - "cl_flashonpickup" flashes HUD on picking up weapon or item

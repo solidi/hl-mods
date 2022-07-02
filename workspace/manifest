@@ -540,6 +540,7 @@ sound\freezegun_clipout.wav
 sound\freezing.wav
 sound\freezegun_deploy.wav
 sound\slide_on_gravel.wav
+sound\fire1.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
@@ -547,6 +548,8 @@ sprites\ice_muzzleflash3.spr
 sprites\ice_zerogxplode.spr
 sprites\animglow01.spr
 sprites\ice_xspark4.spr
+sprites\fire.spr
+sprites\ice_fire.spr
 sprites\crosshairs.spr
 sprites\320hud2.spr
 sprites\640hud1.spr

@@ -31,7 +31,8 @@ $redisthddir = "${rootDir}\redist_hd"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $spritesDir = "${rootDir}\sprites"
 
-# Colorize-Folder $binDir $spritesDir plasmablue5 "16,50,90" 100
+# Colorize-Folder $binDir $spritesDir fire "0,113,230" 100
+# exit
 
 Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
@@ -72,6 +73,8 @@ Compile-Sprite $binDir "plasma5" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "ice_plasmatrail" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "plasmatrail" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "tsplasma" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "fire" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "ice_fire" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites

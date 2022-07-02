@@ -103,7 +103,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Environment look and feel
     1. [x] Bullet hole decals like BHL
     1. [x] [r_shadows tutorial](https://twhl.info/thread/view/20220)
-    1. [ ] Random fire sprite at end of explosion like BHL
+    1. [x] Random fire sprite at end of explosion like BHL
 1. Weapons
     1. [x] [64 weapon support](https://github.com/SamVanheer/halflife-updated/commit/c633af888fb276d9572dc77df328d7724a206ff2)
     1. [x] Deagle
