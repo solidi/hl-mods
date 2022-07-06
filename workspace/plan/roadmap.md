@@ -46,7 +46,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual Deagles
     1. [x] Dual RPG
     1. [x] Dual Wrench
-    1. [ ] Dual SMG
+    1. [x] Dual SMG
     1. [x] Dual USAS
     1. [x] Freezegun
 1. [ ] Testing
@@ -79,7 +79,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Throw back grenade
     1. [x] [Freeze gun](https://www.youtube.com/watch?v=k0Tl06wRjlE)
         1. [x] Freeze player, explode in pieces
-        1. [ ] A shoryuken on a frozen player automatically blows them up
+        1. [x] A shoryuken on a frozen player automatically blows them up
 1. More Valve maps reskinned
     1. [x] Crossfire
 1. Movement
