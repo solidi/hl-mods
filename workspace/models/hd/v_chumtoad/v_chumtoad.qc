@@ -77,6 +77,7 @@ $sequence "down" "down" fps 32
 $sequence "up" "up" fps 30 
 $sequence "throw" "throw" fps 32 
 $sequence "release" "throw" fps 32 { event 5004 0 "chumtoad_release.wav" }
+$sequence "draw_lowkey" "up" fps 60 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "up" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "chumtoad_selected.wav" }
 
 // End of QC script.

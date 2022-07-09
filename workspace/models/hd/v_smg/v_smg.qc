@@ -90,7 +90,7 @@ $sequence "idle1" "idle1" fps 3
 $sequence "idle2" "idle2" fps 3 
 $sequence "idle3" "idle3" fps 3 
 $sequence "reload" "reload" fps 14 { event 5004 0 "items/cliprelease1.wav" } { event 5004 7 "items/clipinsert1.wav" } 
-$sequence "deploy" "deploy" fps 18 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "deploy" fps 18 { event 5004 0 "default_draw.wav" } 
 $sequence "shoot" "shoot" fps 36 { event 5001 0 "4" } 
 $sequence "select" "select" fps 6 { event 5005 0 "smg_select.wav" } 
 $sequence "holster" "holster" fps 9 

@@ -76,6 +76,7 @@ $sequence "fire1" "fire1" fps 30 loop
 $sequence "fire2" "fire2" fps 30 loop 
 $sequence "fire3" "fire3" fps 30 loop 
 $sequence "fire4" "fire4" fps 30 loop 
+$sequence "draw_lowkey" "draw" fps 45 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "egon_selected.wav" }
 $sequence "holster" "holster" fps 30 
 

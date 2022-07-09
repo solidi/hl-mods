@@ -87,7 +87,8 @@ $sequence "idle1" "idle1" fps 16 loop
 $sequence "fidgetfit" "fidgetfit" fps 16 
 $sequence "fidgetnip" "fidgetnip" fps 16 
 $sequence "down" "down" fps 32 
-$sequence "up" "up" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "squeak_selected.wav" } 
+$sequence "draw_lowkey" "up" fps 45 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "up" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "squeak_selected.wav" } 
 $sequence "throw" "throw" fps 24 
 $sequence "release" "throw" fps 24 { event 5005 0 "chumtoad_release.wav" }
 

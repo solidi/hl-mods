@@ -66,6 +66,7 @@ $hbox 0 "chainsaw_root" -10.140000 -1.420000 -3.910000 4.170000 31.840000 4.5200
 
 // animation sequence(s)
 $sequence "Koshak_HL" "Koshak_HL" fps 30 loop { event 5004 1 "chainsaw_idle.wav" } 
+$sequence "draw_lowkey" "draw" fps 30 
 $sequence "draw" "draw" fps 30 { event 5005 1 "chainsaw_selected.wav" }
 $sequence "draw_empty" "draw_empty" fps 30 { event 5005 1 "chainsaw_selected.wav" }
 $sequence "attack1_start" "attack1_start" fps 30 

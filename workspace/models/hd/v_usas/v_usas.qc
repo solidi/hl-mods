@@ -83,7 +83,8 @@ $sequence "longidle" "longidle" fps 8
 $sequence "idle1" "idle1" fps 35
 $sequence "idle2" "idle1" fps 35
 $sequence "reload" "reload_2" fps 30 { event 5005 5 "usas_gogogo.wav" } { event 5004 5 "usas_release.wav" } { event 5004 24 "usas_insert.wav" } { event 5004 27 "usas_cock.wav" } 
-$sequence "deploy" "deploy" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "usas_selected.wav" } 
+$sequence "draw_lowkey" "deploy" fps 30 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "deploy" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "usas_selected.wav" } 
 $sequence "shoot_1" "shoot_1" fps 10 { event 5001 0 "22" } 
 $sequence "shoot_2" "shoot_1" fps 10 { event 5001 0 "22" } 
 $sequence "shoot_3" "shoot_1" fps 10 { event 5001 0 "22" } 

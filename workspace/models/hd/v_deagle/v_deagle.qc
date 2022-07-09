@@ -108,6 +108,7 @@ $sequence "reload_empty" "reload_empty" fps 13 {
   { event 5004 10 "deagle_reload2.wav" } 
   { event 5004 14 "deagle_reload3.wav" } 
  }
+$sequence "draw_lowkey" "draw" fps 19 { event 5004 0 "deagle_deploy.wav" }
 $sequence "draw" "draw" fps 19 { event 5004 0 "deagle_deploy.wav" } { event 5005 0 "deagle_selected.wav" } 
 $sequence "holster" "holster" fps 14 
 $sequence "holster_empty" "holster_empty" fps 14 

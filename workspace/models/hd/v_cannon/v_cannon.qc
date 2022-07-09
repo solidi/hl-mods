@@ -70,6 +70,7 @@ $sequence "spin" "idle" fps 15
 $sequence "fire" "fire" fps 50 { event 5004 29 "cannon_pump.wav" } { event 5004 42 "cannon_loadammo.wav" }
 $sequence "fire2" "fire" fps 50 { event 5005 0 "cannon_burn.wav" } { event 5004 29 "cannon_pump.wav" } { event 5004 42 "cannon_loadammo.wav" }
 $sequence "holster" "holster" fps 32 
+$sequence "draw_lowkey" "draw" fps 28 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 28 { event 5004 0 "default_draw.wav" } { event 5005 0 "cannon_selected.wav" }
 $sequence "draw_empty" "draw_empty" fps 28 { event 5004 0 "default_draw.wav" } 
 $sequence "holster_empty" "holster_empty" fps 32

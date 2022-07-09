@@ -101,6 +101,7 @@ $sequence "shoot" "shoot" fps 25
 $sequence "shoot_empty" "shoot_empty" fps 25 
 $sequence "reload" "reload" fps 18 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" }
 $sequence "reload_noshot" "reload_noshot" fps 18 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" }
+$sequence "draw_lowkey" "draw" fps 32 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 32 { event 5004 0 "default_draw.wav" } 
 $sequence "holster" "holster" fps 32 
 $sequence "addsil" "addsil" fps 18 
