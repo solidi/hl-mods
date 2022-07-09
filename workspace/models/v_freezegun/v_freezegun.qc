@@ -130,6 +130,7 @@ $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 // animation sequence(s)
 $sequence "idle" "idle" fps 15 loop { event 5004 0 "freezegun_idle.wav" } 
 $sequence "reload" "holster" fps 45
+$sequence "draw_lowkey" "draw" fps 75 { event 5004 0 "freezegun_draw.wav" }  
 $sequence "draw" "draw" fps 75 { event 5004 0 "freezegun_draw.wav" } { event 5005 3 "freezegun_deploy.wav" } 
 $sequence "holster" "holster" fps 45 
 $sequence "shoot1" "fire" fps 30 

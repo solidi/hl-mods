@@ -106,6 +106,7 @@ $sequence "shoot_empty" "shoot_empty" fps 25 { event 5001 0 "11" }
 $sequence "reload" "reload" fps 30 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
 $sequence "reload_sideways" "reload_sideways" fps 30 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
 $sequence "reload_noshot" "reload_noshot" fps 30 { event 5004 4 "items/9mmclip2.wav" } { event 5004 23 "items/9mmclip1.wav" } 
+$sequence "draw_lowkey" "draw" fps 32 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 32 { event 5004 0 "default_draw.wav" } { event 5005 0 "mag60_selected.wav" }
 $sequence "holster" "holster" fps 16 
 $sequence "add_silencer" "add_silencer" fps 18 

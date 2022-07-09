@@ -70,7 +70,7 @@ Compile-Sound $binDir $redistDir $soundDir "this-is-hans-gruber.wav" 1.25 "sound
 Compile-Sound $binDir $redistDir $soundDir "8e8118_counter_strike_go_go_go_sound_effect.mp3" 1.25 "sound\usas_gogogo.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "manos.m4a" 5.5 "sound\fists_selected.wav" "wav" 1 5
 Compile-Sound $binDir $redistDir $soundDir "punch_hit_sfx.mp3" 1.0 "sound\fists_hit.wav" "wav" 0.25 1.5
-Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 1.0 "sound\fists_miss.wav" "wav" 0 0.55
+Compile-Sound $binDir $redistDir $soundDir "punch_swoosh_sfx.mp3" 2.0 "sound\fists_miss.wav" "wav" 0.2 0.55
 Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back.wav" "wav" 1.25 3
 Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_jackson.wav" "wav" 9.5 11.5

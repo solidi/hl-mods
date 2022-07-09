@@ -88,6 +88,7 @@ $hbox 0 "Hands biped L Hand" -1.030000 -2.930000 -2.420000 7.410000 2.140000 2.1
 $hbox 0 "Dummy22" -7.400000 -7.820000 -1.850000 34.930000 4.550000 1.150000
 
 // animation sequence(s)
+$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" }  
 $sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "rifle_selected.wav" } 
 $sequence "idle" "idle" fps 10 loop 
 $sequence "fire" "fire" fps 35 { event 5001 0 "20" } 

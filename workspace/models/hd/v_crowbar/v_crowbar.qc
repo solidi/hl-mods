@@ -71,6 +71,7 @@ $hbox 0 "R_Arm_bone" -2.560000 -4.170000 -8.250000 2.100000 2.240000 2.560000
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 9 loop ACT_IDLE 1 
+$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "crowbar_selected.wav" }
 $sequence "holster" "holster" fps 15 
 $sequence "attack1" "hit1" fps 30 

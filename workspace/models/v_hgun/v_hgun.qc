@@ -75,7 +75,8 @@ $sequence "idle1" "idle1" fps 16 loop
 $sequence "fidgetSway" "fidgetSway" fps 16 
 $sequence "fidgetShake" "fidgetShake" fps 16 
 $sequence "down" "down" fps 32 
-$sequence "up" "up" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "hgun_selected.wav" }
+$sequence "draw_lowkey" "up" fps 45 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "up" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "hgun_selected.wav" }
 $sequence "Shoot" "Shoot" fps 24 
 
 // End of QC script.

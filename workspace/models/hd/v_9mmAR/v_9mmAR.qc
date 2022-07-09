@@ -155,6 +155,11 @@ $sequence "Reload" "Reload" fps 60 {
   { event 5004 62 "m16_magin.wav" } 
   { event 5004 88 "m16_hold.wav" } 
  }
+$sequence "draw_lowkey" "Boltpull_Draw" fps 60 {
+  { event 5004 1 "m16_draw_heavy.wav" } 
+  { event 5004 17 "m16_boltpull.wav" } 
+  { event 5004 45 "m16_hold.wav" } 
+ }
 $sequence "Boltpull_Draw" "Boltpull_Draw" fps 60 {
   { event 5005 0 "m16_selected.wav" } 
   { event 5004 1 "m16_draw_heavy.wav" } 

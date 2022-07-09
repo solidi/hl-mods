@@ -75,6 +75,7 @@ $sequence "throw1" "throw1" fps 13 { event 5004 0 "grenade_throw.wav" }
 $sequence "throw2" "throw2" fps 20 { event 5004 0 "grenade_throw.wav" } 
 $sequence "throw3" "throw3" fps 30 { event 5004 0 "grenade_throw.wav" } 
 $sequence "holster" "holster" fps 30 
+$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 5 "clustergrenades_selected.wav" }
 
 // End of QC script.

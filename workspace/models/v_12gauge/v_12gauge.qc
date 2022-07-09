@@ -82,6 +82,7 @@ $hbox 0 "Bone01" -0.540000 -1.840000 -1.900000 6.900000 1.030000 1.790000
 // animation sequence(s)
 $sequence "sm_idle" "sm_idle" fps 9 loop 
 $sequence "idle4" "idle4" fps 9 loop 
+$sequence "draw_lowkey" "draw" fps 24 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5005 0 "12gauge_selected.wav" }
 $sequence "shoot" "shoot" fps 20 { event 5001 0 "31" } 
 $sequence "start_reload" "start_reload" fps 12 

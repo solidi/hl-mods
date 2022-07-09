@@ -144,8 +144,9 @@ $sequence "fidget2" "fidget2" fps 30
 $sequence "fire1" "fire1" fps 60 
 $sequence "fire2" "fire2" fps 30 
 $sequence "fire3" "fire3" fps 30 
-$sequence "reload" "reload" fps 30 
-$sequence "draw1" "draw1" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "boltgun_selected.wav" }
+$sequence "reload" "reload" fps 30
+$sequence "draw_lowkey" "draw1" fps 30 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw1" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "boltgun_selected.wav" }
 $sequence "draw2" "draw2" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "boltgun_selected.wav" }
 $sequence "holster1" "holster1" fps 30 
 $sequence "holster2" "holster2" fps 30 
