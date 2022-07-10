@@ -365,7 +365,7 @@ Thanks To:
 - Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
 - AudioCraZ for the dedicated server and last minute testing for Beta 1
-- Napoleon for 64+ weapon support tutorial and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
+- Napoleon for 64+ weapon support tutorial, game icons, and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
 - Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
 - BlueNightHawk for thicker crosshairs from New Light https://www.moddb.com/mods/half-life-new-light
 - Illya and Ku2zoff for plasma rifle / freeze gun code, CSO's plasma gun model https://cso.fandom.com/wiki/Plasma_Gun
