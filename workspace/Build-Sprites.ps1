@@ -75,6 +75,7 @@ Compile-Sprite $binDir "plasmatrail" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "tsplasma" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "fire" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "ice_fire" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "nuke_crosshair" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites

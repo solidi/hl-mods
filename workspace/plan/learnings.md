@@ -352,3 +352,4 @@
 1. [Half-Life New Light](https://github.com/BlueNightHawk/hl-newlight) sources are now available for advanced view model and modern touches.
 1. [Half-Life Extended](https://github.com/bacontsu/halflife-extended) source allows for glowmodels and swappable view model engine.
 1. Opening VirtualBox in [low resolution mode](https://mkyong.com/mac/virtualbox-running-slow-and-lag-on-macos-macbook-pro/) has seriously helped the loading of windows apps, and increasing snappiness of the VM during gameplay.
+1. [This thread](https://steamcommunity.com/sharedfiles/filedetails/?id=276991683) was helpful in detering how to create an icon for steam on third party mods. Additional information about the `icon` attribute can be found at [Valve's liblist.gam file structure](https://developer.valvesoftware.com/wiki/The_liblist.gam_File_Structure)

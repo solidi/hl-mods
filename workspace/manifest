@@ -602,6 +602,7 @@ sprites\ice_plasma5.spr
 sprites\plasmatrail.spr
 sprites\ice_plasmatrail.spr
 sprites\tsplasma.spr
+sprites\nuke_crosshair.spr
 sprites\hud.txt
 liblist.gam
 ReadMe.txt
