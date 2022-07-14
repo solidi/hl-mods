@@ -29,6 +29,8 @@ Beta 2 Features:
             - Shoot / Shoot Both
         - Snarks
             - Throw / Release All
+        - Camera mode added: Tactical Nuke Launcher
+            - Shoot Nuke / Camera Mode (Goodbye all!)
     - Unique hud sprites for all weapons
 - New Maps
     - Snowcross, an expanded reskin of crossfire
