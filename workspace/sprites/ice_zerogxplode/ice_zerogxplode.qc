@@ -1,39 +1,39 @@
 //
-// Z:\sprites\zerogxplode\zerogxplode
+// Z:\workspace\sprites\ice_zerogxplode\ice_zerogxplode
 //
 
 $spritename    ice_zerogxplode
 $type          vp_parallel
 $texture		additive
-$load		zerogxplode001.BMP
+$load		ice_zerogxplode001.BMP
 $frame		0   0   64   64
-$load		zerogxplode002.BMP
+$load		ice_zerogxplode002.BMP
 $frame		0   0   64   64
-$load		zerogxplode003.BMP
+$load		ice_zerogxplode003.BMP
 $frame		0   0   64   64
-$load		zerogxplode004.BMP
+$load		ice_zerogxplode004.BMP
 $frame		0   0   64   64
-$load		zerogxplode005.BMP
+$load		ice_zerogxplode005.BMP
 $frame		0   0   64   64
-$load		zerogxplode006.BMP
+$load		ice_zerogxplode006.BMP
 $frame		0   0   64   64
-$load		zerogxplode007.BMP
+$load		ice_zerogxplode007.BMP
 $frame		0   0   64   64
-$load		zerogxplode008.BMP
+$load		ice_zerogxplode008.BMP
 $frame		0   0   64   64
-$load		zerogxplode009.BMP
+$load		ice_zerogxplode009.BMP
 $frame		0   0   64   64
-$load		zerogxplode010.BMP
+$load		ice_zerogxplode010.BMP
 $frame		0   0   64   64
-$load		zerogxplode011.BMP
+$load		ice_zerogxplode011.BMP
 $frame		0   0   64   64
-$load		zerogxplode012.BMP
+$load		ice_zerogxplode012.BMP
 $frame		0   0   64   64
-$load		zerogxplode013.BMP
+$load		ice_zerogxplode013.BMP
 $frame		0   0   64   64
-$load		zerogxplode014.BMP
+$load		ice_zerogxplode014.BMP
 $frame		0   0   64   64
-$load		zerogxplode015.BMP
+$load		ice_zerogxplode015.BMP
 $frame		0   0   64   64
 
 

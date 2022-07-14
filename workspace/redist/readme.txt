@@ -110,6 +110,9 @@ Beta 2 Features:
     - Fixed twisted Assassin player model
     - Fixed chumtoad and snark blood color
     - Removed empty weaponbox that only contained fists
+    - Re-enabled the rocket launcher laser spot tracking
+    - Fixed the grappling hook's owner in combat
+    - Corrected ice explosion sprite showing a green border
 
 Beta 1 Features:
 
