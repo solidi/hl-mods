@@ -256,6 +256,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
+    1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
 1. Game Dev Tools
     1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
     1. [ ] Codegen for generating new weapons

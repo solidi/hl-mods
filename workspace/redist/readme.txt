@@ -113,6 +113,7 @@ Beta 2 Features:
     - Re-enabled the rocket launcher laser spot tracking
     - Fixed the grappling hook's owner in combat
     - Corrected ice explosion sprite showing a green border
+    - Patch default_fov being overwritten by ironsights code
 
 Beta 1 Features:
 
@@ -379,3 +380,4 @@ Thanks To:
 - BlueNightHawk for weapon retract code https://github.com/BlueNightHawk/hl-newlight / https://www.moddb.com/mods/half-life-new-light
 - TheSpacePirate for frostfire, a reskin of bounfire https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/ / https://twhl.info/vault/view/6608
 - Bacontsu and others for glow model code found in Half-Life Extended SDK https://github.com/bacontsu/halflife-extended
+- Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
