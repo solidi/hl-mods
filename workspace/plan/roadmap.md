@@ -150,6 +150,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Add faces to bottom/back of item models
     1. [x] Turn 180 spawn point in training by range / door
     1. [x] Twisted assassin player model
+    1. [ ] Patch canyon and other maps that have skybox holes (thanks to RadHaz)
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
     1. [ ] Improve Crowbar animation from another v_ model
