@@ -114,6 +114,7 @@ Beta 2 Features:
     - Fixed the grappling hook's owner in combat
     - Corrected ice explosion sprite showing a green border
     - Patch default_fov being overwritten by ironsights code
+    - Improved Bounce2 by correcting bugs and adding lights
 
 Beta 1 Features:
 

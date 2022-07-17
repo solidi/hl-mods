@@ -57,7 +57,7 @@ function Compile-WPT {
 
     $success = $false
     while (!$success) {
-        echo "Writing ${target}.wpt..."
+        Write-Output "`nWriting ${target}.wpt..."
         $out = & .\BSP_tool -w $target | Out-String
         $success = $?
         if (!$success) {
@@ -66,7 +66,7 @@ function Compile-WPT {
     }
     [void](Get-Item -Path "$target.HPB_wpt")
     Move-Item $binDir\$target.HPB_wpt $redistDir\maps\$target.wpt -Force
-    echo "Done writing ${target}.wpt."
+    Write-Output "Done writing ${target}.wpt."
 }
 
 function Compile-Map {
@@ -92,6 +92,7 @@ function Compile-Map {
         return
     }
 
+    $allOptions = if ($finalCompile) { "" } else { "-high" }
     $visOptions = if ($finalCompile) { "-full" } else { "-fast" }
     $radOptions = if ($finalCompile) { "-extra" } else { "" }
 
@@ -103,25 +104,25 @@ function Compile-Map {
     Set-Location -Path $binDir
     Write-Output "Compiling map $target..."
     Write-Output "hlcsg $target..."
-    $out = & .\hlcsg -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlcsg ${target}."
         exit
     }
-    Write-Output "hlbsp $target..."
-    $out = & .\hlbsp $mapsDir\$target\$target.map | Out-String
+    Write-Output "`nhlbsp $target..."
+    $out = & .\hlbsp $allOptions $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlbsp ${target}."
         exit
     }
-    Write-Output "hlvis $target..."
-    $out = & .\hlvis $visOptions $mapsDir\$target\$target.map | Out-String
+    Write-Output "`nhlvis $target..."
+    $out = & .\hlvis $allOptions $visOptions $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlvis ${target}."
         exit
     }
-    Write-Output "hlrad $target..."
-    $out = & .\hlrad $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
+    Write-Output "`nhlrad $target..."
+    $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
@@ -131,5 +132,5 @@ function Compile-Map {
     Compile-WPT $binDir $target $redistDir
 
     Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt | Remove-Item -Force -ErrorAction Ignore
-    echo "Done compiling $target.bsp."
+    Write-Output "Done compiling $target.bsp."
 }
