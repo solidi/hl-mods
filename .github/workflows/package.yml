@@ -47,7 +47,7 @@ jobs:
         path: ./${{env.FOLDER_NAME}}/dlls.zip
 
   linux_libs:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -97,7 +97,7 @@ jobs:
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.so
 
   macOS_libs:
-    runs-on: macOS-10.15
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
