@@ -72,6 +72,7 @@ Beta 2 Features:
     - "cl_flashonpickup" flashes HUD on picking up weapon or item
 - Menu
     - Updated corner logo
+    - Improved background and loading menu with new snowflake menu
 - Server
     - Added "mp_icesprites 1" to switch between select ice and real environment sprites
 - Fixes
