@@ -82,7 +82,7 @@ $hbox 0 "joint32" -8.990000 -4.890000 -0.520000 2.540000 2.220000 4.450000
 // animation sequence(s)
 $sequence "KICK" "KICK" fps 22 
 $sequence "KICK_2" "KICK_2" fps 22 
-$sequence "KICK_SLIDE" "KICK_SLIDE" fps 11
-$sequence "KICK_SLIDE_REVERSE" "KICK_SLIDE_REVERSE" fps 11
+$sequence "kick_slide_low" "kick_slide_low" fps 11
+$sequence "kick_slide_low_reverse" "kick_slide_low_reverse" fps 11
 
 // End of QC script.
