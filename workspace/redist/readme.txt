@@ -116,6 +116,7 @@ Beta 2 Features:
     - Corrected ice explosion sprite showing a green border
     - Patch default_fov being overwritten by ironsights code
     - Improved Bounce2 by correcting bugs and adding lights
+    - Fixed ppk fire timing while adding silencer
 
 Beta 1 Features:
 
