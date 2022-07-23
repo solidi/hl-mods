@@ -189,19 +189,19 @@ d_mag60			640	640hudof05	192	0	48	16
 d_chaingun		640	640hudof01	192	48	48	16
 d_smg			640	640hudof05	192	16	48	16
 d_dual_smg		640	640hudof05	192	32	48	16
-d_usas  		640	640hud1	192	64	48	16
+d_usas  		640	640hudof05	192	48	48	16
 d_fists 		640	640hudof01	192	80	48	16
 d_wrench		640	640hudof01	192	0	48	16
 d_flying_wrench  640	640hudof01	192	0	48	16
 d_flying_snowball	640	640hud1	192	160	32	16
 d_chainsaw		640	640hudof01	192	64	48	16
-d_12gauge		640	640hud1	192	64	48	16
+d_12gauge		640	640hudof07	192	0	48	16
 d_nuke_rocket	640	640hudof01	192	144	48	16
 d_kick			640	640hud1	224	208	32	16
 d_deagle		640	640hudof01	192	32	48	16
 d_dual_deagle	640	640hudof01	192	32	48	16
 d_dual_wrench	640	640hudof01	192	0	48	16
-d_dual_usas  	640	640hud1	192	64	48	16
+d_dual_usas  	640	640hudof05	192	64	48	16
 d_plasma		640	640hudof01	192	16	48	16
 
 item_battery	640 640hud2	176	0	44	44
