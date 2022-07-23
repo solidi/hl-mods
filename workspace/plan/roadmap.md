@@ -88,15 +88,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Tweaked support for grave_bot
 1. Game Mechanics
     1. [x] Kick function like [brutal hl](https://www.moddb.com/mods/brutal-half-life)
-        1. [ ] Improved player kick animation from grunt
     1. In-game help menu
         1. [x] Show version in message
         1. [x] Random "did you know" messages during play to expose options
     1. [x] Player snow footstep sounds / materials
     1. [x] Punch while holding weapon?
     1. [x] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
-    1. [ ] Player jump and land sound effects
-    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
@@ -110,13 +107,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Single shot weapons for semi-auto effect
     1. [x] Akimbo support
     1. [x] Gauss gun as freeze gun. See freeze effect [here](http://web.archive.org/web/20040804041434/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=65)
-    1. [ ] Hand cannon
-    1. Crossbow
-        1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
-    1. Handgrenades
-        1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
-        1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
-        1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
     1. [x] Nuke launcher secondary fire [SET_VIEW mode](https://github.com/HLSources/hl-weapon-edition/blob/eb978fb6450949b6c998ac683803361a29a94734/dlls/projectiles/proj_nuke.cpp)
 1. Weapon ViewModel / Effects
     1. [x] A generic draw/holster sound? (like CS:GO)
@@ -124,7 +114,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] cl_weaponvoice - disable or enable humor/voice sound effects
 1. UI / Menu
     1. [x] Cold Ice logo at bottom of menu
-    1. [ ] Cold Ice Splash with Blue Gordon, Half-Life logo -> Iceman + Cold Ice Logo in HEV suit
+    1. [x] Cold Ice Splash with Blue Gordon, Half-Life logo -> Iceman + Cold Ice Logo in HEV suit
 1. Maps
     1. All Maps
         1. [x] Overview graphic
@@ -134,11 +124,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Best sprite effort weapon 
         1. [x] Pipewrench, knife, deagle, and rifler from OpFor?
         1. [ ] Weapon Sprite + text at bottom as compromise?
-    1. [ ] Re-enable suit voice updates?
-    1. [ ] Add map name to the scoreboard
-    1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
-1. Runes
-    1. [ ] Quad damage (Napoleon's idea)
 1. Fixes
     1. [x] Bots harder to see player with cloak rune.
     1. [x] Make grappling hook default enabled
@@ -150,14 +135,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Add faces to bottom/back of item models
     1. [x] Turn 180 spawn point in training by range / door
     1. [x] Twisted assassin player model
+    1. [x] Spawn x / 2 runes per currently connected players?
     1. [ ] Patch canyon and other maps that have skybox holes (thanks to RadHaz)
-    1. [ ] mp_infiniteammo -> sv_infiniteammo
-    1. [ ] Add git hash to server name in dll
-    1. [ ] Improve Crowbar animation from another v_ model
-    1. [ ] Railgun follows through multiple targets
-    1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
-    1. [ ] Snowball not exhaustable?
-    1. [ ] Spawn x / 2 runes per currently connected players?
 1. Player Models
     1. [x] [Snowman](https://gamebanana.com/mods/179220)
 1. Game Dev Tools
@@ -174,6 +153,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
     1. [ ] Source version
 1. Weapons
+    1. [ ] Hand cannon
+    1. Crossbow
+        1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
+    1. Handgrenades
+        1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
+        1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
+        1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
     1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] Akimbo's (select weapons)
@@ -228,6 +214,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mechanics
     1. [ ] Jetpack?
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
+    1. [ ] Player jump and land sound effects
+    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
+    1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
     1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
@@ -238,12 +227,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
 1. UI / Menu
-    1. [x] Cold Ice logo at bottom of menu
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
+    1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
     1. [ ] Ammo regeneration
     1. [ ] Super jump rune
+1. HUD
+    1. [ ] Re-enable suit voice updates?
+    1. [ ] Add map name to the scoreboard
+    1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
+    1. [ ] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
     1. [ ] fgd file
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Training 2
@@ -254,6 +248,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] All Cold Ice 1.6 player models
 1. Integrations
     1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/halflife-extended/tree/main/source-code)
+1. Fixes
+    1. [ ] mp_infiniteammo -> sv_infiniteammo
+    1. [ ] Add git hash to server name in dll
+    1. [ ] Improve Crowbar animation from another v_ model
+    1. [ ] Railgun follows through multiple targets
+    1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
+    1. [ ] Snowball not exhaustable?
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
