@@ -77,6 +77,7 @@ Beta 2 Features:
     - Added "mp_icesprites 1" to switch between select ice and real environment sprites
     - Added announcement those that join the server
     - Added "mp_randomweapon 0" to give a random weapon at spawn
+    - Added "mp_interactiveitems", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - Fixes
     - Skinned the hev to blue
     - "mp_grapplinghook" default value now set to 1
@@ -319,6 +320,7 @@ Server:
 - "mp_dualsonly 0" - Allow dual weapons only
 - "sv_jumpheight 45" - Adjustable player's jump height
 - "mp_icesprites 1" - Switch between select ice and real environment sprites
+- "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 
 Report Bugs:
 
