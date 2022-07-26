@@ -201,4 +201,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_randomweapon"
+	{
+		"#Ice_RandomWeapon"
+		{ BOOL }
+		{ "1" }
+	}
 }
