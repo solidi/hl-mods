@@ -208,4 +208,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_interactiveitems"
+	{
+		"#Ice_Interactive_Items"
+		{ STRING }
+		{ "grenade;monster_satchel;monster_chumtoad;monster_snark" }
+	}
 }
