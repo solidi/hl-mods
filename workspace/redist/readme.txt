@@ -75,6 +75,8 @@ Beta 2 Features:
     - Improved background and loading menu with new snowflake menu
 - Server
     - Added "mp_icesprites 1" to switch between select ice and real environment sprites
+    - Added announcement those that join the server
+    - Added "mp_randomweapon 0" to give a random weapon at spawn
 - Fixes
     - Skinned the hev to blue
     - "mp_grapplinghook" default value now set to 1
@@ -117,6 +119,7 @@ Beta 2 Features:
     - Patch default_fov being overwritten by ironsights code
     - Improved Bounce2 by correcting bugs and adding lights
     - Fixed ppk fire timing while adding silencer
+    - Fixed vest priority when picked up
 
 Beta 1 Features:
 
