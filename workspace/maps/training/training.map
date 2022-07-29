@@ -3,7 +3,7 @@
 "skyname" "desert"
 "message" "Training"
 "light" "0"
-"MaxRange" "4500"
+"MaxRange" "8192"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\gfx.wad;..\wads\spraypaint.wad;..\wads\xeno.wad;..\wads\decals.wad"
 {
 ( 77 -994 -200 ) ( 109 -959 -200 ) ( 187 -1032 -200 ) BABTECH_DR1C 13 -2 0 1.000000 1.000000

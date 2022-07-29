@@ -1,7 +1,7 @@
 {
 "classname" "worldspawn"
 "skyname" "cirduskmont1"
-"MaxRange" "5000"
+"MaxRange" "8192"
 "message" "Catacombs"
 "sounds" "0"
 "mapversion" "220"

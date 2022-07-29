@@ -183,8 +183,8 @@ d_vest  		640	640hud1	192	176	32	16
 d_chumtoad		640	640hud1	192	208	32	16
 d_railgun		640	640hud1	192	112	32	16
 d_cannon		640	640hud1	192	96	48	16
-d_flak			640	640hud1	192	96	48	16
-d_flak_bomb 	640	640hud1	192	96	48	16
+d_flak			640	640hudof07	192	16	48	16
+d_flak_bomb 	640	640hudof07	192	16	48	16
 d_mag60			640	640hudof05	192	0	48	16
 d_chaingun		640	640hudof01	192	48	48	16
 d_smg			640	640hudof05	192	16	48	16

@@ -3,7 +3,7 @@
 "message" "Snowyard"
 "worldtype" "0"
 "skyname" "cirnightmont1"
-"MaxRange" "4096"
+"MaxRange" "8192"
 "mapversion" "220"
 "sounds" "0"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\coldice.wad;..\wads\decals.wad"
