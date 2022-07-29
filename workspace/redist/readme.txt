@@ -121,6 +121,7 @@ Beta 2 Features:
     - Improved Bounce2 by correcting bugs and adding lights
     - Fixed ppk fire timing while adding silencer
     - Fixed vest priority when picked up
+    - Fixed "unnamed" bots on Linux
 
 Beta 1 Features:
 

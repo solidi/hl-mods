@@ -96,7 +96,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
-    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
 1. Environment look and feel
     1. [x] Bullet hole decals like BHL
     1. [x] [r_shadows tutorial](https://twhl.info/thread/view/20220)
@@ -218,6 +217,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
     1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
+    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
