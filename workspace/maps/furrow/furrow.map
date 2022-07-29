@@ -3,7 +3,7 @@
 "skyname" "cirnightmont1"
 "sounds" "0"
 "message" "Furrow"
-"MaxRange" "4096"
+"MaxRange" "8192"
 "mapversion" "220"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\coldice.wad;..\wads\decals.wad"
 {

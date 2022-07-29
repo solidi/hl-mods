@@ -4,7 +4,7 @@
 "skyname" "cirdaymont1"
 "sounds" "0"
 "message" "Training 2"
-"MaxRange" "4096"
+"MaxRange" "8192"
 "mapversion" "220"
 "mapversion" "220"
 "wad" "\workspace\wads\coldice.wad;\workspace\wads\halflife.wad;\workspace\wads\xeno.wad;\workspace\wads\liquids.wad;\workspace\wads\spraypaint.wad;\workspace\wads\decals.wad"

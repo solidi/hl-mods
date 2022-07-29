@@ -2,7 +2,7 @@
 "classname" "worldspawn"
 "sounds" "0"
 "light" "0"
-"MaxRange" "4096"
+"MaxRange" "8192"
 "skyname" "cirnightmont1"
 "message" "Stalkyard 2"
 "wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\gfx.wad;..\wads\spraypaint.wad;..\wads\xeno.wad;..\wads\decals.wad"

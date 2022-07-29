@@ -3,7 +3,7 @@
 "classname" "worldspawn"
 "skyname" "cirdaymont1"
 "message" "Bounce 2"
-"MaxRange" "7200"
+"MaxRange" "8192"
 "mapversion" "220"
 "sounds" "0"
 "mapversion" "220"

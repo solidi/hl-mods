@@ -2,7 +2,7 @@
 "classname" "worldspawn"
 "sounds" "0"
 "skyname" "cirdaymont1"
-"MaxRange" "4096"
+"MaxRange" "8192"
 "mapversion" "220"
 "message" "Focus"
 "wad" "..\wads\halflife.wad;..\wads\decals.wad;..\wads\liquids.wad;..\wads\xeno.wad;..\wads\coldice.wad"
