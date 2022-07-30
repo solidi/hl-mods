@@ -120,9 +120,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Crossfire re-skinned
 1. HUD
     1. [x] Highlight HUD when picking up item (bhl)
-    1. [ ] Best sprite effort weapon 
+    1. [x] Best sprite effort weapon 
         1. [x] Pipewrench, knife, deagle, and rifler from OpFor?
-        1. [ ] Weapon Sprite + text at bottom as compromise?
+        1. [x] Weapon Sprite + text at bottom as compromise?
 1. Fixes
     1. [x] Bots harder to see player with cloak rune.
     1. [x] Make grappling hook default enabled
