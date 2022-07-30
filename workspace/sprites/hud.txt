@@ -179,8 +179,8 @@ d_tripmine		640	640hud1	192	192	32	16
 d_snark			640	640hud1	192	208	32	16
 d_skull			640	640hud1	192	224	32	16
 d_tracktrain	640	640hud1	192	240	32	16
-d_vest  		640	640hud1	192	176	32	16
-d_chumtoad		640	640hud1	192	208	32	16
+d_vest  		640	640hudof09	192	0	48	16
+d_chumtoad		640	640hudof07	192	80	48	16
 d_railgun		640	640hudof07	192	48	48	16
 d_cannon		640	640hud1	192	96	48	16
 d_flak			640	640hudof07	192	16	48	16
@@ -193,7 +193,7 @@ d_usas  		640	640hudof05	192	48	48	16
 d_fists 		640	640hudof01	192	80	48	16
 d_wrench		640	640hudof01	192	0	48	16
 d_flying_wrench  640	640hudof01	192	0	48	16
-d_flying_snowball	640	640hud1	192	160	32	16
+d_flying_snowball	640	640hudof09	192	16	48	16
 d_chainsaw		640	640hudof01	192	64	48	16
 d_12gauge		640	640hudof07	192	0	48	16
 d_nuke_rocket	640	640hudof01	192	144	48	16
