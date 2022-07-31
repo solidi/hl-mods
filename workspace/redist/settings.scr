@@ -215,4 +215,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ STRING }
 		{ "grenade;monster_satchel;monster_chumtoad;monster_snark" }
 	}
+
+	"mp_snowballfight"
+	{
+		"#Ice_SnowballFight"
+		{ BOOL }
+		{ "0" }
+	}
 }
