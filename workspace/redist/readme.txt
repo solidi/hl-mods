@@ -41,7 +41,7 @@ Beta 2 Features:
 - Dual Wielded Weapons
     - Support for the pipe wrench, desert eagles, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
-    - "mp_dualsonly" to play with all dual weapons
+    - "mp_dualsonly" to play with only dual weapons
 - Fear / Trepang2 / Selaco Slide
     - While looking ahead, press "+forward" three times in a row to slide
 - Offhanded Punch and Kick
@@ -78,6 +78,7 @@ Beta 2 Features:
     - Added announcement those that join the server
     - Added "mp_randomweapon 0" to give a random weapon at spawn
     - Added "mp_interactiveitems", a semicolon separated list of items that are "interactive" (kickable, pickupable)
+    - Added "mp_snowballfight", to play with one-shot kill snowballs only!
 - Fixes
     - Skinned the hev to blue
     - "mp_grapplinghook" default value now set to 1
@@ -322,6 +323,7 @@ Server:
 - "sv_jumpheight 45" - Adjustable player's jump height
 - "mp_icesprites 1" - Switch between select ice and real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
+- "mp_snowballfight 0" - Replace all weapons with deadly snowballs!
 
 Report Bugs:
 

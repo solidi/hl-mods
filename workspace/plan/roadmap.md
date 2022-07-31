@@ -96,6 +96,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Selaco styled sliding, as seen [here](https://twitter.com/SelacoGame/status/1512832439172968465?s=20&t=Xma6sO4FhVjL1v4eXpiY4A)
 1. Gameplay
     1. [x] mp_dualsonly - only allow dual type weapons
+    1. [x] mp_snowballfight - only allow snowballs
 1. Environment look and feel
     1. [x] Bullet hole decals like BHL
     1. [x] [r_shadows tutorial](https://twhl.info/thread/view/20220)
@@ -144,7 +145,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [x] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
     1. [x] Improve crosshair visibility ([Bonhomme](https://discord.com/channels/790549024373604353/790549024373604356/927735897959575572))
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0
 
 ### Beta 3
 
@@ -271,6 +271,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 (Napoleon)
     1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
