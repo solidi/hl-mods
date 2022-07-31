@@ -277,6 +277,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
     1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
     1. [ ] Taunts from player (Napoleon)
+    1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
 
 ### Beta 1
 

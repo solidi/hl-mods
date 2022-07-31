@@ -391,4 +391,5 @@ Thanks To:
 - BlueNightHawk for weapon retract code https://github.com/BlueNightHawk/hl-newlight / https://www.moddb.com/mods/half-life-new-light
 - TheSpacePirate for frostfire, a reskin of bounfire https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/ / https://twhl.info/vault/view/6608
 - Bacontsu and others for glow model code found in Half-Life Extended SDK https://github.com/bacontsu/halflife-extended
+- Unnamed for the startup jingle from Stanley Steemer (call them for carpets cleaned!) https://www.youtube.com/watch?v=kda7SJHtUhk
 - Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
