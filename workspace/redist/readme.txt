@@ -126,6 +126,9 @@ Beta 2 Features:
     - Fixed ppk fire timing while adding silencer
     - Fixed vest priority when picked up
     - Fixed "unnamed" bots on Linux
+    - Improved chaingun performance
+    - Fixed Mag60 rotation bug
+    - Smoothed out the weaponsway feature
 
 Beta 1 Features:
 
