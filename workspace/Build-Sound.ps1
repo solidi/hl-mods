@@ -50,7 +50,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\media)
 }
 
-Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav"
+Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav" "wav" 0 2.8
 Compile-Sound $binDir $redistDir $soundDir "leroy.swf.mp3" 1.0 "sound\vest_attack.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "alive.wav" 2.0 "sound\vest_alive.wav" "wav" 1 5
 Compile-Sound $binDir $redistDir $soundDir "buddha.wav" 1.0 "sound\knife_thecore.wav" "wav" 0 3

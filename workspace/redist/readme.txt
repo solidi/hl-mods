@@ -44,11 +44,14 @@ Beta 2 Features:
     - "mp_dualsonly" to play with only dual weapons
 - Fear / Trepang2 / Selaco Slide
     - While looking ahead, press "+forward" three times in a row to slide
-- Offhanded Punch and Kick
+- Offhanded Punch, Kick, and Slide
     - "impulse 206" supports the kick function
     - "impulse 207" supports the punch function
+    - "impulse 208" supports the slide function
 - Pick up and Punch Back
     - Use button can pick up grenades and satchels, throwing them back
+    - Pickup, kick or punch back snarks, chumtoads
+    - See "mp_interactiveitems" to extend this list!
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals

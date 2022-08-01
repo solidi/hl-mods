@@ -137,6 +137,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Twisted assassin player model
     1. [x] Spawn x / 2 runes per currently connected players?
     1. [ ] Patch canyon and other maps that have skybox holes (thanks to RadHaz)
+    1. [ ] Stop weapon animation during freeing (chaingun)
 1. Player Models
     1. [x] [Snowman](https://gamebanana.com/mods/179220)
 1. Game Dev Tools
@@ -152,6 +153,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
     1. [ ] Source version
 1. Weapons
+    1. [ ] Quad weapon attachment?
     1. [ ] Hand cannon
     1. Crossbow
         1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)

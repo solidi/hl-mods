@@ -39,7 +39,7 @@ ToonCop
 Hero
 Jolteon
 DarkCloud14
-AudioCra-Z
+AudioCraZ
 CRash&bleED;
 aSsMoNkEy
 AxeL
@@ -48,3 +48,4 @@ ssfcgasl'sgo!
 Napoleon
 TheSpacePirate
 Radiation Hazard
+Kralich

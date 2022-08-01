@@ -19,8 +19,11 @@ function Compile-Sound {
 
     if ($type -eq "mp3") {
        $typecmd = "-acodec libmp3lame"
-    } else {
+    } elseif ($type -eq "wav") {
         $typecmd = "-ar 22050 -ac 1 -acodec pcm_u8 "
+    } else {
+        Write-Error "Invalid sound file type $type."
+        exit
     }
 
     Set-Location -Path $binDir
