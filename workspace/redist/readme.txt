@@ -136,6 +136,7 @@ Beta 2 Features:
     - Changed bot priority of snowballs above fists
     - Increased distance of vest attack used by bots
     - Fixed numerous spawn point angles
+    - Rely on the skill.cfg damage values for Cold Ice weapons
 
 Beta 1 Features:
 

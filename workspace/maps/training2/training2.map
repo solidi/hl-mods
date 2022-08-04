@@ -3541,6 +3541,7 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "-717 -128 -48"
 }
 {
