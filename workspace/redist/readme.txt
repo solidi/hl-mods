@@ -129,6 +129,13 @@ Beta 2 Features:
     - Improved chaingun performance
     - Fixed Mag60 rotation bug
     - Smoothed out the weaponsway feature
+    - Reduced intensity of the weapon float / drop
+    - Patch inifinite ammo with items like tripmine
+    - Fixed reload time on some weapons
+    - Fixed inverted shotgun shell skin
+    - Changed bot priority of snowballs above fists
+    - Increased distance of vest attack used by bots
+    - Fixed numerous spawn point angles
 
 Beta 1 Features:
 
@@ -281,6 +288,8 @@ Client:
 - "+hook" - Deploy offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
 - "impulse 206" - Use for kick function
+- "impulse 207" supports the punch function
+- "impulse 208" supports the slide function
 - "impulse 205" - Swap between single and dual weapon, if available
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)

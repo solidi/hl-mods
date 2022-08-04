@@ -33,7 +33,7 @@ $texturegroup ice
     "shotgun_shell.BMP"
   }
   {
-    "shotgun_shell.BMP"
+    "invert_shotgun_shell.BMP"
   }
   {
     "..\..\ringchrome.bmp"
