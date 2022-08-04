@@ -408,3 +408,4 @@ Thanks To:
 - Bacontsu and others for glow model code found in Half-Life Extended SDK https://github.com/bacontsu/halflife-extended
 - Unnamed for the startup jingle from Stanley Steemer (call them for carpets cleaned!) https://www.youtube.com/watch?v=kda7SJHtUhk
 - Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
+- Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
