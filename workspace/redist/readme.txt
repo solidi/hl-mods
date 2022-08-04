@@ -54,7 +54,7 @@ Beta 2 Features:
     - See "mp_interactiveitems" to extend this list!
 - Weapon Updates
     - Crowbar/Throw decals
-    - Bullet decals
+    - Bullet decals and ricochet sparks
     - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
     - Support for real muzzle flash using cl_icemodels 0
     - Randomized fire sprites at end of explosions
