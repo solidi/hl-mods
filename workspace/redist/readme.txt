@@ -137,6 +137,7 @@ Beta 2 Features:
     - Increased distance of vest attack used by bots
     - Fixed numerous spawn point angles
     - Rely on the skill.cfg damage values for Cold Ice weapons
+    - Removed floating clip in view while using handgun silencer
 
 Beta 1 Features:
 
