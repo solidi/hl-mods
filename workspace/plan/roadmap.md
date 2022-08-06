@@ -281,6 +281,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Taunts from player (Napoleon)
     1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
     1. [ ] Multiple rune equip (Napoleon)
+    1. [ ] Ice spike gun (AudioCraZ)
+    1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
 
 ### Beta 1
 

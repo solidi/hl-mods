@@ -13,7 +13,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 $Config = @{ }
 [int]$botCount = 0
 [int]$hdModels = 1
-[string]$map = "stalkyard"
+[string]$map = "snowyard"
 [int]$teamplay = 0
 [string]$spawnweaponList = ""
 [int]$runes = 1
