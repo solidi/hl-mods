@@ -58,6 +58,7 @@ Beta 2 Features:
     - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
     - Support for real muzzle flash using cl_icemodels 0
     - Randomized fire sprites at end of explosions
+    - Increase grappling hook deploy speed, provide damage and speed cvars
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
