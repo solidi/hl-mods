@@ -138,6 +138,10 @@ Beta 2 Features:
     - Fixed numerous spawn point angles
     - Rely on the skill.cfg damage values for Cold Ice weapons
     - Removed floating clip in view while using handgun silencer
+    - Fixed high-speed empty clicking on RPGs
+    - Fixed origin of the grapple hook default sound
+    - Fixed nuke damage, linking it to skill.cfg value
+    - Align snowball puff effect, include it if hitting player
 
 Beta 1 Features:
 
