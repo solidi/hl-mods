@@ -143,6 +143,7 @@ Beta 2 Features:
     - Fixed origin of the grapple hook default sound
     - Fixed nuke damage, linking it to skill.cfg value
     - Align snowball puff effect, include it if hitting player
+    - Fixed floating tree in Canyon
 
 Beta 1 Features:
 
