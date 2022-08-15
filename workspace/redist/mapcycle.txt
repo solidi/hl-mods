@@ -12,3 +12,4 @@ catacombs
 depot
 snowcross
 frostfire
+drift
