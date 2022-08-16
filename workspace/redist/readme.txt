@@ -21,6 +21,8 @@ Beta 2 Features:
             - Shoot / Shoot Both
         - Dual RPGs
             - Shoot Both / Extreme Rockets
+        - Dual Mag60s
+            - Shoot Both
         - Dual SMGs
             - Shoot Both
         - Dual Wrenchs
@@ -40,7 +42,7 @@ Beta 2 Features:
 - New Player Models
     - Snowman
 - Dual Wielded Weapons
-    - Support for the pipe wrench, desert eagles, smgs, usas, and rpgs!
+    - Support for the pipe wrench, desert eagles, mag60s, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
     - "mp_dualsonly" to play with only dual weapons
 - Fear / Trepang2 / Selaco Slide
@@ -423,3 +425,4 @@ Thanks To:
 - Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
 - Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
 - Dave Johnston for dust, and AudioCraZ for his reskin called "drift"
+- suXin and the Half-Payne team for the dual mag60 animations https://www.moddb.com/mods/half-payne

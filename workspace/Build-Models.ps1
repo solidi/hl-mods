@@ -325,6 +325,12 @@ Invert-Skin $binDir "w_freezegun" $modelsdir
 Invert-Skin $binDir "p_freezegun" $modelsdir
 Invert-Skin $binDir "w_suit" $modelsdir
 Invert-Skin $binDir "w_concretegibs" $modelsdir
+Invert-Skin $binDir "v_dual_mag60" $modelsdir\hd
+Invert-Skin $binDir "w_dual_mag60" $modelsdir\hd
+Invert-Skin $binDir "p_dual_mag60" $modelsdir\hd
+Invert-Skin $binDir "v_dual_mag60" $modelsdir
+Invert-Skin $binDir "w_dual_mag60" $modelsdir
+Invert-Skin $binDir "p_dual_mag60" $modelsdir
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "army" $binDir $modelsdir $redistDir
@@ -610,6 +616,12 @@ Compile-Model $binDir "w_suit" $modelsdir $redistdir\models
 Compile-Model $binDir "w_battery_light" $modelsdir $redistdir\models
 Compile-Model $binDir "w_medkit_light" $modelsdir $redistdir\models
 Compile-Model $binDir "w_concretegibs" $modelsdir $redistdir\models
+Compile-Model $binDir "v_dual_mag60" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_dual_mag60" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_dual_mag60" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_dual_mag60" $modelsdir $redistdir\models
+Compile-Model $binDir "w_dual_mag60" $modelsdir $redistdir\models
+Compile-Model $binDir "p_dual_mag60" $modelsdir $redistdir\models
 } else {
     Compile-Player $playerModel $binDir $modelsdir $redistDir
 }
