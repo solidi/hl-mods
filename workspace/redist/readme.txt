@@ -35,6 +35,7 @@ Beta 2 Features:
 - New Maps
     - Snowcross, an expanded reskin of crossfire
     - Frostfire, a reskin of bounfire by TheSpacePirate
+    - Dirft, a reskin of dust by AudioCraZ
     - Graphic spectator overviews for all maps
 - New Player Models
     - Snowman
@@ -417,3 +418,4 @@ Thanks To:
 - Unnamed for the startup jingle from Stanley Steemer (call them for carpets cleaned!) https://www.youtube.com/watch?v=kda7SJHtUhk
 - Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
 - Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
+- Dave Johnston for dust, and AudioCraZ for his reskin called "drift"

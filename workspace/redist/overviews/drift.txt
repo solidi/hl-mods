@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	0.96
+	ORIGIN	112 	240	192
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/drift.bmp"
+	HEIGHT	-258
+}
