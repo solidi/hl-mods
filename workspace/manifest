@@ -31,6 +31,7 @@ events\deagle.sc
 events\dual_deagle.sc
 events\dual_deagle_both.sc
 events\dual_rpg_both.sc
+events\dual_mag60.sc
 events\dual_smg.sc
 events\dual_wrench.sc
 events\dual_usas.sc
@@ -277,6 +278,9 @@ models\p_dual_rpg.mdl
 models\w_dual_smg.mdl
 models\p_dual_smg.mdl
 models\v_dual_smg.mdl
+models\w_dual_mag60.mdl
+models\p_dual_mag60.mdl
+models\v_dual_mag60.mdl
 models\w_dual_wrench.mdl
 models\p_dual_wrench.mdl
 models\v_dual_wrench.mdl
@@ -657,6 +661,7 @@ sprites\weapon_nuke.txt
 sprites\weapon_deagle.txt
 sprites\weapon_dual_deagle.txt
 sprites\weapon_dual_rpg.txt
+sprites\weapon_dual_mag60.txt
 sprites\weapon_dual_smg.txt
 sprites\weapon_dual_wrench.txt
 sprites\weapon_dual_usas.txt

@@ -106,6 +106,7 @@ Copy-Item $spritesDir\weapon_nuke.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_deagle.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_deagle.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_rpg.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_dual_mag60.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_smg.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
