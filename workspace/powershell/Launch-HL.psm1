@@ -27,6 +27,30 @@ function copyDistributionFiles {
     echo "Done with distribution files."
 }
 
+function unzipDistributionFiles {
+    param (
+        $rootDir,
+        $hldir,
+        $iceDir,
+        $icehddir
+    )
+
+    Write-Output "Unzipping distribution files..."
+
+    Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
+    if (!(Test-Path $iceDir)) {
+        New-Item -ItemType directory -Path $iceDir
+    }
+    if (!(Test-Path $icehddir)) {
+        New-Item -ItemType directory -Path $icehddir
+    }
+
+    Expand-Archive -LiteralPath $rootDir\cold-ice-remastered-git-unknown.zip -DestinationPath $hlDir
+
+    Write-Output "Done with unzipping distribution files."
+}
+
 function Launch-HL {
     param (
         $botcount,

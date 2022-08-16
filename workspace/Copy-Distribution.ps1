@@ -13,12 +13,16 @@ Set-ConsoleColor 'DarkCyan' 'White'
 Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameChecking
 
 $Config = @{ }
+[bool]$unzip = $false
 
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
         $configFile = $_.Split(' ')[1]
         . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Unzip") {
+        $unzip = $true
+        Write-Output "unzipping current archive..."
     }
 }
 
@@ -34,4 +38,8 @@ $gameFolder = $Config['gameFolder'] ?? "ice_beta2"
 $iceDir = "${hldir}\${gameFolder}"
 $icehddir = "${hldir}\${gameFolder}_hd"
 
-copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir
+if ($unzip -eq $true) {
+    unzipDistributionFiles $rootDir $hldir $iceDir $icehddir
+} else {
+    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir
+}
