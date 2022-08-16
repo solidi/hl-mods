@@ -38,6 +38,7 @@ cold-ice-remastered-*.zip
 */redist/sprites/
 */redist/sound/
 */redist/media/
+*/redist/player/
 htmlcache
 debug.log
 steam_appid.txt

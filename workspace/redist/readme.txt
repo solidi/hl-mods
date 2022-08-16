@@ -148,6 +148,7 @@ Beta 2 Features:
     - Align snowball puff effect, include it if hitting player
     - Fixed floating tree in Canyon
     - Fixed swinging chainsaw sfx not heard by others
+    - Patched player models not correctly appearing in options menu
 
 Beta 1 Features:
 

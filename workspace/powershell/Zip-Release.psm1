@@ -39,7 +39,16 @@ function Zip-Release {
         Remove-Item $env:TEMP\release\redist\dev.cfg
         Remove-Item $env:TEMP\release\redist\userconfig.cfg
         Remove-Item $env:TEMP\release\redist\models\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item $env:TEMP\release\redist\models -Force -ErrorAction Ignore
+
+        # Special move of the player folder as it cannot be paked
+        [void](New-Item -ItemType directory -Path $env:TEMP\release\redist\models\player)
+        Copy-Item -Recurse -Force $redistDir\player $env:TEMP\release\redist\models -ErrorAction Ignore
+        Copy-Item -Recurse -Force $redistDir\player $redistDir\models -ErrorAction Ignore
+        Remove-Item $redistDir\player\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $redistDir\player -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\player\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item $env:TEMP\release\redist\player -Force -ErrorAction Ignore
+
         Remove-Item $env:TEMP\release\redist\sound\\* -Recurse -Force -ErrorAction Ignore
         Remove-Item $env:TEMP\release\redist\sound -Force -ErrorAction Ignore
         Remove-Item $env:TEMP\release\redist\sprites\\* -Recurse -Force -ErrorAction Ignore

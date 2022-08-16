@@ -69,6 +69,8 @@ if ($verifyfiles) {
 }
 
 try {
+    # Shift player models out of pak
+    Move-Item $redistDir\models\player $redistDir -Force
     PAK-File $binDir $redistDir @("models", "sound", "sprites")
 } catch {
     if ($verifyfiles) {
