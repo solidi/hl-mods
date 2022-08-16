@@ -151,6 +151,7 @@ Beta 2 Features:
     - Fixed floating tree in Canyon
     - Fixed swinging chainsaw sfx not heard by others
     - Patched player models not correctly appearing in options menu
+    - Fixed reload times for bots and weapons
 
 Beta 1 Features:
 
