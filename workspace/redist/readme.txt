@@ -60,6 +60,8 @@ Beta 2 Features:
     - Support for real muzzle flash using cl_icemodels 0
     - Randomized fire sprites at end of explosions
     - Increase grappling hook deploy speed, provide damage and speed cvars
+    - Mortar turrets support ice explosions
+    - Add support for unlimited thorwable objects with infinite ammo mode
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
@@ -145,6 +147,7 @@ Beta 2 Features:
     - Fixed nuke damage, linking it to skill.cfg value
     - Align snowball puff effect, include it if hitting player
     - Fixed floating tree in Canyon
+    - Fixed swinging chainsaw sfx not heard by others
 
 Beta 1 Features:
 
