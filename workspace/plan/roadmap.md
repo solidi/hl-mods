@@ -136,7 +136,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Turn 180 spawn point in training by range / door
     1. [x] Twisted assassin player model
     1. [x] Spawn x / 2 runes per currently connected players?
-    1. [ ] Patch canyon and other maps that have skybox holes (thanks to RadHaz)
+    1. [x] Patch canyon and other maps that have skybox holes (thanks to RadHaz)
     1. [ ] Stop weapon animation during freeing (chaingun)
 1. Player Models
     1. [x] [Snowman](https://gamebanana.com/mods/179220)
@@ -153,6 +153,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
     1. [ ] Source version
 1. Weapons
+    1. [ ] Throw any weapon
     1. [ ] Quad weapon attachment?
     1. [ ] Hand cannon
     1. Crossbow
@@ -207,6 +208,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
 1. Movement
+    1. [ ] [Somersaults](https://www.moddb.com/mods/the-specialists)
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
     1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
@@ -283,6 +285,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Multiple rune equip (Napoleon)
     1. [ ] Ice spike gun (AudioCraZ)
     1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
+    1. [ ] "ice spike gun" (AudioCraZ)
 
 ### Beta 1
 
