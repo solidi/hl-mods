@@ -259,6 +259,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] Snowball not exhaustable?
+    1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
@@ -286,6 +287,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Ice spike gun (AudioCraZ)
     1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
     1. [ ] "ice spike gun" (AudioCraZ)
+    1. [ ] cl_autoweaponswitch ([@Runner](https://discord.com/channels/790549024373604353/790549024373604356/1010565554161057872))
+    1. [ ] mutators ```mp_mutators "blowup (Napoleon);weapon_(AudioCraZ);insta(The_Pacific_gamer);jetpack(Napoleon);tiny"```
+    1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
+    1. [ ] Translate to russian (berry from moddb)
+    1. [ ] Capture the Chumtoad (AudioCraZ)
+    1. [ ] Boomerang (AudioCraZ)
 
 ### Beta 1
 
