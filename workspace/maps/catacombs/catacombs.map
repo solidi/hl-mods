@@ -9440,6 +9440,7 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "256 528 80"
 }
 {

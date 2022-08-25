@@ -9,6 +9,11 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+Beta 3 Features:
+
+- Fixes
+    - Even more spawn point angle corrections
+
 Beta 2 Features:
 
 - New Weapons
