@@ -2,7 +2,7 @@ Cold Ice Remastered Edition
 
 This project is a modern open-sourced rebuild of Cold Ice 1.75, a popular Half-Life mod back in 1999. Set in a winter scene, its philosophy is to deliver deathmatch that doesn't take itself seriously. Only in this mod will you find voiceover cameos from Samuel L. Jackson, Hans Gruber, and "Leeroy Jenkins" by Ben Schulz. Its ethos delivers an explosively frantic fast-paced gameplay that was and always will be Cold Ice.
 
-The full story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
+The whole story: https://medium.com/super-jump/building-a-popular-half-life-mod-during-the-rise-of-counter-strike-fec6a5b9fd8f?sk=6d1427b3f1d832df06bd5b07aaa456bb
 Library game code: https://github.com/solidi/coldice-remastered
 Project redist and assets: https://github.com/solidi/hl-mods
 Join us on Discord: https://discord.gg/Hu2Q6pcJn3
@@ -12,7 +12,7 @@ This mod features works from the community. Without their dedication and hard wo
 Beta 2 Features:
 
 - New Weapons
-    - Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
+    - Includes SD/HD models that can switch blue/orange skins. (+) = Supports ironsight
         - Desert Eagle (+)
             - Shoot
         - Xero n2o Freeze Gun (+)
@@ -37,33 +37,33 @@ Beta 2 Features:
 - New Maps
     - Snowcross, an expanded reskin of crossfire
     - Frostfire, a reskin of bounfire by TheSpacePirate
-    - Dirft, a reskin of dust by AudioCraZ
+    - Drift, a reskin of dust by AudioCraZ
     - Graphic spectator overviews for all maps
 - New Player Models
     - Snowman
-- Dual Wielded Weapons
+- Dual-Wielded Weapons
     - Support for the pipe wrench, desert eagles, mag60s, smgs, usas, and rpgs!
     - "impulse 205" to swap between single and dual weapons
     - "mp_dualsonly" to play with only dual weapons
 - Fear / Trepang2 / Selaco Slide
     - While looking ahead, press "+forward" three times in a row to slide
-- Offhanded Punch, Kick, and Slide
+- Off-handed Punch, Kick, and Slide
     - "impulse 206" supports the kick function
     - "impulse 207" supports the punch function
     - "impulse 208" supports the slide function
 - Pick up and Punch Back
     - Use button can pick up grenades and satchels, throwing them back
-    - Pickup, kick or punch back snarks, chumtoads
+    - Pickup, kick, or punch back snarks, chumtoads
     - See "mp_interactiveitems" to extend this list!
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals and ricochet sparks
-    - Thicker crosshairs / crosshairs on melees / change colors with cl_icemodels
+    - Thicker crosshairs/crosshairs on melees/change colors with cl_icemodels
     - Support for real muzzle flash using cl_icemodels 0
-    - Randomized fire sprites at end of explosions
+    - Randomized fire sprites at the end of explosions
     - Increase grappling hook deploy speed, provide damage and speed cvars
     - Mortar turrets support ice explosions
-    - Add support for unlimited thorwable objects with infinite ammo mode
+    - Add support for unlimited throwable objects with infinite ammo mode
 - Client Support
     - "snowman" supports god mode (when sv_cheats 1)
     - "cl_showtips" to show random text tips during gameplay
@@ -73,20 +73,20 @@ Beta 2 Features:
 - Modern weapon viewmodel improvements
     - Weapon retracts when up against a wall
 - Movement
-    - Added "sv_jumpheight" to adjust amount of player's jump height
+    - Added "sv_jumpheight" to adjust the amount of the player's jump height
 - Powerup Runes
-    - Amount of runes spawned now related to amount of connected players
+    - Amount of runes spawned now related to the number of connected players
 - Hud
     - Include glass HUD effect to death notice and weapon identification
-    - "cl_flashonpickup" flashes HUD on picking up weapon or item
+    - "cl_flashonpickup" flashes HUD on picking up a weapon or item
 - Menu
     - Updated corner logo
     - Improved background and loading menu with new snowflake menu
 - Server
     - Added "mp_icesprites 1" to switch between select ice and real environment sprites
-    - Added announcement those that join the server
+    - Added announcement to those that join the server
     - Added "mp_randomweapon 0" to give a random weapon at spawn
-    - Added "mp_interactiveitems", a semicolon separated list of items that are "interactive" (kickable, pickupable)
+    - Added "mp_interactiveitems", a semicolon-separated list of items that are "interactive" (kickable, pickupable)
     - Added "mp_snowballfight", to play with one-shot kill snowballs only!
 - Fixes
     - Skinned the hev to blue
@@ -99,8 +99,8 @@ Beta 2 Features:
     - Fixed medkit/battery/gauss ammo backface bug
     - Fixed missing inverted and iced skin for the player crowbar
     - Patch bots in slow motion after many map changes
-    - Improved Bot weapon select and engagement of player
-    - Bots no longer engage player with a cloak rune
+    - Improved Bot weapon select and engagement of the player
+    - Bots no longer engage the player with a cloak rune
     - Modernized bot library code
     - Updated Bot velocity calculations to projectiles
     - Fixed USAS-12 backface bug
@@ -118,7 +118,7 @@ Beta 2 Features:
     - Fixed bot waypoint crash
     - Fixed view model lag for different framerates
     - Patched some models like the throwable crowbar are not iced over
-    - Fixed spawn point angles in stalkyard2, training and fences
+    - Fixed spawn point angles in stalkyard2, training, and fences
     - Fixed incorrect placement of gauss ammo model on floor
     - Fixed rapid fists/crowbar/knife/wrench hits
     - Fixed twisted Assassin player model
@@ -135,8 +135,8 @@ Beta 2 Features:
     - Improved chaingun performance
     - Fixed Mag60 rotation bug
     - Smoothed out the weaponsway feature
-    - Reduced intensity of the weapon float / drop
-    - Patch inifinite ammo with items like tripmine
+    - Reduced intensity of the weapon float/drop
+    - Patch infinite ammo with items like tripmine
     - Fixed reload time on some weapons
     - Fixed inverted shotgun shell skin
     - Changed bot priority of snowballs above fists
@@ -159,7 +159,7 @@ Beta 1 Features:
 - Supports Steam on Windows, Linux, and macOS 
     - Supports desktop Xash3d (see installation for details - Android support coming in Beta 2)
 - 30 weapons with originals included (and more)!
-- Includes SD/HD models with the ability to switch blue/orange skins. (+) = Supports ironsight
+- Includes SD/HD models that can switch blue/orange skins. (+) = Supports ironsight
     - Manos de Piedras
         - Right / Left Jabs / Shoryuken
     - Standard Crowbar
@@ -284,25 +284,25 @@ Beta 3 Highly-Valued Upcoming Features:
 
 Installation:
 
-- For Steam: Place both ice_betax and ice_betax_hd folders in the same folder as where hl.exe is installed.
-    - See this guide for a step by step guide on how to install this mod: https://steamcommunity.com/sharedfiles/filedetails/?id=174908119
-- For Xash3d: Since Xash3d does not support SD/HD model switching, install the ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste over the ice_betax folder, overwriting the SD models.
+- For Steam: Place both ice_betax and ice_betax_hd folders in the same folder where hl.exe is installed.
+    - See this guide for a step-by-step guide on how to install this mod: https://steamcommunity.com/sharedfiles/filedetails/?id=174908119
+- For Xash3d: Since Xash3d does not support SD/HD model switching, install the ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste them over the ice_betax folder, overwriting the SD models.
 
 How to Play:
 
 Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dictate gameplay. Then, have fun.
 
-If you dislike the "blue" theme, this mod has the optional to switch to real skins! (See below)
+If you dislike the "blue" theme, this mod has the option to switch to real skins! (See below)
 
 Commands:
 
 Client:
 
 - Steam only: Switch between original and HD models using the "Enable HD models if available" in Video options
-    - Or use "+_sethdmodels" in game startup parameters
-    - See Installation above for Xash3d for support of HD models
+    - Or use "+_sethdmodels" in-game startup parameters
+    - See installation above for Xash3d for support of HD models
 - "help" - Displays specific client Cold Ice Remastered options
-- "+hook" - Deploy offhand grappling hook
+- "+hook" - Deploy an offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
 - "impulse 206" - Use for kick function
 - "impulse 207" supports the punch function
@@ -319,7 +319,7 @@ Client:
 - "cl_oldmotd 1" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
 - "cl_viewroll 1" - Old View Roll - To switch between view roll during movement
 - "cl_bobtilt 1" - Old Bob Tilt - To switch between bob tilt walking animation
-- "cl_righthand 1" - Right Hand Models - To switch between right and left-handed models
+- "cl_righthand 1" - Right-Hand Models - To switch between right and left-handed models
 - "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
 - "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
 - "cl_glasshud 1" - Glass Hud - To switch between motion interactive HUD elements
@@ -327,11 +327,11 @@ Client:
 - "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
 - "cl_weaponretract 1" - Weapon Retracts - To switch between view models that retract against walls
 - "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
-- "cl_announcehumor 1" - Play voice annouce / humor on weapons - To switch on/off playing these sound effects
-- "cl_showtips 1" - Show helpful text tips during game play
+- "cl_announcehumor 1" - Play voice announce / humor on weapons - To switch on/off playing these sound effects
+- "cl_showtips 1" - Show helpful text tips during gameplay
 - "cl_shadows 1" - Show rendered shadows underneath models
 - "cl_glowmodels 1" - Show models with a glow effect if available
-- "cl_flashonpickup 1" - Flash HUD when pickuping up a weapon or item
+- "cl_flashonpickup 1" - Flash HUD when picking up a weapon or item
 
 Server:
 
@@ -370,7 +370,7 @@ Thanks To:
 - the303 for full mdl spec documentation https://the303.org/tutorials/gold_qc.htm
 - Sparken for OzMod grapple hook source https://www.facebook.com/HalfLifeOzDMMod
 - zikshadow with handgun silencers https://gamebanana.com/skins/158498
-- chris whitman for the silencer tutorial https://web.archive.org/web/20011204054313fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/02.htm
+- Chris Whitman for the silencer tutorial https://web.archive.org/web/20011204054313fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/02.htm
 - Slartibarty for the fixed beretta model https://gamebanana.com/skins/142561
 - RR2DO2 for the cluster grenades tutorial http://web.archive.org/web/20010720214509/http://www.contaminated.net/whenitsdone/tutorials/coding/clustergrenades/index.shtml
 - APGRoboCop for grave bot https://github.com/APGRoboCop/grave_bot
