@@ -13,6 +13,7 @@ Beta 3 Features:
 
 - Fixes
     - Even more spawn point angle corrections
+    - Fixed rocket sound effects
 
 Beta 2 Features:
 

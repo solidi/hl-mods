@@ -64,6 +64,37 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
+### Beta 3
+
+1. Gameplay Modes
+    1. [ ] Mutators
+        1. [ ] RocketCrowbar
+        1. [ ] Volatile
+        1. [ ] Instagib
+        1. [ ] Plumber
+        1. [ ] SlappersOnly
+    1. [ ] Capture the Chumtoad
+1. Weapons
+    1. [ ] Throw any weapon as an attack
+    1. [ ] Reduce punch / animations in ironsights
+    1. [ ] Hand cannon / Dual hand cannon
+    1. [ ] Boomerang?
+1. Mechanics
+    1. [ ] Make offhand kick/punch more useful
+    1. [ ] Damaging somersault left / right
+1. Maps
+    1. [ ] frost_pit (snark_pit reskin)
+    1. [ ] snow_camp (boot_camp reskin)
+    1. [ ] mill (reboot)
+1. Environment
+    1. [ ] Explosive barrels / generator
+    1. [ ] Snow effect
+1. Runes
+    1. [ ] Add text about rune and what it does
+1. Support
+    1. [ ] Add compiled mmod linux library
+    1. [ ] Patch singleplayer crashes
+
 ### Beta 2
 
 1. Weapon Themes
@@ -147,7 +178,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Give option to player to adjust sway of weapon magnitude, or find the framerate and match it (see HL-NewLight)
     1. [x] Improve crosshair visibility ([Bonhomme](https://discord.com/channels/790549024373604353/790549024373604356/927735897959575572))
 
-### Beta 3
+### Unscheduled
 
 1. Supported Systems
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
