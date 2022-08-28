@@ -11,6 +11,8 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 3 Features:
 
+- Maps
+    - Improvements to Drift
 - Fixes
     - Even more spawn point angle corrections
     - Fixed rocket sound effects
