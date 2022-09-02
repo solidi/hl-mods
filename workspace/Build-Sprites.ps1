@@ -64,6 +64,8 @@ Compile-Sprite $binDir "640hudof07" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hudof08" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hudof09" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "640hudof10" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "640hudof11" $spritesDir $redistDir\sprites
+Compile-Sprite $binDir "640hudof12" $spritesDir $redistDir\sprites
 Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
@@ -112,6 +114,7 @@ Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_freezegun.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_rocketcrowbar.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

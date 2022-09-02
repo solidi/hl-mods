@@ -86,14 +86,21 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] frost_pit (snark_pit reskin)
     1. [ ] snow_camp (boot_camp reskin)
     1. [ ] mill (reboot)
+    1. [ ] Add info_intermission points
 1. Environment
     1. [ ] Explosive barrels / generator
     1. [ ] Snow effect
 1. Runes
     1. [ ] Add text about rune and what it does
+1. Client Support
+    1. [ ] cl_autoweaponswitch
+    1. [ ] cl_hudscale
+    1. [ ] Better labeling of runes
+    1. [ ] Russian translations
 1. Support
     1. [ ] Add compiled mmod linux library
     1. [ ] Patch singleplayer crashes
+    1. [ ] Make it easy to add bots on "Create Server"
 
 ### Beta 2
 

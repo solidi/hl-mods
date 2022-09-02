@@ -50,6 +50,7 @@
 "use weapon_knife"			"#Ice_CombatKnife"
 "use weapon_wrench"			"#Ice_Wrench"
 "use weapon_chainsaw"		"#Ice_Chainsaw"
+"use weapon_rocketcrowbar"		"#Ice_RocketCrowbar"
 "blank"			"=========================="
 "blank"			"#Valve_Weapon_Category_2"
 "blank"			"=========================="

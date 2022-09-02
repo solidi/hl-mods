@@ -331,6 +331,12 @@ Invert-Skin $binDir "p_dual_mag60" $modelsdir\hd
 Invert-Skin $binDir "v_dual_mag60" $modelsdir
 Invert-Skin $binDir "w_dual_mag60" $modelsdir
 Invert-Skin $binDir "p_dual_mag60" $modelsdir
+Invert-Skin $binDir "v_rocketcrowbar" $modelsdir\hd
+Invert-Skin $binDir "w_rocketcrowbar" $modelsdir\hd
+Invert-Skin $binDir "p_rocketcrowbar" $modelsdir\hd
+Invert-Skin $binDir "v_rocketcrowbar" $modelsdir
+Invert-Skin $binDir "w_rocketcrowbar" $modelsdir
+Invert-Skin $binDir "p_rocketcrowbar" $modelsdir
 
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "army" $binDir $modelsdir $redistDir
@@ -622,6 +628,12 @@ Compile-Model $binDir "p_dual_mag60" $modelsdir\hd $redisthddir\models
 Compile-Model $binDir "v_dual_mag60" $modelsdir $redistdir\models
 Compile-Model $binDir "w_dual_mag60" $modelsdir $redistdir\models
 Compile-Model $binDir "p_dual_mag60" $modelsdir $redistdir\models
+Compile-Model $binDir "v_rocketcrowbar" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "p_rocketcrowbar" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "w_rocketcrowbar" $modelsdir\hd $redisthddir\models
+Compile-Model $binDir "v_rocketcrowbar" $modelsdir $redistdir\models
+Compile-Model $binDir "w_rocketcrowbar" $modelsdir $redistdir\models
+Compile-Model $binDir "p_rocketcrowbar" $modelsdir $redistdir\models
 } else {
     Compile-Player $playerModel $binDir $modelsdir $redistDir
 }
