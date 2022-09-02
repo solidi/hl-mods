@@ -37,6 +37,7 @@ events\dual_wrench.sc
 events\dual_usas.sc
 events\dual_usas_both.sc
 events\freezegun.sc
+events\rocketcrowbar.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -290,6 +291,9 @@ models\v_dual_usas.mdl
 models\v_freezegun.mdl
 models\p_freezegun.mdl
 models\w_freezegun.mdl
+models\v_rocketcrowbar.mdl
+models\p_rocketcrowbar.mdl
+models\w_rocketcrowbar.mdl
 models\plasma.mdl
 models\w_suit.mdl
 models\w_concretegibs.mdl
@@ -636,6 +640,8 @@ sprites\640hudof07.spr
 sprites\640hudof08.spr
 sprites\640hudof09.spr
 sprites\640hudof10.spr
+sprites\640hudof11.spr
+sprites\640hudof12.spr
 sprites\snowballhit.spr
 sprites\gunsmoke.spr
 sprites\smokeball2.spr
@@ -667,6 +673,7 @@ sprites\weapon_dual_wrench.txt
 sprites\weapon_dual_usas.txt
 sprites\weapon_crowbar.txt
 sprites\weapon_freezegun.txt
+sprites\weapon_rocketcrowbar.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

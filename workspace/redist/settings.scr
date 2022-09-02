@@ -222,4 +222,18 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "0" }
 	}
+
+	"mp_mutators"
+	{
+		"#Ice_Mutators"
+		{ STRING }
+		{ "" }
+	}
+
+	"mp_spawnweapons"
+	{
+		"#Ice_SpawnWeapons"
+		{ BOOL }
+		{ "1" }
+	}
 }

@@ -11,11 +11,21 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 3 Features:
 
+- New Weapons
+    - Rocket Crowbar
+        - Swing / Swing + Fire Drunk Rocket
+- Game Modes
+    - Mutators
+        - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
 - Maps
     - Improvements to Drift
+- Server
+    - Added "mp_mutators" to mutate gameplay
+    - Added "mp_spawnweapons 1" to allow weapons to spawn or not
 - Fixes
     - Even more spawn point angle corrections
     - Fixed rocket sound effects
+    - Added missing Dual Mag60s into Linux version
 
 Beta 2 Features:
 
@@ -364,6 +374,9 @@ Server:
 - "mp_icesprites 1" - Switch between select ice and real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_snowballfight 0" - Replace all weapons with deadly snowballs!
+- "mp_mutators" - Add mutators to gameplay
+    - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
+- "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:
 
