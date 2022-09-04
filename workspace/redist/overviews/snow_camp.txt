@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.26
+	ORIGIN	-200 	224	896
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/snow_camp.bmp"
+	HEIGHT	-257
+}

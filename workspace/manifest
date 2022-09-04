@@ -92,6 +92,8 @@ maps\frostfire.bsp
 maps\frostfire.wpt
 maps\drift.bsp
 maps\drift.wpt
+maps\snow_camp.bsp
+maps\snow_camp.wpt
 media
 media\gamestartup.mp3
 models
@@ -316,6 +318,8 @@ overviews\focus.bmp
 overviews\focus.txt
 overviews\furrow.bmp
 overviews\furrow.txt
+overviews\snow_camp.bmp
+overviews\snow_camp.txt
 overviews\snowcross.bmp
 overviews\snowcross.txt
 overviews\frostfire.bmp
