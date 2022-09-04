@@ -13,3 +13,4 @@ depot
 snowcross
 frostfire
 drift
+snow_camp

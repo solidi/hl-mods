@@ -324,7 +324,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross,frostfire,drift]
+        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross,frostfire,drift,snow_camp]
 
     steps:
     - uses: actions/checkout@v3
@@ -405,6 +405,7 @@ jobs:
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\snowcross\snowcross.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\frostfire\frostfire.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\drift\drift.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\snow_camp\snow_camp.zip -DestinationPath $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
