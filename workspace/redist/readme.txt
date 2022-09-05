@@ -17,6 +17,8 @@ Beta 3 Features:
 - Game Modes
     - Mutators
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
+- New Player Models
+    - Baer
 - Maps
     - Improvements to Drift
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
@@ -450,3 +452,6 @@ Thanks To:
 - Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
 - Dave Johnston for dust, and AudioCraZ for his reskin called "drift"
 - suXin and the Half-Payne team for the dual mag60 animations https://www.moddb.com/mods/half-payne
+- Laser for the rocketcrowbar standard model https://gamebanana.com/mods/38100
+- Dario Casali for the original boot_camp, Napoleon for the rebuild, and AudioCraZ for the reskin of snow_camp 
+- Romka, A.I., Valve (PS HD Pack), Napoleon for the baer model
