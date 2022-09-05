@@ -17,7 +17,6 @@ Beta 3 Features:
 - Game Modes
     - Mutators
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
-        - "instagib" - battle exclusively with railguns that dole one hit kills
 - New Player Models
     - Baer
 - Maps
@@ -382,7 +381,6 @@ Server:
 - "mp_snowballfight 0" - Replace all weapons with deadly snowballs!
 - "mp_mutators" - Add mutators to gameplay
     - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
-    - "instagib" - battle exclusively with railguns that dole one hit kills
 - "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:
