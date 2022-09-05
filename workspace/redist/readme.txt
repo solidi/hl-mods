@@ -22,8 +22,6 @@ Beta 3 Features:
 - Maps
     - Improvements to Drift
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
-- Client Support
-    - Railgun now has a glow model
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
