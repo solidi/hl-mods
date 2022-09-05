@@ -87,6 +87,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] snow_camp (boot_camp reskin)
     1. [ ] mill (reboot)
     1. [ ] Add info_intermission points
+1. Models
+    1. [ ] Gold Skin? (Radu Matei Ionut)
 1. Environment
     1. [ ] Explosive barrels / generator
     1. [ ] Snow effect

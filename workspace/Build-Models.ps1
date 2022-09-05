@@ -341,6 +341,7 @@ Invert-Skin $binDir "p_rocketcrowbar" $modelsdir
 Compile-Player "alpina" $binDir $modelsdir $redistDir
 Compile-Player "army" $binDir $modelsdir $redistDir
 Compile-Player "assassin" $binDir $modelsdir $redistDir
+Compile-Player "baer" $binDir $modelsdir $redistDir
 Compile-Player "commando" $binDir $modelsdir $redistDir
 Compile-Player "grunt" $binDir $modelsdir $redistDir
 Compile-Player "hhev" $binDir $modelsdir $redistDir
