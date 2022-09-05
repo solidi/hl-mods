@@ -49,6 +49,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\models\player\alpina)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\army)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\assassin)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\baer)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\commando)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\grunt)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\hhev)
