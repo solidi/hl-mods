@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	3.59
+	ORIGIN	200 	-517.25	-4
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/ice_pit.bmp"
+	HEIGHT	-545
+}
