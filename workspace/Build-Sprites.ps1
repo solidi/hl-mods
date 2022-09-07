@@ -115,6 +115,7 @@ Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_freezegun.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_rocketcrowbar.txt $redistDir\sprites
+Copy-Item $spritesDir\weapon_dual_railgun.txt $redistDir\sprites
 Copy-Item $spritesDir\hud.txt $redistDir\sprites
 
 Set-Location -Path ${PSScriptRoot}

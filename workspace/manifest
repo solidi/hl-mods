@@ -194,6 +194,11 @@ models\w_bolt.mdl
 models\w_railgun.mdl
 models\p_railgun.mdl
 models\v_railgun.mdl
+models\v_railgun_light.mdl
+models\w_dual_railgun.mdl
+models\p_dual_railgun.mdl
+models\v_dual_railgun.mdl
+models\v_dual_railgun_light.mdl
 models\w_weaponbox.mdl
 models\w_runes.mdl
 models\v_cannon.mdl
@@ -685,6 +690,7 @@ sprites\weapon_dual_usas.txt
 sprites\weapon_crowbar.txt
 sprites\weapon_freezegun.txt
 sprites\weapon_rocketcrowbar.txt
+sprites\weapon_dual_railgun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
