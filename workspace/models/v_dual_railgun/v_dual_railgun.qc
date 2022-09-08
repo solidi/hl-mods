@@ -12,7 +12,7 @@ Original internal name:
 ==============================================================================
 */
 
-$modelname "v_railgun.mdl"
+$modelname "v_dual_railgun.mdl"
 $cd ".\"
 $cdtexture ".\"
 $scale 1.0
@@ -25,8 +25,8 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "railgun"
-
+$body "body" "r_railgun"
+$body "body" "l_railgun"
 
 $texturegroup ice
 {
@@ -46,8 +46,6 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Gauss Master" 17.000000 -1.000000 0.000000
-// aim
-$attachment 1 "Gauss Master" 2.0 4.0 3.0
 
 // hit box(es)
 $hbox 0 "Gauss Master" -7.870000 -5.000000 -5.450000 16.980000 3.700000 2.680000
@@ -57,14 +55,11 @@ $hbox 0 "Gauss Master" -7.870000 -5.000000 -5.450000 16.980000 3.700000 2.680000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
-$sequence "idle2" "idle2" fps 15 loop 
-$sequence "fidget" "fidget" fps 30 
-$sequence "spinup" "spinup" fps 30 loop 
-$sequence "spin" "spin" fps 30 loop 
-$sequence "fire" "fire" fps 30 
-$sequence "fire2" "fire2" fps 30 
-$sequence "holster" "holster" fps 30
-$sequence "draw_lowkey" "draw" fps 60 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "railgun_selected.wav" }
+$sequence "fire_both" "fire_both_shift2" fps 30 
+$sequence "fire_right" "fire_right" fps 30 
+$sequence "fire_left" "fire_left" fps 30 
+$sequence "holster" "holster" fps 60
+$sequence "draw_lowkey" "draw_shift3" fps 60 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw_shift3" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "railgun_selected.wav" }
 
 // End of QC script.

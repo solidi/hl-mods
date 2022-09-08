@@ -68,13 +68,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. Gameplay Modes
     1. [ ] Mutators
-        1. [ ] RocketCrowbar
+        1. [x] RocketCrowbar
         1. [ ] Volatile
-        1. [ ] Instagib
+        1. [x] Instagib
         1. [ ] Plumber
         1. [ ] SlappersOnly
     1. [ ] Capture the Chumtoad
 1. Weapons
+    1. [x] Railgun follows through multiple targets
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce punch / animations in ironsights
     1. [ ] Hand cannon / Dual hand cannon
@@ -83,8 +84,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Make offhand kick/punch more useful
     1. [ ] Damaging somersault left / right
 1. Maps
-    1. [ ] frost_pit (snark_pit reskin)
-    1. [ ] snow_camp (boot_camp reskin)
+    1. [x] frost_pit (snark_pit reskin)
+    1. [x] snow_camp (boot_camp reskin)
     1. [ ] mill (reboot)
     1. [ ] Add info_intermission points
 1. Models
@@ -296,7 +297,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
     1. [ ] Improve Crowbar animation from another v_ model
-    1. [ ] Railgun follows through multiple targets
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] Snowball not exhaustable?
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face

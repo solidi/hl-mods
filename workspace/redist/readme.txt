@@ -14,14 +14,20 @@ Beta 3 Features:
 - New Weapons
     - Rocket Crowbar
         - Swing / Swing + Fire Drunk Rocket
+    - Dual Railgun
+        - Fire / Fire Both
+    - Rail Gun now has rapid alternating fire mode
 - Game Modes
     - Mutators
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
+        - "instagib" - battle exclusively with railguns that dole one hit kills
 - New Player Models
     - Baer
 - Maps
     - Improvements to Drift
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
+- Client Support
+    - Railgun now has a glow model
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
@@ -379,6 +385,7 @@ Server:
 - "mp_snowballfight 0" - Replace all weapons with deadly snowballs!
 - "mp_mutators" - Add mutators to gameplay
     - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
+    - "instagib" - battle exclusively with railguns that dole one hit kills
 - "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:
