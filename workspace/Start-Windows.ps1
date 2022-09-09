@@ -19,6 +19,7 @@ $Config = @{ }
 [int]$runes = 1
 [int]$timelimit = 0
 [bool]$copyDistro = 1
+[bool]$detailedTextures = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -50,6 +51,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SkipDistro") {
         $copyDistro = 0
         echo "skipping copying distro..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Detail") {
+        $detailedTextures = $true
+        Write-Output "with detailed textures..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -74,7 +78,7 @@ $iceDir = "${hldir}\${gameFolder}"
 $icehddir = "${hldir}\${gameFolder}_hd"
 
 if ($copyDistro) {
-    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir
+    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir $detailedTextures
 }
 
 New-Item $iceDir\game.cfg -Force

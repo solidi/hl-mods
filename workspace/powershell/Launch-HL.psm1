@@ -5,10 +5,11 @@ function copyDistributionFiles {
         $redistDir,
         $redisthddir,
         $iceDir,
-        $icehddir
+        $icehddir,
+        $detailedTextures
     )
 
-    echo "Copying distribution files..."
+    Write-Output "Copying distribution files..."
 
     Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
     Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
@@ -24,7 +25,17 @@ function copyDistributionFiles {
     Copy-Item $redistdir\\* $iceDir -Recurse -Force
     Copy-Item $redisthddir\\* $icehddir -Recurse -Force
 
-    echo "Done with distribution files."
+    if ($detailedTextures -eq $true) {
+        $detailedTexturesDir = "$rootDir\detailed-textures"
+        Write-Output "Including detailed textures..."
+        Copy-Item -Recurse -Force $detailedTexturesDir\maps $iceDir
+        [void](New-Item -ItemType directory -Path $iceDir\gfx\detail)
+        Copy-Item -Recurse -Force $detailedTexturesDir\gfx\detail $iceDir\gfx
+        Copy-Item -Recurse -Force $detailedTexturesDir\detailed_textures_beta2_readme.txt $iceDir
+        Write-Output "Done including detailed textures."
+    }
+
+    Write-Output "Done with distribution files."
 }
 
 function unzipDistributionFiles {
