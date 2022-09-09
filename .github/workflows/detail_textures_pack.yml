@@ -1,0 +1,31 @@
+name: Package Detailed Textures for Cold Ice Remastered
+
+on: [push]
+
+env:
+  FOLDER_NAME: workspace\detailed-textures
+
+jobs:
+  package_detailed_textures:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta2' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+
+    - name: Package Detail Textures Pack
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\Build-Textures-Pack.ps1 -ConfigFile Config
+
+    - name: Archive Detail Textures Pack Release
+      uses: actions/upload-artifact@v3
+      with:
+        name: detailed-textures-pack
+        path: .\${{env.FOLDER_NAME}}\detailed-textures-pack-git-*.7z
+        if-no-files-found: error
