@@ -14,6 +14,7 @@ Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameCheckin
 
 $Config = @{ }
 [bool]$unzip = $false
+[bool]$detailedTextures = $false
 
 ([string]$args).split('-') | %{
     if ($_.Split(' ')[0].ToUpper() -eq "ConfigFile") {
@@ -23,6 +24,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Unzip") {
         $unzip = $true
         Write-Output "unzipping current archive..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Detail") {
+        $detailedTextures = $true
+        Write-Output "with detailed textures..."
     }
 }
 
@@ -41,5 +45,5 @@ $icehddir = "${hldir}\${gameFolder}_hd"
 if ($unzip -eq $true) {
     unzipDistributionFiles $rootDir $hldir $iceDir $icehddir
 } else {
-    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir
+    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir $detailedTextures
 }

@@ -10,7 +10,8 @@ client.so
 grave_bot.dll
 gravebot.so
 Thumbs.db*
-cold-ice-remastered-*.zip
+*.zip
+*.7z
 *.max
 *.err
 *.log

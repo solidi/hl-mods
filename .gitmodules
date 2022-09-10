@@ -16,3 +16,6 @@
 [submodule "workspace/vhlt"]
 	path = workspace/vhlt
 	url = https://github.com/solidi/vhlt
+[submodule "workspace/detailed-textures"]
+	path = workspace/detailed-textures
+	url = https://github.com/solidi/coldice-detailed-textures
