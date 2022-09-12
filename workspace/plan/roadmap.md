@@ -69,7 +69,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Gameplay Modes
     1. [ ] Mutators
         1. [x] RocketCrowbar
-        1. [ ] Volatile
+        1. [x] Volatile
         1. [x] Instagib
         1. [ ] Plumber
         1. [ ] SlappersOnly
