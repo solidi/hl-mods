@@ -69,10 +69,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Gameplay Modes
     1. [ ] Mutators
         1. [x] RocketCrowbar
-        1. [ ] Volatile
+        1. [x] Volatile
         1. [x] Instagib
         1. [ ] Plumber
         1. [ ] SlappersOnly
+        1. [ ] DK Mode
     1. [ ] Capture the Chumtoad
 1. Weapons
     1. [x] Railgun follows through multiple targets
@@ -88,6 +89,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] snow_camp (boot_camp reskin)
     1. [ ] mill (reboot)
     1. [ ] Add info_intermission points
+    1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
     1. [ ] Gold Skin? (Radu Matei Ionut)
 1. Environment
