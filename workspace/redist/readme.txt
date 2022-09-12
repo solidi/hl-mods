@@ -21,6 +21,7 @@ Beta 3 Features:
     - Mutators
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
         - "instagib" - battle exclusively with railguns that dole one hit kills
+        - "volatile" - where players blow up when fragged
 - New Player Models
     - Baer
 - Maps
@@ -386,6 +387,7 @@ Server:
 - "mp_mutators" - Add mutators to gameplay
     - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
     - "instagib" - battle exclusively with railguns that dole one hit kills
+    - "volatile" - where players blow up when fragged
 - "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:
