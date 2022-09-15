@@ -80,7 +80,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce punch / animations in ironsights
     1. [ ] Hand cannon / Dual hand cannon
-    1. [ ] Boomerang?
+    1. [ ] [Boomerang?](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
+    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
 1. Mechanics
     1. [ ] Make offhand kick/punch more useful
     1. [ ] Damaging somersault left / right

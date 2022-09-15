@@ -25,8 +25,9 @@ Beta 3 Features:
 - New Player Models
     - Baer
 - Maps
-    - Improvements to Drift
+    - Improvements to Drift (night time), Depot (improved lighting)
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
+    - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
 - Client Support
     - Railgun now has a glow model
 - Server
