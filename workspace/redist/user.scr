@@ -166,4 +166,15 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_autowepswitch"
+	{
+		"#Ice_WepSwitch"
+		{
+			LIST
+			"Never Switch" "0"
+			"Switch to Best" "1"
+		}
+		{ "1" }
+	}
 }
