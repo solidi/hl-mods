@@ -29,6 +29,7 @@ Beta 3 Features:
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
 - Client Support
+    - "cl_autowepswitch" - auto switches weapon on pickup
     - Railgun now has a glow model
 - Server
     - Added "mp_mutators" to mutate gameplay
@@ -361,6 +362,7 @@ Client:
 - "cl_shadows 1" - Show rendered shadows underneath models
 - "cl_glowmodels 1" - Show models with a glow effect if available
 - "cl_flashonpickup 1" - Flash HUD when picking up a weapon or item
+- "cl_autowepswitch [0|1]" - auto switches weapon on pickup
 
 Server:
 
