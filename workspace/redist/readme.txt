@@ -469,4 +469,3 @@ Thanks To:
 - Romka, A.I., Valve (PS HD Pack), Napoleon for the baer model
 - Dario Casali for the original snark_pit, Napoleon for the rebuild, and AudioCraZ for the reskin of ice_pit 
 - Martin "BulliT" Webrant for the autowepswitch code from agmod https://github.com/martinwebrant/agmod
-
