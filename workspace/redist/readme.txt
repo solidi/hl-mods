@@ -34,10 +34,12 @@ Beta 3 Features:
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
+    - Moved remaining hardcoded skill values to skills.cfg
 - Fixes
     - Even more spawn point angle corrections
     - Fixed rocket sound effects
     - Added missing Dual Mag60s into Linux version
+    - Fixed hud flash bug
 
 Beta 2 Features:
 
