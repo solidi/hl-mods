@@ -25,11 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$bodygroup "body"
-{
-studio "lbarney_reference"
-studio "lbarney_reference"
-}
+$body "body" "lbarney_reference"
 
 
 // attachment(s)

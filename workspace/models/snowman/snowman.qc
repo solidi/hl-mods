@@ -25,12 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$bodygroup "body"
-{
-studio "snowman"
-studio "snowman"
-}
-
+$body "body" "snowman"
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000

@@ -25,11 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$bodygroup "body"
-{
-studio "grunt(reference)"
-studio "grunt(reference)"
-}
+$body "body" "grunt(reference)"
 
 
 // attachment(s)

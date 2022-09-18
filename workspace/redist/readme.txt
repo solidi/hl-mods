@@ -42,6 +42,8 @@ Beta 3 Features:
     - Added missing Dual Mag60s into Linux version
     - Fixed hud flash bug
     - Fixed blue hand on egon / humor sfx when disabled
+    - Xash3d
+        - Patched floating weapon models as players
 
 Beta 2 Features:
 
