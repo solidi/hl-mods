@@ -22,6 +22,7 @@ Beta 3 Features:
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
         - "instagib" - battle exclusively with railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
+        - "plumber" - players only battle with pipe wrenchs
 - New Player Models
     - Baer
 - Maps
@@ -393,6 +394,7 @@ Server:
     - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
     - "instagib" - battle exclusively with railguns that dole one hit kills
     - "volatile" - where players blow up when fragged
+    - "plumber" - players only battle with pipe wrenchs
 - "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:

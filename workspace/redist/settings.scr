@@ -226,7 +226,14 @@ DESCRIPTION SERVER_OPTIONS
 	"mp_mutators"
 	{
 		"#Ice_Mutators"
-		{ STRING }
+		{
+			LIST
+			"empty" " "
+			"rocketcrowbar" "rocketcrowbar"
+			"instagib" "instagib"
+			"volatile" "volatile"
+			"plumber" "plumber"
+		}
 		{ "" }
 	}
 
