@@ -132,7 +132,7 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
-	"cl_annoucehumor"
+	"cl_announcehumor"
 	{
 		"#Ice_AnnouceHumor"
 		{ BOOL }
