@@ -68,7 +68,7 @@ $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 30 loop 
-$sequence "fidget1" "fidget1" fps 30  { event 5004 0 "egon_switch.wav" } { event 5004 24 "weapons/dryfire1.wav" } { event 5004 40 "weapons/dryfire1.wav" } 
+$sequence "fidget1" "fidget1" fps 30  { event 5005 0 "egon_switch.wav" } { event 5004 24 "weapons/dryfire1.wav" } { event 5004 40 "weapons/dryfire1.wav" } 
 $sequence "altfireon" "altfireon" fps 30 loop 
 $sequence "altfirecycle" "altfirecycle" fps 30 loop 
 $sequence "altfireoff" "altfireoff" fps 30 loop 

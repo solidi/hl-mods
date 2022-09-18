@@ -132,7 +132,7 @@ $hbox 0 "Bip01 L Hand" 0.000000 -0.870000 -1.940000 3.890000 1.030000 1.790000
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 30 loop 
-$sequence "fidget1" "fidget1" fps 30 { event 5004 0 "egon_switch.wav" } { event 5004 24 "weapons/dryfire1.wav" } { event 5004 40 "weapons/dryfire1.wav" } 
+$sequence "fidget1" "fidget1" fps 30 { event 5005 0 "egon_switch.wav" } { event 5004 24 "weapons/dryfire1.wav" } { event 5004 40 "weapons/dryfire1.wav" } 
 $sequence "altfireon" "altfireon" fps 30 
 $sequence "altfirecycle" "altfirecycle" fps 30 loop 
 $sequence "altfireoff" "altfireoff" fps 30 

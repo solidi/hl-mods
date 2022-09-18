@@ -41,6 +41,7 @@ Beta 3 Features:
     - Fixed rocket sound effects
     - Added missing Dual Mag60s into Linux version
     - Fixed hud flash bug
+    - Fixed blue hand on egon / humor sfx when disabled
 
 Beta 2 Features:
 
@@ -355,7 +356,7 @@ Client:
 - "cl_righthand 1" - Right-Hand Models - To switch between right and left-handed models
 - "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
 - "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
-- "cl_glasshud 1" - Glass Hud - To switch between motion interactive HUD elements
+- "cl_glasshud 1" - Glass Hud - To switch elements of the hud bouncing/bobbing on or off
 - "cl_weaponsway 1" - Weapon Sway - To switch between view models swaying with turn movement
 - "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
 - "cl_weaponretract 1" - Weapon Retracts - To switch between view models that retract against walls
