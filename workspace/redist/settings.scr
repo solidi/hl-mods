@@ -6,7 +6,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Valve_Hostname"
 		{ STRING }
-		{ "Half-Life" }
+		{ "Cold Ice Remastered" }
 	}
 
 	"maxplayers"
@@ -27,7 +27,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Valve_Valid_Teams"
 		{ STRING }
-		{ "robo;hgrunt" }
+		{ "iceman;commando" }
 	}
 
 	"mp_fraglimit"
