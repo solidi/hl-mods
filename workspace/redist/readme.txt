@@ -42,6 +42,7 @@ Beta 3 Features:
     - Added missing Dual Mag60s into Linux version
     - Fixed hud flash bug
     - Fixed blue hand on egon / humor sfx when disabled
+    - Fixed cl_announcehumor misspelling in configs
     - Xash3d
         - Patched floating weapon models as players
 
