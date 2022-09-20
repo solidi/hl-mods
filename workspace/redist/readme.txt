@@ -17,6 +17,7 @@ Beta 3 Features:
     - Dual Railgun
         - Fire / Fire Both
     - Rail Gun now has rapid alternating fire mode
+    - Sniper Rifle progressively zooms
 - Game Modes
     - Mutators
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
@@ -43,6 +44,7 @@ Beta 3 Features:
     - Fixed hud flash bug
     - Fixed blue hand on egon / humor sfx when disabled
     - Fixed cl_announcehumor misspelling in configs
+    - Fixed ammo type for Sniper Rifle
     - Xash3d
         - Patched floating weapon models as players
 
