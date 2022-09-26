@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.98
+	ORIGIN	-979.30 	-488.69	362
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/frozen_bunker.bmp"
+	HEIGHT	-185
+}
