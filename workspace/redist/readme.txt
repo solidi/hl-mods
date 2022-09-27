@@ -30,6 +30,7 @@ Beta 3 Features:
     - Improvements to Drift (night time), Depot (improved lighting)
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
+    - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
 - Client Support
     - "cl_autowepswitch" - auto switches weapon on pickup
     - Railgun now has a glow model
@@ -475,7 +476,8 @@ Thanks To:
 - Dave Johnston for dust, and AudioCraZ for his reskin called "drift"
 - suXin and the Half-Payne team for the dual mag60 animations https://www.moddb.com/mods/half-payne
 - Laser for the rocketcrowbar standard model https://gamebanana.com/mods/38100
-- Dario Casali for the original boot_camp, Napoleon for the rebuild, and AudioCraZ for the reskin of snow_camp 
+- Dario Casali for the original boot_camp, Napoleon for the rebuild, and AudioCraZ for the reskin of snow_camp
 - Romka, A.I., Valve (PS HD Pack), Napoleon for the baer model
-- Dario Casali for the original snark_pit, Napoleon for the rebuild, and AudioCraZ for the reskin of ice_pit 
+- Dario Casali for the original snark_pit, Napoleon for the rebuild, and AudioCraZ for the reskin of ice_pit
 - Martin "BulliT" Webrant for the autowepswitch code from agmod https://github.com/martinwebrant/agmod
+- Dave Riller for the original lambda_bunker, Napoleon for the rebuild, and AudioCraZ for the reskin of frozen_bunker

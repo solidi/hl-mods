@@ -96,6 +96,8 @@ maps\snow_camp.bsp
 maps\snow_camp.wpt
 maps\ice_pit.bsp
 maps\ice_pit.wpt
+maps\frozen_bunker.bsp
+maps\frozen_bunker.wpt
 media
 media\gamestartup.mp3
 models
@@ -330,6 +332,8 @@ overviews\furrow.bmp
 overviews\furrow.txt
 overviews\ice_pit.bmp
 overviews\ice_pit.txt
+overviews\frozen_bunker.bmp
+overviews\frozen_bunker.txt
 overviews\snow_camp.bmp
 overviews\snow_camp.txt
 overviews\snowcross.bmp
