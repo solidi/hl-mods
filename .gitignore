@@ -68,3 +68,5 @@ BSP_tool.exe
 BSP_tool.cfg
 
 */Config.ps1
+*/steam.ps1
+*/xash3d.ps1

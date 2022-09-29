@@ -7,7 +7,7 @@ gameLib=ice.so
 clientLib=client.so
 cfg=release
 clientOnly=0
-while getopts ":cv" flag
+while getopts ":c:v" flag
 do
     case "${flag}" in
         c) cfg=${OPTARG};;
