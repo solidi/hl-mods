@@ -24,6 +24,7 @@ Beta 3 Features:
         - "instagib" - battle exclusively with railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
         - "plumber" - players only battle with pipe wrenchs
+        - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
 - New Player Models
     - Baer
 - Maps
@@ -402,6 +403,7 @@ Server:
     - "instagib" - battle exclusively with railguns that dole one hit kills
     - "volatile" - where players blow up when fragged
     - "plumber" - players only battle with pipe wrenchs
+    - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
 - "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:
@@ -443,7 +445,7 @@ Thanks To:
 - The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
 - Snow-War for snowball models https://www.moddb.com/mods/snow-war
 - Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
-- BlueNightHawk for modern camera and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
+- BlueNightHawk for modern camera, eflags tutorial, and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
 - Koshak_HL for the HD chainsaw model and hud sprites http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
 - Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
 - Fritz the Cat! for the hhev player model
