@@ -233,6 +233,7 @@ DESCRIPTION SERVER_OPTIONS
 			"instagib" "instagib"
 			"volatile" "volatile"
 			"plumber" "plumber"
+			"paintball" "paintball"
 		}
 		{ "" }
 	}
