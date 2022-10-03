@@ -353,3 +353,10 @@
 1. [Half-Life Extended](https://github.com/bacontsu/halflife-extended) source allows for glowmodels and swappable view model engine.
 1. Opening VirtualBox in [low resolution mode](https://mkyong.com/mac/virtualbox-running-slow-and-lag-on-macos-macbook-pro/) has seriously helped the loading of windows apps, and increasing snappiness of the VM during gameplay.
 1. [This thread](https://steamcommunity.com/sharedfiles/filedetails/?id=276991683) was helpful in detering how to create an icon for steam on third party mods. Additional information about the `icon` attribute can be found at [Valve's liblist.gam file structure](https://developer.valvesoftware.com/wiki/The_liblist.gam_File_Structure)
+1. [A thread about strstr](https://stackoverflow.com/questions/12784766/check-substring-exists-in-a-string-in-c) was helpful in developing the mp_mutators code.
+1. After speaking to AudioCraZ, the way we fixed the brushes popping out of the skybox was to move them out of the line of sight. See [this thread](https://twhl.info/index.php/thread/view/9636?page=1#post-145411) about alternative options.
+1. I learned that there are special textures called "tool textures" [that have special properties](https://twhl.info/wiki/page/Tool_Textures) when applied in mapping.
+1. A [good tutorial](https://twhl.info/wiki/page/Tutorial%3A_Detailed_Textures_in_Half-Life) on detailed Half-Life textures in GoldSrc.
+1. [This tutorial](https://modthesims.info/t/140572) was helpful in understanding out to regroup and combine material groups in MilkShape.
+1. `sudo renice` to a very low value can help improve reponse time for selected applications in macOS. See [this post](https://discussions.apple.com/thread/1491812) for details with i[information about obtain PIDs](https://apple.stackexchange.com/questions/123522/anyone-knows-how-to-view-the-nice-value-of-a-process-under-mavericks).
+1. [A thread](https://stackoverflow.com/questions/430413/vc-compile-errors-when-including-gl-h) on how to add gl headers to both [Windows and Linux](https://stackoverflow.com/questions/3933027/how-to-get-the-gl-library-headers).
