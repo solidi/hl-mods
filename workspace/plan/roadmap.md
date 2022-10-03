@@ -76,14 +76,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] SlappersOnly
         1. [ ] DK Mode
         1. [ ] Rubberband (Players who are at the bottom get max health)
+        1. [ ] License to Kill
     1. [ ] Capture the Chumtoad
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce punch / animations in ironsights
     1. [ ] Hand cannon / Dual hand cannon
-    1. [ ] [Boomerang?](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
+    1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
+    1. [ ] Gold Skins?
 1. Mechanics
     1. [ ] Make offhand kick/punch more useful
     1. [ ] Damaging somersault left / right
@@ -337,7 +339,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
     1. [ ] Translate to russian (berry from moddb)
     1. [ ] Capture the Chumtoad (AudioCraZ)
-    1. [ ] Boomerang (AudioCraZ)
 
 ### Beta 1
 

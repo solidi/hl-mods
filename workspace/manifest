@@ -710,6 +710,7 @@ sprites\tsplasma.spr
 sprites\nuke_crosshair.spr
 sprites\sparks.spr
 sprites\ice_sparks.spr
+sprites\lifebar.spr
 sprites\hud.txt
 liblist.gam
 ReadMe.txt

@@ -33,6 +33,7 @@ Beta 3 Features:
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
 - Client Support
+    - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup
     - Railgun now has a glow model
 - Server
@@ -374,6 +375,7 @@ Client:
 - "cl_glowmodels 1" - Show models with a glow effect if available
 - "cl_flashonpickup 1" - Flash HUD when picking up a weapon or item
 - "cl_autowepswitch [0|1]" - auto switches weapon on pickup
+- "cl_lifemeters [0|1]" - show or hide lifemeters above other players
 
 Server:
 
