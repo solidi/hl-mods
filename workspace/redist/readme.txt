@@ -486,3 +486,4 @@ Thanks To:
 - Martin "BulliT" Webrant for the autowepswitch code from agmod https://github.com/martinwebrant/agmod
 - Dave Riller for the original lambda_bunker, Napoleon for the rebuild, and AudioCraZ for the reskin of frozen_bunker
 - Goodlyay for the skull sprite found in the life meter https://www.deviantart.com/goodlyay/art/Skull-Sprite-407179427
+- crazydog for hosting Cold Ice Remastered on GoldSrc Saturdays https://www.goldsrcsaturdays.com/
