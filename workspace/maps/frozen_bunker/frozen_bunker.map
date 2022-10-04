@@ -17,7 +17,7 @@
 "fogcolor2" "255 255 255"
 "fogdir" "1 0 0"
 "mapversion" "220"
-"wad" "\Program Files (x86)\Steam\steamapps\common\Half-Life\valve\xeno.wad;\Program Files (x86)\Steam\steamapps\common\Half-Life\valve\spraypaint.wad;\Program Files (x86)\Steam\steamapps\common\Half-Life\valve\liquids.wad;\Program Files (x86)\Steam\steamapps\common\Half-Life\valve\halflife.wad;\Program Files (x86)\Steam\steamapps\common\Half-Life\valve\decals.wad;\Program Files (x86)\Steam\steamapps\common\Half-Life\ice_beta2\coldice.wad;\workspace\wads\spacepirate.WAD"
+"wad" "\workspace\wads\xeno.wad;\workspace\wads\spraypaint.wad;\workspace\wads\liquids.wad;\workspace\wads\halflife.wad;\workspace\wads\decals.wad;\workspace\wads\coldice.wad;\workspace\wads\spacepirate.WAD"
 "_generator" "J.A.C.K. 1.1.1064 (vpHalfLife)"
 {
 ( -448 16 828 ) ( -448 -672 828 ) ( -448 16 800 ) TNNL_FLR2 [ 0 1 0 88 ] [ 0 0 -1 0 ] 0 1 1
