@@ -32,8 +32,7 @@ function Compile-Model {
         echo "Compiling model $modelsDir\$target\$target.qc..."
         $out = & $binDir\studiomdl $modelsDir\$target\$target.qc | Out-String
         if (!$?) {
-            Write-Error "$out`n> Could not compile ${target}."
-            exit
+            Throw "$out`n> Could not compile ${target}."
         }
         Move-Item $modelsDir\$target\$target.mdl $outDir\$target.mdl -Force
     } else {

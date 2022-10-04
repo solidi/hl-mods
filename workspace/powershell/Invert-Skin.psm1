@@ -17,8 +17,7 @@ function Invert-Skin {
                     $command = ".\convert `"$_`" -negate -compress none BMP3:`"$path\$target\invert_$($_.Name)`""
                     $out = iex $command | Out-String
                 } catch {
-                    Write-Error "$out> Could not invert skin.`nReason: $_"
-                    exit
+                    Throw "$out> Could not invert skin.`nReason: $_"
                 }
             } else {
                 echo "$_ already generated inverted skin..."
@@ -27,6 +26,6 @@ function Invert-Skin {
     }
 
     if (!$?) {
-        exit
+        Throw "$out> Could not invert skin.`nReason: $_"
     }
 }
