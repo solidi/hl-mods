@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-icefolder=ice_beta2
+icefolder=ice_beta3
 maxplayers=32
 hiDef=1
 skipDistro=0
@@ -41,7 +41,7 @@ if [[ $debug -eq 1 ]]; then
     export LD_LIBRARY_PATH=~/.steam/debian-installation/steamapps/common/Half-Life:~/.steam/bin32/steam-runtime/usr/lib/i386-linux-gnu:~/.steam/bin32/steam-runtime/lib/i386-linux-gnu
     ulimit -c unlimited
     cd ~/.steam/debian-installation/steamapps/common/Half-Life
-    gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -windowed -gl -w 640 -h 480 +developer 2 +log on +sv_lan 1 +map snowyard +deathmatch 1 +maxplayers ${maxplayers} +_sethdmodels ${hiDef}
+    gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -windowed -gl -w 640 -h 480 +developer 2 +log on +sv_lan 1 +map snowyard +deathmatch 1 +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
 else
-    steam steam://rungameid/70//-console%20-dev%20-condebug%20-game%20${icefolder}%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20snowyard%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
+    steam steam://rungameid/70//-console%20-dev%20-condebug%20-game%20${icefolder}%20-zone%208192%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20snowyard%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
 fi
