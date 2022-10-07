@@ -16,8 +16,11 @@ Beta 3 Features:
         - Swing / Swing + Fire Drunk Rocket
     - Dual Railgun
         - Fire / Fire Both
+- Weapon Changes
     - Rail Gun now has rapid alternating fire mode
     - Sniper Rifle progressively zooms
+    - Increased attack range of kick and punch melee attacks to make them effective
+    - Reduced punchangle while using ironsights
 - Game Modes
     - Mutators
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
