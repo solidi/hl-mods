@@ -17,7 +17,7 @@ Beta 3 Features:
     - Dual Railgun
         - Fire / Fire Both
 - Weapon Changes
-    - Rail Gun now has rapid alternating fire mode
+    - Rail Gun now has a rapid alternating fire mode
     - Sniper Rifle progressively zooms
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
@@ -26,7 +26,7 @@ Beta 3 Features:
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
         - "instagib" - battle exclusively with railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
-        - "plumber" - players only battle with pipe wrenchs
+        - "plumber" - players only battle with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
 - New Player Models
     - Baer
@@ -371,7 +371,7 @@ Client:
 - "cl_weaponsway 1" - Weapon Sway - To switch between view models swaying with turn movement
 - "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
 - "cl_weaponretract 1" - Weapon Retracts - To switch between view models that retract against walls
-- "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch onoff playing this sound effect
+- "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch on/off playing this sound effect
 - "cl_announcehumor 1" - Play voice announce / humor on weapons - To switch on/off playing these sound effects
 - "cl_showtips 1" - Show helpful text tips during gameplay
 - "cl_shadows 1" - Show rendered shadows underneath models
@@ -386,7 +386,7 @@ Server:
 - "addbot" - Add a bot
 - "botdontshoot 0" - Enable or disable bots attacking others
 - "mp_grapplinghook 1" - Allow grappling hook on server
-- "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
+- "mp_grapplinghookdeploytime 1.0" - Time (seconds) when the next grappling hook can deploy
 - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun"" Modify the player's spawn weapons
 - "mp_allowrunes 1" - Allow powerup runes on server
 - "mp_holsterweapons 1" - Holstering weapons for more realistic gameplay
@@ -407,7 +407,7 @@ Server:
     - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
     - "instagib" - battle exclusively with railguns that dole one hit kills
     - "volatile" - where players blow up when fragged
-    - "plumber" - players only battle with pipe wrenchs
+    - "plumber" - players only battle with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
 - "mp_spawnweapons 1" - Spawn weapons or not
 
@@ -419,9 +419,9 @@ Thanks To:
 
 - Infinity for original and resurrection Cold-Ice models https://www.chaosworx.net/
 - Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
-- Gamebanana for "the" archive of models, effects, and everything https://gamebanana.com/
+- GameBanana for "the" archive of models, effects, and everything https://gamebanana.com/
 - Various for documenting all cut items from Half-Life https://tcrf.net/Half-Life_(Windows)
-- the303 for full mdl spec documentation https://the303.org/tutorials/gold_qc.htm
+- the303 for complete mdl spec documentation https://the303.org/tutorials/gold_qc.htm
 - Sparken for OzMod grapple hook source https://www.facebook.com/HalfLifeOzDMMod
 - zikshadow with handgun silencers https://gamebanana.com/skins/158498
 - Chris Whitman for the silencer tutorial https://web.archive.org/web/20011204054313fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/02.htm
@@ -440,7 +440,7 @@ Thanks To:
 - JoelTroch for the crowbar idle weapon fix https://github.com/ValveSoftware/halflife/issues/1585
 - Powerup deathmatch runes tutorial by Phantasiere (nrich@iinet.net.au)
 - Trond for the Holster animation fix tutorial https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm
-- Maxxiii for HLSources/Headcrab Frenzy for left handed view model code https://github.com/HLSources
+- Maxxiii for HLSources/Headcrab Frenzy for left-handed view model code https://github.com/HLSources
 - Teh Snake for the USAS-12 model https://gamebanana.com/mods/230345
 - Sgt.Leon and the HIT Forum for the HIT Fist pack https://gamebanana.com/mods/180184
 - Gaming Sound FX for sound and effects https://www.youtube.com/channel/UCi-xN4ZB6e-0JcXzvBEomlw
