@@ -44,7 +44,9 @@ Beta 3 Features:
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
     - Moved remaining hardcoded skill values to skills.cfg
 - Fixes
-    - Even more spawn point angle corrections
+    - Maps
+        - Even more spawn point angle corrections
+        - Patched hole in training2
     - Fixed rocket sound effects
     - Added missing Dual Mag60s into Linux version
     - Fixed hud flash bug
