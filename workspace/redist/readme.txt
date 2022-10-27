@@ -49,12 +49,15 @@ Beta 3 Features:
         - Patched hole in training2
     - Fixed rocket sound effects
     - Added missing Dual Mag60s into Linux version
-    - Fixed hud flash bug
+    - Hud
+        - Fixed hud flash bug
+        - Fixed disable hud bounce when off
     - Fixed blue hand on egon / humor sfx when disabled
     - Fixed cl_announcehumor misspelling in configs
     - Fixed ammo type for Sniper Rifle
     - Xash3d
         - Patched floating weapon models as players
+    - More server patches to avoid crashing
 
 Beta 2 Features:
 

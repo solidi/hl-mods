@@ -77,7 +77,18 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] DK Mode
         1. [ ] Rubberband (Players who are at the bottom get max health)
         1. [ ] License to Kill
+        1. [ ] Night-ops
+        1. [ ] Tiny
+        1. [ ] Snowball
     1. [ ] Capture the Chumtoad
+        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
+        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
+        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
+        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
+        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
+        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
+        1. Chumtoad holder had extra health
+        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [ ] Throw any weapon as an attack
@@ -199,6 +210,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. Supported Systems
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
+    1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
     1. [ ] Source version
 1. Weapons
     1. [ ] Throw any weapon
@@ -266,7 +278,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Jetpack?
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. [ ] Player jump and land sound effects
-    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s)
+    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).
     1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
