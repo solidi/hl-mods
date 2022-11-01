@@ -98,6 +98,8 @@ maps\ice_pit.bsp
 maps\ice_pit.wpt
 maps\frozen_bunker.bsp
 maps\frozen_bunker.wpt
+maps\snowtransit.bsp
+maps\snowtransit.wpt
 media
 media\gamestartup.mp3
 models
@@ -340,6 +342,8 @@ overviews\snowcross.bmp
 overviews\snowcross.txt
 overviews\frostfire.bmp
 overviews\frostfire.txt
+overviews\snowtransit.bmp
+overviews\snowtransit.txt
 overviews\snowyard.bmp
 overviews\snowyard.txt
 overviews\stalkyard2.bmp
