@@ -16,3 +16,4 @@ drift
 snow_camp
 ice_pit
 frozen_bunker
+snowtransit

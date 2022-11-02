@@ -98,11 +98,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] Gold Skins?
 1. Mechanics
-    1. [ ] Make offhand kick/punch more useful
+    1. [x] Make offhand kick/punch more useful
     1. [ ] Damaging somersault left / right
 1. Maps
     1. [x] frost_pit (snark_pit reskin)
     1. [x] snow_camp (boot_camp reskin)
+    1. [x] frozen_bunker (lambda_bunker reskin)
+    1. [x] snowtransit (subtransit reskin)
     1. [ ] mill (reboot)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
@@ -308,6 +310,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
     1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
+    1. [ ] doublecross (doublefrost)
+    1. [ ] datacore (crystalcore)
+    1. [ ] frenzy (frosty)
+    1. [ ] rapidcore (icecore)
+    1. [ ] undertow (???)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Integrations
