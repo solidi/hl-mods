@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.30
+	ORIGIN	-514.311 	569.50	-207
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/snowtransit.bmp"
+	HEIGHT	-943
+}

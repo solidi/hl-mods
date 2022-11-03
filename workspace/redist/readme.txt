@@ -35,6 +35,7 @@ Beta 3 Features:
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
+    - snowtransit, a rebuild of subtransit from Aura-SE and reskinned by AudioCraZ
 - Client Support
     - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup
@@ -495,3 +496,4 @@ Thanks To:
 - Dave Riller for the original lambda_bunker, Napoleon for the rebuild, and AudioCraZ for the reskin of frozen_bunker
 - Goodlyay for the skull sprite found in the life meter https://www.deviantart.com/goodlyay/art/Skull-Sprite-407179427
 - crazydog for hosting Cold Ice Remastered on GoldSrc Saturdays https://www.goldsrcsaturdays.com/
+- sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE

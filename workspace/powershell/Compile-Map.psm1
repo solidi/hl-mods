@@ -94,6 +94,7 @@ function Compile-Map {
 
     $allOptions = if ($finalCompile) { "" } else { "-high" }
     $visOptions = if ($finalCompile) { "-full" } else { "-fast" }
+    # -bounce 8 -dscale 1 -smooth 120 -smooth2 120 -scale 1 -sparse
     $radOptions = if ($finalCompile) { "-extra" } else { "" }
 
     Write-Wad-Config $mapsDir $wadsDir
