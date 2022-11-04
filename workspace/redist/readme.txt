@@ -499,3 +499,4 @@ Thanks To:
 - Goodlyay for the skull sprite found in the life meter https://www.deviantart.com/goodlyay/art/Skull-Sprite-407179427
 - crazydog for hosting Cold Ice Remastered on GoldSrc Saturdays https://www.goldsrcsaturdays.com/
 - sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE
+- Strast for boosting our discord server and suggesting a toggle on grappling to the sky
