@@ -244,4 +244,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_grapplesky"
+	{
+		"#Ice_GrappleSky"
+		{ BOOL }
+		{ "1" }
+	}
 }

@@ -43,6 +43,7 @@ Beta 3 Features:
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
+    - Added "mp_grapplesky 1" to allow player to grapple the sky
     - Moved remaining hardcoded skill values to skills.cfg
 - Fixes
     - Maps
@@ -393,6 +394,7 @@ Server:
 - "botdontshoot 0" - Enable or disable bots attacking others
 - "mp_grapplinghook 1" - Allow grappling hook on server
 - "mp_grapplinghookdeploytime 1.0" - Time (seconds) when the next grappling hook can deploy
+- "mp_grapplesky 1" - Allow player to grapple the sky
 - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun"" Modify the player's spawn weapons
 - "mp_allowrunes 1" - Allow powerup runes on server
 - "mp_holsterweapons 1" - Holstering weapons for more realistic gameplay
@@ -497,3 +499,4 @@ Thanks To:
 - Goodlyay for the skull sprite found in the life meter https://www.deviantart.com/goodlyay/art/Skull-Sprite-407179427
 - crazydog for hosting Cold Ice Remastered on GoldSrc Saturdays https://www.goldsrcsaturdays.com/
 - sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE
+- Strast for boosting our discord server and suggesting a toggle on grappling to the sky
