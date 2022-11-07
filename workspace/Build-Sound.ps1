@@ -117,6 +117,9 @@ Compile-Sound $binDir $redistDir $soundDir "freezing-sound-effect.mp3" 2.0 "soun
 Compile-Sound $binDir $redistDir $soundDir "phasers.mp3" 1.5 "sound\freezegun_deploy.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "slide_on_gravel.mp3" 2.0 "sound\slide_on_gravel.wav" "wav" 12.25 13.5
 Compile-Sound $binDir $redistDir $soundDir "fire1.wav" 1.0 "sound\fire1.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "ut-ludicrous-kill-sound.mp3" 2.0 "sound\ludicrouskill.wav" "wav" 0.2 4.4
+Compile-Sound $binDir $redistDir $soundDir "ut-holy-shit-sound-effect.mp3" 1.0 "sound\holyshitkill.wav" "wav" 1.0 4.8
+Compile-Sound $binDir $redistDir $soundDir "what-the-f.mp3" 2.0 "sound\wtfkill.wav" "wav" 0.3 2.3
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
@@ -255,6 +258,10 @@ Copy-Item $soundDir\pl_snow1.wav $redistdir\sound\player\
 Copy-Item $soundDir\pl_snow2.wav $redistdir\sound\player\
 Copy-Item $soundDir\pl_snow3.wav $redistdir\sound\player\
 Copy-Item $soundDir\pl_snow4.wav $redistdir\sound\player\
+Copy-Item $soundDir\doublekill.wav $redistdir\sound
+Copy-Item $soundDir\multikill.wav $redistdir\sound
+Copy-Item $soundDir\ultrakill.wav $redistdir\sound
+Copy-Item $soundDir\monsterkill.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 

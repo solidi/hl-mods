@@ -87,6 +87,7 @@ Compile-Sprite $binDir "nuke_crosshair" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "sparks" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "ice_sparks" $spritesDir $redistdir\sprites
 Compile-Sprite $binDir "lifebar" $spritesDir $redistdir\sprites
+Compile-Sprite $binDir "killspree" $spritesDir $redistdir\sprites
 Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
 Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites

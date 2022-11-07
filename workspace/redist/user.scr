@@ -188,4 +188,17 @@ DESCRIPTION INFO_OPTIONS
 		}
 		{ "1" }
 	}
+
+	"cl_achievements"
+	{
+		"#Ice_Achievements"
+		{
+			LIST
+			"Hide" "0"
+			"Text" "1"
+			"Text / Bar" "2"
+			"Text / Circles" "2"
+		}
+		{ "3" }
+	}
 }

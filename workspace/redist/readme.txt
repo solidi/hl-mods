@@ -28,6 +28,9 @@ Beta 3 Features:
         - "volatile" - where players blow up when fragged
         - "plumber" - players only battle with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
+- Gameplay
+    - Unreal Tournament styled spree achievements
+        - Fast fragging unlocks awesome announcements
 - New Player Models
     - Baer
 - Maps
@@ -39,6 +42,7 @@ Beta 3 Features:
 - Client Support
     - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup
+    - "cl_achievements [0|1|2|3] - show or hide sprees achievements
     - Railgun now has a glow model
 - Server
     - Added "mp_mutators" to mutate gameplay
@@ -386,6 +390,11 @@ Client:
 - "cl_flashonpickup 1" - Flash HUD when picking up a weapon or item
 - "cl_autowepswitch [0|1]" - auto switches weapon on pickup
 - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
+- "cl_achievements [0|1|2|3]" - show or hide sprees achievements
+    - "0" - off
+    - "1" - voice / screen print
+    - "2" - voice / screen print / small timed bar
+    - "3" - voice / screen print / large centered circles
 
 Server:
 
