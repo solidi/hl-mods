@@ -640,6 +640,13 @@ sound\freezing.wav
 sound\freezegun_deploy.wav
 sound\slide_on_gravel.wav
 sound\fire1.wav
+sound\doublekill.wav
+sound\multikill.wav
+sound\ultrakill.wav
+sound\monsterkill.wav
+sound\ludicrouskill.wav
+sound\holyshitkill.wav
+sound\wtfkill.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
@@ -669,6 +676,7 @@ sprites\640hudof12.spr
 sprites\snowballhit.spr
 sprites\gunsmoke.spr
 sprites\smokeball2.spr
+sprites\killspree.spr
 sprites\weapon_vest.txt
 sprites\weapon_knife.txt
 sprites\weapon_9mmhandgun.txt

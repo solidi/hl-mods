@@ -89,6 +89,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
+1. Gameplay
+    1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [ ] Throw any weapon as an attack
@@ -284,7 +286,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
-    1. [ ] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
