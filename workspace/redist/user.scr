@@ -197,7 +197,7 @@ DESCRIPTION INFO_OPTIONS
 			"Hide" "0"
 			"Text" "1"
 			"Text / Bar" "2"
-			"Text / Circles" "2"
+			"Text / Circles" "3"
 		}
 		{ "3" }
 	}
