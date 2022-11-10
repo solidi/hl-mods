@@ -78,8 +78,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Rubberband (Players who are at the bottom get max health)
         1. [ ] License to Kill
         1. [ ] Night-ops
+            1. [ ] Light up melee weapons
+            1. [ ] Light effects all firing
         1. [ ] Tiny
         1. [ ] Snowball
+        1. [ ] [topsy-turvy](https://youtu.be/MJPoK3qEQMM?t=82)
+            1. [ ] Random three like [Reelism](https://reelism.dog/)
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -93,6 +97,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
 1. Weapons
     1. [x] Railgun follows through multiple targets
+    1. [ ] Offhand grenade seen in [Maximum Action](https://youtu.be/DCrv8BxuM6I?t=200)
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce punch / animations in ironsights
     1. [ ] Hand cannon / Dual hand cannon
