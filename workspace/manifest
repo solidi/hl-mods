@@ -100,6 +100,8 @@ maps\frozen_bunker.bsp
 maps\frozen_bunker.wpt
 maps\snowtransit.bsp
 maps\snowtransit.wpt
+maps\doublefrost.bsp
+maps\doublefrost.wpt
 media
 media\gamestartup.mp3
 models
@@ -324,6 +326,8 @@ overviews\coldice.bmp
 overviews\coldice.txt
 overviews\depot.bmp
 overviews\depot.txt
+overviews\doublefrost.bmp
+overviews\doublefrost.txt
 overviews\drift.bmp
 overviews\drift.txt
 overviews\fences.bmp

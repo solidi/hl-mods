@@ -80,6 +80,7 @@ if ([string]::IsNullOrEmpty($mapName)) {
     Compile-Map $binDir "ice_pit" $mapsDir $redistDir $wadsDir $finalCompile
     Compile-Map $binDir "frozen_bunker" $mapsDir $redistDir $wadsDir $finalCompile
     Compile-Map $binDir "snowtransit" $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir "doublefrost" $mapsDir $redistDir $wadsDir $finalCompile
 } else {
     Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile
 }

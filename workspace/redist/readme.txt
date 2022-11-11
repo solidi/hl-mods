@@ -39,6 +39,7 @@ Beta 3 Features:
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
     - snowtransit, a rebuild of subtransit from Aura-SE and reskinned by AudioCraZ
+    - doublefrost, a rebuild of doublecross by Dario Casali and reskinned by Napoleon
 - Client Support
     - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup

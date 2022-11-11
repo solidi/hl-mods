@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.68
+	ORIGIN	55.73 	741.03	32
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/doublefrost.bmp"
+	HEIGHT	-2049
+}
