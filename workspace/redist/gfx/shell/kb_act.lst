@@ -51,6 +51,7 @@
 "use weapon_wrench"			"#Ice_Wrench"
 "use weapon_chainsaw"		"#Ice_Chainsaw"
 "use weapon_rocketcrowbar"		"#Ice_RocketCrowbar"
+"use weapon_gravitygun"		"#Ice_GravityGun"
 "blank"			"=========================="
 "blank"			"#Valve_Weapon_Category_2"
 "blank"			"=========================="

@@ -16,6 +16,8 @@ Beta 3 Features:
         - Swing / Swing + Fire Drunk Rocket
     - Dual Railgun
         - Fire / Fire Both
+    - Gravity Gun
+        - Fire / Pick up
 - Weapon Changes
     - Rail Gun now has a rapid alternating fire mode
     - Sniper Rifle progressively zooms
@@ -510,3 +512,4 @@ Thanks To:
 - crazydog for hosting Cold Ice Remastered on GoldSrc Saturdays https://www.goldsrcsaturdays.com/
 - sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE
 - Strast for boosting our discord server and suggesting a toggle on grappling to the sky
+- BlueNightHawk for the gravity gun code https://github.com/BlueNightHawk/hl-gravgun

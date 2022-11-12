@@ -38,6 +38,7 @@ events\dual_usas.sc
 events\dual_usas_both.sc
 events\freezegun.sc
 events\rocketcrowbar.sc
+events\gravitygun.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -315,6 +316,9 @@ models\w_rocketcrowbar.mdl
 models\plasma.mdl
 models\w_suit.mdl
 models\w_concretegibs.mdl
+models\v_gravitygun.mdl
+models\w_gravitygun.mdl
+models\p_gravitygun.mdl
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -711,6 +715,7 @@ sprites\weapon_crowbar.txt
 sprites\weapon_freezegun.txt
 sprites\weapon_rocketcrowbar.txt
 sprites\weapon_dual_railgun.txt
+sprites\weapon_gravitygun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

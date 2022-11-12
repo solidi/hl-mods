@@ -11,12 +11,11 @@ function Compile-Sprite {
     Copy-Item $binDir\sprgen.exe $spritesDir\$target
     Remove-Item $spritesDir\$target.spr -ErrorAction Ignore
     Set-Location -Path $spritesDir\$target
-    echo "Compiling sprite $spritesDir\$target.spr..."
+    Write-Output "Compiling sprite $spritesDir\$target.spr..."
     $out = & .\sprgen $spritesDir\$target\$target.qc | Out-String
 
     if (!$?) {
-        Write-Error "$out`n> Could not compile ${target}."
-        exit
+        Throw "$out`n> Could not compile ${target}."
     }
     Move-Item $spritesDir\$target\$target.spr $outDir\$target.spr -force
     Remove-Item $spritesDir\$target\sprgen.exe
@@ -45,7 +44,7 @@ function Colorize-Folder {
             return
         }
 
-        Echo "Colorizing $($_.FullName)..."
+        Write-Output "Colorizing $($_.FullName)..."
         $out = & $binDir\convert $_.FullName -colorspace gray -fill "rgb($rgb)" -tint $tint -depth 8 -type palette -remap $folder\$target\${target}000.BMP -compress none BMP3:$_ | Out-String
 
         if (!$?) {

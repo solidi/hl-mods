@@ -1,4 +1,4 @@
-184
+186
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -98,6 +98,7 @@ d_dual_usas  	320	320hud1	48	224	48	16
 d_plasma		320	320hud1	96	224	32	16
 d_rocketcrowbar		320	320hud1	0	208	48	16
 d_dual_railgun		320	320hud1	96	224	32	16
+d_gravitygun		320	320hud1	96	224	32	16
 
 item_battery	320 320hud2	48	52	20	20
 item_healthkit	320	320hud2	68	52	20	20
@@ -209,6 +210,7 @@ d_dual_usas  	640	640hudof05	192	64	48	16
 d_plasma		640	640hudof01	192	16	48	16
 d_rocketcrowbar		640	640hud1	192	0	48	16
 d_dual_railgun	640	640hudof11	192	16	32	16
+d_gravitygun		640	640hudof11	192	0	48	16
 
 killspree		640 killspree	0	0	128	128
 
