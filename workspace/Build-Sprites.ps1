@@ -41,83 +41,88 @@ Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\sprites)
 [void](New-Item -ItemType directory -Path $redisthddir\sprites)
 
-Compile-Sprite $binDir "ice_muzzleflash1" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "ice_muzzleflash2" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "ice_muzzleflash3" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "ice_zerogxplode" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "ice_xspark4" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "320hud2" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hud1" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hud1" $spritesDir\hd $redisthddir\sprites
-Compile-Sprite $binDir "640hud4" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hud4" $spritesDir\hd $redisthddir\sprites
-Compile-Sprite $binDir "640hud7" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof01" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof02" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof03" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof04" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof05" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof06" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof07" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof08" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof09" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof10" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof11" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "640hudof12" $spritesDir $redistDir\sprites
-Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_nuke2" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "nuke2" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_hotglow" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_muzzleflashplasma" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "muzzleflashplasma" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_particles" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "particles" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_plasma5" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "plasma5" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_plasmatrail" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "plasmatrail" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "tsplasma" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "fire" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_fire" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "nuke_crosshair" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "sparks" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "ice_sparks" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "lifebar" $spritesDir $redistdir\sprites
-Compile-Sprite $binDir "killspree" $spritesDir $redistdir\sprites
-Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_rpg.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_chumtoad.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_sniperrifle.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_railgun.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_cannon.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_chaingun.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_glauncher.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_smg.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_usas.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_fists.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_wrench.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_snowball.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_chainsaw.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_12gauge.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_nuke.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_deagle.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_deagle.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_rpg.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_mag60.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_smg.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_freezegun.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_rocketcrowbar.txt $redistDir\sprites
-Copy-Item $spritesDir\weapon_dual_railgun.txt $redistDir\sprites
-Copy-Item $spritesDir\hud.txt $redistDir\sprites
-
-Set-Location -Path ${PSScriptRoot}
+try {
+    Compile-Sprite $binDir "ice_muzzleflash1" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "ice_muzzleflash2" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "ice_muzzleflash3" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "ice_zerogxplode" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "animglow01" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "ice_xspark4" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "crosshairs" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "320hud2" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hud1" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hud1" $spritesDir\hd $redisthddir\sprites
+    Compile-Sprite $binDir "640hud4" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hud4" $spritesDir\hd $redisthddir\sprites
+    Compile-Sprite $binDir "640hud7" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof01" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof02" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof03" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof04" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof05" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof06" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof07" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof08" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof09" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof10" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof11" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof12" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_nuke2" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "nuke2" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_hotglow" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_muzzleflashplasma" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "muzzleflashplasma" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_particles" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "particles" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_plasma5" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "plasma5" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_plasmatrail" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "plasmatrail" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "tsplasma" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "fire" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_fire" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "nuke_crosshair" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "sparks" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ice_sparks" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "lifebar" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "killspree" $spritesDir $redistdir\sprites
+    Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_rpg.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_chumtoad.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_sniperrifle.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_railgun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_cannon.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_chaingun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_glauncher.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_smg.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_usas.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_fists.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_wrench.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_snowball.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_chainsaw.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_12gauge.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_nuke.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_deagle.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_deagle.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_rpg.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_mag60.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_smg.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_freezegun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_rocketcrowbar.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_railgun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_gravitygun.txt $redistDir\sprites
+    Copy-Item $spritesDir\hud.txt $redistDir\sprites
+} catch {
+    Write-Error "$($_.Exception.Message)"
+} finally {
+    Set-Location -Path ${PSScriptRoot}
+}

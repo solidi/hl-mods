@@ -315,6 +315,9 @@ models\w_rocketcrowbar.mdl
 models\plasma.mdl
 models\w_suit.mdl
 models\w_concretegibs.mdl
+models\v_gravitygun.mdl
+models\w_gravitygun.mdl
+models\p_gravitygun.mdl
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
