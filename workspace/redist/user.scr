@@ -201,4 +201,15 @@ DESCRIPTION INFO_OPTIONS
 		}
 		{ "3" }
 	}
+
+	"cl_infomessage"
+	{
+		"#Ice_InfoMessage"
+		{
+			LIST
+			"Hide" "0"
+			"Display" "1"
+		}
+		{ "1" }
+	}
 }

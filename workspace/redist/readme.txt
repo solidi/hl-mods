@@ -45,7 +45,8 @@ Beta 3 Features:
 - Client Support
     - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup
-    - "cl_achievements [0|1|2|3] - show or hide sprees achievements
+    - "cl_achievements [0|1|2|3]" - show or hide sprees achievements
+    - "cl_infomessage [0|1]" - displays weapon and rune messages on top center
     - Railgun now has a glow model
 - Server
     - Added "mp_mutators" to mutate gameplay
@@ -398,6 +399,7 @@ Client:
     - "1" - voice / screen print
     - "2" - voice / screen print / small timed bar
     - "3" - voice / screen print / large centered circles
+- "cl_infomessage [0|1]" - displays weapon and rune messages on top center
 
 Server:
 

@@ -123,11 +123,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Explosive barrels / generator
     1. [ ] Snow effect
 1. Runes
-    1. [ ] Add text about rune and what it does
+    1. [x] Add text about rune and what it does
 1. Client Support
     1. [x] cl_autoweaponswitch
     1. [ ] cl_hudscale
-    1. [ ] Better labeling of runes
+    1. [x] Better labeling of runes
     1. [ ] Russian translations
 1. Support
     1. [ ] Add compiled mmod linux library
