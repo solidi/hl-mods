@@ -715,6 +715,7 @@ sprites\weapon_crowbar.txt
 sprites\weapon_freezegun.txt
 sprites\weapon_rocketcrowbar.txt
 sprites\weapon_dual_railgun.txt
+sprites\weapon_gravitygun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
