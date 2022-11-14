@@ -35,6 +35,8 @@ Beta 3 Features:
         - Fast fragging unlocks awesome announcements
 - New Player Models
     - Baer
+- Off-handed Grenade Throw
+    - "impulse 209" supports throwing a grenade if available
 - Maps
     - Improvements to Drift (night time), Depot (improved lighting)
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
@@ -364,10 +366,11 @@ Client:
 - "help" - Displays specific client Cold Ice Remastered options
 - "+hook" - Deploy an offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
+- "impulse 205" - Swap between single and dual weapon, if available
 - "impulse 206" - Use for kick function
 - "impulse 207" supports the punch function
 - "impulse 208" supports the slide function
-- "impulse 205" - Swap between single and dual weapon, if available
+- "impulse 209" supports offhand grenade throw
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
