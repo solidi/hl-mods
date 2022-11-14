@@ -40,7 +40,6 @@
 "["				"invprev"
 "MWHEELDOWN"	"invnext"
 "]"				"invnext"
-"q"				"lastinv"
 "F5"			"snapshot"
 "F6"			"save quick"
 "F7"			"load quick"
@@ -59,3 +58,4 @@
 "n"				"impulse 205"
 "p"				"impulse 207"
 "m"				"impulse 208"
+"q"				"impulse 209"
