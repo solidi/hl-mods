@@ -99,7 +99,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [x] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
-    1. [ ] Offhand grenade seen in [Maximum Action](https://youtu.be/DCrv8BxuM6I?t=200)
+    1. [x] Offhand grenade seen in [Maximum Action](https://youtu.be/DCrv8BxuM6I?t=200)
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce punch / animations in ironsights
     1. [ ] Hand cannon / Dual hand cannon
