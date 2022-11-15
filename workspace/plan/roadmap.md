@@ -85,6 +85,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] [topsy-turvy](https://youtu.be/MJPoK3qEQMM?t=82)
             1. [ ] Random three like [Reelism](https://reelism.dog/)
         1. [ ] RandomNuke - idea by Mitchell The BoneLord
+        1. [ ] Turret - sentrys spawned and fire at people randomly
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -114,7 +115,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] snow_camp (boot_camp reskin)
     1. [x] frozen_bunker (lambda_bunker reskin)
     1. [x] snowtransit (subtransit reskin)
-    1. [ ] mill (reboot)
+    1. [x] doublecross (doublefrost)
+    1. [x] mill (reboot)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
@@ -317,7 +319,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
     1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
-    1. [ ] doublecross (doublefrost)
     1. [ ] datacore (crystalcore)
     1. [ ] frenzy (frosty)
     1. [ ] rapidcore (icecore)
