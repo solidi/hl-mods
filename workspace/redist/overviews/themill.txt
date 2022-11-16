@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.07
+	ORIGIN	1781.19 	576	264.04
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/themill.bmp"
+	HEIGHT	-256.92
+}

@@ -92,10 +92,10 @@ function Compile-Map {
         return
     }
 
-    $allOptions = if ($finalCompile) { "" } else { "-high" }
+    $allOptions = if (!$finalCompile) { "-high" }
     $visOptions = if ($finalCompile) { "-full" } else { "-fast" }
     # -bounce 8 -dscale 1 -smooth 120 -smooth2 120 -scale 1 -sparse
-    $radOptions = if ($finalCompile) { "-extra" } else { "" }
+    $radOptions = if ($finalCompile) { "-extra" }
 
     Write-Wad-Config $mapsDir $wadsDir
 
@@ -111,19 +111,19 @@ function Compile-Map {
         exit
     }
     Write-Output "`nhlbsp $target..."
-    $out = & .\hlbsp $allOptions $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlbsp $allOptions $mapsDir\$target\$target | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlbsp ${target}."
         exit
     }
     Write-Output "`nhlvis $target..."
-    $out = & .\hlvis $allOptions $visOptions $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlvis $allOptions $visOptions $mapsDir\$target\$target | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlvis ${target}."
         exit
     }
     Write-Output "`nhlrad $target..."
-    $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.bsp | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
