@@ -125,7 +125,7 @@ function Compile-Map {
     Write-Output "`nhlrad $target..."
     $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.bsp | Out-String
     if (!$?) {
-        Get-Content $mapsDir\$target\$target.log
+        Get-Content $mapsDir\$target\$target.err
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
     }
