@@ -111,21 +111,20 @@ function Compile-Map {
         exit
     }
     Write-Output "`nhlbsp $target..."
-    $out = & .\hlbsp $allOptions $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlbsp $allOptions $mapsDir\$target\$target | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlbsp ${target}."
         exit
     }
     Write-Output "`nhlvis $target..."
-    $out = & .\hlvis $allOptions $visOptions $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlvis $allOptions $visOptions $mapsDir\$target\$target | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlvis ${target}."
         exit
     }
     Write-Output "`nhlrad $target..."
-    $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target | Out-String
     if (!$?) {
-        Write-Error "Command was > .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map"
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
     }
