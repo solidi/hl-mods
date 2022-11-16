@@ -92,10 +92,10 @@ function Compile-Map {
         return
     }
 
-    $allOptions = if ($finalCompile) { "" } else { "-high" }
+    $allOptions = if (!$finalCompile) { "-high" }
     $visOptions = if ($finalCompile) { "-full" } else { "-fast" }
     # -bounce 8 -dscale 1 -smooth 120 -smooth2 120 -scale 1 -sparse
-    $radOptions = if ($finalCompile) { "-extra" } else { "" }
+    $radOptions = if ($finalCompile) { "-extra" }
 
     Write-Wad-Config $mapsDir $wadsDir
 
@@ -103,7 +103,6 @@ function Compile-Map {
     Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*wpt -Force -ErrorAction Ignore
 
     Set-Location -Path $binDir
-    Write-Output $PSVersionTable
     Write-Output "Compiling map $target..."
     Write-Output "hlcsg $target..."
     $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
@@ -126,7 +125,6 @@ function Compile-Map {
     Write-Output "`nhlrad $target..."
     $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.bsp | Out-String
     if (!$?) {
-        Get-Content $mapsDir\$target\$target.log
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
     }
