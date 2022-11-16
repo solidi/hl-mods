@@ -103,6 +103,7 @@ function Compile-Map {
     Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*wpt -Force -ErrorAction Ignore
 
     Set-Location -Path $binDir
+    Write-Output $PSVersionTable
     Write-Output "Compiling map $target..."
     Write-Output "hlcsg $target..."
     $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
@@ -125,7 +126,7 @@ function Compile-Map {
     Write-Output "`nhlrad $target..."
     $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.bsp | Out-String
     if (!$?) {
-        Get-Content $mapsDir\$target\$target.err
+        Get-Content $mapsDir\$target\$target.log
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
     }
