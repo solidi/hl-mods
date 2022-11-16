@@ -86,6 +86,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             1. [ ] Random three like [Reelism](https://reelism.dog/)
         1. [ ] RandomNuke - idea by Mitchell The BoneLord
         1. [ ] Turret - sentrys spawned and fire at people randomly
+        1. [ ] Rewind - after death, go back 10 seconds and reapply/equip/velocity of your position
+            1. [ ] Telespot - After fragging, give option to spawn to their location
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -110,6 +112,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Mechanics
     1. [x] Make offhand kick/punch more useful
     1. [ ] Damaging somersault left / right
+    1. [ ] [Removal of parts](https://www.youtube.com/watch?v=CTTEwbkaEnQ&t=220s), keep it tasteful
 1. Maps
     1. [x] frost_pit (snark_pit reskin)
     1. [x] snow_camp (boot_camp reskin)
