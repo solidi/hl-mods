@@ -105,7 +105,7 @@ function Compile-Map {
     Set-Location -Path $binDir
     Write-Output "Compiling map $target..."
     Write-Output "hlcsg $target..."
-    $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
+    $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all -nowadtextures $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlcsg ${target}."
         exit
@@ -125,6 +125,7 @@ function Compile-Map {
     Write-Output "`nhlrad $target..."
     $out = & .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map | Out-String
     if (!$?) {
+        Write-Error "Command was > .\hlrad $allOptions $radOptions -lights $mapsDir\lights.rad $mapsDir\$target\$target.map"
         Write-Error "$out`n> Could not hlrad ${target}."
         exit
     }
