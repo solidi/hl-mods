@@ -228,14 +228,15 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_Mutators"
 		{
 			LIST
-			"empty" " "
-			"rocketcrowbar" "rocketcrowbar"
-			"instagib" "instagib"
-			"volatile" "volatile"
-			"plumber" "plumber"
-			"paintball" "paintball"
+			"none" "0"
+			"rocketcrowbar" "1"
+			"instagib" "2"
+			"volatile" "3"
+			"plumber" "4"
+			"paintball" "5"
+			"dkmode" "6"
 		}
-		{ "" }
+		{ "0" }
 	}
 
 	"mp_spawnweapons"

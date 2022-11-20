@@ -73,8 +73,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Instagib
         1. [x] Plumber
         1. [x] Paintball
+        1. [x] DK Mode
         1. [ ] SlappersOnly
-        1. [ ] DK Mode
         1. [ ] Rubberband (Players who are at the bottom get max health)
         1. [ ] License to Kill
         1. [ ] Night-ops
