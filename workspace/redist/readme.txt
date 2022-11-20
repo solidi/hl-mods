@@ -30,6 +30,7 @@ Beta 3 Features:
         - "volatile" - where players blow up when fragged
         - "plumber" - players only battle with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
+        - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements
@@ -435,6 +436,7 @@ Server:
     - "volatile" - where players blow up when fragged
     - "plumber" - players only battle with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
+    - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
 - "mp_spawnweapons 1" - Spawn weapons or not
 
 Report Bugs:
