@@ -56,6 +56,7 @@ Beta 3 Features:
     - "cl_achievements [0|1|2|3]" - show or hide sprees achievements
     - "cl_infomessage [0|1]" - displays weapon and rune messages on top center
     - Railgun now has a glow model
+    - Added default_fov setting to configuration menu
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
