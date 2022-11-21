@@ -531,3 +531,4 @@ Thanks To:
 - Strast for boosting our discord server and suggesting a toggle on grappling to the sky
 - BlueNightHawk for the gravity gun code https://github.com/BlueNightHawk/hl-gravgun
 - Reworked animations of player somersaults from The Specialists https://www.moddb.com/mods/the-specialists
+- Bo9da for testing and providing clear feedback on beta 2, and the idea of default_fov in config
