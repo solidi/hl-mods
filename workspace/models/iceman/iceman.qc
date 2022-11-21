@@ -159,5 +159,8 @@ $sequence "crouch_aim_dual_shotgun" "../common/crouch_aim_dual_shotgun_blend1" "
 $sequence "crouch_shoot_dual_shotgun" "../common/crouch_shoot_dual_shotgun_blend1_shift" "../common/crouch_shoot_dual_shotgun_blend2_shift" blend XR -45 45 fps 25 { event 5001 0 "51" } { event 5031 1 "51" }
 $sequence "frozen" "../common/frozen" fps 16 ACT_FROZEN 1 
 $sequence "slide" "../common/slide" fps 10 ACT_SLIDE 1 
+$sequence "right_flip" "../common/wheel_r" LX LY fps 40 ACT_RIGHT_FLIP 1 
+$sequence "left_flip" "../common/wheel_l" LX LY fps 40 ACT_LEFT_FLIP 1 
+$sequence "back_flip" "../common/wheel_b" LX LY fps 40 ACT_BACK_FLIP 1 
 
 // End of QC script.
