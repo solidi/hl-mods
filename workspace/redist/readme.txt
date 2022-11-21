@@ -36,6 +36,10 @@ Beta 3 Features:
         - Fast fragging unlocks awesome announcements
 - New Player Models
     - Baer
+- Player Flips and Acrobatics
+    - "impulse 210" supports rolling kicking to the right
+    - "impulse 211" supports rolling kicking to the left
+    - "impulse 212" supports a kick back flip
 - Off-handed Grenade Throw
     - "impulse 209" supports throwing a grenade if available
 - Maps
@@ -52,6 +56,7 @@ Beta 3 Features:
     - "cl_achievements [0|1|2|3]" - show or hide sprees achievements
     - "cl_infomessage [0|1]" - displays weapon and rune messages on top center
     - Railgun now has a glow model
+    - Added default_fov setting to configuration menu
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_spawnweapons 1" to allow weapons to spawn or not
@@ -373,6 +378,9 @@ Client:
 - "impulse 207" supports the punch function
 - "impulse 208" supports the slide function
 - "impulse 209" supports offhand grenade throw
+- "impulse 210" - to perform a right roll
+- "impulse 211" - to perform a left roll
+- "impulse 212" - to perform a back flip
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
@@ -405,6 +413,8 @@ Client:
     - "2" - voice / screen print / small timed bar
     - "3" - voice / screen print / large centered circles
 - "cl_infomessage [0|1]" - displays weapon and rune messages on top center
+- "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
+- "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
 
 Server:
 
@@ -521,3 +531,5 @@ Thanks To:
 - sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE
 - Strast for boosting our discord server and suggesting a toggle on grappling to the sky
 - BlueNightHawk for the gravity gun code https://github.com/BlueNightHawk/hl-gravgun
+- Reworked animations of player somersaults from The Specialists https://www.moddb.com/mods/the-specialists
+- Bo9da for testing and providing clear feedback on beta 2, and the idea of default_fov in config

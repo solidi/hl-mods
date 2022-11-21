@@ -122,3 +122,6 @@
 "impulse 207"	"#Ice_Punch"
 "impulse 208"	"#Ice_Slide"
 "impulse 209"	"#Ice_Grenade"
+"impulse 210"	"#Ice_RollRight"
+"impulse 211"	"#Ice_RollLeft"
+"impulse 212"	"#Ice_BackFlip"

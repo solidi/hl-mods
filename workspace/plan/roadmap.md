@@ -109,7 +109,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Gold Skins?
 1. Mechanics
     1. [x] Make offhand kick/punch more useful
-    1. [ ] Damaging somersault left / right
+    1. [x] Damaging somersault left / right, [Somersaults](https://www.moddb.com/mods/the-specialists)
 1. Maps
     1. [x] frost_pit (snark_pit reskin)
     1. [x] snow_camp (boot_camp reskin)
@@ -280,7 +280,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
 1. Movement
-    1. [ ] [Somersaults](https://www.moddb.com/mods/the-specialists)
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
     1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)

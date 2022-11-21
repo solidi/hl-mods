@@ -212,4 +212,33 @@ DESCRIPTION INFO_OPTIONS
 		}
 		{ "1" }
 	}
+
+	"cl_antivomit"
+	{
+		"#Ice_AntiVomit"
+		{
+			LIST
+			"Stop" "0"
+			"Let Me Puke" "1"
+		}
+		{ "1" }
+	}
+
+	"cl_keyboardacrobatics"
+	{
+		"#Ice_KeyboardAcrobatics"
+		{
+			LIST
+			"Off" "0"
+			"On" "1"
+		}
+		{ "1" }
+	}
+
+	"default_fov"
+	{
+		"#Ice_DefaultFov"
+		{ NUMBER 60 150 }
+		{ "90" }
+	}
 }
