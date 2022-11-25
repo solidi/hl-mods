@@ -110,6 +110,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Mechanics
     1. [x] Make offhand kick/punch more useful
     1. [x] Damaging somersault left / right, [Somersaults](https://www.moddb.com/mods/the-specialists)
+    1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
 1. Maps
     1. [x] frost_pit (snark_pit reskin)
     1. [x] snow_camp (boot_camp reskin)

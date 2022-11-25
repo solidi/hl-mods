@@ -44,7 +44,13 @@ DESCRIPTION INFO_OPTIONS
 	"cl_icemodels"
 	{
 		"#Ice_Models"
-		{ NUMBER 0 3 }
+		{
+			LIST
+			"Real Life" "0"
+			"Inverted" "1"
+			"Classic" "2"
+			"Special Edition" "3"
+		}
 		{ "2" }
 	}
 
