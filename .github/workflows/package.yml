@@ -54,16 +54,8 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Update sources to include xenial main
-      run: sudo su -c "echo 'deb http://archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list"
-
-    - name: Update sources to include xenial universe
-      run: sudo su -c "echo 'deb http://archive.ubuntu.com/ubuntu/ xenial universe' >> /etc/apt/sources.list"
-
-    - name: Add apt update keys
-      run: |
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
-        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
+    - name: Update toolchain
+      run: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 
     - name: Update packages
       run: sudo apt update -y
@@ -71,8 +63,15 @@ jobs:
     - name: Install make
       run: sudo apt-get install make
 
-    - name: Install g++-4.8
-      run: sudo apt install g++-4.8 gcc-4.8 -y
+    - name: install gcc
+      run: |
+        sudo apt-get install gcc-4.8
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
+
+    - name: install g++
+      run: |
+        sudo apt-get install g++-4.8
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
 
     - name: Install headers
       run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
