@@ -20,18 +20,20 @@ function Git-Hash {
     return $version
 }
 
-function Zip-Release {
+function Package-Release {
     param (
         $rootDir,
         $redistDir,
         $redistHdDir,
         $gameFolder
     )
-    
+
+    Install-Module 7Zip4PowerShell -MinimumVersion 2.2.0 -Scope AllUsers -Force -Verbose
+
     try {
         $gitHash = $(Git-Hash)
         echo "Creating version: $gitHash`r`n..."
-        $zipFile = "${rootDir}\cold-ice-remastered-${gitHash}.zip"
+        $zipFile = "${rootDir}\cold-ice-remastered-${gitHash}.7z"
 
         [void](New-Item -Force -ItemType Directory $env:TEMP\release)
 
@@ -60,8 +62,8 @@ function Zip-Release {
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release -ErrorAction Ignore
         Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
-        Compress-Archive -LiteralPath $env:TEMP\release\$gameFolder -DestinationPath $zipFile -Force
-        Compress-Archive -LiteralPath $env:TEMP\release\${gameFolder}_hd -DestinationPath $zipFile -Update
+        Remove-Item $zipFile -Force -ErrorAction Ignore
+        Compress-7Zip -Path $env:TEMP\release -ArchiveFileName $zipFile
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore
     } catch {
         Throw "Could not create zip file.`nReason: $($_.Exception.Message)"

@@ -30,7 +30,7 @@ $host.UI.RawUI.WindowTitle = "Packaging $($Config['projectName'])"
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
-Import-Module $PSScriptRoot\powershell\Zip-Release.psm1 -Force -DisableNameChecking
+Import-Module $PSScriptRoot\powershell\Package-Release.psm1 -Force -DisableNameChecking
 
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
@@ -78,6 +78,6 @@ try {
     }
 }
 
-Zip-Release $rootDir $redistDir $redistHdDir $gameFolder
+Package-Release $rootDir $redistDir $redistHdDir $gameFolder
 
 Set-Location -Path ${PSScriptRoot}
