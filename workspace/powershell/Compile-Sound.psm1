@@ -12,6 +12,9 @@ function Compile-Sound {
         [float]$trimto=0
     )
 
+    $rmsmax = -4
+    $rmsmin = -67
+
     $trimcmd = ""
     if ($trimto -gt 0) {
         $trimcmd = "-ss $trimfrom -to $trimto"
@@ -27,19 +30,34 @@ function Compile-Sound {
     }
 
     Set-Location -Path $binDir
-    echo "Converting sound $outsound..."
+    Write-Output "Converting sound $outsound..."
     $in = ".\ffmpeg -y -i $soundDir\$target " `
           + "$typecmd " `
           + "-filter:a volume=$volume " `
           + "$trimcmd " `
           + "-hide_banner -loglevel error " `
           + "$redistDir\$outsound"
-    echo "command: $in"
+    Write-Output "command: $in"
     #+ "-af `"firequalizer=gain_entry='entry(0,8);entry(250,4);entry(1000,-8);entry(4000,0);entry(16000,-8)'`" " `
 
     $out = iex $in | Out-String
     if ($lastexitcode -ne 0) {
-        echo "$out> Could not convert sound ${target}. Exit code: ${lastexitcode}"
-        exit
+        Throw "$out> Could not convert sound ${target}. Exit code: ${lastexitcode}"
+    }
+
+    Write-Output "Converting sound $outsound..."
+    $in = ".\ffmpeg -i $redistDir\$outsound -af astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level -f null - 2>&1"
+    $out = Invoke-Expression -Command $in
+    $pattern = ".*RMS peak dB: (-?[0-9]\d*\.\d+)"
+    $MatchList = [regex]::Matches($out, $pattern)
+
+    foreach ($Match in $MatchList) {
+        for ($i = 1; $i -lt $Match.Groups.Count; $i++) {
+            # "RMS is: $($Match.Groups[$i].Value)"
+            $rms = [int]$($Match.Groups[$i].Value)
+            if ($rms -le $rmsmin -Or $rms -ge $rmsmax) {
+                Throw "$out> RMS is out of bounds - RMS average is ${rms}."
+            }
+        }
     }
 }

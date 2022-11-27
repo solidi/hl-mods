@@ -50,6 +50,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\media)
 }
 
+try {
 Compile-Sound $binDir $redistDir $soundDir "hhg.mp3" 2.0 "sound\holy_handgrenade.wav" "wav" 0 2.8
 Compile-Sound $binDir $redistDir $soundDir "leroy.swf.mp3" 1.0 "sound\vest_attack.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "alive.wav" 2.0 "sound\vest_alive.wav" "wav" 1 5
@@ -121,6 +122,12 @@ Compile-Sound $binDir $redistDir $soundDir "ut-ludicrous-kill-sound.mp3" 2.0 "so
 Compile-Sound $binDir $redistDir $soundDir "ut-holy-shit-sound-effect.mp3" 1.0 "sound\holyshitkill.wav" "wav" 1.0 4.8
 Compile-Sound $binDir $redistDir $soundDir "what-the-f.mp3" 2.0 "sound\wtfkill.wav" "wav" 0.3 2.3
 Compile-Sound $binDir $redistDir $soundDir "shart-sound-effect.mp3" 2.0 "sound\shart.wav" "wav"
+}
+catch
+{
+    Set-Location -Path ${PSScriptRoot}
+    Write-Error "$($_.Exception.Message)"
+}
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
