@@ -120,6 +120,7 @@ Compile-Sound $binDir $redistDir $soundDir "fire1.wav" 1.0 "sound\fire1.wav" "wa
 Compile-Sound $binDir $redistDir $soundDir "ut-ludicrous-kill-sound.mp3" 2.0 "sound\ludicrouskill.wav" "wav" 0.2 4.4
 Compile-Sound $binDir $redistDir $soundDir "ut-holy-shit-sound-effect.mp3" 1.0 "sound\holyshitkill.wav" "wav" 1.0 4.8
 Compile-Sound $binDir $redistDir $soundDir "what-the-f.mp3" 2.0 "sound\wtfkill.wav" "wav" 0.3 2.3
+Compile-Sound $binDir $redistDir $soundDir "shart-sound-effect.mp3" 2.0 "sound\shart.wav" "wav"
 
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound

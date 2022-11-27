@@ -118,6 +118,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] snowtransit (subtransit reskin)
     1. [x] doublecross (doublefrost)
     1. [x] mill (reboot)
+    1. [ ] chillworks (gasworks reskin)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
