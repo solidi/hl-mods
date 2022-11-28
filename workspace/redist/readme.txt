@@ -50,6 +50,7 @@ Beta 3 Features:
     - snowtransit, a rebuild of subtransit from Aura-SE and reskinned by AudioCraZ
     - doublefrost, a rebuild of doublecross by Dario Casali and reskinned by Napoleon
     - themill, a map by Panic and rebuilt by Napoleon
+    - chillworks, a rebuild of gasworks by Randy Lundeen and rebuilt and reskinned by AudioCraZ
 - Client Support
     - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup
@@ -538,3 +539,5 @@ Thanks To:
 - Reworked animations of player somersaults from The Specialists https://www.moddb.com/mods/the-specialists
 - Bo9da for testing and providing clear feedback on beta 2, and the idea of default_fov in config
 - Vertthrasher, Trusty Crowbar Team, H4wk, Thanez and others for the portal / gravity gun fusion model https://gamebanana.com/mods/180491
+- Balls in Yo Jaws for the Shart effect https://www.youtube.com/watch?v=ApU26gcYfkA
+- Randy Lundeen for the original gasworks, AudioCraZ for the rebuild and the reskin of chillworks
