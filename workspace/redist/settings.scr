@@ -252,4 +252,23 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"sv_disallowlist"
+	{
+		"#Ice_DisallowList"
+		{ STRING }
+		{ "" }
+	}
+
+	"mp_nukemode"
+	{
+		"#Ice_NukeMode"
+		{
+			LIST
+			"Shart" "0"
+			"Radius" "1"
+			"All" "2"
+		}
+		{ "2" }
+	}
 }

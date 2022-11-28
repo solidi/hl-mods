@@ -59,8 +59,10 @@ Beta 3 Features:
     - Added default_fov setting to configuration menu
 - Server
     - Added "mp_mutators" to mutate gameplay
-    - Added "mp_spawnweapons 1" to allow weapons to spawn or not
-    - Added "mp_grapplesky 1" to allow player to grapple the sky
+    - Added "mp_spawnweapons [0|1]" to allow weapons to spawn or not
+    - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
+    - Added "sv_disallowlist" a list of entities that will not spawn
+    - Added "mp_nukemode [0|1|2]" how the nuke plays
     - Moved remaining hardcoded skill values to skills.cfg
 - Fixes
     - Maps
@@ -439,7 +441,7 @@ Server:
 - "sv_jumpheight 45" - Adjustable player's jump height
 - "mp_icesprites 1" - Switch between select ice and real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
-- "mp_snowballfight 0" - Replace all weapons with deadly snowballs!
+- "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_mutators" - Add mutators to gameplay
     - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
     - "instagib" - battle exclusively with railguns that dole one hit kills
@@ -447,7 +449,9 @@ Server:
     - "plumber" - players only battle with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
     - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
-- "mp_spawnweapons 1" - Spawn weapons or not
+- "mp_spawnweapons [0|1]" - Spawn weapons or not
+- "sv_disallowlist" a list of classname entities that will not spawn
+- "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
 
 Report Bugs:
 

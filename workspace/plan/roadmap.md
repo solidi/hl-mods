@@ -118,6 +118,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] snowtransit (subtransit reskin)
     1. [x] doublecross (doublefrost)
     1. [x] mill (reboot)
+    1. [ ] chillworks (gasworks reskin)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
@@ -345,7 +346,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
-    1. [ ] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
+    1. [x] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
     1. [ ] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
