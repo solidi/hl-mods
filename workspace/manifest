@@ -105,6 +105,8 @@ maps\doublefrost.bsp
 maps\doublefrost.wpt
 maps\themill.bsp
 maps\themill.wpt
+maps\chillworks.bsp
+maps\chillworks.wpt
 media
 media\gamestartup.mp3
 models
@@ -328,6 +330,8 @@ overviews\canyon.bmp
 overviews\canyon.txt
 overviews\catacombs.bmp
 overviews\catacombs.txt
+overviews\chillworks.bmp
+overviews\chillworks.txt
 overviews\coldice.bmp
 overviews\coldice.txt
 overviews\depot.bmp

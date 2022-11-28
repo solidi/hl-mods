@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.59
+	ORIGIN	-231.08 	355.81	-128
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/chillworks.bmp"
+	HEIGHT	-1569
+}
