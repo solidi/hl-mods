@@ -3865,3 +3865,7 @@
 "classname" "info_player_deathmatch"
 "origin" "-96 321 160"
 }
+{
+"classname" "env_snow"
+"origin" "-128 96 312"
+}

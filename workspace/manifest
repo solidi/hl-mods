@@ -743,6 +743,9 @@ sprites\sparks.spr
 sprites\ice_sparks.spr
 sprites\lifebar.spr
 sprites\hud.txt
+sprites\snowflake.spr
+sprites\rain.spr
+sprites\ripple.spr
 liblist.gam
 ReadMe.txt
 settings.scr
@@ -770,3 +773,4 @@ decals.wad
 gameinfo.txt
 delta.lst
 spacepirate.wad
+ice_beta3.fgd

@@ -11342,3 +11342,7 @@
 "style" "0"
 "origin" "928 -506 688"
 }
+{
+"classname" "env_snow"
+"origin" "-1032 -88 526"
+}

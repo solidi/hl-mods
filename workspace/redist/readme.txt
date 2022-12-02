@@ -51,11 +51,16 @@ Beta 3 Features:
     - doublefrost, a rebuild of doublecross by Dario Casali and reskinned by Napoleon
     - themill, a map by Panic and rebuilt by Napoleon
     - chillworks, a rebuild of gasworks by Randy Lundeen and rebuilt and reskinned by AudioCraZ
+- Environment
+    - Added snow weather effect!
 - Client Support
     - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
     - "cl_autowepswitch" - auto switches weapon on pickup
     - "cl_achievements [0|1|2|3]" - show or hide sprees achievements
     - "cl_infomessage [0|1]" - displays weapon and rune messages on top center
+    - "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
+    - "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
+    - "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
     - Railgun now has a glow model
     - Added default_fov setting to configuration menu
 - Server
@@ -64,7 +69,10 @@ Beta 3 Features:
     - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
     - Added "sv_disallowlist" a list of entities that will not spawn
     - Added "mp_nukemode [0|1|2]" how the nuke plays
+    - "sv_weather [0|1]" - enable or disable all weather effects on the server
     - Moved remaining hardcoded skill values to skills.cfg
+- Development
+    - Mod package includes fgd for map development
 - Fixes
     - Maps
         - Even more spawn point angle corrections
@@ -418,6 +426,7 @@ Client:
 - "cl_infomessage [0|1]" - displays weapon and rune messages on top center
 - "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
 - "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
+- "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
 
 Server:
 
@@ -453,6 +462,7 @@ Server:
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
+- "sv_weather [0|1]" - enable or disable all weather effects on the server
 
 Report Bugs:
 
@@ -542,3 +552,5 @@ Thanks To:
 - Balls in Yo Jaws for the Shart effect https://www.youtube.com/watch?v=ApU26gcYfkA
 - Randy Lundeen for the original gasworks, AudioCraZ for the rebuild and the reskin of chillworks
 - Bacontsu for wall climbing and other grappling from Codename Borea https://github.com/bacontsu/codename-borea/
+- Spirit of Half-Life for rain and snow effects https://github.com/HLSources/Spirit-of-Half-Life
+- FreeSlave for the latest Half-Life forge game data file (.fgd) https://github.com/FreeSlave/halflife-fgd

@@ -4195,3 +4195,7 @@
 "model" "sprites/glow03.spr"
 "origin" "568 -64 268"
 }
+{
+"classname" "env_snow"
+"origin" "256 -112 216"
+}

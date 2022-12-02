@@ -14880,3 +14880,7 @@
 "classname" "info_node"
 "origin" "-576 -1488 8"
 }
+{
+"classname" "env_snow"
+"origin" "2992 -128 140"
+}
