@@ -541,3 +541,4 @@ Thanks To:
 - Vertthrasher, Trusty Crowbar Team, H4wk, Thanez and others for the portal / gravity gun fusion model https://gamebanana.com/mods/180491
 - Balls in Yo Jaws for the Shart effect https://www.youtube.com/watch?v=ApU26gcYfkA
 - Randy Lundeen for the original gasworks, AudioCraZ for the rebuild and the reskin of chillworks
+- Bacontsu for wall climbing and other grappling from Codename Borea https://github.com/bacontsu/codename-borea/

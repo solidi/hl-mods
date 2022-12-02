@@ -664,6 +664,7 @@ sound\ludicrouskill.wav
 sound\holyshitkill.wav
 sound\wtfkill.wav
 sound\shart.wav
+sound\wallclimb.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr

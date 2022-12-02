@@ -271,4 +271,22 @@ DESCRIPTION SERVER_OPTIONS
 		}
 		{ "2" }
 	}
+
+	"sv_acrobatics"
+	{
+		"#Ice_Acrobatics"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_gamemode"
+	{
+		"#Ice_GameMode"
+		{
+			LIST
+			"ffa" "0"
+			"iceman" "1"
+		}
+		{ "0" }
+	}
 }
