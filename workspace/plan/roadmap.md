@@ -320,10 +320,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
     1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
-    1. [ ] datacore (crystalcore)
     1. [ ] frenzy (frosty)
+    1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)
     1. [ ] undertow (???)
+    1. [ ] rustmill
+    1. [ ] the hill
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Integrations
@@ -368,6 +370,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Translate to russian (berry from moddb)
     1. [ ] Capture the Chumtoad (AudioCraZ)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
+    1. [ ] Respawning breakable glass (Napoleon)
 
 ### Beta 1
 

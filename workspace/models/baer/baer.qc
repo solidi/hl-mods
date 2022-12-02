@@ -164,5 +164,6 @@ $sequence "slide" "../common/slide" fps 10 ACT_SLIDE 1
 $sequence "right_flip" "../common/wheel_r" LX LY fps 40 ACT_RIGHT_FLIP 1 
 $sequence "left_flip" "../common/wheel_l" LX LY fps 40 ACT_LEFT_FLIP 1 
 $sequence "back_flip" "../common/wheel_b" LX LY fps 40 ACT_BACK_FLIP 1 
+$sequence "pullup" "../common/pullup" fps 40 ACT_PULL_UP 1 
 
 // End of QC script.

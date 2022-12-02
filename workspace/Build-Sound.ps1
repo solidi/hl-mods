@@ -270,6 +270,7 @@ Copy-Item $soundDir\doublekill.wav $redistdir\sound
 Copy-Item $soundDir\multikill.wav $redistdir\sound
 Copy-Item $soundDir\ultrakill.wav $redistdir\sound
 Copy-Item $soundDir\monsterkill.wav $redistdir\sound
+Copy-Item $soundDir\wallclimb.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 

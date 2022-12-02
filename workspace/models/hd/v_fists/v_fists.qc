@@ -65,5 +65,6 @@ $sequence "fists_rightmiss2" "fists_rightmiss2" fps 25
 $sequence "fists_righthit2" "fists_righthit2" fps 25 
 $sequence "idle2" "idle1" fps 20 
 $sequence "idle3" "idle1" fps 20 
+$sequence "pullup" "pullup" fps 42 
 
 // End of QC script.
