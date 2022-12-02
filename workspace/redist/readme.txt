@@ -551,3 +551,4 @@ Thanks To:
 - Randy Lundeen for the original gasworks, AudioCraZ for the rebuild and the reskin of chillworks
 - Bacontsu for wall climbing and other grappling from Codename Borea https://github.com/bacontsu/codename-borea/
 - Spirit of Half-Life for rain and snow effects https://github.com/HLSources/Spirit-of-Half-Life
+- FreeSlave for the latest Half-Life forge game data file (.fgd) https://github.com/FreeSlave/halflife-fgd
