@@ -71,6 +71,8 @@ Beta 3 Features:
     - Added "mp_nukemode [0|1|2]" how the nuke plays
     - "sv_weather [0|1]" - enable or disable all weather effects on the server
     - Moved remaining hardcoded skill values to skills.cfg
+- Development
+    - Mod package includes fgd for map development
 - Fixes
     - Maps
         - Even more spawn point angle corrections
