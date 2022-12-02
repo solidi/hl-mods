@@ -12245,15 +12245,15 @@
 }
 }
 {
-"classname" "item_chestarmor"
+"classname" "item_battery"
 "origin" "40 1622 302"
 }
 {
-"classname" "item_headarmor"
+"classname" "item_battery"
 "origin" "42 1452 302"
 }
 {
-"classname" "weapon_slugrifle"
+"classname" "weapon_shotgun"
 "origin" "832 1896 448"
 }
 {
@@ -12297,7 +12297,7 @@
 "origin" "984 1536 136"
 }
 {
-"classname" "weapon_grenadel"
+"classname" "weapon_rpg"
 "origin" "2340 832 496"
 }
 {
@@ -12328,15 +12328,15 @@
 "origin" "592 1536 320"
 }
 {
-"classname" "weapon_grenadel"
+"classname" "weapon_rpg"
 "origin" "1360 1536 304"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_rpgclip"
 "origin" "1360 1600 312"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_rpgclip"
 "origin" "1360 1472 312"
 }
 {
@@ -12397,7 +12397,7 @@
 }
 }
 {
-"classname" "ammo_smgclip"
+"classname" "ammo_9mmclip"
 "angles" "0 94 0"
 "origin" "2888 872 16"
 }
@@ -12716,20 +12716,20 @@
 "origin" "1657 1645 520"
 }
 {
-"classname" "weapon_blaser"
+"classname" "weapon_gauss"
 "origin" "1784 600 520"
 }
 {
-"classname" "weapon_revolver"
+"classname" "weapon_357"
 "angles" "0 60 0"
 "origin" "776 1192 160"
 }
 {
-"classname" "ammo_smgclip"
+"classname" "ammo_9mmAR"
 "origin" "672 888 232"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_ARgrenades"
 "origin" "716 804 376"
 }
 {
@@ -13355,7 +13355,7 @@
 "origin" "704 1242 97"
 }
 {
-"classname" "weapon_9mmpistol"
+"classname" "weapon_9mmAR"
 "origin" "2560 1296 272"
 }
 {
@@ -14078,7 +14078,7 @@
 "origin" "760 804 376"
 }
 {
-"classname" "ammo_sigclip"
+"classname" "ammo_9mmAR"
 "angles" "0 44 0"
 "origin" "1368 468 376"
 }
@@ -14132,19 +14132,19 @@
 "origin" "964 752 236"
 }
 {
-"classname" "ammo_pistolclip"
+"classname" "ammo_gaussclip"
 "origin" "2520 1256 272"
 }
 {
-"classname" "ammo_pistolclip"
+"classname" "ammo_gaussclip"
 "origin" "2528 1352 272"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_gaussclip"
 "origin" "2400 -464 -80"
 }
 {
-"classname" "weapon_grenadel"
+"classname" "weapon_hornetgun"
 "origin" "2672 -376 -80"
 }
 {
@@ -15374,19 +15374,19 @@
 }
 }
 {
-"classname" "weapon_grenadel"
+"classname" "weapon_egon"
 "origin" "2026 888 102"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_9mmclip"
 "origin" "1976 834 102"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_ARgrenades"
 "origin" "2040 834 102"
 }
 {
-"classname" "weapon_slugrifle"
+"classname" "weapon_shotgun"
 "origin" "864 1536 24"
 }
 {
@@ -15445,31 +15445,31 @@
 "origin" "2340 904 496"
 }
 {
-"classname" "item_headarmor"
+"classname" "item_healthkit"
 "origin" "2384 760 496"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_gaussclip"
 "origin" "2864 -560 -80"
 }
 {
-"classname" "item_chestarmor"
+"classname" "item_battery"
 "origin" "528 192 96"
 }
 {
-"classname" "item_headarmor"
+"classname" "item_healthkit"
 "origin" "184 832 320"
 }
 {
-"classname" "weapon_revolver"
+"classname" "weapon_9mmAR"
 "origin" "48 1540 448"
 }
 {
-"classname" "ammo_pistolclip"
+"classname" "ammo_9mmclip"
 "origin" "92 1784 300"
 }
 {
-"classname" "weapon_revolver"
+"classname" "weapon_357"
 "origin" "640 1848 300"
 }
 {
@@ -15569,11 +15569,11 @@
 "origin" "1680 1888 40"
 }
 {
-"classname" "item_chestarmor"
+"classname" "item_battery"
 "origin" "1648 16 32"
 }
 {
-"classname" "ammo_glbarrel"
+"classname" "ammo_9mmAR"
 "origin" "1480 0 32"
 }
 {
@@ -15592,11 +15592,11 @@
 "origin" "2520 640 40"
 }
 {
-"classname" "item_chestarmor"
+"classname" "item_battery"
 "origin" "2384 832 496"
 }
 {
-"classname" "item_kneearmor"
+"classname" "item_healthkit"
 "origin" "2384 888 496"
 }
 {
@@ -15709,7 +15709,7 @@
 }
 }
 {
-"classname" "item_headarmor"
+"classname" "item_battery"
 "origin" "2428 -516 0"
 }
 {
