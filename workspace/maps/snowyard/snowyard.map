@@ -5058,3 +5058,7 @@
 "classname" "ammo_357"
 "origin" "-318 148 40"
 }
+{
+"classname" "env_snow"
+"origin" "832 1104 96"
+}

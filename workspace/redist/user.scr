@@ -241,6 +241,19 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
+	"cl_weather"
+	{
+		"#Ice_Weather"
+		{
+			LIST
+			"Off" "0"
+			"Some" "1"
+			"More" "2"
+			"Most" "3"
+		}
+		{ "3" }
+	}
+
 	"default_fov"
 	{
 		"#Ice_DefaultFov"

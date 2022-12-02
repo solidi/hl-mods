@@ -279,6 +279,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
+	"sv_weather"
+	{
+		"#Ice_Weather"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"mp_gamemode"
 	{
 		"#Ice_GameMode"

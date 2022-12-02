@@ -77,7 +77,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] SlappersOnly
         1. [ ] Rubberband (Players who are at the bottom get max health)
         1. [ ] License to Kill
-        1. [ ] Night-ops
+        1. [ ] Night-ops (lights out)
             1. [ ] Light up melee weapons
             1. [ ] Light effects all firing
         1. [ ] Tiny
@@ -86,6 +86,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             1. [ ] Random three like [Reelism](https://reelism.dog/)
         1. [ ] RandomNuke - idea by Mitchell The BoneLord
         1. [ ] Turret - sentrys spawned and fire at people randomly
+        1. [ ] Floor is lava
+        1. [ ] Slowmo
+        1. [ ] Superjump
+        1. [ ] Tiktok - exploder (random explosions of people)
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -118,14 +122,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] snowtransit (subtransit reskin)
     1. [x] doublecross (doublefrost)
     1. [x] mill (reboot)
-    1. [ ] chillworks (gasworks reskin)
+    1. [x] chillworks (gasworks reskin)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
     1. [ ] Gold Skin? (Radu Matei Ionut)
 1. Environment
+    1. [x] Snow effect / console mechanic/trigger, turn on/off in snowyard
     1. [ ] Explosive barrels / generator
-    1. [ ] Snow effect
 1. Runes
     1. [x] Add text about rune and what it does
 1. Client Support
@@ -302,6 +306,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Environment look and feel
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+    1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog)
+    1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195)
 1. UI / Menu
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
@@ -319,7 +325,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
-    1. [ ] Snow console mechanic/trigger, turn on/off in snowyard
     1. [ ] frenzy (frosty)
     1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)

@@ -3121,3 +3121,7 @@
 "angles" "0 60 0"
 "origin" "803 196 -72"
 }
+{
+"classname" "env_snow"
+"origin" "219 1051 -96"
+}
