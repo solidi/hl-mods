@@ -24,7 +24,7 @@ Beta 3 Features:
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
 - Game Modes
-    - Mutators
+    - Mutators - supports combination and randomly selected
         - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
         - "instagib" - battle exclusively with railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
@@ -69,7 +69,8 @@ Beta 3 Features:
     - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
     - Added "sv_disallowlist" a list of entities that will not spawn
     - Added "mp_nukemode [0|1|2]" how the nuke plays
-    - "sv_weather [0|1]" - enable or disable all weather effects on the server
+    - Added "sv_weather [0|1]" - enable or disable all weather effects on the server
+    - Added "mp_randommutators [0|1]" selects three random mutators on change map change
     - Moved remaining hardcoded skill values to skills.cfg
 - Development
     - Mod package includes fgd for map development
@@ -88,6 +89,7 @@ Beta 3 Features:
     - Xash3d
         - Patched floating weapon models as players
     - More server patches to avoid crashing
+    - Fixed sliding mechanic in single player
 
 Beta 2 Features:
 
@@ -163,9 +165,9 @@ Beta 2 Features:
     - Updated corner logo
     - Improved background and loading menu with new snowflake menu
 - Server
-    - Added "mp_icesprites 1" to switch between select ice and real environment sprites
+    - Added "mp_icesprites" to switch between select ice and real environment sprites
     - Added announcement to those that join the server
-    - Added "mp_randomweapon 0" to give a random weapon at spawn
+    - Added "mp_randomweapon" to give a random weapon at spawn
     - Added "mp_interactiveitems", a semicolon-separated list of items that are "interactive" (kickable, pickupable)
     - Added "mp_snowballfight", to play with one-shot kill snowballs only!
 - Fixes
@@ -394,28 +396,28 @@ Client:
 - "impulse 212" - to perform a back flip
 - "drop_rune" - Drop rune
 - "snowman" - God mode (when sv_cheats 1)
-- "cl_icemodels 2" - Ice Models - To switch between weapon ice skins and real skins
+- "cl_icemodels [0-3]" - Ice Models - To switch between weapon ice skins and real skins
     - "0" - real skin
     - "1" - original inverted skin
     - "2" - 1.75 blue ice skin
     - "3" - Cold Ice Remastered edition skin
-- "cl_oldscoreboard 1" - Old Scoreboard - To switch between old and new style scoreboards
-- "cl_oldmotd 1" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
-- "cl_viewroll 1" - Old View Roll - To switch between view roll during movement
-- "cl_bobtilt 1" - Old Bob Tilt - To switch between bob tilt walking animation
-- "cl_righthand 1" - Right-Hand Models - To switch between right and left-handed models
-- "cl_bulletsmoke 1" - Bullet Smoke - To switch between bullets creating smoke where they land
-- "cl_gunsmoke 1" - Gun Smoke - To switch between weapons creating smoke when fired
-- "cl_glasshud 1" - Glass Hud - To switch elements of the hud bouncing/bobbing on or off
-- "cl_weaponsway 1" - Weapon Sway - To switch between view models swaying with turn movement
-- "cl_weaponfidget 1" - Weapon Fidget - To switch between view models fidgeting with jump landings
-- "cl_weaponretract 1" - Weapon Retracts - To switch between view models that retract against walls
-- "cl_playpoint 1" - Play buzzer/bell when frag achieved - To switch on/off playing this sound effect
-- "cl_announcehumor 1" - Play voice announce / humor on weapons - To switch on/off playing these sound effects
-- "cl_showtips 1" - Show helpful text tips during gameplay
-- "cl_shadows 1" - Show rendered shadows underneath models
-- "cl_glowmodels 1" - Show models with a glow effect if available
-- "cl_flashonpickup 1" - Flash HUD when picking up a weapon or item
+- "cl_oldscoreboard [0|1]" - Old Scoreboard - To switch between old and new style scoreboards
+- "cl_oldmotd [0|1]" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
+- "cl_viewroll [0|1]" - Old View Roll - To switch between view roll during movement
+- "cl_bobtilt [0|1]" - Old Bob Tilt - To switch between bob tilt walking animation
+- "cl_righthand [0|1]" - Right-Hand Models - To switch between right and left-handed models
+- "cl_bulletsmoke [0|1]" - Bullet Smoke - To switch between bullets creating smoke where they land
+- "cl_gunsmoke [0|1]" - Gun Smoke - To switch between weapons creating smoke when fired
+- "cl_glasshud [0|1]" - Glass Hud - To switch elements of the hud bouncing/bobbing on or off
+- "cl_weaponsway [0|1]" - Weapon Sway - To switch between view models swaying with turn movement
+- "cl_weaponfidget [0|1]" - Weapon Fidget - To switch between view models fidgeting with jump landings
+- "cl_weaponretract [0|1]" - Weapon Retracts - To switch between view models that retract against walls
+- "cl_playpoint [0|1]" - Play buzzer/bell when frag achieved - To switch on/off playing this sound effect
+- "cl_announcehumor [0|1]" - Play voice announce / humor on weapons - To switch on/off playing these sound effects
+- "cl_showtips [0|1]" - Show helpful text tips during gameplay
+- "cl_shadows [0|1]" - Show rendered shadows underneath models
+- "cl_glowmodels [0|1]" - Show models with a glow effect if available
+- "cl_flashonpickup [0|1]" - Flash HUD when picking up a weapon or item
 - "cl_autowepswitch [0|1]" - auto switches weapon on pickup
 - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
 - "cl_achievements [0|1|2|3]" - show or hide sprees achievements
@@ -432,24 +434,24 @@ Server:
 
 - "help_server" - Displays specific server Cold Ice Remastered options
 - "addbot" - Add a bot
-- "botdontshoot 0" - Enable or disable bots attacking others
-- "mp_grapplinghook 1" - Allow grappling hook on server
+- "botdontshoot [0|1]" - Enable or disable bots attacking others
+- "mp_grapplinghook [0|1]" - Allow grappling hook on server
 - "mp_grapplinghookdeploytime 1.0" - Time (seconds) when the next grappling hook can deploy
-- "mp_grapplesky 1" - Allow player to grapple the sky
+- "mp_grapplesky [0|1]" - Allow player to grapple the sky
 - "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun"" Modify the player's spawn weapons
-- "mp_allowrunes 1" - Allow powerup runes on server
-- "mp_holsterweapons 1" - Holstering weapons for more realistic gameplay
-- "mp_floatingweapons 1" - Floating world weapons ala Quake
-- "mp_infiniteammo 1" - Infinite ammo ala CS 1.6
+- "mp_allowrunes [0|1]" - Allow powerup runes on server
+- "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay
+- "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
+- "mp_infiniteammo [0|1|2]" - Infinite ammo ala CS 1.6
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
-- "mp_iceblood 1" - Enable blue blood
-- "mp_moreblood 2" - Increase blood up to 0-5 times
-- "mp_startwithall 0" - Start with all weapons
-- "mp_allowvoiceovers 1" - Allow public voiceovers
-- "mp_dualsonly 0" - Allow dual weapons only
+- "mp_iceblood [0|1]" - Enable blue blood
+- "mp_moreblood [0|2]" - Increase blood up to 0-5 times
+- "mp_startwithall [0|1]" - Start with all weapons
+- "mp_allowvoiceovers [0|1]" - Allow public voiceovers
+- "mp_dualsonly [0|1]" - Allow dual weapons only
 - "sv_jumpheight 45" - Adjustable player's jump height
-- "mp_icesprites 1" - Switch between select ice and real environment sprites
+- "mp_icesprites [0|1]" - Switch between select ice and real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_mutators" - Add mutators to gameplay
@@ -463,6 +465,7 @@ Server:
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
 - "sv_weather [0|1]" - enable or disable all weather effects on the server
+- "mp_randommutators [0|1]" selects three random mutators on change map change
 
 Report Bugs:
 

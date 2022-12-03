@@ -95,6 +95,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] 10x mode (yai boi)
         1. [ ] Floor is ice: slip and slide everywhere, grenades and launchers only (yai boi)
         1. [ ] Loopback (spawn to where you killed someone)
+        1. [ ] Santa Hat (add hats to players, shoot off)
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -104,6 +105,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
+    1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
 1. Gameplay
     1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
 1. Weapons
@@ -325,7 +327,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
     1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
-    1. [ ] fgd file
+    1. [x] fgd file
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
