@@ -88,8 +88,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Turret - sentrys spawned and fire at people randomly
         1. [ ] Floor is lava
         1. [ ] Slowmo
-        1. [ ] Superjump
-        1. [ ] Superfast
+        1. [x] Superjump
+        1. [x] Superfast
         1. [ ] Tiktok - exploder (random explosions of people)
         1. [ ] Floor is lava
         1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea

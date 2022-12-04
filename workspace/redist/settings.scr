@@ -248,6 +248,8 @@ DESCRIPTION SERVER_OPTIONS
 			"plumber" "4"
 			"paintball" "5"
 			"dkmode" "6"
+			"superjump" "7"
+			"megaspeed" "8"
 		}
 		{ "0" }
 	}

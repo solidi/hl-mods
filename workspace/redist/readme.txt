@@ -25,12 +25,14 @@ Beta 3 Features:
     - Reduced punchangle while using ironsights
 - Game Modes
     - Mutators - supports combination and randomly selected
-        - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
-        - "instagib" - battle exclusively with railguns that dole one hit kills
+        - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+        - "instagib" - spawn with dual railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
-        - "plumber" - players only battle with pipe wrenches
+        - "plumber" - spawn with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
         - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
+        - "superjump" - jump three times the height, disables fall damage
+        - "megaspeed" - run 50% faster
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements
@@ -460,12 +462,14 @@ Server:
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_mutators" - Add mutators to gameplay
-    - "rocketcrowbar" - includes rocket crowbar on spawn, makes all rockets act drunk
-    - "instagib" - battle exclusively with railguns that dole one hit kills
+    - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+    - "instagib" - spawn with dual railguns that dole one hit kills
     - "volatile" - where players blow up when fragged
-    - "plumber" - players only battle with pipe wrenches
+    - "plumber" - spawn with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
     - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
+    - "superjump" - jump three times the height, disables fall damage
+    - "megaspeed" - run 50% faster
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
