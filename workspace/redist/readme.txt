@@ -61,6 +61,8 @@ Beta 3 Features:
     - "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
     - "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
     - "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
+    - "cl_hudscale" - experimental scaling factor of HUD elements
+    - "cl_hudbend" - experimental bending factor of HUD elements
     - Railgun now has a glow model
     - Added default_fov setting to configuration menu
 - Server
@@ -429,6 +431,8 @@ Client:
 - "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
 - "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
 - "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
+- "cl_hudscale" - experimental scaling factor of HUD elements
+- "cl_hudbend" - experimental bending factor of HUD elements
 
 Server:
 
@@ -526,7 +530,7 @@ Thanks To:
 - AudioCraZ for the dedicated server and last minute testing for Beta 1
 - Napoleon for 64+ weapon support tutorial, game icons, and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
 - Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
-- BlueNightHawk for thicker crosshairs from New Light https://www.moddb.com/mods/half-life-new-light
+- BlueNightHawk for thicker crosshairs and scalable HUD from New Light https://www.moddb.com/mods/half-life-new-light
 - Illya and Ku2zoff for plasma rifle / freeze gun code, CSO's plasma gun model https://cso.fandom.com/wiki/Plasma_Gun
 - Zarko 'Napoleon' Dinev for crossfire2k source as reskinned as snowcross https://gamebanana.com/mods/59331
 - BlackShadow306 for the cl_shadows tutorial https://twhl.info/thread/view/20220 
