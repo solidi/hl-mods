@@ -89,6 +89,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Floor is lava
         1. [ ] Slowmo
         1. [ ] Superjump
+        1. [ ] Superfast
         1. [ ] Tiktok - exploder (random explosions of people)
         1. [ ] Floor is lava
         1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
@@ -130,6 +131,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] doublecross (doublefrost)
     1. [x] mill (reboot)
     1. [x] chillworks (gasworks reskin)
+    1. [x] frenzy (frosty)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
@@ -332,7 +334,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
-    1. [ ] frenzy (frosty)
     1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)
     1. [ ] undertow (???)

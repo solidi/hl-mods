@@ -42,8 +42,7 @@ Beta 3 Features:
     - "impulse 212" supports a kick back flip
 - Off-handed Grenade Throw
     - "impulse 209" supports throwing a grenade if available
-- Maps
-    - Improvements to Drift (night time), Depot (improved lighting)
+- New Maps
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
@@ -51,6 +50,7 @@ Beta 3 Features:
     - doublefrost, a rebuild of doublecross by Dario Casali and reskinned by Napoleon
     - themill, a map by Panic and rebuilt by Napoleon
     - chillworks, a rebuild of gasworks by Randy Lundeen and rebuilt and reskinned by AudioCraZ
+    - frosty, a rebuild of frenzy by Dario Casali and rebuilt and reskinned by AudioCraZ
 - Environment
     - Added snow weather effect!
 - Client Support
@@ -78,6 +78,7 @@ Beta 3 Features:
     - Mod package includes fgd for map development
 - Fixes
     - Maps
+        - Improvements to Drift (night time), Depot (improved lighting)
         - Even more spawn point angle corrections
         - Patched hole in training2
     - Fixed rocket sound effects
