@@ -156,15 +156,28 @@ DESCRIPTION SERVER_OPTIONS
 	"mp_infiniteammo"
 	{
 		"#Ice_InfiniteAmmo"
-		{ NUMBER 0.000000 2.000000 }
+		{
+			LIST
+			"Off" "0"
+			"All" "1"
+			"Reload Clips" "2"
+		}
 		{ "0" }
 	}
 
 	"mp_moreblood"
 	{
 		"#Ice_MoreBlood"
-		{ NUMBER 0.000000 5.000000 }
-		{ "0" }
+		{
+			LIST
+			"None" "0"
+			"Little" "1"
+			"Some" "2"
+			"More" "3"
+			"Lots" "4"
+			"Omg" "5"
+		}
+		{ "2" }
 	}
 
 	"mp_startwithall"
