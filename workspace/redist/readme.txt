@@ -24,7 +24,7 @@ Beta 3 Features:
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
 - Game Modes
-    - Mutators - supports combination and randomly selected
+    - 12 Mutators - supports combination and randomly selected
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
@@ -33,6 +33,10 @@ Beta 3 Features:
         - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
         - "superjump" - jump three times the height, disables fall damage
         - "megaspeed" - run 50% faster
+        - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
+        - "slowmo" - everything is slowed down by half!
+        - "ice" - all the ground is covered in ice
+        - "topsyturvy" - everything is turned upside down
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements
@@ -470,6 +474,10 @@ Server:
     - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
     - "superjump" - jump three times the height, disables fall damage
     - "megaspeed" - run 50% faster
+    - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
+    - "slowmo" - everything is slowed down by half!
+    - "ice" - all the ground is covered in ice
+    - "topsyturvy" - everything is turned upside down
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all

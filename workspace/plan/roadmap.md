@@ -82,19 +82,19 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             1. [ ] Light effects all firing
         1. [ ] Tiny
         1. [ ] Snowball
-        1. [ ] [topsy-turvy](https://youtu.be/MJPoK3qEQMM?t=82)
-            1. [ ] Random three like [Reelism](https://reelism.dog/)
+        1. [x] [topsy-turvy](https://youtu.be/MJPoK3qEQMM?t=82)
+            1. [x] Random three like [Reelism](https://reelism.dog/)
         1. [ ] RandomNuke - idea by Mitchell The BoneLord
         1. [ ] Turret - sentrys spawned and fire at people randomly
         1. [ ] Floor is lava
-        1. [ ] Slowmo
+        1. [x] Slowmo
         1. [x] Superjump
         1. [x] Superfast
         1. [ ] Tiktok - exploder (random explosions of people)
         1. [ ] Floor is lava
         1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
         1. [ ] 10x mode (yai boi)
-        1. [ ] Floor is ice: slip and slide everywhere, grenades and launchers only (yai boi)
+        1. [x] Floor is ice: slip and slide everywhere, grenades and launchers only (yai boi)
         1. [ ] Loopback (spawn to where you killed someone)
         1. [ ] Santa Hat (add hats to players, shoot off)
     1. [ ] Capture the Chumtoad
@@ -143,7 +143,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Add text about rune and what it does
 1. Client Support
     1. [x] cl_autoweaponswitch
-    1. [ ] cl_hudscale
+    1. [x] cl_hudscale
     1. [x] Better labeling of runes
     1. [ ] Russian translations
 1. Support

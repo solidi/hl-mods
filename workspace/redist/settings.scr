@@ -250,6 +250,10 @@ DESCRIPTION SERVER_OPTIONS
 			"dkmode" "6"
 			"superjump" "7"
 			"megaspeed" "8"
+			"lightsout" "9"
+			"slowmo" "10"
+			"ice" "11"
+			"topsyturvy" "12"
 		}
 		{ "0" }
 	}
