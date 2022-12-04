@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.96
+	ORIGIN	-272 	0	392
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/frosty.bmp"
+	HEIGHT	-1
+}

@@ -20,3 +20,4 @@ snowtransit
 doublefrost
 themill
 chillworks
+frosty

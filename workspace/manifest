@@ -107,6 +107,9 @@ maps\themill.bsp
 maps\themill.wpt
 maps\chillworks.bsp
 maps\chillworks.wpt
+maps\frosty.bsp
+maps\frosty.wpt
+maps\frosty.txt
 media
 media\gamestartup.mp3
 models
@@ -344,6 +347,8 @@ overviews\fences.bmp
 overviews\fences.txt
 overviews\focus.bmp
 overviews\focus.txt
+overviews\frosty.bmp
+overviews\frosty.txt
 overviews\furrow.bmp
 overviews\furrow.txt
 overviews\ice_pit.bmp

@@ -100,7 +100,7 @@ function Compile-Map {
     Write-Wad-Config $mapsDir $wadsDir
 
     # Clean directory if compile was unsuccessful last time
-    Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*wpt -Force -ErrorAction Ignore
+    Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*.wpt,*.txt -Force -ErrorAction Ignore
 
     Set-Location -Path $binDir
     Write-Output "Compiling map $target..."
@@ -129,9 +129,10 @@ function Compile-Map {
         exit
     }
     Move-Item $mapsDir\$target\$target.bsp $redistDir\maps\$target.bsp -Force
+    Copy-Item $mapsDir\$target\$target.txt $redistDir\maps\$target.txt -Force -ErrorAction Ignore
 
     Compile-WPT $binDir $target $redistDir
 
-    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt | Remove-Item -Force -ErrorAction Ignore
+    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.txt | Remove-Item -Force -ErrorAction Ignore
     Write-Output "Done compiling $target.bsp."
 }

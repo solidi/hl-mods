@@ -3,6 +3,7 @@
 "skyname" "cirnightmont1"
 "message" "Chill Works (gasworks remaster for Cold Ice Remastered) by AudioCraZ"
 "mapversion" "220"
+"MaxRange" "8192"
 "wad" "\workspace\wads\coldice.wad;\workspace\wads\halflife.wad;\workspace\wads\xeno.wad;\workspace\wads\liquids.wad;\workspace\wads\decals.wad"
 "_generator" "J.A.C.K. 1.1.2800 (vpHalfLife)"
 {
