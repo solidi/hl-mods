@@ -97,6 +97,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Floor is ice: slip and slide everywhere, grenades and launchers only (yai boi)
         1. [ ] Loopback (spawn to where you killed someone)
         1. [ ] Santa Hat (add hats to players, shoot off)
+        1. [ ] chumtoads from explosions
+        1. [ ] penguins in place of toads
+        1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
+        1. [ ] random weapon
+        1. [ ] speedup (75% faster)
+        1. [ ] eat gibs
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".

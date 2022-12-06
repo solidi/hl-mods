@@ -24,6 +24,7 @@ Beta 3 Features:
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
 - Game Modes
+    - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
     - 12 Mutators - supports combination and randomly selected
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
@@ -73,12 +74,16 @@ Beta 3 Features:
     - Added default_fov setting to configuration menu
 - Server
     - Added "mp_mutators" to mutate gameplay
+    - Added "mp_gamemode" to select game mode
+    - Added "mp_roundlimit" number of rounds in game mode before map change
+    - Added "mp_roundtimelimit" timelimit in round before rotation
     - Added "mp_spawnweapons [0|1]" to allow weapons to spawn or not
     - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
     - Added "sv_disallowlist" a list of entities that will not spawn
     - Added "mp_nukemode [0|1|2]" how the nuke plays
     - Added "sv_weather [0|1]" - enable or disable all weather effects on the server
     - Added "mp_randommutators [0|1]" selects three random mutators on change map change
+    - Added "sys_timescale" for experimental server time adjustment (slowmo, speedup)
     - Moved remaining hardcoded skill values to skills.cfg
 - Development
     - Mod package includes fgd for map development
@@ -369,7 +374,7 @@ Beta 1 Features:
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
 
-Beta 3 Highly-Valued Upcoming Features:
+Beta 4 Highly-Valued Upcoming Features:
 
 - See more on our living roadmap: https://github.com/solidi/hl-mods/blob/master/workspace/plan/roadmap.md
 
@@ -483,6 +488,12 @@ Server:
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
 - "sv_weather [0|1]" - enable or disable all weather effects on the server
 - "mp_randommutators [0|1]" selects three random mutators on change map change
+- "mp_gamemode" to select game mode
+    - "ffa" - traditional free-for-all deathmatch
+    - "iceman" - iceman arena
+- "mp_roundlimit" number of rounds in game mode before map change
+- "mp_roundtimelimit" timelimit in round before rotation
+- "sys_timescale" for experimental server time adjustment (slowmo, speedup)
 
 Report Bugs:
 

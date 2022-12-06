@@ -1,0 +1,14 @@
+
+
+
+
+
+Iceman Arena!
+
+Rules:
+Commandos, destroy the Iceman within a limited amount of time
+Iceman, destroy all Commandos
+
+Iceman wins a point if dispatching all Recon before time is up
+If the Iceman survives, the commando who doles the most damage wins a point
+Round ends in a draw if no damage is doled to Iceman when time is up

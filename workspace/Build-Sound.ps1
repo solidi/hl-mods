@@ -271,6 +271,11 @@ Copy-Item $soundDir\multikill.wav $redistdir\sound
 Copy-Item $soundDir\ultrakill.wav $redistdir\sound
 Copy-Item $soundDir\monsterkill.wav $redistdir\sound
 Copy-Item $soundDir\wallclimb.wav $redistdir\sound
+Copy-Item $soundDir\prepareforbattle.wav $redistdir\sound
+Copy-Item $soundDir\outstanding.wav $redistdir\sound
+Copy-Item $soundDir\humiliatingdefeat.wav $redistdir\sound
+Copy-Item $soundDir\massacre.wav $redistdir\sound
+Copy-Item $soundDir\killingmachine.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 

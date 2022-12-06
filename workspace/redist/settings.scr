@@ -315,4 +315,18 @@ DESCRIPTION SERVER_OPTIONS
 		}
 		{ "0" }
 	}
+
+	"mp_roundlimit"
+	{
+		"#Ice_RoundLimit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "0.000000" }
+	}
+
+	"mp_roundtimelimit"
+	{
+		"#Ice_RoundTimeLimit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "0.000000" }
+	}
 }
