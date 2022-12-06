@@ -326,6 +326,8 @@ models\w_concretegibs.mdl
 models\v_gravitygun.mdl
 models\w_gravitygun.mdl
 models\p_gravitygun.mdl
+modes
+modes\iceman.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -670,6 +672,11 @@ sound\holyshitkill.wav
 sound\wtfkill.wav
 sound\shart.wav
 sound\wallclimb.wav
+sound\prepareforbattle.wav
+sound\outstanding.wav
+sound\humiliatingdefeat.wav
+sound\massacre.wav
+sound\killingmachine.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
