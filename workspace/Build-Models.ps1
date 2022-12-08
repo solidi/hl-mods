@@ -345,6 +345,9 @@ try {
     Invert-Skin $binDir "v_gravitygun" $modelsdir
     Invert-Skin $binDir "p_gravitygun" $modelsdir
     Invert-Skin $binDir "w_gravitygun" $modelsdir
+    Invert-Skin $binDir "w_barrel" $modelsdir
+    Invert-Skin $binDir "w_cabinet" $modelsdir
+    Invert-Skin $binDir "w_sentry" $modelsdir
 
     Compile-Player "alpina" $binDir $modelsdir $redistDir
     Compile-Player "army" $binDir $modelsdir $redistDir
@@ -651,6 +654,9 @@ try {
     Compile-Model $binDir "v_gravitygun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_gravitygun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_gravitygun" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_barrel" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_cabinet" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_sentry" $modelsdir $redistdir\models
     } else {
         Compile-Player $playerModel $binDir $modelsdir $redistDir
     }

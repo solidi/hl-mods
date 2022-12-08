@@ -25,7 +25,7 @@ Beta 3 Features:
     - Reduced punchangle while using ironsights
 - Game Modes
     - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
-    - 12 Mutators - supports combination and randomly selected
+    - 15 Mutators - supports combination and randomly selected
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
@@ -38,6 +38,9 @@ Beta 3 Features:
         - "slowmo" - everything is slowed down by half!
         - "ice" - all the ground is covered in ice
         - "topsyturvy" - everything is turned upside down
+        - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
+        - "turrets" - random sentry guns random firing bullets and rockets at everyone
+        - "chumxplode" - killer chumtoads appear directly after an explosion
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements
@@ -483,6 +486,9 @@ Server:
     - "slowmo" - everything is slowed down by half!
     - "ice" - all the ground is covered in ice
     - "topsyturvy" - everything is turned upside down
+    - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
+    - "turrets" - random sentry guns random firing bullets and rockets at everyone
+    - "chumxplode" - killer chumtoads appear directly after an explosion
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all

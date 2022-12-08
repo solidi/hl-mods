@@ -326,6 +326,9 @@ models\w_concretegibs.mdl
 models\v_gravitygun.mdl
 models\w_gravitygun.mdl
 models\p_gravitygun.mdl
+models\w_barrel.mdl
+models\w_cabinet.mdl
+models\w_sentry.mdl
 modes
 modes\iceman.txt
 overviews
