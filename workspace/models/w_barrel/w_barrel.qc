@@ -34,7 +34,7 @@ $texturegroup ice
     "barrel_metal2.bmp"
   }
   {
-    "ivnert_barrel_metal2.bmp"
+    "invert_barrel_metal2.bmp"
   }
   {
     "..\ringchrome.bmp"
