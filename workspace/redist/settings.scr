@@ -226,7 +226,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_Interactive_Items"
 		{ STRING }
-		{ "grenade;monster_satchel;monster_chumtoad;monster_snark" }
+		{ "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel" }
 	}
 
 	"mp_snowballfight"
@@ -254,6 +254,9 @@ DESCRIPTION SERVER_OPTIONS
 			"slowmo" "10"
 			"ice" "11"
 			"topsyturvy" "12"
+			"barrels" "13"
+			"turrets" "14"
+			"chumxplode" "15"
 		}
 		{ "0" }
 	}
