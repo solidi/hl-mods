@@ -250,7 +250,7 @@ DESCRIPTION SERVER_OPTIONS
 			"paintball" "6"
 			"dkmode" "7"
 			"superjump" "8"
-			"megaspeed" "9"
+			"megarun" "9"
 			"lightsout" "10"
 			"slowmo" "11"
 			"ice" "12"
@@ -263,6 +263,9 @@ DESCRIPTION SERVER_OPTIONS
 			"sanic" "19"
 			"loopback" "20"
 			"maxpack" "21"
+			"infiniteammo" "22"
+			"randomweapon" "23"
+			"speedup" "24"
 		}
 		{ "0" }
 	}

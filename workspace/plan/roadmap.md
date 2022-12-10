@@ -100,8 +100,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] chumtoads from explosions
         1. [ ] penguins in place of toads
         1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
-        1. [ ] random weapon
-        1. [ ] speedup (75% faster)
+        1. [x] random weapon
+        1. [x] speedup (75% faster)
         1. [x] eat gibs
         1. [x] sanic
         1. [x] maxpack
