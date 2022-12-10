@@ -34,7 +34,7 @@ Beta 3 Features:
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
         - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
         - "superjump" - jump three times the height, disables fall damage
-        - "megaspeed" - run 50% faster
+        - "megarun" - run 50% faster
         - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
         - "slowmo" - everything is slowed down by half!
         - "ice" - all the ground is covered in ice
@@ -493,7 +493,7 @@ Server:
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
     - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
     - "superjump" - jump three times the height, disables fall damage
-    - "megaspeed" - run 50% faster
+    - "megarun" - run 50% faster
     - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
     - "slowmo" - everything is slowed down by half!
     - "ice" - all the ground is covered in ice
