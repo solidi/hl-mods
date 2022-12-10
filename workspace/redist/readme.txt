@@ -25,8 +25,8 @@ Beta 3 Features:
     - Reduced punchangle while using ironsights
 - Game Modes
     - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
-    - 22 Mutators - supports combination and randomly selected
-        - "chaos" - randomly selects three mutators every 30 seconds!
+    - 25 Mutators - supports combination and randomly selected
+        - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
@@ -47,6 +47,9 @@ Beta 3 Features:
         - "sanic" - evil santa and sanic with a santa hat team up against you
         - "loopback" - teleport to the place of your last frag
         - "maxpack" - drop all weapons and ammo in play
+        - "infiniteammo" - all weapons have infinite ammo
+        - "randomweapon" - spawn with a randomly selected weapon
+        - "speedup" - everything is sped up by half!
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements
@@ -503,6 +506,9 @@ Server:
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "loopback" - teleport to the place of your last frag
     - "maxpack" - drop all weapons and ammo in play
+    - "infiniteammo" - all weapons have infinite ammo
+    - "randomweapon" - spawn with a randomly selected weapon
+    - "speedup" - everything is sped up by half!
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
