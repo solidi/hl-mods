@@ -85,7 +85,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] [topsy-turvy](https://youtu.be/MJPoK3qEQMM?t=82)
             1. [x] Random three like [Reelism](https://reelism.dog/)
         1. [ ] RandomNuke - idea by Mitchell The BoneLord
-        1. [ ] Turret - sentrys spawned and fire at people randomly
+        1. [x] Turret - sentrys spawned and fire at people randomly
         1. [ ] Floor is lava
         1. [x] Slowmo
         1. [x] Superjump
@@ -95,14 +95,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
         1. [ ] 10x mode (yai boi)
         1. [x] Floor is ice: slip and slide everywhere, grenades and launchers only (yai boi)
-        1. [ ] Loopback (spawn to where you killed someone)
-        1. [ ] Santa Hat (add hats to players, shoot off)
-        1. [ ] chumtoads from explosions
+        1. [x] Loopback (spawn to where you killed someone)
+        1. [x] Santa Hat (add hats to players, shoot off)
+        1. [x] chumtoads from explosions
         1. [ ] penguins in place of toads
         1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
         1. [ ] random weapon
         1. [ ] speedup (75% faster)
-        1. [ ] eat gibs
+        1. [x] eat gibs
+        1. [x] sanic
+        1. [x] maxpack
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -142,9 +144,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Realign large blue crate textures so detailed textures is left to right
 1. Models
     1. [ ] Gold Skin? (Radu Matei Ionut)
+    1. [ ] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
 1. Environment
     1. [x] Snow effect / console mechanic/trigger, turn on/off in snowyard
-    1. [ ] Explosive barrels / generator
+    1. [x] Explosive barrels / generator
 1. Runes
     1. [x] Add text about rune and what it does
 1. Client Support

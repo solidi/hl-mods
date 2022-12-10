@@ -92,6 +92,7 @@ try {
     Compile-Sprite $binDir "snowflake" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "rain" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "ripple" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "sanic" $spritesDir $redistdir\sprites
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites

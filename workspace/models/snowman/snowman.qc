@@ -27,6 +27,13 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "body" "snowman"
 
+$bodygroup "hat"
+{
+blank
+blank
+studio "../common/santahat"
+}
+
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
 $attachment 1 "Bip01 R Hand" 15.000000 1.500000 3.750000

@@ -680,6 +680,10 @@ sound\outstanding.wav
 sound\humiliatingdefeat.wav
 sound\massacre.wav
 sound\killingmachine.wav
+sound\merrychristmas.wav
+sound\sleighbell.wav
+sound\hohoho.wav
+sound\delicious.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
@@ -761,6 +765,7 @@ sprites\hud.txt
 sprites\snowflake.spr
 sprites\rain.spr
 sprites\ripple.spr
+sprites\sanic.spr
 liblist.gam
 ReadMe.txt
 settings.scr

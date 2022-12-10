@@ -25,7 +25,8 @@ Beta 3 Features:
     - Reduced punchangle while using ironsights
 - Game Modes
     - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
-    - 15 Mutators - supports combination and randomly selected
+    - 22 Mutators - supports combination and randomly selected
+        - "chaos" - randomly selects three mutators every 30 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
         - "volatile" - where players blow up when fragged
@@ -41,6 +42,11 @@ Beta 3 Features:
         - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
         - "turrets" - random sentry guns random firing bullets and rockets at everyone
         - "chumxplode" - killer chumtoads appear directly after an explosion
+        - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
+        - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas"
+        - "sanic" - evil santa and sanic with a santa hat team up against you
+        - "loopback" - teleport to the place of your last frag
+        - "maxpack" - drop all weapons and ammo in play
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements
@@ -474,6 +480,7 @@ Server:
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_mutators" - Add mutators to gameplay
+    - "chaos" - randomly selects three mutators every 30 seconds!
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
     - "instagib" - spawn with dual railguns that dole one hit kills
     - "volatile" - where players blow up when fragged
@@ -489,6 +496,11 @@ Server:
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
     - "turrets" - random sentry guns random firing bullets and rockets at everyone
     - "chumxplode" - killer chumtoads appear directly after an explosion
+    - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
+    - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas"
+    - "sanic" - evil santa and sanic with a santa hat team up against you
+    - "loopback" - teleport to the place of your last frag
+    - "maxpack" - drop all weapons and ammo in play
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
@@ -571,7 +583,7 @@ Thanks To:
 - Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
 - Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
 - Dave Johnston for dust, and AudioCraZ for his reskin called "drift"
-- suXin and the Half-Payne team for the dual mag60 animations https://www.moddb.com/mods/half-payne
+- suXin and the Half-Payne team for the dual mag60 animations, and mutator inspiration https://www.moddb.com/mods/half-payne
 - Laser for the rocketcrowbar standard model https://gamebanana.com/mods/38100
 - Dario Casali for the original boot_camp, Napoleon for the rebuild, and AudioCraZ for the reskin of snow_camp
 - Romka, A.I., Valve (PS HD Pack), Napoleon for the baer model
@@ -591,3 +603,6 @@ Thanks To:
 - Bacontsu for wall climbing and other grappling from Codename Borea https://github.com/bacontsu/codename-borea/
 - Spirit of Half-Life for rain and snow effects https://github.com/HLSources/Spirit-of-Half-Life
 - FreeSlave for the latest Half-Life forge game data file (.fgd) https://github.com/FreeSlave/halflife-fgd
+- Dmitry for the video game cabinet model
+- Santa sound effects and delicious! from various youtube sources
+- Sanic and Evil Santa art from their perspective authors 

@@ -122,6 +122,10 @@ Compile-Sound $binDir $redistDir $soundDir "ut-ludicrous-kill-sound.mp3" 2.0 "so
 Compile-Sound $binDir $redistDir $soundDir "ut-holy-shit-sound-effect.mp3" 1.0 "sound\holyshitkill.wav" "wav" 1.0 4.8
 Compile-Sound $binDir $redistDir $soundDir "what-the-f.mp3" 2.0 "sound\wtfkill.wav" "wav" 0.3 2.3
 Compile-Sound $binDir $redistDir $soundDir "shart-sound-effect.mp3" 2.0 "sound\shart.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "delicious.mp3" 1.0 "sound\delicious.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "hohoho.mp3" 1.0 "sound\hohoho.wav" "wav" 9 12
+Compile-Sound $binDir $redistDir $soundDir "sleighbell.mp3" 1.0 "sound\sleighbell.wav" "wav" 0 3
+Compile-Sound $binDir $redistDir $soundDir "merrychristmas.mp3" 1.0 "sound\merrychristmas.wav" "wav"
 }
 catch
 {
