@@ -38,15 +38,16 @@ studio "haste"
 studio "gravity"
 studio "power"
 studio "cloak"
+studio "cir"
 }
 
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "origin" -9.940000 0.000000 -9.830000 10.050000 24.000000 9.410000
 $hbox 0 "ring1" -16.580000 -0.880000 -16.070000 16.480000 1.000000 15.830000
 $hbox 0 "ring2" -16.580000 -0.800000 -16.070000 16.480000 1.080000 15.830000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 16 loop ACT_IDLE 1 
 
 // End of QC script.

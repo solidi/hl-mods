@@ -11,7 +11,7 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 3 Features:
 
-- New Weapons
+- 3 New Weapons
     - Rocket Crowbar
         - Swing / Swing + Fire Drunk Rocket
     - Dual Railgun
@@ -56,9 +56,10 @@ Beta 3 Features:
     - "impulse 210" supports rolling kicking to the right
     - "impulse 211" supports rolling kicking to the left
     - "impulse 212" supports a kick back flip
+    - Improved kick and punch animations
 - Off-handed Grenade Throw
     - "impulse 209" supports throwing a grenade if available
-- New Maps
+- 8 New Maps
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
@@ -113,6 +114,7 @@ Beta 3 Features:
         - Patched floating weapon models as players
     - More server patches to avoid crashing
     - Fixed sliding mechanic in single player
+    - Improved sliding hit register, slide immediately
 
 Beta 2 Features:
 
@@ -583,7 +585,7 @@ Thanks To:
 - Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
 - Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
 - Dave Johnston for dust, and AudioCraZ for his reskin called "drift"
-- suXin and the Half-Payne team for the dual mag60 animations, and mutator inspiration https://www.moddb.com/mods/half-payne
+- suXin and the Half-Payne team for the dual mag60 animations https://www.moddb.com/mods/half-payne
 - Laser for the rocketcrowbar standard model https://gamebanana.com/mods/38100
 - Dario Casali for the original boot_camp, Napoleon for the rebuild, and AudioCraZ for the reskin of snow_camp
 - Romka, A.I., Valve (PS HD Pack), Napoleon for the baer model
@@ -595,7 +597,7 @@ Thanks To:
 - sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE
 - Strast for boosting our discord server and suggesting a toggle on grappling to the sky
 - BlueNightHawk for the gravity gun code https://github.com/BlueNightHawk/hl-gravgun
-- Reworked animations of player somersaults from The Specialists https://www.moddb.com/mods/the-specialists
+- Reworked animations of player somersaults and melees from The Specialists https://www.moddb.com/mods/the-specialists
 - Bo9da for testing and providing clear feedback on beta 2, and the idea of default_fov in config
 - Vertthrasher, Trusty Crowbar Team, H4wk, Thanez and others for the portal / gravity gun fusion model https://gamebanana.com/mods/180491
 - Balls in Yo Jaws for the Shart effect https://www.youtube.com/watch?v=ApU26gcYfkA
@@ -605,4 +607,5 @@ Thanks To:
 - FreeSlave for the latest Half-Life forge game data file (.fgd) https://github.com/FreeSlave/halflife-fgd
 - Dmitry for the video game cabinet model
 - Santa sound effects and delicious! from various youtube sources
-- Sanic and Evil Santa art from their perspective authors 
+- Sanic and Evil Santa art from their perspective authors
+- suXin for sys_timescale support and deep mutator inspirations https://github.com/suXinjke/HalfPayne

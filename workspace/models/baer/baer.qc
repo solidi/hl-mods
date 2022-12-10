@@ -97,7 +97,7 @@ $sequence "headshot" "headshot" fps 24 ACT_DIE_HEADSHOT 4 { event 2001 22 }
 $sequence "die_spin" "die_spin" fps 30 ACT_DIE_HEADSHOT 1 { event 2001 16 } 
 $sequence "gutshot" "gutshot" fps 26 ACT_DIE_GUTSHOT 1 { event 2001 22 } 
 $sequence "ref_aim_crowbar" "ref_aim_crowbar_blend1" "ref_aim_crowbar_blend2" blend XR -45 45 fps 12 loop 
-$sequence "ref_shoot_crowbar" "ref_shoot_crowbar_blend1" "ref_shoot_crowbar_blend2" blend XR -45 45 fps 24 ACT_PUNCH 4
+$sequence "ref_shoot_crowbar" "ref_shoot_crowbar_blend1" "ref_shoot_crowbar_blend2" blend XR -45 45 fps 24
 $sequence "crouch_aim_crowbar" "crouch_aim_crowbar_blend1" "crouch_aim_crowbar_blend2" blend XR -45 45 fps 12 loop 
 $sequence "crouch_shoot_crowbar" "crouch_shoot_crowbar_blend1" "crouch_shoot_crowbar_blend2" blend XR -45 45 fps 24 
 $sequence "ref_aim_trip" "ref_aim_trip_blend1" "ref_aim_trip_blend2" blend XR -45 45 fps 12 loop 
@@ -170,6 +170,7 @@ $sequence "slide" "../common/slide" fps 10 ACT_SLIDE 1
 $sequence "right_flip" "../common/wheel_r" LX LY fps 40 ACT_RIGHT_FLIP 1 
 $sequence "left_flip" "../common/wheel_l" LX LY fps 40 ACT_LEFT_FLIP 1 
 $sequence "back_flip" "../common/wheel_b" LX LY fps 40 ACT_BACK_FLIP 1 
-$sequence "pullup" "../common/pullup" fps 40 ACT_PULL_UP 1 
+$sequence "pullup" "../common/pullup" fps 30 ACT_PULL_UP 1 
+$sequence "punch" "../common/punch" fps 40 ACT_PUNCH 1 
 
 // End of QC script.
