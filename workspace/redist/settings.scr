@@ -267,7 +267,21 @@ DESCRIPTION SERVER_OPTIONS
 			"randomweapon" "23"
 			"speedup" "24"
 		}
+		{ "1" }
+	}
+
+	"mp_randommutators"
+	{
+		"#Ice_RandomMutators"
+		{ BOOL }
 		{ "0" }
+	}
+
+	"mp_chaostime"
+	{
+		"#Ice_ChaosTime"
+		{ BOOL }
+		{ "45" }
 	}
 
 	"mp_spawnweapons"

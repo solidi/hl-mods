@@ -96,6 +96,7 @@ Beta 3 Features:
     - Added "mp_nukemode [0|1|2]" how the nuke plays
     - Added "sv_weather [0|1]" - enable or disable all weather effects on the server
     - Added "mp_randommutators [0|1]" selects three random mutators on change map change
+    - Added "mp_chaostime" - how many seconds until chaos mutators are rotated
     - Added "sys_timescale" for experimental server time adjustment (slowmo, speedup)
     - Moved remaining hardcoded skill values to skills.cfg
 - Development
@@ -118,6 +119,7 @@ Beta 3 Features:
     - More server patches to avoid crashing
     - Fixed sliding mechanic in single player
     - Improved sliding hit register, slide immediately
+    - Fixed dead players picking up runes
 
 Beta 2 Features:
 
@@ -514,6 +516,7 @@ Server:
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
 - "sv_weather [0|1]" - enable or disable all weather effects on the server
 - "mp_randommutators [0|1]" selects three random mutators on change map change
+- "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_gamemode" to select game mode
     - "ffa" - traditional free-for-all deathmatch
     - "iceman" - iceman arena
