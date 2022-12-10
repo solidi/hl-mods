@@ -29,6 +29,12 @@ $body "body" "bear_body_full"
 
 $body "head" "bear_head_full"
 
+$bodygroup "hat"
+{
+blank
+blank
+studio "../common/santahat"
+}
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
