@@ -618,3 +618,4 @@ Thanks To:
 - Santa sound effects and delicious! from various youtube sources
 - Sanic and Evil Santa art from their perspective authors
 - suXin for sys_timescale support and deep mutator inspirations https://github.com/suXinjke/HalfPayne
+- Santa hat and winter accessories converted from CSO https://cso.fandom.com/wiki/Santa_hat

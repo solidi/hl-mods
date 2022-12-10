@@ -31,7 +31,7 @@ $bodygroup "hat"
 {
 blank
 blank
-studio "../common/santahat"
+studio "../common/santahat2"
 }
 
 // attachment(s)
