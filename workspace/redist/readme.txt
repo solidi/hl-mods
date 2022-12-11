@@ -24,10 +24,11 @@ Beta 3 Features:
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
 - Game Modes
-    - 3 Game Modes (mp_gamemode)
+    - 4 Game Modes (mp_gamemode)
         - "ffa" - Free for All - the gold standard, deathmatch.
         - "iceman" - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
         - "lms" - Last Man Standing - protect your lives be the last person standing to win
+        - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - 25 Mutators - supports combination and randomly selected (mp_mutators)
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
@@ -94,6 +95,7 @@ Beta 3 Features:
     - Added "mp_gamemode" to select game mode
     - Added "mp_roundlimit" number of rounds in game mode before map change
     - Added "mp_roundtimelimit" timelimit in round before rotation
+    - Added "mp_roundfraglimit" fraglimit in round before rotation, used for arena
     - Added "mp_startwithlives" amount of starting lives in last man standing
     - Added "mp_spawnweapons [0|1]" to allow weapons to spawn or not
     - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
@@ -526,8 +528,10 @@ Server:
     - "ffa" - traditional free-for-all deathmatch
     - "iceman" - iceman arena, defeat the iceman in a it vs them battle
     - "lms" - last man standing, protect your lives be the last person standing to win
+    - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation
+- "mp_roundfraglimit" fraglimit in round before rotation, used for arena
 - "mp_startwithlives" amount of starting lives in last man standing
 - "sys_timescale" for experimental server time adjustment (slowmo, speedup)
 
