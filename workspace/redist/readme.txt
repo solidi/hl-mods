@@ -93,6 +93,7 @@ Beta 3 Features:
     - Added "mp_gamemode" to select game mode
     - Added "mp_roundlimit" number of rounds in game mode before map change
     - Added "mp_roundtimelimit" timelimit in round before rotation
+    - Added "mp_startwithlives" amount of starting lives in last man standing
     - Added "mp_spawnweapons [0|1]" to allow weapons to spawn or not
     - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
     - Added "sv_disallowlist" a list of entities that will not spawn
@@ -526,6 +527,7 @@ Server:
     - "lms" - last man standing, protect your lives be the last person standing to win
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation
+- "mp_startwithlives" amount of starting lives in last man standing
 - "sys_timescale" for experimental server time adjustment (slowmo, speedup)
 
 Report Bugs:
