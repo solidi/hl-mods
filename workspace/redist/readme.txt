@@ -110,6 +110,7 @@ Beta 3 Features:
     - Moved remaining hardcoded skill values to skills.cfg
 - Development
     - Mod package includes fgd for map development
+    - titles.txt updated with team credits
 - Fixes
     - Maps
         - Improvements to Drift (night time), Depot (improved lighting)

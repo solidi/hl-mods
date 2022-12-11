@@ -19,7 +19,7 @@ $effect 2
 // This is the final color
 $color 100 100 100
 // This is the highlight color
-$color2 240 110 0
+$color2 0 113 230
 // This is the time it takes to fade each character
 $fadein 0.01
 // This is the amount of time the highlight lags behind the leading edge of the text
@@ -51,152 +51,152 @@ $holdtime 1.2
 
 CR1
 {
-Ted Backman
+Surreal
 }
 
 CR2
 {
-TK Backman
+Napoleon
 }
 
 CR3
 {
-Kelly Bailey
+AudioCraZ
 }
 
 CR4
 {
-Yahn Bernier
+Infinity
 }
 
 CR5
 {
-Ken Birdwell
+Coconutmonkey28
 }
 
 CR6
 {
-Steve Bond
+SSJ_MicroHack
 }
 
 CR7
 {
-Dario Casali
+HUDSON
 }
 
 CR8
 {
-John Cook
+Plug
 }
 
 CR9
 {
-Greg Coomer
+Jope
 }
 
 CR10
 {
-Wes Cumberland
+Panic
 }
 
 CR11
 {
-John Guthrie
+Apocalypso
 }
 
 CR12
 {
-Mona Lisa Guthrie
+Devious
 }
 
 CR13
 {
-Mike Harrington
+Cyrus258
 }
 
 CR14
 {
-Monica Harrington
+Schrade
 }
 
 CR15
 {
-Brett Johnson
+tommyd
 }
 
 CR16
 {
-Chuck Jones
+ToonCop
 }
 
 CR17
 {
-Marc Laidlaw
+DarkCloud14
 }
 
 CR18
 {
-Karen Laur
+Split Spine
 }
 
 CR19
 {
-Randy Lundeen
+Gitbgff
 }
 
 CR20
 {
-Yatsze Mark
+EnemeyZero
 }
 
 CR21
 {
-Lisa Mennet
+Kurayamikage
 }
 
 CR22
 {
-Gabe Newell
+The Quamosity
 }
 
 CR23
 {
-Dave Riller
+ssfcgasl'sgo!
 }
 
 CR24
 {
-Aaron Stackpole
+TheSpacePirate
 }
 
 CR25
 {
-Jay Stelly
+Radiation Hazard
 }
 
 CR26
 {
-Harry Teasley 
+Kralich/David
 }
 
 CR35
 {
-Steve Theodore
+BlueNightHawk
 }
 
 CR36
 {
-Bill Van Buren
+Bacontsu
 }
 
 CR37
 {
-Robin Walker
+Strast
 }
 
 CR38
 {
-Douglas R. Wood
+And in the future, you?
 }
 
 //END CREDITS
@@ -212,49 +212,46 @@ $holdtime 4
 
 VALVEIS
 {
-Valve is:
+Cold Ice Remastered is:
 }
 
 END1
 {
-Ted Backman
-TK Backman
-Kelly Bailey
-Yahn Bernier
-Ken Birdwell
-Steve Bond
-Dario Casali
-John Cook
-Greg Coomer
-Wes Cumberland
+OG Crew 1999+
+Surreal / Slimshady
+Infinity
+rory
+Coconutmonkey28
+thebabel
+-TCR-CyberSpy
+Devious
+tommyd
+Schrade
+Jope
+Apocalypso
+Panic
 }
 
 END2
 {
-John Guthrie
-Mona Lisa Guthrie
-Mike Harrington
-Monica Harrington
-Brett Johnson
-Chuck Jones
-Marc Laidlaw
-Karen Laur
-Randy Lundeen
-Yatsze Mark
+Rebuild Crew 2000
+AudioCraZ
+DarkCloud14
+CRash&bleED;
+aSsMoNkEy
+AxeL
 }
 
 END3
 {
-Lisa Mennet
-Gabe Newell
-Dave Riller
-Aaron Stackpole
-Jay Stelly
-Harry Teasley
-Steve Theodore
-Bill Van Buren
-Robin Walker
-Douglas R. Wood
+Remastered Crew 2021+
+Surreal
+AudioCraZ
+Napoleon
+TheSpacePirate
+BlueNightHawk
+Bacontsu
+Radiation Hazard
 }
 
 //INTRO TITLES
