@@ -24,11 +24,12 @@ Beta 3 Features:
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
 - Game Modes
-    - 4 Game Modes (mp_gamemode)
+    - 5 Game Modes (mp_gamemode)
         - "ffa" - Free for All - the gold standard, deathmatch.
         - "iceman" - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
         - "lms" - Last Man Standing - protect your lives be the last person standing to win
         - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
+        - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
     - 25 Mutators - supports combination and randomly selected (mp_mutators)
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
@@ -92,7 +93,10 @@ Beta 3 Features:
     - Added default_fov setting to configuration menu
 - Server
     - Added "mp_mutators" to mutate gameplay
+    - Added "mp_randommutators [0|1]" selects three random mutators on map change
+    - Added "mp_chaostime" - how many seconds until chaos mutators are rotated
     - Added "mp_gamemode" to select game mode
+    - Added "mp_randomgamemodes [0|1]" selects a random game mode on map change
     - Added "mp_roundlimit" number of rounds in game mode before map change
     - Added "mp_roundtimelimit" timelimit in round before rotation
     - Added "mp_roundfraglimit" fraglimit in round before rotation, used for arena
@@ -102,8 +106,6 @@ Beta 3 Features:
     - Added "sv_disallowlist" a list of entities that will not spawn
     - Added "mp_nukemode [0|1|2]" how the nuke plays
     - Added "sv_weather [0|1]" - enable or disable all weather effects on the server
-    - Added "mp_randommutators [0|1]" selects three random mutators on change map change
-    - Added "mp_chaostime" - how many seconds until chaos mutators are rotated
     - Added "sys_timescale" for experimental server time adjustment (slowmo, speedup)
     - Moved remaining hardcoded skill values to skills.cfg
 - Development
@@ -518,17 +520,19 @@ Server:
     - "infiniteammo" - all weapons have infinite ammo
     - "randomweapon" - spawn with a randomly selected weapon
     - "speedup" - everything is sped up by half!
+- "mp_randommutators [0|1]" selects three random mutators on map change
+- "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
 - "sv_weather [0|1]" - enable or disable all weather effects on the server
-- "mp_randommutators [0|1]" selects three random mutators on change map change
-- "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_gamemode" to select game mode
     - "ffa" - traditional free-for-all deathmatch
     - "iceman" - iceman arena, defeat the iceman in a it vs them battle
     - "lms" - last man standing, protect your lives be the last person standing to win
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
+    - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
+- "mp_randomgamemodes [0|1]" selects a random game mode on map change
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation
 - "mp_roundfraglimit" fraglimit in round before rotation, used for arena
