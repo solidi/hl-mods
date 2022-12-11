@@ -110,6 +110,9 @@ maps\chillworks.wpt
 maps\frosty.bsp
 maps\frosty.wpt
 maps\frosty.txt
+maps\overflow.bsp
+maps\overflow.wpt
+maps\overflow.txt
 media
 media\gamestartup.mp3
 models
@@ -361,6 +364,8 @@ overviews\ice_pit.bmp
 overviews\ice_pit.txt
 overviews\frozen_bunker.bmp
 overviews\frozen_bunker.txt
+overviews\overflow.bmp
+overviews\overflow.txt
 overviews\snow_camp.bmp
 overviews\snow_camp.txt
 overviews\snowcross.bmp
