@@ -340,8 +340,16 @@ DESCRIPTION SERVER_OPTIONS
 			"iceman" "1"
 			"lms" "2"
 			"arena" "3"
+			"snowball" "4"
 		}
 		{ "0" }
+	}
+
+	"mp_randomgamemodes"
+	{
+		"#Ice_RandomGamemodes"
+		{ BOOL }
+		{ "1" }
 	}
 
 	"mp_roundlimit"

@@ -77,7 +77,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] SlappersOnly
         1. [ ] Rubberband (Players who are at the bottom get max health)
         1. [ ] License to Kill
-        1. [ ] Night-ops (lights out)
+        1. [x] Night-ops (lights out)
             1. [ ] Light up melee weapons
             1. [ ] Light effects all firing
         1. [ ] Tiny
