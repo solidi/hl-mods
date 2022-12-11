@@ -1,0 +1,5 @@
+Last Man Standing
+
+Start with a set number of lives and battle.
+Be the last to stand in the round and receive a round win!
+If time rounds out, the person with the most lives wins.

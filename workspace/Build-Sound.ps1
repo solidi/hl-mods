@@ -280,6 +280,8 @@ Copy-Item $soundDir\outstanding.wav $redistdir\sound
 Copy-Item $soundDir\humiliatingdefeat.wav $redistdir\sound
 Copy-Item $soundDir\massacre.wav $redistdir\sound
 Copy-Item $soundDir\killingmachine.wav $redistdir\sound
+Copy-Item $soundDir\pickupyourweaponsandfight.wav $redistdir\sound
+Copy-Item $soundDir\youarethelastmanstanding.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 
