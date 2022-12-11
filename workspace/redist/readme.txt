@@ -65,7 +65,7 @@ Beta 3 Features:
     - Improved kick and punch animations
 - Off-handed Grenade Throw
     - "impulse 209" supports throwing a grenade if available
-- 8 New Maps
+- 9 New Maps
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
@@ -74,6 +74,7 @@ Beta 3 Features:
     - themill, a map by Panic and rebuilt by Napoleon
     - chillworks, a rebuild of gasworks by Randy Lundeen and rebuilt and reskinned by AudioCraZ
     - frosty, a rebuild of frenzy by Dario Casali and rebuilt and reskinned by AudioCraZ
+    - overflow, a rebuild of undertow by Dario Casali and rebuilt and reskinned by AudioCraZ
 - Environment
     - Added snow weather effect!
 - Client Support

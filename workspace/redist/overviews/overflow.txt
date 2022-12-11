@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.87
+	ORIGIN	-352 	-120	-448
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/overflow.bmp"
+	HEIGHT	-1537
+}
