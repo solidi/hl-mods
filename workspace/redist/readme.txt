@@ -24,8 +24,11 @@ Beta 3 Features:
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
 - Game Modes
-    - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
-    - 25 Mutators - supports combination and randomly selected
+    - 3 Game Modes (mp_gamemode)
+        - "ffa" - Free for All - the gold standard, deathmatch.
+        - "iceman" - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
+        - "lms" - Last Man Standing - protect your lives be the last person standing to win
+    - 25 Mutators - supports combination and randomly selected (mp_mutators)
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
@@ -519,7 +522,8 @@ Server:
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_gamemode" to select game mode
     - "ffa" - traditional free-for-all deathmatch
-    - "iceman" - iceman arena
+    - "iceman" - iceman arena, defeat the iceman in a it vs them battle
+    - "lms" - last man standing, protect your lives be the last person standing to win
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation
 - "sys_timescale" for experimental server time adjustment (slowmo, speedup)
@@ -619,3 +623,4 @@ Thanks To:
 - Sanic and Evil Santa art from their perspective authors
 - suXin for sys_timescale support and deep mutator inspirations https://github.com/suXinjke/HalfPayne
 - Santa hat and winter accessories converted from CSO https://cso.fandom.com/wiki/Santa_hat
+- Unreal Tournament and its series for gameplay and round sound effects https://www.epicgames.com/unrealtournament
