@@ -219,7 +219,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_RandomWeapon"
 		{ BOOL }
-		{ "1" }
+		{ "0" }
 	}
 
 	"mp_interactiveitems"
@@ -339,6 +339,7 @@ DESCRIPTION SERVER_OPTIONS
 			"ffa" "0"
 			"iceman" "1"
 			"lms" "2"
+			"arena" "3"
 		}
 		{ "0" }
 	}
@@ -347,14 +348,21 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_RoundLimit"
 		{ NUMBER 0.000000 -1.000000 }
-		{ "0.000000" }
+		{ "10" }
 	}
 
 	"mp_roundtimelimit"
 	{
 		"#Ice_RoundTimeLimit"
 		{ NUMBER 0.000000 -1.000000 }
-		{ "0.000000" }
+		{ "5" }
+	}
+
+	"mp_roundfraglimit"
+	{
+		"#Ice_RoundFragLimit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "5" }
 	}
 
 	"mp_startwithlives"
