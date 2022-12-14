@@ -25,6 +25,7 @@ function Package-Release {
         $rootDir,
         $redistDir,
         $redistHdDir,
+        $redistSpDir,
         $gameFolder
     )
 
@@ -62,6 +63,12 @@ function Package-Release {
         Rename-Item $env:TEMP\release\redist $env:TEMP\release\$gameFolder
         Copy-Item -Recurse -Force $redistHdDir $env:TEMP\release -ErrorAction Ignore
         Rename-Item $env:TEMP\release\redist_hd $env:TEMP\release\${gameFolder}_hd -ErrorAction Ignore
+        # SP Special package items ---
+        Copy-Item -Recurse -Force $redistSpDir $env:TEMP\release -ErrorAction Ignore
+        Rename-Item $env:TEMP\release\redist_sp $env:TEMP\release\${gameFolder}_sp -ErrorAction Ignore
+        Copy-Item $env:TEMP\release\$gameFolder\readme.txt $env:TEMP\release\${gameFolder}_sp
+        Copy-Item $env:TEMP\release\$gameFolder\config.cfg $env:TEMP\release\${gameFolder}_sp
+        # ---
         Remove-Item $zipFile -Force -ErrorAction Ignore
         Compress-7Zip -Path $env:TEMP\release -ArchiveFileName $zipFile
         Remove-Item $env:TEMP\release -Recurse -Force -ErrorAction Ignore

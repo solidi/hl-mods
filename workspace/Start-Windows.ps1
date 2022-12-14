@@ -70,15 +70,17 @@ Import-Module $PSScriptRoot\powershell\Launch-HL.psm1 -Force -DisableNameCheckin
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
+$redistSpDir = "${rootDir}\redist_sp"
 $gameFolder = $Config['gameFolder'] ?? "ice_beta3"
 $hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $hlexe = $Config['hlExe'] ?? "hl.exe"
 $gameParameters = $Config['gameParameters'] ?? "-console -dev -condebug -gl -windowed -width 640 -height 480"
 $iceDir = "${hldir}\${gameFolder}"
 $icehddir = "${hldir}\${gameFolder}_hd"
+$iceSPDir = "${hldir}\${gameFolder}_sp"
 
 if ($copyDistro) {
-    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir $detailedTextures
+    copyDistributionFiles $rootDir $redistDir $redisthddir $redistSpDir $iceDir $icehddir $iceSPDir $detailedTextures
 }
 
 New-Item $iceDir\game.cfg -Force

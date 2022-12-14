@@ -35,6 +35,7 @@ Import-Module $PSScriptRoot\powershell\Package-Release.psm1 -Force -DisableNameC
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
+$redistSpDir = "${rootDir}\redist_sp"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $gameFolder = $Config['gameFolder'] ?? "ice_beta3"
 
@@ -50,6 +51,11 @@ Remove-Item $redistDir\cl_dlls -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\dlls)
 [void](New-Item -ItemType directory -Path $redistDir\cl_dlls)
 
+# SP
+Remove-Item $redistSpDir\dlls\\* -Recurse -Force -ErrorAction Ignore
+Remove-Item $redistSpDir\dlls -Force -ErrorAction Ignore
+[void](New-Item -ItemType directory -Path $redistSpDir\dlls)
+
 Copy-Item ${RootDir}\libs\dlls\ice.dll $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\grave_bot.dll $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ignore
@@ -59,6 +65,11 @@ Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls -ErrorAction I
 Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls -ErrorAction Ignore
 
+# SP
+Copy-Item ${RootDir}\libs\dlls\ice.dll $redistSpDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistSpDir\dlls -ErrorAction Ignore
+Copy-Item ${RootDir}\libs\dlls\ice.so $redistSpDir\dlls -ErrorAction Ignore
+
 Compile-Font $binDir $redistDir "Arial"
 
 Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
@@ -66,6 +77,7 @@ Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir
     Test-Manifest "${RootDir}\manifest_hd" $redisthddir
+    Test-Manifest "${RootDir}\manifest_sp" $redistSPDir
 }
 
 try {
@@ -78,6 +90,6 @@ try {
     }
 }
 
-Package-Release $rootDir $redistDir $redistHdDir $gameFolder
+Package-Release $rootDir $redistDir $redistHdDir $redistSpDir $gameFolder
 
 Set-Location -Path ${PSScriptRoot}
