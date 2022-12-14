@@ -114,6 +114,8 @@ Beta 3 Features:
     - Mod package includes fgd for map development
     - titles.txt updated with team credits
 - Fixes
+    - Bots
+        - Bots will attack a player with a cloak rune if close
     - Maps
         - Improvements to Drift (night time), Depot (improved lighting)
         - Even more spawn point angle corrections
