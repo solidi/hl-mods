@@ -55,6 +55,8 @@ Beta 3 Features:
         - "infiniteammo" - all weapons have infinite ammo
         - "randomweapon" - spawn with a randomly selected weapon
         - "speedup" - everything is sped up by half!
+- Single Player Gameplay
+    - Adds separate single player folder, ice_beta3_sp, which supports single player
 - Gameplay
     - Unreal Tournament styled spree achievements
         - Fast fragging unlocks awesome announcements

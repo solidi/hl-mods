@@ -38,12 +38,14 @@ $rootDir = ${PSScriptRoot}.Trimend('\')
 $hldir = $Config['hlDir'] ?? "C:\Program Files (x86)\Steam\steamapps\common\half-life"
 $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
+$redistSpDir = "${rootDir}\redist_sp"
 $gameFolder = $Config['gameFolder'] ?? "ice_beta3"
 $iceDir = "${hldir}\${gameFolder}"
 $icehddir = "${hldir}\${gameFolder}_hd"
+$iceSpDir = "${hldir}\${gameFolder}_sp"
 
 if ($unzip -eq $true) {
     unzipDistributionFiles $rootDir $hldir $iceDir $icehddir
 } else {
-    copyDistributionFiles $rootDir $redistDir $redisthddir $iceDir $icehddir $detailedTextures
+    copyDistributionFiles $rootDir $redistDir $redisthddir $redistSpDir $iceDir $icehddir $iceSpDir $detailedTextures
 }

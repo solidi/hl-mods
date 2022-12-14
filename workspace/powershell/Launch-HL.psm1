@@ -4,8 +4,10 @@ function copyDistributionFiles {
         $rootDir,
         $redistDir,
         $redisthddir,
+        $redistSpDir,
         $iceDir,
         $icehddir,
+        $iceSpDir,
         $detailedTextures
     )
 
@@ -13,17 +15,24 @@ function copyDistributionFiles {
 
     Remove-Item $iceDir\\* -Recurse -Force -ErrorAction Ignore
     Remove-Item $icehddir\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $iceSPDir\\* -Recurse -Force -ErrorAction Ignore
     if (!(Test-Path $iceDir)) {
         New-Item -ItemType directory -Path $iceDir
     }
     if (!(Test-Path $icehddir)) {
         New-Item -ItemType directory -Path $icehddir
     }
+    if (!(Test-Path $iceSpDir)) {
+        New-Item -ItemType directory -Path $iceSpDir
+    }
     Copy-Item $rootDir\libs\dlls\ice.dll $redistDir\dlls
+    Copy-Item $rootDir\libs\dlls\ice.dll $redistSpDir\dlls
     Copy-Item $rootDir\libs\dlls\grave_bot.dll $redistDir\dlls
+    Copy-Item $rootDir\libs\dlls\grave_bot_mm.dll $redistDir\dlls
     Copy-Item $rootDir\libs\cl_dlls\client.dll $redistDir\cl_dlls
     Copy-Item $redistdir\\* $iceDir -Recurse -Force
     Copy-Item $redisthddir\\* $icehddir -Recurse -Force
+    Copy-Item $redistSpDir\\* $iceSpDir -Recurse -Force
 
     if ($detailedTextures -eq $true) {
         $detailedTexturesDir = "$rootDir\detailed-textures"
