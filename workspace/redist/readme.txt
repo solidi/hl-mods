@@ -131,6 +131,8 @@ Beta 3 Features:
     - Improved sliding hit register, slide immediately
     - Fixed dead players picking up runes
     - Fix gfx with blue loading graphics
+    - Remove unused leg in v_fists
+    - Patched weapon animation and weapon data crashes
 
 Beta 2 Features:
 

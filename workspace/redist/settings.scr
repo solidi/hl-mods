@@ -349,7 +349,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_RandomGamemodes"
 		{ BOOL }
-		{ "1" }
+		{ "0" }
 	}
 
 	"mp_roundlimit"
