@@ -249,6 +249,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
     1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
     1. [ ] Source version
+1. Game Mutators
+    1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
 1. Weapons
     1. [ ] Throw any weapon
     1. [ ] Quad weapon attachment?
