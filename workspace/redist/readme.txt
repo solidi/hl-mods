@@ -73,7 +73,7 @@ Beta 3 Features:
     - frozen_bunker, a rebuild of lambda_bunker by Napoleon and reskin by AudioCraZ
     - snowtransit, a rebuild of subtransit from Aura-SE and reskinned by AudioCraZ
     - doublefrost, a rebuild of doublecross by Dario Casali and reskinned by Napoleon
-    - themill, a map by Panic and rebuilt by Napoleon
+    - themill, a map by Devious and rebuilt by Napoleon
     - chillworks, a rebuild of gasworks by Randy Lundeen and rebuilt and reskinned by AudioCraZ
     - frosty, a rebuild of frenzy by Dario Casali and rebuilt and reskinned by AudioCraZ
     - overflow, a rebuild of undertow by Dario Casali and rebuilt and reskinned by AudioCraZ
@@ -130,6 +130,7 @@ Beta 3 Features:
     - Fixed sliding mechanic in single player
     - Improved sliding hit register, slide immediately
     - Fixed dead players picking up runes
+    - Fix gfx with blue loading graphics
 
 Beta 2 Features:
 
