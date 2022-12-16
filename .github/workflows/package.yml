@@ -31,14 +31,17 @@ jobs:
       run: |
         .\${{env.FOLDER_NAME}}\Build-Windows.ps1 -ConfigFile Config
         $zipFile = ".\dlls.zip"
-        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
-        [void](New-Item -Force -ItemType Directory $env:TEMP\release\dlls)
-        [void](New-Item -Force -ItemType Directory $env:TEMP\release\cl_dlls)
-        Copy-Item -Recurse -Force ./grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll $env:TEMP\release\dlls
-        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll $env:TEMP\release\dlls
-        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll $env:TEMP\release\cl_dlls
-        Compress-Archive -LiteralPath $env:TEMP\release\dlls -DestinationPath $zipFile -Force
-        Compress-Archive -LiteralPath $env:TEMP\release\cl_dlls -DestinationPath $zipFile -Update
+        [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}})
+        [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}}\dlls)
+        [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}}\cl_dlls)
+        Copy-Item -Recurse -Force ./grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.dll $env:TEMP\${{env.BUILD_CONFIGURATION}}\dlls
+        Copy-Item -Recurse -Force ./grave-bot-src/dlls/${{env.BUILD_CONFIGURATION}}/grave_bot.pdb $env:TEMP\${{env.BUILD_CONFIGURATION}}\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.dll $env:TEMP\${{env.BUILD_CONFIGURATION}}\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hldll/ice.pdb $env:TEMP\${{env.BUILD_CONFIGURATION}}\dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.dll $env:TEMP\${{env.BUILD_CONFIGURATION}}\cl_dlls
+        Copy-Item -Recurse -Force ./src/projects/vs2019/${{env.BUILD_CONFIGURATION}}/hl_cdll/client.pdb $env:TEMP\${{env.BUILD_CONFIGURATION}}\cl_dlls
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\dlls -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\cl_dlls -DestinationPath $zipFile -Update
 
     - name: Upload windows dlls
       uses: actions/upload-artifact@v3
@@ -190,12 +193,12 @@ jobs:
       run: |
         .\${{env.FOLDER_NAME}}\Build-Models.ps1 -Clean -ConfigFile Config
         $zipFile = ".\models.zip"
-        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
-        Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\release
-        Rename-Item $env:TEMP\release\models $env:TEMP\release\models_hd
-        Copy-Item -Recurse -Force .\redist\models $env:TEMP\release
-        Compress-Archive -LiteralPath $env:TEMP\release\models -DestinationPath $zipFile -Force
-        Compress-Archive -LiteralPath $env:TEMP\release\models_hd -DestinationPath $zipFile -Update
+        [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}})
+        Copy-Item -Recurse -Force .\redist_hd\models $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Rename-Item $env:TEMP\${{env.BUILD_CONFIGURATION}}\models $env:TEMP\${{env.BUILD_CONFIGURATION}}\models_hd
+        Copy-Item -Recurse -Force .\redist\models $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\models -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\models_hd -DestinationPath $zipFile -Update
 
     - name: Upload models
       uses: actions/upload-artifact@v3
@@ -219,14 +222,14 @@ jobs:
       run: |
         .\${{env.FOLDER_NAME}}\Build-Sound.ps1 -ConfigFile Config -Clean
         $zipFile = ".\sounds.zip"
-        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
-        Copy-Item -Recurse -Force .\redist_hd\sound $env:TEMP\release
-        Rename-Item $env:TEMP\release\sound $env:TEMP\release\sound_hd
-        Copy-Item -Recurse -Force .\redist\sound $env:TEMP\release
-        Copy-Item -Recurse -Force .\redist\media $env:TEMP\release
-        Compress-Archive -LiteralPath $env:TEMP\release\sound -DestinationPath $zipFile -Force
-        Compress-Archive -LiteralPath $env:TEMP\release\sound_hd -DestinationPath $zipFile -Update
-        Compress-Archive -LiteralPath $env:TEMP\release\media -DestinationPath $zipFile -Update
+        [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}})
+        Copy-Item -Recurse -Force .\redist_hd\sound $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Rename-Item $env:TEMP\${{env.BUILD_CONFIGURATION}}\sound $env:TEMP\${{env.BUILD_CONFIGURATION}}\sound_hd
+        Copy-Item -Recurse -Force .\redist\sound $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Copy-Item -Recurse -Force .\redist\media $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\sound -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\sound_hd -DestinationPath $zipFile -Update
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\media -DestinationPath $zipFile -Update
 
     - name: Upload sounds
       uses: actions/upload-artifact@v3
@@ -266,12 +269,12 @@ jobs:
       run: |
         .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config
         $zipFile = ".\sprites.zip"
-        [void](New-Item -Force -ItemType Directory $env:TEMP\release)
-        Copy-Item -Recurse -Force .\redist_hd\sprites $env:TEMP\release
-        Rename-Item $env:TEMP\release\sprites $env:TEMP\release\sprites_hd
-        Copy-Item -Recurse -Force .\redist\sprites $env:TEMP\release
-        Compress-Archive -LiteralPath $env:TEMP\release\sprites -DestinationPath $zipFile -Force
-        Compress-Archive -LiteralPath $env:TEMP\release\sprites_hd -DestinationPath $zipFile -Update
+        [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}})
+        Copy-Item -Recurse -Force .\redist_hd\sprites $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Rename-Item $env:TEMP\${{env.BUILD_CONFIGURATION}}\sprites $env:TEMP\${{env.BUILD_CONFIGURATION}}\sprites_hd
+        Copy-Item -Recurse -Force .\redist\sprites $env:TEMP\${{env.BUILD_CONFIGURATION}}
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\sprites -DestinationPath $zipFile -Force
+        Compress-Archive -LiteralPath $env:TEMP\${{env.BUILD_CONFIGURATION}}\sprites_hd -DestinationPath $zipFile -Update
 
     - name: Upload sprites
       uses: actions/upload-artifact@v3
@@ -565,9 +568,9 @@ jobs:
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: .\${{env.FOLDER_NAME}}\Build-Release.ps1 -ConfigFile Config
+      run: .\${{env.FOLDER_NAME}}\Build-${{env.BUILD_CONFIGURATION}}.ps1 -ConfigFile Config
 
-    - name: Archive Cold Ice Release
+    - name: Archive Cold Ice ${{env.BUILD_CONFIGURATION}}
       uses: actions/upload-artifact@v3
       with:
         name: coldice-build
