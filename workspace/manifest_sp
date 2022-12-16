@@ -2,4 +2,6 @@ dlls
 dlls\ice.dll
 dlls\ice.dylib
 dlls\ice.so
+resource
+resource\GameMenu.res
 liblist.gam

@@ -394,6 +394,7 @@ resource\westminster.ttf
 resource\ice_beta3_english.txt
 resource\game_menu.tga
 resource\game_menu_mouseover.tga
+resource\GameMenu.res
 resource\background
 resource\background\loading
 resource\background\loading\cir_loading-0-0.tga

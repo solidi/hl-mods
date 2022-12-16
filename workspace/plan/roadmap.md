@@ -93,6 +93,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] eat gibs
         1. [x] sanic
         1. [x] maxpack
+1. Gameplay
+    1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
     1. [ ] Capture the Chumtoad
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -103,8 +105,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
     1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
-1. Gameplay
-    1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [x] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
@@ -138,6 +138,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Support
     1. [x] Patch singleplayer crashes
     1. [ ] Make it easy to add bots on "Create Server"
+1. Tools
+    1. [x] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
+    1. [x] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
 
 ### Unscheduled
 
@@ -288,14 +291,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
 1. Game Dev Tools
+    1. [ ] Include pdb files, debug libraries on builds off master.
     1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
     1. [ ] Codegen for generating new weapons
     1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
-    1. [x] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
-    1. [ ] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
