@@ -286,4 +286,11 @@ DESCRIPTION INFO_OPTIONS
 		}
 		{ "0" }
 	}
+
+	"cl_wallclimbindicator"
+	{
+		"#Ice_WallClimbIndicator"
+		{ BOOL }
+		{ "1" }
+	}
 }
