@@ -70,6 +70,8 @@ Beta 3 Features:
     - Improved kick and punch animations
 - Off-handed Grenade Throw
     - "impulse 209" supports throwing a grenade if available
+- Runes
+    - Update to cloak rune, reveal when firing weapons
 - 9 New Maps
     - snow_camp, a rebuild of boot_camp by Napoleon and reskin by AudioCraZ
     - ice_pit, a rebuild of snark_pit by Napoleon and reskin by AudioCraZ
