@@ -62,7 +62,8 @@ Beta 3 Features:
         - Fast fragging unlocks awesome announcements
 - New Player Models
     - Baer
-- Player Flips and Acrobatics
+- Player Flips, Wall Climb, and Acrobatics
+    - Support for wall climbing (and create climbing) with visual indicator
     - "impulse 210" supports rolling kicking to the right
     - "impulse 211" supports rolling kicking to the left
     - "impulse 212" supports a kick back flip
@@ -91,6 +92,7 @@ Beta 3 Features:
     - "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
     - "cl_hudscale" - experimental scaling factor of HUD elements
     - "cl_hudbend" - experimental bending factor of HUD elements
+    - "cl_wallclimbindicator" shows when wallclimb is available
     - Railgun now has a glow model
     - Added default_fov setting to configuration menu
 - Server
@@ -478,6 +480,7 @@ Client:
 - "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
 - "cl_hudscale" - experimental scaling factor of HUD elements
 - "cl_hudbend" - experimental bending factor of HUD elements
+- "cl_wallclimbindicator [0|1]" shows when wallclimb is available
 
 Server:
 
