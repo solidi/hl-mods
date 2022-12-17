@@ -139,6 +139,7 @@ Beta 3 Features:
     - Fix gfx with blue loading graphics
     - Remove unused leg in v_fists
     - Patched weapon animation and weapon data crashes
+    - Fix crash in autowaypoint support for bots
 
 Beta 2 Features:
 
