@@ -266,6 +266,12 @@ DESCRIPTION SERVER_OPTIONS
 			"infiniteammo" "22"
 			"randomweapon" "23"
 			"speedup" "24"
+			"rockets" "25"
+			"invisible" "26"
+			"grenades" "27"
+			"astronaut" "28"
+			"snowballs" "29"
+			"pushy" "30"
 		}
 		{ "1" }
 	}

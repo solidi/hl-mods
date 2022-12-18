@@ -30,7 +30,7 @@ Beta 3 Features:
         - "lms" - Last Man Standing - protect your lives be the last person standing to win
         - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
         - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
-    - 25 Mutators - supports combination and randomly selected (mp_mutators)
+    - 30 Mutators - supports combination and randomly selected (mp_mutators)
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
@@ -55,6 +55,12 @@ Beta 3 Features:
         - "infiniteammo" - all weapons have infinite ammo
         - "randomweapon" - spawn with a randomly selected weapon
         - "speedup" - everything is sped up by half!
+        - "rockets" - a random chance of rockets throw on attack!
+        - "invisible" - everyone is partially invisible!
+        - "grenades" - a random chance of a grenade throw on attack
+        - "astronaut" - gravity is turned down
+        - "snowballs" - a random chance of snowballs throw on attack
+        - "pushy" - all weapon attacks push you back like a gauss attack
 - Single Player Gameplay
     - Adds separate single player folder, ice_beta3_sp, which supports single player
 - Gameplay
