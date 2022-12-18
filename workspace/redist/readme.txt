@@ -41,7 +41,7 @@ Beta 3 Features:
         - "superjump" - jump three times the height, disables fall damage
         - "megarun" - run 50% faster
         - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
-        - "slowmo" - everything is slowed down by half!
+        - "slowmo" - everything is slowed down by half! (Single-player only)
         - "ice" - all the ground is covered in ice
         - "topsyturvy" - everything is turned upside down
         - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
@@ -51,10 +51,10 @@ Beta 3 Features:
         - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas"
         - "sanic" - evil santa and sanic with a santa hat team up against you
         - "loopback" - teleport to the place of your last frag
-        - "maxpack" - drop all weapons and ammo in play
+        - "maxpack" - drop all weapons and ammo in play (Multiplayer only)
         - "infiniteammo" - all weapons have infinite ammo
         - "randomweapon" - spawn with a randomly selected weapon
-        - "speedup" - everything is sped up by half!
+        - "speedup" - everything is sped up by half! (Single-player only)
         - "rockets" - a random chance of rockets throw on attack!
         - "invisible" - everyone is partially invisible!
         - "grenades" - a random chance of a grenade throw on attack
@@ -148,6 +148,7 @@ Beta 3 Features:
     - Remove unused leg in v_fists
     - Patched weapon animation and weapon data crashes
     - Fix crash in autowaypoint support for bots
+    - Restore skin support when cl_icemodels is 0
 
 Beta 2 Features:
 
@@ -526,7 +527,7 @@ Server:
     - "superjump" - jump three times the height, disables fall damage
     - "megarun" - run 50% faster
     - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
-    - "slowmo" - everything is slowed down by half!
+    - "slowmo" - everything is slowed down by half! (Single-player only)
     - "ice" - all the ground is covered in ice
     - "topsyturvy" - everything is turned upside down
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
@@ -536,10 +537,16 @@ Server:
     - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas"
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "loopback" - teleport to the place of your last frag
-    - "maxpack" - drop all weapons and ammo in play
+    - "maxpack" - drop all weapons and ammo in play (Multiplayer only)
     - "infiniteammo" - all weapons have infinite ammo
     - "randomweapon" - spawn with a randomly selected weapon
-    - "speedup" - everything is sped up by half!
+    - "speedup" - everything is sped up by half! (Single-player only)
+    - "rockets" - a random chance of rockets throw on attack!
+    - "invisible" - everyone is partially invisible!
+    - "grenades" - a random chance of a grenade throw on attack
+    - "astronaut" - gravity is turned down
+    - "snowballs" - a random chance of snowballs throw on attack
+    - "pushy" - all weapon attacks push you back like a gauss attack
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -655,3 +662,4 @@ Thanks To:
 - suXin for sys_timescale support and deep mutator inspirations https://github.com/suXinjke/HalfPayne
 - Santa hat and winter accessories converted from CSO https://cso.fandom.com/wiki/Santa_hat
 - Unreal Tournament and its series for gameplay and round sound effects https://www.epicgames.com/unrealtournament
+- Napoleon for the snowman/iceman gameplay icon
