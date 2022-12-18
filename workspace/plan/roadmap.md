@@ -93,6 +93,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] eat gibs
         1. [x] sanic
         1. [x] maxpack
+        1. [x] Snowball
+        1. [x] Gravity
+        1. [x] Transparent
 1. Gameplay
     1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
     1. [ ] Capture the Chumtoad
@@ -154,7 +157,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] License to Kill
     1. [ ] Tiny
-    1. [ ] Snowball
     1. [ ] Tiktok - exploder (random explosions of people)
     1. [ ] Floor is lava
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
@@ -162,10 +164,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] penguins in place of toads
     1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] RandomNuke - idea by Mitchell The BoneLord
-    1. [ ] Floor is lava
     1. [ ] SUPERCOOL
-    1. [ ] Gravity
-    1. [ ] Transparent
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
 1. Weapons
     1. [ ] Throw any weapon as an attack
