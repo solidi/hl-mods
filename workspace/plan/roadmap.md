@@ -165,6 +165,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] RandomNuke - idea by Mitchell The BoneLord
     1. [ ] SUPERCOOL
+    1. [ ] grunts
+    1. [ ] zombies
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
 1. Weapons
     1. [ ] Throw any weapon as an attack
