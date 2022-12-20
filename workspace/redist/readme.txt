@@ -17,7 +17,7 @@ Beta 3 Features:
     - Dual Railgun
         - Fire / Fire Both
     - Gravity Gun
-        - Fire / Pick up
+        - Fire / Create Explosive Barrel / Pick up
 - Weapon Changes
     - Rail Gun now has a rapid alternating fire mode
     - Sniper Rifle progressively zooms
@@ -126,6 +126,7 @@ Beta 3 Features:
 - Fixes
     - Bots
         - Bots will attack a player with a cloak rune if close
+        - Reduced accuracy of the bots by a few degrees
     - Maps
         - Improvements to Drift (night time), Depot (improved lighting)
         - Even more spawn point angle corrections
