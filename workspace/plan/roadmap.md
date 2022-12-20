@@ -108,6 +108,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
     1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
+    1. [ ] Arcade mode with points
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [x] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
