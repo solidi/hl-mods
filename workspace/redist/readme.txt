@@ -23,6 +23,7 @@ Beta 3 Features:
     - Sniper Rifle progressively zooms
     - Increased attack range of kick and punch melee attacks to make them effective
     - Reduced punchangle while using ironsights
+    - Nuke is no longer dropped in multiplayer
 - Game Modes
     - 5 Game Modes (mp_gamemode)
         - "ffa" - Free for All - the gold standard, deathmatch.
