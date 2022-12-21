@@ -3899,7 +3899,7 @@
 "health" "5"
 "pitch" "100"
 "pitchstart" "100"
-"message" "sound/ambience/burning1.wav"
+"message" "ambience/burning1.wav"
 "origin" "368 -208 208"
 }
 {
