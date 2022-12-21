@@ -48,7 +48,7 @@ Beta 3 Features:
         - "turrets" - random sentry guns random firing bullets and rockets at everyone
         - "chumxplode" - killer chumtoads appear directly after an explosion
         - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair (hambone icon)
-        - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas" (hambone icon)
+        - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas" (santahat icon)
         - "sanic" - evil santa and sanic with a santa hat team up against you
         - "loopback" - teleport to the place of your last frag
         - "maxpack" - drop all weapons and ammo in play (Multiplayer only)
