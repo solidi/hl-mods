@@ -34,7 +34,7 @@ Beta 3 Features:
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
-        - "volatile" - where players blow up when fragged
+        - "volatile" - where players blow up when fragged (explode icon)
         - "plumber" - spawn with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
         - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
@@ -47,8 +47,8 @@ Beta 3 Features:
         - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
         - "turrets" - random sentry guns random firing bullets and rockets at everyone
         - "chumxplode" - killer chumtoads appear directly after an explosion
-        - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
-        - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas"
+        - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair (hambone icon)
+        - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas" (hambone icon)
         - "sanic" - evil santa and sanic with a santa hat team up against you
         - "loopback" - teleport to the place of your last frag
         - "maxpack" - drop all weapons and ammo in play (Multiplayer only)
@@ -521,7 +521,7 @@ Server:
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
     - "instagib" - spawn with dual railguns that dole one hit kills
-    - "volatile" - where players blow up when fragged
+    - "volatile" - where players blow up when fragged (explode icon)
     - "plumber" - spawn with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
     - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
@@ -534,8 +534,8 @@ Server:
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
     - "turrets" - random sentry guns random firing bullets and rockets at everyone
     - "chumxplode" - killer chumtoads appear directly after an explosion
-    - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
-    - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas"
+    - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair (hambone icon)
+    - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas" (santahat icon)
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "loopback" - teleport to the place of your last frag
     - "maxpack" - drop all weapons and ammo in play (Multiplayer only)
