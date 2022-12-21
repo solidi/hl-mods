@@ -62,6 +62,8 @@ gfx\env\cirnightmont1up.tga
 gfx\shell
 gfx\shell\kb_act.lst
 gfx\shell\kb_def.lst
+gfx\vgui
+gfx\vgui\icntlk_pl.tga
 maps
 maps\fences.bsp
 maps\fences.wpt
@@ -780,6 +782,7 @@ sprites\ripple.spr
 sprites\sanic.spr
 sprites\wallclimb.spr
 sprites\gameicons.spr
+sprites\voiceicon.spr
 liblist.gam
 ReadMe.txt
 settings.scr

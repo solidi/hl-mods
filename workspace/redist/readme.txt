@@ -103,6 +103,7 @@ Beta 3 Features:
     - "cl_wallclimbindicator" shows when wallclimb is available
     - Railgun now has a glow model
     - Added default_fov setting to configuration menu
+    - Update voiceicon colors
 - Server
     - Added "mp_mutators" to mutate gameplay
     - Added "mp_randommutators [0|1]" selects three random mutators on map change
