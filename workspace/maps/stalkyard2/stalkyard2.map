@@ -3122,6 +3122,6 @@
 "origin" "803 196 -72"
 }
 {
-"classname" "env_snow"
+"classname" "env_rain"
 "origin" "219 1051 -96"
 }

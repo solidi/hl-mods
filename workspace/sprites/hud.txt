@@ -1,4 +1,4 @@
-188
+191
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -213,7 +213,10 @@ d_dual_railgun	640	640hudof11	192	16	32	16
 d_gravitygun		640	640hudof11	192	0	48	16
 d_barrel		640	640hudof11	192	0	48	16
 
+coolflesh		640 gameicons	0	0	64	64
 iceman		640 gameicons	64	0	64	64
+santahat		640 gameicons	128	0	64	64
+volatile		640 gameicons	192	0	64	64
 
 killspree		640 killspree	0	0	128	128
 
