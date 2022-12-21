@@ -76,8 +76,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Paintball
         1. [x] DK Mode
         1. [x] Night-ops (lights out)
-            1. [ ] Light up melee weapons
-            1. [ ] Light effects all firing
         1. [x] [topsy-turvy](https://youtu.be/MJPoK3qEQMM?t=82)
             1. [x] Random three like [Reelism](https://reelism.dog/)
         1. [x] Turret - sentrys spawned and fire at people randomly
@@ -98,17 +96,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Transparent
 1. Gameplay
     1. [x] Unreal tournament [kill announcements](https://unreal.fandom.com/wiki/Achievements_and_awards)
-    1. [ ] Capture the Chumtoad
-        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
-        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
-        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
-        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
-        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
-        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
-        1. Chumtoad holder had extra health
-        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
-    1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
-    1. [ ] Arcade mode with points
 1. Weapons
     1. [x] Railgun follows through multiple targets
     1. [x] [Gravity gun](https://www.youtube.com/watch?v=0maGDVs18wo)
@@ -116,7 +103,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Mechanics
     1. [x] Make offhand kick/punch more useful
     1. [x] Damaging somersault left / right, [Somersaults](https://www.moddb.com/mods/the-specialists)
-    1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
 1. Maps
     1. [x] frost_pit (snark_pit reskin)
     1. [x] snow_camp (boot_camp reskin)
@@ -126,8 +112,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] mill (reboot)
     1. [x] chillworks (gasworks reskin)
     1. [x] frenzy (frosty)
-    1. [ ] Add info_intermission points
-    1. [ ] Realign large blue crate textures so detailed textures is left to right
+    1. [x] undertow (overflow)
 1. Environment
     1. [x] Snow effect / console mechanic/trigger, turn on/off in snowyard
     1. [x] Explosive barrels / generator
@@ -138,10 +123,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] cl_hudscale
     1. [x] Better labeling of runes
     1. [x] cl_autoweaponswitch ([@Runner](https://discord.com/channels/790549024373604353/790549024373604356/1010565554161057872))
-    1. [ ] Russian translations
 1. Support
     1. [x] Patch singleplayer crashes
-    1. [ ] Make it easy to add bots on "Create Server"
 1. Tools
     1. [x] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
     1. [x] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
@@ -153,7 +136,26 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
     1. [ ] Source version
     1. [ ] Add compiled mmod linux library
+    1. [ ] Make it easy to add bots on "Create Server"
+1. Game Modes
+    1. [ ] Support
+        1. [ ] Wins / Rounds Left visual support
+        1. [ ] Active timer on HUD
+    1. [ ] Capture the Chumtoad (Audiocraz)
+        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
+        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
+        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
+        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
+        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
+        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
+        1. Chumtoad holder had extra health
+        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
+    1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
+    1. [ ] Arcade mode with points
 1. Game Mutators
+    1. [ ] Lightsout updates
+        1. [ ] Light up melee weapons
+        1. [ ] Light effects all firing
     1. [ ] SlappersOnly
     1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] License to Kill
@@ -167,9 +169,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] RandomNuke - idea by Mitchell The BoneLord
     1. [ ] SUPERCOOL
     1. [ ] grunts
-    1. [ ] zombies
+    1. [ ] The Farm (mix of monsters)
+        1. [ ] zombies
+        1. [ ] headcrabs
+        1. [ ] houndeye
+    1. [ ] apache helicopter
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
+    1. [ ] chums/snarks wont dies
 1. Weapons
+    1. [ ] Scientist Gun from RocketCrowbar
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce punch / animations in ironsights
     1. [ ] Hand cannon / Dual hand cannon
@@ -236,12 +244,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Front flip
+    1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)
+    1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
     1. [ ] Jetpack?
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. [ ] Player jump and land sound effects
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).
     1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
+    1. [ ] random map select
+    1. [ ] Stream VOs from UT (when you dont die)
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
@@ -271,9 +284,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Frozen Lake map idea
     1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)
-    1. [ ] undertow (???)
     1. [ ] rustmill
     1. [ ] the hill
+    1. [ ] Add info_intermission points
+    1. [ ] Realign large blue crate textures so detailed textures is left to right
+    1. [ ] Clip sky in Focus
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Models
@@ -316,8 +331,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] "ice spike gun" (AudioCraZ)
     1. [ ] mutators ```mp_mutators "blowup (Napoleon);weapon_(AudioCraZ);insta(The_Pacific_gamer);jetpack(Napoleon);tiny"```
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
-    1. [ ] Translate to russian (berry from moddb)
-    1. [ ] Capture the Chumtoad (AudioCraZ)
+    1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] Respawning breakable glass (Napoleon)
 
