@@ -255,11 +255,11 @@ DESCRIPTION SERVER_OPTIONS
 			"slowmo" "11"
 			"ice" "12"
 			"topsyturvy" "13"
-			"barrels" "14"
-			"turrets" "15"
+			"turrets" "14"
+			"barrels" "15"
 			"chumxplode" "16"
-			"coolflesh" "17"
-			"santahat" "18"
+			"santahat" "17"
+			"coolflesh" "18"
 			"sanic" "19"
 			"loopback" "20"
 			"maxpack" "21"
@@ -286,7 +286,7 @@ DESCRIPTION SERVER_OPTIONS
 	"mp_chaostime"
 	{
 		"#Ice_ChaosTime"
-		{ BOOL }
+		{ NUMBER 0.000000 -1.000000 }
 		{ "45" }
 	}
 
