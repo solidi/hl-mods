@@ -44,7 +44,7 @@ Beta 3 Features:
         - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
         - "slowmo" - everything is slowed down by half! (Single-player only)
         - "ice" - all the ground is covered in ice
-        - "topsyturvy" - everything is turned upside down
+        - "topsyturvy" - everything is turned upside down (Single-player only)
         - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
         - "turrets" - random sentry guns random firing bullets and rockets at everyone
         - "chumxplode" - killer chumtoads appear directly after an explosion
@@ -153,6 +153,7 @@ Beta 3 Features:
     - Patched weapon animation and weapon data crashes
     - Fix crash in autowaypoint support for bots
     - Restore skin support when cl_icemodels is 0
+    - Patch grapplehok crash on player death
 
 Beta 2 Features:
 
