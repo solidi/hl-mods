@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.32
+	ORIGIN	444.92 	820.88	292
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/frozenwarehouse.bmp"
+	HEIGHT	-129
+}

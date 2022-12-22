@@ -93,6 +93,9 @@ maps\snowcross.bsp
 maps\snowcross.wpt
 maps\frostfire.bsp
 maps\frostfire.wpt
+maps\frozenwarehouse.bsp
+maps\frozenwarehouse.wpt
+maps\frozenwarehouse.txt
 maps\drift.bsp
 maps\drift.wpt
 maps\snow_camp.bsp
@@ -368,6 +371,8 @@ overviews\ice_pit.bmp
 overviews\ice_pit.txt
 overviews\frozen_bunker.bmp
 overviews\frozen_bunker.txt
+overviews\frozenwarehouse.bmp
+overviews\frozenwarehouse.txt
 overviews\overflow.bmp
 overviews\overflow.txt
 overviews\snow_camp.bmp
