@@ -667,4 +667,7 @@ Thanks To:
 - suXin for sys_timescale support and deep mutator inspirations https://github.com/suXinjke/HalfPayne
 - Santa hat and winter accessories converted from CSO https://cso.fandom.com/wiki/Santa_hat
 - Unreal Tournament and its series for gameplay and round sound effects https://www.epicgames.com/unrealtournament
-- Napoleon for the snowman/iceman gameplay icon
+- Napoleon for the snowman/iceman and mutators icons
+- The evil santa icon used in the game https://villainsfanon.fandom.com/wiki/Evil_Santa
+- The evil santa background used in the game https://pngtree.com/freebackground/merry-christmas-wood-plank-texture-background_1266178.html
+- Sonic-The-Falcon for sprite icon used in the game https://www.deviantart.com/sonic-the-falcon/art/Sanic-With-A-Christmas-Hat-509543445

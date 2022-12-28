@@ -65,6 +65,245 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
+### Beta 4
+
+1. Game Mechanics
+    1. [ ] Front flip
+    1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
+1. Weapons
+    1. [ ] Flame Thrower (Napoleon)
+    1. [ ] Hand cannon
+    1. [ ] Increase accuracy of weapons when in ironsights mode
+    1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
+1. Server
+    1. [ ] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
+    1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
+1. Client
+    1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
+    1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
+    1. [ ] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
+    1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
+    1. [ ] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
+    1. [ ] [Water Splash](https://github.com/bacontsu/codename-borea/commit/89a0c080f99faed3cc1a3f175d608ec37d6e4376)
+    1. [ ] [Realtime use sprite](https://github.com/bacontsu/codename-borea/commit/2a3fc957be406a16bca6570cb9ea368c07abea4d)
+1. Single Player
+    1. [x] [Chapter Select Menu](https://github.com/BlueNightHawk/testflight/commits/master?after=144d73f461c6b83c818131b0536d3450a4266e8a+34&branch=master&qualified_name=refs%2Fheads%2Fmaster)
+1. Environment look and feel
+    1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2)
+    1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
+1. Fixes
+    1. [ ] Single Player freeze effect for all monsters
+    1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
+    1. [ ] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
+    1. [ ] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
+
+### Unscheduled
+
+1. Supported Systems
+    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
+    1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
+    1. [ ] Source version
+    1. [ ] Add compiled mmod linux library
+    1. [ ] Make it easy to add bots on "Create Server"
+1. Game Modes
+    1. [ ] Support
+        1. [ ] Wins / Rounds Left visual support
+        1. [ ] Active timer on HUD
+    1. [ ] Capture the Chumtoad (Audiocraz)
+        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
+        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
+        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
+        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
+        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
+        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
+        1. Chumtoad holder had extra health
+        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
+    1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
+    1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
+1. Game Mutators
+    1. [ ] Lightsout updates
+        1. [ ] Light up melee weapons
+        1. [ ] Light effects all firing
+    1. [ ] SlappersOnly
+    1. [ ] Rubberband (Players who are at the bottom get max health)
+    1. [ ] License to Kill
+    1. [ ] Tiny
+    1. [ ] Tiktok - exploder (random explosions of people)
+    1. [ ] Floor is lava
+    1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
+    1. [ ] 10x mode (yai boi)
+    1. [ ] penguins in place of toads
+    1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
+    1. [ ] RandomNuke - idea by Mitchell The BoneLord
+    1. [ ] SUPERCOOL
+    1. [ ] grunts
+    1. [ ] The Farm (mix of monsters)
+        1. [ ] zombies
+        1. [ ] headcrabs
+        1. [ ] houndeye
+    1. [ ] apache helicopter
+    1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
+    1. [ ] chums/snarks wont dies
+1. Weapons
+    1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
+    1. [ ] Scientist Gun from RocketCrowbar
+    1. [ ] Throw any weapon as an attack
+    1. [ ] Reduce animations in ironsights
+    1. [ ] Hand cannon / Dual hand cannon
+    1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
+    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
+    1. [ ] Gold Skins?
+    1. [ ] Throw any weapon
+    1. [ ] Quad weapon attachment?
+    1. Crossbow
+        1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
+    1. Handgrenades
+        1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
+        1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
+        1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
+    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
+    1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
+    1. [ ] Akimbo's (select weapons)
+        1. [ ] Clusters
+    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
+    1. [ ] Pulse Rifle
+    1. [ ] Pulse Pistol
+    1. [ ] C4 mine placement with satchels
+    1. [ ] Convert throw-hold effect to all other weapons for control
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
+        1. [ ] Customizable color
+    1. [ ] Taser
+    1. [ ] Decoy bombs that morph into AI assassins?
+    1. [ ] Counter-Strike penguin
+    1. Knife
+        1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
+        1. [ ] Cold Ice 2.5 model?
+        1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
+    1. [ ] Third person muzzle flash placement
+    1. [ ] mag60 sd model from cold ice 2.5
+    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
+    1. [ ] Python v_ from brutal HL for focusing animation
+    1. [ ] Punch angle for draw and holstering
+    1. [ ] Tighten up all idle animation times to match code
+    1. [ ] Correct all brass shell ejection points
+    1. [ ] Use attachment point for each model
+    1. Chaingun
+        1. [ ] Secondary chaingun idea?
+        1. [ ] Faster spin?
+        1. [ ] Tracers on all bullets?
+    1. [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
+1. Weapon ViewModel / Effects
+    1. [ ] Bob up/down like HL New Light v3
+    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
+    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
+    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
+    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+    1. [ ] Ice hands in addition
+    1. [ ] Blue arms + real skins
+    1. [ ] Additional attachment values for configurable speeds and fov
+    1. [ ] Damage / blood / stains on view model and player as seen in bhl
+    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
+1. Server Support
+    1. [ ] mp_semiauto
+        1. Wire server to client message when changed
+1. Movement
+    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
+1. Bot support
+    1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
+    1. [ ] Bot support for hook
+    1. [ ] Bot support for macOS
+1. Game Mechanics
+    1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)
+    1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
+    1. [ ] Jetpack?
+    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
+    1. [ ] Player jump and land sound effects
+    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).
+    1. [ ] Improved player kick animation from grunt player model
+1. Gameplay
+    1. [ ] random map select
+    1. [ ] Stream VOs from UT (when you dont die)
+    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
+    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
+    1. [ ] mp_startonlywith "weapon_*"
+    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
+    1. [ ] Weapon filter list
+1. Environment look and feel
+    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
+    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+1. UI / Menu
+    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
+1. Runes
+    1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
+    1. [ ] Ammo regeneration
+    1. [ ] Super jump rune
+1. HUD
+    1. [ ] Re-enable suit voice updates?
+    1. [ ] Add map name to the scoreboard
+    1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
+1. Maps
+    1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
+    1. [x] fgd file
+    1. [ ] Finish arena, texture in Cold Ice style
+    1. [ ] Training 2
+        1. [ ] Frozen pool in new area opposite of garage
+    1. [ ] Frozen Lake map idea
+    1. [ ] datacore (crystalcore)
+    1. [ ] rapidcore (icecore)
+    1. [ ] rustmill
+    1. [ ] the hill
+    1. [ ] Add info_intermission points
+    1. [ ] Realign large blue crate textures so detailed textures is left to right
+    1. [ ] Clip sky in Focus
+1. Player Models
+    1. [ ] All Cold Ice 1.6 player models
+1. Models
+    1. [ ] Gold Skin? (Radu Matei Ionut)
+    1. [ ] Silver Skin?
+    1. [ ] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
+1. Integrations
+    1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
+1. Fixes
+    1. [ ] mp_infiniteammo -> sv_infiniteammo
+    1. [ ] Add git hash to server name in dll
+    1. [ ] Improve Crowbar animation from another v_ model
+    1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
+    1. [ ] Snowball not exhaustable?
+    1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
+1. Clean up
+    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
+    1. [ ] Compact w_ models into p_
+    1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
+1. Game Dev Tools
+    1. [ ] Include pdb files, debug libraries on builds off master.
+    1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
+    1. [ ] Codegen for generating new weapons
+    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
+    1. [ ] Timestamps for building artifacts
+        1. If timestamp of built artifact is newer than all source artifacts, skip building again
+    1. [ ] Compile mdl tool for Linux
+1. Client
+    1. [ ] [Water Renderer](https://github.com/BlueNightHawk/testflight/commit/bb1d8ef445c8e26207d7072d3fd33dd07cecef87)
+1. Community ideas
+    1. [ ] Rune power degradation / Power consumption of the cloak rune? 
+    1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 (Napoleon)
+    1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
+    1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
+    1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
+    1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
+    1. [ ] Taunts from player (Napoleon)
+    1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
+    1. [ ] Multiple rune equip (Napoleon)
+    1. [ ] Ice spike gun (AudioCraZ)
+    1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
+    1. [ ] "ice spike gun" (AudioCraZ)
+    1. [ ] mutators ```mp_mutators "blowup (Napoleon);weapon_(AudioCraZ);insta(The_Pacific_gamer);jetpack(Napoleon);tiny"```
+    1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
+    1. [ ] Russian translations (berry from moddb)
+    1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
+    1. [ ] Respawning breakable glass (Napoleon)
+
 ### Beta 3
 
 1. Gameplay Modes
@@ -128,212 +367,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Tools
     1. [x] Verify [sound loudness](https://superuser.com/questions/1183663/determining-audio-level-peaks-with-ffmpeg) before packaging with ffmpeg?
     1. [x] Automatic kick all and rejoin bots on a [timed basis](https://wiki.sourceruns.org/wiki/Half-Life_Scripts).
-
-### Unscheduled
-
-1. Supported Systems
-    1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
-    1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
-    1. [ ] Source version
-    1. [ ] Add compiled mmod linux library
-    1. [ ] Make it easy to add bots on "Create Server"
-1. Game Modes
-    1. [ ] Support
-        1. [ ] Wins / Rounds Left visual support
-        1. [ ] Active timer on HUD
-    1. [ ] Capture the Chumtoad (Audiocraz)
-        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
-        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
-        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
-        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
-        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
-        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
-        1. Chumtoad holder had extra health
-        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
-    1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
-    1. [ ] Arcade mode with points
-1. Game Mutators
-    1. [ ] Lightsout updates
-        1. [ ] Light up melee weapons
-        1. [ ] Light effects all firing
-    1. [ ] SlappersOnly
-    1. [ ] Rubberband (Players who are at the bottom get max health)
-    1. [ ] License to Kill
-    1. [ ] Tiny
-    1. [ ] Tiktok - exploder (random explosions of people)
-    1. [ ] Floor is lava
-    1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
-    1. [ ] 10x mode (yai boi)
-    1. [ ] penguins in place of toads
-    1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
-    1. [ ] RandomNuke - idea by Mitchell The BoneLord
-    1. [ ] SUPERCOOL
-    1. [ ] grunts
-    1. [ ] The Farm (mix of monsters)
-        1. [ ] zombies
-        1. [ ] headcrabs
-        1. [ ] houndeye
-    1. [ ] apache helicopter
-    1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
-    1. [ ] chums/snarks wont dies
-1. Weapons
-    1. [ ] Scientist Gun from RocketCrowbar
-    1. [ ] Throw any weapon as an attack
-    1. [ ] Reduce punch / animations in ironsights
-    1. [ ] Hand cannon / Dual hand cannon
-    1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
-    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
-    1. [ ] Gold Skins?
-    1. [ ] Throw any weapon
-    1. [ ] Quad weapon attachment?
-    1. [ ] Hand cannon
-    1. Crossbow
-        1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
-    1. Handgrenades
-        1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
-        1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
-        1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
-    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
-    1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] Akimbo's (select weapons)
-        1. [ ] Clusters
-    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
-    1. [ ] Pulse Rifle
-    1. [ ] Pulse Pistol
-    1. [ ] C4 mine placement with satchels
-    1. [ ] Convert throw-hold effect to all other weapons for control
-    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
-        1. [ ] Customizable color
-    1. [ ] Taser
-    1. [ ] Decoy bombs that morph into AI assassins?
-    1. [ ] Counter-Strike penguin
-    1. Knife
-        1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
-        1. [ ] Cold Ice 2.5 model?
-        1. [ ] sparks found on and [this video](https://www.youtube.com/watch?v=-CjaytQLWFY)
-    1. [ ] Third person muzzle flash placement
-    1. [ ] mag60 sd model from cold ice 2.5
-    1. [ ] RPG v_ model with hand on barrel from [New Light](https://www.moddb.com/mods/half-life-new-light)
-    1. [ ] Python v_ from brutal HL for focusing animation
-    1. [ ] Punch angle for draw and holstering
-    1. [ ] Tighten up all idle animation times to match code
-    1. [ ] Correct all brass shell ejection points
-    1. [ ] Use attachment point for each model
-    1. Chaingun
-        1. [ ] Secondary chaingun idea?
-        1. [ ] Faster spin?
-        1. [ ] Tracers on all bullets?
-1. Weapon ViewModel / Effects
-    1. [ ] Bob up/down like HL New Light v3
-    1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
-    1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
-    1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
-    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
-    1. [ ] Ice hands in addition
-    1. [ ] Blue arms + real skins
-    1. [ ] Additional attachment values for configurable speeds and fov
-    1. [ ] Damage / blood / stains on view model and player as seen in bhl
-    1. [ ] Customize iron-sight values, add support to other weapons at runtime.
-1. Server Support
-    1. [ ] mp_semiauto
-        1. Wire server to client message when changed
-1. Movement
-    1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
-1. Bot support
-    1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
-    1. [ ] Bot support for hook
-    1. [ ] Bot support for macOS
-1. Game Mechanics
-    1. [ ] Front flip
-    1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)
-    1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
-    1. [ ] Jetpack?
-    1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
-    1. [ ] Player jump and land sound effects
-    1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).
-    1. [ ] Improved player kick animation from grunt player model
-1. Gameplay
-    1. [ ] random map select
-    1. [ ] Stream VOs from UT (when you dont die)
-    1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
-    1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
-    1. [ ] mp_startonlywith "weapon_*"
-    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
-    1. [ ] Weapon filter list
-1. Environment look and feel
-    1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
-    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
-    1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog)
-    1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195)
-1. UI / Menu
-    1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
-1. Runes
-    1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
-    1. [ ] Ammo regeneration
-    1. [ ] Super jump rune
-1. HUD
-    1. [ ] Re-enable suit voice updates?
-    1. [ ] Add map name to the scoreboard
-    1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
-1. Maps
-    1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
-    1. [x] fgd file
-    1. [ ] Finish arena, texture in Cold Ice style
-    1. [ ] Training 2
-        1. [ ] Frozen pool in new area opposite of garage
-    1. [ ] Frozen Lake map idea
-    1. [ ] datacore (crystalcore)
-    1. [ ] rapidcore (icecore)
-    1. [ ] rustmill
-    1. [ ] the hill
-    1. [ ] Add info_intermission points
-    1. [ ] Realign large blue crate textures so detailed textures is left to right
-    1. [ ] Clip sky in Focus
-1. Player Models
-    1. [ ] All Cold Ice 1.6 player models
-1. Models
-    1. [ ] Gold Skin? (Radu Matei Ionut)
-    1. [ ] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
-1. Integrations
-    1. [ ] [Discord](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/halflife-extended/tree/main/source-code)
-1. Fixes
-    1. [ ] mp_infiniteammo -> sv_infiniteammo
-    1. [ ] Add git hash to server name in dll
-    1. [ ] Improve Crowbar animation from another v_ model
-    1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
-    1. [ ] Snowball not exhaustable?
-    1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
-1. Clean up
-    1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
-    1. [ ] Compact w_ models into p_
-    1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
-1. Game Dev Tools
-    1. [ ] Include pdb files, debug libraries on builds off master.
-    1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
-    1. [ ] Codegen for generating new weapons
-    1. [ ] Some static analysis tool to detect method signatures (e.g. Railgun holster animation missing skiplocal var)
-    1. [ ] Timestamps for building artifacts
-        1. If timestamp of built artifact is newer than all source artifacts, skip building again
-    1. [ ] Compile mdl tool for Linux
-1. Community ideas
-    1. [ ] Rune power degradation / Power consumption of the cloak rune? 
-    1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 (Napoleon)
-    1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
-    1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
-    1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
-    1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
-    1. [ ] Taunts from player (Napoleon)
-    1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
-    1. [ ] Multiple rune equip (Napoleon)
-    1. [ ] Ice spike gun (AudioCraZ)
-    1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
-    1. [ ] "ice spike gun" (AudioCraZ)
-    1. [ ] mutators ```mp_mutators "blowup (Napoleon);weapon_(AudioCraZ);insta(The_Pacific_gamer);jetpack(Napoleon);tiny"```
-    1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
-    1. [ ] Russian translations (berry from moddb)
-    1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
-    1. [ ] Respawning breakable glass (Napoleon)
 
 ### Beta 2
 
