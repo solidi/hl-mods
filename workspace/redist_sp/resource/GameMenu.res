@@ -36,23 +36,29 @@
 	"6"
 	{
 		"label" "#GameUI_GameMenu_NewGame"
-		"command" "OpenNewGameDialog"
+		"command" "engine imgui_chapter"
 		"notmulti" "1"
 	}
 	"7"
+	{
+		"label" "New Game (Classic Menu)"
+		"command" "OpenNewGameDialog"
+		"notmulti" "1"
+	}
+	"8"
 	{
 		"label" "#GameUI_GameMenu_LoadGame"
 		"command" "OpenLoadGameDialog"
 		"notmulti" "1"
 	}
-	"8"
+	"9"
 	{
 		"label" "#GameUI_GameMenu_SaveGame"
 		"command" "OpenSaveGameDialog"
 		"notmulti" "1"
 		"OnlyInGame" "1"
 	}
-	"9"
+	"10"
 	{
 		"label" ""
 		"command" ""
