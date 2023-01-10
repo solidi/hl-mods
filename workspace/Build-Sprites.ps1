@@ -96,6 +96,17 @@ try {
     Compile-Sprite $binDir "wallclimb" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "voiceicon" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamesteam" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "null" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flameline" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "blacksmoke" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "black_smoke1" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamepart1" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamepart3" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamepart9" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamepart11" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamepart12" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "flamepart13" $spritesDir $redistdir\sprites
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
@@ -127,6 +138,7 @@ try {
     Copy-Item $spritesDir\weapon_rocketcrowbar.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_dual_railgun.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_gravitygun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_flamethrower.txt $redistDir\sprites
     Copy-Item $spritesDir\hud.txt $redistDir\sprites
 } catch {
     Write-Error "$($_.Exception.Message)"

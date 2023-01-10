@@ -71,10 +71,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
 1. Weapons
-    1. [ ] Flame Thrower (Napoleon)
+    1. [x] Flame Thrower (Napoleon)
     1. [ ] Hand cannon
     1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
+    1. [ ] Satchel Assassins become fully animated monsters (and can be exploded anytime)
 1. Server
     1. [ ] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
@@ -86,6 +87,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
     1. [ ] [Water Splash](https://github.com/bacontsu/codename-borea/commit/89a0c080f99faed3cc1a3f175d608ec37d6e4376)
     1. [ ] [Realtime use sprite](https://github.com/bacontsu/codename-borea/commit/2a3fc957be406a16bca6570cb9ea368c07abea4d)
+1. Game Mutators
+    1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
 1. Single Player
     1. [x] [Chapter Select Menu](https://github.com/BlueNightHawk/testflight/commits/master?after=144d73f461c6b83c818131b0536d3450a4266e8a+34&branch=master&qualified_name=refs%2Fheads%2Fmaster)
 1. Environment look and feel
@@ -108,7 +111,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Modes
     1. [ ] Support
         1. [ ] Wins / Rounds Left visual support
-        1. [ ] Active timer on HUD
+        1. [ ] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
     1. [ ] Capture the Chumtoad (Audiocraz)
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
@@ -145,6 +148,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [ ] chums/snarks wont dies
 1. Weapons
+    1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
+    1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
+        1. [ ] your weapon takes 10x more the amount of damage
+        1. [ ] but the recoil is 10x more high and the accuracy is garbage
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
     1. [ ] Scientist Gun from RocketCrowbar
     1. [ ] Throw any weapon as an attack
@@ -161,7 +168,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
-    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s)
+    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] Akimbo's (select weapons)
         1. [ ] Clusters
@@ -229,6 +236,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] Weapon filter list
 1. Environment look and feel
+    1. [ ] [Physics Engine](https://github.com/anchurcn/GoldsrcPhysics)
+        1. [ ] Ragdoll effect (speak to Napoleon)
+    1. [ ] Shader water implementation...(something that's not Trinity, (speak to Napoleon))
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
     1. [ ] Swap blue sprites with real sprites with cl_icemodels?
 1. UI / Menu
@@ -255,6 +265,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
     1. [ ] Clip sky in Focus
+    1. [ ] Update lights.rad production to use Napoleon's lights.rad file
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Models
@@ -275,6 +286,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
 1. Game Dev Tools
+    1. [ ] [Cache modeling check](https://github.com/bacontsu/spirit-op4/commit/2adf21717c39628b6629c83c5cc34dc03b3790b5)
     1. [ ] Include pdb files, debug libraries on builds off master.
     1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
     1. [ ] Codegen for generating new weapons

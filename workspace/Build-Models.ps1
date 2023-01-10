@@ -348,6 +348,9 @@ try {
     Invert-Skin $binDir "w_barrel" $modelsdir
     Invert-Skin $binDir "w_cabinet" $modelsdir
     Invert-Skin $binDir "w_sentry" $modelsdir
+    Invert-Skin $binDir "v_flamethrower" $modelsdir
+    Invert-Skin $binDir "p_flamethrower" $modelsdir
+    Invert-Skin $binDir "w_flamethrower" $modelsdir
 
     Compile-Player "alpina" $binDir $modelsdir $redistDir
     Compile-Player "army" $binDir $modelsdir $redistDir
@@ -657,6 +660,9 @@ try {
     Compile-Model $binDir "w_barrel" $modelsdir $redistdir\models
     Compile-Model $binDir "w_cabinet" $modelsdir $redistdir\models
     Compile-Model $binDir "w_sentry" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_flamethrower" $modelsdir $redistdir\models
+    Compile-Model $binDir "p_flamethrower" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_flamethrower" $modelsdir $redistdir\models
     } else {
         Compile-Player $playerModel $binDir $modelsdir $redistDir
     }

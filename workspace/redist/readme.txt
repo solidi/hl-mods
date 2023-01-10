@@ -9,6 +9,16 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+Beta 4 Features:
+
+- 1 New Weapon
+    - Flame Thrower
+        - Flame Stream / Flame Ball
+- Single Player Gameplay
+    - Chapter Selection Menu
+- Fixes
+    - Re-added Snarks missing from Linux build
+
 Beta 3 Features:
 
 - 3 New Weapons
@@ -448,6 +458,7 @@ Client:
     - Or use "+_sethdmodels" in-game startup parameters
     - See installation above for Xash3d for support of HD models
 - "help" - Displays specific client Cold Ice Remastered options
+- "help_more" - Displays more client Cold Ice Remastered options
 - "+hook" - Deploy an offhand grappling hook
 - "+ironsight" - Use experimental iron sights when available 
 - "impulse 205" - Swap between single and dual weapon, if available
@@ -496,10 +507,12 @@ Client:
 - "cl_hudscale" - experimental scaling factor of HUD elements
 - "cl_hudbend" - experimental bending factor of HUD elements
 - "cl_wallclimbindicator [0|1]" shows when wallclimb is available
+- "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
 
 Server:
 
 - "help_server" - Displays specific server Cold Ice Remastered options
+- "help_server_more" - Displays more server Cold Ice Remastered options
 - "addbot" - Add a bot
 - "botdontshoot [0|1]" - Enable or disable bots attacking others
 - "mp_grapplinghook [0|1]" - Allow grappling hook on server
@@ -671,3 +684,5 @@ Thanks To:
 - The evil santa icon used in the game https://villainsfanon.fandom.com/wiki/Evil_Santa
 - The evil santa background used in the game https://pngtree.com/freebackground/merry-christmas-wood-plank-texture-background_1266178.html
 - Sonic-The-Falcon for sprite icon used in the game https://www.deviantart.com/sonic-the-falcon/art/Sanic-With-A-Christmas-Hat-509543445
+- Dexter for the converted TFC flamethrower models https://gamebanana.com/mods/180503
+- Shapirlic, Chyvachok and the newlife team for modified particle engine, fire and flame thrower https://www.moddb.com/mods/alternative-way
