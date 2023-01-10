@@ -92,6 +92,7 @@
 "use weapon_snark"			"#Ice_Snark"
 "use weapon_chumtoad"			"#Ice_Chumtoad"
 "use weapon_vest"			"#Ice_Vest"
+"use weapon_flamethrower"			"#Ice_FlameThrower"
 "blank"			"=========================="
 "blank"			"#Ice_Weapon_Category_6"
 "blank"			"=========================="

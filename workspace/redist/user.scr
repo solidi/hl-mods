@@ -293,4 +293,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_particlesystem"
+	{
+		"#Ice_ParticleSystem"
+		{ BOOL }
+		{ "1" }
+	}
 }

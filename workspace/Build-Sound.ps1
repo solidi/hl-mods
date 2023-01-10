@@ -283,6 +283,13 @@ Copy-Item $soundDir\killingmachine.wav $redistdir\sound
 Copy-Item $soundDir\pickupyourweaponsandfight.wav $redistdir\sound
 Copy-Item $soundDir\youarethelastmanstanding.wav $redistdir\sound
 Copy-Item $soundDir\preparetofight.wav $redistdir\sound
+Copy-Item $soundDir\flame_hitwall.wav $redistdir\sound
+Copy-Item $soundDir\flamethrower_reload.wav $redistdir\sound
+Copy-Item $soundDir\flamethrower.wav $redistdir\sound
+Copy-Item $soundDir\flamethrowerend.wav $redistdir\sound
+Copy-Item $soundDir\flamerun.wav $redistdir\sound
+Copy-Item $soundDir\flameburst.wav $redistdir\sound
+Copy-Item $soundDir\fire_loop.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 
