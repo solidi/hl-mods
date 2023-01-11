@@ -14,10 +14,13 @@ Beta 4 Features:
 - 1 New Weapon
     - Flame Thrower
         - Flame Stream / Flame Ball
+- Weapon Changes
+    - Tighten flak primary fire
 - Single Player Gameplay
     - Chapter Selection Menu
 - Fixes
     - Re-added Snarks missing from Linux build
+    - Fixed flak cannon crash on Linux
 
 Beta 3 Features:
 

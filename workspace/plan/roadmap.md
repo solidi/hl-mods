@@ -49,6 +49,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual SMG
     1. [x] Dual USAS
     1. [x] Freezegun
+    1. [x] Flamethrower
+        1. [x] Linux
+    1. [x] Flak Cannon
+        1. [x] Linux
 1. [ ] Testing
     1. [x] Weapons behaviors under water
     1. [ ] Fakelag with weapons
