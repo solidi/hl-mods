@@ -16,11 +16,14 @@ Beta 4 Features:
         - Flame Stream / Flame Ball
 - Weapon Changes
     - Tighten flak primary fire
+    - Improved freezegun performance
 - Single Player Gameplay
     - Chapter Selection Menu
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
+    - Fixed bots moving too fast or slow after map change
+    - Fixed bots weapon select and firing on spawn
 
 Beta 3 Features:
 

@@ -391,4 +391,5 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. Finite state machine [in C++](https://faramira.com/reusable-finite-state-machine-using-cpp/) could be used for a nice pattern.
 1. Max viewable distance, or anything above 4096 [may be a problem](https://twhl.info/thread/view/18347) with a reliable overflow. [Here is alternative](https://forums.alliedmods.net/showthread.php?t=8195) opinion.
 1. [Here is a good list](https://stackoverflow.com/questions/5246015/copy-built-assemblies-including-pdb-config-and-xml-comment-files-to-folder-p) of how to discern the artifact outputs of a visual studio project
-1 ]. Changing languages in Half-Life is as easy as [creating a new mod folder](https://www.reddit.com/r/HalfLife/comments/m3f73s/how_to_change_the_halflife_1_language_from_files/)
+1. Changing languages in Half-Life is as easy as [creating a new mod folder](https://www.reddit.com/r/HalfLife/comments/m3f73s/how_to_change_the_halflife_1_language_from_files/)
+1. [Here is a list](https://wiki.alliedmods.net/Half-Life_1_Engine_Messages) of all server messages available from the Half-Life engine. `SVC_TIMESCALE` could be very useful.

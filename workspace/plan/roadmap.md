@@ -49,6 +49,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual SMG
     1. [x] Dual USAS
     1. [x] Freezegun
+        1. [x] Linux
     1. [x] Flamethrower
         1. [x] Linux
     1. [x] Flak Cannon
@@ -112,6 +113,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Source version
     1. [ ] Add compiled mmod linux library
     1. [ ] Make it easy to add bots on "Create Server"
+        1. [ ] New Life Launcher program?
 1. Game Modes
     1. [ ] Support
         1. [ ] Wins / Rounds Left visual support
@@ -150,7 +152,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] houndeye
     1. [ ] apache helicopter
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
-    1. [ ] chums/snarks wont dies
+    1. [ ] chums/snarks wont die
 1. Weapons
     1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
