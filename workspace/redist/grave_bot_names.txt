@@ -6,22 +6,22 @@ rory
 Coconutmonkey28
 thebabel
 -TCR-CyberSpy
-ITF-Clock Work Orange
+ITF-ClockWorkOrange
 ITF-Chaos
 ITF-Camper
 ITF-Sniper
-ITF-Rat TraP
-Matthew Hirsch
+ITF-RatTraP
+MatthewHirsch
 SSJ_MicroHack
 HUDSON
 Plug
 Wolfsinn
 Ixnay
-[HS] BlackJack
+[HS]BlackJack
 Laserus
 Snipe
 DrewDawg
-The Quamosity
+TheQuamosity
 Jope
 Panic
 Apocalypso
@@ -32,7 +32,7 @@ Spyder
 tommyd
 Rapturer
 Kurayamikage
-Split Spine
+SplitSpine
 Gitbgff
 EnemeyZero
 ToonCop
@@ -47,10 +47,10 @@ Vinny
 ssfcgasl'sgo!
 Napoleon
 TheSpacePirate
-Radiation Hazard
+RadiationHazard
 Kralich/David
 BlueNightHawk
 crazydog
 Strast
-Mitchell The BoneLord
+MitchellTheBoneLord
 Bacontsu

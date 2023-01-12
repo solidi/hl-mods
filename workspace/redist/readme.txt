@@ -24,6 +24,7 @@ Beta 4 Features:
     - Fixed flak cannon crash on Linux
     - Fixed bots moving too fast or slow after map change
     - Fixed bots weapon select and firing on spawn
+    - Reduced server messages to bots where possible
 
 Beta 3 Features:
 
