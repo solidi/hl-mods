@@ -21,7 +21,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Boltgun
     1. [x] Cannon
     1. [x] Knife
-        1. [x] Match a better decal
+        1. [x] Linux
     1. [ ] Crowbar (bots disappeared?)
     1. [x] Sniper Rifle
     1. [x] Mag60

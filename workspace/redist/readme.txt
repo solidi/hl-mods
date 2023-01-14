@@ -19,12 +19,15 @@ Beta 4 Features:
     - Improved freezegun performance
 - Single Player Gameplay
     - Chapter Selection Menu
+- Client Support
+    - Improved "hud_fastswitch" to cycle through weapons in a slot
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
     - Fixed bots moving too fast or slow after map change
     - Fixed bots weapon select and firing on spawn
     - Reduced server messages to bots where possible
+    - Fixed throwing knife/crowbar/wrench crash on Linux
 
 Beta 3 Features:
 
