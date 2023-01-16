@@ -20,6 +20,7 @@ $Config = @{ }
 [int]$timelimit = 0
 [bool]$copyDistro = 1
 [bool]$detailedTextures = $false
+[string]$singlePlayer = ""
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -54,6 +55,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Detail") {
         $detailedTextures = $true
         Write-Output "with detailed textures..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "SinglePlayer") {
+        $singlePlayer = "_sp"
+        Write-Output "single player..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -107,5 +111,5 @@ for ($bot = 0; $bot -lt $botCount; $bot++) {
 }
 
 Set-Location -Path $hldir
-Launch-HL $botCount $hdModels $map $hldir $hlexe $gameParameters $gameFolder
+Launch-HL $botCount $hdModels $map $hldir $hlexe $gameParameters "$($gameFolder)$($singlePlayer)"
 Set-Location -Path ${PSScriptRoot}

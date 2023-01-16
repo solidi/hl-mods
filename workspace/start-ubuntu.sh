@@ -3,17 +3,19 @@ set -euo pipefail
 IFS=$'\n\t'
 
 icefolder=ice_beta3
-maxplayers=32
+maxplayers=24
 hiDef=1
 skipDistro=0
 debug=0
-while getopts "mhsd:" flag
+singlePlayer=0
+while getopts "m:h:s:d:p:" flag
 do
     case "${flag}" in
         m) maxplayers=${OPTARG};;
         h) hiDef=${OPTARG};;
         s) skipDistro=${OPTARG};;
         d) debug=${OPTARG};;
+        p) singlePlayer=${OPTARG};;
     esac
 done
 echo "maxplayers is $maxplayers...";
@@ -38,6 +40,11 @@ function doCopy() {
 
 if [[ $skipDistro -eq 0 ]]; then
     doCopy
+fi
+
+if [[ $singlePlayer -eq 1 ]]; then
+    echo "single player is enabled";
+    icefolder+="_sp"
 fi
 
 if [[ $debug -eq 1 ]]; then

@@ -54,6 +54,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Linux
     1. [x] Flak Cannon
         1. [x] Linux
+    1. [x] Gravity Gun
+        1. [x] Linux
 1. [ ] Testing
     1. [x] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -183,7 +185,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Pulse Pistol
     1. [ ] C4 mine placement with satchels
     1. [ ] Convert throw-hold effect to all other weapons for control
-    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)?
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)? [Beam sword](https://cso.fandom.com/wiki/Beam_Sword)
         1. [ ] Customizable color
     1. [ ] Taser
     1. [ ] Decoy bombs that morph into AI assassins?
