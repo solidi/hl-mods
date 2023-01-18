@@ -14,12 +14,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. [ ] Burn in mod with bots on dedicated server for hours
     1. [x] Cluster Grenades
+        1. [x] Linux
     1. [x] Railgun
     1. [x] Silencer
     1. [x] RPG
     1. [x] Chumtoad
     1. [x] Boltgun
     1. [x] Cannon
+        1. [x] Linux
     1. [x] Knife
         1. [x] Linux
     1. [ ] Crowbar (bots disappeared?)
@@ -34,6 +36,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [x] Wrench
     1. [x] Snowball
+        1. [x] Linux
     1. [x] Chainsaw
     1. [x] 12 Gauge
     1. [x] 44 Magnum
@@ -41,7 +44,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Explosive Assault Shotgun
     1. [x] Nuke Launcher
     1. [x] Snarks
-        1. [x] Odd sz_getspace error, bots walking slowly?
+        1. [x] Linux
     1. [x] Deagle
     1. [x] Dual Deagles
     1. [x] Dual RPG
@@ -55,6 +58,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Flak Cannon
         1. [x] Linux
     1. [x] Gravity Gun
+        1. [x] Linux
+    1. [x] Sliding
         1. [x] Linux
 1. [ ] Testing
     1. [x] Weapons behaviors under water
@@ -77,6 +82,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
+    1. [ ] Grapple hook support for bots
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [ ] Hand cannon
@@ -289,6 +295,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] Snowball not exhaustable?
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
+    1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_

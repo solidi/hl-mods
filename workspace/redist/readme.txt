@@ -28,6 +28,8 @@ Beta 4 Features:
     - Fixed bots weapon select and firing on spawn
     - Reduced server messages to bots where possible
     - Fixed throwing knife/crowbar/wrench crash on Linux
+    - Patch crash on offhanded punch without a weapon
+    - Fixed bots so that they use snarks when equipped
 
 Beta 3 Features:
 
