@@ -79,6 +79,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ### Beta 4
 
+1. Up Next
+    1. [ ] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
+    1. [ ] Single player freeze effect for all monsters
+    1. [ ] Railgun effect client side to reduce server messages?
+    1. [ ] Freezegun secondary fire beam to explode primary plasma
+
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
@@ -95,7 +101,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Client
     1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
     1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
-    1. [ ] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
     1. [ ] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
     1. [ ] [Water Splash](https://github.com/bacontsu/codename-borea/commit/89a0c080f99faed3cc1a3f175d608ec37d6e4376)
@@ -108,7 +113,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Fixes
-    1. [ ] Single Player freeze effect for all monsters
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
     1. [ ] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
     1. [ ] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
@@ -161,6 +165,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] apache helicopter
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [ ] chums/snarks wont die
+    1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
 1. Weapons
     1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
@@ -236,7 +241,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mechanics
     1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)
     1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
-    1. [ ] Jetpack?
+    1. [ ] [Jetpack](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/9909024518e8bdee5b0e992b97b0b66054d016d3)
     1. [ ] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
     1. [ ] Player jump and land sound effects
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).

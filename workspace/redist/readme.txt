@@ -17,6 +17,7 @@ Beta 4 Features:
 - Weapon Changes
     - Tighten flak primary fire
     - Improved freezegun performance
+    - Nuke explodes on command in new static camera mode
 - Single Player Gameplay
     - Chapter Selection Menu
 - Client Support
@@ -30,6 +31,7 @@ Beta 4 Features:
     - Fixed throwing knife/crowbar/wrench crash on Linux
     - Patch crash on offhanded punch without a weapon
     - Fixed bots so that they use snarks when equipped
+    - Fixed nuke crosshairs in camera mode
 
 Beta 3 Features:
 
@@ -452,7 +454,7 @@ Beta 4 Highly-Valued Upcoming Features:
 
 Installation:
 
-- For Steam: Place both ice_betax and ice_betax_hd folders in the same folder where hl.exe is installed.
+- For Steam: Place ice_betax, ice_betax_hd, and ice_betax_sp, folders in the same folder where hl.exe is installed.
     - See this guide for a step-by-step guide on how to install this mod: https://steamcommunity.com/sharedfiles/filedetails/?id=174908119
 - For Xash3d: Since Xash3d does not support SD/HD model switching, install the ice_betax folder first where xash3d.exe is located. Then copy ice_betax_hd contents, and paste them over the ice_betax folder, overwriting the SD models.
 
@@ -648,7 +650,7 @@ Thanks To:
 - The Cold-Ice team 2.5 for the m16 weapon model
 - malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
 - The overhaul pack for select glow models and sound effects https://www.moddb.com/mods/half-life-overhaul-pack
-- The BFG model and flakcannon from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
+- Ghoul-bb and team for the BFG model, flakcannon, sprites from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
 - Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
