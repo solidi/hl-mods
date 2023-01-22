@@ -393,3 +393,8 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. [Here is a good list](https://stackoverflow.com/questions/5246015/copy-built-assemblies-including-pdb-config-and-xml-comment-files-to-folder-p) of how to discern the artifact outputs of a visual studio project
 1. Changing languages in Half-Life is as easy as [creating a new mod folder](https://www.reddit.com/r/HalfLife/comments/m3f73s/how_to_change_the_halflife_1_language_from_files/)
 1. [Here is a list](https://wiki.alliedmods.net/Half-Life_1_Engine_Messages) of all server messages available from the Half-Life engine. `SVC_TIMESCALE` could be very useful.
+1. [Here is a tutorial](http://web.archive.org/web/20040807141100/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=37) on how to make game rounds. I've already accomplished this, but it seems to be a good alternative.
+1. [Here is a tutorial](http://web.archive.org/web/20050212030855/http://www.planethalflife.com/fixxxer/hltuts/hl_msg.htm) about how messages work in Half-Life.
+1. The list for Half-Life single player is long. [Here is the list](https://steamcommunity.com/sharedfiles/filedetails/?id=1330328357) of all single player maps in order.
+1. The [GoldSrcRebuild](https://github.com/Triang3l/GoldSourceRebuild) project rebuilds all the functions within the Gold Source engine.
+1. Using the [up and down](https://stackoverflow.com/questions/4321184/help-for-gdb-debug-crash-logging/43364504#43364504) commands in gdb has helped further debugging issues. I also learned that sometimes with undefined or NULL variables, the method [can still be called](https://stackoverflow.com/questions/31336294/in-which-case-the-c-this-pointer-can-be-null) on that variable.
