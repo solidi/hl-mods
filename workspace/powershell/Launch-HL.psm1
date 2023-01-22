@@ -40,7 +40,7 @@ function copyDistributionFiles {
         Copy-Item -Recurse -Force $detailedTexturesDir\maps $iceDir
         [void](New-Item -ItemType directory -Path $iceDir\gfx\detail)
         Copy-Item -Recurse -Force $detailedTexturesDir\gfx\detail $iceDir\gfx
-        Copy-Item -Recurse -Force $detailedTexturesDir\detailed_textures_beta2_readme.txt $iceDir
+        Copy-Item -Recurse -Force $detailedTexturesDir\detailed_textures_readme.txt $iceDir
         Write-Output "Done including detailed textures."
     }
 

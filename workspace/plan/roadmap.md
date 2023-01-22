@@ -43,6 +43,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] M16
     1. [x] Explosive Assault Shotgun
     1. [x] Nuke Launcher
+        1. [x] Linux
     1. [x] Snarks
         1. [x] Linux
     1. [x] Deagle
@@ -81,10 +82,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. Up Next
     1. [ ] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
+    1. [ ] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [ ] Single player freeze effect for all monsters
     1. [ ] Railgun effect client side to reduce server messages?
     1. [ ] Freezegun secondary fire beam to explode primary plasma
-
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
@@ -187,7 +188,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
-    1. [ ] [Portal gun?](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] Akimbo's (select weapons)
         1. [ ] Clusters
