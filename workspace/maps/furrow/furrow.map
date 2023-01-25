@@ -2963,10 +2963,6 @@
 }
 }
 {
-"classname" "info_player_start"
-"origin" "-128 96 216"
-}
-{
 "classname" "func_wall"
 "rendercolor" "0 0 0"
 "rendermode" "4"
@@ -3746,41 +3742,6 @@
 "origin" "704 16 64"
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 236 0"
-"origin" "-48 752 128"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 10 0"
-"origin" "-1040 -304 48"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 142 0"
-"origin" "1040 -704 176"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 209 0"
-"origin" "1088 448 128"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 313 0"
-"origin" "-960 480 96"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 171 0"
-"origin" "912 96 80"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 180 0"
-"origin" "752 -96 224"
-}
-{
 "classname" "func_wall"
 "rendercolor" "0 0 0"
 "rendermode" "4"
@@ -3813,11 +3774,50 @@
 "origin" "744 216 200"
 }
 {
+"classname" "env_snow"
+"origin" "-128 96 312"
+}
+{
+"classname" "info_player_start"
+"origin" "-128 96 88"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 236 0"
+"origin" "-48 752 128"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 10 0"
+"origin" "-1040 -304 48"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 142 0"
+"origin" "1040 -704 176"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 209 0"
+"origin" "1088 448 128"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 171 0"
+"origin" "912 96 80"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "752 -96 224"
+}
+{
 "classname" "info_player_deathmatch"
 "origin" "351 208 232"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "-160 -725 8"
 }
 {
@@ -3826,14 +3826,17 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "1119 -94 256"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "-664 -185 192"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 230 0"
 "origin" "175 286 128"
 }
 {
@@ -3843,18 +3846,22 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "-424 -450 176"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 60 0"
 "origin" "-1080 -736 72"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "176 470 159"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 320 0"
 "origin" "544 439 96"
 }
 {
@@ -3863,9 +3870,11 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 300 0"
 "origin" "-96 321 160"
 }
 {
-"classname" "env_snow"
-"origin" "-128 96 312"
+"classname" "info_player_deathmatch"
+"angles" "0 313 0"
+"origin" "-960 480 96"
 }
