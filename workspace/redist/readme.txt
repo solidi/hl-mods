@@ -34,6 +34,7 @@ Beta 4 Features:
     - Fixed nuke crosshairs in camera mode
     - Fixed snowcross rail clipping
     - Fixed deathmatch spawn angles for various maps
+    - Fix textures in doublefrost
 
 Beta 3 Features:
 
