@@ -33,6 +33,7 @@ Beta 4 Features:
     - Fixed bots so that they use snarks when equipped
     - Fixed nuke crosshairs in camera mode
     - Fixed snowcross rail clipping
+    - Fixed deathmatch spawn angles for various maps
 
 Beta 3 Features:
 
