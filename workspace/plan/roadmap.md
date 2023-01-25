@@ -92,6 +92,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Grapple hook support for bots
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
+    1. [ ] OP4 model from OP4n for deagle
+        1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Hand cannon
     1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
@@ -127,6 +129,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add compiled mmod linux library
     1. [ ] Make it easy to add bots on "Create Server"
         1. [ ] New Life Launcher program?
+    1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
     1. [ ] Support
         1. [ ] Wins / Rounds Left visual support
@@ -142,6 +145,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
     1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
+    1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
 1. Game Mutators
     1. [ ] Lightsout updates
         1. [ ] Light up melee weapons
@@ -217,7 +221,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Secondary chaingun idea?
         1. [ ] Faster spin?
         1. [ ] Tracers on all bullets?
-    1. [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
+    1. [ ] [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
+    1. [ ] Grenades that randomly teleport when they bounce? (AudioCraZ)
+    1. [ ] Grenades that never stop bouncing and have a random timer to detonate. (Flubber bomb) (AudioCraZ)
 1. Weapon ViewModel / Effects
     1. [ ] Bob up/down like HL New Light v3
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
@@ -266,6 +272,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
     1. [ ] Ammo regeneration
     1. [ ] Super jump rune
+1. Prefabs / Extras
+    1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
@@ -335,6 +343,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] Respawning breakable glass (Napoleon)
+    1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
 
 ### Beta 3
 

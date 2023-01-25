@@ -32,6 +32,7 @@ Beta 4 Features:
     - Patch crash on offhanded punch without a weapon
     - Fixed bots so that they use snarks when equipped
     - Fixed nuke crosshairs in camera mode
+    - Fixed snowcross rail clipping
 
 Beta 3 Features:
 
