@@ -3910,10 +3910,6 @@
 "origin" "3200 -416 496"
 }
 {
-"classname" "info_player_start"
-"origin" "2016 -144 144"
-}
-{
 "classname" "func_illusionary"
 "rendercolor" "0 0 0"
 "rendermode" "4"
@@ -4310,52 +4306,6 @@
 "origin" "1168 720 -368"
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 90 0"
-"origin" "384 -824 -40"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "367 193 -64"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "1152 -304 -48"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "965 -48 -304"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 180 0"
-"origin" "1473 208 -648"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "641 248 -64"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "554 560 -352"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "800 1181 -352"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "400 1344 -336"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "3104 -304 288"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "2778 1008 320"
-}
-{
 "classname" "light"
 "_light" "255 255 128 300"
 "origin" "200 1136 -288"
@@ -4519,10 +4469,6 @@
 "origin" "212 -821 -112"
 }
 {
-"classname" "info_player_deathmatch"
-"origin" "1728 -23 -400"
-}
-{
 "classname" "ambient_generic"
 "spawnflags" "2"
 "message" "ambience/waterfall2.wav"
@@ -4548,6 +4494,71 @@
 "origin" "1280 128 -320"
 }
 {
+"classname" "info_player_start"
+"angles" "0 180 0"
+"origin" "2016 -144 144"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "384 -824 -40"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "367 193 -64"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "1152 -304 -48"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "965 -48 -304"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "1473 208 -648"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "641 248 -64"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "554 560 -352"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "800 1181 -352"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 245 0"
+"origin" "400 1344 -336"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 130 0"
+"origin" "3104 -304 288"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 230 0"
+"origin" "2778 1008 320"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 160 0"
+"origin" "1728 -23 -400"
+}
+{
 "classname" "info_player_deathmatch"
 "origin" "61 -256 -96"
 }
@@ -4557,25 +4568,31 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "217 530 -344"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 315 0"
 "origin" "2135 1305 200"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "3105 709 288"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "2568 424 200"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "1808 844 184"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 145 0"
 "origin" "3055 253 288"
 }
