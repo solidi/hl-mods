@@ -35,6 +35,7 @@ Beta 4 Features:
     - Fixed snowcross rail clipping
     - Fixed deathmatch spawn angles for various maps
     - Fix textures in doublefrost
+    - Prevent grappling hook from firing from dead player
 
 Beta 3 Features:
 
