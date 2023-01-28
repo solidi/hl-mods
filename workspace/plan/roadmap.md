@@ -89,6 +89,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
+    1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
@@ -608,3 +609,5 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ## Collaboration
 
 1. [x] Reach out to [BlueNightHawk](trovymam@gmail.com)
+1. [ ] Write script for [Robo](https://community.lambdageneration.com/user/robo)
+1. [ ] Reach out to [maxvollmer](https://github.com/maxvollmer/Half-Life-VR) on VR integration

@@ -8,7 +8,8 @@ hiDef=1
 skipDistro=0
 debug=0
 singlePlayer=0
-while getopts "m:h:s:d:p:" flag
+detailTextures=0
+while getopts "m:h:s:d:p:t:" flag
 do
     case "${flag}" in
         m) maxplayers=${OPTARG};;
@@ -16,6 +17,7 @@ do
         s) skipDistro=${OPTARG};;
         d) debug=${OPTARG};;
         p) singlePlayer=${OPTARG};;
+        t) detailTextures=${OPTARG};;
     esac
 done
 echo "maxplayers is $maxplayers...";
@@ -30,12 +32,23 @@ function doCopy() {
     sudo cp libs/dlls/ice.so redist_sp/dlls/
     sudo cp libs/dlls/gravebot.so redist_sp/dlls/
 
-    rm -rf  ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
-    rm -rf  ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
-    rm -rf  ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_sp/
-    cp -a redist/. ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}/
-    cp -a redist_hd/. ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_hd/
-    cp -a redist_sp/. ~/.steam/debian-installation/steamapps/common/Half-Life/${icefolder}_sp/
+    installFolder=~/.steam/debian-installation/steamapps/common/Half-Life
+
+    rm -rf  ${installFolder}/${icefolder}/
+    rm -rf  ${installFolder}/${icefolder}_hd/
+    rm -rf  ${installFolder}/${icefolder}_sp/
+    cp -a redist/. ${installFolder}/${icefolder}/
+    cp -a redist_hd/. ${installFolder}/${icefolder}_hd/
+    cp -a redist_sp/. ${installFolder}/${icefolder}_sp/
+
+    if [[ $detailTextures -eq 1 ]]; then
+        echo 'Including detailed textures...'
+        cp -a detailed-textures/maps/. ${installFolder}/${icefolder}/maps/
+        mkdir ${installFolder}/${icefolder}/gfx/detail
+        cp -a detailed-textures/gfx/detail/. ${installFolder}/${icefolder}/gfx/detail/
+        cp -a detailed-textures/detailed_textures_readme.txt ${installFolder}/${icefolder}
+        echo 'Done including detailed textures.'
+    fi
 }
 
 if [[ $skipDistro -eq 0 ]]; then
