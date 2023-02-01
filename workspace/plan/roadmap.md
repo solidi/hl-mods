@@ -24,7 +24,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Linux
     1. [x] Knife
         1. [x] Linux
-    1. [ ] Crowbar (bots disappeared?)
+    1. [x] Crowbar
+        1. [x] Linux
     1. [x] Sniper Rifle
     1. [x] Mag60
     1. [x] Chaingun
@@ -81,11 +82,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 4
 
 1. Up Next
-    1. [ ] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [ ] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [ ] Single player freeze effect for all monsters
     1. [ ] Railgun effect client side to reduce server messages?
     1. [ ] Freezegun secondary fire beam to explode primary plasma
+    1. [ ] Private repo build pipeline for doublefrost2k
+        1. [ ] Launch doublefrost2k in Feb 2023 as an add on
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
@@ -103,6 +105,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
 1. Client
+    1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
     1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
     1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
@@ -290,6 +293,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] rapidcore (icecore)
     1. [ ] rustmill
     1. [ ] the hill
+    1. [ ] [dm_lister](https://gamebanana.com/mods/59480) reskin
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
     1. [ ] Clip sky in Focus
