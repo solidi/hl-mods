@@ -300,4 +300,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_radar"
+	{
+		"#Ice_Radar"
+		{ BOOL }
+		{ "1" }
+	}
 }

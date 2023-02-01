@@ -21,6 +21,7 @@ Beta 4 Features:
 - Single Player Gameplay
     - Chapter Selection Menu
 - Client Support
+    - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot
 - Fixes
     - Re-added Snarks missing from Linux build
@@ -526,6 +527,7 @@ Client:
 - "cl_hudbend" - experimental bending factor of HUD elements
 - "cl_wallclimbindicator [0|1]" shows when wallclimb is available
 - "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
+- "cl_radar [0|1]" enables or disables player radar
 
 Server:
 
@@ -704,3 +706,4 @@ Thanks To:
 - Sonic-The-Falcon for sprite icon used in the game https://www.deviantart.com/sonic-the-falcon/art/Sanic-With-A-Christmas-Hat-509543445
 - Dexter for the converted TFC flamethrower models https://gamebanana.com/mods/180503
 - Shapirlic, Chyvachok and the newlife team for modified particle engine, fire and flame thrower https://www.moddb.com/mods/alternative-way
+- botman and Napoleon for the client radar tutorial https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html
