@@ -56,6 +56,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Update sources to include xenial main
@@ -106,6 +107,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Install MacOSX10.8.sdk
@@ -138,6 +140,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Add MSBuild to PATH
