@@ -16,6 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY_COLDICE_ADD_ONS }}
         submodules: recursive
 
     - name: Add MSBuild to PATH
