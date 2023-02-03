@@ -133,6 +133,9 @@ maps\snowtransit.bsp
 maps\snowtransit.wpt
 maps\doublefrost.bsp
 maps\doublefrost.wpt
+maps\quadfrost.bsp
+maps\quadfrost.wpt
+maps\quadfrost.txt
 maps\themill.bsp
 maps\themill.wpt
 maps\chillworks.bsp
@@ -403,6 +406,8 @@ overviews\frozenwarehouse.bmp
 overviews\frozenwarehouse.txt
 overviews\overflow.bmp
 overviews\overflow.txt
+overviews\quadfrost.bmp
+overviews\quadfrost.txt
 overviews\snow_camp.bmp
 overviews\snow_camp.txt
 overviews\snowcross.bmp

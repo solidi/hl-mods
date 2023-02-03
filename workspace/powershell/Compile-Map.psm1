@@ -1,28 +1,4 @@
 
-function Git-Head-Branch-Name {
-    $branchName = "unknown-head-branch"
-
-    try {
-        $branchName = (git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
-    } catch {
-        Write-Error "git is unavailable"
-    }
-
-    return $branchName
-}
-
-function Git-Current-Branch-Name {
-    $branchName = "unknown-current-branch"
-
-    try {
-        $branchName = (git rev-parse --abbrev-ref HEAD)
-    } catch {
-        Write-Error "git is unavailable"
-    }
-
-    return $branchName
-}
-
 function Write-Wad-Config {
     param (
         $mapsDir,
@@ -39,6 +15,7 @@ all {
     $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
     $wadsDir\xeno.wad
+    $wadsDir\quadfrost.wad
 }
 "@
 }
@@ -76,7 +53,8 @@ function Compile-Map {
         $mapsDir,
         $redistDir,
         $wadsDir,
-        $finalCompile
+        $finalCompile,
+        $noWad
     )
 
     $bspTimestamp = (Get-Item $redistDir\maps\$target.bsp -ErrorAction Ignore).LastWriteTime
@@ -92,7 +70,8 @@ function Compile-Map {
         return
     }
 
-    $allOptions = if (!$finalCompile) { "-high" }
+    $allOptions = if (!$finalCompile) { "-high" } # -chart
+    $csgOptions = if ($noWad) { "-nowadtextures" }
     $visOptions = if ($finalCompile) { "-full" } else { "-fast" }
     # -bounce 8 -dscale 1 -smooth 120 -smooth2 120 -scale 1 -sparse
     $radOptions = if ($finalCompile) { "-extra" }
@@ -105,7 +84,10 @@ function Compile-Map {
     Set-Location -Path $binDir
     Write-Output "Compiling map $target..."
     Write-Output "hlcsg $target..."
-    $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all $mapsDir\$target\$target.map | Out-String
+    if ($noWad) {
+        Write-Output "hlcsg will add textures into map [$csgOptions]..."
+    }
+    $out = & .\hlcsg $allOptions -wadcfgfile $mapsDir\wads.cfg -wadconfig all $csgOptions $mapsDir\$target\$target.map | Out-String
     if (!$?) {
         Write-Error "$out`n> Could not hlcsg ${target}."
         exit

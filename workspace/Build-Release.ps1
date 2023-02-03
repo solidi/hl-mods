@@ -27,6 +27,7 @@ $Config = @{ }
 
 $host.UI.RawUI.WindowTitle = "Packaging $($Config['projectName'])"
 
+Import-Module $PSScriptRoot\powershell\Git-Utils.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
