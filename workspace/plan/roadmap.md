@@ -252,6 +252,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
     1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
+    1. [ ] [Pull zbots out of Counter-Strike](https://github.com/s1lentq/ReGameDLL_CS/tree/master/regamedll/dlls/bot)
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
