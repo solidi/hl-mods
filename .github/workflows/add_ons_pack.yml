@@ -197,7 +197,6 @@ jobs:
       run: |
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\wads.zip -DestinationPath $env:TEMP
         Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
-        Remove-Item .\${{env.FOLDER_NAME}}\redist\quadfrost.wad -Force -ErrorAction Ignore
         Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download maps

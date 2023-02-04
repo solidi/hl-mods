@@ -75,6 +75,9 @@ Compile-Font $binDir $redistDir "Arial"
 
 Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 
+# Add-on removals
+Remove-Item $redistDir\quadfrost.wad
+
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir
     Test-Manifest "${RootDir}\manifest_hd" $redisthddir
