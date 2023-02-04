@@ -85,64 +85,6 @@ jobs:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}/wads.zip
 
-
-    runs-on: windows-latest
-    needs: [compile_tools, compile_wads]
-    strategy:
-      matrix:
-        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross,frostfire,drift,snow_camp,ice_pit,frozen_bunker,snowtransit,doublefrost,themill,chillworks,frosty,overflow,frozenwarehouse]
-
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Download tools
-      uses: actions/download-artifact@v3
-      with:
-        name: compiled_tools
-        path: ./${{env.FOLDER_NAME}}
-
-    - name: Unpack tools
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
-        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
-        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
-        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
-        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
-
-    - name: Download wads
-      uses: actions/download-artifact@v3
-      with:
-        name: compiled_wads
-        path: ./${{env.FOLDER_NAME}}
-
-    - name: Unpack wads
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        Expand-Archive -Path .\${{env.FOLDER_NAME}}\wads.zip -DestinationPath $env:TEMP
-        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\wads -Force -PassThru
-        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
-        Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
-
-    - name: Write Config File
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-
-    - name: Compile ${{matrix.map}}
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Fast -Map ${{matrix.map}}
-        [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
-        Copy-Item -Recurse -Force .\redist\maps $env:TEMP
-        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
-
-    - name: Upload ${{matrix.map}}
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{matrix.map}}
-        path: ./${{env.FOLDER_NAME}}/${{matrix.map}}.zip
-
   compile_addon_maps:
     runs-on: windows-latest
     needs: [compile_tools, compile_wads]
