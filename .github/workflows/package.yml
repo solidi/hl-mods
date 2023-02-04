@@ -315,6 +315,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -437,6 +438,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -647,6 +649,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta3' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta3' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
