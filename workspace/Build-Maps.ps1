@@ -14,6 +14,7 @@ $Config = @{ }
 [bool]$clean = $false
 [string]$mapName = ""
 [bool]$finalCompile = $true
+[bool]$noWad = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -30,6 +31,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Fast") {
         $finalCompile = $false
         echo "building map as draft..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "NoWad") {
+        $noWad = $true
+        echo "building map with embedded textures..."
     }
 }
 
@@ -62,7 +66,6 @@ if ($clean -eq $true) {
 }
 
 if ([string]::IsNullOrEmpty($mapName)) {
-    $noWad = $false
     Compile-Map $binDir "fences" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
@@ -88,9 +91,9 @@ if ([string]::IsNullOrEmpty($mapName)) {
     Compile-Map $binDir "frosty" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "overflow" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "frozenwarehouse" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "quadfrost" $mapsDir $redistDir $wadsDir $finalCompile $true
+    Compile-Map $binDir "quadfrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
 } else {
-    Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile
+    Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile $noWad
 }
 
 Set-Location -Path ${PSScriptRoot}
