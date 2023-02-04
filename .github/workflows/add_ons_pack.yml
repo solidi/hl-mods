@@ -18,6 +18,9 @@ jobs:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |

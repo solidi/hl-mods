@@ -8,6 +8,8 @@ env:
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
   FOLDER_NAME: workspace
+  GAME_TITLE: Cold Ice Remastered
+  GAME_FOLDER: ice_beta3
 
 jobs:
   windows_libs:
@@ -25,7 +27,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON;M16;SHOTGUN;NUKE;GAUSS;HIVEHAND;SNARK;DEAGLE;DUALDEAGLE;DUALRPG;DUALSMG;DUALWRENCH;DUALUSAS;FREEZEGUN;DUALMAG60;ROCKETCROWBAR;DUALRAILGUN;GRAVITYGUN' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON;M16;SHOTGUN;NUKE;GAUSS;HIVEHAND;SNARK;DEAGLE;DUALDEAGLE;DUALRPG;DUALSMG;DUALWRENCH;DUALUSAS;FREEZEGUN;DUALMAG60;ROCKETCROWBAR;DUALRAILGUN;GRAVITYGUN' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -149,7 +151,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -190,7 +192,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile models
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -219,7 +221,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -266,7 +268,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -314,8 +316,8 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -376,7 +378,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -437,8 +439,8 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -648,8 +650,8 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta3' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta3' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'gameFolder' = '${{env.GAME_FOLDER}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'gameFolder' = '${{env.GAME_FOLDER}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     # Assets found redist/ like map artifacts in overviews/
     - name: Unpack Add-ons
