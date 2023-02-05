@@ -1,12 +1,13 @@
 
-function Write-Wad-Config {
+function Select-Wad-List {
     param (
-        $mapsDir,
-        $wadsDir
+        $wadsDir,
+        $noWad
     )
 
-    Clear-Content -path $mapsDir\wads.cfg -Force -ErrorAction Ignore
-    Add-Content -path $mapsDir\wads.cfg @"
+    if ($noWad)
+    {
+    @"
 all {
     $wadsDir\coldice.wad
     $wadsDir\decals.wad
@@ -18,6 +19,31 @@ all {
     $wadsDir\quadfrost.wad
 }
 "@
+    }
+    else
+    {
+    @"
+all {
+    $wadsDir\coldice.wad
+    $wadsDir\decals.wad
+    $wadsDir\halflife.wad
+    $wadsDir\liquids.wad
+    $wadsDir\spacepirate.wad
+    $wadsDir\spraypaint.wad
+    $wadsDir\xeno.wad
+}
+"@
+    }
+}
+
+function Write-Wad-Config {
+    param (
+        $mapsDir,
+        $wadList
+    )
+
+    Clear-Content -path $mapsDir\wads.cfg -Force -ErrorAction Ignore
+    Add-Content -path $mapsDir\wads.cfg $wadList
 }
 
 function Compile-WPT {
@@ -76,7 +102,8 @@ function Compile-Map {
     # -bounce 8 -dscale 1 -smooth 120 -smooth2 120 -scale 1 -sparse
     $radOptions = if ($finalCompile) { "-extra" }
 
-    Write-Wad-Config $mapsDir $wadsDir
+    $wadList = Select-Wad-List $wadsDir $noWad
+    Write-Wad-Config $mapsDir $wadList
 
     # Clean directory if compile was unsuccessful last time
     Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*.wpt,*.txt -Force -ErrorAction Ignore
