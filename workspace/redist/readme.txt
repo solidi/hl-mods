@@ -14,6 +14,8 @@ Beta 4 Features:
 - 1 New Weapon
     - Flame Thrower
         - Flame Stream / Flame Ball
+- 1 New Map
+    - quadfrost, a rebuild of doublefrost by Napoleon
 - Weapon Changes
     - Tighten flak primary fire
     - Improved freezegun performance

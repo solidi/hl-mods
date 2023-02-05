@@ -27,6 +27,7 @@ $Config = @{ }
 
 $host.UI.RawUI.WindowTitle = "Packaging $($Config['projectName'])"
 
+Import-Module $PSScriptRoot\powershell\Git-Utils.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Compile-Font.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\Test-Manifest.psm1 -Force -DisableNameChecking
 Import-Module $PSScriptRoot\powershell\PAK-File.psm1 -Force -DisableNameChecking
@@ -73,6 +74,9 @@ Copy-Item ${RootDir}\libs\dlls\ice.so $redistSpDir\dlls -ErrorAction Ignore
 Compile-Font $binDir $redistDir "Arial"
 
 Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
+
+# Add-on removals
+Remove-Item $redistDir\quadfrost.wad
 
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir

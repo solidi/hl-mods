@@ -8,6 +8,8 @@ env:
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
   FOLDER_NAME: workspace
+  GAME_TITLE: Cold Ice Remastered
+  GAME_FOLDER: ice_beta3
 
 jobs:
   windows_libs:
@@ -16,6 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Add MSBuild to PATH
@@ -24,7 +27,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON;M16;SHOTGUN;NUKE;GAUSS;HIVEHAND;SNARK;DEAGLE;DUALDEAGLE;DUALRPG;DUALSMG;DUALWRENCH;DUALUSAS;FREEZEGUN;DUALMAG60;ROCKETCROWBAR;DUALRAILGUN;GRAVITYGUN' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON;M16;SHOTGUN;NUKE;GAUSS;HIVEHAND;SNARK;DEAGLE;DUALDEAGLE;DUALRPG;DUALSMG;DUALWRENCH;DUALUSAS;FREEZEGUN;DUALMAG60;ROCKETCROWBAR;DUALRAILGUN;GRAVITYGUN' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile windows dlls
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -55,6 +58,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Update sources to include xenial main
@@ -105,6 +109,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Install MacOSX10.8.sdk
@@ -137,6 +142,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Add MSBuild to PATH
@@ -145,7 +151,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -186,7 +192,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile models
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -215,7 +221,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -262,7 +268,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -288,6 +294,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v3
@@ -307,7 +316,12 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+
+    - name: Unpack Add-ons
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
 
     - name: Compile Wads
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -364,7 +378,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -380,9 +394,75 @@ jobs:
         name: ${{matrix.map}}
         path: ./${{env.FOLDER_NAME}}/${{matrix.map}}.zip
 
+  compile_addon_maps:
+    runs-on: windows-latest
+    needs: [compile_tools, compile_wads]
+    strategy:
+      matrix:
+        map: [quadfrost]
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
+
+    - name: Download tools
+      uses: actions/download-artifact@v3
+      with:
+        name: compiled_tools
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download wads
+      uses: actions/download-artifact@v3
+      with:
+        name: compiled_wads
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack wads
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\wads.zip -DestinationPath $env:TEMP
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\wads -Force -PassThru
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
+        Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+
+    - name: Unpack Add-ons
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
+
+    - name: Compile ${{matrix.map}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -Fast -Map ${{matrix.map}} -NoWad
+        [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
+        Copy-Item -Recurse -Force .\redist\maps $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
+
+    - name: Upload ${{matrix.map}}
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{matrix.map}}
+        path: ./${{env.FOLDER_NAME}}/${{matrix.map}}.zip
+
   combine_maps:
     runs-on: windows-latest
-    needs: [compile_maps]
+    needs: [compile_maps, compile_addon_maps]
 
     steps:
     - uses: actions/download-artifact@v3
@@ -418,6 +498,7 @@ jobs:
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\frosty\frosty.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\overflow\overflow.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\frozenwarehouse\frozenwarehouse.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\quadfrost\quadfrost.zip -DestinationPath $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
@@ -432,6 +513,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
 
     - name: Download windows dlls
       uses: actions/download-artifact@v3
@@ -565,7 +649,13 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta3' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'gameFolder' = '${{env.GAME_FOLDER}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'gameFolder' = '${{env.GAME_FOLDER}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+
+    # Assets found redist/ like map artifacts in overviews/
+    - name: Unpack Add-ons
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
 
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}

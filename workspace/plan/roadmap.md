@@ -86,13 +86,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Single player freeze effect for all monsters
     1. [ ] Railgun effect client side to reduce server messages?
     1. [ ] Freezegun secondary fire beam to explode primary plasma
-    1. [ ] Private repo build pipeline for doublefrost2k
-        1. [ ] Launch doublefrost2k in Feb 2023 as an add on
+    1. [x] Private repo build pipeline for quadfrost
+        1. [x] Launch quadfrost in Feb 2023 as an add on
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
+    1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [ ] OP4 model from OP4n for deagle
@@ -176,6 +177,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] chums/snarks wont die
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
 1. Weapons
+    1. [ ] Akimbo's (select weapons)
+        1. [ ] Gauss (Order of _billy recommendations)
+        1. [ ] Egon
+        1. [ ] Crossbow
+        1. [ ] Snark
+        1. [ ] Tripmine
+        1. [ ] Clusters
     1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
         1. [ ] your weapon takes 10x more the amount of damage
@@ -197,8 +205,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] Akimbo's (select weapons)
-        1. [ ] Clusters
     1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
     1. [ ] Pulse Rifle
     1. [ ] Pulse Pistol
@@ -246,6 +252,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
     1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
+    1. [ ] [Pull zbots out of Counter-Strike](https://github.com/s1lentq/ReGameDLL_CS/tree/master/regamedll/dlls/bot)
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
