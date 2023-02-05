@@ -199,6 +199,8 @@ models\player\stormtrooper\stormtrooper.mdl
 models\player\swat
 models\player\swat\swat.bmp
 models\player\swat\swat.mdl
+models\props
+models\props\skeleton.mdl
 models\v_9mmAR.mdl
 models\w_9mmAR.mdl
 models\p_9mmAR.mdl
