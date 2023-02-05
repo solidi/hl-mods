@@ -105,8 +105,8 @@ $hbox 0 "magazine" -0.670000 -2.480000 -1.800000 0.760000 2.490000 1.884617
 $sequence "draw_lowkey" "draw" fps 25 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw" fps 25 { event 5004 0 "default_draw.wav" } { event 5005 0 "rifle_selected.wav" } 
 $sequence "idle" "idle" fps 9 loop ACT_IDLE 1 
-$sequence "shoot" "shoot" fps 26  { event 5001 0 "11" } 
-$sequence "shoot_empty" "shoot_empty" fps 25  { event 5001 0 "11" } 
+$sequence "shoot" "shoot" fps 26  { event 5001 0 "11" } { event 5004 12 "pullbolt.wav" }
+$sequence "shoot_empty" "shoot_empty" fps 25  { event 5001 0 "11" } { event 5004 12 "pullbolt.wav" }
 $sequence "reload" "reload" fps 11 { event 5004 5 "rifle_reload_1.wav" } { event 5004 10 "rifle_reload_2.wav" } 
 $sequence "holster" "holster" fps 10 
 $sequence "zoom_in" "idle" fps 9 loop { event 5005 0 "rifle_destroy.wav" } 

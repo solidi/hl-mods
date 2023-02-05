@@ -20,6 +20,7 @@ Beta 4 Features:
     - Tighten flak primary fire
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
+    - Sniper rifle makes bolt sound when fired
 - Single Player Gameplay
     - Chapter Selection Menu
 - Client Support
@@ -39,6 +40,9 @@ Beta 4 Features:
     - Fixed deathmatch spawn angles for various maps
     - Fix textures in doublefrost
     - Prevent grappling hook from firing from dead player
+    - Fixed ejection of the sniper rifle shell
+    - Suppress wallclimb indicator while on ladders
+    - Remove crossbolt when touching a player
 
 Beta 3 Features:
 

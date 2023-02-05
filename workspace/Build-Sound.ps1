@@ -290,6 +290,7 @@ Copy-Item $soundDir\flamethrowerend.wav $redistdir\sound
 Copy-Item $soundDir\flamerun.wav $redistdir\sound
 Copy-Item $soundDir\flameburst.wav $redistdir\sound
 Copy-Item $soundDir\fire_loop.wav $redistdir\sound
+Copy-Item $soundDir\pullbolt.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 

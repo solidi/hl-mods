@@ -744,6 +744,7 @@ sound\flamerun.wav
 sound\flameburst.wav
 sound\fire_loop.wav
 sound\flamethrowerend.wav
+sound\pullbolt.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr

@@ -63,6 +63,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Linux
     1. [x] Sliding
         1. [x] Linux
+    1. [x] Crossbow
+        1. [x] Linux
+    1. [x] Grapplehook
+        1. [x] Linux
 1. [ ] Testing
     1. [x] Weapons behaviors under water
     1. [ ] Fakelag with weapons
