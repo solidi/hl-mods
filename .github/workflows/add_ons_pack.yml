@@ -6,7 +6,7 @@ env:
   BUILD_CONFIGURATION: Release
   FOLDER_NAME: workspace
   GAME_TITLE: Cold Ice Remastered
-  GAME_FOLDER: ice_beta3
+  GAME_FOLDER: ice_beta4
 
 jobs:
   compile_tools:
@@ -230,8 +230,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'gameFolder' = '${{env.GAME_FOLDER}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'gameFolder' = '${{env.GAME_FOLDER}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     # Assets found redist/ like map artifacts in overviews/
     - name: Unpack Add-ons

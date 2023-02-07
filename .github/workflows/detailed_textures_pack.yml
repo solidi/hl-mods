@@ -18,7 +18,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = 'Cold Ice Remastered'`r`n'gameFolder' = 'ice_beta3' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = 'Cold Ice Remastered' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Package Detail Textures Pack
       working-directory: ${{env.GITHUB_WORKSPACE}}
