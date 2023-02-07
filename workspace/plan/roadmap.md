@@ -156,10 +156,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
 1. Game Mutators
+    1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
         1. [ ] Light up melee weapons
         1. [ ] Light effects all firing
-    1. [ ] SlappersOnly
+    1. [ ] SlappersOnly - remove all weapons, change behavior of fists to slaps with classic sound/slap
     1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] License to Kill
     1. [ ] Tiny
@@ -338,6 +339,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Timestamps for building artifacts
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
+    1. [ ] Post process all sounds in folder with reduced volume
 1. Client
     1. [ ] [Water Renderer](https://github.com/BlueNightHawk/testflight/commit/bb1d8ef445c8e26207d7072d3fd33dd07cecef87)
 1. Community ideas

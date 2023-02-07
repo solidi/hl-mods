@@ -9,7 +9,7 @@ env:
   BUILD_CONFIGURATION: Release
   FOLDER_NAME: workspace
   GAME_TITLE: Cold Ice Remastered
-  GAME_FOLDER: ice_beta3
+  GAME_FOLDER: ice_beta4
 
 jobs:
   windows_libs:

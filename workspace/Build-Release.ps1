@@ -38,7 +38,7 @@ $redistDir = "${rootDir}\redist"
 $redisthddir = "${rootDir}\redist_hd"
 $redistSpDir = "${rootDir}\redist_sp"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
-$gameFolder = $Config['gameFolder'] ?? "ice_beta3"
+$gameFolder = $Config['gameFolder'] ?? "ice_beta4"
 
 Remove-Item $redistDir\debug.log -Force -ErrorAction Ignore
 Remove-Item $redistDir\qconsole.log -Force -ErrorAction Ignore

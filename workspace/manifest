@@ -432,7 +432,7 @@ resource
 resource\BackgroundLayout.txt
 resource\BackgroundLoadingLayout.txt
 resource\TrackerScheme.res
-resource\ice_beta3_english.txt
+resource\ice_beta4_english.txt
 resource\game_menu.tga
 resource\game_menu_mouseover.tga
 resource\GameMenu.res
@@ -870,5 +870,5 @@ decals.wad
 gameinfo.txt
 delta.lst
 spacepirate.wad
-ice_beta3.fgd
+coldiceremastered.fgd
 titles.txt
