@@ -43,6 +43,7 @@ Beta 4 Features:
     - Fixed ejection of the sniper rifle shell
     - Suppress wallclimb indicator while on ladders
     - Remove crossbolt when touching a player
+    - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
 
 Beta 3 Features:
 
