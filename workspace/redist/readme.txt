@@ -44,6 +44,7 @@ Beta 4 Features:
     - Suppress wallclimb indicator while on ladders
     - Remove crossbolt when touching a player
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
+    - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
 
 Beta 3 Features:
 
@@ -155,7 +156,7 @@ Beta 3 Features:
     - Added "mp_spawnweapons [0|1]" to allow weapons to spawn or not
     - Added "mp_grapplesky [0|1]" to allow player to grapple the sky
     - Added "sv_disallowlist" a list of entities that will not spawn
-    - Added "mp_nukemode [0|1|2]" how the nuke plays
+    - Added "mp_nukemode [0|1|2]" how the nuke plays 0 - sharts! 1 - radius 2 - all
     - Added "sv_weather [0|1]" - enable or disable all weather effects on the server
     - Added "sys_timescale" for experimental server time adjustment (slowmo, speedup)
     - Moved remaining hardcoded skill values to skills.cfg
