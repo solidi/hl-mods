@@ -157,6 +157,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
 1. Game Mutators
+    1. [ ] Jope - All names turns to Jope
     1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
         1. [ ] Light up melee weapons
@@ -630,3 +631,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. [x] Reach out to [BlueNightHawk](trovymam@gmail.com)
 1. [ ] Write script for [Robo](https://community.lambdageneration.com/user/robo)
 1. [ ] Reach out to [maxvollmer](https://github.com/maxvollmer/Half-Life-VR) on VR integration
+
+## Tutorials
+
+1. [ ] Turret and airstrike credit
+1. [ ] Walk back commits and see if any other tutorials can be posted to ModDB
+    1. [ ] [Fastswitch tutorial](https://twhl.info/wiki/page/Tutorial%3A_Change_hud_fastswitch_to_behave_like_Half-Life_Source) on TWHL
