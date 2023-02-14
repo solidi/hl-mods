@@ -100,9 +100,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
+    1. [ ] Hand cannon / Dual hand cannon
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
-    1. [ ] Hand cannon
     1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
     1. [ ] Satchel Assassins become fully animated monsters (and can be exploded anytime)
@@ -156,8 +156,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
-1. Game Mutators
+1. Future Game Mutators
     1. [ ] Jope - All names turns to Jope
+    1. [ ] Ricochet - no view angles or weapons fire discs
     1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
         1. [ ] Light up melee weapons
@@ -165,6 +166,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] SlappersOnly - remove all weapons, change behavior of fists to slaps with classic sound/slap
     1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] License to Kill
+    1. [ ] [Ghost riders](https://gamebanana.com/mods/167145) add players to wheelthrones
     1. [ ] Tiny
     1. [ ] Tiktok - exploder (random explosions of people)
     1. [ ] Floor is lava
@@ -184,7 +186,21 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] chums/snarks wont die
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
     1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def)
-1. Weapons
+    1. [ ] Random bind key blows you up (Nellia's Choice)
+1. New Weapons
+    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
+    1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
+    1. [ ] Bio weapon (pigcop)
+    1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
+    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)? [Beam sword](https://cso.fandom.com/wiki/Beam_Sword)
+        1. [ ] Customizable color
+    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
+    1. [ ] Pulse Rifle
+    1. [ ] Pulse Pistol
+    1. [ ] Taser
+    1. [ ] Counter-Strike penguin
+1. Weapons Mechanics
+    1. [ ] [Reload / No Ammo indicator](https://www.youtube.com/watch?v=r5dXK9f2DGE&t=380s) from Halo Combar Evolved
     1. [ ] Akimbo's (select weapons)
         1. [ ] Gauss (Order of _billy recommendations)
         1. [ ] Egon
@@ -196,13 +212,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
         1. [ ] your weapon takes 10x more the amount of damage
         1. [ ] but the recoil is 10x more high and the accuracy is garbage
-    1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
     1. [ ] Scientist Gun from RocketCrowbar
     1. [ ] Throw any weapon as an attack
     1. [ ] Reduce animations in ironsights
-    1. [ ] Hand cannon / Dual hand cannon
-    1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
-    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] Gold Skins?
     1. [ ] Throw any weapon
     1. [ ] Quad weapon attachment?
@@ -213,16 +225,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] Snowball Machine / Snowball Generator in place of Egon gun
-    1. [ ] Pulse Rifle
-    1. [ ] Pulse Pistol
     1. [ ] C4 mine placement with satchels
     1. [ ] Convert throw-hold effect to all other weapons for control
-    1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)? [Beam sword](https://cso.fandom.com/wiki/Beam_Sword)
-        1. [ ] Customizable color
-    1. [ ] Taser
     1. [ ] Decoy bombs that morph into AI assassins?
-    1. [ ] Counter-Strike penguin
     1. Knife
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
         1. [ ] Cold Ice 2.5 model?

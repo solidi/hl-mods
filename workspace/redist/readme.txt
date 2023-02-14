@@ -26,6 +26,9 @@ Beta 4 Features:
 - Client Support
     - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot
+- Gameplay
+    - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
+    - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
@@ -43,8 +46,7 @@ Beta 4 Features:
     - Fixed ejection of the sniper rifle shell
     - Suppress wallclimb indicator while on ladders
     - Remove crossbolt when touching a player
-    - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
-    - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
+    - Fixed deathmatch spawn point outside map in themill
 
 Beta 3 Features:
 

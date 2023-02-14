@@ -1,7 +1,7 @@
 {
 "classname" "worldspawn"
 "MaxRange" "8192"
-"message" "The Mill"
+"message" "The Mill by Devious"
 "sounds" "1"
 "skyname" "cirdaymont1"
 "mapversion" "220"
@@ -15601,8 +15601,8 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angles" "0 160 0"
-"origin" "3076 -837 216"
+"angles" "0 155 0"
+"origin" "2984 -780 216"
 }
 {
 "classname" "info_player_deathmatch"
