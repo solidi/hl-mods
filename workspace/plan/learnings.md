@@ -398,3 +398,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. The list for Half-Life single player is long. [Here is the list](https://steamcommunity.com/sharedfiles/filedetails/?id=1330328357) of all single player maps in order.
 1. The [GoldSrcRebuild](https://github.com/Triang3l/GoldSourceRebuild) project rebuilds all the functions within the Gold Source engine.
 1. Using the [up and down](https://stackoverflow.com/questions/4321184/help-for-gdb-debug-crash-logging/43364504#43364504) commands in gdb has helped further debugging issues. I also learned that sometimes with undefined or NULL variables, the method [can still be called](https://stackoverflow.com/questions/31336294/in-which-case-the-c-this-pointer-can-be-null) on that variable.
+1. Using the `pev->fixangle = TRUE` will force the client to update its angles. After its set, it's placed back to FALSe.

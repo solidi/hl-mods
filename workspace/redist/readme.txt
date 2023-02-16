@@ -11,9 +11,11 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 4 Features:
 
-- 1 New Weapon
-    - Flame Thrower
+- 2 New Weapons
+    - Flamethrower
         - Flame Stream / Flame Ball
+    - Dual Flamethrowers
+        - 2x Flame Stream / 2x Flame Ball
 - 1 New Map
     - quadfrost, a rebuild of doublefrost by Napoleon
 - Weapon Changes

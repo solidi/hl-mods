@@ -66,6 +66,7 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Gauss" -10.000000 2.500000 0.000000
+$attachment 1 "Gauss" 200.000000 0.000000 0.000000
 
 // hit box(es)
 $hbox 0 "Gauss" -13.730000 -1.270000 -6.190000 2.140000 3.620000 9.780000
@@ -82,7 +83,8 @@ $sequence "fire1" "fire1" fps 30 loop
 $sequence "fire2" "fire2" fps 30 loop 
 $sequence "fire3" "fire3" fps 30 loop 
 $sequence "fire4" "fire4" fps 30 
-$sequence "draw" "draw" fps 30 
+$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "flamethrower_selected.wav" } 
 $sequence "holster" "holster" fps 30 
 
 // End of QC script.

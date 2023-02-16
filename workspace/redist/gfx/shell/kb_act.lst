@@ -103,6 +103,7 @@
 "use weapon_dual_usas"			"#Ice_DualUsas"
 "use weapon_dual_railgun"		"#Ice_DualRailgun"
 "use weapon_dual_rpg"			"#Ice_DualRpg"
+"use weapon_dual_flamethrower"	"#Ice_DualFlameThrower"
 "blank"			"=========================="
 "blank"			"#Valve_Miscellaneous_Title"
 "blank"			"=========================="

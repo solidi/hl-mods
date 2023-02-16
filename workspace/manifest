@@ -6,6 +6,9 @@ aurora\BurnSmoke.aur
 aurora\fburst1.aur
 aurora\fburst2.aur
 aurora\fburst3.aur
+aurora\left_fburst1.aur
+aurora\left_fburst2.aur
+aurora\left_fburst3.aur
 aurora\FlameSteam1.aur
 aurora\FlameSteam6.aur
 aurora\gib_flame_trail.aur
@@ -15,6 +18,9 @@ aurora\ice_Burn3.aur
 aurora\ice_fburst1.aur
 aurora\ice_fburst2.aur
 aurora\ice_fburst3.aur
+aurora\ice_left_fburst1.aur
+aurora\ice_left_fburst2.aur
+aurora\ice_left_fburst3.aur
 aurora\ice_FlameSteam1.aur
 aurora\ice_FlameSteam6.aur
 aurora\ice_gib_flame_trail.aur
@@ -64,6 +70,9 @@ events\gravitygun.sc
 events\flamethrower.sc
 events\flamethrowerend.sc
 events\flamestream.sc
+events\dual_flamethrower.sc
+events\dual_flamethrowerend.sc
+events\dual_flamestream.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -370,6 +379,9 @@ models\w_sentry.mdl
 models\w_flamethrower.mdl
 models\p_flamethrower.mdl
 models\v_flamethrower.mdl
+models\v_dual_flamethrower.mdl
+models\p_dual_flamethrower.mdl
+models\w_dual_flamethrower.mdl
 modes
 modes\iceman.txt
 modes\lms.txt
@@ -745,6 +757,8 @@ sound\flameburst.wav
 sound\fire_loop.wav
 sound\flamethrowerend.wav
 sound\pullbolt.wav
+sound\flamethrower_selected.wav
+sound\dual_flamethrower_selected.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
@@ -807,6 +821,7 @@ sprites\weapon_rocketcrowbar.txt
 sprites\weapon_dual_railgun.txt
 sprites\weapon_gravitygun.txt
 sprites\weapon_flamethrower.txt
+sprites\weapon_dual_flamethrower.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
