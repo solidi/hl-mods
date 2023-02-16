@@ -1,4 +1,4 @@
-195
+196
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -215,6 +215,7 @@ d_barrel		640	640hudof11	192	0	48	16
 d_flamethrower		640	640hudof11	192	48	48	16
 d_flameball		640	640hudof11	192	48	48	16
 d_flamestream		640	640hudof11	192	48	48	16
+d_dual_flamethrower	640	640hudof11	192	64	48	16
 
 coolflesh		640 gameicons	0	0	64	64
 iceman		640 gameicons	64	0	64	64

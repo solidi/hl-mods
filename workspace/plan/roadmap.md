@@ -90,6 +90,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Single player freeze effect for all monsters
     1. [ ] Railgun effect client side to reduce server messages?
     1. [ ] Freezegun secondary fire beam to explode primary plasma
+1. Maps
     1. [x] Private repo build pipeline for quadfrost
         1. [x] Launch quadfrost in Feb 2023 as an add on
 1. Game Mechanics
@@ -98,6 +99,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
+    1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [ ] Hand cannon / Dual hand cannon

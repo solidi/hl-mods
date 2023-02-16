@@ -140,6 +140,7 @@ try {
     Copy-Item $spritesDir\weapon_dual_railgun.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_gravitygun.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_flamethrower.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_flamethrower.txt $redistDir\sprites
     Copy-Item $spritesDir\hud.txt $redistDir\sprites
 } catch {
     Write-Error "$($_.Exception.Message)"

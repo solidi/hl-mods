@@ -126,6 +126,8 @@ Compile-Sound $binDir $redistDir $soundDir "delicious.mp3" 1.0 "sound\delicious.
 Compile-Sound $binDir $redistDir $soundDir "hohoho.mp3" 1.0 "sound\hohoho.wav" "wav" 9 12
 Compile-Sound $binDir $redistDir $soundDir "sleighbell.mp3" 1.0 "sound\sleighbell.wav" "wav" 0 3
 Compile-Sound $binDir $redistDir $soundDir "merrychristmas.mp3" 1.0 "sound\merrychristmas.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "StarCraft-2-Firebat-Quotes.mp3" 1.0 "sound\dual_flamethrower_selected.wav" "wav" 44.5 47.5
+Compile-Sound $binDir $redistDir $soundDir "do_you_like_to_play_with_fire.mp3" 1.0 "sound\flamethrower_selected.wav" "wav"
 }
 catch
 {
