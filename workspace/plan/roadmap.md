@@ -157,8 +157,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
     1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
+        1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
 1. Future Game Mutators
+    1. [ ] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
+    1. [ ] CrazyO - track reel of a person speaking
+    1. [ ] Oneshot - 1 health start or reduce
     1. [ ] Jope - All names turns to Jope
     1. [ ] Ricochet - no view angles or weapons fire discs
     1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
@@ -187,7 +191,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [ ] chums/snarks wont die
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
-    1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def)
+    1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
     1. [ ] Random bind key blows you up (Nellia's Choice)
 1. New Weapons
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
@@ -329,6 +333,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
+    1. [ ] Nuke to kill monsters
     1. [ ] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
     1. [ ] Improve Crowbar animation from another v_ model
@@ -350,6 +355,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. If timestamp of built artifact is newer than all source artifacts, skip building again
     1. [ ] Compile mdl tool for Linux
     1. [ ] Post process all sounds in folder with reduced volume
+    1. [ ] Update map tools to [SDHLT](https://github.com/seedee/SDHLT/)
 1. Client
     1. [ ] [Water Renderer](https://github.com/BlueNightHawk/testflight/commit/bb1d8ef445c8e26207d7072d3fd33dd07cecef87)
 1. Community ideas
