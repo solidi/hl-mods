@@ -29,6 +29,9 @@ Thumbs.db*
 */maps/quadfrost/
 */wads/quadfrost/
 */redist/overviews/quadfrost.*
+*/redist/quadfrost.wad
+*/wads/quadfrost.wad
+*/redist/gfx/detail/*
 
 */redist/halflife.wad
 */redist/decals.wad
@@ -38,8 +41,6 @@ Thumbs.db*
 */wads/coldice.wad
 */redist/spacepirate.wad
 */wads/spacepirate.wad
-*/redist/quadfrost.wad
-*/wads/quadfrost.wad
 */redist/pak0.pak
 */redist/maps/
 */redist/models/

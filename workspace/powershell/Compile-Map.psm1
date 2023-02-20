@@ -138,7 +138,7 @@ function Compile-Map {
         exit
     }
     Move-Item $mapsDir\$target\$target.bsp $redistDir\maps\$target.bsp -Force
-    Copy-Item $mapsDir\$target\$target.txt $redistDir\maps\$target.txt -Force -ErrorAction Ignore
+    Copy-Item $mapsDir\$target\$target*.txt $redistDir\maps -Force -ErrorAction Ignore
 
     Compile-WPT $binDir $target $redistDir
 
