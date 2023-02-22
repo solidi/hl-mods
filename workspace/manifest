@@ -526,7 +526,7 @@ sound\ambience
 sound\ambience\mechwine.wav
 sound\ambience\wind5_loop1.wav
 sound\ambience\wind6_loop1.wav
-sound\events
+sound\env
 sound\env\fluorescent.wav
 sound\env\vent.wav
 sound\sentences.txt
