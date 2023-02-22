@@ -522,6 +522,13 @@ resource\background\normal\cir-6-2.tga
 resource\background\normal\cir-6-3.tga
 resource\background\normal\cir-6-4.tga
 sound
+sound\ambience
+sound\ambience\mechwine.wav
+sound\ambience\wind5_loop1.wav
+sound\ambience\wind6_loop1.wav
+sound\events
+sound\env\fluorescent.wav
+sound\env\vent.wav
 sound\sentences.txt
 sound\materials.txt
 sound\vest_selected.wav
