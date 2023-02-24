@@ -719,3 +719,4 @@ Thanks To:
 - Dexter for the converted TFC flamethrower models https://gamebanana.com/mods/180503
 - Shapirlic, Chyvachok and the newlife team for modified particle engine, fire and flame thrower https://www.moddb.com/mods/alternative-way
 - botman and Napoleon for the client radar tutorial https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html
+- MrGnang for Half-Life Echoes (QuadFrost Antenna and look and feel) - https://en.wikipedia.org/wiki/Half-Life:_Echoes
