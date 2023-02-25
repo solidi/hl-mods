@@ -325,6 +325,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Realign large blue crate textures so detailed textures is left to right
     1. [ ] Clip sky in Focus
     1. [ ] Update lights.rad production to use Napoleon's lights.rad file
+    1. [ ] [fy_iceworld](https://www.rockpapershotgun.com/the-legacy-of-fy_iceworld-counter-strikes-divisive-and-hugely-popular-custom-map)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Models
@@ -357,6 +358,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Compile mdl tool for Linux
     1. [ ] Post process all sounds in folder with reduced volume
     1. [ ] Update map tools to [SDHLT](https://github.com/seedee/SDHLT/)
+    1. [ ] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
+        1. [ ] Add support for map brief text file
+        1. [ ] Add support for detailed textures
 1. Client
     1. [ ] [Water Renderer](https://github.com/BlueNightHawk/testflight/commit/bb1d8ef445c8e26207d7072d3fd33dd07cecef87)
 1. Community ideas

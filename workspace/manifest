@@ -382,6 +382,10 @@ models\v_flamethrower.mdl
 models\v_dual_flamethrower.mdl
 models\p_dual_flamethrower.mdl
 models\w_dual_flamethrower.mdl
+models\v_portalgun.mdl
+models\p_portalgun.mdl
+models\w_portalgun.mdl
+models\w_portal.mdl
 modes
 modes\iceman.txt
 modes\lms.txt
@@ -766,6 +770,10 @@ sound\flamethrowerend.wav
 sound\pullbolt.wav
 sound\flamethrower_selected.wav
 sound\dual_flamethrower_selected.wav
+sound\portalgun_shoot_blue.wav
+sound\portalgun_shoot_red.wav
+sound\portal_enter1.wav
+sound\portal_enter2.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
@@ -792,6 +800,8 @@ sprites\640hudof09.spr
 sprites\640hudof10.spr
 sprites\640hudof11.spr
 sprites\640hudof12.spr
+sprites\640hudof13.spr
+sprites\640hudof14.spr
 sprites\snowballhit.spr
 sprites\gunsmoke.spr
 sprites\smokeball2.spr
@@ -829,6 +839,7 @@ sprites\weapon_dual_railgun.txt
 sprites\weapon_gravitygun.txt
 sprites\weapon_flamethrower.txt
 sprites\weapon_dual_flamethrower.txt
+sprites\weapon_ashpod.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

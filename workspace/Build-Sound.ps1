@@ -293,6 +293,10 @@ Copy-Item $soundDir\flamerun.wav $redistdir\sound
 Copy-Item $soundDir\flameburst.wav $redistdir\sound
 Copy-Item $soundDir\fire_loop.wav $redistdir\sound
 Copy-Item $soundDir\pullbolt.wav $redistdir\sound
+Copy-Item $soundDir\portalgun_shoot_blue.wav $redistdir\sound
+Copy-Item $soundDir\portalgun_shoot_red.wav $redistdir\sound
+Copy-Item $soundDir\portal_enter1.wav $redistdir\sound
+Copy-Item $soundDir\portal_enter2.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 
