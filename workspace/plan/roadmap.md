@@ -67,6 +67,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Linux
     1. [x] Grapplehook
         1. [x] Linux
+    1. [x] Portal Gun
+        1. [x] Linux
 1. [ ] Testing
     1. [x] Weapons behaviors under water
     1. [ ] Fakelag with weapons
@@ -86,7 +88,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 4
 
 1. Up Next
-    1. [ ] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [ ] Single player freeze effect for all monsters
     1. [ ] Railgun effect client side to reduce server messages?
     1. [ ] Freezegun secondary fire beam to explode primary plasma
@@ -102,6 +103,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
+    1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [ ] Hand cannon / Dual hand cannon
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
@@ -146,6 +148,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Support
         1. [ ] Wins / Rounds Left visual support
         1. [ ] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
+    1. [ ] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
     1. [ ] Capture the Chumtoad (Audiocraz)
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
         1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".

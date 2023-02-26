@@ -602,6 +602,7 @@ Server:
     - "astronaut" - gravity is turned down
     - "snowballs" - a random chance of snowballs throw on attack
     - "pushy" - all weapon attacks push you back like a gauss attack
+    - "portal" - now you're thinking with portals
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not

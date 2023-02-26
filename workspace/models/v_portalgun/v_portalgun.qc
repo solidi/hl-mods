@@ -79,7 +79,7 @@ $sequence "shootlast" "shootlast" fps 32
 $sequence "reload" "reload" fps 37 
 $sequence "holster" "holster" fps 30
 $sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "portalgun_selected.wav" } 
 $sequence "shoot1_unsil" "shoot1_unsil" fps 30 
 $sequence "shoot2_unsil" "shoot2_unsil" fps 30 
 

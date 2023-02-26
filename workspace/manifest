@@ -774,6 +774,7 @@ sound\portalgun_shoot_blue.wav
 sound\portalgun_shoot_red.wav
 sound\portal_enter1.wav
 sound\portal_enter2.wav
+sound\portalgun_selected.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
