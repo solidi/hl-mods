@@ -128,6 +128,7 @@ Compile-Sound $binDir $redistDir $soundDir "sleighbell.mp3" 1.0 "sound\sleighbel
 Compile-Sound $binDir $redistDir $soundDir "merrychristmas.mp3" 1.0 "sound\merrychristmas.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "StarCraft-2-Firebat-Quotes.mp3" 1.0 "sound\dual_flamethrower_selected.wav" "wav" 44.5 47.5
 Compile-Sound $binDir $redistDir $soundDir "do_you_like_to_play_with_fire.mp3" 1.0 "sound\flamethrower_selected.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "helloo-imbecile.mp3" 1.0 "sound\portalgun_selected.wav" "wav"
 }
 catch
 {
@@ -293,6 +294,10 @@ Copy-Item $soundDir\flamerun.wav $redistdir\sound
 Copy-Item $soundDir\flameburst.wav $redistdir\sound
 Copy-Item $soundDir\fire_loop.wav $redistdir\sound
 Copy-Item $soundDir\pullbolt.wav $redistdir\sound
+Copy-Item $soundDir\portalgun_shoot_blue.wav $redistdir\sound
+Copy-Item $soundDir\portalgun_shoot_red.wav $redistdir\sound
+Copy-Item $soundDir\portal_enter1.wav $redistdir\sound
+Copy-Item $soundDir\portal_enter2.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 

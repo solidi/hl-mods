@@ -11,7 +11,9 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 4 Features:
 
-- 2 New Weapons
+- 3 New Weapons
+    - Portal Gun
+        - Fire Entry Portal / Fire Exit Portal
     - Flamethrower
         - Flame Stream / Flame Ball
     - Dual Flamethrowers
@@ -23,6 +25,9 @@ Beta 4 Features:
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
     - Sniper rifle makes bolt sound when fired
+- Game Modes
+    - 1 New Mutators - supports combination and randomly selected (mp_mutators)
+        - "portal" - spawn with a portal gun
 - Single Player Gameplay
     - Chapter Selection Menu
 - Client Support
@@ -597,6 +602,7 @@ Server:
     - "astronaut" - gravity is turned down
     - "snowballs" - a random chance of snowballs throw on attack
     - "pushy" - all weapon attacks push you back like a gauss attack
+    - "portal" - now you're thinking with portals
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -720,3 +726,4 @@ Thanks To:
 - Shapirlic, Chyvachok and the newlife team for modified particle engine, fire and flame thrower https://www.moddb.com/mods/alternative-way
 - botman and Napoleon for the client radar tutorial https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html
 - MrGnang for Half-Life Echoes (QuadFrost Antenna and look and feel) - https://en.wikipedia.org/wiki/Half-Life:_Echoes
+- Bacontsu for portalgun code and his work on mirroring

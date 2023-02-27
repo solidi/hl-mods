@@ -354,6 +354,10 @@ try {
     Invert-Skin $binDir "v_dual_flamethrower" $modelsdir
     Invert-Skin $binDir "p_dual_flamethrower" $modelsdir
     Invert-Skin $binDir "w_dual_flamethrower" $modelsdir
+    Invert-Skin $binDir "v_portalgun" $modelsdir
+    Invert-Skin $binDir "p_portalgun" $modelsdir
+    Invert-Skin $binDir "w_portalgun" $modelsdir
+    Invert-Skin $binDir "w_portal" $modelsdir
 
     Compile-Player "alpina" $binDir $modelsdir $redistDir
     Compile-Player "army" $binDir $modelsdir $redistDir
@@ -669,6 +673,10 @@ try {
     Compile-Model $binDir "v_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "w_dual_flamethrower" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_portalgun" $modelsdir $redistdir\models
+    Compile-Model $binDir "p_portalgun" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_portalgun" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_portal" $modelsdir $redistdir\models
     } else {
         Compile-Player $playerModel $binDir $modelsdir $redistDir
     }
