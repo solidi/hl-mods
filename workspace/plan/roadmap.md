@@ -163,6 +163,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
 1. Future Game Mutators
+    1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
     1. [ ] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
     1. [ ] CrazyO - track reel of a person speaking

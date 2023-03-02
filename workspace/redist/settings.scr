@@ -272,6 +272,7 @@ DESCRIPTION SERVER_OPTIONS
 			"astronaut" "28"
 			"snowballs" "29"
 			"pushy" "30"
+			"portal" "31"
 		}
 		{ "1" }
 	}

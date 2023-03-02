@@ -54,6 +54,7 @@ Beta 4 Features:
     - Suppress wallclimb indicator while on ladders
     - Remove crossbolt when touching a player
     - Fixed deathmatch spawn point outside map in themill
+    - Filled remaining holes in training2
 
 Beta 3 Features:
 
