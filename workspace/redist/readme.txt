@@ -55,6 +55,7 @@ Beta 4 Features:
     - Remove crossbolt when touching a player
     - Fixed deathmatch spawn point outside map in themill
     - Filled remaining holes in training2
+    - Fixed user configuration of antivomit settings
 
 Beta 3 Features:
 

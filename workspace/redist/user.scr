@@ -224,10 +224,10 @@ DESCRIPTION INFO_OPTIONS
 		"#Ice_AntiVomit"
 		{
 			LIST
-			"Stop" "0"
-			"Let Me Puke" "1"
+			"Let Me Puke" "0"
+			"Stop" "1"
 		}
-		{ "1" }
+		{ "0" }
 	}
 
 	"cl_keyboardacrobatics"
