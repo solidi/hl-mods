@@ -386,4 +386,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "5" }
 	}
+
+	"mp_allowmonsters"
+	{
+		"#Ice_AllowMonsters"
+		{ BOOL }
+		{ "1" }
+	}
 }

@@ -104,12 +104,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
+    1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
     1. [ ] Hand cannon / Dual hand cannon
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
-    1. [ ] Satchel Assassins become fully animated monsters (and can be exploded anytime)
 1. Server
     1. [ ] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
@@ -162,6 +162,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
         1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
+    1. [ ] Race to bottom (most deaths wins)
 1. Future Game Mutators
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
@@ -238,7 +239,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] C4 mine placement with satchels
     1. [ ] Convert throw-hold effect to all other weapons for control
-    1. [ ] Decoy bombs that morph into AI assassins?
     1. Knife
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
         1. [ ] Cold Ice 2.5 model?
