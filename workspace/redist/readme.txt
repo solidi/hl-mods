@@ -21,6 +21,7 @@ Beta 4 Features:
 - 1 New Map
     - quadfrost, a rebuild of doublefrost by Napoleon
 - Weapon Changes
+    - Decoy bombs deploy as animated assassins
     - Tighten flak primary fire
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
@@ -56,6 +57,7 @@ Beta 4 Features:
     - Fixed deathmatch spawn point outside map in themill
     - Filled remaining holes in training2
     - Fixed user configuration of antivomit settings
+    - Fixed repeating bot names when they reconnect
 
 Beta 3 Features:
 
