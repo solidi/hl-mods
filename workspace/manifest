@@ -391,6 +391,7 @@ modes\iceman.txt
 modes\lms.txt
 modes\arena.txt
 modes\snowball.txt
+modes\gungame.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -775,6 +776,9 @@ sound\portalgun_shoot_red.wav
 sound\portal_enter1.wav
 sound\portal_enter2.wav
 sound\portalgun_selected.wav
+sound\takenlead.wav
+sound\tiedlead.wav
+sound\lostlead.wav
 sprites
 sprites\ice_muzzleflash1.spr
 sprites\ice_muzzleflash2.spr
