@@ -9,6 +9,62 @@ DESCRIPTION SERVER_OPTIONS
 		{ "Cold Ice Remastered" }
 	}
 
+	"mp_gamemode"
+	{
+		"#Ice_GameMode"
+		{
+			LIST
+			"ffa" "0"
+			"iceman" "1"
+			"lms" "2"
+			"arena" "3"
+			"snowball" "4"
+			"gungame" "5"
+		}
+		{ "0" }
+	}
+
+	"mp_mutators"
+	{
+		"#Ice_Mutators"
+		{
+			LIST
+			"none" "0"
+			"chaos" "1"
+			"rocketcrowbar" "2"
+			"instagib" "3"
+			"volatile" "4"
+			"plumber" "5"
+			"paintball" "6"
+			"dkmode" "7"
+			"superjump" "8"
+			"megarun" "9"
+			"lightsout" "10"
+			"slowmo (sp only!)" "11"
+			"ice" "12"
+			"topsyturvy (sp only!)" "13"
+			"turrets" "14"
+			"barrels" "15"
+			"chumxplode" "16"
+			"santahat" "17"
+			"coolflesh" "18"
+			"sanic" "19"
+			"loopback" "20"
+			"maxpack (mp only!)" "21"
+			"infiniteammo" "22"
+			"randomweapon" "23"
+			"speedup (sp only!)" "24"
+			"rockets" "25"
+			"invisible" "26"
+			"grenades" "27"
+			"astronaut" "28"
+			"snowballs" "29"
+			"pushy" "30"
+			"portal" "31"
+		}
+		{ "1" }
+	}
+
 	"maxplayers"
 	{
 		"#Valve_Max_Players"
@@ -236,47 +292,6 @@ DESCRIPTION SERVER_OPTIONS
 		{ "0" }
 	}
 
-	"mp_mutators"
-	{
-		"#Ice_Mutators"
-		{
-			LIST
-			"none" "0"
-			"chaos" "1"
-			"rocketcrowbar" "2"
-			"instagib" "3"
-			"volatile" "4"
-			"plumber" "5"
-			"paintball" "6"
-			"dkmode" "7"
-			"superjump" "8"
-			"megarun" "9"
-			"lightsout" "10"
-			"slowmo (sp only!)" "11"
-			"ice" "12"
-			"topsyturvy (sp only!)" "13"
-			"turrets" "14"
-			"barrels" "15"
-			"chumxplode" "16"
-			"santahat" "17"
-			"coolflesh" "18"
-			"sanic" "19"
-			"loopback" "20"
-			"maxpack (mp only!)" "21"
-			"infiniteammo" "22"
-			"randomweapon" "23"
-			"speedup (sp only!)" "24"
-			"rockets" "25"
-			"invisible" "26"
-			"grenades" "27"
-			"astronaut" "28"
-			"snowballs" "29"
-			"pushy" "30"
-			"portal" "31"
-		}
-		{ "1" }
-	}
-
 	"mp_randommutators"
 	{
 		"#Ice_RandomMutators"
@@ -336,20 +351,6 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_Weather"
 		{ BOOL }
 		{ "1" }
-	}
-
-	"mp_gamemode"
-	{
-		"#Ice_GameMode"
-		{
-			LIST
-			"ffa" "0"
-			"iceman" "1"
-			"lms" "2"
-			"arena" "3"
-			"snowball" "4"
-		}
-		{ "0" }
 	}
 
 	"mp_randomgamemodes"

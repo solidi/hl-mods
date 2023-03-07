@@ -27,6 +27,8 @@ Beta 4 Features:
     - Nuke explodes on command in new static camera mode
     - Sniper rifle makes bolt sound when fired
 - Game Modes
+    - 1 New Game Mode (mp_gamemode)
+         - "gungame" - get specific weapons for frags and level up!
     - 1 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
 - Single Player Gameplay
@@ -619,6 +621,7 @@ Server:
     - "lms" - last man standing, protect your lives be the last person standing to win
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
+    - "gungame" - get specific weapons for frags and level up!
 - "mp_randomgamemodes [0|1]" selects a random game mode on map change
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation
@@ -730,4 +733,5 @@ Thanks To:
 - Shapirlic, Chyvachok and the newlife team for modified particle engine, fire and flame thrower https://www.moddb.com/mods/alternative-way
 - botman and Napoleon for the client radar tutorial https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html
 - MrGnang for Half-Life Echoes (QuadFrost Antenna and look and feel) - https://en.wikipedia.org/wiki/Half-Life:_Echoes
-- Bacontsu for portalgun code and his work on mirroring
+- Bacontsu for portalgun code and his work on mirroring https://github.com/bacontsu/halflife_portal
+- cagemonkey for the invention of the GunGame mode in Counter-Strike and the amx plugin https://avalanche.gungame.org/download.php

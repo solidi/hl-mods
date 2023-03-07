@@ -1,0 +1,5 @@
+GunGame
+
+All players start with the same weapon and get a new one
+each time they frag an enemy. The first player to get a
+frag with every weapon wins the match.
