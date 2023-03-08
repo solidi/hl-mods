@@ -39,6 +39,7 @@ Beta 4 Features:
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
+    - Provide frag point for telefrags
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
