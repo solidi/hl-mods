@@ -26,6 +26,8 @@ Beta 4 Features:
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
     - Sniper rifle makes bolt sound when fired
+- Maps
+    - Added res files for all included maps
 - Game Modes
     - 1 New Game Mode (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
@@ -736,3 +738,4 @@ Thanks To:
 - MrGnang for Half-Life Echoes (QuadFrost Antenna and look and feel) - https://en.wikipedia.org/wiki/Half-Life:_Echoes
 - Bacontsu for portalgun code and his work on mirroring https://github.com/bacontsu/halflife_portal
 - cagemonkey for the invention of the GunGame mode in Counter-Strike and the amx plugin https://avalanche.gungame.org/download.php
+- kriswema, Jeroen Bogers, and Zero3Cool for the resgen tool https://github.com/kriswema/resgen

@@ -22,3 +22,6 @@
 [submodule "workspace/add-ons"]
 	path = workspace/add-ons
 	url = https://github.com/solidi/coldice-add-ons.git
+[submodule "workspace/resgen"]
+	path = workspace/resgen
+	url = https://github.com/solidi/resgen

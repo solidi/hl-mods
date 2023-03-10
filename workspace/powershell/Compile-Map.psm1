@@ -72,6 +72,25 @@ function Compile-WPT {
     Write-Output "Done writing ${target}.wpt."
 }
 
+function Compile-Resgen {
+    param (
+        $target,
+        $redistDir
+    )
+
+    $success = $false
+
+    Write-Output "Writing ${target}.res..."
+    $out = & .\RESGen -ok -f $redistDir\maps\$target.bsp | Out-String
+    $success = $?
+    if (!$success) {
+        Write-Error "$out`n> Could not resgen ${target}."
+        exit
+    }
+
+    Write-Output "Done writing ${target}.res."
+}
+
 function Compile-Map {
     param (
         $binDir,
@@ -141,7 +160,8 @@ function Compile-Map {
     Copy-Item $mapsDir\$target\$target*.txt $redistDir\maps -Force -ErrorAction Ignore
 
     Compile-WPT $binDir $target $redistDir
+    Compile-Resgen $target $redistDir
 
-    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.txt | Remove-Item -Force -ErrorAction Ignore
+    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.txt,*.res | Remove-Item -Force -ErrorAction Ignore
     Write-Output "Done compiling $target.bsp."
 }

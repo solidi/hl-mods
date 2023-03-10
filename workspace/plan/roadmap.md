@@ -133,6 +133,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
     1. [ ] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
     1. [ ] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
+1. Game Dev Tools
+    1. [x] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
+        1. [ ] Add support for map brief text file
+        1. [ ] Add support for detailed textures
 
 ### Unscheduled
 
@@ -362,9 +366,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Compile mdl tool for Linux
     1. [ ] Post process all sounds in folder with reduced volume
     1. [ ] Update map tools to [SDHLT](https://github.com/seedee/SDHLT/)
-    1. [ ] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
-        1. [ ] Add support for map brief text file
-        1. [ ] Add support for detailed textures
 1. Client
     1. [ ] [Water Renderer](https://github.com/BlueNightHawk/testflight/commit/bb1d8ef445c8e26207d7072d3fd33dd07cecef87)
 1. Community ideas

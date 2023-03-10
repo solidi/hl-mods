@@ -74,6 +74,7 @@ hlvis.exe
 studiomdl.exe
 BSP_tool.exe
 BSP_tool.cfg
+RESGen.exe
 
 */Config.ps1
 */steam.ps1
