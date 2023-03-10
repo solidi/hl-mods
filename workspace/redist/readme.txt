@@ -738,3 +738,4 @@ Thanks To:
 - MrGnang for Half-Life Echoes (QuadFrost Antenna and look and feel) - https://en.wikipedia.org/wiki/Half-Life:_Echoes
 - Bacontsu for portalgun code and his work on mirroring https://github.com/bacontsu/halflife_portal
 - cagemonkey for the invention of the GunGame mode in Counter-Strike and the amx plugin https://avalanche.gungame.org/download.php
+- kriswema, Jeroen Bogers, and Zero3Cool for the resgen tool https://github.com/kriswema/resgen

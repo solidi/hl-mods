@@ -64,7 +64,7 @@ function Compile-WPT {
         $out = & .\BSP_tool -w $target | Out-String
         $success = $?
         if (!$success) {
-            Write-Error "$out`n> Could not wpt ${target}, trying again."
+            Write-Output "$out`n> Could not wpt ${target}, trying again."
         }
     }
     [void](Get-Item -Path "$target.HPB_wpt")
@@ -83,7 +83,6 @@ function Compile-Resgen {
     Write-Output "Writing ${target}.res..."
     $out = & .\RESGen -ok -f $redistDir\maps\$target.bsp | Out-String
     $success = $?
-    Write-Output $out
     if (!$success) {
         Write-Error "$out`n> Could not resgen ${target}."
         exit
