@@ -26,6 +26,8 @@ Beta 4 Features:
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
     - Sniper rifle makes bolt sound when fired
+- Maps
+    - Added res files for all included maps
 - Game Modes
     - 1 New Game Mode (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!

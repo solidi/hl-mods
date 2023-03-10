@@ -48,5 +48,6 @@ Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlbsp" $buildConfiguration $reb
 Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlrad" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlvis" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\studiomdl\studiomdl.sln" "studiomdl" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\resgen\RESGen.sln" "RESGen" $buildConfiguration $rebuild
 
 Set-Location -Path ${PSScriptRoot}

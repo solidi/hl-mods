@@ -64,12 +64,32 @@ function Compile-WPT {
         $out = & .\BSP_tool -w $target | Out-String
         $success = $?
         if (!$success) {
-            Write-Output "$out`n> Could not wpt ${target}, trying again."
+            Write-Error "$out`n> Could not wpt ${target}, trying again."
         }
     }
     [void](Get-Item -Path "$target.HPB_wpt")
     Move-Item $binDir\$target.HPB_wpt $redistDir\maps\$target.wpt -Force
     Write-Output "Done writing ${target}.wpt."
+}
+
+function Compile-Resgen {
+    param (
+        $target,
+        $redistDir
+    )
+
+    $success = $false
+
+    Write-Output "Writing ${target}.res..."
+    $out = & .\RESGen -ok -f $redistDir\maps\$target.bsp | Out-String
+    $success = $?
+    Write-Output $out
+    if (!$success) {
+        Write-Error "$out`n> Could not resgen ${target}."
+        exit
+    }
+
+    Write-Output "Done writing ${target}.res."
 }
 
 function Compile-Map {
@@ -141,7 +161,8 @@ function Compile-Map {
     Copy-Item $mapsDir\$target\$target*.txt $redistDir\maps -Force -ErrorAction Ignore
 
     Compile-WPT $binDir $target $redistDir
+    Compile-Resgen $target $redistDir
 
-    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.txt | Remove-Item -Force -ErrorAction Ignore
+    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.txt,*.res | Remove-Item -Force -ErrorAction Ignore
     Write-Output "Done compiling $target.bsp."
 }
