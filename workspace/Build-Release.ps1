@@ -75,7 +75,7 @@ Compile-Font $binDir $redistDir "Arial"
 
 Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 
-# Add-on removals
+# Add-ons removal
 Remove-Item $redistDir\quadfrost.wad
 Remove-Item $redistDir\maps\quadfrost_detail.txt
 Remove-Item $redistDir\gfx\detail\\* -Recurse -Force -ErrorAction Ignore
