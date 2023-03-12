@@ -94,6 +94,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Maps
     1. [x] Private repo build pipeline for quadfrost
         1. [x] Launch quadfrost in Feb 2023 as an add on
+    1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
+    1. [ ] rustmill
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
@@ -326,9 +328,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Frozen Lake map idea
     1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)
-    1. [ ] rustmill
     1. [ ] the hill
-    1. [ ] [dm_lister](https://gamebanana.com/mods/59480) reskin
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
     1. [ ] Clip sky in Focus
