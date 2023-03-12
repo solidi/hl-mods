@@ -18,8 +18,9 @@ Beta 4 Features:
         - Flame Stream / Flame Ball
     - Dual Flamethrowers
         - 2x Flame Stream / 2x Flame Ball
-- 1 New Map
+- 2 New Map
     - quadfrost, a rebuild of doublefrost by Napoleon
+    - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
 - Weapon Changes
     - Decoy bombs deploy as animated assassins
     - Tighten flak primary fire
@@ -739,3 +740,4 @@ Thanks To:
 - Bacontsu for portalgun code and his work on mirroring https://github.com/bacontsu/halflife_portal
 - cagemonkey for the invention of the GunGame mode in Counter-Strike and the amx plugin https://avalanche.gungame.org/download.php
 - kriswema, Jeroen Bogers, and Zero3Cool for the resgen tool https://github.com/kriswema/resgen
+- Marc Laidlaw and Trashbang for dm_lister, and AudioCraZ for the opulent reskin https://thetrashbang.tumblr.com/

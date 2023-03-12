@@ -24,3 +24,4 @@ frosty
 overflow
 frozenwarehouse
 quadfrost
+defroster

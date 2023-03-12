@@ -69,7 +69,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -93,7 +93,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [quadfrost]
+        map: [quadfrost, defroster]
 
     steps:
     - uses: actions/checkout@v3
@@ -134,7 +134,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -168,6 +168,7 @@ jobs:
       run: |
         [void](New-Item -Force -ItemType Directory $env:TEMP\maps)
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\quadfrost\quadfrost.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\defroster\defroster.zip -DestinationPath $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
@@ -230,7 +231,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     # Assets found redist/ like map artifacts in overviews/
     - name: Unpack Add-ons
