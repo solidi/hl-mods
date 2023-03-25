@@ -107,6 +107,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
+        1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
