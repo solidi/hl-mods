@@ -96,6 +96,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Launch quadfrost in Feb 2023 as an add on
     1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
     1. [ ] rustmill
+1. Game Modes
+    1. [x] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
+    1. [ ] Capture the Chumtoad (Audiocraz)
+        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
+        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
+        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
+        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
+        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
+        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
+        1. Chumtoad holder had extra health
+        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
 1. Game Mechanics
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
@@ -103,6 +114,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Grapple hook support for bots
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
     1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
+    1. [ ] Feign death binding (Napoleon/Rocket Crowbar)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
@@ -154,22 +166,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Support
         1. [ ] Wins / Rounds Left visual support
         1. [ ] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
-    1. [ ] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
-    1. [ ] Capture the Chumtoad (Audiocraz)
-        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
-        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
-        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
-        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
-        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
-        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
-        1. Chumtoad holder had extra health
-        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
     1. [ ] What about “kick the Santa hat”? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
         1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)
+        1. [ ] Point awards like [Maximum Action](https://www.youtube.com/watch?v=17isfGEjf20) (in death queue messages?)
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
     1. [ ] Race to bottom (most deaths wins)
 1. Future Game Mutators
+    1. [ ] Rising ice / lava (CrazyO)
+    1. [ ] rocket jumping, your rockets do not to much damage to owner
+    1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
     1. [ ] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
@@ -205,6 +211,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
     1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
     1. [ ] Random bind key blows you up (Nellia's Choice)
+    1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
 1. New Weapons
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
@@ -334,6 +341,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Clip sky in Focus
     1. [ ] Update lights.rad production to use Napoleon's lights.rad file
     1. [ ] [fy_iceworld](https://www.rockpapershotgun.com/the-legacy-of-fy_iceworld-counter-strikes-divisive-and-hugely-popular-custom-map)
+    1. [ ] [Real 3d skybox](https://discord.com/channels/511209951923011604/511212204121653258/1084687068246069259)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Models
