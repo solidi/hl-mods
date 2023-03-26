@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.31
+	ORIGIN	0 	0	832
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/thechill.bmp"
+	HEIGHT	-177
+}

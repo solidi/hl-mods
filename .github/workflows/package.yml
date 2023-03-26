@@ -341,7 +341,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross,frostfire,drift,snow_camp,ice_pit,frozen_bunker,snowtransit,doublefrost,themill,chillworks,frosty,overflow,frozenwarehouse]
+        map: [training,stalkyard2,snowyard,coldice,canyon,focus,furrow,training2,bounce2,catacombs,fences,depot,snowcross,frostfire,drift,snow_camp,ice_pit,frozen_bunker,snowtransit,doublefrost,themill,chillworks,frosty,overflow,frozenwarehouse,thechill]
 
     steps:
     - uses: actions/checkout@v3
@@ -498,6 +498,7 @@ jobs:
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\frosty\frosty.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\overflow\overflow.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\frozenwarehouse\frozenwarehouse.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\thechill\thechill.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\quadfrost\quadfrost.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\defroster\defroster.zip -DestinationPath $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force

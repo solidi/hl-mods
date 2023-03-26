@@ -171,6 +171,10 @@ maps\quadfrost.bsp
 maps\quadfrost.res
 maps\quadfrost.wpt
 maps\quadfrost.txt
+maps\thechill.bsp
+maps\thechill.res
+maps\thechill.wpt
+maps\thechill.txt
 maps\themill.bsp
 maps\themill.res
 maps\themill.wpt
@@ -472,6 +476,8 @@ overviews\snowyard.bmp
 overviews\snowyard.txt
 overviews\stalkyard2.bmp
 overviews\stalkyard2.txt
+overviews\thechill.bmp
+overviews\thechill.txt
 overviews\themill.bmp
 overviews\themill.txt
 overviews\training.bmp

@@ -18,9 +18,10 @@ Beta 4 Features:
         - Flame Stream / Flame Ball
     - Dual Flamethrowers
         - 2x Flame Stream / 2x Flame Ball
-- 2 New Map
+- 3 New Maps
     - quadfrost, a rebuild of doublefrost by Napoleon
     - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
+    - thechill, a reskin by AudioCraZ of thehill by Dario Casali
 - Weapon Changes
     - Decoy bombs deploy as animated assassins
     - Tighten flak primary fire
