@@ -95,6 +95,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Private repo build pipeline for quadfrost
         1. [x] Launch quadfrost in Feb 2023 as an add on
     1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
+    1. [x] thehill
     1. [ ] rustmill
 1. Game Modes
     1. [x] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
@@ -336,7 +337,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Frozen Lake map idea
     1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)
-    1. [ ] the hill
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
     1. [ ] Clip sky in Focus
