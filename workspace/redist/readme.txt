@@ -35,6 +35,8 @@ Beta 4 Features:
          - "gungame" - get specific weapons for frags and level up!
     - 1 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
+- Game Mode Changes
+    - Arena mode displays opponent name while fighting
 - Single Player Gameplay
     - Chapter Selection Menu
 - Client Support
@@ -65,6 +67,7 @@ Beta 4 Features:
     - Filled remaining holes in training2
     - Fixed user configuration of antivomit settings
     - Fixed repeating bot names when they reconnect
+    - Fixed spectator mode while in arena
 
 Beta 3 Features:
 
