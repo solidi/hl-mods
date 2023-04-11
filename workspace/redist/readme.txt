@@ -33,8 +33,9 @@ Beta 4 Features:
 - Game Modes
     - 1 New Game Mode (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
-    - 1 New Mutators - supports combination and randomly selected (mp_mutators)
+    - 2 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
+        - "jope" - all hail king jope!
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
 - Single Player Gameplay
@@ -617,6 +618,7 @@ Server:
     - "snowballs" - a random chance of snowballs throw on attack
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "portal" - now you're thinking with portals
+    - "jope" - all hail king jope!
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not

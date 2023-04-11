@@ -61,6 +61,7 @@ DESCRIPTION SERVER_OPTIONS
 			"snowballs" "29"
 			"pushy" "30"
 			"portal" "31"
+			"jope" "32"
 		}
 		{ "1" }
 	}
