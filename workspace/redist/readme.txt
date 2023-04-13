@@ -69,6 +69,7 @@ Beta 4 Features:
     - Fixed user configuration of antivomit settings
     - Fixed repeating bot names when they reconnect
     - Fixed spectator mode while in arena
+    - Reduced repeating deploy weapon sound effects
 
 Beta 3 Features:
 
