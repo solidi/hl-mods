@@ -36,6 +36,7 @@ Beta 4 Features:
     - 2 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
+    - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
 - Single Player Gameplay
