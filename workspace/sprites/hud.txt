@@ -1,4 +1,4 @@
-198
+199
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -223,6 +223,7 @@ santahat		640 gameicons	128	0	64	64
 volatile		640 gameicons	192	0	64	64
 portal		640 gameicons	0	64	64	64
 jope		640 gameicons	64	64	64	64
+plumber		640 gameicons	128	64	64	64
 
 wins		640 640hud7	194	24	64	32
 
