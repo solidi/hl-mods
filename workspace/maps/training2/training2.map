@@ -7,7 +7,7 @@
 "MaxRange" "8192"
 "mapversion" "220"
 "mapversion" "220"
-"wad" "\workspace\wads\coldice.wad;\workspace\wads\halflife.wad;\workspace\wads\xeno.wad;\workspace\wads\liquids.wad;\workspace\wads\spraypaint.wad;\workspace\wads\decals.wad"
+"wad" "..\wads\coldice.wad;..\wads\halflife.wad;..\wads\xeno.wad;..\wads\liquids.wad;..\wads\spraypaint.wad;..\wads\decals.wad"
 {
 ( 324 800 48 ) ( 208 720 48 ) ( 208 720 176 ) CIR_ROCK03 [ 0.870352 0.49243 0 128 ] [ 0 0 -1 224 ] 0 3 3 
 ( 208 720 176 ) ( 208 720 48 ) ( 178 800 48 ) CIR_ROCK03 [ 0.49243 -0.870352 0 184.088 ] [ 0 0 -1 -96 ] 0 1 1 
