@@ -17,7 +17,7 @@
 "fogcolor2" "255 255 255"
 "fogdir" "1 0 0"
 "mapversion" "220"
-"wad" "\workspace\wads\xeno.wad;\workspace\wads\spraypaint.wad;\workspace\wads\liquids.wad;\workspace\wads\halflife.wad;\workspace\wads\decals.wad;\workspace\wads\coldice.wad;\workspace\wads\spacepirate.WAD"
+"wad" "..\wads\xeno.wad;..\wads\spraypaint.wad;..\wads\liquids.wad;..\wads\halflife.wad;..\wads\decals.wad;..\wads\coldice.wad;..\wads\spacepirate.wad"
 "_generator" "J.A.C.K. 1.1.1064 (vpHalfLife)"
 {
 ( -448 16 828 ) ( -448 -672 828 ) ( -448 16 800 ) TNNL_FLR2 [ 0 1 0 88 ] [ 0 0 -1 0 ] 0 1 1
