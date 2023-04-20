@@ -71,6 +71,7 @@ Beta 4 Features:
     - Fixed repeating bot names when they reconnect
     - Fixed spectator mode while in arena
     - Reduced repeating deploy weapon sound effects
+    - Fixed retract distance of view model so is always appears on screen
 
 Beta 3 Features:
 
