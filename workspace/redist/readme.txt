@@ -31,8 +31,9 @@ Beta 4 Features:
 - Maps
     - Added res files for all included maps
 - Game Modes
-    - 1 New Game Mode (mp_gamemode)
+    - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
+         - "ctc" - capture the chumtoad, hold on to it to receive points!
     - 2 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
@@ -635,6 +636,7 @@ Server:
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
     - "gungame" - get specific weapons for frags and level up!
+    - "ctc" - capture the chumtoad, hold on to it to receive points!
 - "mp_randomgamemodes [0|1]" selects a random game mode on map change
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation
