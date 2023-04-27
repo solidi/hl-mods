@@ -15,11 +15,13 @@ DESCRIPTION SERVER_OPTIONS
 		{
 			LIST
 			"ffa" "0"
-			"iceman" "1"
-			"lms" "2"
-			"arena" "3"
-			"snowball" "4"
-			"gungame" "5"
+			"teamplay" "1"
+			"iceman" "2"
+			"lms" "3"
+			"arena" "4"
+			"snowball" "5"
+			"gungame" "6"
+			"ctc" "7"
 		}
 		{ "0" }
 	}

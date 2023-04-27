@@ -301,6 +301,12 @@ Copy-Item $soundDir\portal_enter2.wav $redistdir\sound
 Copy-Item $soundDir\takenlead.wav $redistdir\sound
 Copy-Item $soundDir\tiedlead.wav $redistdir\sound
 Copy-Item $soundDir\lostlead.wav $redistdir\sound
+Copy-Item $soundDir\whickedsick.wav $redistdir\sound
+Copy-Item $soundDir\unstoppable2.wav $redistdir\sound
+Copy-Item $soundDir\maniac.wav $redistdir\sound
+Copy-Item $soundDir\impressive.wav $redistdir\sound
+Copy-Item $soundDir\excellent.wav $redistdir\sound
+Copy-Item $soundDir\bullseye.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 
