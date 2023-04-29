@@ -365,6 +365,7 @@ try {
     Compile-Player "assassin" $binDir $modelsdir $redistDir
     Compile-Player "baer" $binDir $modelsdir $redistDir
     Compile-Player "commando" $binDir $modelsdir $redistDir
+    Compile-Player "frost" $binDir $modelsdir $redistDir
     Compile-Player "grunt" $binDir $modelsdir $redistDir
     Compile-Player "hhev" $binDir $modelsdir $redistDir
     Compile-Player "holo" $binDir $modelsdir $redistDir
