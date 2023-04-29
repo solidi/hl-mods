@@ -153,6 +153,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
         1. [ ] Add support for map brief text file
         1. [ ] Add support for detailed textures
+    1. [ ] Update studiomdl to [funnky's toolset](https://github.com/fnky/studiomdl)
 
 ### Unscheduled
 

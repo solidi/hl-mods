@@ -40,6 +40,8 @@ Beta 4 Features:
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
+- New Player Models
+    - Frost - a reskin of Romka's reskin HEV suit by Napoleon
 - Single Player Gameplay
     - Chapter Selection Menu
 - Client Support
@@ -752,3 +754,4 @@ Thanks To:
 - cagemonkey for the invention of the GunGame mode in Counter-Strike and the amx plugin https://avalanche.gungame.org/download.php
 - kriswema, Jeroen Bogers, and Zero3Cool for the resgen tool https://github.com/kriswema/resgen
 - Marc Laidlaw and Trashbang for dm_lister, and AudioCraZ for the opulent reskin https://thetrashbang.tumblr.com/
+- Valve, Romka, A.I. for the scientist HEV suit player model https://gamebanana.com/mods/179924
