@@ -75,6 +75,8 @@ Beta 4 Features:
     - Fixed spectator mode while in arena
     - Reduced repeating deploy weapon sound effects
     - Fixed retract distance of view model so is always appears on screen
+    - Removed color adjustment on model select screen
+    - Improved player model photos
 
 Beta 3 Features:
 
