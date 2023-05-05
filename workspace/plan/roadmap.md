@@ -146,9 +146,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Fixes
+    1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
-    1. [ ] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
-    1. [ ] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
+    1. [x] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
+    1. [x] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
 1. Game Dev Tools
     1. [x] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
         1. [ ] Add support for map brief text file
@@ -176,16 +177,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
     1. [ ] Race to bottom (most deaths wins)
 1. Future Game Mutators
+    1. [ ] [Explosive](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) crowbar mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
     1. [ ] Rising ice / lava (CrazyO)
     1. [ ] rocket jumping, your rockets do not to much damage to owner
     1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
-    1. [ ] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
+    1. [x] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
     1. [ ] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
     1. [ ] CrazyO - track reel of a person speaking
     1. [ ] Oneshot - 1 health start or reduce
-    1. [ ] Jope - All names turns to Jope
+    1. [x] Jope - All names turns to Jope
     1. [ ] Ricochet - no view angles or weapons fire discs
     1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
@@ -364,6 +366,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
+    1. [ ] Compact w_ moels into one
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
 1. Game Dev Tools

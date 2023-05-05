@@ -34,9 +34,12 @@ Beta 4 Features:
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - 2 New Mutators - supports combination and randomly selected (mp_mutators)
+    - 5 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
+        - "inverse" - colors are inverted
+        - "oldtime" - colors are black and white
+        - "sildenafil" - all you see is blue
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting

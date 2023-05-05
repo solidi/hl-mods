@@ -64,6 +64,9 @@ DESCRIPTION SERVER_OPTIONS
 			"pushy" "30"
 			"portal" "31"
 			"jope" "32"
+			"inverse" "33"
+			"oldtime" "34"
+			"sildenafil" "35"
 		}
 		{ "1" }
 	}

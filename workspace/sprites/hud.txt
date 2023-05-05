@@ -1,4 +1,4 @@
-199
+208
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -217,13 +217,23 @@ d_flameball		640	640hudof11	192	48	48	16
 d_flamestream		640	640hudof11	192	48	48	16
 d_dual_flamethrower	640	640hudof11	192	64	48	16
 
-coolflesh		640 gameicons	0	0	64	64
+// Mutators
+coolflesh	640 gameicons	0	0	64	64
 iceman		640 gameicons	64	0	64	64
-santahat		640 gameicons	128	0	64	64
-volatile		640 gameicons	192	0	64	64
+santahat	640 gameicons	128	0	64	64
+volatile	640 gameicons	192	0	64	64
 portal		640 gameicons	0	64	64	64
 jope		640 gameicons	64	64	64	64
 plumber		640 gameicons	128	64	64	64
+inverse		640 gameicons	192	64	64	64
+oldtime		640 gameicons	0	128	64	64
+sildenafil	640 gameicons	64	128	64	64
+astronaut	640 gameicons	128	128	64	64
+invisible	640 gameicons	192	128	64	64
+grenades	640 gameicons	0	192	64	64
+rockets 	640 gameicons	64	192	64	64
+speedup 	640 gameicons	128	192	64	64
+chumxplode	640 gameicons	192	192	64	64
 
 wins		640 640hud7	194	24	64	32
 
