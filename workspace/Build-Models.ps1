@@ -681,6 +681,8 @@ try {
     Compile-Model $binDir "w_portalgun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_portal" $modelsdir $redistdir\models
     Compile-Model $binDir "w_chainammo" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_weapons" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_weapons" $modelsdir\hd $redisthddir\models
     } else {
         Compile-Player $playerModel $binDir $modelsdir $redistDir
     }

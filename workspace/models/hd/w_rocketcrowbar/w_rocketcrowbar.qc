@@ -56,7 +56,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Crowbar" -1.250000 -2.170000 -22.530001 8.420000 2.170000 22.549999
+$hbox 0 "rocketcrowbar" -1.250000 -2.170000 -22.530001 8.420000 2.170000 22.549999
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

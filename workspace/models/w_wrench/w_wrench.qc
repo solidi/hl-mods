@@ -52,7 +52,7 @@ $texturegroup ice
 $hbox 0 "wrench" -1.923021 0.000000 -4.140394 0.000000 2.549736 0.000000
 
 // animation sequence(s)
-$sequence "standthere" "standthere" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

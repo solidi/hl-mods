@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "weapon_bone" -1
+  0 "portalgun" -1
 end
 skeleton
 time 0

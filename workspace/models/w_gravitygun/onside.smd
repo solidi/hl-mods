@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "w_gauss" -1
+  0 "gravitygun" -1
   1 "spinner" 0
 end
 skeleton

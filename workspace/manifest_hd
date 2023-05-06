@@ -125,6 +125,7 @@ models\p_freezegun.mdl
 models\v_rocketcrowbar.mdl
 models\w_rocketcrowbar.mdl
 models\p_rocketcrowbar.mdl
+models\w_weapons.mdl
 sound
 sound\knife_miss2.wav
 sprites

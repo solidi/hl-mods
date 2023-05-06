@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "gravitygun_reference"
+$body "body" "gravitygun"
 
 $texturegroup ice
 {
@@ -68,10 +68,10 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "w_gauss" -7.990000 -31.690001 -9.770000 6.210000 40.860001 11.980000
+$hbox 0 "gravitygun" -7.990000 -31.690001 -9.770000 6.210000 40.860001 11.980000
 
 // animation sequence(s)
-$sequence "stayput" "stayput" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 $sequence "onside" "onside" fps 30 
 

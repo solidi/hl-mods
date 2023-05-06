@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "Crowbar" -1
+  0 "crowbar" -1
 end
 skeleton
 time 0
