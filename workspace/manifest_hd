@@ -9,18 +9,14 @@ models\v_vest_radio.mdl
 models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\p_9mmhandguns.mdl
-models\w_9mmhandguns.mdl
-models\w_9mmhandgun.mdl
 models\p_9mmhandgun.mdl
 models\v_grenade.mdl
 models\w_grenade.mdl
 models\p_grenade.mdl
 models\v_knife.mdl
-models\w_knife.mdl
 models\p_knife.mdl
 models\v_crowbar.mdl
 models\p_crowbar.mdl
-models\w_crowbar.mdl
 models\v_rpg.mdl
 models\p_rpg.mdl
 models\w_rpg.mdl
@@ -44,7 +40,6 @@ models\p_satchel_radio.mdl
 models\w_satchel.mdl
 models\p_satchel.mdl
 models\w_shell.mdl
-models\w_mag60.mdl
 models\p_mag60.mdl
 models\v_mag60.mdl
 models\w_chaingun.mdl
@@ -53,7 +48,6 @@ models\v_chaingun.mdl
 models\w_glauncher.mdl
 models\p_glauncher.mdl
 models\v_glauncher.mdl
-models\w_smg.mdl
 models\p_smg.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
@@ -64,7 +58,6 @@ models\w_shotgunshell.mdl
 models\v_fists.mdl
 models\v_wrench.mdl
 models\p_wrench.mdl
-models\w_wrench.mdl
 models\v_snowball.mdl
 models\v_chainsaw.mdl
 models\w_chainsaw.mdl
@@ -81,7 +74,6 @@ models\w_gaussammo.mdl
 models\w_rpgammo.mdl
 models\v_357.mdl
 models\p_357.mdl
-models\w_357.mdl
 models\v_egon.mdl
 models\p_egon.mdl
 models\w_egon.mdl
@@ -123,7 +115,6 @@ models\v_freezegun.mdl
 models\w_freezegun.mdl
 models\p_freezegun.mdl
 models\v_rocketcrowbar.mdl
-models\w_rocketcrowbar.mdl
 models\p_rocketcrowbar.mdl
 models\w_weapons.mdl
 sound

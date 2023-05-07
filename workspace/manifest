@@ -260,16 +260,12 @@ models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\p_9mmhandguns.mdl
 models\p_9mmhandgun.mdl
-models\w_9mmhandgun.mdl
-models\w_9mmhandguns.mdl
 models\v_grenade.mdl
 models\w_grenade.mdl
 models\p_grenade.mdl
 models\v_knife.mdl
-models\w_knife.mdl
 models\p_knife.mdl
 models\v_crowbar.mdl
-models\w_crowbar.mdl
 models\p_crowbar.mdl
 models\v_rpg.mdl
 models\w_rpg.mdl
@@ -311,7 +307,6 @@ models\v_satchel_radio.mdl
 models\w_satchel.mdl
 models\w_shell.mdl
 models\v_mag60.mdl
-models\w_mag60.mdl
 models\p_mag60.mdl
 models\w_chaingun.mdl
 models\p_chaingun.mdl
@@ -319,7 +314,6 @@ models\v_chaingun.mdl
 models\w_glauncher.mdl
 models\p_glauncher.mdl
 models\v_glauncher.mdl
-models\w_smg.mdl
 models\p_smg.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
@@ -330,14 +324,12 @@ models\w_shotgunshell.mdl
 models\v_fists.mdl
 models\v_wrench.mdl
 models\p_wrench.mdl
-models\w_wrench.mdl
 models\v_snowball.mdl
 models\p_snowball.mdl
 models\w_snowball.mdl
 models\w_hgibs.mdl
 models\v_chainsaw.mdl
 models\p_chainsaw.mdl
-models\w_chainsaw.mdl
 models\v_12gauge.mdl
 models\p_12gauge.mdl
 models\w_12gauge.mdl
@@ -357,7 +349,6 @@ models\w_gaussammo_light.mdl
 models\w_rpgammo.mdl
 models\v_357.mdl
 models\p_357.mdl
-models\w_357.mdl
 models\v_egon.mdl
 models\p_egon.mdl
 models\w_egon.mdl
@@ -378,7 +369,6 @@ models\w_squeak.mdl
 models\v_leg.mdl
 models\v_dual_leg.mdl
 models\v_deagle.mdl
-models\w_deagle.mdl
 models\p_deagle.mdl
 models\v_dual_deagle.mdl
 models\w_dual_deagle.mdl
@@ -403,12 +393,10 @@ models\p_freezegun.mdl
 models\w_freezegun.mdl
 models\v_rocketcrowbar.mdl
 models\p_rocketcrowbar.mdl
-models\w_rocketcrowbar.mdl
 models\plasma.mdl
 models\w_suit.mdl
 models\w_concretegibs.mdl
 models\v_gravitygun.mdl
-models\w_gravitygun.mdl
 models\p_gravitygun.mdl
 models\w_barrel.mdl
 models\w_cabinet.mdl
@@ -421,7 +409,6 @@ models\p_dual_flamethrower.mdl
 models\w_dual_flamethrower.mdl
 models\v_portalgun.mdl
 models\p_portalgun.mdl
-models\w_portalgun.mdl
 models\w_portal.mdl
 models\w_chainammo.mdl
 models\w_weapons.mdl

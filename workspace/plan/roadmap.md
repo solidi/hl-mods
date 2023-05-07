@@ -177,7 +177,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
     1. [ ] Race to bottom (most deaths wins)
 1. Future Game Mutators
-    1. [ ] [Explosive](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) crowbar mode
+    1. [ ] [Leeroy Jenkins] mode (start with vest)
+    1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
     1. [ ] Rising ice / lava (CrazyO)
     1. [ ] rocket jumping, your rockets do not to much damage to owner
