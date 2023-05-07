@@ -251,9 +251,7 @@ try {
     Invert-Skin $binDir "w_rpgammo" $modelsdir\hd
     Invert-Skin $binDir "v_357" $modelsdir
     Invert-Skin $binDir "p_357" $modelsdir
-    Invert-Skin $binDir "w_357" $modelsdir
     Invert-Skin $binDir "p_357" $modelsdir\hd
-    Invert-Skin $binDir "w_357" $modelsdir\hd
     Invert-Skin $binDir "v_357" $modelsdir\hd
     Invert-Skin $binDir "v_egon" $modelsdir
     Invert-Skin $binDir "p_egon" $modelsdir
@@ -541,9 +539,7 @@ try {
     Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_357" $modelsdir $redistdir\models
     Compile-Model $binDir "p_357" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_357" $modelsdir $redistdir\models
     Compile-Model $binDir "v_357" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_357" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_357" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_egon" $modelsdir $redistdir\models
     Compile-Model $binDir "p_egon" $modelsdir $redistdir\models
