@@ -34,6 +34,11 @@ studio "..\w_chainsaw\chainsaw"
 studio "..\w_rocketcrowbar\rocketcrowbar"
 studio "..\w_gravitygun\gravitygun"
 studio "..\w_portalgun\portalgun_front"
+studio "..\w_9mmhandguns\silencer"
+studio "..\w_357\python"
+studio "..\w_deagle\deagle"
+studio "..\w_mag60\mag60"
+studio "..\w_smg\smg"
 }
 
 $bodygroup "addition"
@@ -81,6 +86,22 @@ $texturegroup ice
     "..\w_gravitygun\v_portalgun.BMP"
     "..\w_gravitygun\v_superphyscannon_sheet.BMP"
     "..\w_portalgun\w_portalgun.bmp"
+    "..\w_9mmhandguns\back.bmp"
+    "..\w_9mmhandguns\chrome.bmp"
+    "..\w_9mmhandguns\glockfront.bmp"
+    "..\w_9mmhandguns\side.bmp"
+    "..\w_9mmhandguns\top.bmp"
+    "..\w_357\wrld_python.bmp"
+    "..\w_deagle\glockback.bmp"
+    "..\w_deagle\glockfront.bmp"
+    "..\w_deagle\glockside.bmp"
+    "..\w_deagle\glocktop1.bmp"
+    "..\w_mag60\glockback.bmp"
+    "..\w_mag60\glockfront.bmp"
+    "..\w_mag60\glockside.bmp"
+    "..\w_mag60\glocktop1.bmp"
+    "..\w_smg\M203.bmp"
+    "..\w_smg\MP5sideview.bmp"
   }
   {
     "..\w_crowbar\invert_w_pipe.bmp"
@@ -114,6 +135,22 @@ $texturegroup ice
     "..\w_gravitygun\invert_v_portalgun.BMP"
     "..\w_gravitygun\invert_v_superphyscannon_sheet.BMP"
     "..\w_portalgun\invert_w_portalgun.bmp"
+    "..\w_9mmhandguns\invert_back.bmp"
+    "..\w_9mmhandguns\invert_chrome.bmp"
+    "..\w_9mmhandguns\invert_glockfront.bmp"
+    "..\w_9mmhandguns\invert_side.bmp"
+    "..\w_9mmhandguns\invert_top.bmp"
+    "..\w_357\invert_wrld_python.bmp"
+    "..\w_deagle\invert_glockback.bmp"
+    "..\w_deagle\invert_glockfront.bmp"
+    "..\w_deagle\invert_glockside.bmp"
+    "..\w_deagle\invert_glocktop1.bmp"
+    "..\w_mag60\invert_glockback.bmp"
+    "..\w_mag60\invert_glockfront.bmp"
+    "..\w_mag60\invert_glockside.bmp"
+    "..\w_mag60\invert_glocktop1.bmp"
+    "..\w_smg\invert_M203.bmp"
+    "..\w_smg\invert_MP5sideview.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -147,8 +184,40 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -191,6 +260,11 @@ $hbox 0 "chainsaw" -22.780001 -4.700000 -3.460000 8.640000 4.330000 7.320000
 $hbox 0 "rocketcrowbar" -2.580000 -1.360000 -4.290000 7.550000 1.360000 39.070000
 $hbox 0 "gravitygun" -7.990000 -31.690001 -9.770000 6.210000 40.860001 11.980000
 $hbox 0 "portalgun" -13.480000 -9.130000 -3.610000 8.650000 8.440000 7.050000
+$hbox 0 "silencer" -7.380000 -1.410000 -4.740000 18.469999 1.410000 4.740000
+$hbox 0 "python" -2.490000 -10.610000 -8.670000 2.490000 3.690000 19.030001
+$hbox 0 "deagle" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000
+$hbox 0 "mag60" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000
+$hbox 0 "smg" -13.060000 -10.490000 -0.910000 21.250000 8.930000 2.750000
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\w_crowbar\idle" fps 30 
@@ -207,5 +281,15 @@ $sequence "gravitygun_idle" "..\w_gravitygun\idle" fps 30
 $sequence "gravitygun_spin" "..\w_gravitygun\spin" fps 21 loop 
 $sequence "portalgun_idle" "..\w_portalgun\idle" fps 30 
 $sequence "portalgun_spin" "..\w_portalgun\spin" fps 21 loop 
+$sequence "silencer_idle" "..\w_9mmhandguns\idle" fps 30 
+$sequence "silencer_spin" "..\w_9mmhandguns\spin" fps 21 loop 
+$sequence "python_idle" "..\w_357\idle" fps 30 
+$sequence "python_spin" "..\w_357\spin" fps 21 loop 
+$sequence "deagle_idle" "..\w_deagle\idle" fps 30 
+$sequence "deagle_spin" "..\w_deagle\spin" fps 21 loop 
+$sequence "mag60_idle" "..\w_mag60\idle" fps 30 
+$sequence "mag60_spin" "..\w_mag60\spin" fps 21 loop 
+$sequence "smg_idle" "..\w_smg\idle" fps 30 
+$sequence "smg_spin" "..\w_smg\spin" fps 21 loop 
 
 // End of QC script.
