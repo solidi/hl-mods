@@ -248,10 +248,8 @@ models\player\swat\swat.mdl
 models\props
 models\props\skeleton.mdl
 models\v_9mmAR.mdl
-models\w_9mmAR.mdl
 models\p_9mmAR.mdl
 models\v_shotgun.mdl
-models\w_shotgun.mdl
 models\p_shotgun.mdl
 models\p_vest.mdl
 models\v_vest_radio.mdl
@@ -283,7 +281,6 @@ models\w_sniperrifle.mdl
 models\w_762shell.mdl
 models\v_crossbow.mdl
 models\p_crossbow.mdl
-models\w_crossbow.mdl
 models\w_bolt.mdl
 models\w_railgun.mdl
 models\p_railgun.mdl
@@ -308,7 +305,6 @@ models\w_satchel.mdl
 models\w_shell.mdl
 models\v_mag60.mdl
 models\p_mag60.mdl
-models\w_chaingun.mdl
 models\p_chaingun.mdl
 models\v_chaingun.mdl
 models\w_glauncher.mdl
@@ -317,7 +313,6 @@ models\v_glauncher.mdl
 models\p_smg.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
-models\w_usas.mdl
 models\p_usas.mdl
 models\v_usas.mdl
 models\w_shotgunshell.mdl
@@ -332,7 +327,6 @@ models\v_chainsaw.mdl
 models\p_chainsaw.mdl
 models\v_12gauge.mdl
 models\p_12gauge.mdl
-models\w_12gauge.mdl
 models\w_battery.mdl
 models\w_battery_light.mdl
 models\w_longjump.mdl
@@ -390,7 +384,6 @@ models\p_dual_usas.mdl
 models\v_dual_usas.mdl
 models\v_freezegun.mdl
 models\p_freezegun.mdl
-models\w_freezegun.mdl
 models\v_rocketcrowbar.mdl
 models\p_rocketcrowbar.mdl
 models\plasma.mdl

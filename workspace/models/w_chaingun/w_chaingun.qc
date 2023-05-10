@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "w_chaingun_3"
+$body "studio" "chaingun"
 
 $texturegroup ice
 {

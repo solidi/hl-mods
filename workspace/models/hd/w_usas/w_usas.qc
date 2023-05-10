@@ -52,10 +52,10 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "skin01" -0.610000 -12.980000 -5.220000 0.600000 22.620001 3.060000
+// hit box(es)
+$hbox 0 "usas" -0.610000 -12.980000 -5.220000 0.600000 22.620001 3.060000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 

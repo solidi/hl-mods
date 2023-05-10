@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_sniper_reference"
+$body "body" "sniperrifle"
 
 
 $texturegroup ice
@@ -48,11 +48,11 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Box02" -27.959999 -8.630000 -0.550000 19.150000 3.360000 2.150000
+// hit box(es)
+$hbox 0 "sniperrifle" -27.959999 -8.630000 -0.550000 19.150000 3.360000 2.150000
 
 // animation sequence(s)
-$sequence "standthere" "standthere" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" loop fps 21 
 
 // End of QC script.

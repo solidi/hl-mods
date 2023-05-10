@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "smallshotgun"
+$body "studio" "12gauge"
 
 $texturegroup ice
 {
@@ -48,10 +48,10 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "shotgun" -0.850000 -9.740000 -6.200000 0.840000 15.700000 2.260000
+$hbox 0 "12gauge" -0.850000 -9.740000 -6.200000 0.840000 15.700000 2.260000
 
 // animation sequence(s)
-$sequence "dummyidle" "dummyidle" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

@@ -177,6 +177,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
     1. [ ] Race to bottom (most deaths wins)
 1. Future Game Mutators
+    1. [ ] Available weapons can explode if damaged
     1. [ ] [Leeroy Jenkins] mode (start with vest)
     1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
@@ -397,7 +398,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Ice spike gun (AudioCraZ)
     1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
     1. [ ] "ice spike gun" (AudioCraZ)
-    1. [ ] mutators ```mp_mutators "blowup (Napoleon);weapon_(AudioCraZ);insta(The_Pacific_gamer);jetpack(Napoleon);tiny"```
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)

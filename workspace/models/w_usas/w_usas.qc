@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "wrld_mp5"
+$body "studio" "usas"
 
 $texturegroup ice
 {
@@ -47,8 +47,8 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "Line01" -47.169998 -16.750000 0.000000 29.910000 12.190000 13.760000
+// hit box(es)
+$hbox 0 "usas" -47.169998 -16.750000 0.000000 29.910000 12.190000 13.760000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

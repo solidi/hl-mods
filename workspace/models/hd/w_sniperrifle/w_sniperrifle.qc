@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "wrld_shotgun"
+$body "studio" "sniperrifle"
 
 $texturegroup ice
 {
@@ -43,10 +43,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Box01" -36.410000 -6.680000 -2.620000 45.709999 10.480000 2.120000
+// hit box(es)
+$hbox 0 "sniperrifle" -36.410000 -6.680000 -2.620000 45.709999 10.480000 2.120000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 

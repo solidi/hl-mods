@@ -47,8 +47,10 @@ Remove-Item $redistDir\htmlcache -Recurse -Force -ErrorAction Ignore
 
 Remove-Item $redistDir\dlls\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistDir\cl_dlls\\* -Recurse -Force -ErrorAction Ignore
+#Remove-Item $redistDir\pdbs\\* -Recurse -Force -ErrorAction Ignore
 Remove-Item $redistDir\dlls -Force -ErrorAction Ignore
 Remove-Item $redistDir\cl_dlls -Force -ErrorAction Ignore
+#Remove-Item $redistDir\pdbs -Force -ErrorAction Ignore
 [void](New-Item -ItemType directory -Path $redistDir\dlls)
 [void](New-Item -ItemType directory -Path $redistDir\cl_dlls)
 
