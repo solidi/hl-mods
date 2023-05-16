@@ -176,6 +176,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Point awards like [Maximum Action](https://www.youtube.com/watch?v=17isfGEjf20) (in death queue messages?)
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
     1. [ ] Race to bottom (most deaths wins)
+    1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
 1. Future Game Mutators
     1. [ ] Available weapons can explode if damaged
     1. [ ] [Leeroy Jenkins] mode (start with vest)

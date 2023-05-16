@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "wrld_shotgun"
+$body "studio" "glauncher"
 
 $texturegroup ice
 {
@@ -44,10 +44,10 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "Box01" -20.410000 -6.680000 -2.620000 20.410000 6.680000 5.620000
+// hit box(es)
+$hbox 0 "glauncher" -20.410000 -6.680000 -2.620000 20.410000 6.680000 5.620000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" loop fps 21
 

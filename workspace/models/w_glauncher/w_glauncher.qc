@@ -43,14 +43,11 @@ $texturegroup ice
   }
 }
 
-// 1 attachment(s)
-$attachment 0 "Bip01" -0.201359 0.045507 45.630798
+// hit box(es)
+$hbox 0 "glauncher" -2.391916 0.000000 -4.140393 0.000000 2.115758 0.000000
 
-// 1 hit box(es)
-$hbox 0 "Bip01" -2.391916 0.000000 -4.140393 0.000000 2.115758 0.000000
-
-// 1 animation sequence(s)
-$sequence "dummyidle" "dummyidle" fps 30
+// animation sequence(s)
+$sequence "idle" "idle" fps 30
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

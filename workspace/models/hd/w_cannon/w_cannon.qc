@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_flakcannon"
+$body "studio" "cannon"
 
 $texturegroup ice
 {
@@ -57,18 +57,12 @@ $texturegroup ice
 
 $texrendermode "flak_coolant.bmp" "masked" 
 
-// attachment(s)
-$attachment 0 "w_gauss" 0.000000 18.000000 0.000000
-
 // hit box(es)
-$hbox 0 "Bip01 Neck" -1.721939 0.000000 -2.484238 0.000000 0.839798 0.000000
-$hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 9.859858 1.444259 2.577507
-$hbox 0 "w_gauss" -1.356000 -10.386000 -2.760000 1.308000 10.422001 2.346000
+$hbox 0 "cannon" -1.356000 -10.386000 -2.760000 1.308000 10.422001 2.346000
 
 // animation sequence(s)
-$sequence "idle_ground" "idle_ground" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
-$sequence "idle_hands" "idle_hands" fps 30 
 
 
 // End of QC script.

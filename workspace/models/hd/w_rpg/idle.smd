@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "rlauncher" -1
+  0 "rpg" -1
 end
 skeleton
 time 0

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_gauss"
+$body "body" "gauss"
 
 $texturegroup ice
 {
@@ -65,10 +65,10 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Box02" -40.860001 -9.770000 -6.210000 31.690001 7.930000 7.080000
+$hbox 0 "gauss" -40.860001 -9.770000 -6.210000 31.690001 7.930000 7.080000
 
 // animation sequence(s)
-$sequence "stayput" "stayput" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop  
 $sequence "onside" "onside" fps 30 
 
