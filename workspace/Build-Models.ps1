@@ -140,10 +140,8 @@ try {
     Invert-Skin $binDir "w_762shell" $modelsdir
     Invert-Skin $binDir "w_bolt" $modelsdir
     Invert-Skin $binDir "w_chumtoad" $modelsdir
-    Invert-Skin $binDir "w_chumtoad_nest" $modelsdir
     Invert-Skin $binDir "w_grenade" $modelsdir
     Invert-Skin $binDir "w_sniperrifle" $modelsdir
-    Invert-Skin $binDir "w_vest" $modelsdir
     Invert-Skin $binDir "w_weaponbox" $modelsdir
     Invert-Skin $binDir "v_cannon" $modelsdir
     Invert-Skin $binDir "p_cannon" $modelsdir
@@ -194,7 +192,6 @@ try {
     Invert-Skin $binDir "v_snowball" $modelsdir\hd
     Invert-Skin $binDir "v_snowball" $modelsdir
     Invert-Skin $binDir "p_snowball" $modelsdir
-    Invert-Skin $binDir "w_snowball" $modelsdir
     Invert-Skin $binDir "w_hgibs" $modelsdir
     Invert-Skin $binDir "v_9mmAR" $modelsdir
     Invert-Skin $binDir "p_9mmAR" $modelsdir
@@ -295,7 +292,6 @@ try {
     Invert-Skin $binDir "p_freezegun" $modelsdir\hd
     Invert-Skin $binDir "v_freezegun" $modelsdir
     Invert-Skin $binDir "p_freezegun" $modelsdir
-    Invert-Skin $binDir "w_suit" $modelsdir
     Invert-Skin $binDir "w_concretegibs" $modelsdir
     Invert-Skin $binDir "v_dual_mag60" $modelsdir\hd
     Invert-Skin $binDir "w_dual_mag60" $modelsdir\hd
@@ -317,7 +313,6 @@ try {
     Invert-Skin $binDir "w_sentry" $modelsdir
     Invert-Skin $binDir "v_flamethrower" $modelsdir
     Invert-Skin $binDir "p_flamethrower" $modelsdir
-    Invert-Skin $binDir "w_flamethrower" $modelsdir
     Invert-Skin $binDir "v_dual_flamethrower" $modelsdir
     Invert-Skin $binDir "p_dual_flamethrower" $modelsdir
     Invert-Skin $binDir "w_dual_flamethrower" $modelsdir
@@ -355,7 +350,6 @@ try {
     Compile-Model $binDir "p_vest" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_vest" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmhandgun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmhandgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_9mmhandguns" $modelsdir\hd $redisthddir\models
@@ -389,7 +383,6 @@ try {
     Compile-Model $binDir "v_tripmine" $modelsdir $redistDir\models
     Compile-Model $binDir "p_tripmine" $modelsdir $redistDir\models
     Compile-Model $binDir "v_chumtoad" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_chumtoad_nest" $modelsdir $redistDir\models
     Compile-Model $binDir "p_chumtoad" $modelsdir $redistDir\models
     Compile-Model $binDir "w_chumtoad" $modelsdir $redistDir\models
     Compile-Model $binDir "v_chumtoad" $modelsdir\hd $redisthddir\models
@@ -460,7 +453,6 @@ try {
     Compile-Model $binDir "v_snowball" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_snowball" $modelsdir $redistdir\models
     Compile-Model $binDir "p_snowball" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_snowball" $modelsdir $redistdir\models
     Compile-Model $binDir "w_hgibs" $modelsdir $redistdir\models
     Compile-Model $binDir "v_chainsaw" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_chainsaw" $modelsdir\hd $redisthddir\models
@@ -559,7 +551,6 @@ try {
     Compile-Model $binDir "v_freezegun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_freezegun" $modelsdir $redistdir\models
     Compile-Model $binDir "plasma" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_suit" $modelsdir $redistdir\models
     Compile-Model $binDir "w_battery_light" $modelsdir $redistdir\models
     Compile-Model $binDir "w_medkit_light" $modelsdir $redistdir\models
     Compile-Model $binDir "w_concretegibs" $modelsdir $redistdir\models
@@ -585,7 +576,6 @@ try {
     Compile-Model $binDir "w_sentry" $modelsdir $redistdir\models
     Compile-Model $binDir "v_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "p_flamethrower" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "w_dual_flamethrower" $modelsdir $redistdir\models

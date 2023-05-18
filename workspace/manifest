@@ -253,7 +253,6 @@ models\v_shotgun.mdl
 models\p_shotgun.mdl
 models\p_vest.mdl
 models\v_vest_radio.mdl
-models\w_vest.mdl
 models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\p_9mmhandguns.mdl
@@ -273,7 +272,6 @@ models\v_tripmine.mdl
 models\p_chumtoad.mdl
 models\w_chumtoad.mdl
 models\v_chumtoad.mdl
-models\w_chumtoad_nest.mdl
 models\v_sniperrifle.mdl
 models\p_sniperrifle.mdl
 models\w_sniperrifle.mdl
@@ -317,7 +315,6 @@ models\v_wrench.mdl
 models\p_wrench.mdl
 models\v_snowball.mdl
 models\p_snowball.mdl
-models\w_snowball.mdl
 models\w_hgibs.mdl
 models\v_chainsaw.mdl
 models\p_chainsaw.mdl
@@ -379,7 +376,6 @@ models\p_freezegun.mdl
 models\v_rocketcrowbar.mdl
 models\p_rocketcrowbar.mdl
 models\plasma.mdl
-models\w_suit.mdl
 models\w_concretegibs.mdl
 models\v_gravitygun.mdl
 models\p_gravitygun.mdl

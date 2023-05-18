@@ -1,26 +1,26 @@
 version 1
 nodes
-0 "joint1" -1
-1 "topcentr" 0
-2 "joint3" 1
-3 "joint4" 1
-4 "joint5" 1
-5 "joint6" 1
-6 "joint7" 1
-7 "joint8" 6
-8 "joint9" 7
-9 "joint10" 1
-10 "joint11" 9
-11 "joint12" 10
-12 "joint13" 1
-13 "joint14" 12
-14 "joint15" 13
-15 "joint16" 1
-16 "joint17" 15
-17 "joint18" 16
-18 "joint19" 1
-19 "joint20" 18
-20 "joint21" 19
+  0 "chumtoadnest" -1
+  1 "chumtoadnest_topcentr" 0
+  2 "chumtoadnest_joint3" 1
+  3 "chumtoadnest_joint4" 1
+  4 "chumtoadnest_joint5" 1
+  5 "chumtoadnest_joint6" 1
+  6 "chumtoadnest_joint7" 1
+  7 "chumtoadnest_joint8" 6
+  8 "chumtoadnest_joint9" 7
+  9 "chumtoadnest_joint10" 1
+ 10 "chumtoadnest_joint11" 9
+ 11 "chumtoadnest_joint12" 10
+ 12 "chumtoadnest_joint13" 1
+ 13 "chumtoadnest_joint14" 12
+ 14 "chumtoadnest_joint15" 13
+ 15 "chumtoadnest_joint16" 1
+ 16 "chumtoadnest_joint17" 15
+ 17 "chumtoadnest_joint18" 16
+ 18 "chumtoadnest_joint19" 1
+ 19 "chumtoadnest_joint20" 18
+ 20 "chumtoadnest_joint21" 19
 end
 skeleton
 time 0

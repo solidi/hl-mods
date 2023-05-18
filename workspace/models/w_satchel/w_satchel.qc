@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "world_satchel"
+$body "studio" "satchel"
 
 $texturegroup ice
 {
@@ -55,8 +55,8 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "Box05" -7.710000 -7.550000 -7.110000 5.480000 16.639999 6.290000
+// hit box(es)
+$hbox 0 "satchel" -7.710000 -7.550000 -7.110000 5.480000 16.639999 6.290000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "lanc"
+$body "body" "flamethrower"
 
 $texturegroup ice
 {
@@ -52,10 +52,10 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Box02" -28.680000 -36.290001 -32.209999 12.370000 3.900000 0.000000
+$hbox 0 "flamethrower" -28.680000 -36.290001 -32.209999 12.370000 3.900000 0.000000
 
 // animation sequence(s)
-$sequence "stayput" "stayput" fps 1 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

@@ -1,20 +1,20 @@
 version 1
 nodes
-0 "Bone01" -1
-1 "Bone02" 0
-2 "Bone16" 1
-3 "Bone17" 2
-4 "Bone03" 0
-5 "Bone04" 0
-6 "Bone06" 0
-7 "Bone07" 0
-8 "Bone14" 7
-9 "Bone08" 0
-10 "Bone09" 0
-11 "Bone05" 10
-12 "Bone10" 11
-13 "Bone11" 12
-14 "Bone12" 13
+0 "squeaknest_Bone01" -1
+1 "squeaknest_Bone02" 0
+2 "squeaknest_Bone16" 1
+3 "squeaknest_Bone17" 2
+4 "squeaknest_Bone03" 0
+5 "squeaknest_Bone04" 0
+6 "squeaknest_Bone06" 0
+7 "squeaknest_Bone07" 0
+8 "squeaknest_Bone14" 7
+9 "squeaknest_Bone08" 0
+10 "squeaknest_Bone09" 0
+11 "squeaknest_Bone05" 10
+12 "squeaknest_Bone10" 11
+13 "squeaknest_Bone11" 12
+14 "squeaknest_Bone12" 13
 end
 skeleton
 time 0

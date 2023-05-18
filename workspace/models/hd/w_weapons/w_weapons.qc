@@ -41,6 +41,16 @@ studio "..\..\w_railgun\railgun_hd"
 studio "..\w_glauncher\glauncher"
 studio "..\w_cannon\cannon"
 studio "..\w_nuke\nuke"
+studio "..\..\w_snowball\snowball_hd"
+studio "..\w_grenade\grenade"
+studio "..\..\w_suit\suit_hd"
+blank // 32 placeholder
+blank // satchel placeholder
+blank // tripmine placeholder
+studio "..\w_sqknest\squeaknest"
+studio "..\..\w_chumtoad_nest\chumtoadnest_hd"
+studio "..\..\w_vest\vest_hd"
+studio "..\..\w_flamethrower\flamethrower_hd"
 }
 
 $bodygroup "addition"
@@ -52,7 +62,77 @@ blank
 blank
 blank
 studio "..\..\w_portalgun\portalgun_back_hd"
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank // cannon
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank // snark
+studio "..\..\w_chumtoad_nest\toad_1_hd"
 }
+
+$bodygroup "addition_2"
+{
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank // cannon
+blank
+blank
+blank
+blank
+blank
+blank
+blank
+blank // snark
+studio "..\..\w_chumtoad_nest\toad_2_hd"
+}
+
 
 
 $texturegroup ice
@@ -110,6 +190,22 @@ $texturegroup ice
     "..\w_nuke\2.bmp"
     "..\w_nuke\SRRAILM4.bmp"
     "..\w_nuke\w_clip_bfg.bmp"
+    "..\..\w_snowball\newpallo.bmp"
+    "..\w_grenade\grenade128.bmp"
+    "..\..\w_suit\front.bmp"
+    "..\..\w_suit\back.bmp"
+    "..\w_sqknest\W_SNARKNEST_REFERENCE.BMP"
+    "..\..\w_chumtoad_nest\CHB_Side1.bmp"
+    "..\..\w_chumtoad_nest\CHB_Tounge1.bmp"
+    "..\..\w_chumtoad_nest\cz2.bmp"
+    "..\..\w_chumtoad_nest\cz3.bmp"
+    "..\..\w_chumtoad_nest\cz4.bmp"
+    "..\..\w_chumtoad_nest\cz6.bmp"
+    "..\..\w_chumtoad_nest\eye.bmp"
+    "..\..\w_vest\dynamite.bmp"
+    "..\..\w_flamethrower\Chrome1.bmp"
+    "..\..\w_flamethrower\Chrome2(Brass).bmp"
+    "..\..\w_flamethrower\W-FLAME_Base1.bmp"
   }
   {
     "..\w_crowbar\invert_wbottom.bmp"
@@ -164,6 +260,22 @@ $texturegroup ice
     "..\w_nuke\invert_2.bmp"
     "..\w_nuke\invert_SRRAILM4.bmp"
     "..\w_nuke\invert_w_clip_bfg.bmp"
+    "..\..\w_snowball\invert_newpallo.bmp"
+    "..\w_grenade\invert_grenade128.bmp"
+    "..\..\w_suit\invert_front.bmp"
+    "..\..\w_suit\invert_back.bmp"
+    "..\w_sqknest\invert_W_SNARKNEST_REFERENCE.BMP"
+    "..\..\w_chumtoad_nest\invert_CHB_Side1.bmp"
+    "..\..\w_chumtoad_nest\invert_CHB_Tounge1.bmp"
+    "..\..\w_chumtoad_nest\invert_cz2.bmp"
+    "..\..\w_chumtoad_nest\invert_cz3.bmp"
+    "..\..\w_chumtoad_nest\invert_cz4.bmp"
+    "..\..\w_chumtoad_nest\invert_cz6.bmp"
+    "..\..\w_chumtoad_nest\invert_eye.bmp"
+    "..\..\w_vest\invert_dynamite.bmp"
+    "..\..\w_flamethrower\invert_Chrome1.bmp"
+    "..\..\w_flamethrower\invert_Chrome2(Brass).bmp"
+    "..\..\w_flamethrower\invert_W-FLAME_Base1.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -218,8 +330,40 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -277,6 +421,7 @@ $texturegroup ice
 
 $texrendermode "..\w_freezegun\#128128plasma_p_alpha.BMP" "additive" 
 $texrendermode "..\w_cannon\flak_coolant.bmp" "masked" 
+$texrendermode "..\..\w_chumtoad_nest\cz3.bmp" "additive" 
 
 // hit box(es)
 $hbox 0 "crowbar" -1.250000 -2.170000 -22.530001 8.420000 2.170000 22.549999
@@ -308,6 +453,45 @@ $hbox 0 "railgun" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
 $hbox 0 "glauncher" -20.410000 -6.680000 -2.620000 20.410000 6.680000 5.620000
 $hbox 0 "cannon" -1.356000 -10.386000 -2.760000 1.308000 10.422001 2.346000
 $hbox 0 "nuke" -8.240000 -12.720000 -45.029999 15.150000 22.230000 7.280000
+$hbox 0 "snowball" -3.000000 -3.000000 -3.000000 3.000000 3.000000 3.000000
+$hbox 0 "grenade" -6.580000 -5.710000 -4.890000 1.770000 8.580000 2.260000
+$hbox 0 "suit" -9.860000 -51.439999 -9.070000 19.240000 17.459999 6.200000
+$hbox 0 "squeaknest_Bone01" -22.389999 -29.400000 -3.580000 29.730000 32.959999 31.879999
+$hbox 0 "squeaknest_Bone02" -16.340000 -16.370001 0.000000 16.330000 11.830000 10.290000
+$hbox 0 "squeaknest_Bone16" -11.900000 -11.750000 0.000000 11.830000 6.640000 9.030000
+$hbox 0 "squeaknest_Bone17" -6.270000 -6.120000 0.000000 6.200000 6.360000 9.210000
+$hbox 0 "squeaknest_Bone03" -1.280000 -2.000000 0.000000 0.000000 0.000000 10.660000
+$hbox 0 "squeaknest_Bone04" -1.230000 -1.780000 0.000000 0.000000 0.000000 12.610000
+$hbox 0 "squeaknest_Bone06" -7.930000 -6.600000 0.000000 7.270000 2.070000 14.040000
+$hbox 0 "squeaknest_Bone07" -7.530000 -6.280000 0.000000 0.000000 0.830000 7.070000
+$hbox 0 "squeaknest_Bone14" -4.160000 -5.770000 0.000000 0.000000 0.000000 3.410000
+$hbox 0 "squeaknest_Bone09" -6.877228 -0.350000 0.000000 0.640000 6.067577 6.780000
+$hbox 0 "squeaknest_Bone05" -5.470000 -2.380000 0.000000 0.000000 0.320000 4.180000
+$hbox 0 "squeaknest_Bone10" -3.580000 -4.530000 0.000000 3.590000 0.000000 5.100000
+$hbox 0 "squeaknest_Bone11" 0.000000 -4.910000 0.000000 2.870000 0.000000 2.640000
+$hbox 0 "squeaknest_Bone12" 0.000000 -4.190000 -0.020000 5.080000 0.000000 1.750000
+$hbox 0 "chumtoadnest" -9.880000 -9.970000 0.000000 10.200000 9.860000 12.070000
+$hbox 0 "chumtoadnest_topcentr" -9.192713 -9.609812 -0.010248 9.807455 9.890737 5.056836
+$hbox 0 "chumtoadnest_joint3" -0.680000 -1.190000 -1.220000 0.620000 0.000000 0.400000
+$hbox 0 "chumtoadnest_joint5" -0.350000 -1.000000 -1.440000 1.330000 0.860000 0.540000
+$hbox 0 "chumtoadnest_joint6" -1.900000 -1.010000 -1.440000 0.000000 0.850000 1.570000
+$hbox 0 "chumtoadnest_joint7" -3.210000 -2.940000 0.000000 1.480000 3.260000 6.288139
+$hbox 0 "chumtoadnest_joint8" -3.230000 -2.890000 -0.550000 0.840000 3.410000 7.886133
+$hbox 0 "chumtoadnest_joint9" -2.860000 -2.520000 -3.440000 1.670000 2.990000 7.120000
+$hbox 0 "chumtoadnest_joint10" -3.190000 -2.940000 0.000000 1.560000 3.250000 6.893927
+$hbox 0 "chumtoadnest_joint11" -3.090000 -3.060000 -0.630000 0.890000 3.310000 7.822317
+$hbox 0 "chumtoadnest_joint12" -2.790000 -2.500000 -3.430000 1.690000 2.980000 7.180000
+$hbox 0 "chumtoadnest_joint13" -3.090000 -3.420000 0.000000 1.660000 2.760000 7.011895
+$hbox 0 "chumtoadnest_joint14" -2.850000 -3.500000 -1.150000 1.140000 2.850000 7.572809
+$hbox 0 "chumtoadnest_joint15" -2.630000 -3.350000 -4.280000 1.850000 2.140000 6.980000
+$hbox 0 "chumtoadnest_joint16" -3.180000 -3.490000 0.000000 1.530000 2.680000 6.687488
+$hbox 0 "chumtoadnest_joint17" -3.100000 -3.720000 -0.830000 0.960000 2.590000 7.639185
+$hbox 0 "chumtoadnest_joint18" -2.870000 -2.970000 -7.090000 1.630000 2.500000 7.170000
+$hbox 0 "chumtoadnest_joint19" -9.260000 -9.270000 -1.140000 9.410000 9.500000 1.750000
+$hbox 0 "chumtoadnest_joint20" -8.220000 -8.930000 0.000000 8.080000 8.740000 4.000199
+$hbox 0 "chumtoadnest_joint21" -5.430000 -5.440000 -0.140000 5.300000 5.330000 1.570000
+$hbox 0 "vest" -1.680000 -9.630000 -4.800000 22.760000 21.580000 16.740000
+$hbox 0 "flamethrower" -28.680000 -36.290001 -32.209999 12.370000 3.900000 0.000000
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\w_crowbar\idle" fps 30 
@@ -366,5 +550,25 @@ $sequence "cannon_idle" "..\w_cannon\idle" fps 30
 $sequence "cannon_spin" "..\w_cannon\spin" fps 21 loop
 $sequence "nuke_idle" "..\w_nuke\idle" fps 30 
 $sequence "nuke_spin" "..\w_nuke\spin" fps 21 loop
+$sequence "snowball_idle" "..\..\w_snowball\idle" fps 30 
+$sequence "snowball_spin" "..\..\w_snowball\spin" fps 21 loop 
+$sequence "grenade_idle" "..\w_grenade\idle" fps 30 
+$sequence "grenade_spin" "..\w_grenade\spin" fps 21 loop 
+$sequence "suit_idle" "..\..\w_suit\idle" fps 30 
+$sequence "suit_idle" "..\..\w_suit\idle" fps 21 loop 
+$sequence "32_idle" "..\w_grenade\idle" fps 30 
+$sequence "32_spin" "..\w_grenade\spin" fps 21 loop 
+$sequence "satchel_idle" "..\w_grenade\idle" fps 30 
+$sequence "satchel_idle" "..\w_grenade\spin" fps 21 loop 
+$sequence "tripmine_idle" "..\w_grenade\idle" fps 30 
+$sequence "tripmine_idle" "..\w_grenade\spin" fps 21 loop 
+$sequence "sqknest_idle" "..\w_sqknest\idle" fps 30 
+$sequence "sqknest_spin" "..\w_sqknest\spin" fps 21 loop 
+$sequence "chumtoadnest_idle" "..\..\w_chumtoad_nest\idle" fps 30 
+$sequence "chumtoadnest_spin" "..\..\w_chumtoad_nest\spin" fps 21 loop 
+$sequence "vest_idle" "..\..\w_vest\idle" fps 30 
+$sequence "vest_spin" "..\..\w_vest\spin" fps 21 loop 
+$sequence "flamethrower_idle" "..\..\w_flamethrower\idle" fps 30 
+$sequence "flamethrower_spin" "..\..\w_flamethrower\spin" fps 21 loop 
 
 // End of QC script.
