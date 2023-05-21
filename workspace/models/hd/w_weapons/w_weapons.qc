@@ -51,6 +51,14 @@ studio "..\w_sqknest\squeaknest"
 studio "..\..\w_chumtoad_nest\chumtoadnest_hd"
 studio "..\..\w_vest\vest_hd"
 studio "..\..\w_flamethrower\flamethrower_hd"
+studio "..\w_dual_wrench\dual_wrench"
+studio "..\w_dual_deagle\dual_deagle"
+studio "..\w_dual_mag60\dual_mag60"
+studio "..\w_dual_smg\dual_smg"
+studio "..\w_dual_usas\dual_usas"
+studio "..\..\w_dual_railgun\dual_railgun_hd"
+studio "..\w_dual_rpg\dual_rpg"
+studio "..\..\w_dual_flamethrower\dual_flamethrower_hd"
 }
 
 $bodygroup "addition"
@@ -206,6 +214,18 @@ $texturegroup ice
     "..\..\w_flamethrower\Chrome1.bmp"
     "..\..\w_flamethrower\Chrome2(Brass).bmp"
     "..\..\w_flamethrower\W-FLAME_Base1.bmp"
+    "..\w_dual_wrench\pipewrench.bmp"
+    "..\w_dual_deagle\w_deagle.bmp"
+    "..\w_dual_mag60\wmodel.bmp"
+    "..\w_dual_smg\wmodel1.bmp"
+    "..\w_dual_usas\USAS-1.bmp"
+    "..\w_dual_usas\USAS-2.bmp"
+    "..\w_dual_usas\USAS-3.bmp"
+    "..\..\w_dual_railgun\Skin.bmp"
+    "..\w_dual_rpg\w_rpg_reference.BMP"
+    "..\..\w_dual_flamethrower\Chrome1.bmp"
+    "..\..\w_dual_flamethrower\Chrome2(Brass).bmp"
+    "..\..\w_dual_flamethrower\W-FLAME_Base1.bmp"
   }
   {
     "..\w_crowbar\invert_wbottom.bmp"
@@ -276,6 +296,18 @@ $texturegroup ice
     "..\..\w_flamethrower\invert_Chrome1.bmp"
     "..\..\w_flamethrower\invert_Chrome2(Brass).bmp"
     "..\..\w_flamethrower\invert_W-FLAME_Base1.bmp"
+    "..\w_dual_wrench\invert_pipewrench.bmp"
+    "..\w_dual_deagle\invert_w_deagle.bmp"
+    "..\w_dual_mag60\invert_wmodel.bmp"
+    "..\w_dual_smg\invert_wmodel1.bmp"
+    "..\w_dual_usas\invert_USAS-1.bmp"
+    "..\w_dual_usas\invert_USAS-2.bmp"
+    "..\w_dual_usas\invert_USAS-3.bmp"
+    "..\..\w_dual_railgun\invert_Skin.bmp"
+    "..\w_dual_rpg\invert_w_rpg_reference.BMP"
+    "..\..\w_dual_flamethrower\invert_Chrome1.bmp"
+    "..\..\w_dual_flamethrower\invert_Chrome2(Brass).bmp"
+    "..\..\w_dual_flamethrower\invert_W-FLAME_Base1.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -346,8 +378,32 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -492,6 +548,14 @@ $hbox 0 "chumtoadnest_joint20" -8.220000 -8.930000 0.000000 8.080000 8.740000 4.
 $hbox 0 "chumtoadnest_joint21" -5.430000 -5.440000 -0.140000 5.300000 5.330000 1.570000
 $hbox 0 "vest" -1.680000 -9.630000 -4.800000 22.760000 21.580000 16.740000
 $hbox 0 "flamethrower" -28.680000 -36.290001 -32.209999 12.370000 3.900000 0.000000
+$hbox 0 "dual_wrench" -2.580000 -1.360000 -4.290000 7.550000 1.360000 39.070000
+$hbox 0 "dual_deagle" -10.620000 -1.080000 -6.170000 12.060000 1.160000 5.640000
+$hbox 0 "dual_mag60" -13.060000 -10.490000 -0.910000 21.250000 8.930000 2.750000
+$hbox 0 "dual_smg" -13.060000 -10.490000 -0.910000 21.250000 8.930000 2.750000
+$hbox 0 "dual_usas" -0.610000 -12.980000 -5.220000 0.600000 22.620001 3.060000
+$hbox 0 "dual_railgun" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
+$hbox 0 "dual_rpg" -6.860000 -34.560001 -12.600000 6.860000 34.560001 12.600000
+$hbox 0 "dual_flamethrower" -5.280000 -14.650000 -9.510000 18.809999 0.000000 7.800000
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\w_crowbar\idle" fps 30 
@@ -570,5 +634,21 @@ $sequence "vest_idle" "..\..\w_vest\idle" fps 30
 $sequence "vest_spin" "..\..\w_vest\spin" fps 21 loop 
 $sequence "flamethrower_idle" "..\..\w_flamethrower\idle" fps 30 
 $sequence "flamethrower_spin" "..\..\w_flamethrower\spin" fps 21 loop 
+$sequence "dual_wrench_idle" "..\w_dual_wrench\idle" fps 30 
+$sequence "dual_wrench_spin" "..\w_dual_wrench\spin" fps 21 loop 
+$sequence "dual_deagle_idle" "..\w_dual_deagle\idle" fps 30 
+$sequence "dual_deagle_spin" "..\w_dual_deagle\spin" fps 21 loop 
+$sequence "dual_mag60_idle" "..\w_dual_mag60\idle" fps 30 
+$sequence "dual_mag60_spin" "..\w_dual_mag60\spin" fps 21 loop 
+$sequence "dual_smg_idle" "..\w_dual_smg\idle" fps 30 
+$sequence "dual_smg_spin" "..\w_dual_smg\spin" fps 21 loop 
+$sequence "dual_usas_idle" "..\w_dual_usas\idle" fps 30 
+$sequence "dual_usas_spin" "..\w_dual_usas\spin" fps 21 loop 
+$sequence "dual_railgun_idle" "..\..\w_dual_railgun\idle" fps 30 
+$sequence "dual_railgun_spin" "..\..\w_dual_railgun\spin" fps 21 loop 
+$sequence "dual_rpg_idle" "..\w_dual_rpg\idle" fps 30 
+$sequence "dual_rpg_spin" "..\w_dual_rpg\spin" fps 21 loop 
+$sequence "dual_flamethrower_idle" "..\..\w_dual_flamethrower\idle" fps 30 
+$sequence "dual_flamethrower_spin" "..\..\w_dual_flamethrower\spin" fps 21 loop 
 
 // End of QC script.

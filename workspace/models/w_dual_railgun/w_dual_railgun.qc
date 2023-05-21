@@ -43,7 +43,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Box01" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
+$hbox 0 "dual_railgun" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30

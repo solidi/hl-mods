@@ -52,14 +52,10 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Bip01 Spine1" -5.280000 -14.650000 -9.510000 18.809999 0.000000 7.800000
-$hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Bip01 R Arm1" 0.000000 0.000000 -6.870000 15.730000 5.130000 0.000000
-$hbox 0 "Bip01 R Arm2" 0.000000 -4.790000 -5.970000 10.127057 0.000000 0.000001
-$hbox 0 "Bip01 R Hand" 0.000000 -4.080000 -3.040000 25.290001 10.340000 7.750000
+$hbox 0 "dual_flamethrower" -5.280000 -14.650000 -9.510000 18.809999 0.000000 7.800000
 
 // animation sequence(s)
-$sequence "stayput" "stayput" fps 1 
+$sequence "idle" "idle" fps 1 
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

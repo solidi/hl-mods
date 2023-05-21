@@ -45,7 +45,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "sides01" -10.620000 -1.080000 -6.170000 12.060000 1.160000 5.640000
+$hbox 0 "dual_deagle" -10.620000 -1.080000 -6.170000 12.060000 1.160000 5.640000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

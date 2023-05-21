@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_dual_rpg_reference"
+$body "body" "dual_rpg"
 
 $texturegroup ice
 {
@@ -44,10 +44,10 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "rlauncher" -6.860000 -34.560001 -12.600000 6.860000 34.560001 12.600000
+$hbox 0 "dual_rpg" -6.860000 -34.560001 -12.600000 6.860000 34.560001 12.600000
 
 // animation sequence(s)
-$sequence "idle1" "idle1" fps 30 loop 
+$sequence "idle" "idle" fps 30 loop 
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.
