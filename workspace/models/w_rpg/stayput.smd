@@ -1,8 +1,0 @@
-version 1
-nodes
-  0 "Cylinder01" -1
-end
-skeleton
-time 0
-  0   -10.721855 -37.418606 10.492899 -1.570796 -3.141592 0.000000
-end

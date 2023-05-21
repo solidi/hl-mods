@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_bfg"
+$body "studio" "nuke"
 
 $texturegroup ice
 {
@@ -55,18 +55,11 @@ $texturegroup ice
   }
 }
 
-
-// attachment(s)
-$attachment 0 "flash" -10.000000 17.000000 -8.000000
-$attachment 1 "flash" 10.000000 24.000000 -15.000000
-$attachment 2 "flash" -31.000000 7.000000 3.000000
-
 // hit box(es)
-$hbox 0 "Bip01 R Hand" 0.000000 -1.499062 -1.778342 26.516474 0.000000 0.000000
-$hbox 0 "Line03" -8.240000 -12.720000 -45.029999 15.150000 22.230000 7.280000
+$hbox 0 "nuke" -8.240000 -12.720000 -45.029999 15.150000 22.230000 7.280000
 
 // animation sequence(s)
-$sequence "idle_ground" "idle_ground" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop  
 
 // End of QC script.

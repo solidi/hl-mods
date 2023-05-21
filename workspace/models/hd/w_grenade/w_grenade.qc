@@ -25,15 +25,15 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "W_grenade"
+$body "studio" "grenade"
 
 $texturegroup ice
 {
   {
-    "grenade 128.bmp"
+    "grenade128.bmp"
   }
   {
-    "invert_grenade 128.bmp"
+    "invert_grenade128.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -43,10 +43,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Line02" -6.580000 -5.710000 -4.890000 1.770000 8.580000 2.260000
+// hit box(es)
+$hbox 0 "grenade" -6.580000 -5.710000 -4.890000 1.770000 8.580000 2.260000
 
-// 7 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 $sequence "roll1" "roll1" fps 15 loop 

@@ -49,7 +49,8 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Box01" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000
+$hbox 0 "nuke" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000
+
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

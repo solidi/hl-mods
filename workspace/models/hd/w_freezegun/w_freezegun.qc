@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "w_plasmagun"
+$body "studio" "freezegun"
 
 $texturegroup ice
 {
@@ -50,7 +50,7 @@ $texturegroup ice
 $texrendermode "#128128plasma_p_alpha.BMP" "additive" 
 
 // hit box(es)
-$hbox 0 "plasma_p" -1.720000 0.000000 -10.350000 1.720000 14.400000 18.150000
+$hbox 0 "freezegun" -1.720000 0.000000 -10.350000 1.720000 14.400000 18.150000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

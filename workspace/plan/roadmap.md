@@ -176,8 +176,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Point awards like [Maximum Action](https://www.youtube.com/watch?v=17isfGEjf20) (in death queue messages?)
     1. [ ] Only with melee weapons And forced in 3rd person (Napoleon)
     1. [ ] Race to bottom (most deaths wins)
+    1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
 1. Future Game Mutators
-    1. [ ] [Explosive](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) crowbar mode
+    1. [ ] Bullets penerate walls
+    1. [ ] Available weapons can explode if damaged
+    1. [ ] [Leeroy Jenkins] mode (start with vest)
+    1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
     1. [ ] Rising ice / lava (CrazyO)
     1. [ ] rocket jumping, your rockets do not to much damage to owner
@@ -347,6 +351,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Update lights.rad production to use Napoleon's lights.rad file
     1. [ ] [fy_iceworld](https://www.rockpapershotgun.com/the-legacy-of-fy_iceworld-counter-strikes-divisive-and-hugely-popular-custom-map)
     1. [ ] [Real 3d skybox](https://discord.com/channels/511209951923011604/511212204121653258/1084687068246069259)
+    1. [ ] jope by pigcop
+    1. [ ] glupshitto by pigcop
+    1. [ ] [ts_frigid remake](https://www.tsmod.net/maps/?vp_page=3)
+    1. [ ] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Models
@@ -396,7 +404,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Ice spike gun (AudioCraZ)
     1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
     1. [ ] "ice spike gun" (AudioCraZ)
-    1. [ ] mutators ```mp_mutators "blowup (Napoleon);weapon_(AudioCraZ);insta(The_Pacific_gamer);jetpack(Napoleon);tiny"```
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)

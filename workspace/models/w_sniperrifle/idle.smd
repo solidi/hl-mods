@@ -1,0 +1,8 @@
+version 1
+nodes
+  0 "sniperrifle" -1
+end
+skeleton
+time 0
+  0 0.431046 0.330105 1.318022 1.570796 -0.000000 0.000000
+end

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "w_python"
+$body "studio" "python"
 
 $texturegroup ice
 {
@@ -45,10 +45,10 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Cylinder01" -2.490000 -10.610000 -8.670000 2.490000 3.690000 19.030001
+$hbox 0 "python" -2.490000 -10.610000 -8.670000 2.490000 3.690000 19.030001
 
 // animation sequence(s)
-$sequence "position" "position" fps 30 
+$sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 
 // End of QC script.

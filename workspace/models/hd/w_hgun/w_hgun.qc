@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "WHGUN_Template_Model1"
+$body "body" "hgun"
 
 $texturegroup ice
 {
@@ -45,10 +45,10 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "02" -10.140000 -9.360000 -23.620001 11.280000 11.370000 46.910000
+$hbox 0 "hgun" -10.140000 -9.360000 -23.620001 11.280000 11.370000 46.910000
 
 // animation sequence(s)
-$sequence "stayput" "stayput" fps 1 
+$sequence "idle" "idle" fps 1 
 $sequence "spin" "spin" fps 21 loop  
 
 // End of QC script.

@@ -13,6 +13,8 @@ Set-ConsoleColor 'DarkCyan' 'White'
 $Config = @{ }
 [bool]$clean = $false
 [string]$playerModel = ""
+[string]$singleModel = ""
+[string]$singleHdModel = ""
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -26,6 +28,12 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Player") {
         $playerModel = $_.Split(' ')[1]
         echo "building player $playerModel..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Model") {
+        $singleModel = $_.Split(' ')[1]
+        echo "building model $singleModel..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "HdModel") {
+        $singleHdModel = $_.Split(' ')[1]
+        echo "building HD model $singleHdModel..."
     }
 }
 
@@ -69,7 +77,16 @@ if ($clean -eq $true) {
 $modelsdir = "${rootDir}\models"
 
 try {
-    if ([string]::IsNullOrEmpty($playerModel)) {
+
+    if (![string]::IsNullOrEmpty($playerModel)) {
+        Compile-Player $playerModel $binDir $modelsdir $redistDir
+    } elseif (![string]::IsNullOrEmpty($singleModel)) {
+        Invert-Skin $binDir $singleModel $modelsdir
+        Compile-Model $binDir $singleModel $modelsdir $redistDir\models
+    } elseif (![string]::IsNullOrEmpty($singleHdModel)) {
+        Invert-Skin $binDir $singleHdModel $modelsdir\hd
+        Compile-Model $binDir $singleHdModel $modelsdir\hd $redistHdDir\models
+    } else {
     Invert-Skin $binDir "p_9mmhandgun" $modelsdir\hd
     Invert-Skin $binDir "p_9mmhandguns" $modelsdir\hd
     Invert-Skin $binDir "p_crossbow" $modelsdir\hd
@@ -89,14 +106,8 @@ try {
     Invert-Skin $binDir "v_tripmine" $modelsdir\hd
     Invert-Skin $binDir "v_sniperrifle" $modelsdir\hd
     Invert-Skin $binDir "v_vest_radio" $modelsdir\hd
-    Invert-Skin $binDir "w_9mmhandgun" $modelsdir\hd
-    Invert-Skin $binDir "w_9mmhandguns" $modelsdir\hd
     Invert-Skin $binDir "w_bolt" $modelsdir\hd
-    Invert-Skin $binDir "w_crossbow" $modelsdir\hd
-    Invert-Skin $binDir "w_crowbar" $modelsdir\hd
     Invert-Skin $binDir "w_grenade" $modelsdir\hd
-    Invert-Skin $binDir "w_knife" $modelsdir\hd
-    Invert-Skin $binDir "w_rpg" $modelsdir\hd
     Invert-Skin $binDir "v_sniperrifle" $modelsdir\hd
     Invert-Skin $binDir "p_sniperrifle" $modelsdir\hd
     Invert-Skin $binDir "w_sniperrifle" $modelsdir\hd
@@ -126,26 +137,15 @@ try {
     Invert-Skin $binDir "v_sniperrifle" $modelsdir
     Invert-Skin $binDir "v_tripmine" $modelsdir
     Invert-Skin $binDir "v_vest_radio" $modelsdir
-    Invert-Skin $binDir "w_9mmhandgun" $modelsdir
-    Invert-Skin $binDir "w_9mmhandguns" $modelsdir
     Invert-Skin $binDir "w_762shell" $modelsdir
     Invert-Skin $binDir "w_bolt" $modelsdir
     Invert-Skin $binDir "w_chumtoad" $modelsdir
-    Invert-Skin $binDir "w_chumtoad_nest" $modelsdir
-    Invert-Skin $binDir "w_crossbow" $modelsdir
-    Invert-Skin $binDir "w_crowbar" $modelsdir
     Invert-Skin $binDir "w_grenade" $modelsdir
-    Invert-Skin $binDir "w_knife" $modelsdir
-    Invert-Skin $binDir "w_railgun" $modelsdir
-    Invert-Skin $binDir "w_rpg" $modelsdir
     Invert-Skin $binDir "w_sniperrifle" $modelsdir
-    Invert-Skin $binDir "w_vest" $modelsdir
     Invert-Skin $binDir "w_weaponbox" $modelsdir
     Invert-Skin $binDir "v_cannon" $modelsdir
-    Invert-Skin $binDir "w_cannon" $modelsdir
     Invert-Skin $binDir "p_cannon" $modelsdir
     Invert-Skin $binDir "p_cannon" $modelsdir\hd
-    Invert-Skin $binDir "w_cannon" $modelsdir\hd
     Invert-Skin $binDir "v_cannon" $modelsdir\hd
     Invert-Skin $binDir "w_hassassin" $modelsdir
     Invert-Skin $binDir "w_satchel" $modelsdir\hd
@@ -161,74 +161,53 @@ try {
     Invert-Skin $binDir "w_shell" $modelsdir
     Invert-Skin $binDir "w_shell" $modelsdir\hd
     Invert-Skin $binDir "p_mag60" $modelsdir\hd
-    Invert-Skin $binDir "w_mag60" $modelsdir\hd
     Invert-Skin $binDir "v_mag60" $modelsdir\hd
     Invert-Skin $binDir "p_mag60" $modelsdir
-    Invert-Skin $binDir "w_mag60" $modelsdir
     Invert-Skin $binDir "v_mag60" $modelsdir
     Invert-Skin $binDir "p_chaingun" $modelsdir\hd
-    Invert-Skin $binDir "w_chaingun" $modelsdir\hd
     Invert-Skin $binDir "v_chaingun" $modelsdir\hd
     Invert-Skin $binDir "p_chaingun" $modelsdir
-    Invert-Skin $binDir "w_chaingun" $modelsdir
     Invert-Skin $binDir "v_chaingun" $modelsdir
     Invert-Skin $binDir "p_glauncher" $modelsdir\hd
-    Invert-Skin $binDir "w_glauncher" $modelsdir\hd
     Invert-Skin $binDir "v_glauncher" $modelsdir\hd
     Invert-Skin $binDir "p_glauncher" $modelsdir
-    Invert-Skin $binDir "w_glauncher" $modelsdir
     Invert-Skin $binDir "v_glauncher" $modelsdir
     Invert-Skin $binDir "w_contact_grenade" $modelsdir
     Invert-Skin $binDir "w_contact_grenade" $modelsdir\hd
     Invert-Skin $binDir "p_smg" $modelsdir\hd
-    Invert-Skin $binDir "w_smg" $modelsdir\hd
     Invert-Skin $binDir "v_smg" $modelsdir\hd
     Invert-Skin $binDir "p_smg" $modelsdir
-    Invert-Skin $binDir "w_smg" $modelsdir
     Invert-Skin $binDir "v_smg" $modelsdir
     Invert-Skin $binDir "v_usas" $modelsdir\hd
-    Invert-Skin $binDir "w_usas" $modelsdir\hd
     Invert-Skin $binDir "p_usas" $modelsdir\hd
     Invert-Skin $binDir "v_usas" $modelsdir
-    Invert-Skin $binDir "w_usas" $modelsdir
     Invert-Skin $binDir "p_usas" $modelsdir
     Invert-Skin $binDir "w_shotgunshell" $modelsdir
     Invert-Skin $binDir "w_shotgunshell" $modelsdir\hd
     Invert-Skin $binDir "v_fists" $modelsdir\hd
     Invert-Skin $binDir "v_wrench" $modelsdir
     Invert-Skin $binDir "p_wrench" $modelsdir
-    Invert-Skin $binDir "w_wrench" $modelsdir
     Invert-Skin $binDir "v_wrench" $modelsdir\hd
-    Invert-Skin $binDir "w_wrench" $modelsdir\hd
     Invert-Skin $binDir "p_wrench" $modelsdir\hd
     Invert-Skin $binDir "v_snowball" $modelsdir\hd
     Invert-Skin $binDir "v_snowball" $modelsdir
     Invert-Skin $binDir "p_snowball" $modelsdir
-    Invert-Skin $binDir "w_snowball" $modelsdir
     Invert-Skin $binDir "w_hgibs" $modelsdir
     Invert-Skin $binDir "v_9mmAR" $modelsdir
-    Invert-Skin $binDir "w_9mmAR" $modelsdir
     Invert-Skin $binDir "p_9mmAR" $modelsdir
     Invert-Skin $binDir "v_9mmAR" $modelsdir\hd
     Invert-Skin $binDir "p_9mmAR" $modelsdir\hd
-    Invert-Skin $binDir "w_9mmAR" $modelsdir\hd
     Invert-Skin $binDir "v_shotgun" $modelsdir
-    Invert-Skin $binDir "w_shotgun" $modelsdir
     Invert-Skin $binDir "p_shotgun" $modelsdir
     Invert-Skin $binDir "v_shotgun" $modelsdir\hd
     Invert-Skin $binDir "p_shotgun" $modelsdir\hd
-    Invert-Skin $binDir "w_shotgun" $modelsdir\hd
     Invert-Skin $binDir "v_chainsaw" $modelsdir\hd
-    Invert-Skin $binDir "w_chainsaw" $modelsdir\hd
     Invert-Skin $binDir "p_chainsaw" $modelsdir\hd
     Invert-Skin $binDir "v_chainsaw" $modelsdir
-    Invert-Skin $binDir "w_chainsaw" $modelsdir
     Invert-Skin $binDir "p_chainsaw" $modelsdir
     Invert-Skin $binDir "v_12gauge" $modelsdir
     Invert-Skin $binDir "p_12gauge" $modelsdir
-    Invert-Skin $binDir "w_12gauge" $modelsdir
     Invert-Skin $binDir "p_12gauge" $modelsdir\hd
-    Invert-Skin $binDir "w_12gauge" $modelsdir\hd
     Invert-Skin $binDir "v_12gauge" $modelsdir\hd
     Invert-Skin $binDir "w_battery" $modelsdir
     Invert-Skin $binDir "w_longjump" $modelsdir
@@ -250,33 +229,23 @@ try {
     Invert-Skin $binDir "w_rpgammo" $modelsdir\hd
     Invert-Skin $binDir "v_357" $modelsdir
     Invert-Skin $binDir "p_357" $modelsdir
-    Invert-Skin $binDir "w_357" $modelsdir
     Invert-Skin $binDir "p_357" $modelsdir\hd
-    Invert-Skin $binDir "w_357" $modelsdir\hd
     Invert-Skin $binDir "v_357" $modelsdir\hd
     Invert-Skin $binDir "v_egon" $modelsdir
     Invert-Skin $binDir "p_egon" $modelsdir
-    Invert-Skin $binDir "w_egon" $modelsdir
     Invert-Skin $binDir "p_egon" $modelsdir\hd
-    Invert-Skin $binDir "w_egon" $modelsdir\hd
     Invert-Skin $binDir "v_egon" $modelsdir\hd
     Invert-Skin $binDir "v_nuke" $modelsdir
     Invert-Skin $binDir "p_nuke" $modelsdir
-    Invert-Skin $binDir "w_nuke" $modelsdir
     Invert-Skin $binDir "p_nuke" $modelsdir\hd
-    Invert-Skin $binDir "w_nuke" $modelsdir\hd
     Invert-Skin $binDir "v_nuke" $modelsdir\hd
     Invert-Skin $binDir "v_gauss" $modelsdir
     Invert-Skin $binDir "p_gauss" $modelsdir
-    Invert-Skin $binDir "w_gauss" $modelsdir
     Invert-Skin $binDir "p_gauss" $modelsdir\hd
-    Invert-Skin $binDir "w_gauss" $modelsdir\hd
     Invert-Skin $binDir "v_gauss" $modelsdir\hd
     Invert-Skin $binDir "v_hgun" $modelsdir
     Invert-Skin $binDir "p_hgun" $modelsdir
-    Invert-Skin $binDir "w_hgun" $modelsdir
     Invert-Skin $binDir "p_hgun" $modelsdir\hd
-    Invert-Skin $binDir "w_hgun" $modelsdir\hd
     Invert-Skin $binDir "v_hgun" $modelsdir\hd
     Invert-Skin $binDir "w_hornet" $modelsdir
     Invert-Skin $binDir "v_squeak" $modelsdir
@@ -289,75 +258,52 @@ try {
     Invert-Skin $binDir "w_squeak" $modelsdir\hd
     Invert-Skin $binDir "v_deagle" $modelsdir\hd
     Invert-Skin $binDir "p_deagle" $modelsdir\hd
-    Invert-Skin $binDir "w_deagle" $modelsdir\hd
     Invert-Skin $binDir "v_dual_deagle" $modelsdir
     Invert-Skin $binDir "p_dual_deagle" $modelsdir
-    Invert-Skin $binDir "w_dual_deagle" $modelsdir
     Invert-Skin $binDir "v_dual_deagle" $modelsdir\hd
     Invert-Skin $binDir "p_dual_deagle" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_deagle" $modelsdir\hd
     Invert-Skin $binDir "v_dual_rpg" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_rpg" $modelsdir\hd
     Invert-Skin $binDir "p_dual_rpg" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_rpg" $modelsdir
     Invert-Skin $binDir "p_dual_rpg" $modelsdir
     Invert-Skin $binDir "v_dual_rpg" $modelsdir
     Invert-Skin $binDir "v_dual_smg" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_smg" $modelsdir\hd
     Invert-Skin $binDir "p_dual_smg" $modelsdir\hd
     Invert-Skin $binDir "v_dual_wrench" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_wrench" $modelsdir\hd
     Invert-Skin $binDir "p_dual_wrench" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_smg" $modelsdir
     Invert-Skin $binDir "p_dual_smg" $modelsdir
     Invert-Skin $binDir "v_dual_smg" $modelsdir
-    Invert-Skin $binDir "w_dual_wrench" $modelsdir
     Invert-Skin $binDir "p_dual_wrench" $modelsdir
     Invert-Skin $binDir "v_dual_wrench" $modelsdir
     Invert-Skin $binDir "v_dual_usas" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_usas" $modelsdir\hd
     Invert-Skin $binDir "p_dual_usas" $modelsdir\hd
     Invert-Skin $binDir "v_dual_usas" $modelsdir
-    Invert-Skin $binDir "w_dual_usas" $modelsdir
     Invert-Skin $binDir "p_dual_usas" $modelsdir
     Invert-Skin $binDir "v_freezegun" $modelsdir\hd
-    Invert-Skin $binDir "w_freezegun" $modelsdir\hd
     Invert-Skin $binDir "p_freezegun" $modelsdir\hd
     Invert-Skin $binDir "v_freezegun" $modelsdir
-    Invert-Skin $binDir "w_freezegun" $modelsdir
     Invert-Skin $binDir "p_freezegun" $modelsdir
-    Invert-Skin $binDir "w_suit" $modelsdir
     Invert-Skin $binDir "w_concretegibs" $modelsdir
     Invert-Skin $binDir "v_dual_mag60" $modelsdir\hd
-    Invert-Skin $binDir "w_dual_mag60" $modelsdir\hd
     Invert-Skin $binDir "p_dual_mag60" $modelsdir\hd
     Invert-Skin $binDir "v_dual_mag60" $modelsdir
-    Invert-Skin $binDir "w_dual_mag60" $modelsdir
     Invert-Skin $binDir "p_dual_mag60" $modelsdir
     Invert-Skin $binDir "v_rocketcrowbar" $modelsdir\hd
-    Invert-Skin $binDir "w_rocketcrowbar" $modelsdir\hd
     Invert-Skin $binDir "p_rocketcrowbar" $modelsdir\hd
     Invert-Skin $binDir "v_rocketcrowbar" $modelsdir
-    Invert-Skin $binDir "w_rocketcrowbar" $modelsdir
     Invert-Skin $binDir "p_rocketcrowbar" $modelsdir
     Invert-Skin $binDir "v_dual_railgun" $modelsdir
     Invert-Skin $binDir "p_dual_railgun" $modelsdir
-    Invert-Skin $binDir "w_dual_railgun" $modelsdir
     Invert-Skin $binDir "v_gravitygun" $modelsdir
     Invert-Skin $binDir "p_gravitygun" $modelsdir
-    Invert-Skin $binDir "w_gravitygun" $modelsdir
     Invert-Skin $binDir "w_barrel" $modelsdir
     Invert-Skin $binDir "w_cabinet" $modelsdir
     Invert-Skin $binDir "w_sentry" $modelsdir
     Invert-Skin $binDir "v_flamethrower" $modelsdir
     Invert-Skin $binDir "p_flamethrower" $modelsdir
-    Invert-Skin $binDir "w_flamethrower" $modelsdir
     Invert-Skin $binDir "v_dual_flamethrower" $modelsdir
     Invert-Skin $binDir "p_dual_flamethrower" $modelsdir
-    Invert-Skin $binDir "w_dual_flamethrower" $modelsdir
     Invert-Skin $binDir "v_portalgun" $modelsdir
     Invert-Skin $binDir "p_portalgun" $modelsdir
-    Invert-Skin $binDir "w_portalgun" $modelsdir
     Invert-Skin $binDir "w_portal" $modelsdir
     Invert-Skin $binDir "w_chainammo" $modelsdir
 
@@ -381,20 +327,15 @@ try {
 
     Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
     Compile-Model $binDir "p_9mmAR" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_9mmAR" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_9mmAR" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_9mmAR" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_shotgun" $modelsdir $redistDir\models
     Compile-Model $binDir "p_shotgun" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_shotgun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_shotgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_shotgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_shotgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_vest" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_vest" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmhandgun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmhandgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_9mmhandguns" $modelsdir\hd $redisthddir\models
@@ -403,10 +344,6 @@ try {
     Compile-Model $binDir "p_9mmhandgun" $modelsdir $redistDir\models
     Compile-Model $binDir "p_9mmhandgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_9mmhandguns" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_9mmhandgun" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_9mmhandguns" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_9mmhandgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_9mmhandguns" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_grenade" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_grenade" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_grenade" $modelsdir\hd $redisthddir\models
@@ -415,22 +352,16 @@ try {
     Compile-Model $binDir "w_grenade" $modelsdir $redistDir\models
     Compile-Model $binDir "p_knife" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_knife" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_knife" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_knife" $modelsdir $redistDir\models
     Compile-Model $binDir "v_knife" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_knife" $modelsdir $redistDir\models
     Compile-Model $binDir "v_crowbar" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_crowbar" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_crowbar" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_crowbar" $modelsdir $redistDir\models
     Compile-Model $binDir "v_crowbar" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_crowbar" $modelsdir $redistDir\models
     Compile-Model $binDir "v_rpg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_rpg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_rpg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_rpg" $modelsdir $redistDir\models
     Compile-Model $binDir "p_rpg" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_rpg" $modelsdir $redistDir\models
     Compile-Model $binDir "rpgrocket" $modelsdir $redistDir\models
     Compile-Model $binDir "rpgrocket" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_tripmine" $modelsdir\hd $redisthddir\models
@@ -438,7 +369,6 @@ try {
     Compile-Model $binDir "v_tripmine" $modelsdir $redistDir\models
     Compile-Model $binDir "p_tripmine" $modelsdir $redistDir\models
     Compile-Model $binDir "v_chumtoad" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_chumtoad_nest" $modelsdir $redistDir\models
     Compile-Model $binDir "p_chumtoad" $modelsdir $redistDir\models
     Compile-Model $binDir "w_chumtoad" $modelsdir $redistDir\models
     Compile-Model $binDir "v_chumtoad" $modelsdir\hd $redisthddir\models
@@ -451,23 +381,18 @@ try {
     Compile-Model $binDir "w_762shell" $modelsdir $redistDir\models
     Compile-Model $binDir "v_crossbow" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_crossbow" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_crossbow" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_crossbow" $modelsdir $redistDir\models
     Compile-Model $binDir "p_crossbow" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_crossbow" $modelsdir $redistDir\models
     Compile-Model $binDir "w_bolt" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_bolt" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_railgun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_railgun" $modelsdir $redistDir\models
     Compile-Model $binDir "p_railgun" $modelsdir $redistDir\models
     Compile-Model $binDir "w_weaponbox" $modelsdir $redistDir\models
     Compile-Model $binDir "w_runes" $modelsdir $redistDir\models
     Compile-Model $binDir "v_cannon" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_cannon" $modelsdir $redistDir\models
     Compile-Model $binDir "p_cannon" $modelsdir $redistDir\models
     Compile-Model $binDir "v_cannon" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_cannon" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_cannon" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_satchel_radio" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_hassassin" $modelsdir $redistDir\models
     Compile-Model $binDir "v_satchel" $modelsdir\hd $redisthddir\models
@@ -481,37 +406,27 @@ try {
     Compile-Model $binDir "w_satchel" $modelsdir $redistDir\models
     Compile-Model $binDir "w_shell" $modelsdir $redistDir\models
     Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_mag60" $modelsdir $redistDir\models
     Compile-Model $binDir "v_mag60" $modelsdir $redistDir\models
     Compile-Model $binDir "p_mag60" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_mag60" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_mag60" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_mag60" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_chaingun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_chaingun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_chaingun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_chaingun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_chaingun" $modelsdir $redistDir\models
     Compile-Model $binDir "p_chaingun" $modelsdir $redistDir\models
-    Compile-Model $binDir "w_glauncher" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_glauncher" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_glauncher" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_glauncher" $modelsdir $redistdir\models
     Compile-Model $binDir "p_glauncher" $modelsdir $redistdir\models
     Compile-Model $binDir "v_glauncher" $modelsdir $redistdir\models
     Compile-Model $binDir "w_contact_grenade" $modelsdir $redistdir\models
     Compile-Model $binDir "w_contact_grenade" $modelsdir $redisthddir\models
-    Compile-Model $binDir "w_smg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_smg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_smg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "p_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_usas" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_usas" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_usas" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_usas" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "p_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "w_shotgunshell" $modelsdir $redistdir\models
     Compile-Model $binDir "w_shotgunshell" $modelsdir\hd $redisthddir\models
@@ -519,26 +434,19 @@ try {
     Compile-Model $binDir "v_fists" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_wrench" $modelsdir $redistdir\models
     Compile-Model $binDir "p_wrench" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_wrench" $modelsdir $redistdir\models
     Compile-Model $binDir "p_wrench" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_wrench" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_wrench" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_snowball" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_snowball" $modelsdir $redistdir\models
     Compile-Model $binDir "p_snowball" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_snowball" $modelsdir $redistdir\models
     Compile-Model $binDir "w_hgibs" $modelsdir $redistdir\models
     Compile-Model $binDir "v_chainsaw" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_chainsaw" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_chainsaw" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_chainsaw" $modelsdir $redistdir\models
     Compile-Model $binDir "v_chainsaw" $modelsdir $redistdir\models
     Compile-Model $binDir "p_chainsaw" $modelsdir $redistdir\models
     Compile-Model $binDir "v_12gauge" $modelsdir $redistdir\models
     Compile-Model $binDir "p_12gauge" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_12gauge" $modelsdir $redistdir\models
     Compile-Model $binDir "v_12gauge" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_12gauge" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_12gauge" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_battery" $modelsdir $redistdir\models
     Compile-Model $binDir "w_medkit" $modelsdir $redistdir\models
@@ -561,33 +469,23 @@ try {
     Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_357" $modelsdir $redistdir\models
     Compile-Model $binDir "p_357" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_357" $modelsdir $redistdir\models
     Compile-Model $binDir "v_357" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_357" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_357" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_egon" $modelsdir $redistdir\models
     Compile-Model $binDir "p_egon" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_egon" $modelsdir $redistdir\models
     Compile-Model $binDir "v_egon" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_egon" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_egon" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_nuke" $modelsdir $redistdir\models
     Compile-Model $binDir "p_nuke" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_nuke" $modelsdir $redistdir\models
     Compile-Model $binDir "v_nuke" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_nuke" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_nuke" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_gauss" $modelsdir $redistdir\models
     Compile-Model $binDir "p_gauss" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_gauss" $modelsdir $redistdir\models
     Compile-Model $binDir "v_gauss" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_gauss" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_gauss" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_hgun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_hgun" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_hgun" $modelsdir $redistdir\models
     Compile-Model $binDir "v_hgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_hgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_hgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_hornet" $modelsdir $redistdir\models
     Compile-Model $binDir "v_squeak" $modelsdir $redistdir\models
@@ -602,87 +500,64 @@ try {
     Compile-Model $binDir "v_dual_leg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_deagle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_deagle" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_deagle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_deagle" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "p_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_deagle" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_deagle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_dual_deagle" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_deagle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_rpg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_rpg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_dual_rpg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_rpg" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_rpg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_rpg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_smg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_smg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_dual_smg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_wrench" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_wrench" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_dual_wrench" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_smg" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_wrench" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_wrench" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_wrench" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_usas" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_usas" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_dual_usas" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_usas" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "v_freezegun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_freezegun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_freezegun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_freezegun" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_freezegun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_freezegun" $modelsdir $redistdir\models
     Compile-Model $binDir "plasma" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_suit" $modelsdir $redistdir\models
     Compile-Model $binDir "w_battery_light" $modelsdir $redistdir\models
     Compile-Model $binDir "w_medkit_light" $modelsdir $redistdir\models
     Compile-Model $binDir "w_concretegibs" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_mag60" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_dual_mag60" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_dual_mag60" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_mag60" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_mag60" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_mag60" $modelsdir $redistdir\models
     Compile-Model $binDir "v_rocketcrowbar" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_rocketcrowbar" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_rocketcrowbar" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_rocketcrowbar" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_rocketcrowbar" $modelsdir $redistdir\models
     Compile-Model $binDir "p_rocketcrowbar" $modelsdir $redistdir\models
     Compile-Model $binDir "v_railgun_light" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_railgun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_railgun" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_railgun" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_railgun_light" $modelsdir $redistdir\models
     Compile-Model $binDir "v_gravitygun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_gravitygun" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_gravitygun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_barrel" $modelsdir $redistdir\models
     Compile-Model $binDir "w_cabinet" $modelsdir $redistdir\models
     Compile-Model $binDir "w_sentry" $modelsdir $redistdir\models
     Compile-Model $binDir "v_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "p_flamethrower" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_flamethrower" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "v_portalgun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_portalgun" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_portalgun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_portal" $modelsdir $redistdir\models
     Compile-Model $binDir "w_chainammo" $modelsdir $redistdir\models
-    } else {
-        Compile-Player $playerModel $binDir $modelsdir $redistDir
+    #Compile-Model $binDir "v_bluetakis" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_weapons" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_weapons" $modelsdir\hd $redisthddir\models
     }
 }
 catch

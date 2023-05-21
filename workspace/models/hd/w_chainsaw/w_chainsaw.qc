@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "w_ref"
+$body "studio" "chainsaw"
 
 $texrendermode "chainsaw_p.BMP" "masked" 
 
@@ -46,7 +46,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "[PWS]chainsaw" -3.800000 -21.639999 0.000000 4.490000 12.700000 27.639999
+$hbox 0 "chainsaw" -3.800000 -21.639999 0.000000 4.490000 12.700000 27.639999
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

@@ -1,0 +1,8 @@
+version 1
+nodes
+0 "dual_flamethrower" -1
+end
+skeleton
+time 0
+0 0.233849 14.999103 0.133254 0.000005 1.308997 -1.570791
+end

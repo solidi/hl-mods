@@ -74,8 +74,8 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -5.930000 7.850000 2.940000 19.950001
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 13 
-$sequence "draw_lowkey" "draw" fps 24 
-$sequence "draw" "draw" fps 24 
+$sequence "draw_lowkey" "draw" fps 24 { event 5004 0 "default_draw.wav" }
+$sequence "draw" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5005 0 "rocketcrowbar_selected.wav" }
 $sequence "holster" "holster" fps 24 
 $sequence "attack1" "attack1" fps 22 
 $sequence "attack1miss" "attack1miss" fps 22 

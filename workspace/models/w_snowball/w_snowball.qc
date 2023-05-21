@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "ball"
+$body "studio" "snowball"
 
 $texturegroup ice
 {
@@ -44,10 +44,10 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "Line02" -3.000000 -3.000000 -3.000000 3.000000 3.000000 3.000000
+// hit box(es)
+$hbox 0 "snowball" -3.000000 -3.000000 -3.000000 3.000000 3.000000 3.000000
 
-// 3 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 $sequence "roll1" "roll1" fps 30 loop 

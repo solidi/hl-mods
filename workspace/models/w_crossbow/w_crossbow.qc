@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_crossbow"
+$body "body" "crossbow"
 
 $texturegroup ice
 {
@@ -78,8 +78,8 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Line01" -34.980000 -19.620001 -25.650000 46.759998 12.590000 25.799999
+// hit box(es)
+$hbox 0 "crossbow" -34.980000 -19.620001 -25.650000 46.759998 12.590000 25.799999
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

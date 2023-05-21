@@ -43,8 +43,8 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "root" -12.860000 -29.110001 -3.920000 7.700000 28.840000 3.780000
+// hit box(es)
+$hbox 0 "knife" -12.860000 -29.110001 -3.920000 7.700000 28.840000 3.780000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

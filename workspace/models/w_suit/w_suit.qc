@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "wrld_suit"
+$body "studio" "suit"
 
 
 $texturegroup ice
@@ -44,7 +44,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Player_Mesh" -9.860000 -51.439999 -9.070000 19.240000 17.459999 6.200000
+$hbox 0 "suit" -9.860000 -51.439999 -9.070000 19.240000 17.459999 6.200000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

@@ -51,7 +51,7 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
+// hit box(es)
 $hbox 0 "Crowbar" -1.250000 -2.170000 -22.530001 8.420000 2.170000 22.549999
 
 // animation sequence(s)

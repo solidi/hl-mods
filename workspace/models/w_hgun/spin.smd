@@ -1,11 +1,11 @@
 version 1
 nodes
-0 "Dummy01" -1
-1 "Bone01" 0
-2 "Bone02" 1
-3 "Bone05" 0
-4 "Bone06" 3
-5 "Bone07" 4
+  0 "hgun" -1
+  1 "hgun_bone01" 0
+  2 "hgun_bone02" 1
+  3 "hgun_bone03" 0
+  4 "hgun_bone04" 3
+  5 "hgun_bone05" 4
 end
 skeleton
 time 0

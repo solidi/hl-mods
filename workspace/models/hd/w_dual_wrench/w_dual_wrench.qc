@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "dual_pw"
+$body "studio" "dual_wrench"
 
 $texturegroup ice
 {
@@ -45,7 +45,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Box01" -2.580000 -1.360000 -4.290000 7.550000 1.360000 39.070000
+$hbox 0 "dual_wrench" -2.580000 -1.360000 -4.290000 7.550000 1.360000 39.070000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

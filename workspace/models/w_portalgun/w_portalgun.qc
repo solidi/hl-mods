@@ -25,9 +25,9 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "saz5"
+$body "studio" "portalgun_front"
 
-$body "studio" "sam5"
+$body "studio" "portalgun_back"
 
 $texturegroup ice
 {
@@ -46,7 +46,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "weapon_bone" -13.480000 -9.130000 -3.610000 8.650000 8.440000 7.050000
+$hbox 0 "portalgun" -13.480000 -9.130000 -3.610000 8.650000 8.440000 7.050000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

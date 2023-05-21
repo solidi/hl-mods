@@ -46,10 +46,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Line02" -7.090000 -8.610000 -2.960000 2.220000 5.670000 5.560000
+// hit box(es)
+$hbox 0 "grenade" -7.090000 -8.610000 -2.960000 2.220000 5.670000 5.560000
 
-// 7 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 $sequence "spin" "spin" fps 21 loop 
 $sequence "roll1" "roll1" fps 15 loop 
