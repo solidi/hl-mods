@@ -119,6 +119,7 @@
 "blank"			"=========================="
 "+hook"			"#Ice_Grappling_Hook"
 "drop_rune"		"#Ice_Drop_Rune"
+"feign"			"#Ice_Feign"
 "+ironsight"	"#Ice_Iron_Sight"
 "impulse 205"	"#Ice_SwapDual"
 "impulse 206"	"#Ice_Kick"

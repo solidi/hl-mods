@@ -36,6 +36,7 @@
 "4"				"slot4"
 "5"				"slot5"
 "6"				"slot6"
+"7"				"feign"
 "MWHEELUP"		"invprev"
 "["				"invprev"
 "MWHEELDOWN"	"invnext"

@@ -110,13 +110,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
 1. Game Mechanics
+    1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [ ] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
     1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
-    1. [ ] Feign death binding (Napoleon/Rocket Crowbar)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
