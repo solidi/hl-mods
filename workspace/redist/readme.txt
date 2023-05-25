@@ -28,6 +28,9 @@ Beta 4 Features:
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
     - Sniper rifle makes bolt sound when fired
+    - Combined all world weapon models into one file
+- Player Changes
+    - Added feign ability using the command "feign"
 - Maps
     - Added res files for all included maps
 - Game Modes
@@ -80,6 +83,7 @@ Beta 4 Features:
     - Fixed retract distance of view model so is always appears on screen
     - Removed color adjustment on model select screen
     - Improved player model photos
+    - Fixed ability to fire weapon while frozen
 
 Beta 3 Features:
 
@@ -532,6 +536,7 @@ Client:
 - "impulse 211" - to perform a left roll
 - "impulse 212" - to perform a back flip
 - "drop_rune" - Drop rune
+- "feign" - Fake your death
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels [0-3]" - Ice Models - To switch between weapon ice skins and real skins
     - "0" - real skin
