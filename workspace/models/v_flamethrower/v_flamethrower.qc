@@ -66,7 +66,7 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Gauss" -10.000000 2.500000 0.000000
-$attachment 1 "Gauss" 200.000000 0.000000 0.000000
+$attachment 1 "Gauss" 400.000000 0.000000 0.000000
 
 // hit box(es)
 $hbox 0 "Gauss" -13.730000 -1.270000 -6.190000 2.140000 3.620000 9.780000

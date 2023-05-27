@@ -29,6 +29,7 @@ Beta 4 Features:
     - Nuke explodes on command in new static camera mode
     - Sniper rifle makes bolt sound when fired
     - Combined all world weapon models into one file
+    - Snowballs and Chumtoads have their own ammo count
 - Player Changes
     - Added feign ability using the command "feign"
 - Maps
@@ -84,6 +85,8 @@ Beta 4 Features:
     - Removed color adjustment on model select screen
     - Improved player model photos
     - Fixed ability to fire weapon while frozen
+    - Survive a vest attack when in god mode
+    - Readded dual rpg to duals only mode
 
 Beta 3 Features:
 
