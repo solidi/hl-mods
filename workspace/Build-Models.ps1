@@ -297,6 +297,7 @@ try {
     Invert-Skin $binDir "p_gravitygun" $modelsdir
     Invert-Skin $binDir "w_barrel" $modelsdir
     Invert-Skin $binDir "w_cabinet" $modelsdir
+    Invert-Skin $binDir "w_cabinet" $modelsdir\hd
     Invert-Skin $binDir "w_sentry" $modelsdir
     Invert-Skin $binDir "v_flamethrower" $modelsdir
     Invert-Skin $binDir "p_flamethrower" $modelsdir
@@ -546,6 +547,7 @@ try {
     Compile-Model $binDir "p_gravitygun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_barrel" $modelsdir $redistdir\models
     Compile-Model $binDir "w_cabinet" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_cabinet" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_sentry" $modelsdir $redistdir\models
     Compile-Model $binDir "v_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "p_flamethrower" $modelsdir $redistdir\models

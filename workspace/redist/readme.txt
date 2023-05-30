@@ -30,6 +30,7 @@ Beta 4 Features:
     - Sniper rifle makes bolt sound when fired
     - Combined all world weapon models into one file
     - Snowballs and Chumtoads have their own ammo count
+    - Added HD arcade cabinet
 - Player Changes
     - Added feign ability using the command "feign"
 - Maps
@@ -768,3 +769,4 @@ Thanks To:
 - kriswema, Jeroen Bogers, and Zero3Cool for the resgen tool https://github.com/kriswema/resgen
 - Marc Laidlaw and Trashbang for dm_lister, and AudioCraZ for the opulent reskin https://thetrashbang.tumblr.com/
 - Valve, Romka, A.I. for the scientist HEV suit player model https://gamebanana.com/mods/179924
+- Nexon for the HD arcade cabinet, and updated skins by Napoleon

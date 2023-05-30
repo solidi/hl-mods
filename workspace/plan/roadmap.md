@@ -222,6 +222,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
+    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. New Weapons
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
@@ -303,6 +304,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Fall smash like [from boltgun](https://www.youtube.com/watch?v=ZUcAQC8gCyM&t=125s)
     1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)
     1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
     1. [ ] [Jetpack](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/9909024518e8bdee5b0e992b97b0b66054d016d3)
@@ -316,9 +318,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
     1. [ ] mp_startonlywith "weapon_*"
-    1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] Weapon filter list
 1. Environment look and feel
+    1. [ ] Add transparent sprite around floating weapon for visual identification - [from boltgun.](https://www.youtube.com/watch?v=ZNSgulYUor8&t=50s)
     1. [ ] [Physics Engine](https://github.com/anchurcn/GoldsrcPhysics)
         1. [ ] Ragdoll effect (speak to Napoleon)
     1. [ ] Shader water implementation...(something that's not Trinity, (speak to Napoleon))
@@ -333,6 +335,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
+    1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
@@ -398,7 +401,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
     1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
-    1. [ ] Taunts from player (Napoleon)
+    1. [ ] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
     1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
     1. [ ] Multiple rune equip (Napoleon)
     1. [ ] Ice spike gun (AudioCraZ)
