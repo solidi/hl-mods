@@ -131,6 +131,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
 1. Client
     1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
+    1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
     1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
     1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
     1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
@@ -380,6 +381,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Compact w_ moels into one
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
+    1. [ ] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
 1. Game Dev Tools
     1. [ ] [Cache modeling check](https://github.com/bacontsu/spirit-op4/commit/2adf21717c39628b6629c83c5cc34dc03b3790b5)
     1. [ ] Include pdb files, debug libraries on builds off master.
