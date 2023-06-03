@@ -89,6 +89,7 @@ Beta 4 Features:
     - Fixed ability to fire weapon while frozen
     - Survive a vest attack when in god mode
     - Readded dual rpg to duals only mode
+    - Fixed dual rocket launch rocket ice skin
 
 Beta 3 Features:
 

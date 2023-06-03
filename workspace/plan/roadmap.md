@@ -179,6 +179,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Race to bottom (most deaths wins)
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
 1. Future Game Mutators
+    1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
     1. [ ] [Leeroy Jenkins] mode (start with vest)
