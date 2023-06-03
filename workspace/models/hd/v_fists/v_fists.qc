@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "base"
+$body "studio" "fists"
 
 $texturegroup ice
 {
@@ -48,9 +48,9 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Box01" -19.214220 -25.787498 -67.399994 25.810778 0.000000 0.000000
-$hbox 0 "Box57" -3.762500 -7.850000 -4.412500 2.975000 20.362501 3.375000
-$hbox 0 "Box85" -5.175000 -8.412500 -4.662500 3.725000 24.337500 3.462500
+$hbox 0 "Neck" -19.214220 -25.787498 -67.399994 25.810778 0.000000 0.000000
+$hbox 0 "Left_Arm" -3.762500 -7.850000 -4.412500 2.975000 20.362501 3.375000
+$hbox 0 "Right_Arm" -5.175000 -8.412500 -4.662500 3.725000 24.337500 3.462500
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 20 
@@ -66,5 +66,6 @@ $sequence "fists_righthit2" "fists_righthit2" fps 25
 $sequence "idle2" "idle1" fps 20 
 $sequence "idle3" "idle1" fps 20 
 $sequence "pullup" "pullup" fps 42 
+$sequence "die" "die" fps 20 
 
 // End of QC script.

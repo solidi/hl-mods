@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "base"
+$body "studio" "fists"
 
 $texturegroup ice
 {
@@ -70,5 +70,6 @@ $sequence "fists_righthit2" "fists_righthit2" fps 25
 $sequence "idle2" "idle1" fps 20 
 $sequence "idle3" "idle1" fps 20 
 $sequence "pullup" "pullup" fps 42 
+$sequence "die" "die" fps 20
 
 // End of QC script.

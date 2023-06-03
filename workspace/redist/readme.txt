@@ -55,6 +55,7 @@ Beta 4 Features:
 - Client Support
     - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot
+    - Added HEV hands when dead for authentic effect
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
