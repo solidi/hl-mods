@@ -80,7 +80,7 @@ $hbox 0 "joint31" -3.170000 -2.580000 0.000000 3.940000 3.290000 17.293789
 $hbox 0 "joint32" -8.990000 -4.890000 -0.520000 2.540000 2.220000 4.450000
 
 // animation sequence(s)
-$sequence "kick_slide_low_reverse" "kick_slide_idle" fps 11
+$sequence "kick_slide_idle" "kick_slide_idle" fps 11
 $sequence "kick_slide_low" "kick_slide_low" fps 11
 $sequence "kick_slide_low_reverse" "kick_slide_low_reverse" fps 11
 
