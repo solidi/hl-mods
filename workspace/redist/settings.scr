@@ -67,6 +67,7 @@ DESCRIPTION SERVER_OPTIONS
 			"inverse" "33"
 			"oldtime" "34"
 			"sildenafil" "35"
+			"longjump" "36"
 		}
 		{ "1" }
 	}

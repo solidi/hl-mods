@@ -1,4 +1,4 @@
-208
+209
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -234,6 +234,7 @@ grenades	640 gameicons	0	192	64	64
 rockets 	640 gameicons	64	192	64	64
 speedup 	640 gameicons	128	192	64	64
 chumxplode	640 gameicons	192	192	64	64
+longjump	640 640hud2	    176	96	44	44
 
 wins		640 640hud7	194	24	64	32
 
