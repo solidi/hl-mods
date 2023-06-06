@@ -31,6 +31,9 @@ Beta 4 Features:
     - Combined all world weapon models into one file
     - Snowballs and Chumtoads have their own ammo count
     - Added HD arcade cabinet
+- Player Combat
+    - Weapons are enabled weapons while sliding
+    - Sliding is more effective at damaging opponets
 - Player Changes
     - Added feign ability using the command "feign"
 - Maps
