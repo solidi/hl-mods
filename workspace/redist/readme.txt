@@ -42,12 +42,13 @@ Beta 4 Features:
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - 5 New Mutators - supports combination and randomly selected (mp_mutators)
+    - 6 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
         - "inverse" - colors are inverted
         - "oldtime" - colors are black and white
         - "sildenafil" - all you see is blue
+        - "longjump" - everyone has a long jump module
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
@@ -93,6 +94,7 @@ Beta 4 Features:
     - Survive a vest attack when in god mode
     - Readded dual rpg to duals only mode
     - Fixed dual rocket launch rocket ice skin
+    - Fixed beahvior of gravity rune in map Rapidcore
 
 Beta 3 Features:
 
@@ -644,6 +646,10 @@ Server:
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "portal" - now you're thinking with portals
     - "jope" - all hail king jope!
+    - "inverse" - colors are inverted
+    - "oldtime" - colors are black and white
+    - "sildenafil" - all you see is blue
+    - "longjump" - everyone has a long jump module
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not

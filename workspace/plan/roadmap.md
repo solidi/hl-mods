@@ -147,6 +147,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Fixes
+    1. [ ] Player projectiles follow aiment while flipping
     1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
     1. [x] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
@@ -179,6 +180,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Race to bottom (most deaths wins)
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
 1. Future Game Mutators
+    1. [x] All obtain long jump module
     1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
