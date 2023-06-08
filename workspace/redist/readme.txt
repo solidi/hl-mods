@@ -95,6 +95,7 @@ Beta 4 Features:
     - Readded dual rpg to duals only mode
     - Fixed dual rocket launch rocket ice skin
     - Fixed beahvior of gravity rune in map Rapidcore
+    - Fixed snowcross airstrike area, improved indoor lighting
 
 Beta 3 Features:
 
