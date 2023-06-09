@@ -307,6 +307,8 @@ Copy-Item $soundDir\maniac.wav $redistdir\sound
 Copy-Item $soundDir\impressive.wav $redistdir\sound
 Copy-Item $soundDir\excellent.wav $redistdir\sound
 Copy-Item $soundDir\bullseye.wav $redistdir\sound
+Copy-Item $soundDir\headshot.wav $redistdir\sound
+Copy-Item $soundDir\firstblood.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 
