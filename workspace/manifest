@@ -799,6 +799,8 @@ sound\maniac.wav
 sound\impressive.wav
 sound\excellent.wav
 sound\bullseye.wav
+sound\headshot.wav
+sound\firstblood.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

@@ -52,6 +52,7 @@ Beta 4 Features:
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
+    - Head shot and first blood awards, rewards player with health
 - New Player Models
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
 - Single Player Gameplay
