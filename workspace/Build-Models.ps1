@@ -307,6 +307,8 @@ try {
     Invert-Skin $binDir "p_portalgun" $modelsdir
     Invert-Skin $binDir "w_portal" $modelsdir
     Invert-Skin $binDir "w_chainammo" $modelsdir
+    Invert-Skin $binDir "p_sawedoff" $modelsdir
+    Invert-Skin $binDir "v_sawedoff" $modelsdir\hd
 
     Compile-Player "alpina" $binDir $modelsdir $redistDir
     Compile-Player "army" $binDir $modelsdir $redistDir
@@ -560,6 +562,9 @@ try {
     #Compile-Model $binDir "v_bluetakis" $modelsdir $redistdir\models
     Compile-Model $binDir "w_weapons" $modelsdir $redistdir\models
     Compile-Model $binDir "w_weapons" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "v_sawedoff" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "v_sawedoff" $modelsdir $redistdir\models
+    Compile-Model $binDir "p_sawedoff" $modelsdir $redistdir\models
     }
 }
 catch

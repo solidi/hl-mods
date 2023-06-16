@@ -11,13 +11,15 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 4 Features:
 
-- 3 New Weapons
+- 4 New Weapons
     - Portal Gun
         - Fire Entry Portal / Fire Exit Portal
     - Flamethrower
         - Flame Stream / Flame Ball
     - Dual Flamethrowers
         - 2x Flame Stream / 2x Flame Ball
+    - Sawed Off Cannons
+        - Fire Right / Fire Right / Fire Both
 - 3 New Maps
     - quadfrost, a rebuild of doublefrost by Napoleon
     - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
@@ -561,8 +563,8 @@ Client:
 - "cl_viewroll [0|1]" - Old View Roll - To switch between view roll during movement
 - "cl_bobtilt [0|1]" - Old Bob Tilt - To switch between bob tilt walking animation
 - "cl_righthand [0|1]" - Right-Hand Models - To switch between right and left-handed models
-- "cl_bulletsmoke [0|1]" - Bullet Smoke - To switch between bullets creating smoke where they land
-- "cl_gunsmoke [0|1]" - Gun Smoke - To switch between weapons creating smoke when fired
+- "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
+- "cl_gunsmoke [0|1]" - turn on or off gun smoke effects when fired
 - "cl_glasshud [0|1]" - Glass Hud - To switch elements of the hud bouncing/bobbing on or off
 - "cl_weaponsway [0|1]" - Weapon Sway - To switch between view models swaying with turn movement
 - "cl_weaponfidget [0|1]" - Weapon Fidget - To switch between view models fidgeting with jump landings

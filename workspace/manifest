@@ -73,6 +73,8 @@ events\flamestream.sc
 events\dual_flamethrower.sc
 events\dual_flamethrowerend.sc
 events\dual_flamestream.sc
+events\sawedoff1.sc
+events\sawedoff2.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -384,6 +386,8 @@ models\p_portalgun.mdl
 models\w_portal.mdl
 models\w_chainammo.mdl
 models\w_weapons.mdl
+models\v_sawedoff.mdl
+models\p_sawedoff.mdl
 modes
 modes\iceman.txt
 modes\lms.txt
@@ -801,6 +805,8 @@ sound\excellent.wav
 sound\bullseye.wav
 sound\headshot.wav
 sound\firstblood.wav
+sound\sawedoff_click.wav
+sound\sawedoff.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -876,6 +882,7 @@ sprites\weapon_gravitygun.txt
 sprites\weapon_flamethrower.txt
 sprites\weapon_dual_flamethrower.txt
 sprites\weapon_ashpod.txt
+sprites\weapon_sawedoff.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
