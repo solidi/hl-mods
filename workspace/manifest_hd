@@ -96,6 +96,7 @@ models\v_rocketcrowbar.mdl
 models\p_rocketcrowbar.mdl
 models\w_weapons.mdl
 models\w_cabinet.mdl
+models\v_sawedoff.mdl
 sound
 sound\knife_miss2.wav
 sprites

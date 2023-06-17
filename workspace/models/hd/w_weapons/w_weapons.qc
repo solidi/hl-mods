@@ -25,6 +25,7 @@ studio "..\w_357\python"
 studio "..\w_deagle\deagle"
 studio "..\w_mag60\mag60"
 studio "..\w_smg\smg"
+studio "..\..\w_sawedoff\sawedoff_hd"
 studio "..\w_9mmAR\m16"
 studio "..\w_12gauge\12gauge"
 studio "..\w_shotgun\shotgun"
@@ -171,6 +172,7 @@ $texturegroup ice
     "..\w_deagle\w_deagle.bmp"
     "..\w_mag60\wmodel.bmp"
     "..\w_smg\wmodel1.bmp"
+    "..\..\w_sawedoff\wmodel.bmp"
     "..\w_9mmAR\m4_world.BMP"
     "..\w_12gauge\wpump.bmp"
     "..\w_shotgun\W_SPAS12_REFERENCE.BMP"
@@ -253,6 +255,7 @@ $texturegroup ice
     "..\w_deagle\invert_w_deagle.bmp"
     "..\w_mag60\invert_wmodel.bmp"
     "..\w_smg\invert_wmodel1.bmp"
+    "..\..\w_sawedoff\invert_wmodel.bmp"
     "..\w_9mmAR\invert_m4_world.BMP"
     "..\w_12gauge\invert_wpump.bmp"
     "..\w_shotgun\invert_W_SPAS12_REFERENCE.BMP"
@@ -390,8 +393,10 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -492,6 +497,7 @@ $hbox 0 "python" -4.890000 -6.370000 -0.840000 4.890000 6.370000 0.840000
 $hbox 0 "deagle" -10.620000 -1.080000 -6.170000 12.060000 1.160000 5.640000
 $hbox 0 "mag60" -7.190000 -11.110000 -0.840000 8.930000 9.650000 1.600000
 $hbox 0 "smg" -13.060000 -10.490000 -0.910000 21.250000 8.930000 2.750000
+$hbox 0 "sawedoff" -3.390000 -25.290001 -0.540000 7.050000 17.950001 4.600000
 $hbox 0 "m16" -48.009998 -8.010000 -2.230000 13.540000 14.330000 2.230000
 $hbox 0 "12gauge" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
 $hbox 0 "shotgun" -4.970000 -27.400000 -0.630000 9.910000 20.650000 3.290000
@@ -581,7 +587,9 @@ $sequence "deagle_spin" "..\w_deagle\spin" fps 21 loop
 $sequence "mag60_idle" "..\w_mag60\idle" fps 30 
 $sequence "mag60_spin" "..\w_mag60\spin" fps 21 loop 
 $sequence "smg_idle" "..\w_smg\idle" fps 30 
-$sequence "smg_spin" "..\w_smg\spin" fps 21 loop 
+$sequence "smg_spin" "..\w_smg\spin" fps 21 loop
+$sequence "sawedoff_idle" "..\..\w_sawedoff\idle" fps 30 
+$sequence "sawedoff_spin" "..\..\w_sawedoff\spin" fps 21 loop  
 $sequence "m16_idle" "..\w_9mmAR\idle" fps 30 
 $sequence "m16_spin" "..\w_9mmAR\spin" fps 21 loop 
 $sequence "12gauge_idle" "..\w_12gauge\idle" fps 30 
