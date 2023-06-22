@@ -9,7 +9,6 @@ $bbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 $cbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 $eyeposition 0.000000 0.000000 0.000000
 
-
 //reference mesh(es)
 $bodygroup "body"
 {
@@ -56,6 +55,7 @@ studio "..\w_dual_wrench\dual_wrench"
 studio "..\w_dual_deagle\dual_deagle"
 studio "..\w_dual_mag60\dual_mag60"
 studio "..\w_dual_smg\dual_smg"
+studio "..\w_dual_sawedoff\dual_sawedoff"
 studio "..\w_dual_usas\dual_usas"
 studio "..\w_dual_railgun\dual_railgun"
 studio "..\w_dual_rpg\dual_rpg"
@@ -284,6 +284,7 @@ $texturegroup ice
     "..\w_dual_mag60\glocktop1.bmp"
     "..\w_dual_smg\M203.bmp"
     "..\w_dual_smg\MP5sideview.bmp"
+    "..\w_dual_sawedoff\wmodel.bmp"
     "..\w_dual_usas\M203.bmp"
     "..\w_dual_usas\MP5sideview.bmp"
     "..\w_dual_railgun\Skin.bmp"
@@ -432,6 +433,7 @@ $texturegroup ice
     "..\w_dual_mag60\invert_glocktop1.bmp"
     "..\w_dual_smg\invert_M203.bmp"
     "..\w_dual_smg\invert_MP5sideview.bmp"
+    "..\w_dual_sawedoff\invert_wmodel.bmp"
     "..\w_dual_usas\invert_M203.bmp"
     "..\w_dual_usas\invert_MP5sideview.bmp"
     "..\w_dual_railgun\invert_Skin.bmp"
@@ -587,8 +589,10 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -813,6 +817,7 @@ $hbox 0 "flamethrower" -28.680000 -36.290001 -32.209999 12.370000 3.900000 0.000
 $hbox 0 "dual_wrench" -1.923021 0.000000 -4.140394 0.000000 2.549736 0.000000
 $hbox 0 "dual_deagle" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000
 $hbox 0 "dual_mag60" -7.380000 -1.410000 -4.740000 7.380000 1.410000 4.740000
+$hbox 0 "dual_sawedoff" -3.390000 -25.290001 -0.540000 7.050000 17.950001 4.600000
 $hbox 0 "dual_smg" -13.060000 -10.490000 -0.910000 21.250000 8.930000 2.750000
 $hbox 0 "dual_usas" -13.060000 -10.490000 -0.910000 21.250000 8.930000 2.750000
 $hbox 0 "dual_railgun" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
@@ -906,6 +911,8 @@ $sequence "dual_mag60_idle" "..\w_dual_mag60\idle" fps 30
 $sequence "dual_mag60_spin" "..\w_dual_mag60\spin" fps 21 loop 
 $sequence "dual_smg_idle" "..\w_dual_smg\idle" fps 30 
 $sequence "dual_smg_spin" "..\w_dual_smg\spin" fps 21 loop 
+$sequence "dual_sawedoff_idle" "..\w_dual_sawedoff\idle" fps 30 
+$sequence "dual_sawedoff_spin" "..\w_dual_sawedoff\spin" fps 21 loop 
 $sequence "dual_usas_idle" "..\w_dual_usas\idle" fps 30 
 $sequence "dual_usas_spin" "..\w_dual_usas\spin" fps 21 loop 
 $sequence "dual_railgun_idle" "..\w_dual_railgun\idle" fps 30 

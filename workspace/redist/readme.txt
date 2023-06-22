@@ -11,7 +11,7 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 4 Features:
 
-- 4 New Weapons
+- 5 New Weapons
     - Portal Gun
         - Fire Entry Portal / Fire Exit Portal
     - Flamethrower
@@ -19,7 +19,9 @@ Beta 4 Features:
     - Dual Flamethrowers
         - 2x Flame Stream / 2x Flame Ball
     - Sawed Off Cannons
-        - Fire Right / Fire Right / Fire Both
+        - Fire Right / Fire Left / Fire Both
+    - Dual Sawed Off Cannons
+        - Fire Right / Fire Left / Fire Both
 - 3 New Maps
     - quadfrost, a rebuild of doublefrost by Napoleon
     - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
@@ -785,3 +787,4 @@ Thanks To:
 - Marc Laidlaw and Trashbang for dm_lister, and AudioCraZ for the opulent reskin https://thetrashbang.tumblr.com/
 - Valve, Romka, A.I. for the scientist HEV suit player model https://gamebanana.com/mods/179924
 - Nexon for the HD arcade cabinet, and updated skins by Napoleon
+- International Minds for select base skeletal animations https://www.moddb.com/mods/crack-life/downloads/crack-life-anniversary-v11

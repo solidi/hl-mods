@@ -388,6 +388,8 @@ models\w_chainammo.mdl
 models\w_weapons.mdl
 models\v_sawedoff.mdl
 models\p_sawedoff.mdl
+models\v_dual_sawedoff.mdl
+models\p_dual_sawedoff.mdl
 modes
 modes\iceman.txt
 modes\lms.txt
@@ -883,6 +885,7 @@ sprites\weapon_flamethrower.txt
 sprites\weapon_dual_flamethrower.txt
 sprites\weapon_ashpod.txt
 sprites\weapon_sawedoff.txt
+sprites\weapon_dual_sawedoff.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
