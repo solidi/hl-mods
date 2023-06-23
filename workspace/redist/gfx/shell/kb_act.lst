@@ -62,6 +62,7 @@
 "use weapon_mag60"			"#Ice_Mag60"
 "use weapon_smg"			"#Ice_Smg"
 "use weapon_sawedoff"		"#Ice_Sawedoff"
+"use weapon_dual_sawedoff"	"#Ice_DualSawedoff"
 "blank"			"=========================="
 "blank"			"#Valve_Weapon_Category_3"
 "blank"			"=========================="

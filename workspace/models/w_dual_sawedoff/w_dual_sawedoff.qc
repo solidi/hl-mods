@@ -12,7 +12,7 @@ Original internal name:
 ==============================================================================
 */
 
-$modelname "w_sawedoff.mdl"
+$modelname "w_dual_sawedoff.mdl"
 $cd ".\"
 $cdtexture ".\"
 $scale 1.0
@@ -25,15 +25,15 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "sawedoff"
+$body "studio" "dual_sawedoff"
 
 $texturegroup ice
 {
   {
-    "wmodel.bmp"
+    "..\w_dual_sawedoff\wmodel.bmp"
   }
   {
-    "invert_wmodel.bmp"
+    "..\w_dual_sawedoff\invert_wmodel.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -45,10 +45,10 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "sawedoff" -3.390000 -25.290001 -0.540000 7.050000 17.950001 4.600000
+$hbox 0 "dual_sawedoff" -3.390000 -25.290001 -0.540000 7.050000 17.950001 4.600000
 
 // animation sequence(s)
-$sequence "idle" "..\w_sawedoff\idle" fps 30 
-$sequence "spin" "..\w_sawedoff\spin" fps 21 loop 
+$sequence "idle" "..\w_dual_sawedoff\idle" fps 30 
+$sequence "spin" "..\w_dual_sawedoff\spin" fps 21 loop 
 
 // End of QC script.
