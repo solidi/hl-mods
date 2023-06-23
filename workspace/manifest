@@ -75,6 +75,8 @@ events\dual_flamethrowerend.sc
 events\dual_flamestream.sc
 events\sawedoff1.sc
 events\sawedoff2.sc
+events\dualsawedoff1.sc
+events\dualsawedoff2.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
