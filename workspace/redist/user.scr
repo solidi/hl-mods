@@ -307,4 +307,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_customtempents"
+	{
+		"#Ice_TempEnts"
+		{ BOOL }
+		{ "1" }
+	}
 }

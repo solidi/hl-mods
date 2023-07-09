@@ -387,10 +387,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
-    1. [ ] Compact w_ moels into one
+    1. [x] Compact w_ moels into one
+    1. [ ] Compact p_ moels into one
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
-    1. [ ] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
+    1. [x] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
 1. Game Dev Tools
     1. [ ] [Cache modeling check](https://github.com/bacontsu/spirit-op4/commit/2adf21717c39628b6629c83c5cc34dc03b3790b5)
     1. [ ] Include pdb files, debug libraries on builds off master.
