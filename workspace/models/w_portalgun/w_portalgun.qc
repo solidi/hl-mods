@@ -32,7 +32,7 @@ $body "studio" "portalgun_back"
 $texturegroup ice
 {
   {
-    "w_portalgun.bmp"
+    "..\w_portalgun\w_portalgun.bmp"
   }
   {
     "invert_w_portalgun.bmp"

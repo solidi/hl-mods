@@ -61,6 +61,8 @@ Beta 4 Features:
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
 - Single Player Gameplay
     - Chapter Selection Menu
+- Runes
+    - Runes no longer spawn in single player mode
 - Client Support
     - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot
@@ -101,6 +103,9 @@ Beta 4 Features:
     - Fixed dual rocket launch rocket ice skin
     - Fixed beahvior of gravity rune in map Rapidcore
     - Fixed snowcross airstrike area, improved indoor lighting
+    - Fixed crash when sanic is enabled and client runs out of temp entities
+    - Fixed chaos timer after map change
+    - Fixed blood color in single player
 
 Beta 3 Features:
 

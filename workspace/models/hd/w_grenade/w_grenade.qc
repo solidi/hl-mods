@@ -30,10 +30,10 @@ $body "studio" "grenade"
 $texturegroup ice
 {
   {
-    "grenade128.bmp"
+    "..\w_grenade\grenade128.bmp"
   }
   {
-    "invert_grenade128.bmp"
+    "..\w_grenade\invert_grenade128.bmp"
   }
   {
     "..\..\ringchrome.bmp"

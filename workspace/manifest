@@ -385,6 +385,7 @@ models\v_dual_flamethrower.mdl
 models\p_dual_flamethrower.mdl
 models\v_portalgun.mdl
 models\p_portalgun.mdl
+models\w_portalgun.mdl
 models\w_portal.mdl
 models\w_chainammo.mdl
 models\w_weapons.mdl

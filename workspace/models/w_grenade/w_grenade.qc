@@ -29,12 +29,12 @@ $body "studio" "grenade"
 $texturegroup ice
 {
   {
-    "grenade_side.bmp"
-    "grenade_skin.bmp"
+    "..\w_grenade\grenade_side.bmp"
+    "..\w_grenade\grenade_skin.bmp"
   }
   {
-    "invert_grenade_side.bmp"
-    "invert_grenade_skin.bmp"
+    "..\w_grenade\invert_grenade_side.bmp"
+    "..\w_grenade\invert_grenade_skin.bmp"
   }
   {
     "..\ringchrome.bmp"
