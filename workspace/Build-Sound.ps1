@@ -321,6 +321,6 @@ Copy-Item $soundDir\materials.txt $redistdir\sound
 
 # Sound packs
 Write-Output "Copying voice-overs..."
-Copy-Item -Recurse -Force -Path $soundDir\hev\* -Destination $redistdir\sound\gss
+Copy-Item -Recurse -Force -Path $soundDir\hev\* -Destination $redistdir\sound\hev
 
 Set-Location -Path ${PSScriptRoot}
