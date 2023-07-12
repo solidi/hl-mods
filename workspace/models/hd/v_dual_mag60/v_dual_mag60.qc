@@ -93,7 +93,8 @@ $sequence "reload" "reload" fps 30 {
 //  { event 5004 34 "items/9mmclip1.wav" } 
 //  { event 5004 62 "items/9mmclip1.wav" } 
 // }
-$sequence "draw" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "draw_lowkey" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "draw" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_mag60_selected.wav" }  { event 5004 5 "default_draw.wav" } 
 //$sequence "draw_fast" "draw_fast" fps 48 
 $sequence "holster" "holster" fps 24 
 

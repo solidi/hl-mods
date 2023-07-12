@@ -79,7 +79,8 @@ $sequence "attack3hit_both" "attack3hit_both_shift" fps 24
 $sequence "attack3miss_both" "attack3miss_both_shift" fps 24 
 $sequence "pull_back_both" "pull_back_both_shift" fps 30 { event 5004 0 "pull_back.wav" }
 $sequence "throw_both" "throw_both_shift" fps 45 { event 5005 0 "wrench_getsome.wav" } 
-$sequence "draw_both" "draw_both_shift" fps 30 { event 5004 0 "wrench_draw.wav" } { event 5004 5 "wrench_draw.wav" }
+$sequence "draw_both_lowkey" "draw_both_shift" fps 30 { event 5004 0 "wrench_draw.wav" } { event 5004 5 "wrench_draw.wav" }
+$sequence "draw_both" "draw_both_shift" fps 30 { event 5004 0 "wrench_draw.wav" } { event 5005 2 "dual_wrench_selected.wav" } { event 5004 5 "wrench_draw.wav" }
 $sequence "holster_both" "holster_both_shift2" fps 24 
 
 // End of QC script.

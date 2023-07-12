@@ -68,6 +68,8 @@ Beta 4 Features:
     - Improved "hud_fastswitch" to cycle through weapons in a slot
     - Added HEV hands when dead for authentic effect
     - "cl_customtempents [0|1]" - for increased temporary entities support
+    - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
+    - Added the "hev" voiceover sound pack
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -600,6 +602,7 @@ Client:
 - "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
 - "cl_radar [0|1]" enables or disables player radar
 - "cl_customtempents [0|1]" - for increased temporary entities support
+- "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
 
 Server:
 

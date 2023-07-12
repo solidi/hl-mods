@@ -85,7 +85,8 @@ $sequence "idle" "idle" fps 5 loop
 $sequence "shoot" "shoot_shift2" fps 10 { event 5001 0 "4" } { event 5011 2 "4" } 
 $sequence "shoot_right" "shoot_right" fps 10 { event 5001 0 "4" } 
 $sequence "shoot_left" "shoot_left" fps 10 { event 5011 0 "4" } 
-$sequence "draw" "draw_shift2" fps 10 { event 5004 0 "default_draw.wav" } { event 5004 2 "default_draw.wav" }
+$sequence "draw_lowkey" "draw_shift2" fps 9 { event 5004 0 "default_draw.wav" } { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw_shift2" fps 10 { event 5004 0 "default_draw.wav" } { event 5004 2 "default_draw.wav" } { event 5005 3 "dual_sawedoff_selected.wav" } 
 $sequence "reload" "reload_shift2" fps 12 {
   { event 5004 0 "sawedoff_click.wav" } 
   { event 5004 2 "sawedoff_click.wav" } 

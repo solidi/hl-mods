@@ -119,12 +119,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Grapple hook support for bots
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
     1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
+    1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
+    1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
     1. [x] Hand cannon
-    1. [ ] Dual hand cannon
+    1. [x] Dual hand cannon
+    1. [ ] Explosive shells to dragons breath, light on fire?
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Increase accuracy of weapons when in ironsights mode
@@ -270,6 +273,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
+        1. [ ] Hand grenade blows up on contact with enemy
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. [ ] C4 mine placement with satchels
     1. [ ] Convert throw-hold effect to all other weapons for control
