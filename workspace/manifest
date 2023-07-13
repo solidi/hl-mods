@@ -603,8 +603,8 @@ sound\hev\dual_usas_selected.wav
 sound\hev\dual_railgun_selected.wav
 sound\hev\dual_rpg_selected.wav
 sound\hev\dual_flamethrower_selected.wav
-sound\hev\sawed_off_selected.wav
-sound\hev\sawed_off_selected.wav
+sound\hev\sawedoff_selected.wav
+sound\hev\dual_sawedoff_selected.wav
 sound\sentences.txt
 sound\materials.txt
 sound\vest_selected.wav

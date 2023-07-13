@@ -53,8 +53,8 @@ Whats Included:
 42. "Quake II Railguns" (dual_railgun_selected.wav)
 43. "50-lb Automatic LAW Rocket Launchers" (dual_rpg_selected.wav)
 44. "Viserion's Flamethrowers" (dual_flamethrower_selected.wav)
-45. "Sawed off shotgun" (sawed_off_selected.wav)
-46. "Dual Sawed off shotguns" (sawed_off_selected.wav)
+45. "Sawed off shotgun" (sawedoff_selected.wav)
+46. "Dual Sawed off shotguns" (dual_sawedoff_selected.wav)
 
 Credits:
 
