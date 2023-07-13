@@ -47,6 +47,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redisthddir\sound)
     [void](New-Item -ItemType directory -Path $redistdir\sound\weapons)
     [void](New-Item -ItemType directory -Path $redistdir\sound\player)
+    [void](New-Item -ItemType directory -Path $redistdir\sound\hev)
     [void](New-Item -ItemType directory -Path $redistDir\media)
 }
 
@@ -136,6 +137,7 @@ catch
     Write-Error "$($_.Exception.Message)"
 }
 
+Write-Output "Copying sound files..."
 Copy-Item $soundDir\clustergrenades_selected.wav $redistdir\sound
 Copy-Item $soundDir\grapple_deploy.wav $redistdir\sound
 Copy-Item $soundDir\grapple_hit.wav $redistdir\sound
@@ -316,5 +318,9 @@ Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 
 Copy-Item $soundDir\sentences.txt $redistdir\sound
 Copy-Item $soundDir\materials.txt $redistdir\sound
+
+# Sound packs
+Write-Output "Copying voice-overs..."
+Copy-Item -Recurse -Force -Path $soundDir\hev\* -Destination $redistdir\sound\hev
 
 Set-Location -Path ${PSScriptRoot}

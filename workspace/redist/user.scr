@@ -314,4 +314,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_voiceoverpath"
+	{
+		"#Ice_VoiceoverPath"
+		{ STRING }
+		{ "" }
+	}
 }

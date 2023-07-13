@@ -123,7 +123,8 @@ $sequence "RELOAD" "RELOAD" fps 39 {
   { event 5004 71 "deagle_reload3.wav" } 
   { event 5016 72 "0" } 
  }
-$sequence "draw" "DEPLOY" fps 65 { event 5004 0 "deagle_deploy.wav" } { event 5004 15 "deagle_deploy.wav" } 
+$sequence "draw_lowkey" "DEPLOY" fps 65 { event 5004 0 "deagle_deploy.wav" } { event 5004 15 "deagle_deploy.wav" } 
+$sequence "draw" "DEPLOY" fps 65 { event 5004 0 "deagle_deploy.wav" } { event 5005 2 "dual_deagle_selected.wav" } { event 5004 15 "deagle_deploy.wav" } 
 $sequence "HOLSTER" "HOLSTER" fps 42 
 $sequence "FIRE_BOTH" "FIRE_BOTH" fps 30 { event 5001 0 "31" } { event 5001 4 "31" }
 $sequence "IDLE_LEFTEMPTY" "IDLE_LEFTEMPTY" fps 30 loop 

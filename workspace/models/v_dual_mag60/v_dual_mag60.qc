@@ -112,7 +112,8 @@ $sequence "RELOAD" "RELOAD" fps 39 {
   { event 5004 71 "deagle_reload3.wav" } 
   { event 5016 72 "0" } 
  }
-$sequence "draw" "DEPLOY" fps 65 { event 5004 0 "deagle_deploy.wav" } { event 5004 15 "deagle_deploy.wav" } 
+$sequence "draw_lowkey" "DEPLOY" fps 65 { event 5004 0 "deagle_deploy.wav" } { event 5004 15 "deagle_deploy.wav" } 
+$sequence "draw" "DEPLOY" fps 65 { event 5004 0 "deagle_deploy.wav" } { event 5005 2 "dual_mag60_selected.wav" } { event 5004 15 "deagle_deploy.wav" } 
 $sequence "HOLSTER" "HOLSTER" fps 42 
 
 // End of QC script.

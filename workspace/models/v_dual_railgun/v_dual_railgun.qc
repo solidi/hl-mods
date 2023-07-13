@@ -59,7 +59,7 @@ $sequence "fire_both" "fire_both_shift2" fps 30
 $sequence "fire_right" "fire_right" fps 30 
 $sequence "fire_left" "fire_left" fps 30 
 $sequence "holster" "holster" fps 60
-$sequence "draw_lowkey" "draw_shift3" fps 60 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw_shift3" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "railgun_selected.wav" }
+$sequence "draw_lowkey" "draw_shift3" fps 60 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "draw" "draw_shift3" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_railgun_selected.wav" } { event 5004 5 "default_draw.wav" }
 
 // End of QC script.

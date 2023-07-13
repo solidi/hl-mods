@@ -96,7 +96,8 @@ $sequence "reload" "reload" fps 11 {
   { event 5004 16 "weapons/reload1.wav" } 
   { event 5004 19 "sawedoff_click.wav" } 
  }
-$sequence "draw" "draw" fps 9 { event 5004 0 "default_draw.wav" } 
+$sequence "draw_lowkey" "draw" fps 9 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 9 { event 5004 0 "default_draw.wav" } { event 5005 0 "sawedoff_selected.wav" } 
 $sequence "holster" "holster" fps 9 
 
 // End of QC script.
