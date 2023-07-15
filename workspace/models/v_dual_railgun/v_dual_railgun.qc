@@ -25,8 +25,8 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "r_railgun"
-$body "body" "l_railgun"
+$body "body" "railgun_right"
+$body "body" "railgun_left"
 
 $texturegroup ice
 {
@@ -41,6 +41,15 @@ $texturegroup ice
   }
   {
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
   }
 }
 

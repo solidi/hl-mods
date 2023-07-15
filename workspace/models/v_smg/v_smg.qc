@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "mp5sd"
+$body "studio" "smg"
 
 $texturegroup ice
 {
@@ -76,6 +76,45 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\PLAYER_ForeArm1.bmp"
+  }
+  {
+    "buttstockrear.bmp"
+    "clip.bmp"
+    "glback.bmp"
+    "gunbodyrear.bmp"
+    "gunsidemap.bmp"
+    "handleback.bmp"
+    "HK_chrome.bmp"
+    "sighttop.bmp"
+    "Silencerback.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\hd\iceSleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\hd\iceSleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\hd\iceSleeve.bmp"
   }
 }
 

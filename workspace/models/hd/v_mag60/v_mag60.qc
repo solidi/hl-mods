@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "smg_reference"
+$body "body" "mag60"
 
 $texturegroup ice
 {
@@ -54,6 +54,27 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "body.bmp"
+    "body2.bmp"
+    "clip.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }

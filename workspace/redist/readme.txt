@@ -35,6 +35,7 @@ Beta 4 Features:
     - Combined all world weapon models into one file
     - Snowballs and Chumtoads have their own ammo count
     - Added HD arcade cabinet
+    - Added silver, gold, and real skin + blue hev
 - Player Combat
     - Weapons are enabled weapons while sliding
     - Sliding is more effective at damaging opponets
@@ -563,11 +564,14 @@ Client:
 - "drop_rune" - Drop rune
 - "feign" - Fake your death
 - "snowman" - God mode (when sv_cheats 1)
-- "cl_icemodels [0-3]" - Ice Models - To switch between weapon ice skins and real skins
+- "cl_icemodels [0-6]" - Ice Models - To switch between weapon ice skins and real skins
     - "0" - real skin
     - "1" - original inverted skin
     - "2" - 1.75 blue ice skin
     - "3" - Cold Ice Remastered edition skin
+    - "4" - real skin + blue hev
+    - "5" - silver skin
+    - "6" - gold skin
 - "cl_oldscoreboard [0|1]" - Old Scoreboard - To switch between old and new style scoreboards
 - "cl_oldmotd [0|1]" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
 - "cl_viewroll [0|1]" - Old View Roll - To switch between view roll during movement

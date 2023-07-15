@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "pw_reference"
+$body "studio" "pipewrench"
 
 $texturegroup ice
 {
@@ -46,6 +46,21 @@ $texturegroup ice
   }
   {
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "pipewrench.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }

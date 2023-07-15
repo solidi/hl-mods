@@ -27,7 +27,7 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "body" "vchub_Template(Hands)1"
 
-$body "body" "vchub_Template(toad)2"
+$body "body" "chumtoad"
 
 $texturegroup ice
 {
@@ -58,6 +58,27 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "CHB_Side1.BMP"
+    "CHB_Tounge1.BMP"
+    "eye.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 

@@ -25,9 +25,9 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "SQUEAK_Template_Biped(Hand)1"
+$body "body" "squeak_hand"
 
-$body "body" "SQUEAK_Template_Biped(Weapon)1"
+$body "body" "squeak"
 
 $texturegroup ice
 {
@@ -66,6 +66,33 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "Chrome1.bmp"
+    "SQK_Eye1.BMP"
+    "SQK_Mouth1.BMP"
+    "SQK_Side1.BMP"
+  }
+  {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
 }
 

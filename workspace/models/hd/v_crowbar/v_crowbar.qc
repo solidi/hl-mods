@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "sp_reference"
+$body "body" "pipecrowbar"
 
 $texturegroup ice
 {
@@ -54,6 +54,27 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "bottom.bmp"
+    "nut.bmp"
+    "top.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "v_egon_reference"
+$body "body" "egon"
 
 $body "body" "v_gordon_hands_reference"
 
@@ -48,6 +48,21 @@ $texturegroup ice
   }
   {
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "v_egon_reference.BMP"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }

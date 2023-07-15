@@ -55,6 +55,24 @@ $texturegroup ice
     "..\xbow_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
   }
+  {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\xbow_sleeve.bmp"
+    "pallo.bmp"
+  }
+  {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\xbow_sleeve.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\xbow_sleeve.bmp"
+    "..\goldCHROME.bmp"
+  }
 }
 
 // attachment(s)

@@ -57,6 +57,27 @@ $texturegroup ice
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }
+  {
+    "barrel.bmp"
+    "body.bmp"
+    "round.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
 }
 
 

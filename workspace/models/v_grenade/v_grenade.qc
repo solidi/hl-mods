@@ -63,6 +63,30 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+    "spoont.bmp"
+    "grenCHROME.bmp"
+    "grenade3.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
 }
 
 // attachment(s)

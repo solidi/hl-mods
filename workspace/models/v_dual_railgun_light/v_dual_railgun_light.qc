@@ -43,6 +43,15 @@ $texturegroup ice
   {
     "Skin.bmp"
   }
+  {
+    "Skin_Red.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
 }
 
 // attachment(s)

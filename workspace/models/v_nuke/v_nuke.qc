@@ -30,7 +30,7 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "body" "rpg_rocket"
 
-$body "body" "blowpipe"
+$body "body" "nuke"
 
 $body "body" "rpg_hand"
 
@@ -84,6 +84,45 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "box.bmp"
+    "chrome.bmp"
+    "handle.bmp"
+    "nk_base1.bmp"
+    "nk_base2.bmp"
+    "ring.bmp"
+    "rocket.bmp"
+    "rocketmotor.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
     "..\GLOVED_sleeve.bmp"

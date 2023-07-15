@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "ph-oldarm"
+$body "body" "gravitygun"
 
 $texturegroup ice
 {
@@ -52,6 +52,24 @@ $texturegroup ice
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_sleeve.bmp"
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "v_physcannon_sheet.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\goldCHROME.bmp"
   }
 }
 

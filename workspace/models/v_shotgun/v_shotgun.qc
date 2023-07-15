@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "v_shotgun_reference"
+$body "studio" "shotgun"
 
 $body "studio" "shell"
 
@@ -74,6 +74,39 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "barrel_chrome.bmp"
+    "barrelltop.bmp"
+    "bodyback.bmp"
+    "grip.bmp"
+    "handle.bmp"
+    "shell.bmp"
+    "sidemap.bmp"
+    "sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
 }
 

@@ -49,6 +49,21 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\PLAYER_ForeArm1.bmp"
   }
+  {
+    "m16base1.bmp"
+    "m16base2.bmp"
+    "..\PLAYER_ForeArm1.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\PLAYER_ForeArm1.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\PLAYER_ForeArm1.bmp"
+  }
 }
 
 

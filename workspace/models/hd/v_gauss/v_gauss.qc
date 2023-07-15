@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "gun" "v_gauss_reference"
+$body "gun" "gauss"
 
 $texturegroup ice
 {
@@ -48,6 +48,21 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "gaussCHROME.BMP"
+    "glow.BMP"
+    "V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 

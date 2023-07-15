@@ -63,6 +63,24 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "lensCHROME.bmp"
+    "tripmine_reference.BMP"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
 }
 
 // hit box(es)

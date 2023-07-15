@@ -28,13 +28,13 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "de_reference_right"
+$body "studio" "deagle_right"
 
 $body "studio" "muzzleflash"
 
 $body "studio" "gordon_arms"
 
-$body "studio" "de_reference_left"
+$body "studio" "deagle_left"
 
 $texturegroup ice
 {
@@ -71,6 +71,33 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "de_body.bmp"
+    "de_grip.bmp"
+    "de_magazine.bmp"
+    "de_muzzle.bmp"
+    "de_slide.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }

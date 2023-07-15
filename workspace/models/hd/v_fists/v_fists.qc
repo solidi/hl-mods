@@ -45,6 +45,18 @@ $texturegroup ice
     "ice_HEV_arm.bmp"
     "ice_HEV_leg_&_glove.bmp"
   }
+  {
+    "ice_HEV_arm.bmp"
+    "ice_HEV_leg_&_glove.bmp"
+  }
+  {
+    "ice_HEV_arm.bmp"
+    "ice_HEV_leg_&_glove.bmp"
+  }
+  {
+    "ice_HEV_arm.bmp"
+    "ice_HEV_leg_&_glove.bmp"
+  }
 }
 
 // hit box(es)

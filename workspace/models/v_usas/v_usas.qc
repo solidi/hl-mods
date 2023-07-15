@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "mp5sd"
+$body "studio" "usas"
 
 $texturegroup ice
 {
@@ -40,6 +40,15 @@ $texturegroup ice
   }
   {
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "body.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
   }
 }
 
