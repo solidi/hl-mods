@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "crowbar_reference"
+$body "studio" "rocketcrowbar"
 
 $texturegroup ice
 {
@@ -61,6 +61,33 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "chrome_red.bmp"
+    "chrome.bmp"
+    "rocket.bmp"
+    "rocketmotor.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_knuckle.bmp"
     "..\GLOVED_sleeve.bmp"

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "v_Hgun_Template_Biped1"
+$body "body" "hgun"
 
 $texturegroup ice
 {
@@ -52,6 +52,24 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "HGUN_Back1.bmp"
+    "HGUN_Bottom1.BMP"
+    "HGUN_Cheek1.bmp"
+    "HGUN_Horn1.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
 }
 

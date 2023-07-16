@@ -55,6 +55,24 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "det_chrome.bmp"
+    "detonata'  bod.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
 }
 
 // hit box(es)

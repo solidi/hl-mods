@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "v_flak"
+$body "body" "cannon"
 
 $texturegroup ice
 {
@@ -48,6 +48,21 @@ $texturegroup ice
     "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceSleeve.bmp"
+    "flak_cannon.bmp"
+    "flak_coolant.bmp"
+  }
+  {
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 

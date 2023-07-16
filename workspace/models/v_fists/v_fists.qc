@@ -49,6 +49,21 @@ $texturegroup ice
     "..\GLOVE_handpak.bmp.bmp"
     "..\xbow_sleeve.bmp"
   }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+  }
+  {
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+  }
 }
 
 // hit box(es)

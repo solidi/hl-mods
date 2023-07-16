@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "pp_ref_hd"
+$body "studio" "12gauge"
 
 $texturegroup ice
 {
@@ -56,6 +56,27 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "barrel.bmp"
+    "pumpbody.bmp"
+    "round.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 

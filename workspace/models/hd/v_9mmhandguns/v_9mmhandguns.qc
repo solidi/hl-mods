@@ -27,7 +27,7 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "hands" "v_gordon_hands_ref"
 
-$body "beretta" "v_beretta_reference"
+$body "beretta" "beretta"
 
 $body "clip" "clip_reference"
 
@@ -76,6 +76,36 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
+  }
+  {
+    "bulletCHROME.BMP"
+    "chrome_black.BMP"
+    "gclip.bmp"
+    "gclipinside.bmp"
+    "v_beretta_bottom.BMP"
+    "v_beretta_main.BMP"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
+  }
+  {
+    "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }

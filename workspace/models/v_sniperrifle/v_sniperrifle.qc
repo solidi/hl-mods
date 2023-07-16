@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "sniper_reference5_remap"
+$body "body" "sniperrifle"
 
 $texturegroup ice
 {
@@ -76,6 +76,42 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_sleeve.bmp"
+    "barrelchrome.bmp"
+    "bodyside.bmp"
+    "clip.bmp"
+    "laserchrome.bmp"
+    "lenschrome1.bmp"
+    "scope_bevel.bmp"
+    "sight_rear.bmp"
+    "sight_wheel.bmp"
+    "sightclip.bmp"
+  }
+  {
+    "..\GLOVED_sleeve.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_sleeve.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
 }
 

@@ -27,7 +27,7 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "hands" "REF_hands"
 
-$body "weapons" "REF_FA_M16"
+$body "weapons" "m16"
 
 $body "weapons" "REF_Gren"
 
@@ -83,6 +83,42 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
+  }
+  {
+    "40mmHE.bmp"
+    "barrel.bmp"
+    "bullet_reflect.BMP"
+    "frame_M16.bmp"
+    "Grip_M16.bmp"
+    "handguard.bmp"
+    "m203.bmp"
+    "magazine.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\iceSleeve.bmp"
+    "..\iceGlove.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }

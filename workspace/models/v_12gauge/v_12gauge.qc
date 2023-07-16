@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "v_tfc_12gauge_reference_REMAP"
+$body "studio" "12gauge"
 
 $body "studio" "shell"
 
@@ -61,6 +61,30 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "12gauge_chrome.bmp"
+    "12gauge_pump.bmp"
+    "12gauge_receiver.bmp"
+    "12gauge_stock.bmp"
+    "shell.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
     "..\GLOVED_sleeve.bmp"
   }
 }

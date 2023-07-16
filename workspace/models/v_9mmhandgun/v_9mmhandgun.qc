@@ -25,14 +25,14 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "glock_reference"
+$body "studio" "glock"
 
 $body "studio" "clip_reference"
 
 $bodygroup "silencer"	
 {	
 blank	
-studio "glock_reference(silencer)"	
+studio "glock(silencer)"	
 }
 
 $texturegroup ice
@@ -77,6 +77,39 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "back.bmp"
+    "side.bmp"
+    "chrome.bmp"
+    "top.bmp"
+    "gclip.bmp"
+    "gclipinside.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
     "..\GLOVED_knuckle.bmp"
     "..\GLOVE_handpak.bmp.bmp"
     "..\GLOVED_sleeve.bmp"

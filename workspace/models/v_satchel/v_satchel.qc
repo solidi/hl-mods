@@ -71,6 +71,36 @@ $texturegroup ice
     "..\GLOVED_knuckle.bmp"
     "..\GLOVED_sleeve.bmp"
   }
+  {
+    "buckleCHROME.bmp"
+    "expl.bmp"
+    "radioside.bmp"
+    "satchel_body.bmp"
+    "strap.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
 }
 
 

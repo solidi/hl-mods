@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "spanner_remap"
+$body "studio" "wrench"
 
 $texturegroup ice
 {
@@ -53,6 +53,27 @@ $texturegroup ice
   {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp.BMP"
+    "..\GLOVED_knuckle.BMP"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp.BMP"
+    "..\GLOVED_knuckle.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp.BMP"
+    "..\GLOVED_knuckle.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
     "..\GLOVED_sleeve.bmp"
     "..\GLOVE_handpak.bmp.BMP"
     "..\GLOVED_knuckle.BMP"

@@ -28,13 +28,13 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "glock_reference_right"
+$body "studio" "mag60_right"
 
 $body "studio" "muzzleflash"
 
 $body "studio" "sd_arms_reference"
 
-$body "studio" "glock_reference_left"
+$body "studio" "mag60_left"
 
 $texturegroup ice
 {
@@ -80,6 +80,39 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\GLOVED_knuckle.bmp"
     "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "back.bmp"
+    "side.bmp"
+    "chrome.bmp"
+    "top.bmp"
+    "gclip.bmp"
+    "gclipinside.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVED_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
     "..\GLOVED_sleeve.bmp"
   }
 }

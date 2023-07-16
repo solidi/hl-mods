@@ -71,6 +71,36 @@ $texturegroup ice
     "..\GLOVED_knuckle.bmp"
     "..\xbow_sleeve.bmp"
   }
+  {
+    "det_front.bmp"
+    "det_side.bmp"
+    "detbutn_bright.bmp"
+    "dettop.bmp"
+    "flapchrome.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\xbow_sleeve.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\xbow_sleeve.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp.bmp"
+    "..\GLOVED_knuckle.bmp"
+    "..\xbow_sleeve.bmp"
+  }
 }
 
 

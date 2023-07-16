@@ -59,6 +59,24 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
+  {
+    "..\iceSleeveExt.bmp"
+    "..\iceGlove.bmp"
+    "plasma_v_alpha.bmp"
+    "plasma_v.bmp"
+  }
+  {
+    "..\iceSleeveExt.bmp"
+    "..\iceGlove.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceSleeveExt.bmp"
+    "..\iceGlove.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
 }
 
 $texrendermode "plasma_v_alpha.bmp" "additive" 

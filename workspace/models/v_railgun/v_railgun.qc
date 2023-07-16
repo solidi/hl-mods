@@ -42,6 +42,15 @@ $texturegroup ice
   {
     "..\hd\iceCHROME.bmp"
   }
+  {
+    "Skin.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+  }
 }
 
 // attachment(s)

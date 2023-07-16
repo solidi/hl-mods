@@ -63,10 +63,34 @@ $texturegroup ice
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "brass_chrome.BMP"
+    "psx_v_satchel.BMP"
+    "psx_v_satchel2.BMP"
+    "psx_v_satchel3.BMP"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
 }
 
 
-// 8 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 L Hand" 0.000000 -0.960000 -1.820000 3.910000 3.999003 1.710000
 $hbox 0 "psx_v_satchel" -4.870000 -5.920000 -4.660000 5.050000 4.320000 4.890000
 $hbox 0 "Bone01" -0.836786 -0.240000 -2.177715 0.450000 1.124343 0.040000
@@ -76,7 +100,7 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.990000 -1.710000 3.920000 0.870000 1.820000
 $hbox 0 "Bip01 R Finger0" 0.000000 -0.940000 -1.000000 2.450000 0.390000 0.540000
 $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
-// 4 animation sequence(s)
+// animation sequence(s)
 $sequence "idle1" "idle1" fps 20 loop 
 $sequence "fidget1" "fidget1" fps 30 
 $sequence "draw" "draw" fps 45 { event 5004 0 "default_draw.wav" } 

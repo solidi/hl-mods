@@ -55,6 +55,18 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
+  {
+    "v_portalgun_glass.bmp"
+    "v_portalgun.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
 }
 
 // hit box(es)

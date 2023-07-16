@@ -29,7 +29,7 @@ $body "hands" "rh_hev"
 
 $body "hands" "lh_hev"
 
-$body "weapon" "v_ref"
+$body "weapon" "chainsaw"
 
 $texturegroup ice
 {
@@ -52,6 +52,21 @@ $texturegroup ice
     "..\iceSleeveExt.bmp"
     "..\iceGlove.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceSleeveExt.bmp"
+    "..\iceGlove.bmp"
+    "chainsaw_v.BMP"
+  }
+  {
+    "..\iceSleeveExt.bmp"
+    "..\iceGlove.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceSleeveExt.bmp"
+    "..\iceGlove.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 

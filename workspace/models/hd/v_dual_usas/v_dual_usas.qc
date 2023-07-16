@@ -69,6 +69,27 @@ $texturegroup ice
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }
+  {
+    "USAS-1.bmp"
+    "USAS-2.bmp"
+    "USAS-3.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
 }
 
 // attachment(s)

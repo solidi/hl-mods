@@ -187,6 +187,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Race to bottom (most deaths wins)
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
 1. Future Game Mutators
+    1. [ ] Golden Gun - all guns are gold, bullets kill in one shot
     1. [ ] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
     1. [x] All obtain long jump module
@@ -303,7 +304,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] Ice hands in addition
-    1. [ ] Blue arms + real skins
+    1. [x] Blue arms + real skins
     1. [ ] Additional attachment values for configurable speeds and fov
     1. [ ] Damage / blood / stains on view model and player as seen in bhl
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
@@ -375,8 +376,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Models
-    1. [ ] Gold Skin? (Radu Matei Ionut)
-    1. [ ] Silver Skin?
+    1. [x] Gold Skin? (Radu Matei Ionut)
+    1. [x] Silver Skin?
     1. [ ] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)

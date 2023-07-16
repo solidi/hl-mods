@@ -52,6 +52,21 @@ $texturegroup ice
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
   }
+  {
+    "pipewrench.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+  }
 }
 
 $origin 0 0 -5

@@ -64,6 +64,30 @@ $texturegroup ice
     "blue_PLAYER_LegBck1.bmp"
     "blue_PLAYER_Legs1.bmp"
   }
+  {
+    "blue_PLAYER_Boots.bmp"
+    "blue_PLAYER_Calf1.bmp"
+    "blue_PLAYER_FootTop1.bmp"
+    "blue_PLAYER_Knee-Bck1.bmp"
+    "blue_PLAYER_LegBck1.bmp"
+    "blue_PLAYER_Legs1.bmp"
+  }
+  {
+    "blue_PLAYER_Boots.bmp"
+    "blue_PLAYER_Calf1.bmp"
+    "blue_PLAYER_FootTop1.bmp"
+    "blue_PLAYER_Knee-Bck1.bmp"
+    "blue_PLAYER_LegBck1.bmp"
+    "blue_PLAYER_Legs1.bmp"
+  }
+  {
+    "blue_PLAYER_Boots.bmp"
+    "blue_PLAYER_Calf1.bmp"
+    "blue_PLAYER_FootTop1.bmp"
+    "blue_PLAYER_Knee-Bck1.bmp"
+    "blue_PLAYER_LegBck1.bmp"
+    "blue_PLAYER_Legs1.bmp"
+  }
 }
 
 // attachment(s)

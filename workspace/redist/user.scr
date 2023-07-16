@@ -50,6 +50,9 @@ DESCRIPTION INFO_OPTIONS
 			"Inverted" "1"
 			"Classic" "2"
 			"Special Edition" "3"
+			"Real Life + Blue HEV" "4"
+			"Silver" "5"
+			"Gold" "6"
 		}
 		{ "2" }
 	}

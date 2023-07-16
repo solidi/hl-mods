@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "mg_ref_hd"
+$body "body" "chaingun"
 
 // Slightly pull foward, and rotate right.
 $origin 0 2 0 2
@@ -52,6 +52,21 @@ $texturegroup ice
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "chrome1.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 

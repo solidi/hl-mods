@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "v_spas12_reference_test"
+$body "studio" "spas12"
 
 $body "studio" "v_gordon_hands_reference"
 
@@ -50,6 +50,21 @@ $texturegroup ice
     "..\iceGlove.bmp"
     "..\iceSleeve.bmp"
     "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceGlove.bmp"
+    "Spas12_Reference.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
+    "..\..\goldCHROME.bmp"
   }
 }
 
