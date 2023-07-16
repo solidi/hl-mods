@@ -22,10 +22,11 @@ Beta 4 Features:
         - Fire Right / Fire Left / Fire Both
     - Dual Sawed Off Cannons
         - Fire Right / Fire Left / Fire Both
-- 3 New Maps
+- 4 New Maps
     - quadfrost, a rebuild of doublefrost by Napoleon
     - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
     - thechill, a reskin by AudioCraZ of thehill by Dario Casali
+    - frostmill, a reskin by AudioCraZ of rustmill by John Guthrie and Dave Riller
 - Weapon Changes
     - Decoy bombs deploy as animated assassins
     - Tighten flak primary fire
@@ -802,3 +803,4 @@ Thanks To:
 - Valve, Romka, A.I. for the scientist HEV suit player model https://gamebanana.com/mods/179924
 - Nexon for the HD arcade cabinet, and updated skins by Napoleon
 - International Minds for select base skeletal animations https://www.moddb.com/mods/crack-life/downloads/crack-life-anniversary-v11
+- The Counter-Strike team for the skylake_ skybox used in frostmill

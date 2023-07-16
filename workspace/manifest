@@ -97,6 +97,12 @@ gfx\env\cirnightmont1ft.tga
 gfx\env\cirnightmont1lf.tga
 gfx\env\cirnightmont1rt.tga
 gfx\env\cirnightmont1up.tga
+gfx\env\cirsnowlake1bk.tga
+gfx\env\cirsnowlake1dn.tga
+gfx\env\cirsnowlake1ft.tga
+gfx\env\cirsnowlake1lf.tga
+gfx\env\cirsnowlake1rt.tga
+gfx\env\cirsnowlake1up.tga
 gfx\shell
 gfx\shell\kb_act.lst
 gfx\shell\kb_def.lst
@@ -162,6 +168,10 @@ maps\snow_camp.wpt
 maps\ice_pit.bsp
 maps\ice_pit.res
 maps\ice_pit.wpt
+maps\frostmill.bsp
+maps\frostmill.res
+maps\frostmill.wpt
+maps\frostmill.txt
 maps\frozen_bunker.bsp
 maps\frozen_bunker.res
 maps\frozen_bunker.wpt
@@ -429,6 +439,8 @@ overviews\furrow.bmp
 overviews\furrow.txt
 overviews\ice_pit.bmp
 overviews\ice_pit.txt
+overviews\frostmill.bmp
+overviews\frostmill.txt
 overviews\frozen_bunker.bmp
 overviews\frozen_bunker.txt
 overviews\frozenwarehouse.bmp
