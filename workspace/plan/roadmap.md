@@ -98,7 +98,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Launch quadfrost in Feb 2023 as an add on
     1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
     1. [x] thehill
-    1. [ ] rustmill
+    1. [x] rustmill
 1. Game Modes
     1. [x] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
     1. [x] Capture the Chumtoad (Audiocraz)

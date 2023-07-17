@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.60
+	ORIGIN	-1238 	572	-70
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/frostmill.bmp"
+	HEIGHT	-669
+}
