@@ -64,6 +64,8 @@ Beta 4 Features:
 - Single Player Gameplay
     - Chapter Selection Menu
 - Runes
+    - Added "Ammo" rune - yellow - continually add ammo
+    - "Strength" rune changed from yellow to purple
     - Runes no longer spawn in single player mode
 - Client Support
     - Added player radar for discovery of enemies
@@ -713,7 +715,7 @@ Thanks To:
 - MyInstants.com, soundboard.com, movie-sounds.org and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
 - RealPatryQVortex for the combat knife https://gamebanana.com/skins/174427
 - Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
-- GearBox for select sound effects and hud sprites from Opposing Force
+- GearBox for select sound effects, models, and hud sprites from Opposing Force
 - [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26
 - Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694
 - L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544

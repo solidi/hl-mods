@@ -110,6 +110,7 @@ try {
     Compile-Sprite $binDir "flamepart12" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "flamepart13" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "nuke_flicker" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "640hudrunes" $spritesDir $redistdir\sprites
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
