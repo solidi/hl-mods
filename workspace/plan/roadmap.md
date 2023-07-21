@@ -138,6 +138,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
     1. [ ] Assisted frag credit in iceman
 1. Client
+    1. [ ] Time remaining counter like op4dm
     1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
     1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
     1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)

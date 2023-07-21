@@ -67,6 +67,7 @@ Beta 4 Features:
     - Added "Ammo" rune - yellow - continually add ammo
     - "Strength" rune changed from yellow to purple
     - Runes no longer spawn in single player mode
+    - Improved spawning of runes
 - Client Support
     - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot

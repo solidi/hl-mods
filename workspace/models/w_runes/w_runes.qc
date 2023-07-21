@@ -18,9 +18,6 @@ $cdtexture ".\"
 $scale 1.0
 $cliptotextures
 
-// Pop up original model origin a bit.
-$origin 0 0 -16
-
 
 $bbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 $cbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
@@ -46,9 +43,8 @@ studio "cir"
 // hit box(es)
 $hbox 0 "origin" -9.940000 0.000000 -9.830000 10.050000 24.000000 9.410000
 $hbox 0 "ring1" -16.580000 -0.880000 -16.070000 16.480000 1.000000 15.830000
-$hbox 0 "ring2" -16.580000 -0.800000 -16.070000 16.480000 1.080000 15.830000
 
 // animation sequence(s)
-$sequence "idle" "idle2" fps 12 loop ACT_IDLE 1 
+$sequence "spin" "spin" fps 12 loop ACT_IDLE 1 
 
 // End of QC script.
