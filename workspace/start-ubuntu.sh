@@ -9,7 +9,8 @@ skipDistro=0
 debug=0
 singlePlayer=0
 detailTextures=0
-while getopts "m:h:s:d:p:t:" flag
+mapName=snowyard
+while getopts "m:h:s:d:p:t:w:" flag
 do
     case "${flag}" in
         m) maxplayers=${OPTARG};;
@@ -18,11 +19,13 @@ do
         d) debug=${OPTARG};;
         p) singlePlayer=${OPTARG};;
         t) detailTextures=${OPTARG};;
+        w) mapName=${OPTARG};;
     esac
 done
 echo "maxplayers is $maxplayers...";
 echo "hi-def models is $hiDef...";
 echo "skip distro is $skipDistro...";
+echo "map is $mapName...";
 
 function doCopy() {
     echo 'Copying so libs to redist...'
@@ -65,7 +68,7 @@ if [[ $debug -eq 1 ]]; then
     export LD_LIBRARY_PATH=~/.steam/debian-installation/steamapps/common/Half-Life:~/.steam/bin32/steam-runtime/usr/lib/i386-linux-gnu:~/.steam/bin32/steam-runtime/lib/i386-linux-gnu
     ulimit -c unlimited
     cd ~/.steam/debian-installation/steamapps/common/Half-Life
-    gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +developer 2 +log on +sv_lan 1 +map snowyard +deathmatch 1 +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
+    gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
 else
-    steam steam://rungameid/70//-console%20-dev%20-condebug%20-game%20${icefolder}%20-zone%208192%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20snowyard%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
+    steam steam://rungameid/70//-console%20-dev%20-condebug%20-game%20${icefolder}%20-zone%208192%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20${mapName}%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
 fi
