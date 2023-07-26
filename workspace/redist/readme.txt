@@ -114,6 +114,7 @@ Beta 4 Features:
     - Fixed crash when sanic is enabled and client runs out of temp entities
     - Fixed chaos timer after map change
     - Fixed blood color in single player
+    - Fixed cannon hud sprite
 
 Beta 3 Features:
 
