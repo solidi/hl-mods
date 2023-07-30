@@ -11,7 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
-[int]$botCount = 0
+[int]$botCount = 20
 [int]$hdModels = 1
 [string]$map = "snowyard"
 [int]$teamplay = 0

@@ -53,7 +53,7 @@ $texturegroup ice
   }
   {
     "..\iceGlove.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve.bmp"
     "Spas12_Reference.bmp"
   }
   {

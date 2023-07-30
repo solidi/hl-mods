@@ -260,6 +260,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Snark
         1. [ ] Tripmine
         1. [ ] Clusters
+        1. [ ] Dual berettas (GSS #73 idea)
     1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
         1. [ ] your weapon takes 10x more the amount of damage
@@ -309,6 +310,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Additional attachment values for configurable speeds and fov
     1. [ ] Damage / blood / stains on view model and player as seen in bhl
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
+    1. [ ] Support mdl model [fullbrights] and sven texturerender mode using [this repo](https://github.com/BlueNightHawk/halflife_fullbright)
 1. Server Support
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
