@@ -13483,7 +13483,7 @@
 "classname" "light_environment"
 "angle" "-2"
 "pitch" "-45"
-"_light" "170 255 255 6000"
+"_light" "170 255 255 500"
 "origin" "-1968 1784 192"
 }
 {
