@@ -26,6 +26,8 @@ aurora\ice_FlameSteam6.aur
 aurora\ice_gib_flame_trail.aur
 aurora\smoke.aur
 aurora\SmokeExp.aur
+aurora\tracer_fire.aur
+aurora\ice_tracer_fire.aur
 cl_dlls
 cl_dlls\client.dll
 cl_dlls\client.dylib
@@ -403,6 +405,7 @@ models\v_sawedoff.mdl
 models\p_sawedoff.mdl
 models\v_dual_sawedoff.mdl
 models\p_dual_sawedoff.mdl
+models\w_tracer.mdl
 modes
 modes\iceman.txt
 modes\lms.txt
@@ -987,6 +990,7 @@ sprites\flamepart12.spr
 sprites\flamepart13.spr
 sprites\nuke_flicker.spr
 sprites\640hudrunes.spr
+sprites\gameicons2.spr
 liblist.gam
 ReadMe.txt
 settings.scr

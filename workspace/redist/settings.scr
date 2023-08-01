@@ -401,4 +401,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"sv_slowbullets"
+	{
+		"#Ice_SlowBullets"
+		{ BOOL }
+		{ "0" }
+	}
 }

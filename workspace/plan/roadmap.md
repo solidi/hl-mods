@@ -150,6 +150,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Head shot and first blood voice award announcements
 1. Game Mutators
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
+    1. [ ] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
 1. Single Player
     1. [x] [Chapter Select Menu](https://github.com/BlueNightHawk/testflight/commits/master?after=144d73f461c6b83c818131b0536d3450a4266e8a+34&branch=master&qualified_name=refs%2Fheads%2Fmaster)
 1. Environment look and feel
@@ -189,8 +190,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Future Game Mutators
+    1. [ ] [Not the hornets!](https://www.youtube.com/watch?v=oMeVxnFytJk&t=240s) Hornets randomly spawn and attack player.
+    1. [ ] Blue takis, hornetguns replaced with blue takis
+    1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
     1. [ ] Golden Gun - all guns are gold, bullets kill in one shot
-    1. [ ] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
+    1. [x] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
     1. [x] All obtain long jump module
     1. [ ] Continuous slide (crazydog)

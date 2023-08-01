@@ -55,6 +55,7 @@ Beta 4 Features:
         - "oldtime" - colors are black and white
         - "sildenafil" - all you see is blue
         - "longjump" - everyone has a long jump module
+        - "slowbullets" - all bullets are slowed down
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
@@ -75,6 +76,8 @@ Beta 4 Features:
     - "cl_customtempents [0|1]" - for increased temporary entities support
     - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
     - Added the "hev" voiceover sound pack
+- Server
+    - "sv_slowbullets [0|1]" - all bullets are slowed down
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -675,6 +678,7 @@ Server:
     - "oldtime" - colors are black and white
     - "sildenafil" - all you see is blue
     - "longjump" - everyone has a long jump module
+    - "slowbullets" - all bullets are slowed down
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -695,6 +699,7 @@ Server:
 - "mp_roundfraglimit" fraglimit in round before rotation, used for arena
 - "mp_startwithlives" amount of starting lives in last man standing
 - "sys_timescale" for experimental server time adjustment (slowmo, speedup)
+- "sv_slowbullets" - all bullets are slowed down
 
 Report Bugs:
 
