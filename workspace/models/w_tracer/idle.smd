@@ -1,0 +1,8 @@
+version 1
+nodes
+0 "tracer" -1
+end
+skeleton
+time 0
+0 0.000885 -3.963609 0.158802 1.570800 -0.000000 0.000004
+end
