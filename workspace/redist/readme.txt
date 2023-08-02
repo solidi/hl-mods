@@ -38,8 +38,9 @@ Beta 4 Features:
     - Added HD arcade cabinet
     - Added silver, gold, and real skin + blue hev
 - Player Combat
-    - Weapons are enabled weapons while sliding
+    - Weapons are enabled weapons while sliding and kicking
     - Sliding is more effective at damaging opponets
+    - Improved kick animation
 - Player Changes
     - Added feign ability using the command "feign"
 - Maps
