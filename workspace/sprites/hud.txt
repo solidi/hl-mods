@@ -1,4 +1,4 @@
-222
+223
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -239,6 +239,7 @@ chumxplode	640 gameicons	192	192	64	64
 longjump	640 640hud2	    176	96	44	44
 slowbullets	640 gameicons2	0	0	64	64
 paintball	640 gameicons2	64	0	64	64
+explosiveai	640 gameicons2	128	0	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64

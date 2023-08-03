@@ -208,7 +208,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [x] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
-    1. [ ] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
+    1. [x] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
     1. [ ] CrazyO - track reel of a person speaking
     1. [ ] Oneshot - 1 health start or reduce
     1. [x] Jope - All names turns to Jope
