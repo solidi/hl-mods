@@ -49,7 +49,7 @@ Beta 4 Features:
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - 6 New Mutators - supports combination and randomly selected (mp_mutators)
+    - 8 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
         - "inverse" - colors are inverted
@@ -57,6 +57,7 @@ Beta 4 Features:
         - "sildenafil" - all you see is blue
         - "longjump" - everyone has a long jump module
         - "slowbullets" - all bullets are slowed down
+        - "explosiveai" - ai blows up if they cannot find their next task
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
@@ -680,6 +681,7 @@ Server:
     - "sildenafil" - all you see is blue
     - "longjump" - everyone has a long jump module
     - "slowbullets" - all bullets are slowed down
+    - "explosiveai" - ai blows up if they cannot find their next task
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -814,3 +816,4 @@ Thanks To:
 - Nexon for the HD arcade cabinet, and updated skins by Napoleon
 - International Minds for select base skeletal animations https://www.moddb.com/mods/crack-life/downloads/crack-life-anniversary-v11
 - The Counter-Strike team for the skylake_ skybox used in frostmill
+- Iconfinder and other sites for game icons https://www.iconfinder.com
