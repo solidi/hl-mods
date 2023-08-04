@@ -876,6 +876,7 @@ sound\headshot.wav
 sound\firstblood.wav
 sound\sawedoff_click.wav
 sound\sawedoff.wav
+sound\goldeneye_respawn.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
