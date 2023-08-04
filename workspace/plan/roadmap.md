@@ -111,6 +111,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
+    1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
     1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
 1. Game Mechanics
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)

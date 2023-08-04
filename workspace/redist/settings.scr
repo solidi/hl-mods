@@ -408,4 +408,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "0" }
 	}
+
+	"sv_breakabletime"
+	{
+		"#Ice_BreakableTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "20" }
+	}
 }

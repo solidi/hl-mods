@@ -80,6 +80,7 @@ Beta 4 Features:
     - Added the "hev" voiceover sound pack
 - Server
     - "sv_slowbullets [0|1]" - all bullets are slowed down
+    - "sv_breakabletime" - time inwhich breakables respawn
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -703,6 +704,7 @@ Server:
 - "mp_startwithlives" amount of starting lives in last man standing
 - "sys_timescale" for experimental server time adjustment (slowmo, speedup)
 - "sv_slowbullets" - all bullets are slowed down
+- "sv_breakabletime" - time inwhich breakables respawn
 
 Report Bugs:
 
@@ -817,3 +819,4 @@ Thanks To:
 - International Minds for select base skeletal animations https://www.moddb.com/mods/crack-life/downloads/crack-life-anniversary-v11
 - The Counter-Strike team for the skylake_ skybox used in frostmill
 - Iconfinder and other sites for game icons https://www.iconfinder.com
+- Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
