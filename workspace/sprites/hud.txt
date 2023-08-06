@@ -1,4 +1,4 @@
-223
+236
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -240,6 +240,19 @@ longjump	640 640hud2	    176	96	44	44
 slowbullets	640 gameicons2	0	0	64	64
 paintball	640 gameicons2	64	0	64	64
 explosiveai	640 gameicons2	128	0	64	64
+itemsexplode	640 gameicons2	192	0	64	64
+lightsout	640 gameicons2	0	64	64	64
+ice			640	gameicons2	64	64	64	64
+pushy		640	gameicons2	128	64	64	64
+superjump	640 gameicons2	192	64	64	64
+barrels		640 gameicons2	0	128	64	64
+sanic		640 gameicons2	64	128	64	64
+snowball	640 gameicons2	128	128	64	64
+loopback	640 gameicons2	192	128	64	64
+turrets	640 gameicons2	0	192	64	64
+infiniteammo	640 gameicons2	64	192	64	64
+randomweapon	640 gameicons2	128	192	64	64
+rocketcrowbar	640 gameicons2	192	192	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64

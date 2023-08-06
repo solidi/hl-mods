@@ -68,6 +68,9 @@ DESCRIPTION SERVER_OPTIONS
 			"oldtime" "34"
 			"sildenafil" "35"
 			"longjump" "36"
+			"slowbullets" "37"
+			"explosiveai" "38"
+			"itemsexplode" "39"
 		}
 		{ "1" }
 	}

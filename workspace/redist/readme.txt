@@ -49,7 +49,7 @@ Beta 4 Features:
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - 8 New Mutators - supports combination and randomly selected (mp_mutators)
+    - 9 New Mutators - supports combination and randomly selected (mp_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
         - "inverse" - colors are inverted
@@ -58,6 +58,7 @@ Beta 4 Features:
         - "longjump" - everyone has a long jump module
         - "slowbullets" - all bullets are slowed down
         - "explosiveai" - ai blows up if they cannot find their next task
+        - "itemsexplode" - items and weapons react to explosions
     - Added remaining mutator icons
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
@@ -683,6 +684,7 @@ Server:
     - "longjump" - everyone has a long jump module
     - "slowbullets" - all bullets are slowed down
     - "explosiveai" - ai blows up if they cannot find their next task
+    - "itemsexplode" - items and weapons react to explosions
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
