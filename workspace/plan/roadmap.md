@@ -247,6 +247,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. New Weapons
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
+        1. Grenades and explosions ring the ears. See [this commit](https://github.com/edgarbarney/halflife-planckepoch/commit/0086a3d940b30397cd436aa8df083520fb2d7437) and the [improved version here](https://github.com/edgarbarney/halflife-planckepoch/commit/fc2d0ba440f49b41045964accca10dbf6bdf1fc8).
     1. [ ] Bio weapon (pigcop)
     1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19)
     1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)? [Beam sword](https://cso.fandom.com/wiki/Beam_Sword)

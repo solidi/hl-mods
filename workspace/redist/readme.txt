@@ -37,6 +37,7 @@ Beta 4 Features:
     - Snowballs and Chumtoads have their own ammo count
     - Added HD arcade cabinet
     - Added silver, gold, and real skin + blue hev
+    - M16 now comes with 50 bullets
 - Player Combat
     - Weapons are enabled weapons while sliding and kicking
     - Sliding is more effective at damaging opponets
@@ -122,6 +123,7 @@ Beta 4 Features:
     - Fixed chaos timer after map change
     - Fixed blood color in single player
     - Fixed cannon hud sprite
+    - Fixed large player glowshell when invisible
 
 Beta 3 Features:
 
@@ -820,5 +822,5 @@ Thanks To:
 - Nexon for the HD arcade cabinet, and updated skins by Napoleon
 - International Minds for select base skeletal animations https://www.moddb.com/mods/crack-life/downloads/crack-life-anniversary-v11
 - The Counter-Strike team for the skylake_ skybox used in frostmill
-- Iconfinder and other sites for game icons https://www.iconfinder.com
+- Iconfinder, thenounproject, and other sites for game icons https://www.iconfinder.com
 - Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
