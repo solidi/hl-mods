@@ -112,6 +112,7 @@ try {
     Compile-Sprite $binDir "nuke_flicker" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "640hudrunes" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons2" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "gameicons3" $spritesDir $redistdir\sprites
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
