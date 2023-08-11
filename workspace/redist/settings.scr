@@ -71,6 +71,8 @@ DESCRIPTION SERVER_OPTIONS
 			"slowbullets" "37"
 			"explosiveai" "38"
 			"itemsexplode" "39"
+			"notthebees" "40"
+			"dontshoot" "41"
 		}
 		{ "1" }
 	}

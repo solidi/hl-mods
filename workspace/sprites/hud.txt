@@ -259,6 +259,7 @@ megarun	640 gameicons3	128	0	64	64
 maxpack	640 gameicons3	192	0	64	64
 dkmode	640 gameicons3	0	64	64	64
 slowmo	640 gameicons3	64	64	64	64
+dontshoot	640 gameicons3	128	64	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
