@@ -42,6 +42,9 @@ Beta 4 Features:
     - Weapons are enabled weapons while sliding and kicking
     - Sliding is more effective at damaging opponets
     - Improved kick animation
+    - Added standing double jumping
+    - Added front flip by jumping three times
+    - "impulse 213" supports a kicking front flip
 - Player Changes
     - Added feign ability using the command "feign"
 - Maps
@@ -63,6 +66,7 @@ Beta 4 Features:
         - "notthebees" - hornets spawn from a player or monster who was killed
         - "dontshoot" - firing any weapon will explode in the players hands (melee only)
     - Added remaining mutator icons
+    - Improved volatile mutator to blow up monsters too
 - Game Mode Changes
     - Arena mode displays opponent name while fighting
     - Head shot and first blood awards, rewards player with health
@@ -577,6 +581,7 @@ Client:
 - "impulse 210" - to perform a right roll
 - "impulse 211" - to perform a left roll
 - "impulse 212" - to perform a back flip
+- "impulse 213" - to perform a front flip
 - "drop_rune" - Drop rune
 - "feign" - Fake your death
 - "snowman" - God mode (when sv_cheats 1)
@@ -653,7 +658,7 @@ Server:
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
     - "instagib" - spawn with dual railguns that dole one hit kills
-    - "volatile" - where players blow up when fragged (explode icon)
+    - "volatile" - where players or monsters blow up when fragged
     - "plumber" - spawn with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
     - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong

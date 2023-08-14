@@ -191,6 +191,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Future Game Mutators
+    1. [ ] Slow projectiles
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [ ] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
