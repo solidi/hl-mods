@@ -13,7 +13,6 @@
 "CTRL"			"+duck"
 "TAB"			"+showscores"
 "e"				"+use"
-"v"				"+moveup"
 "'"				"+moveup"
 "c"				"impulse 210"
 "/"				"+movedown"
@@ -62,3 +61,4 @@
 "q"				"impulse 209"
 "z"				"impulse 211"
 "x"				"impulse 212"
+"v"				"impulse 213"
