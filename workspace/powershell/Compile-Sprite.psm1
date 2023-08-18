@@ -8,6 +8,19 @@ function Compile-Sprite {
         $outDir
     )
 
+    $sprTimestamp = (Get-Item $outDir\$target.spr -ErrorAction Ignore).LastWriteTime
+    $latestSourceFileStamp = 0;
+    Get-ChildItem $spritesDir\$target | Foreach-Object {
+        if ($_.LastWriteTime -gt $latestSourceFileStamp) {
+            $latestSourceFileStamp = $_.LastWriteTime
+        }
+    }
+
+    if ($latestSourceFileStamp -lt $sprTimestamp) {
+        echo "$target.spr - source files: $latestSourceFileStamp >? spr file: $sprTimestamp"
+        return
+    }
+
     Copy-Item $binDir\sprgen.exe $spritesDir\$target
     Remove-Item $spritesDir\$target.spr -ErrorAction Ignore
     Set-Location -Path $spritesDir\$target

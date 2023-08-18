@@ -11,6 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
+[bool]$clean = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -18,6 +19,9 @@ $Config = @{ }
         $configFile = $_.Split(' ')[1]
         . ("$PSScriptRoot\$configFile.ps1")
         echo "configuration file is $configFile..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
+        $clean = $true
+        echo "rebuilding all sprites..."
     }
 }
 
@@ -34,12 +38,14 @@ $spritesDir = "${rootDir}\sprites"
 # Colorize-Folder $binDir $spritesDir fire "0,113,230" 100
 # exit
 
-Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\sprites -Force -ErrorAction Ignore
-Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
-[void](New-Item -ItemType directory -Path $redistDir\sprites)
-[void](New-Item -ItemType directory -Path $redisthddir\sprites)
+if ($clean -eq $true) {
+    Remove-Item $redistDir\sprites\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redisthddir\sprites\\* -Recurse -Force -ErrorAction Ignore
+    Remove-Item $redistDir\sprites -Force -ErrorAction Ignore
+    Remove-Item $redisthddir\sprites -Force -ErrorAction Ignore
+    [void](New-Item -ItemType directory -Path $redistDir\sprites)
+    [void](New-Item -ItemType directory -Path $redisthddir\sprites)
+}
 
 try {
     Compile-Sprite $binDir "ice_muzzleflash1" $spritesDir $redistDir\sprites
@@ -113,6 +119,8 @@ try {
     Compile-Sprite $binDir "640hudrunes" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons2" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons3" $spritesDir $redistdir\sprites
+
+    Write-Output "Copying sprite text files..."
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites

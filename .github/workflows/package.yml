@@ -276,7 +276,7 @@ jobs:
     - name: Compile sprites
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config -Clean
         $zipFile = ".\sprites.zip"
         [void](New-Item -Force -ItemType Directory $env:TEMP\${{env.BUILD_CONFIGURATION}})
         Copy-Item -Recurse -Force .\redist_hd\sprites $env:TEMP\${{env.BUILD_CONFIGURATION}}
