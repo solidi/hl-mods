@@ -115,7 +115,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
 1. Game Mechanics
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
-    1. [ ] Front flip
+    1. [x] Front flip
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
@@ -194,7 +194,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Slow projectiles
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
-    1. [ ] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
+    1. [x] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
     1. [x] [Not the hornets!](https://www.youtube.com/watch?v=oMeVxnFytJk&t=240s) Hornets randomly spawn and attack player.
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
