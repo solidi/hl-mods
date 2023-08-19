@@ -1,4 +1,4 @@
-242
+248
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -260,6 +260,7 @@ maxpack	640 gameicons3	192	0	64	64
 dkmode	640 gameicons3	0	64	64	64
 slowmo	640 gameicons3	64	64	64	64
 dontshoot	640 gameicons3	128	64	64	64
+999	640 gameicons3	192	64	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64

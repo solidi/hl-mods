@@ -73,6 +73,7 @@ DESCRIPTION SERVER_OPTIONS
 			"itemsexplode" "39"
 			"notthebees" "40"
 			"dontshoot" "41"
+			"999" "42"
 		}
 		{ "1" }
 	}
