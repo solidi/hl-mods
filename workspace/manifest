@@ -205,6 +205,10 @@ maps\overflow.bsp
 maps\overflow.res
 maps\overflow.wpt
 maps\overflow.txt
+maps\glupshitto.bsp
+maps\glupshitto.res
+maps\glupshitto.wpt
+maps\glupshitto.txt
 media
 media\gamestartup.mp3
 models
@@ -448,6 +452,8 @@ overviews\frozen_bunker.bmp
 overviews\frozen_bunker.txt
 overviews\frozenwarehouse.bmp
 overviews\frozenwarehouse.txt
+overviews\glupshitto.bmp
+overviews\glupshitto.txt
 overviews\overflow.bmp
 overviews\overflow.txt
 overviews\quadfrost.bmp

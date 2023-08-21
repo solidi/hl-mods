@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.44
+	ORIGIN	94.50 	1287	-702
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/glupshitto.bmp"
+	HEIGHT	-1693
+}
