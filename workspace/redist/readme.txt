@@ -70,8 +70,9 @@ Beta 4 Features:
     - Added remaining mutator icons
     - Improved volatile mutator to blow up monsters too
 - Game Mode Changes
+    - When game mode is changed, the server will restart the map after five seconds
     - Arena mode displays opponent name while fighting
-    - Head shot and first blood awards, rewards player with health
+    - Head shot and first blood awards, rewards player with health and extra frag
 - New Player Models
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
 - Single Player Gameplay
@@ -85,6 +86,8 @@ Beta 4 Features:
     - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot
     - Added HEV hands when dead for authentic effect
+    - "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
+    - "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
     - "cl_customtempents [0|1]" - for increased temporary entities support
     - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
     - Added the "hev" voiceover sound pack
@@ -133,6 +136,8 @@ Beta 4 Features:
     - Fixed cannon hud sprite
     - Fixed large player glowshell when invisible
     - Fixed cannon flak getting stuck on each another
+    - Fixed null spawning weapons
+    - Fixed turret rpg rocket z velocity when engaged with the enemy
 
 Beta 3 Features:
 
