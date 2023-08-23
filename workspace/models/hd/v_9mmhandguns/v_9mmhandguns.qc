@@ -82,6 +82,7 @@ $texturegroup ice
   {
     "bulletCHROME.BMP"
     "chrome_black.BMP"
+    "chrome.bmp"
     "gclip.bmp"
     "gclipinside.bmp"
     "v_beretta_bottom.BMP"
@@ -96,10 +97,12 @@ $texturegroup ice
     "..\..\silverChrome.bmp"
     "..\..\silverChrome.bmp"
     "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }
   {
+    "..\..\goldCHROME.bmp"
     "..\..\goldCHROME.bmp"
     "..\..\goldCHROME.bmp"
     "..\..\goldCHROME.bmp"
