@@ -56,7 +56,7 @@ Beta 4 Features:
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - 12 New Mutators - supports combination and randomly selected (mp_mutators)
+    - 12 New Mutators - supports combination and randomly selected (sv_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
         - "inverse" - colors are inverted
@@ -94,8 +94,10 @@ Beta 4 Features:
     - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
     - Added the "hev" voiceover sound pack
 - Server
+    - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
     - "sv_slowbullets [0|1]" - all bullets are slowed down
     - "sv_breakabletime" - time inwhich breakables respawn
+    - "sv_defaultbots [0-31]" - amount of bots to add when starting a game
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -163,7 +165,7 @@ Beta 3 Features:
         - "lms" - Last Man Standing - protect your lives be the last person standing to win
         - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
         - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
-    - 30 Mutators - supports combination and randomly selected (mp_mutators)
+    - 30 Mutators - supports combination and randomly selected (sv_mutators)
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
         - "instagib" - spawn with dual railguns that dole one hit kills
@@ -239,7 +241,7 @@ Beta 3 Features:
     - Added default_fov setting to configuration menu
     - Update voiceicon colors
 - Server
-    - Added "mp_mutators" to mutate gameplay
+    - Added "sv_mutators" to mutate gameplay
     - Added "mp_randommutators [0|1]" selects three random mutators on map change
     - Added "mp_chaostime" - how many seconds until chaos mutators are rotated
     - Added "mp_gamemode" to select game mode
@@ -652,7 +654,7 @@ Server:
 - "mp_allowrunes [0|1]" - Allow powerup runes on server
 - "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
-- "mp_infiniteammo [0|1|2]" - Infinite ammo ala CS 1.6
+- "sv_infiniteammo [0|1|2]" - Infinite ammo ala CS 1.6
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
 - "mp_iceblood [0|1]" - Enable blue blood
@@ -664,7 +666,7 @@ Server:
 - "mp_icesprites [0|1]" - Switch between select ice and real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
-- "mp_mutators" - Add mutators to gameplay
+- "sv_mutators" - Add mutators to gameplay
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
     - "instagib" - spawn with dual railguns that dole one hit kills
