@@ -9,6 +9,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "Cold Ice Remastered" }
 	}
 
+	"sv_defaultbots"
+	{
+		"#Ice_DefaultBots"
+		{ NUMBER 0.000000 31.000000 }
+		{ "0.000000" }
+	}
+
 	"mp_gamemode"
 	{
 		"#Ice_GameMode"
@@ -26,7 +33,7 @@ DESCRIPTION SERVER_OPTIONS
 		{ "0" }
 	}
 
-	"mp_mutators"
+	"sv_mutators"
 	{
 		"#Ice_Mutators"
 		{
@@ -222,7 +229,7 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"mp_infiniteammo"
+	"sv_infiniteammo"
 	{
 		"#Ice_InfiniteAmmo"
 		{
