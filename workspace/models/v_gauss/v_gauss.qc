@@ -198,8 +198,8 @@ $sequence "spinup" "spinup" fps 30 loop
 $sequence "spin" "spin" fps 30 loop 
 $sequence "fire" "fire" fps 30 
 $sequence "fire2" "fire2" fps 30 
-$sequence "holster" "holster" fps 45 
-$sequence "draw_lowkey" "draw" fps 75 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 75 { event 5004 0 "default_draw.wav" } { event 5005 0 "gauss_selected.wav" } 
+$sequence "holster" "holster" fps 90 
+$sequence "draw_lowkey" "draw" fps 140 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 140 { event 5004 0 "default_draw.wav" } { event 5005 0 "gauss_selected.wav" } 
 
 // End of QC script.

@@ -103,8 +103,8 @@ $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 20 loop 
 $sequence "fidget1" "fidget1" fps 30 
-$sequence "draw" "draw" fps 45 { event 5004 0 "default_draw.wav" } 
-$sequence "draw2" "draw" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "decoy_selected.wav" }
-$sequence "drop" "drop" fps 30 
+$sequence "draw" "draw" fps 120 { event 5004 0 "default_draw.wav" } 
+$sequence "draw2" "draw" fps 120 { event 5004 0 "default_draw.wav" } { event 5005 0 "decoy_selected.wav" }
+$sequence "drop" "drop" fps 60 
 
 // End of QC script.

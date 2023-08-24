@@ -153,9 +153,9 @@ $hbox 0 "Body" -30.709999 -9.030000 -5.090000 6.790000 4.840000 14.490000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 { event 5004 1 "chainsaw_idle.wav" }
-$sequence "draw_lowkey" "draw" fps 40 
-$sequence "draw" "draw" fps 40 { event 5005 1 "chainsaw_selected.wav" }
-$sequence "draw_empty" "draw" fps 40 { event 5005 1 "chainsaw_selected.wav" }
+$sequence "draw_lowkey" "draw" fps 84 
+$sequence "draw" "draw" fps 84 { event 5005 1 "chainsaw_selected.wav" }
+$sequence "draw_empty" "draw" fps 84 { event 5005 1 "chainsaw_selected.wav" }
 $sequence "attack1_start" "shoot" fps 40 
 $sequence "attack1_loop" "shoot" fps 40 loop 
 $sequence "attack1_end" "shoot" fps 40 
@@ -164,7 +164,7 @@ $sequence "slash1" "slash1" fps 20
 $sequence "slash2" "slash2" fps 20 
 $sequence "slash3" "slash1" fps 20 
 $sequence "slash4" "slash2" fps 20 
-$sequence "empty" "draw" fps 40 
+$sequence "empty" "draw" fps 84 
 $sequence "holster" "holster" fps 60 
 
 // End of QC script.

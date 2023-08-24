@@ -93,9 +93,9 @@ $hbox 0 "Hands biped R Hand" 0.000000 -0.760000 -1.860000 5.310000 2.970000 5.64
 
 // animation sequence(s)
 $sequence "idle1" "idle" fps 12 loop 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 5 "knife_selected.wav" }
-$sequence "holster" "holster" fps 30 
+$sequence "draw_lowkey" "draw" fps 64 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 64 { event 5004 0 "default_draw.wav" } { event 5005 5 "knife_selected.wav" }
+$sequence "holster" "holster" fps 48 
 $sequence "attack1" "slash" fps 30 
 $sequence "attack1miss" "slash" fps 30 
 $sequence "attack2" "stab" fps 30 

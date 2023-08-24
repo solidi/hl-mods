@@ -107,8 +107,8 @@ $sequence "fire1" "idle0" fps 30 loop
 $sequence "fire2" "idle0" fps 30 loop 
 $sequence "fire3" "fire3" fps 30 loop 
 $sequence "fire4" "fire4" fps 30 
-$sequence "draw_lowkey" "draw-shift3" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw-shift3" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_flamethrower_selected.wav" } { event 5004 5 "default_draw.wav" } 
-$sequence "holster" "holster-shift2" fps 30 
+$sequence "draw_lowkey" "draw-shift3" fps 72 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw-shift3" fps 72 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_flamethrower_selected.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "holster" "holster-shift2" fps 45 
 
 // End of QC script.

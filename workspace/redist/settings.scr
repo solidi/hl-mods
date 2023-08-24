@@ -281,7 +281,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_IceSprites"
 		{ BOOL }
-		{ "1" }
+		{ "0" }
 	}
 
 	"mp_randomweapon"

@@ -147,9 +147,9 @@ $sequence "SMG_RELOAD" "SMG_RELOAD" fps 44 {
   { event 5016 97 "0" } 
  }
 //$sequence "SMG_FIRST_DEPLOY" "SMG_FIRST_DEPLOY" fps 27 { event 5004 1 "default_draw.wav" } 
-$sequence "SMG_DEPLOY_LOWKEY" "SMG_DEPLOY" fps 27 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
-$sequence "SMG_DEPLOY" "SMG_DEPLOY" fps 27 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_smg_selected.wav" } { event 5004 5 "default_draw.wav" } 
-$sequence "SMG_HOLSTER" "SMG_HOLSTER" fps 40 
+$sequence "SMG_DEPLOY_LOWKEY" "SMG_DEPLOY" fps 76 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "SMG_DEPLOY" "SMG_DEPLOY" fps 76 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_smg_selected.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "SMG_HOLSTER" "SMG_HOLSTER" fps 57 
 //$sequence "SMG_RELOAD_EMPTY" "SMG_RELOAD_EMPTY" fps 44 {
 //  { event 5004 14 "items/cliprelease1.wav" } 
 //  { event 5015 14 "0" } 

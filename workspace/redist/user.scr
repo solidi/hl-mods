@@ -54,7 +54,7 @@ DESCRIPTION INFO_OPTIONS
 			"Silver" "5"
 			"Gold" "6"
 		}
-		{ "2" }
+		{ "4" }
 	}
 
 	"cl_oldscoreboard"

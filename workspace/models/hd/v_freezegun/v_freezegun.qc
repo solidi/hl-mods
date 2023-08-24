@@ -110,9 +110,9 @@ $sequence "reload" "reload" fps 30 {
   { event 5004 45 "freezegun_clipin1.wav" } 
   { event 5004 72 "freezegun_clipin2.wav" } 
  }
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "freezegun_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "freezegun_draw.wav" } { event 5005 3 "freezegun_deploy.wav" } 
-$sequence "holster" "holster" fps 60 
+$sequence "draw_lowkey" "draw" fps 120 { event 5004 0 "freezegun_draw.wav" } 
+$sequence "draw" "draw" fps 120 { event 5004 0 "freezegun_draw.wav" } { event 5005 3 "freezegun_deploy.wav" } 
+$sequence "holster" "holster" fps 90 
 $sequence "shoot1" "shoot1" fps 30 
 $sequence "shoot2" "shoot2" fps 30 
 $sequence "shoot3" "shoot3" fps 30 

@@ -95,9 +95,9 @@ $hbox 0 "Bone02" -0.650000 -8.120000 -0.690000 3.330000 1.110000 0.790000
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "idle2" "idle2" fps 2 
-$sequence "draw_lowkey" "draw" fps 20 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 20 { event 5004 0 "default_draw.wav" } { event 5005 0 "glauncher_selected.wav" }
-$sequence "holster" "holster" fps 14 
+$sequence "draw_lowkey" "draw" fps 32 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 32 { event 5004 0 "default_draw.wav" } { event 5005 0 "glauncher_selected.wav" }
+$sequence "holster" "holster" fps 21 
 $sequence "reload" "reload" fps 13 
 $sequence "shoot" "shoot" fps 13 { event 5001 0 "2" } 
 

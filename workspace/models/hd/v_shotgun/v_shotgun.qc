@@ -97,9 +97,9 @@ $sequence "shoot_big" "shoot_big" fps 30 { event 5001 0 "41" } { event 5001 1 "4
 $sequence "reload" "reload" fps 16 
 $sequence "pump" "pump" fps 30 
 $sequence "start_reload" "start_reload" fps 12 
-$sequence "draw_lowkey" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5004 12 "shotgun_deploy.wav" } 
-$sequence "draw" "draw" fps 24 { event 5004 0 "default_draw.wav" } { event 5005 0 "shotgun_selected.wav" } { event 5004 12 "shotgun_deploy.wav" } { event 5005 18 "shotgun_boomstick.wav" } 
-$sequence "reholster" "reholster" fps 30 
+$sequence "draw_lowkey" "draw" fps 64 { event 5004 0 "default_draw.wav" } { event 5004 12 "shotgun_deploy.wav" } 
+$sequence "draw" "draw" fps 64 { event 5004 0 "default_draw.wav" } { event 5005 0 "shotgun_selected.wav" } { event 5004 12 "shotgun_deploy.wav" } { event 5005 18 "shotgun_boomstick.wav" } 
+$sequence "reholster" "reholster" fps 36 
 $sequence "idle4" "idle4" fps 9 loop 
 $sequence "deepidle" "deepidle" fps 12 loop 
 

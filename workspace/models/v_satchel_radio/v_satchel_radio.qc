@@ -112,8 +112,8 @@ $hbox 0 "Dummy22" -1.910000 -0.760000 -2.020000 1.710000 0.900000 9.850000
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 30 loop 
 $sequence "fidget1" "fidget1" fps 30 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 72 { event 5004 0 "default_draw.wav" } 
 $sequence "fire" "fire" fps 30 
-$sequence "holster" "holster" fps 30 
+$sequence "holster" "holster" fps 45 
 
 // End of QC script.

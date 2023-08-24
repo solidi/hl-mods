@@ -90,7 +90,8 @@ $sequence "Koshak_HL" "Koshak_HL" fps 30
 $sequence "hold_idle" "hold_idle" fps 30 
 $sequence "fire" "fire" fps 30 
 $sequence "altfire" "altfire" fps 30 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "gravitygun_selected.wav" }
+$sequence "draw_lowkey" "draw" fps 124 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 124 { event 5004 0 "default_draw.wav" } { event 5005 0 "gravitygun_selected.wav" }
+$sequence "holster" "holster" fps 93 { event 5004 0 "default_draw.wav" }  
 
 // End of QC script.

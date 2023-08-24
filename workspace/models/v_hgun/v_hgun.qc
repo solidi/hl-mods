@@ -92,9 +92,9 @@ $hbox 0 "Dummy08" -2.310000 -0.230000 -1.130000 1.910000 1.310000 1.290000
 $sequence "idle1" "idle1" fps 16 loop 
 $sequence "fidgetSway" "fidgetSway" fps 16 
 $sequence "fidgetShake" "fidgetShake" fps 16 
-$sequence "down" "down" fps 32 
-$sequence "draw_lowkey" "up" fps 45 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "up" fps 45 { event 5004 0 "default_draw.wav" } { event 5005 0 "hgun_selected.wav" }
+$sequence "down" "down" fps 54 
+$sequence "draw_lowkey" "up" fps 120 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "up" fps 120 { event 5004 0 "default_draw.wav" } { event 5005 0 "hgun_selected.wav" }
 $sequence "Shoot" "Shoot" fps 24 
 
 // End of QC script.

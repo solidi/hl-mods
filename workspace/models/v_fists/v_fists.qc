@@ -73,9 +73,9 @@ $hbox 0 "Right_Arm" -5.175000 -8.412500 -4.662500 3.725000 24.337500 3.462500
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 20 
-$sequence "draw_lowkey" "deploy" fps 25 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "deploy" fps 25 { event 5004 0 "default_draw.wav" } { event 5005 0 "fists_selected.wav" }
-$sequence "holster" "holster" fps 25 
+$sequence "draw_lowkey" "deploy" fps 44 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "deploy" fps 44 { event 5004 0 "default_draw.wav" } { event 5005 0 "fists_selected.wav" }
+$sequence "holster" "holster" fps 33 
 $sequence "fists_righthit1" "fists_righthit1" fps 25 
 $sequence "fists_rightmiss1" "fists_rightmiss1" fps 25 
 $sequence "fists_leftmiss1" "fists_leftmiss1" fps 25 
