@@ -116,9 +116,9 @@ $hbox 0 "Clip" -3.020000 -6.010000 -1.930000 2.690000 2.530000 2.070000
 // animation sequence(s)
 $sequence "gidle1" "gidle" fps 10 loop 
 $sequence "gidle2" "gidle" fps 10 loop 
-$sequence "draw_lowkey" "gdraw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "gdraw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "glauncher_selected.wav" }
-$sequence "gholster" "gholster" fps 30 
+$sequence "draw_lowkey" "gdraw" fps 60 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "gdraw" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "glauncher_selected.wav" }
+$sequence "gholster" "gholster" fps 45 
 //$sequence "greload1" "greload1" fps 60 
 //$sequence "greload2" "greload2" fps 60 
 $sequence "greload3" "greload3" fps 30 

@@ -78,9 +78,9 @@ $hbox 0 "R_Arm_bone" -2.610000 -2.630000 -2.280000 2.060000 2.490000 7.990000
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 30 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 5 "knife_selected.wav" }
-$sequence "holster" "holster" fps 30 
+$sequence "draw_lowkey" "draw" fps 76 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 76 { event 5004 0 "default_draw.wav" } { event 5005 5 "knife_selected.wav" }
+$sequence "holster" "holster" fps 57 
 $sequence "attack1" "attack1" fps 45 
 $sequence "attack1miss" "attack1miss" fps 45 
 $sequence "attack2" "attack2" fps 45

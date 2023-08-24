@@ -125,9 +125,9 @@ $sequence "idle2" "idle2" fps 30 loop
 $sequence "arm1" "arm1" fps 60 
 $sequence "place" "place" fps 30 { event 5005 0 "hgrunt/c2a3_hg_laugh.wav" }
 $sequence "fidget" "fidget" fps 30 loop 
-$sequence "holster" "holster" fps 30 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "tripmine_selected.wav" }
+$sequence "holster" "holster" fps 45 
+$sequence "draw_lowkey" "draw" fps 60 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "tripmine_selected.wav" }
 $sequence "world" "world" fps 30 loop 
 $sequence "ground" "ground" fps 30 loop 
 

@@ -84,11 +84,11 @@ $sequence "spinup" "idle" fps 15
 $sequence "spin" "idle" fps 15 
 $sequence "fire" "fire" fps 50 { event 5004 29 "cannon_pump.wav" } { event 5004 42 "cannon_loadammo.wav" }
 $sequence "fire2" "fire" fps 50 { event 5005 0 "cannon_burn.wav" } { event 5004 29 "cannon_pump.wav" } { event 5004 42 "cannon_loadammo.wav" }
-$sequence "holster" "holster" fps 32 
-$sequence "draw_lowkey" "draw" fps 28 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 28 { event 5004 0 "default_draw.wav" } { event 5005 0 "cannon_selected.wav" }
-$sequence "draw_empty" "draw_empty" fps 28 { event 5004 0 "default_draw.wav" } 
-$sequence "holster_empty" "holster_empty" fps 32
+$sequence "holster" "holster" fps 64 
+$sequence "draw_lowkey" "draw" fps 64 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 64 { event 5004 0 "default_draw.wav" } { event 5005 0 "cannon_selected.wav" }
+$sequence "draw_empty" "draw_empty" fps 64 { event 5004 0 "default_draw.wav" } 
+$sequence "holster_empty" "holster_empty" fps 64
 $sequence "fire_last" "fire_last" fps 25 { event 5001 0 "92" } 
 $sequence "fire_solid" "fire_solid" fps 25 { event 5004 29 "cannon_pump.wav" } { event 5004 42 "cannon_loadammo.wav" } 
 $sequence "fire_last_solid" "fire_last_solid" fps 25 { event 5001 0 "92" } 

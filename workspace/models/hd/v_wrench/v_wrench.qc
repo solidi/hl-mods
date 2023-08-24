@@ -75,9 +75,9 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -5.930000 7.850000 2.940000 19.950001
 
 // animation sequence(s)
 $sequence "idle1" "idle1" fps 13 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 5 "wrench_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 5 "wrench_draw.wav" } { event 5005 0 "wrench_selected.wav" } 
-$sequence "holster" "holster" fps 24 
+$sequence "draw_lowkey" "draw" fps 52 { event 5004 5 "wrench_draw.wav" } 
+$sequence "draw" "draw" fps 52 { event 5004 5 "wrench_draw.wav" } { event 5005 0 "wrench_selected.wav" } 
+$sequence "holster" "holster" fps 39 
 $sequence "attack1" "attack1" fps 22 
 $sequence "attack1miss" "attack1miss" fps 22 
 $sequence "attack2hit" "attack2hit" fps 22 

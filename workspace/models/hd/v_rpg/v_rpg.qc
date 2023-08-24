@@ -113,10 +113,10 @@ $sequence "fidget" "fidget" fps 15 loop
 $sequence "reload" "reload" fps 30 
 $sequence "fire" "fire" fps 30 
 $sequence "fire2" "fire" fps 30 { event 5005 0 "rpg_igotone.wav" }
-$sequence "holster1" "holster1" fps 30 
-$sequence "draw_lowkey" "draw1" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw1" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "rpg_selected.wav" }
-$sequence "holster2" "holster2" fps 30 
+$sequence "holster1" "holster1" fps 45 
+$sequence "draw_lowkey" "draw1" fps 60 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw1" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "rpg_selected.wav" }
+$sequence "holster2" "holster2" fps 45 
 $sequence "draw2" "draw2" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "rpg_selected.wav" }
 $sequence "idle2" "idle2" fps 15 loop 
 

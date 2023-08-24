@@ -95,8 +95,8 @@ $sequence "pinpull" "pinpull" fps 45
 $sequence "throw1" "throw1" fps 13 
 $sequence "throw2" "throw2" fps 20 
 $sequence "throw3" "throw3" fps 30 
-$sequence "holster" "holster" fps 30 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "default_draw.wav" } { event 5005 0 "snowball_selected.wav" } 
+$sequence "holster" "holster" fps 45 
+$sequence "draw_lowkey" "draw" fps 60 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "snowball_selected.wav" } 
 
 // End of QC script.

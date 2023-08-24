@@ -96,9 +96,9 @@ $sequence "idle2" "idle2" fps 10 loop ACT_IDLE 4
 $sequence "spinup" "spinup" loop fps 32 
 $sequence "spindown" "spindown" fps 32 { event 5005 15 "chaingun_hellyeah.wav" }
 $sequence "fire" "fire" fps 64 loop { event 5001 0 "4" } 
-$sequence "draw_lowkey" "draw" fps 40 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw" fps 40 { event 5004 0 "default_draw.wav" } { event 5005 0 "chaingun_selected.wav" }
-$sequence "holster" "holster" fps 32 
+$sequence "draw_lowkey" "draw" fps 68 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "draw" fps 68 { event 5004 0 "default_draw.wav" } { event 5005 0 "chaingun_selected.wav" }
+$sequence "holster" "holster" fps 51 
 $sequence "reload" "reload" fps 13
 
 // End of QC script.

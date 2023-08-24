@@ -107,9 +107,9 @@ $sequence "idle2" "idle2" fps 15
 $sequence "reload" "reload" fps 14
 $sequence "fire" "fire" fps 30 
 $sequence "fire_solid" "fire_solid" fps 30 
-$sequence "holster" "holster" fps 30 
-$sequence "draw_lowkey" "draw" fps 30 { event 5004 0 "nuke_draw.wav" } 
-$sequence "draw" "draw" fps 30 { event 5004 0 "nuke_draw.wav" } { event 5005 0 "nuke_selected.wav" } 
+$sequence "holster" "holster" fps 45 
+$sequence "draw_lowkey" "draw" fps 60 { event 5004 0 "nuke_draw.wav" } 
+$sequence "draw" "draw" fps 60 { event 5004 0 "nuke_draw.wav" } { event 5005 0 "nuke_selected.wav" } 
 $sequence "spinup" "spinup" fps 30
 
 // End of QC script.

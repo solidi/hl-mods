@@ -29,6 +29,8 @@ Beta 4 Features:
     - frostmill, a reskin by AudioCraZ of rustmill by John Guthrie and Dave Riller
     - glupshitto, a map by pig
 - Weapon Changes
+    - Deploy and holster time reduced for faster firing
+    - Ice skins and explosions changed to real blue HEV version as default
     - Decoy bombs deploy as animated assassins
     - Tighten flak primary fire
     - Improved freezegun performance

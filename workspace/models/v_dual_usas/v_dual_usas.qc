@@ -170,9 +170,9 @@ $sequence "USAS_RELOAD" "USAS_RELOAD" fps 44 {
   { event 5004 97 "items/clipinsert1.wav" } 
   { event 5016 97 "0" } 
  }
-$sequence "USAS_DEPLOY_LOWKEY" "USAS_DEPLOY" fps 27 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
-$sequence "USAS_DEPLOY" "USAS_DEPLOY" fps 27 { event 5004 0 "default_draw.wav" } { event 5005 5 "dual_usas_selected.wav" } { event 5004 5 "default_draw.wav" } 
-$sequence "USAS_HOLSTER" "USAS_HOLSTER" fps 40 
+$sequence "USAS_DEPLOY_LOWKEY" "USAS_DEPLOY" fps 76 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "USAS_DEPLOY" "USAS_DEPLOY" fps 76 { event 5004 0 "default_draw.wav" } { event 5005 5 "dual_usas_selected.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "USAS_HOLSTER" "USAS_HOLSTER" fps 57 
 $sequence "USAS_FIRE_LEFT" "USAS_FIRE_LEFT" fps 20 { event 5011 0 "4" } 
 $sequence "USAS_FIRE_RIGHT" "USAS_FIRE_RIGHT" fps 20 { event 5001 0 "4" } 
 
