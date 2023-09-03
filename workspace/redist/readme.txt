@@ -93,6 +93,7 @@ Beta 4 Features:
     - "cl_customtempents [0|1]" - for increased temporary entities support
     - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
     - Added the "hev" voiceover sound pack
+    - cl_antivomit now includes disable of screen shaking
 - Server
     - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
     - "sv_slowbullets [0|1]" - all bullets are slowed down
@@ -142,6 +143,8 @@ Beta 4 Features:
     - Fixed cannon flak getting stuck on each another
     - Fixed null spawning weapons
     - Fixed turret rpg rocket z velocity when engaged with the enemy
+    - Fix refresh mutator icons on a level change
+    - Fix silencer model on deploy
 
 Beta 3 Features:
 

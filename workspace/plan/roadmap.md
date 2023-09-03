@@ -148,6 +148,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
     1. [ ] [Water Splash](https://github.com/bacontsu/codename-borea/commit/89a0c080f99faed3cc1a3f175d608ec37d6e4376)
     1. [ ] [Realtime use sprite](https://github.com/bacontsu/codename-borea/commit/2a3fc957be406a16bca6570cb9ea368c07abea4d)
+    1. [ ] it's trigger_camera and info_target (Napoleans idea from Counter Strike)
     1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [x] Head shot and first blood voice award announcements
 1. Game Mutators
