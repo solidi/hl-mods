@@ -29,12 +29,6 @@ $body "studio" "glock"
 
 $body "studio" "clip_reference"
 
-$bodygroup "silencer"	
-{	
-blank	
-studio "glock(silencer)"	
-}
-
 $texturegroup ice
 {
   {
