@@ -1,9 +1,0 @@
-Iceman Arena
-
-The Iceman is the enemy with lots of armor and weapons.
-Commandos must destroy the Iceman within a limited amount of time.
-Iceman must destroy all Commandos.
-
-Iceman wins a point if dispatching all Commandos before time is up.
-If the Iceman survives, the commando who doles the most damage wins a round.
-Round ends in a draw if no damage is doled to Iceman when time is up.

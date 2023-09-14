@@ -247,6 +247,10 @@ models\player\hotfire\hotfire.mdl
 models\player\iceman
 models\player\iceman\iceman.bmp
 models\player\iceman\iceman.mdl
+models\player\jesus
+models\player\jesus\jesus.bmp
+models\player\jesus\jesus.mdl
+models\player\jesus\jesus.txt
 models\player\navy
 models\player\navy\navy.bmp
 models\player\navy\navy.mdl
@@ -411,7 +415,7 @@ models\v_dual_sawedoff.mdl
 models\p_dual_sawedoff.mdl
 models\w_tracer.mdl
 modes
-modes\iceman.txt
+modes\jvs.txt
 modes\lms.txt
 modes\arena.txt
 modes\snowball.txt

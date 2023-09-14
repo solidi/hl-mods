@@ -1,0 +1,9 @@
+Jesus vs. Santas
+
+Jesus is lord and savior with lots of armor and weapons.
+Santas must destroy Jesus within a limited amount of time.
+Jesus must destroy all Santas.
+
+Jesus wins a point if dispatching all Santas before time is up.
+If Jesus survives, the Santa who doles the most damage wins a round.
+The round ends in a draw if no damage is doled to Jesus when time is up.
