@@ -53,6 +53,7 @@ Beta 4 Features:
 - Maps
     - Added res files for all included maps
 - Game Modes
+    - Changed Iceman to Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
@@ -77,6 +78,7 @@ Beta 4 Features:
     - Head shot and first blood awards, rewards player with health and extra frag
 - New Player Models
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
+    - Jesus - a model by Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins
 - Single Player Gameplay
     - Chapter Selection Menu
 - Runes
@@ -143,8 +145,11 @@ Beta 4 Features:
     - Fixed cannon flak getting stuck on each another
     - Fixed null spawning weapons
     - Fixed turret rpg rocket z velocity when engaged with the enemy
-    - Fix refresh mutator icons on a level change
-    - Fix silencer model on deploy
+    - Fixed refresh mutator icons on a level change
+    - Fixed silencer model on deploy
+    - Fixed rpg secondary fire clicking sound
+    - Climbing retry time reduced to half a second
+    - Fixed scoring in jesus vs santa arena
 
 Beta 3 Features:
 
@@ -164,7 +169,7 @@ Beta 3 Features:
 - Game Modes
     - 5 Game Modes (mp_gamemode)
         - "ffa" - Free for All - the gold standard, deathmatch.
-        - "iceman" - Iceman Arena - it is the sole duty of all the other players to exterminate iceman
+        - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
         - "lms" - Last Man Standing - protect your lives be the last person standing to win
         - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
         - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
@@ -720,7 +725,7 @@ Server:
 - "sv_weather [0|1]" - enable or disable all weather effects on the server
 - "mp_gamemode" to select game mode
     - "ffa" - traditional free-for-all deathmatch
-    - "iceman" - iceman arena, defeat the iceman in a it vs them battle
+    - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - "lms" - last man standing, protect your lives be the last person standing to win
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
@@ -849,3 +854,4 @@ Thanks To:
 - The Counter-Strike team for the skylake_ skybox used in frostmill
 - Iconfinder, thenounproject, and other sites for game icons https://www.iconfinder.com
 - Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
+- Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins for the Jesus player model https://gamebanana.com/mods/179553

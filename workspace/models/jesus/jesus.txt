@@ -1,0 +1,38 @@
+Model Name: Jesus
+Created By: Marc "Pharaoh" Nuar
+e-mail at: Pharaoh2000@hotmail.com
+
+Technical info:
+  Poly count:  688 triangles
+  Skins:  256x256 for the body and head
+          64x64 chromed for the halo
+
+Software used:
+  Photoshop 5.0.2 to make the skin
+  Milkshape 3D v1.0D for the modeling
+  MdlViewer v2.1 for preliminary viewing and testing
+  Half-Life, of course, for final checks
+
+Notes:
+  With the end of the millenium coming up (well, actually the new milennium doesn't
+  start until 2001, but as Mulder told Scully, "Nobody likes a math nerd.")
+  and the distinct possiblity of armageddon, don't you think it's time for the
+  Second Coming of Christ?
+
+  Anyways, I decided to keep it in as good taste as possible (I mean, hey, I like
+  Jesus, he's a cool guy.) so He isn't bleeding, stripped naked, or wearing a
+  crown of thorns.  He's here in his divine glory, fully man and fully God, in 
+  Half-Life to get a few frags just like the rest of us.  The robe took me forever
+  to get working.  The valve standard skeletons and animations were definately
+  made for two separate legs, not to be attached at all by a long robe.  The low
+  poly count of the robe parts was the only way I could get it to look like it's
+  flowing a little and not overlap itself when each leg bends into weird positions.
+  The feet are also well outside the skeleton's feet to keep the inner legs from 
+  poking through the robe in a few animations.
+
+Last but not least:
+  I'd like to give MUCH credit to Brian "EvilBastard" Collins who modeled the
+  Punisher, which I used as a scaling basis for Jesus.  I can't for the life of
+  me get human proportions right, in drawing or modeling.  I changed the model
+  more than enough for it to be called completely different, but once again I 
+  thank the EvilBastard for his hard work which made the Second Coming possible.
