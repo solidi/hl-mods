@@ -81,6 +81,7 @@ DESCRIPTION SERVER_OPTIONS
 			"notthebees" "40"
 			"dontshoot" "41"
 			"999" "42"
+			"berserker" "43"
 		}
 		{ "1" }
 	}
@@ -288,7 +289,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_IceSprites"
 		{ BOOL }
-		{ "0" }
+		{ "1" }
 	}
 
 	"mp_randomweapon"
