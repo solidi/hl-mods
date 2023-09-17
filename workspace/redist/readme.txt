@@ -80,6 +80,7 @@ Beta 4 Features:
 - New Player Models
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
     - Jesus - a model by Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins
+    - Added animation support for Barney and Scientist
 - Single Player Gameplay
     - Chapter Selection Menu
 - Runes
