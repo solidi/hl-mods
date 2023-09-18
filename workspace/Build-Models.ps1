@@ -58,6 +58,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\models\player\army)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\assassin)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\baer)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\barney)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\commando)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\frost)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\grunt)
@@ -69,6 +70,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\models\player\navy)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\recon)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\santa)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\scientist)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\snowman)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\stormtrooper)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\swat)
@@ -318,6 +320,7 @@ try {
     Compile-Player "army" $binDir $modelsdir $redistDir
     Compile-Player "assassin" $binDir $modelsdir $redistDir
     Compile-Player "baer" $binDir $modelsdir $redistDir
+    Compile-Player "barney" $binDir $modelsdir $redistDir
     Compile-Player "commando" $binDir $modelsdir $redistDir
     Compile-Player "frost" $binDir $modelsdir $redistDir
     Compile-Player "grunt" $binDir $modelsdir $redistDir
@@ -329,6 +332,7 @@ try {
     Compile-Player "navy" $binDir $modelsdir $redistDir
     Compile-Player "recon" $binDir $modelsdir $redistDir
     Compile-Player "santa" $binDir $modelsdir $redistDir
+    Compile-Player "scientist" $binDir $modelsdir $redistDir
     Compile-Player "snowman" $binDir $modelsdir $redistDir
     Compile-Player "stormtrooper" $binDir $modelsdir $redistDir
     Compile-Player "swat" $binDir $modelsdir $redistDir
