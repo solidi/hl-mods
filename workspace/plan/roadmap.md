@@ -185,6 +185,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bonedemic (includes skeletons)
     1. [ ] Head Hunter
     1. [ ] Support
+        1. [ ] Vote game mode, mutators, and map after map ends, like jabroni 3
+        1. [ ] Objective, and # info in upper right stacked, like jabroni 3
         1. [ ] Wins / Rounds Left visual support
         1. [ ] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
@@ -195,7 +197,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Future Game Mutators
-    1. [ ] Beserker (chainsaws)
+    1. [x] Beserker (chainsaws)
     1. [ ] Slow projectiles
     1. [ ] Fast bullets
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
