@@ -55,6 +55,7 @@ Beta 4 Features:
     - Added res files for all included maps
 - Game Modes
     - Changed Iceman to Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
+    - Added an objectives summary on the HUD
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
@@ -99,6 +100,7 @@ Beta 4 Features:
     - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
     - Added the "hev" voiceover sound pack
     - cl_antivomit now includes disable of screen shaking
+    - "cl_objectives [0|1]" - show or hide objectives on the HUD
 - Server
     - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
     - "sv_slowbullets [0|1]" - all bullets are slowed down
@@ -651,6 +653,7 @@ Client:
 - "cl_radar [0|1]" enables or disables player radar
 - "cl_customtempents [0|1]" - for increased temporary entities support
 - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
+- "cl_objectives [0|1]" - show or hide objectives on the HUD
 
 Server:
 

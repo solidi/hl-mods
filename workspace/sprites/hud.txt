@@ -1,4 +1,4 @@
-250
+253
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -284,3 +284,7 @@ item_healthkit	640 640hud2	176	48	44	44
 item_longjump	640 640hud2	176	96	44	44
 
 grenade			640 640hud7	48	96	24	24
+
+target  640 640hud7	144	72	24	24
+info  640 640hud7	144	96	24	24
+trophy  640 640hud7	228	72	24	24
