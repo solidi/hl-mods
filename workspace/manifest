@@ -970,6 +970,9 @@ sprites\weapon_dual_flamethrower.txt
 sprites\weapon_ashpod.txt
 sprites\weapon_sawedoff.txt
 sprites\weapon_dual_sawedoff.txt
+sprites\weapon_satchel.txt
+sprites\weapon_snark.txt
+sprites\weapon_handgrenade.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
