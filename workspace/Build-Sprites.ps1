@@ -157,6 +157,9 @@ try {
     Copy-Item $spritesDir\weapon_ashpod.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_sawedoff.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_dual_sawedoff.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_snark.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_satchel.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_handgrenade.txt $redistDir\sprites
     Copy-Item $spritesDir\hud.txt $redistDir\sprites
 } catch {
     Write-Error "$($_.Exception.Message)"

@@ -82,6 +82,7 @@ DESCRIPTION SERVER_OPTIONS
 			"dontshoot" "41"
 			"999" "42"
 			"berserker" "43"
+			"autoaim" "44"
 		}
 		{ "1" }
 	}
