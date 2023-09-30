@@ -83,6 +83,8 @@ DESCRIPTION SERVER_OPTIONS
 			"999" "42"
 			"berserker" "43"
 			"autoaim" "44"
+			"slowbullets" "45"
+			"fastbullets" "46"
 		}
 		{ "1" }
 	}

@@ -59,7 +59,7 @@ Beta 4 Features:
     - 2 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - 14 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 16 New Mutators - supports combination and randomly selected (sv_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
         - "inverse" - colors are inverted
@@ -74,6 +74,8 @@ Beta 4 Features:
         - "999" - start with 999 health and battery
         - "berserker" - go crazy with chainsaws and fists
         - "autoaim" - weapons have extreme auto aim
+        - "slowweapons" - weapons fire slowly
+        - "fastweapons" - weapons fire fast
     - Added remaining mutator icons
     - Improved volatile mutator to blow up monsters too
 - Game Mode Changes
@@ -726,6 +728,8 @@ Server:
     - "999" - start with 999 health and battery
     - "berserker" - go crazy with chainsaws and fists
     - "autoaim" - weapons have extreme auto aim
+    - "slowweapons" - weapons fire slowly
+    - "fastweapons" - weapons fire fast
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not

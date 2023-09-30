@@ -1,4 +1,4 @@
-254
+256
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -264,6 +264,8 @@ dontshoot	640 gameicons3	128	64	64	64
 jesus	640 gameicons3	0	128	64	64
 berserker	640 gameicons3	64	128	64	64
 autoaim	640 gameicons3	128	128	64	64
+slowweapons	640 gameicons3	192	128	64	64
+fastweapons	640 gameicons3	0	192	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
