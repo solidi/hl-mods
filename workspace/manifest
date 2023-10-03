@@ -209,6 +209,10 @@ maps\glupshitto.bsp
 maps\glupshitto.res
 maps\glupshitto.wpt
 maps\glupshitto.txt
+maps\cold_base.bsp
+maps\cold_base.res
+maps\cold_base.wpt
+maps\cold_base.txt
 media
 media\gamestartup.mp3
 models

@@ -392,7 +392,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [fy_iceworld](https://www.rockpapershotgun.com/the-legacy-of-fy_iceworld-counter-strikes-divisive-and-hugely-popular-custom-map)
     1. [ ] [Real 3d skybox](https://discord.com/channels/511209951923011604/511212204121653258/1084687068246069259)
     1. [ ] jope by pigcop
-    1. [ ] glupshitto by pigcop
+    1. [x] glupshitto by pigcop
     1. [ ] [ts_frigid remake](https://www.tsmod.net/maps/?vp_page=3)
     1. [ ] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Player Models

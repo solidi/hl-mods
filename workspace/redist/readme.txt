@@ -22,12 +22,13 @@ Beta 4 Features:
         - Fire Right / Fire Left / Fire Both
     - Dual Sawed Off Cannons
         - Fire Right / Fire Left / Fire Both
-- 5 New Maps
+- 6 New Maps
     - quadfrost, a rebuild of doublefrost by Napoleon
     - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
     - thechill, a reskin by AudioCraZ of thehill by Dario Casali
     - frostmill, a reskin by AudioCraZ of rustmill by John Guthrie and Dave Riller
     - glupshitto, a map by pig
+    - cold_base, a reskin by AudioCraZ of DM3: The Abandoned Base by John Romero
 - Weapon Changes
     - Chainsaw secondary fire performes a saw ride when pointed at ground
     - Deploy and holster time reduced for faster firing
