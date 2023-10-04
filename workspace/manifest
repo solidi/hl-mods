@@ -209,6 +209,10 @@ maps\glupshitto.bsp
 maps\glupshitto.res
 maps\glupshitto.wpt
 maps\glupshitto.txt
+maps\cold_base.bsp
+maps\cold_base.res
+maps\cold_base.wpt
+maps\cold_base.txt
 media
 media\gamestartup.mp3
 models
@@ -438,6 +442,8 @@ overviews\chillworks.bmp
 overviews\chillworks.txt
 overviews\coldice.bmp
 overviews\coldice.txt
+overviews\cold_base.bmp
+overviews\cold_base.txt
 overviews\defroster.bmp
 overviews\defroster.txt
 overviews\depot.bmp

@@ -28,3 +28,4 @@ defroster
 thechill
 frostmill
 glupshitto
+cold_base
