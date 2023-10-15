@@ -57,9 +57,10 @@ Beta 4 Features:
 - Game Modes
     - Changed Iceman to Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - Added an objectives summary on the HUD
-    - 2 New Game Modes (mp_gamemode)
+    - 3 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
+         - "chilldemic" - survive the virus, don't let them free your bones.
     - 16 New Mutators - supports combination and randomly selected (sv_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - all hail king jope!
@@ -86,6 +87,7 @@ Beta 4 Features:
 - New Player Models
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
     - Jesus - a model by Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins
+    - Skeleton - a model by Valve from 1998
     - Added animation support for Barney and Scientist
 - Single Player Gameplay
     - Chapter Selection Menu
@@ -159,6 +161,9 @@ Beta 4 Features:
     - Fixed rpg secondary fire clicking sound
     - Climbing retry time reduced to half a second
     - Fixed scoring in jesus vs santa arena
+    - Fixed spectator mode jumping into current game play
+    - Removed items left by player after game round
+    - Removed wallclimb indicator during spectator
 
 Beta 3 Features:
 
@@ -869,3 +874,4 @@ Thanks To:
 - Iconfinder, thenounproject, and other sites for game icons https://www.iconfinder.com
 - Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
 - Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins for the Jesus player model https://gamebanana.com/mods/179553
+- Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton

@@ -2,6 +2,9 @@ aurora
 aurora\Burn1.aur
 aurora\Burn2.aur
 aurora\Burn3.aur
+aurora\Burn4.aur
+aurora\Burn5.aur
+aurora\Burn6.aur
 aurora\BurnSmoke.aur
 aurora\fburst1.aur
 aurora\fburst2.aur
@@ -270,6 +273,9 @@ models\player\santa\santa.mdl
 models\player\scientist
 models\player\scientist\scientist.bmp
 models\player\scientist\scientist.mdl
+models\player\skeleton
+models\player\skeleton\skeleton.bmp
+models\player\skeleton\skeleton.mdl
 models\player\snowman
 models\player\snowman\snowman.bmp
 models\player\snowman\snowman.mdl
@@ -431,6 +437,7 @@ modes\arena.txt
 modes\snowball.txt
 modes\gungame.txt
 modes\ctc.txt
+modes\chilldemic.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt

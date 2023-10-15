@@ -29,6 +29,7 @@ DESCRIPTION SERVER_OPTIONS
 			"snowball" "5"
 			"gungame" "6"
 			"ctc" "7"
+			"chilldemic" "8"
 		}
 		{ "0" }
 	}
