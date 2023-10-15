@@ -139,7 +139,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server
     1. [ ] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
-    1. [ ] Assisted frag credit in iceman
+    1. [ ] Assisted frag credit in all game modes
 1. Client
     1. [ ] Time remaining counter like op4dm
     1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
@@ -198,6 +198,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Future Game Mutators
+    1. [ ] Vampire (increase health too)
     1. [x] Beserker (chainsaws)
     1. [ ] Slow projectiles
     1. [ ] Fast bullets
@@ -258,6 +259,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. New Weapons
+    1. [ ] Third Fire Options through Reload
+        1. [ ] Sniper on Knife
+        1. [ ] Hurricane kick on Fists
+    1. [ ] Dual Hivehands
+    1. [ ] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
         1. Grenades and explosions ring the ears. See [this commit](https://github.com/edgarbarney/halflife-planckepoch/commit/0086a3d940b30397cd436aa8df083520fb2d7437) and the [improved version here](https://github.com/edgarbarney/halflife-planckepoch/commit/fc2d0ba440f49b41045964accca10dbf6bdf1fc8).
