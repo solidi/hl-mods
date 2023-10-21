@@ -1018,3 +1018,67 @@ Valve_Show_Score
 Show Scores
 }
 
+Title_VoteGameplay
+{
+Vote for gameplay mode!
+}
+
+Title_VoteMap
+{
+VOTE FOR MAP
+}
+
+Title_VoteMutator
+{
+VOTE FOR MUTATOR
+}
+
+ffa
+{
+FREE FOR ALL
+}
+
+teamplay
+{
+TEAMPLAY
+}
+
+arena
+{
+1 VS. 1
+}
+
+chilldemic
+{
+CHILLDEMIC
+}
+
+ctc
+{
+CATCH CHUMTOAD
+}
+
+gungame
+{
+GUNGAME
+}
+
+jvs
+{
+JESUS VS. SANTA
+}
+
+lms
+{
+BATTLE ROYAL
+}
+
+snowball
+{
+SNOWBALLS
+}
+
+random
+{
+RANDOM
+}

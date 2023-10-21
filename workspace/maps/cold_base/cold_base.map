@@ -1,7 +1,6 @@
 {
 "classname" "worldspawn"
 "worldtype" "2"
-"sounds" "6"
 "message" "The Cold Base (The Abandoned Base)"
 "skyname" "cirdaymont1"
 "spawnflags" "0"

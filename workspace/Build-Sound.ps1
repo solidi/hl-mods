@@ -130,6 +130,11 @@ Compile-Sound $binDir $redistDir $soundDir "merrychristmas.mp3" 1.0 "sound\merry
 Compile-Sound $binDir $redistDir $soundDir "StarCraft-2-Firebat-Quotes.mp3" 1.0 "sound\dual_flamethrower_selected.wav" "wav" 44.5 47.5
 Compile-Sound $binDir $redistDir $soundDir "do_you_like_to_play_with_fire.mp3" 1.0 "sound\flamethrower_selected.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "helloo-imbecile.mp3" 1.0 "sound\portalgun_selected.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "votegame.mp3" 2.5 "sound\votegame.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "votemap.mp3" 2.5 "sound\votemap.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "greatjob.mp3" 2.5 "sound\greatjob.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "votestarted.mp3" 2.5 "sound\votestarted.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "votemutator.mp3" 2.5 "sound\votemutator.wav" "wav"
 }
 catch
 {

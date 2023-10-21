@@ -1,5 +1,3 @@
-Catch The Chumtoad
-
 The object of 'Catch the Chumtoad' is to hold onto the
 chumtoad as long as you can without being fragged by your
 friends. You receive 1 point for every 10 seconds you hold

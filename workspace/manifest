@@ -906,6 +906,11 @@ sound\firstblood.wav
 sound\sawedoff_click.wav
 sound\sawedoff.wav
 sound\goldeneye_respawn.wav
+sound\votegame.wav
+sound\votemap.wav
+sound\greatjob.wav
+sound\votestarted.wav
+sound\votemutator.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
