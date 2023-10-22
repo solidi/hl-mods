@@ -438,6 +438,9 @@ modes\snowball.txt
 modes\gungame.txt
 modes\ctc.txt
 modes\chilldemic.txt
+modes\ffa.txt
+modes\random.txt
+modes\teamplay.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -906,6 +909,11 @@ sound\firstblood.wav
 sound\sawedoff_click.wav
 sound\sawedoff.wav
 sound\goldeneye_respawn.wav
+sound\votegame.wav
+sound\votemap.wav
+sound\greatjob.wav
+sound\votestarted.wav
+sound\votemutator.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

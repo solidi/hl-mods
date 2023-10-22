@@ -125,6 +125,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
     1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
     1. [ ] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
+    1. [ ] Drop battery power (Napoleon)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
@@ -186,8 +187,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bonedemic (includes skeletons)
     1. [ ] Head Hunter
     1. [ ] Support
-        1. [ ] Vote game mode, mutators, and map after map ends, like jabroni 3
-        1. [ ] Objective, and # info in upper right stacked, like jabroni 3
+        1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
+        1. [x] Objective, and # info in upper right stacked, like jabroni 3
         1. [ ] Wins / Rounds Left visual support
         1. [ ] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
@@ -375,6 +376,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
     1. [x] Ammo regeneration
     1. [ ] Super jump rune
+    1. [ ] Invulerability rune, uses battery power (Napoleon)
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD

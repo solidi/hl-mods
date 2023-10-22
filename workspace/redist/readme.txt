@@ -84,6 +84,10 @@ Beta 4 Features:
     - When game mode is changed, the server will restart the map after five seconds
     - Arena mode displays opponent name while fighting
     - Head shot and first blood awards, rewards player with health and extra frag
+- Multiplayer Changes
+    - Added end of map GUI voting system
+        - Vote for gameplay, mutators, and next map
+    - Added support for "vote" command in text message
 - New Player Models
     - Frost - a reskin of Romka's reskin HEV suit by Napoleon
     - Jesus - a model by Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins
@@ -164,6 +168,7 @@ Beta 4 Features:
     - Fixed spectator mode jumping into current game play
     - Removed items left by player after game round
     - Removed wallclimb indicator during spectator
+    - Fixed mutator index order
 
 Beta 3 Features:
 
@@ -875,3 +880,4 @@ Thanks To:
 - Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
 - Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins for the Jesus player model https://gamebanana.com/mods/179553
 - Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton
+- 101soundboards for Bill CLinton AI voice https://www.101soundboards.com/
