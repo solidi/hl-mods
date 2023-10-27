@@ -1082,3 +1082,13 @@ random
 {
 RANDOM
 }
+
+You_Dead
+{
+YOU ARE DEAD
+}
+
+Next_Round
+{
+Waiting for the next round.
+}

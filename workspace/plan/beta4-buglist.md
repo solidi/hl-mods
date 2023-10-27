@@ -5,7 +5,7 @@
 [ ] toolgun - delete person
 [ ] hungery meter, blueberries, blue nanas
 [ ] amx plugin vote option for six
-[ ] listencfg for gamemode change - find better way
+[x] listencfg for gamemode change - find better way
 [ ] icon of chumtoad when you have it.
 [ ] steal levels in gungame?
 [ ] time stopping mechanism
