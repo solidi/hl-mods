@@ -110,7 +110,7 @@ Beta 4 Features:
     - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
     - Added the "hev" voiceover sound pack
     - cl_antivomit now includes disable of screen shaking
-    - "cl_objectives [0|1]" - show or hide objectives on the HUD
+    - "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
 - Server
     - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
     - "sv_slowbullets [0|1]" - all bullets are slowed down
@@ -667,7 +667,7 @@ Client:
 - "cl_radar [0|1]" enables or disables player radar
 - "cl_customtempents [0|1]" - for increased temporary entities support
 - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
-- "cl_objectives [0|1]" - show or hide objectives on the HUD
+- "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
 
 Server:
 
