@@ -78,6 +78,7 @@ Beta 4 Features:
         - "autoaim" - weapons have extreme auto aim
         - "slowweapons" - weapons fire slowly
         - "fastweapons" - weapons fire fast
+        - "jack" - we don't make it until you order it
     - Added remaining mutator icons
     - Improved volatile mutator to blow up monsters too
 - Game Mode Changes
@@ -169,6 +170,7 @@ Beta 4 Features:
     - Removed items left by player after game round
     - Removed wallclimb indicator during spectator
     - Fixed mutator index order
+    - Added text color change with ice model switch
 
 Beta 3 Features:
 
@@ -741,6 +743,7 @@ Server:
     - "autoaim" - weapons have extreme auto aim
     - "slowweapons" - weapons fire slowly
     - "fastweapons" - weapons fire fast
+    - "jack" - we don't make it until you order it
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -881,3 +884,4 @@ Thanks To:
 - Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins for the Jesus player model https://gamebanana.com/mods/179553
 - Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton
 - 101soundboards for Bill CLinton AI voice https://www.101soundboards.com/
+- PunkAss for the Jack head model https://gamebanana.com/mods/179228

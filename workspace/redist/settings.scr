@@ -86,6 +86,7 @@ DESCRIPTION SERVER_OPTIONS
 			"autoaim" "44"
 			"slowweapons" "45"
 			"fastweapons" "46"
+			"jack" "47"
 		}
 		{ "1" }
 	}
