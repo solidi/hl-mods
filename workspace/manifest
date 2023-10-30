@@ -430,6 +430,8 @@ models\p_sawedoff.mdl
 models\v_dual_sawedoff.mdl
 models\p_dual_sawedoff.mdl
 models\w_tracer.mdl
+models\hat_jack.mdl
+models\hat_santa.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
