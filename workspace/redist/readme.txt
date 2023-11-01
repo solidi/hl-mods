@@ -30,7 +30,7 @@ Beta 4 Features:
     - glupshitto, a map by pig
     - cold_base, a reskin by AudioCraZ of DM3: The Abandoned Base by John Romero
 - Weapon Changes
-    - Chainsaw secondary fire performes a saw ride when pointed at ground
+    - Chainsaw secondary fire performes a saw ride when pointed at ground, and climb up walls
     - Deploy and holster time reduced for faster firing
     - Ice skins and explosions changed to real blue HEV version as default
     - Decoy bombs deploy as animated assassins
@@ -171,6 +171,7 @@ Beta 4 Features:
     - Removed wallclimb indicator during spectator
     - Fixed mutator index order
     - Added text color change with ice model switch
+    - Constrain shell size to small size
 
 Beta 3 Features:
 
