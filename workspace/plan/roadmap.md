@@ -132,6 +132,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
     1. [x] Hand cannon
     1. [x] Dual hand cannon
+    1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
     1. [ ] Explosive shells to dragons breath, light on fire?
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
@@ -380,6 +381,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
+    1. [ ] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
@@ -412,6 +414,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
+    1. [ ] [mouse raw fix](https://github.com/ValveSoftware/halflife/issues/1546)
     1. [ ] Nuke to kill monsters
     1. [x] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
