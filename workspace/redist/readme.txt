@@ -121,6 +121,8 @@ Beta 4 Features:
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
     - Provide frag point for telefrags
+- Menu
+    - Added new startup music by Napoleon, titled "ETA Never"
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
