@@ -886,3 +886,4 @@ Thanks To:
 - Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton
 - 101soundboards for Bill CLinton AI voice https://www.101soundboards.com/
 - PunkAss for the Jack head model https://gamebanana.com/mods/179228
+- Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
