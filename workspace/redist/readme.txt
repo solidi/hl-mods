@@ -121,6 +121,8 @@ Beta 4 Features:
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
     - Provide frag point for telefrags
+- Menu
+    - Added new startup music by Napoleon, titled "ETA Never"
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
@@ -886,3 +888,4 @@ Thanks To:
 - Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton
 - 101soundboards for Bill CLinton AI voice https://www.101soundboards.com/
 - PunkAss for the Jack head model https://gamebanana.com/mods/179228
+- Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
