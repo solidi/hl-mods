@@ -582,6 +582,8 @@ try {
     Compile-Model $binDir "w_tracer" $modelsdir $redistdir\models
     Compile-Model $binDir "hat_jack" $modelsdir $redistdir\models
     Compile-Model $binDir "hat_santa" $modelsdir $redistdir\models
+    Compile-Model $binDir "hat_pirate" $modelsdir $redistdir\models
+    Compile-Model $binDir "hat_marshmello" $modelsdir $redistdir\models
     }
 }
 catch

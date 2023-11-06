@@ -133,13 +133,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Hand cannon
     1. [x] Dual hand cannon
     1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
-    1. [ ] Explosive shells to dragons breath, light on fire?
+    1. [x] Explosive shells to dragons breath, light on fire?
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
 1. Server
-    1. [ ] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
+    1. [x] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
     1. [ ] Assisted frag credit in all game modes
 1. Client
@@ -185,7 +185,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] Bonedemic (includes skeletons)
+    1. [x] Bonedemic (includes skeletons)
     1. [ ] Head Hunter
     1. [ ] Support
         1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
@@ -200,10 +200,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Future Game Mutators
+    1. [ ] Fire Bullets
     1. [ ] Vampire (increase health too)
     1. [x] Beserker (chainsaws)
-    1. [ ] Slow projectiles
-    1. [ ] Fast bullets
+    1. [x] Slow projectiles
+    1. [x] Fast bullets
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [x] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
