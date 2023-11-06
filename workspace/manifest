@@ -432,6 +432,8 @@ models\p_dual_sawedoff.mdl
 models\w_tracer.mdl
 models\hat_jack.mdl
 models\hat_santa.mdl
+models\hat_pirate.mdl
+models\hat_marshmello.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -1035,6 +1037,7 @@ sprites\nuke_flicker.spr
 sprites\640hudrunes.spr
 sprites\gameicons2.spr
 sprites\gameicons3.spr
+sprites\gameicons4.spr
 liblist.gam
 ReadMe.txt
 settings.scr

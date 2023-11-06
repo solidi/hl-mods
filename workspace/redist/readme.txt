@@ -79,6 +79,8 @@ Beta 4 Features:
         - "slowweapons" - weapons fire slowly
         - "fastweapons" - weapons fire fast
         - "jack" - we don't make it until you order it
+        - "piratehat" - argh matey
+        - "marshmello" - come back home to you
     - Added remaining mutator icons
     - Improved volatile mutator to blow up monsters too
 - Game Mode Changes
@@ -747,6 +749,8 @@ Server:
     - "slowweapons" - weapons fire slowly
     - "fastweapons" - weapons fire fast
     - "jack" - we don't make it until you order it
+    - "piratehat" - argh matey
+    - "marshmello" - come back home to you
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not

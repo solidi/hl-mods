@@ -87,6 +87,8 @@ DESCRIPTION SERVER_OPTIONS
 			"slowweapons" "45"
 			"fastweapons" "46"
 			"jack" "47"
+			"piratehat" "48"
+			"marshmello" "49"
 		}
 		{ "1" }
 	}
