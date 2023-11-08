@@ -11,7 +11,7 @@ nodes
   8 "Bip01 R UpperArm" 7
   9 "Bip01 R Forearm" 8
  10 "Bip01 R Hand" 9
- 11 "Crowbar" 10
+ 11 "rocketcrowbar" 10
 end
 skeleton
 time 0

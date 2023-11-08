@@ -301,9 +301,7 @@ models\v_grenade.mdl
 models\w_grenade.mdl
 models\p_grenade.mdl
 models\v_knife.mdl
-models\p_knife.mdl
 models\v_crowbar.mdl
-models\p_crowbar.mdl
 models\v_rpg.mdl
 models\p_rpg.mdl
 models\rpgrocket.mdl
@@ -351,12 +349,10 @@ models\v_usas.mdl
 models\w_shotgunshell.mdl
 models\v_fists.mdl
 models\v_wrench.mdl
-models\p_wrench.mdl
 models\v_snowball.mdl
 models\p_snowball.mdl
 models\w_hgibs.mdl
 models\v_chainsaw.mdl
-models\p_chainsaw.mdl
 models\v_12gauge.mdl
 models\p_12gauge.mdl
 models\w_battery.mdl
@@ -407,11 +403,9 @@ models\v_dual_usas.mdl
 models\v_freezegun.mdl
 models\p_freezegun.mdl
 models\v_rocketcrowbar.mdl
-models\p_rocketcrowbar.mdl
 models\plasma.mdl
 models\w_concretegibs.mdl
 models\v_gravitygun.mdl
-models\p_gravitygun.mdl
 models\w_barrel.mdl
 models\w_cabinet.mdl
 models\w_sentry.mdl
@@ -425,6 +419,7 @@ models\w_portalgun.mdl
 models\w_portal.mdl
 models\w_chainammo.mdl
 models\w_weapons.mdl
+models\p_weapons.mdl
 models\v_sawedoff.mdl
 models\p_sawedoff.mdl
 models\v_dual_sawedoff.mdl
