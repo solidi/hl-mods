@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "p_spanner"
+$body "body" "wrench"
 
 $texturegroup ice
 {
@@ -48,12 +48,12 @@ $texturegroup ice
 }
 
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -1.923021 0.000000 -4.140394 0.000000 2.549736 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 2.898640 1.113592 3.088764
-$hbox 0 "Hands Mesh01" -0.900000 -8.330000 -1.560000 0.900000 8.330000 1.550000
+$hbox 0 "wrench" -0.900000 -8.330000 -1.560000 0.900000 8.330000 1.550000
 
-// 1 animation sequence(s)
-$sequence "standthere" "standthere" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.

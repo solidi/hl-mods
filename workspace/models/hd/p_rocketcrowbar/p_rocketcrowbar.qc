@@ -57,7 +57,7 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Crowbar" -0.730000 -1.330000 -13.150000 4.860000 1.200000 13.170000
+$hbox 0 "rocketcrowbar" -0.730000 -1.330000 -13.150000 4.860000 1.200000 13.170000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_sierra"
+$body "studio" "chainsaw"
 
 $texturegroup ice
 {
@@ -95,10 +95,9 @@ $texturegroup ice
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869902 0.000000 -4.140396 0.000000 1.399666 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 -1.271173 10.751385 1.646448 0.000000
-$hbox 0 "p_sierra" -22.780001 -4.700000 -3.460000 8.640000 4.330000 7.320000
+$hbox 0 "chainsaw" -22.780001 -4.700000 -3.460000 8.640000 4.330000 7.320000
 
 // animation sequence(s)
-$sequence "idle_hands" "idle_hands" fps 10 
-$sequence "idle_ground" "idle_ground" fps 10 
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.

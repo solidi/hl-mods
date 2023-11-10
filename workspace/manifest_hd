@@ -12,9 +12,7 @@ models\v_grenade.mdl
 models\w_grenade.mdl
 models\p_grenade.mdl
 models\v_knife.mdl
-models\p_knife.mdl
 models\v_crowbar.mdl
-models\p_crowbar.mdl
 models\v_rpg.mdl
 models\p_rpg.mdl
 models\rpgrocket.mdl
@@ -49,10 +47,8 @@ models\p_usas.mdl
 models\w_shotgunshell.mdl
 models\v_fists.mdl
 models\v_wrench.mdl
-models\p_wrench.mdl
 models\v_snowball.mdl
 models\v_chainsaw.mdl
-models\p_chainsaw.mdl
 models\v_12gauge.mdl
 models\p_12gauge.mdl
 models\w_357ammobox.mdl
@@ -93,8 +89,8 @@ models\p_dual_usas.mdl
 models\v_freezegun.mdl
 models\p_freezegun.mdl
 models\v_rocketcrowbar.mdl
-models\p_rocketcrowbar.mdl
 models\w_weapons.mdl
+models\p_weapons.mdl
 models\w_cabinet.mdl
 models\v_sawedoff.mdl
 sound

@@ -47,10 +47,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.003355 0.000000 -4.140392 0.000000 2.487065 0.000000
 
-// 1 animation sequence(s)
-$sequence "dummyidle" "dummyidle" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.
