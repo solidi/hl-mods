@@ -81,6 +81,7 @@ Beta 4 Features:
         - "jack" - we don't make it until you order it
         - "piratehat" - argh matey
         - "marshmello" - come back home to you
+        - "crate" - a tribute to boxwars
     - Added remaining mutator icons
     - Improved volatile mutator to blow up monsters too
 - Game Mode Changes
@@ -751,6 +752,7 @@ Server:
     - "jack" - we don't make it until you order it
     - "piratehat" - argh matey
     - "marshmello" - come back home to you
+    - "crate" - a tribute to boxwars
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "mp_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -893,3 +895,4 @@ Thanks To:
 - 101soundboards for Bill CLinton AI voice https://www.101soundboards.com/
 - PunkAss for the Jack head model https://gamebanana.com/mods/179228
 - Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
+- Box player model from PlanetSun of Boxwars https://www.moddb.com/mods/boxwar

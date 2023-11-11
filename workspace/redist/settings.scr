@@ -89,6 +89,7 @@ DESCRIPTION SERVER_OPTIONS
 			"jack" "47"
 			"piratehat" "48"
 			"marshmello" "49"
+			"crate" "50"
 		}
 		{ "1" }
 	}

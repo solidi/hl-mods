@@ -575,6 +575,7 @@ try {
     Compile-Model $binDir "hat_santa" $modelsdir $redistdir\models
     Compile-Model $binDir "hat_pirate" $modelsdir $redistdir\models
     Compile-Model $binDir "hat_marshmello" $modelsdir $redistdir\models
+    Compile-Model $binDir "box" $modelsdir $redistdir\models
     }
 }
 catch
