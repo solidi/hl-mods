@@ -6,8 +6,6 @@ models\v_shotgun.mdl
 models\v_vest_radio.mdl
 models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
-models\p_9mmhandguns.mdl
-models\p_9mmhandgun.mdl
 models\v_grenade.mdl
 models\w_grenade.mdl
 models\p_grenade.mdl
@@ -33,13 +31,11 @@ models\p_satchel_radio.mdl
 models\w_satchel.mdl
 models\p_satchel.mdl
 models\w_shell.mdl
-models\p_mag60.mdl
 models\v_mag60.mdl
 models\p_chaingun.mdl
 models\v_chaingun.mdl
 models\p_glauncher.mdl
 models\v_glauncher.mdl
-models\p_smg.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
 models\v_usas.mdl
@@ -59,7 +55,6 @@ models\w_shotbox.mdl
 models\w_gaussammo.mdl
 models\w_rpgammo.mdl
 models\v_357.mdl
-models\p_357.mdl
 models\v_egon.mdl
 models\p_egon.mdl
 models\v_nuke.mdl
@@ -73,7 +68,6 @@ models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
 models\v_deagle.mdl
-models\p_deagle.mdl
 models\v_dual_deagle.mdl
 models\p_dual_deagle.mdl
 models\v_dual_rpg.mdl

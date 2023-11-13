@@ -20,6 +20,12 @@ studio "..\p_chainsaw\chainsaw"
 studio "..\p_rocketcrowbar\rocketcrowbar"
 studio "..\..\p_gravitygun\gravitygun_hd"
 studio "..\..\p_portalgun\p_portalgun_1_hd"
+studio "..\p_9mmhandguns\beretta"
+studio "..\p_357\python"
+studio "..\p_deagle\deagle"
+studio "..\p_mag60\mag60"
+studio "..\p_smg\smg"
+studio "..\..\p_sawedoff\sawedoff_hd"
 }
 
 $bodygroup "addition_1"
@@ -68,6 +74,14 @@ $texturegroup ice
     "..\..\p_gravitygun\v_superphyscannon_sheet.BMP"
     "..\..\p_portalgun\v_portalgun_glass.bmp"
     "..\..\p_portalgun\w_portalgun.bmp"
+    "..\p_9mmhandguns\chrome.bmp"
+    "..\p_9mmhandguns\glockfront.bmp"
+    "..\p_9mmhandguns\v_beretta_main.bmp"
+    "..\p_357\wmodel.bmp"
+    "..\p_deagle\w_deagle.bmp"
+    "..\p_mag60\wmodel.bmp"
+    "..\p_smg\wmodel1.bmp"
+    "..\..\p_sawedoff\wmodel.bmp"
   }
   {
     "..\p_crowbar\invert_wbottom.bmp"
@@ -89,6 +103,14 @@ $texturegroup ice
     "..\..\p_gravitygun\invert_v_superphyscannon_sheet.BMP"
     "..\..\p_portalgun\invert_v_portalgun_glass.bmp"
     "..\..\p_portalgun\invert_w_portalgun.bmp"
+    "..\p_9mmhandguns\invert_chrome.bmp"
+    "..\p_9mmhandguns\invert_glockfront.bmp"
+    "..\p_9mmhandguns\invert_v_beretta_main.bmp"
+    "..\p_357\invert_wmodel.bmp"
+    "..\p_deagle\invert_w_deagle.bmp"
+    "..\p_mag60\invert_wmodel.bmp"
+    "..\p_smg\invert_wmodel1.bmp"
+    "..\..\p_sawedoff\invert_wmodel.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -110,8 +132,24 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -142,6 +180,12 @@ $hbox 0 "chainsaw" -6.570000 -42.689999 -4.490000 10.830000 1.140000 3.840000
 $hbox 0 "rocketcrowbar" -0.730000 -1.330000 -13.150000 4.860000 1.200000 13.170000
 $hbox 0 "gravitygun" -7.990000 -31.690001 -9.770000 6.210000 40.860001 11.980000
 $hbox 0 "portalgun" -1.180000 -0.880000 -7.840000 1.260000 11.440000 28.809999
+$hbox 0 "beretta" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
+$hbox 0 "python" -1.060000 -4.490000 -3.670000 1.050000 1.560000 8.060000
+$hbox 0 "deagle" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
+$hbox 0 "mag60" -0.740000 -4.930000 -4.140000 0.740000 5.070000 5.410000
+$hbox 0 "smg" -7.610000 -6.110000 -0.530000 12.380000 5.200000 1.600000
+$hbox 0 "sawedoff" -0.370000 -11.990000 -24.270000 1.750000 2.520000 2.850000
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\p_crowbar\idle" fps 30 
@@ -151,5 +195,11 @@ $sequence "chainsaw_idle" "..\p_chainsaw\idle" fps 30
 $sequence "rocketcrowbar_idle" "..\p_rocketcrowbar\idle" fps 30 
 $sequence "gravitygun_idle" "..\..\p_gravitygun\idle" fps 30 
 $sequence "portalgun_idle" "..\..\p_portalgun\idle" fps 30 
+$sequence "9mmhandguns_idle" "..\p_9mmhandguns\idle" fps 30 
+$sequence "python_idle" "..\p_357\idle" fps 30 
+$sequence "deagle_idle" "..\p_deagle\idle" fps 30 
+$sequence "mag60_idle" "..\p_mag60\idle" fps 30 
+$sequence "smg_idle" "..\p_smg\idle" fps 30 
+$sequence "sawedoff_idle" "..\..\p_sawedoff\idle" fps 30 
 
 // End of QC script.
