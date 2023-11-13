@@ -556,7 +556,6 @@ try {
     Compile-Model $binDir "p_weapons" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_sawedoff" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_sawedoff" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "w_tracer" $modelsdir $redistdir\models
