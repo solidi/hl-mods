@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "m4_p_reference"
+$body "studio" "m16"
 
 $texturegroup ice
 {
@@ -45,9 +45,9 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869902 0.000000 -4.140396 0.000000 1.399666 0.000000
-$hbox 0 "Line04" -27.719999 -4.620000 -1.290000 7.820000 8.270000 1.290000
+$hbox 0 "m16" -27.719999 -4.620000 -1.290000 7.820000 8.270000 1.290000
 
 // animation sequence(s)
-$sequence "longidle" "longidle" fps 10 
+$sequence "idle" "idle" fps 10 
 
 // End of QC script.

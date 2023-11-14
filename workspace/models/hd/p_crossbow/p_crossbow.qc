@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_crossbow_reference"
+$body "studio" "crossbow"
 
 $texturegroup ice
 {
@@ -47,12 +47,12 @@ $texturegroup ice
   }
 }
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869897 0.000000 -4.140396 0.000000 1.399665 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 8.958590 1.211083 1.385764
-$hbox 0 "Object02" -13.450000 -7.080000 -10.180000 15.830000 4.410000 10.820000
+$hbox 0 "crossbow" -13.450000 -7.080000 -10.180000 15.830000 4.410000 10.820000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

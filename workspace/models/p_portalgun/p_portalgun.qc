@@ -51,9 +51,6 @@ $texturegroup ice
   }
 }
 
-// attachment(s)
-$attachment 0 "flash" 0.000000 0.000000 0.000000
-
 // hit box(es)
 $hbox 0 "Bip01 R Hand" 0.000000 -1.895699 -2.049374 30.013048 0.000000 0.000000
 $hbox 0 "portalgun" -1.180000 -0.880000 -7.840000 1.260000 11.440000 28.809999
