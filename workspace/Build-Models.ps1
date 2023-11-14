@@ -261,6 +261,7 @@ try {
     Invert-Skin $binDir "v_squeak" $modelsdir\hd
     Invert-Skin $binDir "w_squeak" $modelsdir\hd
     Invert-Skin $binDir "v_deagle" $modelsdir\hd
+    Invert-Skin $binDir "p_deagle" $modelsdir
     Invert-Skin $binDir "p_deagle" $modelsdir\hd
     Invert-Skin $binDir "v_dual_deagle" $modelsdir
     Invert-Skin $binDir "p_dual_deagle" $modelsdir
@@ -354,10 +355,6 @@ try {
     Compile-Model $binDir "v_9mmhandgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_9mmhandguns" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_9mmhandguns" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_9mmhandguns" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_9mmhandgun" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_9mmhandgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_9mmhandguns" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_grenade" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_grenade" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_grenade" $modelsdir\hd $redisthddir\models
@@ -417,8 +414,6 @@ try {
     Compile-Model $binDir "w_shell" $modelsdir $redistDir\models
     Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_mag60" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_mag60" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_mag60" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_mag60" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_chaingun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_chaingun" $modelsdir\hd $redisthddir\models
@@ -430,9 +425,7 @@ try {
     Compile-Model $binDir "v_glauncher" $modelsdir $redistdir\models
     Compile-Model $binDir "w_contact_grenade" $modelsdir $redistdir\models
     Compile-Model $binDir "w_contact_grenade" $modelsdir $redisthddir\models
-    Compile-Model $binDir "p_smg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_smg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_usas" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_usas" $modelsdir\hd $redisthddir\models
@@ -474,9 +467,7 @@ try {
     Compile-Model $binDir "w_rpgammo" $modelsdir $redistdir\models
     Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_357" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_357" $modelsdir $redistdir\models
     Compile-Model $binDir "v_357" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_357" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_egon" $modelsdir $redistdir\models
     Compile-Model $binDir "p_egon" $modelsdir $redistdir\models
     Compile-Model $binDir "v_egon" $modelsdir\hd $redisthddir\models
@@ -505,9 +496,7 @@ try {
     Compile-Model $binDir "v_leg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_leg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_deagle" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_deagle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_deagle" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_deagle" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_deagle" $modelsdir\hd $redisthddir\models
@@ -567,7 +556,6 @@ try {
     Compile-Model $binDir "p_weapons" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_sawedoff" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_sawedoff" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "w_tracer" $modelsdir $redistdir\models

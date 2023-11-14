@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_python"
+$body "studio" "python"
 
 $texturegroup ice
 {
@@ -46,7 +46,7 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Cylinder01" -1.060000 -4.490000 -3.670000 1.050000 1.560000 8.060000
+$hbox 0 "python" -1.060000 -4.490000 -3.670000 1.050000 1.560000 8.060000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 
