@@ -134,6 +134,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server
     1. [x] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
 1. Client
+    1. [ ] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
     1. [ ] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
     1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [x] Head shot and first blood voice award announcements
@@ -396,7 +397,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
-    1. [ ] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard

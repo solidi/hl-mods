@@ -43,14 +43,14 @@ $texturegroup ice
   }
 }
 
-// 1 attachment(s)
-$attachment 0 "Cylinder012" -0.201359 0.045507 45.630798
+// attachment(s)
+$attachment 0 "glauncher" -0.201359 0.045507 45.630798
 
-// 2 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.391916 0.000000 -4.140393 0.000000 2.115758 0.000000
-$hbox 0 "Cylinder012" -1.660000 -6.490000 -13.260000 2.070000 5.560000 17.980000
+$hbox 0 "glauncher" -1.660000 -6.490000 -13.260000 2.070000 5.560000 17.980000
 
-// 1 animation sequence(s)
-$sequence "dummyidle" "dummyidle" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.

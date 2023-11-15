@@ -10,7 +10,6 @@ models\p_grenade.mdl
 models\v_knife.mdl
 models\v_crowbar.mdl
 models\v_rpg.mdl
-models\p_rpg.mdl
 models\rpgrocket.mdl
 models\v_tripmine.mdl
 models\p_tripmine.mdl
@@ -20,7 +19,6 @@ models\w_sniperrifle.mdl
 models\v_crossbow.mdl
 models\w_bolt.mdl
 models\v_cannon.mdl
-models\p_cannon.mdl
 models\v_satchel_radio.mdl
 models\v_satchel.mdl
 models\p_satchel_radio.mdl
@@ -29,7 +27,6 @@ models\p_satchel.mdl
 models\w_shell.mdl
 models\v_mag60.mdl
 models\v_chaingun.mdl
-models\p_glauncher.mdl
 models\v_glauncher.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
@@ -49,13 +46,9 @@ models\w_gaussammo.mdl
 models\w_rpgammo.mdl
 models\v_357.mdl
 models\v_egon.mdl
-models\p_egon.mdl
 models\v_nuke.mdl
-models\p_nuke.mdl
 models\v_gauss.mdl
-models\p_gauss.mdl
 models\v_hgun.mdl
-models\p_hgun.mdl
 models\v_squeak.mdl
 models\p_squeak.mdl
 models\w_sqknest.mdl

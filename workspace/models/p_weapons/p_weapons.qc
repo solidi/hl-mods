@@ -33,6 +33,14 @@ studio "..\p_crossbow\crossbow"
 studio "..\p_sniperrifle\sniperrifle"
 studio "..\p_chaingun\chaingun"
 studio "..\p_freezegun\freezegun"
+studio "..\p_rpg\rpg"
+studio "..\p_gauss\gauss"
+studio "..\p_egon\egon"
+studio "..\p_hgun\hgun"
+studio "..\p_railgun\railgun"
+studio "..\p_glauncher\glauncher"
+studio "..\p_cannon\cannon"
+studio "..\p_nuke\nuke"
 }
 
 $bodygroup "body"
@@ -139,6 +147,33 @@ $texturegroup ice
     "..\p_freezegun\bottle.bmp"
     "..\p_freezegun\rubbertube.bmp"
     "..\p_freezegun\stock.bmp"
+    "..\p_rpg\new_worldrpg_combo.BMP"
+    "..\p_gauss\barrelCHROME.bmp"
+    "..\p_gauss\body_rear.bmp"
+    "..\p_gauss\body_side.bmp"
+    "..\p_gauss\bottle.bmp"
+    "..\p_gauss\rubbertube.bmp"
+    "..\p_gauss\stock.bmp"
+    "..\p_egon\egonchrome2.bmp"
+    "..\p_egon\world_egon_combined.bmp"
+    "..\p_hgun\Gun_Back2.BMP"
+    "..\p_hgun\GUN_Cheek1.BMP"
+    "..\p_hgun\Gun_Jaw1.bmp"
+    "..\p_hgun\GUN_Mouth1.bmp"
+    "..\p_hgun\Gun_Top1.bmp"
+    "..\p_hgun\Gun_Top2.bmp"
+    "..\p_hgun\HG_Side1.bmp"
+    "..\p_railgun\Skin.bmp"
+    "..\p_glauncher\tfc_gl_world_map.bmp"
+    "..\p_cannon\chrome1.bmp"
+    "..\p_cannon\clbase4.bmp"
+    "..\p_cannon\clbase5.bmp"
+    "..\p_cannon\cllbase1.bmp"
+    "..\p_cannon\cllbase3.bmp"
+    "..\p_cannon\cllbase6.bmp"
+    "..\p_cannon\ring.bmp"
+    "..\p_nuke\chrome.bmp"
+    "..\p_nuke\wskin.bmp"
   }
   {
     "..\p_crowbar\invert_p_pipe.bmp"
@@ -220,6 +255,33 @@ $texturegroup ice
     "..\p_freezegun\invert_bottle.bmp"
     "..\p_freezegun\invert_rubbertube.bmp"
     "..\p_freezegun\invert_stock.bmp"
+    "..\p_rpg\invert_new_worldrpg_combo.BMP"
+    "..\p_gauss\invert_barrelCHROME.bmp"
+    "..\p_gauss\invert_body_rear.bmp"
+    "..\p_gauss\invert_body_side.bmp"
+    "..\p_gauss\invert_bottle.bmp"
+    "..\p_gauss\invert_rubbertube.bmp"
+    "..\p_gauss\invert_stock.bmp"
+    "..\p_egon\invert_egonchrome2.bmp"
+    "..\p_egon\invert_world_egon_combined.bmp"
+    "..\p_hgun\invert_Gun_Back2.BMP"
+    "..\p_hgun\invert_GUN_Cheek1.BMP"
+    "..\p_hgun\invert_Gun_Jaw1.bmp"
+    "..\p_hgun\invert_GUN_Mouth1.bmp"
+    "..\p_hgun\invert_Gun_Top1.bmp"
+    "..\p_hgun\invert_Gun_Top2.bmp"
+    "..\p_hgun\invert_HG_Side1.bmp"
+    "..\p_railgun\invert_Skin.bmp"
+    "..\p_glauncher\invert_tfc_gl_world_map.bmp"
+    "..\p_cannon\invert_chrome1.bmp"
+    "..\p_cannon\invert_clbase4.bmp"
+    "..\p_cannon\invert_clbase5.bmp"
+    "..\p_cannon\invert_cllbase1.bmp"
+    "..\p_cannon\invert_cllbase3.bmp"
+    "..\p_cannon\invert_cllbase6.bmp"
+    "..\p_cannon\invert_ring.bmp"
+    "..\p_nuke\invert_chrome.bmp"
+    "..\p_nuke\invert_wskin.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -301,8 +363,62 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -408,6 +524,14 @@ $hbox 0 "crossbow" -11.980000 -6.720000 -8.780000 16.010000 4.130000 8.830000
 $hbox 0 "sniperrifle" -27.959999 -8.630000 -0.550000 19.150000 3.360000 2.150000
 $hbox 0 "chaingun" -4.290000 -28.120001 -11.000000 10.560000 5.620000 3.640000
 $hbox 0 "freezegun" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
+$hbox 0 "rpg" -5.420000 -5.020000 -0.770000 2.020000 3.000000 37.689999
+$hbox 0 "gauss" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
+// Egon?
+$hbox 0 "hgun" -3.850000 -3.990000 -9.510000 4.360000 4.580000 19.389999
+$hbox 0 "railgun" -7.610000 -6.110000 -0.530000 12.380000 5.200000 1.600000
+$hbox 0 "glauncher" -1.660000 -6.490000 -13.260000 2.070000 5.560000 17.980000
+$hbox 0 "cannon" -5.420000 -5.020000 -0.770000 2.020000 3.000000 37.689999
+$hbox 0 "nuke" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
 
 
 // animation sequence(s)
@@ -432,3 +556,11 @@ $sequence "crossbow_idle" "..\p_crossbow\idle" fps 30
 $sequence "sniperrifle_idle" "..\p_sniperrifle\idle" fps 30
 $sequence "chaingun_idle" "..\p_chaingun\idle" fps 30
 $sequence "freezegun_idle" "..\p_freezegun\idle" fps 30
+$sequence "rpg_idle" "..\p_rpg\idle" fps 30
+$sequence "gauss_idle" "..\p_gauss\idle" fps 30
+$sequence "egon_idle" "..\p_egon\idle" fps 30
+$sequence "hgun_idle" "..\p_hgun\idle" fps 30
+$sequence "railgun_idle" "..\p_railgun\idle" fps 30
+$sequence "glauncher_idle" "..\p_glauncher\idle" fps 30
+$sequence "cannon_idle" "..\p_cannon\idle" fps 30
+$sequence "nuke_idle" "..\p_nuke\idle" fps 30

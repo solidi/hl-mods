@@ -34,6 +34,14 @@ studio "..\p_crossbow\crossbow"
 studio "..\p_sniperrifle\sniperrifle"
 studio "..\p_chaingun\chaingun"
 studio "..\p_freezegun\freezegun"
+studio "..\p_rpg\rpg"
+studio "..\p_gauss\gauss"
+studio "..\p_egon\egon"
+studio "..\p_hgun\hgun"
+studio "..\..\p_railgun\railgun_hd"
+studio "..\p_glauncher\glauncher"
+studio "..\p_cannon\cannon"
+studio "..\p_nuke\nuke"
 }
 
 $bodygroup "addition_1"
@@ -60,6 +68,7 @@ studio "..\..\p_portalgun\p_portalgun_3_hd"
 
 $texrendermode "..\p_chainsaw\chainsaw_p.BMP" "masked" 
 $texrendermode "..\p_freezegun\#128128plasma_p_alpha.BMP" "additive" 
+$texrendermode "..\p_cannon\flak_coolant.bmp" "masked" 
 
 $texturegroup ice
 {
@@ -103,6 +112,21 @@ $texturegroup ice
     "..\p_chaingun\chrome1.bmp"
     "..\p_freezegun\#128128plasma_p_alpha.BMP"
     "..\p_freezegun\#256256plasma_p.bmp"
+    "..\p_rpg\w_rpg_reference.BMP"
+    "..\p_gauss\gaussCHROME.BMP"
+    "..\p_gauss\w_gauss.BMP"
+    "..\p_egon\w_egon_reference.BMP"
+    "..\p_hgun\w_hivehand.bmp"
+    "..\..\p_railgun\Skin.bmp"
+    "..\p_glauncher\wmodel.bmp"
+    "..\p_cannon\flak_cannon.bmp"
+    "..\p_cannon\flak_coolant.bmp"
+    "..\p_cannon\flak_handle.bmp"
+    "..\p_cannon\magppkblack.bmp"
+    "..\p_nuke\1.bmp"
+    "..\p_nuke\2.bmp"
+    "..\p_nuke\SRRAILM4.bmp"
+    "..\p_nuke\w_clip_bfg.bmp"
   }
   {
     "..\p_crowbar\invert_wbottom.bmp"
@@ -144,6 +168,21 @@ $texturegroup ice
     "..\p_chaingun\invert_chrome1.bmp"
     "..\p_freezegun\invert_#128128plasma_p_alpha.BMP"
     "..\p_freezegun\invert_#256256plasma_p.bmp"
+    "..\p_rpg\invert_w_rpg_reference.BMP"
+    "..\p_gauss\invert_gaussCHROME.BMP"
+    "..\p_gauss\invert_w_gauss.BMP"
+    "..\p_egon\invert_w_egon_reference.BMP"
+    "..\p_hgun\invert_w_hivehand.bmp"
+    "..\..\p_railgun\invert_Skin.bmp"
+    "..\p_glauncher\invert_wmodel.bmp"
+    "..\p_cannon\invert_flak_cannon.bmp"
+    "..\p_cannon\invert_flak_coolant.bmp"
+    "..\p_cannon\invert_flak_handle.bmp"
+    "..\p_cannon\invert_magppkblack.bmp"
+    "..\p_nuke\invert_1.bmp"
+    "..\p_nuke\invert_2.bmp"
+    "..\p_nuke\invert_SRRAILM4.bmp"
+    "..\p_nuke\invert_w_clip_bfg.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -185,8 +224,38 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -251,6 +320,14 @@ $hbox 0 "crossbow" -13.450000 -7.080000 -10.180000 15.830000 4.410000 10.820000
 $hbox 0 "sniperrifle" -21.559999 -4.160000 -1.570000 27.660000 6.810000 1.570000
 $hbox 0 "chaingun" -11.980000 -6.720000 -8.780000 16.010000 4.130000 8.830000
 $hbox 0 "freezegun" -8.280000 -4.820000 -1.020000 17.500000 5.250000 2.090000
+$hbox 0 "rpg" -4.190000 -21.110001 -7.690000 4.190000 21.129999 7.700000
+$hbox 0 "gauss" -3.990000 -15.840000 -4.880000 3.100000 20.430000 6.000000
+// Egon?
+$hbox 0 "hgun" -5.180000 -3.660000 -11.100000 4.950000 6.510000 18.510000
+$hbox 0 "railgun" -5.180000 -3.660000 -11.100000 4.950000 6.510000 18.510000
+$hbox 0 "glauncher" -12.260000 -4.010000 -1.570000 12.260000 4.010000 1.570000
+$hbox 0 "cannon" -1.356000 -10.386000 -2.760000 1.308000 10.422001 2.346000
+$hbox 0 "nuke" -8.240000 -12.720000 -45.029999 15.150000 22.230000 7.280000
 
 
 // animation sequence(s)
@@ -275,6 +352,14 @@ $sequence "crossbow_idle" "..\p_crossbow\idle" fps 30
 $sequence "sniperrifle_idle" "..\p_sniperrifle\idle" fps 30 
 $sequence "chaingun_idle" "..\p_chaingun\idle" fps 30 
 $sequence "freezegun_idle" "..\p_freezegun\idle" fps 30 
+$sequence "rpg_idle" "..\p_rpg\idle" fps 30 
+$sequence "gauss_idle" "..\p_gauss\idle" fps 30 
+$sequence "egon_idle" "..\p_egon\idle" fps 30 
+$sequence "hgun_idle" "..\p_hgun\idle" fps 30 
+$sequence "railgun_idle" "..\..\p_railgun\idle" fps 30 
+$sequence "glauncher_idle" "..\p_glauncher\idle" fps 30 
+$sequence "cannon_idle" "..\p_cannon\idle" fps 30 
+$sequence "nuke_idle" "..\p_nuke\idle" fps 30 
 
 
 // End of QC script.

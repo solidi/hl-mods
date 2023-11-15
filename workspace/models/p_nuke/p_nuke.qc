@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_nuke"
+$body "studio" "nuke"
 
 $texturegroup ice
 {
@@ -49,7 +49,7 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Box02" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
+$hbox 0 "nuke" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 
