@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_hgun"
+$body "studio" "hgun"
 
 $texturegroup ice
 {
@@ -46,7 +46,7 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "03" -5.180000 -3.660000 -11.100000 4.950000 6.510000 18.510000
+$hbox 0 "hgun" -5.180000 -3.660000 -11.100000 4.950000 6.510000 18.510000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

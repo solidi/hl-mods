@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_gauss_reference"
+$body "studio" "gauss"
 
 $texturegroup ice
 {
@@ -50,7 +50,7 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869899 0.000000 -4.140396 0.000000 1.399664 0.000000
-$hbox 0 "w_gauss" -3.990000 -15.840000 -4.880000 3.100000 20.430000 6.000000
+$hbox 0 "gauss" -3.990000 -15.840000 -4.880000 3.100000 20.430000 6.000000
 $hbox 0 "spinner" -2.870000 -1.310000 -2.010000 2.880000 1.330000 2.980000
 
 // animation sequence(s)

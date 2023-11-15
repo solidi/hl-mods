@@ -299,7 +299,6 @@ models\p_grenade.mdl
 models\v_knife.mdl
 models\v_crowbar.mdl
 models\v_rpg.mdl
-models\p_rpg.mdl
 models\rpgrocket.mdl
 models\p_tripmine.mdl
 models\v_tripmine.mdl
@@ -311,7 +310,6 @@ models\w_sniperrifle.mdl
 models\w_762shell.mdl
 models\v_crossbow.mdl
 models\w_bolt.mdl
-models\p_railgun.mdl
 models\v_railgun.mdl
 models\v_railgun_light.mdl
 models\p_dual_railgun.mdl
@@ -320,7 +318,6 @@ models\v_dual_railgun_light.mdl
 models\w_weaponbox.mdl
 models\w_runes.mdl
 models\v_cannon.mdl
-models\p_cannon.mdl
 models\w_hassassin.mdl
 models\w_satchel.mdl
 models\p_satchel.mdl
@@ -331,7 +328,6 @@ models\w_satchel.mdl
 models\w_shell.mdl
 models\v_mag60.mdl
 models\v_chaingun.mdl
-models\p_glauncher.mdl
 models\v_glauncher.mdl
 models\v_smg.mdl
 models\w_contact_grenade.mdl
@@ -360,14 +356,10 @@ models\w_gaussammo_light.mdl
 models\w_rpgammo.mdl
 models\v_357.mdl
 models\v_egon.mdl
-models\p_egon.mdl
 models\v_nuke.mdl
-models\p_nuke.mdl
 models\v_gauss.mdl
-models\p_gauss.mdl
 models\w_hornet.mdl
 models\v_hgun.mdl
-models\p_hgun.mdl
 models\v_squeak.mdl
 models\p_squeak.mdl
 models\w_sqknest.mdl

@@ -12,7 +12,7 @@ nodes
   9 "Bip01 R Forearm" 8
  10 "Bip01 R Hand" 9
  11 "flash" 10
- 12 "Line02" 11
+ 12 "portalgun" 11
 end
 skeleton
 time 0

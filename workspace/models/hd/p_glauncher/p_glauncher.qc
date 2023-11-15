@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_shotgun"
+$body "studio" "glauncher"
 
 $texturegroup ice
 {
@@ -44,12 +44,12 @@ $texturegroup ice
 }
 
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 12.295609 1.386845 1.667124
-$hbox 0 "Box01" -12.260000 -4.010000 -1.570000 12.260000 4.010000 1.570000
+$hbox 0 "glauncher" -12.260000 -4.010000 -1.570000 12.260000 4.010000 1.570000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

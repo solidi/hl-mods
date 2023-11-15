@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "p_rpg_Reference"
+$body "body" "rpg"
 
 $texturegroup ice
 {
@@ -43,12 +43,12 @@ $texturegroup ice
   }
 }
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869899 0.000000 -4.140396 0.000000 1.399664 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 2.164582 1.638621 3.936291
-$hbox 0 "rlauncher" -4.190000 -21.110001 -7.690000 4.190000 21.129999 7.700000
+$hbox 0 "rpg" -4.190000 -21.110001 -7.690000 4.190000 21.129999 7.700000
 
-// 1 animation sequence(s)
-$sequence "stayput" "stayput" fps 30 loop 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 loop 
 
 // End of QC script.
