@@ -25,6 +25,14 @@ studio "..\p_deagle\deagle"
 studio "..\p_mag60\mag60"
 studio "..\p_smg\smg"
 studio "..\p_sawedoff\sawedoff"
+studio "..\p_9mmAR\m16"
+studio "..\p_12gauge\12gauge"
+studio "..\p_shotgun\shotgun"
+studio "..\p_usas\usas"
+studio "..\p_crossbow\crossbow"
+studio "..\p_sniperrifle\sniperrifle"
+studio "..\p_chaingun\chaingun"
+studio "..\p_freezegun\freezegun"
 }
 
 $bodygroup "body"
@@ -99,6 +107,38 @@ $texturegroup ice
     "..\p_smg\M203.bmp"
     "..\p_smg\MP5sideview.bmp"
     "..\p_sawedoff\wmodel.bmp"
+    "..\p_9mmAR\m16base1.bmp"
+    "..\p_9mmAR\m16base2.bmp"
+    "..\p_12gauge\Chrome1.bmp"
+    "..\p_12gauge\shotgun1.bmp"
+    "..\p_shotgun\shotdark.bmp"
+    "..\p_shotgun\shothole.bmp"
+    "..\p_shotgun\shotside.bmp"
+    "..\p_shotgun\shottop.bmp"
+    "..\p_usas\ringchrome.bmp"
+    "..\p_usas\ringchrome2.bmp"
+    "..\p_crossbow\bowCHROME.bmp"
+    "..\p_crossbow\clip_side.bmp"
+    "..\p_crossbow\mechanismside.bmp"
+    "..\p_crossbow\receiverside.BMP"
+    "..\p_crossbow\sightcyl.BMP"
+    "..\p_crossbow\stock.BMP"
+    "..\p_crossbow\world_grip.BMP"
+    "..\p_crossbow\world_shoulder.BMP"
+    "..\p_crossbow\world_slide.BMP"
+    "..\p_sniperrifle\pmodel_body.bmp"
+    "..\p_sniperrifle\pmodel_chrome.bmp"
+    "..\p_chaingun\backpack.bmp"
+    "..\p_chaingun\barrel_chrome.bmp"
+    "..\p_chaingun\barrelend.bmp"
+    "..\p_chaingun\body_side.bmp"
+    "..\p_chaingun\grip.bmp"
+    "..\p_freezegun\barrelCHROME.bmp"
+    "..\p_freezegun\body_rear.bmp"
+    "..\p_freezegun\body_side.bmp"
+    "..\p_freezegun\bottle.bmp"
+    "..\p_freezegun\rubbertube.bmp"
+    "..\p_freezegun\stock.bmp"
   }
   {
     "..\p_crowbar\invert_p_pipe.bmp"
@@ -148,6 +188,38 @@ $texturegroup ice
     "..\p_smg\invert_M203.bmp"
     "..\p_smg\invert_MP5sideview.bmp"
     "..\p_sawedoff\invert_wmodel.bmp"
+    "..\p_9mmAR\invert_m16base1.bmp"
+    "..\p_9mmAR\invert_m16base2.bmp"
+    "..\p_12gauge\invert_Chrome1.bmp"
+    "..\p_12gauge\invert_shotgun1.bmp"
+    "..\p_shotgun\invert_shotdark.bmp"
+    "..\p_shotgun\invert_shothole.bmp"
+    "..\p_shotgun\invert_shotside.bmp"
+    "..\p_shotgun\invert_shottop.bmp"
+    "..\p_usas\invert_ringchrome.bmp"
+    "..\p_usas\invert_ringchrome2.bmp"
+    "..\p_crossbow\invert_bowCHROME.bmp"
+    "..\p_crossbow\invert_clip_side.bmp"
+    "..\p_crossbow\invert_mechanismside.bmp"
+    "..\p_crossbow\invert_receiverside.BMP"
+    "..\p_crossbow\invert_sightcyl.BMP"
+    "..\p_crossbow\invert_stock.BMP"
+    "..\p_crossbow\invert_world_grip.BMP"
+    "..\p_crossbow\invert_world_shoulder.BMP"
+    "..\p_crossbow\invert_world_slide.BMP"
+    "..\p_sniperrifle\invert_pmodel_body.bmp"
+    "..\p_sniperrifle\invert_pmodel_chrome.bmp"
+    "..\p_chaingun\invert_backpack.bmp"
+    "..\p_chaingun\invert_barrel_chrome.bmp"
+    "..\p_chaingun\invert_barrelend.bmp"
+    "..\p_chaingun\invert_body_side.bmp"
+    "..\p_chaingun\invert_grip.bmp"
+    "..\p_freezegun\invert_barrelCHROME.bmp"
+    "..\p_freezegun\invert_body_rear.bmp"
+    "..\p_freezegun\invert_body_side.bmp"
+    "..\p_freezegun\invert_bottle.bmp"
+    "..\p_freezegun\invert_rubbertube.bmp"
+    "..\p_freezegun\invert_stock.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -197,8 +269,72 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -264,6 +400,15 @@ $hbox 0 "deagle" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
 $hbox 0 "mag60" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
 $hbox 0 "smg" -7.610000 -6.110000 -0.530000 12.380000 5.200000 1.600000
 $hbox 0 "sawedoff" -0.370000 -11.990000 -24.270000 1.750000 2.520000 2.850000
+$hbox 0 "m16" -7.610000 -6.110000 -0.530000 12.380000 5.200000 1.600000
+$hbox 0 "12gauge" -0.850000 -9.740000 -6.200000 0.840000 15.700000 2.260000
+$hbox 0 "shotgun" -12.260000 -4.010000 -1.570000 12.260000 4.010000 1.570000
+// Usas?
+$hbox 0 "crossbow" -11.980000 -6.720000 -8.780000 16.010000 4.130000 8.830000
+$hbox 0 "sniperrifle" -27.959999 -8.630000 -0.550000 19.150000 3.360000 2.150000
+$hbox 0 "chaingun" -4.290000 -28.120001 -11.000000 10.560000 5.620000 3.640000
+$hbox 0 "freezegun" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
+
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\p_crowbar\idle" fps 30 
@@ -279,3 +424,11 @@ $sequence "deagle_idle" "..\p_deagle\idle" fps 30
 $sequence "mag60_idle" "..\p_mag60\idle" fps 30 
 $sequence "smg_idle" "..\p_smg\idle" fps 30 
 $sequence "sawedoff_idle" "..\p_sawedoff\idle" fps 30 
+$sequence "m16_idle" "..\p_9mmAR\idle" fps 30 
+$sequence "12gauge_idle" "..\p_12gauge\idle" fps 30 
+$sequence "shotgun_idle" "..\p_shotgun\idle" fps 30
+$sequence "usas_idle" "..\p_usas\idle" fps 30
+$sequence "crossbow_idle" "..\p_crossbow\idle" fps 30
+$sequence "sniperrifle_idle" "..\p_sniperrifle\idle" fps 30
+$sequence "chaingun_idle" "..\p_chaingun\idle" fps 30
+$sequence "freezegun_idle" "..\p_freezegun\idle" fps 30

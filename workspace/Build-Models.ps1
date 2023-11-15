@@ -341,13 +341,9 @@ try {
     Compile-Player "swat" $binDir $modelsdir $redistDir
 
     Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_9mmAR" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_9mmAR" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_shotgun" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_shotgun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_shotgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_shotgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_vest" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir\hd $redisthddir\models
@@ -380,16 +376,12 @@ try {
     Compile-Model $binDir "w_chumtoad" $modelsdir $redistDir\models
     Compile-Model $binDir "v_chumtoad" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_sniperrifle" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_sniperrifle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_sniperrifle" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_sniperrifle" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_sniperrifle" $modelsdir $redistDir\models
     Compile-Model $binDir "w_sniperrifle" $modelsdir $redistDir\models
     Compile-Model $binDir "w_762shell" $modelsdir $redistDir\models
     Compile-Model $binDir "v_crossbow" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_crossbow" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_crossbow" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_crossbow" $modelsdir $redistDir\models
     Compile-Model $binDir "w_bolt" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_bolt" $modelsdir $redistDir\models
     Compile-Model $binDir "v_railgun" $modelsdir $redistDir\models
@@ -415,10 +407,8 @@ try {
     Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_mag60" $modelsdir $redistDir\models
     Compile-Model $binDir "v_mag60" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_chaingun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_chaingun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_chaingun" $modelsdir $redistDir\models
-    Compile-Model $binDir "p_chaingun" $modelsdir $redistDir\models
     Compile-Model $binDir "p_glauncher" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_glauncher" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "p_glauncher" $modelsdir $redistdir\models
@@ -428,9 +418,7 @@ try {
     Compile-Model $binDir "v_smg" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_smg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_usas" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_usas" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_usas" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "w_shotgunshell" $modelsdir $redistdir\models
     Compile-Model $binDir "w_shotgunshell" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_fists" $modelsdir $redistdir\models
@@ -444,9 +432,7 @@ try {
     Compile-Model $binDir "v_chainsaw" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_chainsaw" $modelsdir $redistdir\models
     Compile-Model $binDir "v_12gauge" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_12gauge" $modelsdir $redistdir\models
     Compile-Model $binDir "v_12gauge" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_12gauge" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_battery" $modelsdir $redistdir\models
     Compile-Model $binDir "w_medkit" $modelsdir $redistdir\models
     Compile-Model $binDir "w_longjump" $modelsdir $redistdir\models
@@ -518,9 +504,7 @@ try {
     Compile-Model $binDir "v_dual_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "p_dual_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "v_freezegun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_freezegun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_freezegun" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_freezegun" $modelsdir $redistdir\models
     Compile-Model $binDir "plasma" $modelsdir $redistdir\models
     Compile-Model $binDir "w_battery_light" $modelsdir $redistdir\models
     Compile-Model $binDir "w_medkit_light" $modelsdir $redistdir\models

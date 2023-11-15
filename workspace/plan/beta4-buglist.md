@@ -1,10 +1,10 @@
 
+## August 2023
+
 [ ] default_fov always 90
 [ ] player model colors
 [ ] toolgun - delete person
 [ ] hungery meter, blueberries, blue nanas
-[ ] amx plugin vote option for six
-[x] listencfg for gamemode change - find better way
 [ ] icon of chumtoad when you have it.
 [ ] steal levels in gungame?
 [ ] time stopping mechanism
@@ -12,15 +12,17 @@
 [ ] Bot names don't change with jope mutator
 [ ] Inverse mutator doesn't seem to work
 [ ] Oldtime doesn't seem to work
-[x] Glupshitto - Teleporter under train doesn't work
-[x] Glupshitto - There's two holes in the map in the dark area that you can fall through
-[x] Glupshitto - No kill trigger at the bottom of the pit
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [ ] Defroster - Loaded, but crashed after a few minutes with the same error above
       * (Suggestion? Don't fix and add a teleport to another section that looks like The Backrooms that you can't spawn in or leave)
 [ ] jeepathon / func_vehicle - car over player model?
 [ ] reload on rpg disables / enables laser
 [ ] 18, 38, or 50 for extra gif
+[x] amx plugin vote option for six
+[x] listencfg for gamemode change - find better way
+[x] Glupshitto - Teleporter under train doesn't work
+[x] Glupshitto - There's two holes in the map in the dark area that you can fall through
+[x] Glupshitto - No kill trigger at the bottom of the pit
 [x] skeleton with santahat?
 [x] Dontshoot Bots don't know how to not shoot
 [x] disable holster in gungame for faster switch?

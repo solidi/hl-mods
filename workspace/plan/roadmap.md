@@ -89,17 +89,23 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ### Beta 4
 
-1. Up Next
-    1. [ ] Single player freeze effect for all monsters
-    1. [ ] Railgun effect client side to reduce server messages?
-    1. [ ] Freezegun secondary fire beam to explode primary plasma
+1. Support Systems
+    1. [x] Make it easy to add bots on "Create Server"
 1. Maps
     1. [x] Private repo build pipeline for quadfrost
         1. [x] Launch quadfrost in Feb 2023 as an add on
     1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
     1. [x] thehill
     1. [x] rustmill
+    1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
+    1. [x] fgd file
+    1. [x] glupshitto by pigcop
 1. Game Modes
+    1. [x] Bonedemic (includes skeletons)
+    1. [x] Support
+        1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
+        1. [x] Objective, and # info in upper right stacked, like jabroni 3
+        1. [x] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
     1. [x] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
     1. [x] Capture the Chumtoad (Audiocraz)
         1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
@@ -111,68 +117,53 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
-    1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
-    1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
-    1. [ ] What about "Hot Potato". Grenade is on a count down to explode,  and you have to throw and hit someone with it. If it lands on the ground, after 2 seconds it goes back to the last player. When it goes off... gib fountain! (AudioCraZ)
 1. Game Mechanics
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [x] Front flip
-    1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
-    1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
-    1. [ ] Grapple hook support for bots
-    1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
-    1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
-    1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
-    1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
-    1. [ ] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
-    1. [ ] Drop battery power (Napoleon)
 1. Weapons
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
     1. [x] Hand cannon
     1. [x] Dual hand cannon
-    1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Explosive shells to dragons breath, light on fire?
-    1. [ ] OP4 model from OP4n for deagle
-        1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
-    1. [ ] Increase accuracy of weapons when in ironsights mode
-    1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
+1. Models
+    1. [x] Gold Skin? (Radu Matei Ionut)
+    1. [x] Silver Skin?
+    1. [x] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
 1. Server
     1. [x] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
-    1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
-    1. [ ] Assisted frag credit in all game modes
 1. Client
-    1. [ ] Time remaining counter like op4dm
-    1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
-    1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
-    1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
-    1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
-    1. [ ] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
-    1. [ ] [Water Splash](https://github.com/bacontsu/codename-borea/commit/89a0c080f99faed3cc1a3f175d608ec37d6e4376)
-    1. [ ] [Realtime use sprite](https://github.com/bacontsu/codename-borea/commit/2a3fc957be406a16bca6570cb9ea368c07abea4d)
-    1. [ ] it's trigger_camera and info_target (Napoleans idea from Counter Strike)
+    1. [ ] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
     1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [x] Head shot and first blood voice award announcements
 1. Game Mutators
-    1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
-    1. [ ] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
+    1. [x] Beserker (chainsaws)
+    1. [x] Slow projectiles
+    1. [x] Fast bullets
+    1. [x] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
+    1. [x] [Not the hornets!](https://www.youtube.com/watch?v=oMeVxnFytJk&t=240s) Hornets randomly spawn and attack player.
+    1. [x] All obtain long jump module
+    1. [x] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
+    1. [x] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
+    1. [x] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
+    1. [x] Jope - All names turns to Jope
 1. Single Player
     1. [x] [Chapter Select Menu](https://github.com/BlueNightHawk/testflight/commits/master?after=144d73f461c6b83c818131b0536d3450a4266e8a+34&branch=master&qualified_name=refs%2Fheads%2Fmaster)
-1. Environment look and feel
-    1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
-    1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
+1. Weapon ViewModel / Effects
+    1. [x] Blue arms + real skins
+1. Runes
+    1. [x] Ammo regeneration
 1. Fixes
-    1. [ ] Player projectiles follow aiment while flipping
-    1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
-    1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
     1. [x] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
     1. [x] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
+    1. [x] mp_infiniteammo -> sv_infiniteammo
+1. Clean up
+    1. [ ] Compact p_ models into one
+    1. [x] Compact w_ models into one
+    1. [x] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
 1. Game Dev Tools
     1. [x] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
-        1. [ ] Add support for map brief text file
-        1. [ ] Add support for detailed textures
-    1. [ ] Update studiomdl to [funnky's toolset](https://github.com/fnky/studiomdl)
 
 ### Unscheduled
 
@@ -181,17 +172,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
     1. [ ] Source version
     1. [ ] Add compiled mmod linux library
-    1. [x] Make it easy to add bots on "Create Server"
-        1. [ ] New Life Launcher program?
+    1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [x] Bonedemic (includes skeletons)
+    1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
+    1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
+    1. [ ] What about "Hot Potato". Grenade is on a count down to explode,  and you have to throw and hit someone with it. If it lands on the ground, after 2 seconds it goes back to the last player. When it goes off... gib fountain! (AudioCraZ)
     1. [ ] Head Hunter
     1. [ ] Support
-        1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
-        1. [x] Objective, and # info in upper right stacked, like jabroni 3
         1. [ ] Wins / Rounds Left visual support
-        1. [ ] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
         1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)
         1. [ ] Point awards like [Maximum Action](https://www.youtube.com/watch?v=17isfGEjf20) (in death queue messages?)
@@ -199,22 +188,19 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Race to bottom (most deaths wins)
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
-1. Future Game Mutators
+1. Game Mutators
+    1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
+    1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
+    1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
+    1. [ ] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
     1. [ ] Fire Bullets
     1. [ ] Vampire (increase health too)
-    1. [x] Beserker (chainsaws)
-    1. [x] Slow projectiles
-    1. [x] Fast bullets
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
-    1. [x] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
-    1. [x] [Not the hornets!](https://www.youtube.com/watch?v=oMeVxnFytJk&t=240s) Hornets randomly spawn and attack player.
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
     1. [ ] Golden Gun - all guns are gold, bullets kill in one shot
-    1. [x] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
-    1. [x] All obtain long jump module
     1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
@@ -225,11 +211,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] rocket jumping, your rockets do not to much damage to owner
     1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
-    1. [x] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
-    1. [x] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
     1. [ ] CrazyO - track reel of a person speaking
     1. [ ] Oneshot - 1 health start or reduce
-    1. [x] Jope - All names turns to Jope
     1. [ ] Ricochet - no view angles or weapons fire discs
     1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
@@ -262,9 +245,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. New Weapons
+    1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
+    1. [ ] OP4 model from OP4n for deagle
+        1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
+    1. [ ] Increase accuracy of weapons when in ironsights mode
+    1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
     1. [ ] Third Fire Options through Reload
         1. [ ] Sniper on Knife
         1. [ ] Hurricane kick on Fists
+        1. [ ]
     1. [ ] Dual Hivehands
     1. [ ] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
@@ -280,6 +269,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Taser
     1. [ ] Counter-Strike penguin
 1. Weapons Mechanics
+    1. [ ] Freezegun secondary fire beam to explode primary plasma
     1. [ ] [Reload / No Ammo indicator](https://www.youtube.com/watch?v=r5dXK9f2DGE&t=380s) from Halo Combar Evolved
     1. [ ] Akimbo's (select weapons)
         1. [ ] Gauss (Order of _billy recommendations)
@@ -334,14 +324,30 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
     1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] Ice hands in addition
-    1. [x] Blue arms + real skins
     1. [ ] Additional attachment values for configurable speeds and fov
     1. [ ] Damage / blood / stains on view model and player as seen in bhl
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [ ] Support mdl model [fullbrights] and sven texturerender mode using [this repo](https://github.com/BlueNightHawk/halflife_fullbright)
+1. Environment look and feel
+    1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
+    1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Server Support
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
+    1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
+    1. [ ] Assisted frag credit in all game modes
+1. Single Player
+    1. [ ] Single player freeze effect for all monsters
+1. Client
+    1. [ ] Time remaining counter like op4dm
+    1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
+    1. [ ] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
+    1. [ ] Better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
+    1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
+    1. [ ] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
+    1. [ ] [Water Splash](https://github.com/bacontsu/codename-borea/commit/89a0c080f99faed3cc1a3f175d608ec37d6e4376)
+    1. [ ] [Realtime use sprite](https://github.com/bacontsu/codename-borea/commit/2a3fc957be406a16bca6570cb9ea368c07abea4d)
+    1. [ ] it's trigger_camera and info_target (Napoleans idea from Counter Strike)
 1. Movement
     1. [ ] [Wall jumping](http://articles.thewavelength.net/226/)
 1. Bot support
@@ -350,6 +356,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
+    1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
+    1. [ ] Grapple hook support for bots
+    1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
+    1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
+    1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
+    1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
+    1. [ ] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
+    1. [ ] Drop battery power (Napoleon)
     1. [ ] Fall smash like [from boltgun](https://www.youtube.com/watch?v=ZUcAQC8gCyM&t=125s)
     1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)
     1. [ ] [Head "twisting"](https://discord.com/channels/790549024373604353/1010386771168722954/1044952465692442724)
@@ -376,7 +391,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
     1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
-    1. [x] Ammo regeneration
     1. [ ] Super jump rune
     1. [ ] Invulerability rune, uses battery power (Napoleon)
 1. Prefabs / Extras
@@ -388,8 +402,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
-    1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
-    1. [x] fgd file
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Training 2
         1. [ ] Frozen pool in new area opposite of garage
@@ -403,21 +415,18 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [fy_iceworld](https://www.rockpapershotgun.com/the-legacy-of-fy_iceworld-counter-strikes-divisive-and-hugely-popular-custom-map)
     1. [ ] [Real 3d skybox](https://discord.com/channels/511209951923011604/511212204121653258/1084687068246069259)
     1. [ ] jope by pigcop
-    1. [x] glupshitto by pigcop
     1. [ ] [ts_frigid remake](https://www.tsmod.net/maps/?vp_page=3)
     1. [ ] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
-1. Models
-    1. [x] Gold Skin? (Radu Matei Ionut)
-    1. [x] Silver Skin?
-    1. [x] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
+    1. [ ] Player projectiles follow aiment while flipping
+    1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
+    1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
     1. [ ] [mouse raw fix](https://github.com/ValveSoftware/halflife/issues/1546)
     1. [ ] Nuke to kill monsters
-    1. [x] mp_infiniteammo -> sv_infiniteammo
     1. [ ] Add git hash to server name in dll
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
@@ -426,12 +435,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
-    1. [x] Compact w_ moels into one
-    1. [ ] Compact p_ moels into one
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
-    1. [x] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
+    1. [ ] Railgun effect client side to reduce server messages?
 1. Game Dev Tools
+    1. [ ] Add support for map brief text file
+    1. [ ] Add support for detailed textures
+    1. [ ] Update studiomdl to [funnky's toolset](https://github.com/fnky/studiomdl)
     1. [ ] [Cache modeling check](https://github.com/bacontsu/spirit-op4/commit/2adf21717c39628b6629c83c5cc34dc03b3790b5)
     1. [ ] Include pdb files, debug libraries on builds off master.
     1. [ ] Cache compile_tools artifacts using [workflow caching](https://docs.github.com/en/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)
@@ -452,7 +462,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
     1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
-    1. [ ] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
     1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
     1. [ ] Multiple rune equip (Napoleon)
     1. [ ] Ice spike gun (AudioCraZ)

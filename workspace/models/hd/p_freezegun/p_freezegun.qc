@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "plasmagun"
+$body "studio" "freezegun"
 
 $texturegroup ice
 {
@@ -50,11 +50,11 @@ $texturegroup ice
 $texrendermode "#128128plasma_p_alpha.BMP" "additive" 
 
 // attachment(s)
-$attachment 0 "Line02" -9.000000 1.500000 0.500000
+$attachment 0 "freezegun" -9.000000 1.500000 0.500000
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Line02" -8.280000 -4.820000 -1.020000 17.500000 5.250000 2.090000
+$hbox 0 "freezegun" -8.280000 -4.820000 -1.020000 17.500000 5.250000 2.090000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

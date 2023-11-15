@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "minigun5"
+$body "studio" "chaingun"
 
 $texturegroup ice
 {
@@ -60,16 +60,16 @@ $texturegroup ice
 }
 
 
-// 7 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Spine1" -1.370000 -5.630000 -12.930000 4.826790 0.000000 0.000000
 $hbox 0 "Bip01 Spine2" -5.170000 -14.560000 -9.310000 11.390000 0.000000 6.150000
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
 $hbox 0 "Bip01 R Clavicle" 0.000000 -2.390000 -3.170000 4.972047 0.000000 0.000001
 $hbox 0 "Bip01 R Hand" -7.397008 -1.487369 0.000000 0.000000 0.000000 5.022127
-$hbox 0 "AC" -4.290000 -28.120001 -11.000000 10.560000 5.620000 3.640000
+$hbox 0 "chaingun" -4.290000 -28.120001 -11.000000 10.560000 5.620000 3.640000
 $hbox 0 "cylinder" -3.960000 -23.540001 -3.930000 3.920000 0.010000 3.960000
 
-// 1 animation sequence(s)
-$sequence "standthere" "standthere" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.
