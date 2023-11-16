@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_chumtoad_reference"
+$body "studio" "chumtoad"
 
 $texturegroup ice
 {
@@ -33,26 +33,18 @@ $texturegroup ice
     "CHB_Side1.bmp"
     "CHB_Tounge1.bmp"
     "eye.bmp"
-    "eye2.BMP"
-    "eye3.BMP"
   }
   {
     "invert_CHB_Side1.bmp"
     "invert_CHB_Tounge1.bmp"
     "invert_eye.bmp"
-    "invert_eye2.BMP"
-    "invert_eye3.BMP"
   }
   {
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
   }
   {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -61,7 +53,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Object03" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
+$hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

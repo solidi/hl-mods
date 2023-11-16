@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_grenade"
+$body "studio" "grenade"
 
 $texturegroup ice
 {
@@ -47,12 +47,12 @@ $texturegroup ice
   }
 }
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 4.459640 1.946264 1.609010
-$hbox 0 "Line02" -2.200000 -2.680000 -0.920000 0.690000 1.760000 1.730000
+$hbox 0 "grenade" -2.200000 -2.680000 -0.920000 0.690000 1.760000 1.730000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

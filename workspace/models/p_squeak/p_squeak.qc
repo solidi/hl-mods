@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_squeak"
+$body "studio" "snark"
 
 $texturegroup ice
 {
@@ -50,7 +50,7 @@ $texturegroup ice
 
 // hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Object02" -4.000000 -3.800000 -3.390000 4.000000 3.790000 3.400000
+$hbox 0 "snark" -4.000000 -3.800000 -3.390000 4.000000 3.790000 3.400000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

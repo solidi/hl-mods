@@ -7,9 +7,9 @@ nodes
   4 "Bip01 Spine2" 3
   5 "Bip01 Spine3" 4
   6 "Bip01 Neck" 5
-  7 "Bip01 R Clavicle" 6
-  8 "Bip01 R UpperArm" 7
-  9 "Bip01 R Forearm" 8
+  7 "Bip01 R Arm" 6
+  8 "Bip01 R Arm1" 7
+  9 "Bip01 R Arm2" 8
  10 "Bip01 R Hand" 9
  11 "Box01" 10
 end

@@ -19,7 +19,7 @@ studio "..\p_wrench\wrench"
 studio "..\p_chainsaw\chainsaw"
 studio "..\p_rocketcrowbar\rocketcrowbar"
 studio "..\..\p_gravitygun\gravitygun_hd"
-studio "..\..\p_portalgun\p_portalgun_1_hd"
+blank // studio "..\..\p_portalgun\p_portalgun_1_hd"
 studio "..\p_9mmhandguns\beretta"
 studio "..\p_357\python"
 studio "..\p_deagle\deagle"
@@ -42,6 +42,16 @@ studio "..\..\p_railgun\railgun_hd"
 studio "..\p_glauncher\glauncher"
 studio "..\p_cannon\cannon"
 studio "..\p_nuke\nuke"
+studio "..\..\p_snowball\snowball_hd"
+blank // suit
+blank // 32 spacer
+studio "..\p_grenade\grenade"
+studio "..\p_satchel\satchel"
+studio "..\p_tripmine\tripmine"
+studio "..\p_squeak\snark"
+studio "..\..\p_chumtoad\chumtoad_hd"
+studio "..\..\p_vest\vest_hd"
+studio "..\..\p_flamethrower\flamethrower_hd"
 }
 
 $bodygroup "addition_1"
@@ -52,7 +62,7 @@ blank
 blank
 blank
 blank
-studio "..\..\p_portalgun\p_portalgun_2_hd"
+blank // studio "..\..\p_portalgun\p_portalgun_2_hd"
 }
 
 $bodygroup "addition_2"
@@ -63,7 +73,7 @@ blank
 blank
 blank
 blank
-studio "..\..\p_portalgun\p_portalgun_3_hd"
+blank // studio "..\..\p_portalgun\p_portalgun_3_hd"
 }
 
 $texrendermode "..\p_chainsaw\chainsaw_p.BMP" "masked" 
@@ -127,6 +137,20 @@ $texturegroup ice
     "..\p_nuke\2.bmp"
     "..\p_nuke\SRRAILM4.bmp"
     "..\p_nuke\w_clip_bfg.bmp"
+    "..\..\p_snowball\newpallo.bmp"
+    "..\p_grenade\grenade 128.bmp"
+    "..\p_satchel\brass_chrome.BMP"
+    "..\p_satchel\w_satchel.BMP"
+    "..\p_tripmine\lensCHROME.BMP"
+    "..\p_tripmine\tripmine_reference.BMP"
+    "..\p_squeak\Snark_world_reference.BMP"
+    "..\..\p_chumtoad\CHB_Side1.bmp"
+    "..\..\p_chumtoad\CHB_Tounge1.bmp"
+    "..\..\p_chumtoad\eye.bmp"
+    "..\..\p_vest\dynamite.bmp"
+    "..\..\p_flamethrower\Chrome1.bmp"
+    "..\..\p_flamethrower\Chrome2(Brass).bmp"
+    "..\..\p_flamethrower\W-FLAME_Base1.bmp"
   }
   {
     "..\p_crowbar\invert_wbottom.bmp"
@@ -183,6 +207,20 @@ $texturegroup ice
     "..\p_nuke\invert_2.bmp"
     "..\p_nuke\invert_SRRAILM4.bmp"
     "..\p_nuke\invert_w_clip_bfg.bmp"
+    "..\..\p_snowball\invert_newpallo.bmp"
+    "..\p_grenade\invert_grenade 128.bmp"
+    "..\p_satchel\invert_brass_chrome.BMP"
+    "..\p_satchel\invert_w_satchel.BMP"
+    "..\p_tripmine\invert_lensCHROME.BMP"
+    "..\p_tripmine\invert_tripmine_reference.BMP"
+    "..\p_squeak\invert_Snark_world_reference.BMP"
+    "..\..\p_chumtoad\invert_CHB_Side1.bmp"
+    "..\..\p_chumtoad\invert_CHB_Tounge1.bmp"
+    "..\..\p_chumtoad\invert_eye.bmp"
+    "..\..\p_vest\invert_dynamite.bmp"
+    "..\..\p_flamethrower\invert_Chrome1.bmp"
+    "..\..\p_flamethrower\invert_Chrome2(Brass).bmp"
+    "..\..\p_flamethrower\invert_W-FLAME_Base1.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -239,8 +277,36 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -305,7 +371,7 @@ $hbox 0 "wrench" -1.550000 -0.810000 -2.570000 4.530000 0.830000 23.450001
 $hbox 0 "chainsaw" -6.570000 -42.689999 -4.490000 10.830000 1.140000 3.840000
 $hbox 0 "rocketcrowbar" -0.730000 -1.330000 -13.150000 4.860000 1.200000 13.170000
 $hbox 0 "gravitygun" -7.990000 -31.690001 -9.770000 6.210000 40.860001 11.980000
-$hbox 0 "portalgun" -1.180000 -0.880000 -7.840000 1.260000 11.440000 28.809999
+# $hbox 0 "portalgun" -1.180000 -0.880000 -7.840000 1.260000 11.440000 28.809999
 $hbox 0 "beretta" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
 $hbox 0 "python" -1.060000 -4.490000 -3.670000 1.050000 1.560000 8.060000
 $hbox 0 "deagle" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
@@ -328,6 +394,14 @@ $hbox 0 "railgun" -5.180000 -3.660000 -11.100000 4.950000 6.510000 18.510000
 $hbox 0 "glauncher" -12.260000 -4.010000 -1.570000 12.260000 4.010000 1.570000
 $hbox 0 "cannon" -1.356000 -10.386000 -2.760000 1.308000 10.422001 2.346000
 $hbox 0 "nuke" -8.240000 -12.720000 -45.029999 15.150000 22.230000 7.280000
+// Snowball?
+$hbox 0 "grenade" -2.760000 -2.390000 -2.050000 0.740000 3.600000 0.940000
+$hbox 0 "satchel" -5.760000 -4.400000 -6.110000 4.660000 4.400000 10.110000
+$hbox 0 "tripmine" -4.410000 -1.500000 -3.230000 4.430000 2.840000 0.790000
+$hbox 0 "snark" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
+$hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
+// Vest?
+// Flamethrower?
 
 
 // animation sequence(s)
@@ -360,6 +434,16 @@ $sequence "railgun_idle" "..\..\p_railgun\idle" fps 30
 $sequence "glauncher_idle" "..\p_glauncher\idle" fps 30 
 $sequence "cannon_idle" "..\p_cannon\idle" fps 30 
 $sequence "nuke_idle" "..\p_nuke\idle" fps 30 
+$sequence "snowball_idle" "..\..\p_snowball\idle" fps 30 
+$sequence "suit_idle" "..\p_grenade\idle" fps 30 
+$sequence "32_idle" "..\p_grenade\idle" fps 30 
+$sequence "grenade_idle" "..\p_grenade\idle" fps 30 
+$sequence "satchel_idle" "..\p_satchel\idle" fps 30 
+$sequence "tripmine_idle" "..\p_tripmine\idle" fps 30 
+$sequence "squeak_idle" "..\p_squeak\idle" fps 30 
+$sequence "chumtoad_idle" "..\..\p_chumtoad\idle" fps 30 
+$sequence "vest_idle" "..\..\p_vest\idle" fps 30 
+$sequence "flamethrower_idle" "..\..\p_flamethrower\idle" fps 30 
 
 
 // End of QC script.

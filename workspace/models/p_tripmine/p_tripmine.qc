@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_tripmine"
+$body "studio" "tripmine"
 
 $texturegroup ice
 {
@@ -59,12 +59,12 @@ $texturegroup ice
   }
 }
 
-// 3 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 4.278921 3.312595 1.946941
-$hbox 0 "Box01" -4.080000 -1.350000 -2.720000 4.100000 2.660000 0.700000
+$hbox 0 "tripmine" -4.080000 -1.350000 -2.720000 4.100000 2.660000 0.700000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

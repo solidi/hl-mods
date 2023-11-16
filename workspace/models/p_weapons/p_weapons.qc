@@ -18,7 +18,7 @@ studio "..\p_wrench\wrench"
 studio "..\p_chainsaw\chainsaw"
 studio "..\p_rocketcrowbar\rocketcrowbar"
 studio "..\p_gravitygun\gravitygun"
-studio "..\p_portalgun\p_portalgun_1"
+blank // studio "..\p_portalgun\p_portalgun_1"
 studio "..\p_9mmhandguns\glock"
 studio "..\p_357\python"
 studio "..\p_deagle\deagle"
@@ -41,6 +41,16 @@ studio "..\p_railgun\railgun"
 studio "..\p_glauncher\glauncher"
 studio "..\p_cannon\cannon"
 studio "..\p_nuke\nuke"
+studio "..\p_snowball\snowball"
+blank // suit
+blank // 32 spacer
+studio "..\p_grenade\grenade"
+studio "..\p_satchel\satchel"
+studio "..\p_tripmine\tripmine"
+studio "..\p_squeak\snark"
+studio "..\p_chumtoad\chumtoad"
+studio "..\p_vest\vest"
+studio "..\p_flamethrower\flamethrower"
 }
 
 $bodygroup "body"
@@ -51,7 +61,7 @@ blank
 blank
 blank
 blank
-studio "..\p_portalgun\p_portalgun_2"
+blank // studio "..\p_portalgun\p_portalgun_2"
 }
 
 $bodygroup "body"
@@ -62,7 +72,7 @@ blank
 blank
 blank
 blank
-studio "..\p_portalgun\p_portalgun_3"
+blank // studio "..\p_portalgun\p_portalgun_3"
 }
 
 $texturegroup ice
@@ -174,6 +184,27 @@ $texturegroup ice
     "..\p_cannon\ring.bmp"
     "..\p_nuke\chrome.bmp"
     "..\p_nuke\wskin.bmp"
+    "..\p_snowball\newpallo.bmp"
+    "..\p_grenade\grenade_side.bmp"
+    "..\p_grenade\grenade_skin.bmp"
+    "..\p_satchel\black.bmp"
+    "..\p_satchel\radioside.bmp"
+    "..\p_satchel\tag.bmp"
+    "..\p_satchel\wrldsatchel.bmp"
+    "..\p_tripmine\box.bmp"
+    "..\p_tripmine\face.bmp"
+    "..\p_tripmine\lensCHROME.BMP"
+    "..\p_tripmine\light.bmp"
+    "..\p_tripmine\side.bmp"
+    "..\p_squeak\SQK_Eye1.bmp"
+    "..\p_squeak\SQK_Side1.bmp"
+    "..\p_chumtoad\CHB_Side1.bmp"
+    "..\p_chumtoad\CHB_Tounge1.bmp"
+    "..\p_chumtoad\eye.bmp"
+    "..\p_vest\dynamite.bmp"
+    "..\p_flamethrower\Chrome1.bmp"
+    "..\p_flamethrower\Chrome2(Brass).bmp"
+    "..\p_flamethrower\W-FLAME_Base1.bmp"
   }
   {
     "..\p_crowbar\invert_p_pipe.bmp"
@@ -282,6 +313,27 @@ $texturegroup ice
     "..\p_cannon\invert_ring.bmp"
     "..\p_nuke\invert_chrome.bmp"
     "..\p_nuke\invert_wskin.bmp"
+    "..\p_snowball\invert_newpallo.bmp"
+    "..\p_grenade\invert_grenade_side.bmp"
+    "..\p_grenade\invert_grenade_skin.bmp"
+    "..\p_satchel\invert_black.bmp"
+    "..\p_satchel\invert_radioside.bmp"
+    "..\p_satchel\invert_tag.bmp"
+    "..\p_satchel\invert_wrldsatchel.bmp"
+    "..\p_tripmine\invert_box.bmp"
+    "..\p_tripmine\invert_face.bmp"
+    "..\p_tripmine\invert_lensCHROME.BMP"
+    "..\p_tripmine\invert_light.bmp"
+    "..\p_tripmine\invert_side.bmp"
+    "..\p_squeak\invert_SQK_Eye1.bmp"
+    "..\p_squeak\invert_SQK_Side1.bmp"
+    "..\p_chumtoad\invert_CHB_Side1.bmp"
+    "..\p_chumtoad\invert_CHB_Tounge1.bmp"
+    "..\p_chumtoad\invert_eye.bmp"
+    "..\p_vest\invert_dynamite.bmp"
+    "..\p_flamethrower\invert_Chrome1.bmp"
+    "..\p_flamethrower\invert_Chrome2(Brass).bmp"
+    "..\p_flamethrower\invert_W-FLAME_Base1.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -390,8 +442,50 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -509,7 +603,7 @@ $hbox 0 "wrench" -0.900000 -8.330000 -1.560000 0.900000 8.330000 1.550000
 $hbox 0 "chainsaw" -22.780001 -4.700000 -3.460000 8.640000 4.330000 7.320000
 $hbox 0 "rocketcrowbar" -1.550000 -0.810000 -2.570000 4.530000 0.830000 23.450001
 $hbox 0 "gravitygun" -7.990000 -31.690001 -9.770000 6.210000 40.860001 11.980000
-$hbox 0 "portalgun" -1.180000 -0.880000 -7.840000 1.260000 11.440000 28.809999
+// $hbox 0 "portalgun" -1.180000 -0.880000 -7.840000 1.260000 11.440000 28.809999
 $hbox 0 "glock" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
 $hbox 0 "python" -1.060000 -4.490000 -3.670000 1.050000 1.560000 8.060000
 $hbox 0 "deagle" -4.120000 -0.790000 -2.650000 4.120000 0.790000 2.650000
@@ -532,6 +626,14 @@ $hbox 0 "railgun" -7.610000 -6.110000 -0.530000 12.380000 5.200000 1.600000
 $hbox 0 "glauncher" -1.660000 -6.490000 -13.260000 2.070000 5.560000 17.980000
 $hbox 0 "cannon" -5.420000 -5.020000 -0.770000 2.020000 3.000000 37.689999
 $hbox 0 "nuke" -20.430000 -4.880000 -3.100000 15.840000 3.960000 3.530000
+// Snowball?
+$hbox 0 "grenade" -2.200000 -2.680000 -0.920000 0.690000 1.760000 1.730000
+$hbox 0 "satchel" -3.960000 -3.880000 -3.650000 2.810000 8.540000 3.230000
+$hbox 0 "tripmine" -4.080000 -1.350000 -2.720000 4.100000 2.660000 0.700000
+$hbox 0 "snark" -4.000000 -3.800000 -3.390000 4.000000 3.790000 3.400000
+$hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
+// Vest?
+// Flamethrower?
 
 
 // animation sequence(s)
@@ -564,3 +666,17 @@ $sequence "railgun_idle" "..\p_railgun\idle" fps 30
 $sequence "glauncher_idle" "..\p_glauncher\idle" fps 30
 $sequence "cannon_idle" "..\p_cannon\idle" fps 30
 $sequence "nuke_idle" "..\p_nuke\idle" fps 30
+$sequence "snowball_idle" "..\p_snowball\idle" fps 30
+$sequence "suit_idle" "..\p_grenade\idle" fps 30 
+$sequence "32_idle" "..\p_grenade\idle" fps 30 
+$sequence "grenade_idle" "..\p_grenade\idle" fps 30
+$sequence "satchel_idle" "..\p_satchel\idle" fps 30
+$sequence "tripmine_idle" "..\p_tripmine\idle" fps 30
+$sequence "snark_idle" "..\p_squeak\idle" fps 30
+$sequence "chumtoad_idle" "..\p_chumtoad\idle" fps 30
+$sequence "vest_idle" "..\p_vest\idle" fps 30
+$sequence "flamethrower_idle" "..\p_flamethrower\idle" fps 30
+
+
+// silencer?
+// satchel radio?

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "W-FlameThrower_Biped1"
+$body "body" "flamethrower"
 
 $texturegroup ice
 {
@@ -59,6 +59,6 @@ $hbox 0 "Bip01 R Arm2" 0.000000 -4.790000 -5.970000 10.127057 0.000000 0.000001
 $hbox 0 "Bip01 R Hand" 0.000000 -4.080000 -3.040000 25.290001 10.340000 7.750000
 
 // animation sequence(s)
-$sequence "stayput" "stayput" fps 1 
+$sequence "idle" "idle" fps 1 
 
 // End of QC script.

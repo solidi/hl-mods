@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "reference_detonator"
+$body "studio" "detonator"
 
 $texturegroup ice
 {
@@ -44,11 +44,11 @@ $texturegroup ice
 }
 
 
-// 2 hit box(es)
+// hit box(es)
 $hbox 0 "Bip01 Neck" -2.869898 0.000000 -4.140396 0.000000 1.399663 0.000000
-$hbox 0 "Box02" -0.490000 -6.960000 -1.300000 1.320000 2.430000 0.720000
+$hbox 0 "detonator" -0.490000 -6.960000 -1.300000 1.320000 2.430000 0.720000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.
