@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_snark_reference"
+$body "studio" "snark"
 
 $texturegroup ice
 {
@@ -45,7 +45,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Object03" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
+$hbox 0 "snark" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

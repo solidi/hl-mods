@@ -295,14 +295,11 @@ models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
 models\v_grenade.mdl
 models\w_grenade.mdl
-models\p_grenade.mdl
 models\v_knife.mdl
 models\v_crowbar.mdl
 models\v_rpg.mdl
 models\rpgrocket.mdl
-models\p_tripmine.mdl
 models\v_tripmine.mdl
-models\p_chumtoad.mdl
 models\w_chumtoad.mdl
 models\v_chumtoad.mdl
 models\v_sniperrifle.mdl
@@ -320,7 +317,6 @@ models\w_runes.mdl
 models\v_cannon.mdl
 models\w_hassassin.mdl
 models\w_satchel.mdl
-models\p_satchel.mdl
 models\p_satchel_radio.mdl
 models\v_satchel.mdl
 models\v_satchel_radio.mdl
@@ -336,7 +332,6 @@ models\w_shotgunshell.mdl
 models\v_fists.mdl
 models\v_wrench.mdl
 models\v_snowball.mdl
-models\p_snowball.mdl
 models\w_hgibs.mdl
 models\v_chainsaw.mdl
 models\v_12gauge.mdl
@@ -361,7 +356,6 @@ models\v_gauss.mdl
 models\w_hornet.mdl
 models\v_hgun.mdl
 models\v_squeak.mdl
-models\p_squeak.mdl
 models\w_sqknest.mdl
 models\w_squeak.mdl
 models\v_leg.mdl
