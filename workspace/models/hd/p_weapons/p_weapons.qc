@@ -52,6 +52,15 @@ studio "..\p_squeak\snark"
 studio "..\..\p_chumtoad\chumtoad_hd"
 studio "..\..\p_vest\vest_hd"
 studio "..\..\p_flamethrower\flamethrower_hd"
+studio "..\p_dual_wrench\dual_wrench"
+studio "..\p_dual_deagle\dual_deagle"
+studio "..\p_dual_mag60\dual_mag60"
+studio "..\p_dual_smg\dual_smg"
+studio "..\..\p_dual_sawedoff\dual_sawedoff_hd"
+studio "..\p_dual_usas\dual_usas"
+studio "..\..\p_dual_railgun\dual_railgun_hd"
+studio "..\p_dual_rpg\dual_rpg"
+studio "..\..\p_dual_flamethrower\dual_flamethrower_hd"
 }
 
 $bodygroup "addition_1"
@@ -151,6 +160,19 @@ $texturegroup ice
     "..\..\p_flamethrower\Chrome1.bmp"
     "..\..\p_flamethrower\Chrome2(Brass).bmp"
     "..\..\p_flamethrower\W-FLAME_Base1.bmp"
+    "..\p_dual_wrench\pipewrench.bmp"
+    "..\p_dual_deagle\deagle256.bmp"
+    "..\p_dual_mag60\wmodel.bmp"
+    "..\p_dual_smg\wmodel1.bmp"
+    "..\..\p_dual_sawedoff\wmodel.bmp"
+    "..\p_dual_usas\USAS-1.bmp"
+    "..\p_dual_usas\USAS-2.bmp"
+    "..\p_dual_usas\USAS-3.bmp"
+    "..\..\p_dual_railgun\Skin.bmp"
+    "..\p_dual_rpg\w_rpg_reference.BMP"
+    "..\..\p_dual_flamethrower\Chrome1.bmp"
+    "..\..\p_dual_flamethrower\Chrome2(Brass).bmp"
+    "..\..\p_dual_flamethrower\W-FLAME_Base1.bmp"
   }
   {
     "..\p_crowbar\invert_wbottom.bmp"
@@ -221,6 +243,19 @@ $texturegroup ice
     "..\..\p_flamethrower\invert_Chrome1.bmp"
     "..\..\p_flamethrower\invert_Chrome2(Brass).bmp"
     "..\..\p_flamethrower\invert_W-FLAME_Base1.bmp"
+    "..\p_dual_wrench\invert_pipewrench.bmp"
+    "..\p_dual_deagle\invert_deagle256.bmp"
+    "..\p_dual_mag60\invert_wmodel.bmp"
+    "..\p_dual_smg\invert_wmodel1.bmp"
+    "..\..\p_dual_sawedoff\invert_wmodel.bmp"
+    "..\p_dual_usas\invert_USAS-1.bmp"
+    "..\p_dual_usas\invert_USAS-2.bmp"
+    "..\p_dual_usas\invert_USAS-3.bmp"
+    "..\..\p_dual_railgun\invert_Skin.bmp"
+    "..\p_dual_rpg\invert_w_rpg_reference.BMP"
+    "..\..\p_dual_flamethrower\invert_Chrome1.bmp"
+    "..\..\p_dual_flamethrower\invert_Chrome2(Brass).bmp"
+    "..\..\p_dual_flamethrower\invert_W-FLAME_Base1.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -291,8 +326,34 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -402,6 +463,15 @@ $hbox 0 "snark" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 $hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 // Vest?
 // Flamethrower?
+// Dual wrench?
+// Dual deagle?
+// Dual mag60?
+// Dual smg?
+// Dual sawedoff?
+// Dual usas?
+// Dual railgun?
+// Dual rpg?
+// Dual flamethrower?
 
 
 // animation sequence(s)
@@ -444,6 +514,14 @@ $sequence "squeak_idle" "..\p_squeak\idle" fps 30
 $sequence "chumtoad_idle" "..\..\p_chumtoad\idle" fps 30 
 $sequence "vest_idle" "..\..\p_vest\idle" fps 30 
 $sequence "flamethrower_idle" "..\..\p_flamethrower\idle" fps 30 
-
+$sequence "dual_wrench_idle" "..\p_dual_wrench\idle" fps 30 
+$sequence "dual_deagle_idle" "..\p_dual_deagle\idle" fps 30 
+$sequence "dual_mag60_idle" "..\p_dual_mag60\idle" fps 30 
+$sequence "dual_smg_idle" "..\p_dual_smg\idle" fps 30 
+$sequence "dual_sawedoff_idle" "..\..\p_dual_sawedoff\idle" fps 30 
+$sequence "dual_usas_idle" "..\p_dual_usas\idle" fps 30 
+$sequence "dual_railgun_idle" "..\..\p_dual_railgun\idle" fps 30 
+$sequence "dual_rpg_idle" "..\p_dual_rpg\idle" fps 30 
+$sequence "dual_flamethrower_idle" "..\..\p_dual_flamethrower\idle" fps 30 
 
 // End of QC script.

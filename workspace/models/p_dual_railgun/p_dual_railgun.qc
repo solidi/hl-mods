@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "p_dual_railgun"
+$body "studio" "dual_railgun"
 
 $texturegroup ice
 {

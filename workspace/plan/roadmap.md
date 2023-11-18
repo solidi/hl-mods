@@ -160,7 +160,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
     1. [x] mp_infiniteammo -> sv_infiniteammo
 1. Clean up
-    1. [ ] Compact p_ models into one
+    1. [x] Compact p_ models into one
     1. [x] Compact w_ models into one
     1. [x] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
 1. Game Dev Tools

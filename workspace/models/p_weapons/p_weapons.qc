@@ -51,6 +51,15 @@ studio "..\p_squeak\snark"
 studio "..\p_chumtoad\chumtoad"
 studio "..\p_vest\vest"
 studio "..\p_flamethrower\flamethrower"
+studio "..\p_dual_wrench\dual_wrench"
+studio "..\p_dual_deagle\dual_deagle"
+studio "..\p_dual_mag60\dual_mag60"
+studio "..\p_dual_smg\dual_smg"
+studio "..\p_dual_sawedoff\dual_sawedoff"
+studio "..\p_dual_usas\dual_usas"
+studio "..\p_dual_railgun\dual_railgun"
+studio "..\p_dual_rpg\dual_rpg"
+studio "..\p_dual_flamethrower\dual_flamethrower"
 }
 
 $bodygroup "body"
@@ -205,6 +214,26 @@ $texturegroup ice
     "..\p_flamethrower\Chrome1.bmp"
     "..\p_flamethrower\Chrome2(Brass).bmp"
     "..\p_flamethrower\W-FLAME_Base1.bmp"
+    "..\p_dual_wrench\spanner_text.bmp"
+    "..\p_dual_wrench\spannerCHROME.bmp"
+    "..\p_dual_deagle\glockback.bmp"
+    "..\p_dual_deagle\glockfront.bmp"
+    "..\p_dual_deagle\glockside.bmp"
+    "..\p_dual_deagle\glocktop1.bmp"
+    "..\p_dual_mag60\glockback.bmp"
+    "..\p_dual_mag60\glockfront.bmp"
+    "..\p_dual_mag60\glockside.bmp"
+    "..\p_dual_mag60\glocktop1.bmp"
+    "..\p_dual_smg\M203.bmp"
+    "..\p_dual_smg\MP5sideview.bmp"
+    "..\p_dual_sawedoff\wmodel.bmp"
+    "..\p_dual_usas\M203.bmp"
+    "..\p_dual_usas\MP5sideview.bmp"
+    "..\p_dual_railgun\Skin.bmp"
+    "..\p_dual_rpg\new_worldrpg_combo.BMP"
+    "..\p_dual_flamethrower\Chrome1.bmp"
+    "..\p_dual_flamethrower\Chrome2(Brass).bmp"
+    "..\p_dual_flamethrower\W-FLAME_Base1.bmp"
   }
   {
     "..\p_crowbar\invert_p_pipe.bmp"
@@ -334,6 +363,26 @@ $texturegroup ice
     "..\p_flamethrower\invert_Chrome1.bmp"
     "..\p_flamethrower\invert_Chrome2(Brass).bmp"
     "..\p_flamethrower\invert_W-FLAME_Base1.bmp"
+    "..\p_dual_wrench\invert_spanner_text.bmp"
+    "..\p_dual_wrench\invert_spannerCHROME.bmp"
+    "..\p_dual_deagle\invert_glockback.bmp"
+    "..\p_dual_deagle\invert_glockfront.bmp"
+    "..\p_dual_deagle\invert_glockside.bmp"
+    "..\p_dual_deagle\invert_glocktop1.bmp"
+    "..\p_dual_mag60\invert_glockback.bmp"
+    "..\p_dual_mag60\invert_glockfront.bmp"
+    "..\p_dual_mag60\invert_glockside.bmp"
+    "..\p_dual_mag60\invert_glocktop1.bmp"
+    "..\p_dual_smg\invert_M203.bmp"
+    "..\p_dual_smg\invert_MP5sideview.bmp"
+    "..\p_dual_sawedoff\invert_wmodel.bmp"
+    "..\p_dual_usas\invert_M203.bmp"
+    "..\p_dual_usas\invert_MP5sideview.bmp"
+    "..\p_dual_railgun\invert_Skin.bmp"
+    "..\p_dual_rpg\invert_new_worldrpg_combo.BMP"
+    "..\p_dual_flamethrower\invert_Chrome1.bmp"
+    "..\p_dual_flamethrower\invert_Chrome2(Brass).bmp"
+    "..\p_dual_flamethrower\invert_W-FLAME_Base1.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -463,8 +512,48 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -634,6 +723,15 @@ $hbox 0 "snark" -4.000000 -3.800000 -3.390000 4.000000 3.790000 3.400000
 $hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 // Vest?
 // Flamethrower?
+// Dual wrench?
+// Dual deagles?
+// Dual mag60?
+// Dual smg?
+// Dual sawedoff?
+// Dual usas?
+// Dual railgun?
+// Dual rpg?
+// Dual flamethrower?
 
 
 // animation sequence(s)
@@ -676,6 +774,15 @@ $sequence "snark_idle" "..\p_squeak\idle" fps 30
 $sequence "chumtoad_idle" "..\p_chumtoad\idle" fps 30
 $sequence "vest_idle" "..\p_vest\idle" fps 30
 $sequence "flamethrower_idle" "..\p_flamethrower\idle" fps 30
+$sequence "dual_wrench_idle" "..\p_dual_wrench\idle" fps 30
+$sequence "dual_deagle_idle" "..\p_dual_deagle\idle" fps 30
+$sequence "dual_mag60_idle" "..\p_dual_mag60\idle" fps 30
+$sequence "dual_smg_idle" "..\p_dual_smg\idle" fps 30
+$sequence "dual_sawedoff_idle" "..\p_dual_sawedoff\idle" fps 30
+$sequence "dual_usas_idle" "..\p_dual_usas\idle" fps 30
+$sequence "dual_railgun_idle" "..\p_dual_railgun\idle" fps 30
+$sequence "dual_rpg_idle" "..\p_dual_rpg\idle" fps 30
+$sequence "dual_flamethrower_idle" "..\p_dual_flamethrower\idle" fps 30
 
 
 // silencer?
