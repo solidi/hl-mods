@@ -13,7 +13,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_DefaultBots"
 		{ NUMBER 0.000000 31.000000 }
-		{ "0.000000" }
+		{ "4.000000" }
 	}
 
 	"mp_gamemode"
