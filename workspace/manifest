@@ -218,6 +218,7 @@ maps\cold_base.wpt
 maps\cold_base.txt
 media
 media\gamestartup.mp3
+media\valve.webm
 models
 models\player
 models\player\army
@@ -634,6 +635,8 @@ sound\player\pl_snow1.wav
 sound\player\pl_snow2.wav
 sound\player\pl_snow3.wav
 sound\player\pl_snow4.wav
+sound\ui
+sound\ui\valve_sound.wav
 sound\weapons
 sound\weapons\explode3.wav
 sound\weapons\explode4.wav

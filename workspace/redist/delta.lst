@@ -68,7 +68,7 @@ clientdata_t none
 	DEFINE_DELTA( fuser3, DT_SIGNED | DT_FLOAT, 10, 128.0 ),
 	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 10, 128.0 ),
 
-	DEFINE_DELTA( iuser4, DT_INTEGER, 64, 1.0 ) // for 64 weapon hud slot support
+	DEFINE_DELTA( iuser4, DT_INTEGER, 32, 1.0 ) // for 64 weapon hud slot support
 }
 
 entity_state_t gamedll Entity_Encode

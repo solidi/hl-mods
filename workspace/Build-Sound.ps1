@@ -49,6 +49,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistdir\sound\player)
     [void](New-Item -ItemType directory -Path $redistdir\sound\hev)
     [void](New-Item -ItemType directory -Path $redistDir\media)
+    [void](New-Item -ItemType directory -Path $redistDir\sound\ui)
 }
 
 try {
@@ -321,6 +322,9 @@ Copy-Item $soundDir\sawedoff.wav $redistdir\sound
 Copy-Item $soundDir\goldeneye_respawn.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
+Copy-Item $soundDir\valve.webm $redistdir\media
+
+Copy-Item $soundDir\valve_sound.wav $redistdir\sound\ui\
 
 Copy-Item $soundDir\sentences.txt $redistdir\sound
 Copy-Item $soundDir\materials.txt $redistdir\sound
