@@ -126,6 +126,7 @@ Beta 4 Features:
     - Provide frag point for telefrags
 - Menu
     - Added new startup music by Napoleon, titled "ETA Never"
+    - Added Half-Life 25th anniversary video intro startup support
 - Fixes
     - Re-added Snarks missing from Linux build
     - Fixed flak cannon crash on Linux
@@ -896,3 +897,4 @@ Thanks To:
 - PunkAss for the Jack head model https://gamebanana.com/mods/179228
 - Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
 - Box player model from PlanetSun of Boxwars https://www.moddb.com/mods/boxwar
+- Original Cold Ice intro video by Coconutmonkey 28, sfx added by AudioCraZ and b1rd

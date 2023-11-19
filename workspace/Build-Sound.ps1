@@ -49,6 +49,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistdir\sound\player)
     [void](New-Item -ItemType directory -Path $redistdir\sound\hev)
     [void](New-Item -ItemType directory -Path $redistDir\media)
+    [void](New-Item -ItemType directory -Path $redistDir\sound\ui)
 }
 
 try {
