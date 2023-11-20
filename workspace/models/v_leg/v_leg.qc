@@ -27,7 +27,7 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $bodygroup "leg"
 {
-studio "hevleg"
+studio "hevleg_left"
 }
 
 $texturegroup ice
@@ -106,6 +106,6 @@ $hbox 0 "joint32" -8.990000 -4.890000 -0.520000 2.540000 2.220000 4.450000
 // animation sequence(s)
 $sequence "KICK" "KICK" fps 22 
 $sequence "KICK_2" "KICK_2" fps 22 
-$sequence "KICK_3" "KICK_3" fps 22 
+$sequence "KICK_4" "KICK_4" fps 22 
 
 // End of QC script.
