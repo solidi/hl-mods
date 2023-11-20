@@ -46,7 +46,7 @@ Beta 4 Features:
 - Player Combat
     - Weapons are enabled weapons while sliding and kicking
     - Sliding is more effective at damaging opponets
-    - Improved kick animation
+    - Improved kick animation, moved to opposite side of weapon
     - Added standing double jumping
     - Added front flip by jumping three times
     - "impulse 213" supports a kicking front flip
@@ -84,6 +84,7 @@ Beta 4 Features:
         - "crate" - a tribute to boxwars
     - Added remaining mutator icons
     - Improved volatile mutator to blow up monsters too
+    - Improved sanic mutator by adding death sprites
 - Game Mode Changes
     - When game mode is changed, the server will restart the map after five seconds
     - Arena mode displays opponent name while fighting
@@ -178,6 +179,7 @@ Beta 4 Features:
     - Fixed mutator index order
     - Added text color change with ice model switch
     - Constrain shell size to small size
+    - Fixed delta.lst 62 to 32 engine crash
 
 Beta 3 Features:
 
