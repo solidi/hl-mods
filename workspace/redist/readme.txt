@@ -83,8 +83,9 @@ Beta 4 Features:
         - "marshmello" - come back home to you
         - "crate" - a tribute to boxwars
     - Added remaining mutator icons
-    - Improved volatile mutator to blow up monsters too
-    - Improved sanic mutator by adding death sprites
+    - Improved "volatile" to blow up single player monsters too
+    - Improved "sanic" by adding death sprites
+    - Improved "lightsout" by adding a better flashlight, bots use flashlight
 - Game Mode Changes
     - When game mode is changed, the server will restart the map after five seconds
     - Arena mode displays opponent name while fighting
@@ -900,3 +901,4 @@ Thanks To:
 - Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
 - Box player model from PlanetSun of Boxwars https://www.moddb.com/mods/boxwar
 - Original Cold Ice intro video by Coconutmonkey 28, sfx added by AudioCraZ and b1rd
+- BlueNightHawk for the client side flashlight tutorial https://gamebanana.com/tuts/14971
