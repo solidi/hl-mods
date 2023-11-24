@@ -437,4 +437,18 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "20" }
 	}
+
+	"mp_voting"
+	{
+		"#Ice_Voting"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_spawnprotectiontime"
+	{
+		"#Ice_SpawnProtection"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "3" }
+	}
 }

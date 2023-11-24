@@ -123,6 +123,8 @@ Beta 4 Features:
     - "sv_slowbullets [0|1]" - all bullets are slowed down
     - "sv_breakabletime" - time inwhich breakables respawn
     - "sv_defaultbots [0-31]" - amount of bots to add when starting a game
+    - "mp_voting [0|1]" - enable or disable end of map voting
+    - "mp_spawnprotectiontime" - amount in seconds of spawn protection
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -781,6 +783,8 @@ Server:
 - "sys_timescale" for experimental server time adjustment (slowmo, speedup)
 - "sv_slowbullets" - all bullets are slowed down
 - "sv_breakabletime" - time inwhich breakables respawn
+- "mp_voting" - turn end of map voting on or off
+- "mp_spawnprotectiontime" - amount of time in seconds spawn protection is enabled
 
 Report Bugs:
 
