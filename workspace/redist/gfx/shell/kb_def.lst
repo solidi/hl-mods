@@ -36,6 +36,7 @@
 "5"				"slot5"
 "6"				"slot6"
 "7"				"feign"
+"8"				"taunt"
 "MWHEELUP"		"invprev"
 "["				"invprev"
 "MWHEELDOWN"	"invnext"

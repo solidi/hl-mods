@@ -62,6 +62,7 @@ models\w_weapons.mdl
 models\p_weapons.mdl
 models\w_cabinet.mdl
 models\v_sawedoff.mdl
+models\v_taunt.mdl
 sound
 sound\knife_miss2.wav
 sprites

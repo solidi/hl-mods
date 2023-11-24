@@ -122,6 +122,7 @@
 "+hook"			"#Ice_Grappling_Hook"
 "drop_rune"		"#Ice_Drop_Rune"
 "feign"			"#Ice_Feign"
+"taunt"			"#Ice_Taunt"
 "+ironsight"	"#Ice_Iron_Sight"
 "impulse 205"	"#Ice_SwapDual"
 "impulse 206"	"#Ice_Kick"
