@@ -52,6 +52,7 @@ Beta 4 Features:
     - "impulse 213" supports a kicking front flip
 - Player Changes
     - Added feign ability using the command "feign"
+    - Added taunt ability using the command "taunt"
 - Maps
     - Added res files for all included maps
 - Game Modes
@@ -635,6 +636,7 @@ Client:
 - "impulse 213" - to perform a front flip
 - "drop_rune" - Drop rune
 - "feign" - Fake your death
+- "taunt" - Humiliate your competition
 - "snowman" - God mode (when sv_cheats 1)
 - "cl_icemodels [0-6]" - Ice Models - To switch between weapon ice skins and real skins
     - "0" - real skin

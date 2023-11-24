@@ -393,6 +393,7 @@ models\hat_santa.mdl
 models\hat_pirate.mdl
 models\hat_marshmello.mdl
 models\box.mdl
+models\v_taunt.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -879,6 +880,7 @@ sound\votemap.wav
 sound\greatjob.wav
 sound\votestarted.wav
 sound\votemutator.wav
+sound\taunt_blah.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

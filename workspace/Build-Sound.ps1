@@ -320,6 +320,7 @@ Copy-Item $soundDir\firstblood.wav $redistdir\sound
 Copy-Item $soundDir\sawedoff_click.wav $redistdir\sound
 Copy-Item $soundDir\sawedoff.wav $redistdir\sound
 Copy-Item $soundDir\goldeneye_respawn.wav $redistdir\sound
+Copy-Item $soundDir\taunt_blah.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 Copy-Item $soundDir\valve.webm $redistdir\media

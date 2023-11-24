@@ -8,8 +8,6 @@
 [ ] icon of chumtoad when you have it.
 [ ] steal levels in gungame?
 [ ] time stopping mechanism
-[ ] jope mutator Doesn't put player names back after the mutator is removed
-[ ] Bot names don't change with jope mutator
 [ ] Inverse mutator doesn't seem to work
 [ ] Oldtime doesn't seem to work
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
@@ -18,6 +16,8 @@
 [ ] jeepathon / func_vehicle - car over player model?
 [ ] reload on rpg disables / enables laser
 [ ] 18, 38, or 50 for extra gif
+[x] jope mutator Doesn't put player names back after the mutator is removed
+[x] Bot names don't change with jope mutator
 [x] amx plugin vote option for six
 [x] listencfg for gamemode change - find better way
 [x] Glupshitto - Teleporter under train doesn't work
