@@ -119,12 +119,15 @@ Beta 4 Features:
     - cl_antivomit now includes disable of screen shaking
     - "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
 - Server
-    - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
+    - Changes
+        - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
+        - mp_chaostime changed to sv_chaostime
     - "sv_slowbullets [0|1]" - all bullets are slowed down
     - "sv_breakabletime" - time inwhich breakables respawn
     - "sv_defaultbots [0-31]" - amount of bots to add when starting a game
     - "mp_voting [0|1]" - enable or disable end of map voting
     - "mp_spawnprotectiontime" - amount in seconds of spawn protection
+    - "sv_chaosfilter" - list of mutators which are ignored in chaos mode
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -762,7 +765,7 @@ Server:
     - "marshmello" - come back home to you
     - "crate" - a tribute to boxwars
 - "mp_randommutators [0|1]" selects three random mutators on map change
-- "mp_chaostime" - how many seconds until chaos mutators are rotated
+- "sv_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
@@ -785,6 +788,7 @@ Server:
 - "sv_breakabletime" - time inwhich breakables respawn
 - "mp_voting" - turn end of map voting on or off
 - "mp_spawnprotectiontime" - amount of time in seconds spawn protection is enabled
+- "sv_chaosfilter" - list of mutators which are ignored in chaos mode
 
 Report Bugs:
 
