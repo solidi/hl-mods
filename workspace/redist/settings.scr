@@ -328,11 +328,18 @@ DESCRIPTION SERVER_OPTIONS
 		{ "0" }
 	}
 
-	"mp_chaostime"
+	"sv_chaostime"
 	{
 		"#Ice_ChaosTime"
 		{ NUMBER 0.000000 -1.000000 }
 		{ "45" }
+	}
+
+	"sv_chaosfilter"
+	{
+		"#Ice_ChaosFilter"
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_spawnweapons"

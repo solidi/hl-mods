@@ -118,6 +118,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
 1. Game Mechanics
+    1. [ ] Knock weapons out of hands with punch or kicks
+    1. [ ] Visual indicator for punch or kick.
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [x] Front flip
 1. Weapons
