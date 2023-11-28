@@ -119,10 +119,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
 1. Game Mechanics
     1. [ ] Knock weapons out of hands with punch or kicks
-    1. [ ] Visual indicator for punch or kick.
+    1. [ ] Visual indicator for punch or kick like batman, POW!
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [x] Front flip
 1. Weapons
+    1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
@@ -136,8 +137,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server
     1. [x] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
 1. Client
-    1. [ ] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
-    1. [ ] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
+    1. [x] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
+    1. [x] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
     1. [x] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
     1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [x] Head shot and first blood voice award announcements
@@ -255,7 +256,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
-    1. [ ] Increase accuracy of weapons when in ironsights mode
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
     1. [ ] Third Fire Options through Reload
         1. [ ] Sniper on Knife
