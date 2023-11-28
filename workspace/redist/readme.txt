@@ -30,6 +30,7 @@ Beta 4 Features:
     - glupshitto, a map by pig
     - cold_base, a reskin by AudioCraZ of DM3: The Abandoned Base by John Romero
 - Weapon Changes
+    - Using ironsights greatly improves weapon accuracy
     - Chainsaw secondary fire performes a saw ride when pointed at ground, and climb up walls
     - Deploy and holster time reduced for faster firing
     - Ice skins and explosions changed to real blue HEV version as default
@@ -43,6 +44,7 @@ Beta 4 Features:
     - Added HD arcade cabinet
     - Added silver, gold, and real skin + blue hev
     - M16 now comes with 50 bullets
+    - Buckshot shells eject at right time
 - Player Combat
     - Weapons are enabled weapons while sliding and kicking
     - Sliding is more effective at damaging opponets
