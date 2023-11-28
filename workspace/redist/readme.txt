@@ -46,6 +46,7 @@ Beta 4 Features:
     - M16 now comes with 50 bullets
     - Buckshot shells eject at right time
 - Player Combat
+    - Weapons are knocked out of hands if attacked with kick or punch
     - Weapons are enabled weapons while sliding and kicking
     - Sliding is more effective at damaging opponets
     - Improved kick animation, moved to opposite side of weapon
