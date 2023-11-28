@@ -113,7 +113,7 @@ $texturegroup ice
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 10.000000 2.250000 4.250000
 // aim
-$attachment 1 "Bip01 R Hand" 5.0 6.0 4.0
+$attachment 1 "Bip01 R Hand" 5.0 5.7 4.0
 
 // hit box(es)
 $hbox 0 "Bip01 L Arm2" 0.000000 -1.950000 -1.490000 11.368419 2.460000 2.850000
