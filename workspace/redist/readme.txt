@@ -108,6 +108,7 @@ Beta 4 Features:
     - Runes no longer spawn in single player mode
     - Improved spawning of runes
 - Client Support
+    - Added drop down protips on weapon and item discovery (cl_showtips 0 to disable)
     - Added player radar for discovery of enemies
     - Improved "hud_fastswitch" to cycle through weapons in a slot
     - Added HEV hands when dead for authentic effect
