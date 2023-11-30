@@ -118,8 +118,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
 1. Game Mechanics
-    1. [ ] Knock weapons out of hands with punch or kicks
     1. [ ] Visual indicator for punch or kick like batman, POW!
+    1. [x] Knock weapons out of hands with punch or kicks
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [x] Front flip
 1. Weapons
@@ -195,6 +195,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Game Mutators
+    1. [ ] Accurate bullets
     1. [ ] Pumpkinhead from [Base Defense](https://www.youtube.com/watch?v=Q-ZY8YBuq8g&t=287s)
     1. [ ] thirdperson
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)

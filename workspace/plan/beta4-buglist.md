@@ -1,3 +1,26 @@
+## November 2023
+
+[ ] dontshoot is too annoying
+[ ] portal gun didnt give? (icons didnt reset?)
+    [ ] mutators not active, hud still showing
+[ ] keep chaos in vote mode?
+[ ] cannot pick up nuke?
+[x] vest, no damage to others?
+[x] decrease density of waypoints
+[x] frags to go in arena, if -1, bar is screwed up
+[ ] jammed radar mutator
+[ ] rocketjump mutator
+[x] rocket launcher, no damage
+[x] Chilldemic - won round #0 of 10! in text
+[x] text voting, remove bots in count
+[x] autoaim gets stuck
+[x] fists to gungame?
+[x] kill box in glup? chumtoad invicible?
+[x] vote - 15 to 30 seconds
+[x] w_model grenadelauncher w_ is a cannon? fix
+[x] chaingun, spin up on secondary
+[x] no winners this round! (arena) - check for end of line break.
+[x] Chainsaw tip, up walls
 
 ## August 2023
 
@@ -12,7 +35,6 @@
 [ ] Oldtime doesn't seem to work
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [ ] Defroster - Loaded, but crashed after a few minutes with the same error above
-      * (Suggestion? Don't fix and add a teleport to another section that looks like The Backrooms that you can't spawn in or leave)
 [ ] jeepathon / func_vehicle - car over player model?
 [ ] reload on rpg disables / enables laser
 [ ] 18, 38, or 50 for extra gif

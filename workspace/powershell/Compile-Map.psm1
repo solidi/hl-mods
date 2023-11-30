@@ -61,7 +61,7 @@ function Compile-WPT {
     $success = $false
     while (!$success) {
         Write-Output "`nWriting ${target}.wpt..."
-        $out = & .\BSP_tool -w $target | Out-String
+        $out = & .\BSP_tool -w200 $target | Out-String
         $success = $?
         if (!$success) {
             Write-Output "$out`n> Could not wpt ${target}, trying again."
