@@ -403,3 +403,5 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. The `pev->owner` of an entity set the player will not be able to traceline. This prevents bullet damage if takedamage is set to yes. Also, if the entity is `solid_trigger` tracelines cannot detect it.
 1. Here is a full listing of [available skyboxes](https://developer.valvesoftware.com/wiki/List_of_Skyboxes) within the Valve ecosystem.
 1. Fullbright and mdl compilation flag `STUDIO_NF_FULLBRIGHT` is not supported in vanilla Half-Life. See [this thread](https://twhl.info/thread/view/20184) for more information.
+1. Use `gl_clear 1` to set non-rendered world to red color, as see in Dario Casali's [YouTube video](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1491s).
+1. An [updated command list](https://sturmbot.org/index.php/dod-turtorials/day-of-defeat-commands/105-day-of-defeat-common-player-commands-cvars) in November 2023 of Half-Life. 
