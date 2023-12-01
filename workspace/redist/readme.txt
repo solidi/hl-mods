@@ -45,6 +45,7 @@ Beta 4 Features:
     - Added silver, gold, and real skin + blue hev
     - M16 now comes with 50 bullets
     - Buckshot shells eject at right time
+    - Toggle laser on RPG and Dual RPG with reload on full clip
 - Player Combat
     - Weapons are knocked out of hands if attacked with kick or punch
     - Weapons are enabled weapons while sliding and kicking
