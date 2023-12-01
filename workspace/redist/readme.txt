@@ -53,6 +53,7 @@ Beta 4 Features:
     - Added standing double jumping
     - Added front flip by jumping three times
     - "impulse 213" supports a kicking front flip
+    - Added player fall scream from a large height
 - Player Changes
     - Added feign ability using the command "feign"
     - Added taunt ability using the command "taunt"
