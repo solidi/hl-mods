@@ -131,6 +131,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual hand cannon
     1. [x] Explosive shells to dragons breath, light on fire?
 1. Models
+    1. [ ] Import rest of player models, replace skeleton and holo with gina
     1. [x] Gold Skin? (Radu Matei Ionut)
     1. [x] Silver Skin?
     1. [x] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
@@ -195,6 +196,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] Basic CTF mode
 1. Game Mutators
+    1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
     1. [ ] Pumpkinhead from [Base Defense](https://www.youtube.com/watch?v=Q-ZY8YBuq8g&t=287s)
     1. [ ] thirdperson

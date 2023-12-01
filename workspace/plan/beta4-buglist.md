@@ -36,8 +36,8 @@
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [ ] Defroster - Loaded, but crashed after a few minutes with the same error above
 [ ] jeepathon / func_vehicle - car over player model?
-[ ] reload on rpg disables / enables laser
 [ ] 18, 38, or 50 for extra gif
+[x] reload on rpg disables / enables laser
 [x] jope mutator Doesn't put player names back after the mutator is removed
 [x] Bot names don't change with jope mutator
 [x] amx plugin vote option for six
