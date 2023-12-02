@@ -94,6 +94,20 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
+	"sv_chaostime"
+	{
+		"#Ice_ChaosTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "45" }
+	}
+
+	"sv_chaosfilter"
+	{
+		"#Ice_ChaosFilter"
+		{ STRING }
+		{ "oldtime;sildenafil;inverse" }
+	}
+
 	"maxplayers"
 	{
 		"#Valve_Max_Players"
@@ -326,20 +340,6 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_RandomMutators"
 		{ BOOL }
 		{ "0" }
-	}
-
-	"sv_chaostime"
-	{
-		"#Ice_ChaosTime"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "45" }
-	}
-
-	"sv_chaosfilter"
-	{
-		"#Ice_ChaosFilter"
-		{ STRING }
-		{ "" }
 	}
 
 	"mp_spawnweapons"
