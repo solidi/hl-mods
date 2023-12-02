@@ -67,9 +67,10 @@ Beta 4 Features:
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
          - "chilldemic" - survive the virus, don't let them free your bones.
+    - Some mutators renamed for clarity
     - 16 New Mutators - supports combination and randomly selected (sv_mutators)
         - "portal" - spawn with a portal gun
-        - "jope" - all hail king jope!
+        - "jope" - you've been joped!
         - "inverse" - colors are inverted
         - "oldtime" - colors are black and white
         - "sildenafil" - all you see is blue
@@ -86,7 +87,7 @@ Beta 4 Features:
         - "fastweapons" - weapons fire fast
         - "jack" - we don't make it until you order it
         - "piratehat" - argh matey
-        - "marshmello" - come back home to you
+        - "marshmellow" - come back 1999 to you
         - "crate" - a tribute to boxwars
     - Added remaining mutator icons
     - Improved "volatile" to blow up single player monsters too
@@ -223,7 +224,7 @@ Beta 3 Features:
         - "volatile" - where players blow up when fragged (explode icon)
         - "plumber" - spawn with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
-        - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
+        - "bighead" - players heads are very large
         - "superjump" - jump three times the height, disables fall damage
         - "megarun" - run 50% faster
         - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
@@ -726,7 +727,7 @@ Server:
     - "volatile" - where players or monsters blow up when fragged
     - "plumber" - spawn with pipe wrenches
     - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
-    - "dkmode" - from Goldeneye 007, player head and arms are like Donkey Kong
+    - "bighead" - players heads are very large
     - "superjump" - jump three times the height, disables fall damage
     - "megarun" - run 50% faster
     - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
@@ -751,7 +752,7 @@ Server:
     - "snowballs" - a random chance of snowballs throw on attack
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "portal" - now you're thinking with portals
-    - "jope" - all hail king jope!
+    - "jope" - you've been joped!
     - "inverse" - colors are inverted
     - "oldtime" - colors are black and white
     - "sildenafil" - all you see is blue
@@ -768,7 +769,7 @@ Server:
     - "fastweapons" - weapons fire fast
     - "jack" - we don't make it until you order it
     - "piratehat" - argh matey
-    - "marshmello" - come back home to you
+    - "marshmellow" - come back 1999 to you
     - "crate" - a tribute to boxwars
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "sv_chaostime" - how many seconds until chaos mutators are rotated

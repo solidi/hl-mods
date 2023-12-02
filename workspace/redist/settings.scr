@@ -46,7 +46,7 @@ DESCRIPTION SERVER_OPTIONS
 			"volatile" "4"
 			"plumber" "5"
 			"paintball" "6"
-			"dkmode" "7"
+			"bighead" "7"
 			"superjump" "8"
 			"megarun" "9"
 			"lightsout" "10"
@@ -88,7 +88,7 @@ DESCRIPTION SERVER_OPTIONS
 			"fastweapons" "46"
 			"jack" "47"
 			"piratehat" "48"
-			"marshmello" "49"
+			"marshmellow" "49"
 			"crate" "50"
 		}
 		{ "1" }

@@ -257,7 +257,7 @@ notthebees	640 gameicons3	0	0	64	64
 instagib	640 gameicons3	64	0	64	64
 megarun	640 gameicons3	128	0	64	64
 maxpack	640 gameicons3	192	0	64	64
-dkmode	640 gameicons3	0	64	64	64
+bighead	640 gameicons4	192	0	64	64
 slowmo	640 gameicons3	64	64	64	64
 dontshoot	640 gameicons3	128	64	64	64
 999	640 gameicons3	192	64	64	64
@@ -269,7 +269,7 @@ fastweapons	640 gameicons3	0	192	64	64
 skeleton	640 gameicons3	64	192	64	64
 jack	640 gameicons3	128	192	64	64
 piratehat	640 gameicons3	192	192	64	64
-marshmello	640 gameicons4	0	0	64	64
+marshmellow	640 gameicons4	0	0	64	64
 crate	640 gameicons4	64	0	64	64
 
 // Runes
