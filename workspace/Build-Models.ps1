@@ -506,11 +506,8 @@ try {
     Compile-Model $binDir "v_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_sawedoff" $modelsdir $redistdir\models
     Compile-Model $binDir "w_tracer" $modelsdir $redistdir\models
-    Compile-Model $binDir "hat_jack" $modelsdir $redistdir\models
-    Compile-Model $binDir "hat_santa" $modelsdir $redistdir\models
-    Compile-Model $binDir "hat_pirate" $modelsdir $redistdir\models
-    Compile-Model $binDir "hat_marshmello" $modelsdir $redistdir\models
     Compile-Model $binDir "box" $modelsdir $redistdir\models
+    Compile-Model $binDir "hats" $modelsdir $redistdir\models
     }
 }
 catch

@@ -12,7 +12,7 @@ Original internal name:
 ==============================================================================
 */
 
-$modelname "hat_jack.mdl"
+$modelname "hats.mdl"
 $cd ".\"
 $cdtexture ".\"
 $scale 1.0
@@ -25,9 +25,19 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "jack"
+$bodygroup "studio"
+{
+studio "santahat"
+studio "piratehat"
+studio "marshmellowhat"
+studio "jackhat"
+studio "pumpkinhat"
+}
+
+$texrendermode "pirate_hat.bmp" "masked" 
 
 // hit box(es)
+$hbox 0 "Bip01 Head" -6.810000 -5.730000 -3.450000 6.810000 5.730000 3.450000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 
