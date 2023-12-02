@@ -22,6 +22,12 @@ Beta 4 Features:
         - Fire Right / Fire Left / Fire Both
     - Dual Sawed Off Cannons
         - Fire Right / Fire Left / Fire Both
+- Third Function Weapon Support
+    - Via the reload button
+        - Fists
+            - Added hurricane kick
+        - RPG / Dual RPG
+            - Added laser toggle on/off
 - 6 New Maps
     - quadfrost, a rebuild of doublefrost by Napoleon
     - defroster, a reskin by AudioCraZ of dm_lister by TheTrashBang
