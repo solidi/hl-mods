@@ -136,6 +136,7 @@ Compile-Sound $binDir $redistDir $soundDir "votemap.mp3" 2.5 "sound\votemap.wav"
 Compile-Sound $binDir $redistDir $soundDir "greatjob.mp3" 2.5 "sound\greatjob.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "votestarted.mp3" 2.5 "sound\votestarted.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "votemutator.mp3" 2.5 "sound\votemutator.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "ryu_hurricane_kick.mp3" 3.5 "sound\fists_hurricane.wav" "wav" 0 1.25
 }
 catch
 {

@@ -107,5 +107,6 @@ $hbox 0 "joint32" -8.990000 -4.890000 -0.520000 2.540000 2.220000 4.450000
 $sequence "KICK" "KICK" fps 22 
 $sequence "KICK_2" "KICK_2" fps 22 
 $sequence "KICK_4" "KICK_4" fps 22 
+$sequence "KICK_HOLD" "KICK_HOLD" fps 22 
 
 // End of QC script.

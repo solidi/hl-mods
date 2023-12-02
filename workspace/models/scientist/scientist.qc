@@ -171,5 +171,6 @@ $sequence "back_flip" "../common/wheel_b" LX LY fps 40 ACT_BACK_FLIP 1
 $sequence "front_flip" "../common/wheel_f" LX LY fps 40 ACT_FRONT_FLIP 1 
 $sequence "pullup" "../common/pullup" fps 30 ACT_PULL_UP 1 
 $sequence "punch" "../common/punch" fps 40 ACT_PUNCH 1 
+$sequence "hurricane_kick" "../common/hurricane_kick" fps 40 ACT_HURRICANE_KICK 1 
 
 // End of QC script.
