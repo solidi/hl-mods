@@ -46,7 +46,7 @@ DESCRIPTION SERVER_OPTIONS
 			"volatile" "4"
 			"plumber" "5"
 			"paintball" "6"
-			"dkmode" "7"
+			"bighead" "7"
 			"superjump" "8"
 			"megarun" "9"
 			"lightsout" "10"
@@ -88,10 +88,24 @@ DESCRIPTION SERVER_OPTIONS
 			"fastweapons" "46"
 			"jack" "47"
 			"piratehat" "48"
-			"marshmello" "49"
+			"marshmellow" "49"
 			"crate" "50"
 		}
 		{ "1" }
+	}
+
+	"sv_chaostime"
+	{
+		"#Ice_ChaosTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "45" }
+	}
+
+	"sv_chaosfilter"
+	{
+		"#Ice_ChaosFilter"
+		{ STRING }
+		{ "oldtime;sildenafil;inverse" }
 	}
 
 	"maxplayers"
@@ -326,20 +340,6 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_RandomMutators"
 		{ BOOL }
 		{ "0" }
-	}
-
-	"sv_chaostime"
-	{
-		"#Ice_ChaosTime"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "45" }
-	}
-
-	"sv_chaosfilter"
-	{
-		"#Ice_ChaosFilter"
-		{ STRING }
-		{ "" }
 	}
 
 	"mp_spawnweapons"
