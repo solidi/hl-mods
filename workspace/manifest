@@ -119,7 +119,8 @@ maps\fences.res
 maps\fences.wpt
 maps\training.bsp
 maps\training.res
-maps\training.wpt
+maps\training.gbw
+maps\training.txt
 maps\stalkyard2.bsp
 maps\stalkyard2.res
 maps\stalkyard2.wpt

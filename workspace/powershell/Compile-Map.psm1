@@ -49,9 +49,16 @@ function Write-Wad-Config {
 function Compile-WPT {
     param (
         $binDir,
+        $mapsDir,
         $target,
         $redistDir
     )
+
+    if (Test-Path "$mapsDir\$target\$target.gbw") {
+        Write-Output "$out`n> $mapsDir\$target\$target.gbw found, copying waypoint file instead."
+        Copy-Item $mapsDir\$target\$target.gbw $redistDir\maps -Force -ErrorAction Ignore
+        return;
+    }
 
     Remove-Item $binDir\BSP_tool.cfg -Force -ErrorAction Ignore
     [void](New-Item $binDir\BSP_tool.cfg)
@@ -125,7 +132,7 @@ function Compile-Map {
     Write-Wad-Config $mapsDir $wadList
 
     # Clean directory if compile was unsuccessful last time
-    Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*.wpt,*.txt -Force -ErrorAction Ignore
+    Remove-Item $mapsDir\$target -Recurse -Exclude *.map,*.wpt,*.gbw,*.txt -Force -ErrorAction Ignore
 
     Set-Location -Path $binDir
     Write-Output "Compiling map $target..."
@@ -159,9 +166,9 @@ function Compile-Map {
     Move-Item $mapsDir\$target\$target.bsp $redistDir\maps\$target.bsp -Force
     Copy-Item $mapsDir\$target\$target*.txt $redistDir\maps -Force -ErrorAction Ignore
 
-    Compile-WPT $binDir $target $redistDir
+    Compile-WPT $binDir $mapsDir $target $redistDir
     Compile-Resgen $target $redistDir
 
-    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.txt,*.res | Remove-Item -Force -ErrorAction Ignore
+    Get-ChildItem $mapsDir\$target -recurse -exclude *.map,*.wpt,*.gbw,*.txt,*.res | Remove-Item -Force -ErrorAction Ignore
     Write-Output "Done compiling $target.bsp."
 }
