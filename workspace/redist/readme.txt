@@ -95,6 +95,7 @@ Beta 4 Features:
         - "piratehat" - argh matey
         - "marshmellow" - come back 1999 to you
         - "crate" - a tribute to boxwars
+        - "pumpkin" - on Halloween, he appears
     - Added remaining mutator icons
     - Improved "volatile" to blow up single player monsters too
     - Improved "sanic" by adding death sprites
@@ -777,6 +778,7 @@ Server:
     - "piratehat" - argh matey
     - "marshmellow" - come back 1999 to you
     - "crate" - a tribute to boxwars
+    - "pumpkin" - on Halloween, he appears
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "sv_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -857,7 +859,7 @@ Thanks To:
 - The overhaul pack for select glow models and sound effects https://www.moddb.com/mods/half-life-overhaul-pack
 - Ghoul-bb and team for the BFG model, flakcannon, sprites from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
 - The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
-- Valve? for the Santa player model https://www.moddb.com/games/half-life/addons/santa-claus
+- Steve Theodore of Valve for the Santa player model https://gamebanana.com/mods/179426
 - Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
 - AudioCraZ for the dedicated server and last minute testing for Beta 1
 - Napoleon for 64+ weapon support tutorial, game icons, and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
@@ -925,3 +927,4 @@ Thanks To:
 - Box player model from PlanetSun of Boxwars https://www.moddb.com/mods/boxwar
 - Original Cold Ice intro video by Coconutmonkey 28, sfx added by AudioCraZ and b1rd
 - BlueNightHawk for the client side flashlight tutorial https://gamebanana.com/tuts/14971
+- Pumpkin head by Valve https://gamebanana.com/mods/179426

@@ -123,7 +123,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [x] Front flip
 1. Weapons
-    1. [ ] Increase accuracy of weapons when in ironsights mode
+    1. [x] Increase accuracy of weapons when in ironsights mode
     1. [x] Flame Thrower (Napoleon)
     1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
     1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
@@ -144,6 +144,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
     1. [x] Head shot and first blood voice award announcements
 1. Game Mutators
+    1. [x] Pumpkinhead from [Base Defense](https://www.youtube.com/watch?v=Q-ZY8YBuq8g&t=287s)
     1. [x] Beserker (chainsaws)
     1. [x] Slow projectiles
     1. [x] Fast bullets
@@ -198,7 +199,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mutators
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
-    1. [ ] Pumpkinhead from [Base Defense](https://www.youtube.com/watch?v=Q-ZY8YBuq8g&t=287s)
     1. [ ] thirdperson
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
@@ -349,6 +349,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Single Player
     1. [ ] Single player freeze effect for all monsters
 1. Client
+    1. [ ] Server cvar that allows the hats, and if it's on 1, then a client command that allows a menu for selecting your hat (Napoleon)
     1. [ ] Time remaining counter like op4dm
     1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
     1. [ ] Even better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
