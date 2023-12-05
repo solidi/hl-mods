@@ -4,7 +4,8 @@
 [ ] portal gun didnt give? (icons didnt reset?)
     [ ] mutators not active, hud still showing
 [ ] keep chaos in vote mode?
-[ ] cannot pick up nuke?
+[x] cannot pick up nuke?
+    [x] disable in chilldemic and JVS
 [x] vest, no damage to others?
 [x] decrease density of waypoints
 [x] frags to go in arena, if -1, bar is screwed up
