@@ -133,3 +133,4 @@
 "impulse 211"	"#Ice_RollLeft"
 "impulse 212"	"#Ice_BackFlip"
 "impulse 213"	"#Ice_FrontFlip"
+"impulse 214"	"#Ice_HurricaneKick"
