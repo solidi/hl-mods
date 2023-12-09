@@ -325,6 +325,7 @@ Copy-Item $soundDir\taunt_blah.wav $redistdir\sound
 
 Copy-Item $soundDir\gamestartup.mp3 $redistdir\media
 Copy-Item $soundDir\valve.webm $redistdir\media
+Copy-Item $soundDir\StartUpVids.txt $redistdir\media
 
 Copy-Item $soundDir\valve_sound.wav $redistdir\sound\ui\
 
