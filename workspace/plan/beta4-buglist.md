@@ -1,6 +1,59 @@
+## New Recommendations
+
+[ ] trail of chumtoad
+[ ] decal spray of CIR snowflake
+[ ] heads up for jesus of how many survive on kill?
+[ ] option to shut off kick weapons out of hand
+[ ] non-cache cheats
+[ ] image on maps
+[ ] blinding snowballs
+[ ] jesus walks on water?
+[ ] giant float head mutator
+[ ] wait alittle for players to join on map start for game mode to begin
+[ ] death sounds by weapons
+[ ] combo kill sounds
+[ ] chumtoad or snark on crowbar
+[ ] custom sounds on weapon death
+[ ] show winning vote on map and gamemode before vote ends?
+
+## December 2023
+
+[ ] gibbed sanic should disappear?
+[ ] fix hornetgun on fast weapon regen of hornets
+[ ] punch in air by other, and then landed in death, died by own fists?
+[ ] bot should throw chumtoad if taking damage
+[ ] spawn protection prevents pickups
+[ ] custom waypoint for cold base
+[ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[ ] inf-nodes? chillworks.
+[ ] lights in chillworks dim?
+[ ] losing crosshairs (check Audioz video)
+[ ] 00:00 from 1v1 to gungame - shut off during intermission?
+[x] big X for dont shoot in center screen
+[x] remove sp mutators in mp vote
+[x] Fix green in frostfire overview map
+[x] gungame - filter out next is "weapon_" before server send
+[x] remove chumtoad during intermission - ctc, to avoid annoying sounds
+[x] make chumtoad non-blocking, easier to catch
+[x] ctc toad, trigger? larger hitbox
+[x] missing ladder texture in chillworks
+[x] cancel explosion on vest holster
+[x] nuke during gungame?
+[x] nuke randomized as spawned in chilldemic. cannot pick up
+[x] survivors and santas should run normally.
+[x] freeze gun on team player (santa on santa) - explodes
+[x] blue scoreboard (vgui) with cl_icemodels 0
+[x] no hurricane kicks in water
+[x] no fists in gungame?
+[x] increase jump scream velocity
+[x] battery pick up greater than 100 on mutators, health works
+[x] remove fists in spectator
+[x] dont draw view entities on spectator
+
 ## November 2023
 
-[ ] dontshoot is too annoying
+[x] dontshoot is too annoying
+    [x] place icon in center
 [ ] portal gun didnt give? (icons didnt reset?)
     [ ] mutators not active, hud still showing
 [ ] keep chaos in vote mode?
@@ -9,8 +62,6 @@
 [x] vest, no damage to others?
 [x] decrease density of waypoints
 [x] frags to go in arena, if -1, bar is screwed up
-[ ] jammed radar mutator
-[ ] rocketjump mutator
 [x] rocket launcher, no damage
 [x] Chilldemic - won round #0 of 10! in text
 [x] text voting, remove bots in count
