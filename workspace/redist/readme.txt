@@ -99,7 +99,8 @@ Beta 4 Features:
     - Added remaining mutator icons
     - Improved "volatile" to blow up single player monsters too
     - Improved "sanic" by adding death sprites
-    - Improved "lightsout" by adding a better flashlight, bots use flashlight
+    - Improved "lightsout" by adding a better flashlight, bots use flashlight, auto switch on
+    - Removed damage limitation in paintball mutator
 - Game Mode Changes
     - When game mode is changed, the server will restart the map after five seconds
     - Arena mode displays opponent name while fighting
@@ -201,6 +202,7 @@ Beta 4 Features:
     - Added text color change with ice model switch
     - Constrain shell size to small size
     - Fixed delta.lst 62 to 32 engine crash
+    - Disabled flips under water
 
 Beta 3 Features:
 
