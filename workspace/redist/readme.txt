@@ -138,12 +138,14 @@ Beta 4 Features:
     - Changes
         - mp_infiniteammo and mp_mutators changed to sv_infiniteammo and sv_mutators
         - mp_chaostime changed to sv_chaostime
+        - Changing sv_cheats no longer require a map change
     - "sv_slowbullets [0|1]" - all bullets are slowed down
     - "sv_breakabletime" - time inwhich breakables respawn
     - "sv_defaultbots [0-31]" - amount of bots to add when starting a game
     - "mp_voting [0|1]" - enable or disable end of map voting
     - "mp_spawnprotectiontime" - amount in seconds of spawn protection
     - "sv_chaosfilter" - list of mutators which are ignored in chaos mode
+    - "mp_meleedrop [0|1]" - allow kick or punch attcks to drop weapons out of hands
 - Gameplay
     - Provide frag point for motar gun kills (Crossfire, Snowcross, etc)
     - Provide frag point for airstrike kills (Crossfire, Snowcross, etc)
@@ -206,6 +208,8 @@ Beta 4 Features:
     - Disabled flips under water
     - Corrected Frostfire overview bitmap
     - Fixed incorrect kick and punch deaths that should have been fall damage
+- Known issues
+    - Defroster and Quadfrost may crash the server
 
 Beta 3 Features:
 
@@ -809,6 +813,7 @@ Server:
 - "mp_voting" - turn end of map voting on or off
 - "mp_spawnprotectiontime" - amount of time in seconds spawn protection is enabled
 - "sv_chaosfilter" - list of mutators which are ignored in chaos mode
+- "mp_meleedrop [0|1]" - allow kick or punch attcks to drop weapons out of hands
 
 Report Bugs:
 
@@ -933,3 +938,4 @@ Thanks To:
 - Original Cold Ice intro video by Coconutmonkey 28, sfx added by AudioCraZ and b1rd
 - BlueNightHawk for the client side flashlight tutorial https://gamebanana.com/tuts/14971
 - Pumpkin head by Valve https://gamebanana.com/mods/179426
+- Uncache sv_cheats code by Solokiller https://github.com/SamVanheer/halflife-updated/commit/04f8b91ffacb272e414363dcbbb551f16b6bf21b
