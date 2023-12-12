@@ -69,6 +69,7 @@ Beta 4 Features:
 - Game Modes
     - Changed Iceman to Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - Added an objectives summary on the HUD
+    - Added more time before and between round start
     - 3 New Game Modes (mp_gamemode)
          - "gungame" - get specific weapons for frags and level up!
          - "ctc" - capture the chumtoad, hold on to it to receive points!
@@ -203,6 +204,8 @@ Beta 4 Features:
     - Constrain shell size to small size
     - Fixed delta.lst 62 to 32 engine crash
     - Disabled flips under water
+    - Corrected Frostfire overview bitmap
+    - Fixed incorrect kick and punch deaths that should have been fall damage
 
 Beta 3 Features:
 
