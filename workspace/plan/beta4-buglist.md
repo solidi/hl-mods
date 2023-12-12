@@ -18,6 +18,7 @@
 
 ## December 2023
 
+[ ] send bots to observer during intermission
 [ ] gibbed sanic should disappear?
 [ ] fix hornetgun on fast weapon regen of hornets
 [ ] bot should throw chumtoad if taking damage

@@ -34,13 +34,20 @@ DESCRIPTION SERVER_OPTIONS
 		{ "0" }
 	}
 
+	"mp_randomgamemodes"
+	{
+		"#Ice_RandomGamemodes"
+		{ BOOL }
+		{ "0" }
+	}
+
 	"sv_mutators"
 	{
 		"#Ice_Mutators"
 		{
 			LIST
 			"none" "0"
-			"chaos" "1"
+			"chaos (randomize)" "1"
 			"rocketcrowbar" "2"
 			"instagib" "3"
 			"volatile" "4"
@@ -153,13 +160,6 @@ DESCRIPTION SERVER_OPTIONS
 			"#Valve_Realistic" "1"
 		}
 		{ "0.000000" }
-	}
-
-	"mp_teamplay"
-	{
-		"#Valve_Teamplay"
-		{ BOOL }
-		{ "0" }
 	}
 
 	"mp_friendlyfire"
@@ -329,20 +329,6 @@ DESCRIPTION SERVER_OPTIONS
 		{ "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel" }
 	}
 
-	"mp_snowballfight"
-	{
-		"#Ice_SnowballFight"
-		{ BOOL }
-		{ "0" }
-	}
-
-	"mp_randommutators"
-	{
-		"#Ice_RandomMutators"
-		{ BOOL }
-		{ "0" }
-	}
-
 	"mp_spawnweapons"
 	{
 		"#Ice_SpawnWeapons"
@@ -388,13 +374,6 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_Weather"
 		{ BOOL }
 		{ "1" }
-	}
-
-	"mp_randomgamemodes"
-	{
-		"#Ice_RandomGamemodes"
-		{ BOOL }
-		{ "0" }
 	}
 
 	"mp_roundlimit"
