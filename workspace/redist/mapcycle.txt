@@ -23,8 +23,6 @@ chillworks
 frosty
 overflow
 frozenwarehouse
-quadfrost
-defroster
 thechill
 frostmill
 glupshitto

@@ -459,4 +459,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "3" }
 	}
+
+	"mp_meleedrop"
+	{
+		"#Ice_MeleeDrop"
+		{ BOOL }
+		{ "1" }
+	}
 }
