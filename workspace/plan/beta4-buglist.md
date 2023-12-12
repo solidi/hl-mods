@@ -1,6 +1,5 @@
 ## New Recommendations
 
-[ ] trail of chumtoad
 [ ] decal spray of CIR snowflake
 [ ] heads up for jesus of how many survive on kill?
 [ ] option to shut off kick weapons out of hand
@@ -9,26 +8,27 @@
 [ ] blinding snowballs
 [ ] jesus walks on water?
 [ ] giant float head mutator
-[ ] wait alittle for players to join on map start for game mode to begin
 [ ] death sounds by weapons
 [ ] combo kill sounds
 [ ] chumtoad or snark on crowbar
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
+[x] trail of chumtoad
+[x] wait alittle for players to join on map start for game mode to begin
 
 ## December 2023
 
 [ ] gibbed sanic should disappear?
 [ ] fix hornetgun on fast weapon regen of hornets
-[ ] punch in air by other, and then landed in death, died by own fists?
 [ ] bot should throw chumtoad if taking damage
 [ ] spawn protection prevents pickups
 [ ] custom waypoint for cold base
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
 [ ] inf-nodes? chillworks.
 [ ] lights in chillworks dim?
-[ ] losing crosshairs (check Audioz video)
 [ ] 00:00 from 1v1 to gungame - shut off during intermission?
+[x] losing crosshairs (check Audioz video)
+[x] punch in air by other, and then landed in death, died by own fists?
 [x] big X for dont shoot in center screen
 [x] remove sp mutators in mp vote
 [x] Fix green in frostfire overview map
