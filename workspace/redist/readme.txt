@@ -66,7 +66,7 @@ Beta 4 Features:
     - Added taunt ability using the command "taunt"
 - Maps
     - Added res files for all included maps
-    - Lighting improvements to drift, frostmill, and frozenwarehouse
+    - Lighting improvements to drift, frostmill, chillworks, and frozenwarehouse
 - Game Modes
     - Changed Iceman to Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - Added an objectives summary on the HUD
