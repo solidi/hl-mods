@@ -66,6 +66,7 @@ Beta 4 Features:
     - Added taunt ability using the command "taunt"
 - Maps
     - Added res files for all included maps
+    - Lighting improvements to drift, frostmill, chillworks, and frozenwarehouse
 - Game Modes
     - Changed Iceman to Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - Added an objectives summary on the HUD
@@ -208,6 +209,7 @@ Beta 4 Features:
     - Disabled flips under water
     - Corrected Frostfire overview bitmap
     - Fixed incorrect kick and punch deaths that should have been fall damage
+    - Fixed blue window texture 
 - Known issues
     - Defroster and Quadfrost may crash the server
 

@@ -2,7 +2,7 @@
 "classname" "worldspawn"
 "message" "doublefrost"
 "skyname" "cirdaymont1"
-"message" "Doublesnow"
+"message" "Doublefrost"
 "_creator" "Zarko 'Napoleon' Dinev"
 "angles" "0 0 0"
 "MaxRange" "8192"

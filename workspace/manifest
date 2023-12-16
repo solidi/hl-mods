@@ -168,6 +168,7 @@ maps\frozenwarehouse.txt
 maps\drift.bsp
 maps\drift.res
 maps\drift.wpt
+maps\drift.txt
 maps\snow_camp.bsp
 maps\snow_camp.res
 maps\snow_camp.wpt
@@ -201,6 +202,7 @@ maps\themill.wpt
 maps\chillworks.bsp
 maps\chillworks.res
 maps\chillworks.wpt
+maps\chillworks.txt
 maps\frosty.bsp
 maps\frosty.res
 maps\frosty.wpt
