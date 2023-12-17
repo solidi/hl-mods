@@ -1,8 +1,11 @@
 ## New Recommendations
 
+[ ] Banker with melee
+[ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
+[ ] position number close to objective readout
+[ ] weighted mutators on chaos
 [ ] decal spray of CIR snowflake
 [ ] heads up for jesus of how many survive on kill?
-[ ] option to shut off kick weapons out of hand
 [ ] image on maps
 [ ] blinding snowballs
 [ ] jesus walks on water?

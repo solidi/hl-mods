@@ -37,3 +37,7 @@ resource\ui\StartBtn.png
 resource\GameMenu.res
 resource\chapter.cfg
 liblist.gam
+game.tga
+game.ico
+steam.tga
+steam_big.tga
