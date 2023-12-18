@@ -15,12 +15,50 @@
 [ ] chumtoad or snark on crowbar
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
+[x] sp icon?
+[x] trail for chumtoad when free?
+[ ] ---
+[x] option to shut off kick weapons out of hand
 [x] non-cache cheats
 [x] trail of chumtoad
 [x] wait alittle for players to join on map start for game mode to begin
 
 ## December 2023
 
+[ ] pirate sounds when hat mutator on
+[ ] slowbullets match dmg of weapon held
+[ ] 999 + airstirke doesnt kill people
+[ ] spawn point at end of hill in canyon needs fixing
+[ ] fire in observer?
+[ ] normal hp for chumtoad holder in 999 mutator
+[ ] egon beam broken
+[ ] disable lifebar when fragged?
+[ ] replace weapons with ammo in gungame?
+[ ] Make "chaos" in vote menu caps
+[ ] lower case VOTE to count
+[ ] death icon over head
+[x] dead arms still screwed on angle
+[x] barrel/cabinet shouldnt blow up on touch
+[x] longer gungame intermission time
+[x] gungame too abrupt at winning
+[x] Order mutators
+[x] fix text spacing on old scoreboard in windows
+[x] small gap in ceiling by bunker, frostmill
+[x] make railing solid in frostmill by barney
+[x] jope names - stay, observer? gamemode LMS?
+[x] remove weapons from gungame
+[x] lighting fixes on thechill, frostmill, drift, and frozenwarehouse
+[x] dualsonly + snowballs cause crash
+[x] decrease arms time to 0.05
+[x] increase ctc trail to 200 brightness
+[x] grappled into the chumtoad problem?
+[x] santa sounds still play
+[x] dont kill player who fired nuke
+[x] respawn from kill on lightsout, switch light back on
+[x] add three mutators to perm filter
+[x] floating arms in observer still?
+[x] {cir_window01.bmp} blue fix it.
+[x] lights in chillworks dim?
 [ ] send bots to observer during intermission
 [ ] gibbed sanic should disappear?
 [ ] fix hornetgun on fast weapon regen of hornets
@@ -28,7 +66,6 @@
 [ ] custom waypoint for cold base
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
 [ ] inf-nodes? chillworks.
-[ ] lights in chillworks dim?
 [ ] 00:00 from 1v1 to gungame - shut off during intermission?
 [x] spawn protection prevents pickups
 [x] losing crosshairs (check Audioz video)
