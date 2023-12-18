@@ -54,6 +54,7 @@ Beta 4 Features:
     - M16 now comes with 50 bullets
     - Buckshot shells eject at right time
     - Toggle laser on RPG and Dual RPG with reload on full clip
+    - Barrels spawned by gravity gun no longer blow up on walls
 - Player Combat
     - Weapons are knocked out of hands if attacked with kick or punch
     - Weapons are enabled weapons while sliding and kicking
