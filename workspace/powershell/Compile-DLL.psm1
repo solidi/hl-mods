@@ -28,6 +28,7 @@ function Compile-DLL {
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
     try {
         $out = & $msBuild $slnpath /t:"$rebuildall" `
+                    /p:NoWarn=C4996 `
                     /p:Configuration=$buildConfiguration `
                     /p:GrapplingHook=$grapplinghook `
                     /p:Weapons=$preprocess `
