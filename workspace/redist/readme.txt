@@ -11,6 +11,7 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 4 Features:
 
+- HL25 patch compatibility
 - 5 New Weapons
     - Portal Gun
         - Fire Entry Portal / Fire Exit Portal
@@ -44,6 +45,7 @@ Beta 4 Features:
     - Tighten flak primary fire
     - Improved freezegun performance
     - Nuke explodes on command in new static camera mode
+    - Nuke doesn't kill player who fired it
     - Sniper rifle makes bolt sound when fired
     - Combined all world weapon models into one file
     - Snowballs and Chumtoads have their own ammo count
@@ -210,6 +212,7 @@ Beta 4 Features:
     - Corrected Frostfire overview bitmap
     - Fixed incorrect kick and punch deaths that should have been fall damage
     - Fixed blue window texture 
+    - Fixed santa sounds play long after mutator ends
 - Known issues
     - Defroster and Quadfrost may crash the server
 
