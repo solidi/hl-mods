@@ -35,9 +35,9 @@
 [ ] disable lifebar when fragged?
 [ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
-[ ] dead arms still screwed on angle
 [ ] lower case VOTE to count
 [ ] death icon over head
+[x] dead arms still screwed on angle
 [x] barrel/cabinet shouldnt blow up on touch
 [x] longer gungame intermission time
 [x] gungame too abrupt at winning
