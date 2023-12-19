@@ -26,5 +26,7 @@ $load		lifebar011.BMP
 $frame		0   0   128   8
 $load		lifebar012.BMP
 $frame		0   0   128   8
+$load		lifebar014.BMP
+$frame		0   0   64   32
 $load		lifebar013.BMP
 $frame		0   0   32   32
