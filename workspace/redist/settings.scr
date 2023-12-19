@@ -21,15 +21,15 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_GameMode"
 		{
 			LIST
-			"ffa" "0"
-			"teamplay" "1"
-			"iceman" "2"
-			"lms" "3"
-			"arena" "4"
-			"snowball" "5"
-			"gungame" "6"
-			"ctc" "7"
-			"chilldemic" "8"
+			"Free for All" "0"
+			"Teamplay" "1"
+			"Jesus vs. Santa" "2"
+			"Battle Royal" "3"
+			"1 vs. 1 Arena" "4"
+			"Snowball Fight" "5"
+			"GunGame" "6"
+			"Capture the Chumtoad" "7"
+			"Chilldemic" "8"
 		}
 		{ "0" }
 	}
