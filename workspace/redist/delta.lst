@@ -191,7 +191,7 @@ entity_state_player_t gamedll Player_Encode
 	DEFINE_DELTA( velocity[1], DT_SIGNED | DT_FLOAT, 16, 8.0 ),
 	DEFINE_DELTA( velocity[2], DT_SIGNED | DT_FLOAT, 16, 8.0 ),
 	DEFINE_DELTA( spectator, DT_INTEGER, 1, 1.0 ),
-	DEFINE_DELTA( health, DT_SIGNED | DT_INTEGER, 10, 1.0 ),
+	DEFINE_DELTA( health, DT_SIGNED | DT_INTEGER, 11, 1.0 ),
 	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 10, 128.0 )
 }
 

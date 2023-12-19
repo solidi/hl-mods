@@ -8,13 +8,13 @@
 [ ] heads up for jesus of how many survive on kill?
 [ ] image on maps
 [ ] blinding snowballs
-[ ] jesus walks on water?
 [ ] giant float head mutator
 [ ] death sounds by weapons
 [ ] combo kill sounds
 [ ] chumtoad or snark on crowbar
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
+[x] jesus walks on water?
 [x] sp icon?
 [x] trail for chumtoad when free?
 [ ] ---
@@ -36,7 +36,7 @@
 [ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
 [ ] lower case VOTE to count
-[ ] death icon over head
+[x] death icon over head
 [x] dead arms still screwed on angle
 [x] barrel/cabinet shouldnt blow up on touch
 [x] longer gungame intermission time

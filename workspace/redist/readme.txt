@@ -214,6 +214,7 @@ Beta 4 Features:
     - Fixed incorrect kick and punch deaths that should have been fall damage
     - Fixed blue window texture 
     - Fixed santa sounds play long after mutator ends
+    - Fix lifebar health reporting
 - Known issues
     - Defroster and Quadfrost may crash the server
 
