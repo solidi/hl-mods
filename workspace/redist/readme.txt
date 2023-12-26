@@ -9,6 +9,8 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+Beta 5 Features:
+
 Beta 4 Features:
 
 - HL25 patch compatibility
@@ -79,7 +81,7 @@ Beta 4 Features:
          - "ctc" - capture the chumtoad, hold on to it to receive points!
          - "chilldemic" - survive the virus, don't let them free your bones.
     - Some mutators renamed for clarity
-    - 16 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 21 New Mutators - supports combination and randomly selected (sv_mutators)
         - "portal" - spawn with a portal gun
         - "jope" - you've been joped!
         - "inverse" - colors are inverted
@@ -633,7 +635,7 @@ Beta 1 Features:
 - New weapons will randomly spawn in place of original weapons
 - Original Scoreboard, MOTD, view roll options!
 
-Beta 4 Highly-Valued Upcoming Features:
+Highly-Valued Upcoming Features:
 
 - See more on our living roadmap: https://github.com/solidi/hl-mods/blob/master/workspace/plan/roadmap.md
 

@@ -21,7 +21,7 @@ This is the directory for all assets of [Cold Ice Remastered](https://www.moddb.
 # Example
 $Config = @{ 
     'projectName' = 'Cold Ice Remastered'
-    'gameFolder' = 'ice_beta4'
+    'gameFolder' = 'ice_beta5'
     'binDir' = 'Z:\workspace\bin'
     'msBuild' = 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild'
     'defintions' = 'VEST;SILENCER;CLUSTER_GRENADES;CROWBAR;KNIFE;RPG;TRIPMINE;CHUMTOAD;SNIPER_RIFLE;BOLT_GUN;RAILGUN;CANNON;DECOY;MAG60;CHAINGUN;GLAUNCHER;SMG;USAS;FISTS;WRENCH;SNOWBALL;CHAINSAW;_12GAUGE;REVOLVER;EGON;M16;SHOTGUN;NUKE;GAUSS;HIVEHAND;SNARK;DEAGLE;DUALDEAGLE;DUALRPG;DUALSMG;DUALWRENCH;DUALUSAS;FREEZEGUN;DUALMAG60;ROCKETCROWBAR;DUALRAILGUN;GRAVITYGUNFLAMETHROWER;DUALFLAMETHROWER;ASHPOD;SAWEDOFF;DUALSAWEDOFF'
