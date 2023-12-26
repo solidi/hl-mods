@@ -25,6 +25,22 @@
 
 ## December 2023
 
+[ ] slide box secret to left
+[ ] no man stands - corruption n objectives underneath
+[ ] increase slowbullets dmg
+[ ] env_snow in chillworks
+[ ] release hook on player damage
+[ ] refix chillworks
+[ ] chumtoad slipped away in vote
+[ ] crowbar replace drift, weird spawn thing 
+[ ] chumtoad throw animation
+[ ] chumtoad trail to 8 seconds
+[ ] grenade mutator and sniper scope
+[ ] freeze bots in intermission
+[ ] catch chumtoad "the" missing in menu
+[ ] visual scoreboard still screwed on widescreen
+[ ] killed self with handgrenade?
+[ ] boxes not explosive in frozen_bunker
 [ ] pirate sounds when hat mutator on
 [ ] slowbullets match dmg of weapon held
 [ ] 999 + airstirke doesnt kill people

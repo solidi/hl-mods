@@ -28,7 +28,7 @@ function copyDistributionFiles {
     Copy-Item $rootDir\libs\dlls\ice.dll $redistDir\dlls
     Copy-Item $rootDir\libs\dlls\ice.dll $redistSpDir\dlls
     Copy-Item $rootDir\libs\dlls\grave_bot.dll $redistDir\dlls
-    Copy-Item $rootDir\libs\dlls\grave_bot_mm.dll $redistDir\dlls
+    #Copy-Item $rootDir\libs\dlls\grave_bot_mm.dll $redistDir\dlls
     Copy-Item $rootDir\libs\cl_dlls\client.dll $redistDir\cl_dlls
     Copy-Item $redistdir\\* $iceDir -Recurse -Force
     Copy-Item $redisthddir\\* $icehddir -Recurse -Force

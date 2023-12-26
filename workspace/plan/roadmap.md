@@ -87,90 +87,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
-### Beta 4
+### Beta 5
 
-1. Support Systems
-    1. [x] Make it easy to add bots on "Create Server"
-1. Maps
-    1. [x] Private repo build pipeline for quadfrost
-        1. [x] Launch quadfrost in Feb 2023 as an add on
-    1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
-    1. [x] thehill
-    1. [x] rustmill
-    1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
-    1. [x] fgd file
-    1. [x] glupshitto by pigcop
+1. Bots
+    1. [ ] Custom waypoint files for all maps
 1. Game Modes
-    1. [x] Bonedemic (includes skeletons)
-    1. [x] Support
-        1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
-        1. [x] Objective, and # info in upper right stacked, like jabroni 3
-        1. [x] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
-    1. [x] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
-    1. [x] Capture the Chumtoad (Audiocraz)
-        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
-        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
-        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
-        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
-        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
-        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
-        1. Chumtoad holder had extra health
-        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
-        1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
-1. Game Mechanics
-    1. [ ] Visual indicator for punch or kick like batman, POW!
-    1. [x] Knock weapons out of hands with punch or kicks
-    1. [x] Feign death binding (Napoleon/Rocket Crowbar)
-    1. [x] Front flip
-1. Weapons
-    1. [x] Increase accuracy of weapons when in ironsights mode
-    1. [x] Flame Thrower (Napoleon)
-    1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
-    1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
-    1. [x] Hand cannon
-    1. [x] Dual hand cannon
-    1. [x] Explosive shells to dragons breath, light on fire?
-1. Models
-    1. [ ] Import rest of player models, replace skeleton and holo with gina
-    1. [x] Gold Skin? (Radu Matei Ionut)
-    1. [x] Silver Skin?
-    1. [x] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
-1. Server
-    1. [x] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
-1. Client
-    1. [x] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
-    1. [x] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
-    1. [x] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
-    1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
-    1. [x] Head shot and first blood voice award announcements
-1. Game Mutators
-    1. [x] Pumpkinhead from [Base Defense](https://www.youtube.com/watch?v=Q-ZY8YBuq8g&t=287s)
-    1. [x] Beserker (chainsaws)
-    1. [x] Slow projectiles
-    1. [x] Fast bullets
-    1. [x] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
-    1. [x] [Not the hornets!](https://www.youtube.com/watch?v=oMeVxnFytJk&t=240s) Hornets randomly spawn and attack player.
-    1. [x] All obtain long jump module
-    1. [x] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
-    1. [x] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
-    1. [x] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
-    1. [x] Jope - All names turns to Jope
-1. Single Player
-    1. [x] [Chapter Select Menu](https://github.com/BlueNightHawk/testflight/commits/master?after=144d73f461c6b83c818131b0536d3450a4266e8a+34&branch=master&qualified_name=refs%2Fheads%2Fmaster)
-1. Weapon ViewModel / Effects
-    1. [x] Blue arms + real skins
-1. Runes
-    1. [x] Ammo regeneration
-1. Fixes
-    1. [x] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
-    1. [x] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
-    1. [x] mp_infiniteammo -> sv_infiniteammo
+    1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
 1. Clean up
-    1. [x] Compact p_ models into one
-    1. [x] Compact w_ models into one
-    1. [x] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
-1. Game Dev Tools
-    1. [x] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
+    1. [ ] Compact w_ amko models
 
 ### Unscheduled
 
@@ -182,11 +106,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
+    1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
     1. [ ] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1490s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
     1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
     1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] What about "Hot Potato". Grenade is on a count down to explode,  and you have to throw and hit someone with it. If it lands on the ground, after 2 seconds it goes back to the last player. When it goes off... gib fountain! (AudioCraZ)
-    1. [ ] Head Hunter
     1. [ ] Support
         1. [ ] Wins / Rounds Left visual support
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
@@ -368,6 +293,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Visual indicator for punch or kick like batman, POW!
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
@@ -430,6 +356,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
+    1. [ ] Import rest of player models, replace skeleton and holo with gina
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
@@ -483,6 +410,89 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] Respawning breakable glass (Napoleon)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
+
+### Beta 4
+
+1. Support Systems
+    1. [x] Make it easy to add bots on "Create Server"
+1. Maps
+    1. [x] Private repo build pipeline for quadfrost
+        1. [x] Launch quadfrost in Feb 2023 as an add on
+    1. [x] [dm_lister](https://gamebanana.com/mods/59480) reskin
+    1. [x] thehill
+    1. [x] rustmill
+    1. [x] Reskin [boot_camp](https://cdn.discordapp.com/attachments/923312701252460544/997489879996969080/boot_camp2k.rmf)
+    1. [x] fgd file
+    1. [x] glupshitto by pigcop
+1. Game Modes
+    1. [x] Bonedemic (includes skeletons)
+    1. [x] Support
+        1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
+        1. [x] Objective, and # info in upper right stacked, like jabroni 3
+        1. [x] [Active timer on HUD](https://github.com/YaLTeR/OpenAG/blob/master/cl_dll/hud_customtimer.cpp)
+    1. [x] [Gungame](http://web.archive.org/web/20150823030120/http://avalanche.gungame.org/about.php)
+    1. [x] Capture the Chumtoad (Audiocraz)
+        1. The object of 'Catch the Chumtoad' is to hold onto the toad as long as you can without being fragged by your friends. You receive 1 point for every 10 seconds you hold onto the toad (the time of course is variable). Players without the toad can only hurt the toad holder, not each other or themselves, so you can use big weapons as recklessly as you like.
+        1. When someone picked up the Chumtoad, it made several loud clucks, and a text announcement was made "player picked up the Chumtoad".
+        1. When you ran around, there were feathers would fall to the ground in a path and not fade away for 10-15 seconds.
+        1. If you stood still, the Chumtoad would make a long drawn out "bawk" every few seconds.
+        1. You could "throw" the Chumtoad either at the ground, or at another player. If caught by the player, they would immediately catch it (this lead to tactics as throwing a Chumtoad at a player, killing them, and taking the Chumtoad back)
+        1. I can't remember if there were weapons allowed or mele only. I believe there were modifiers.
+        1. Chumtoad holder had extra health
+        1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
+        1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
+1. Game Mechanics
+    1. [x] Knock weapons out of hands with punch or kicks
+    1. [x] Feign death binding (Napoleon/Rocket Crowbar)
+    1. [x] Front flip
+1. Weapons
+    1. [x] Increase accuracy of weapons when in ironsights mode
+    1. [x] Flame Thrower (Napoleon)
+    1. [x] Port [portal gun](https://www.youtube.com/watch?v=Gf_eCVGY2pk&t=20s), [suggested code](http://amx-x.ru/viewtopic.php?f=11&t=3823&start=10)
+    1. [x] Satchel Assassins become fully animated monsters (and can be exploded anytime)
+    1. [x] Hand cannon
+    1. [x] Dual hand cannon
+    1. [x] Explosive shells to dragons breath, light on fire?
+1. Models
+    1. [x] Gold Skin? (Radu Matei Ionut)
+    1. [x] Silver Skin?
+    1. [x] [Better Video Game Cabinets](https://gamebanana.com/mods/4846)
+1. Server
+    1. [x] [Respawn Breakables](https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt)
+1. Client
+    1. [x] Pro-tip fly [into middle screen](https://www.youtube.com/watch?v=RrLNMN8vMBc&t=422s) to assist the player, like using RELOAD for fists or something.
+    1. [x] Taunts from player (Napoleon), [nice animation from boltgun here](https://www.youtube.com/watch?v=bPphPZoagsA&t=194s).
+    1. [x] Better [flashlight](https://gamebanana.com/tuts/14971) effect on client side
+    1. [x] [Radar](https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html)
+    1. [x] Head shot and first blood voice award announcements
+1. Game Mutators
+    1. [x] Pumpkinhead from [Base Defense](https://www.youtube.com/watch?v=Q-ZY8YBuq8g&t=287s)
+    1. [x] Beserker (chainsaws)
+    1. [x] Slow projectiles
+    1. [x] Fast bullets
+    1. [x] "Not quite invincibility" - [9999](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/4289fc473eeeca8f8f876799816ebd78d9aad00f) [health](https://github.com/N7P0L3ON/FlatLineArena/commit/c5e6fd3414bdc9ddaea3d858d2e252f1894d27e7) and armor
+    1. [x] [Not the hornets!](https://www.youtube.com/watch?v=oMeVxnFytJk&t=240s) Hornets randomly spawn and attack player.
+    1. [x] All obtain long jump module
+    1. [x] [Bullets are slower moving projectiles](https://www.youtube.com/watch?v=V75s9tagMyk&t=217s) seen in HL Loop.
+    1. [x] [Invert](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/bed81a3c7396bc94e9b620188142270be53a5081)
+    1. [x] [NPCs randomly blow up](https://www.youtube.com/watch?v=RNy42Wd9gfI)
+    1. [x] Jope - All names turns to Jope
+1. Single Player
+    1. [x] [Chapter Select Menu](https://github.com/BlueNightHawk/testflight/commits/master?after=144d73f461c6b83c818131b0536d3450a4266e8a+34&branch=master&qualified_name=refs%2Fheads%2Fmaster)
+1. Weapon ViewModel / Effects
+    1. [x] Blue arms + real skins
+1. Runes
+    1. [x] Ammo regeneration
+1. Fixes
+    1. [x] Fix the [player images](https://gamebanana.com/mods/24527) so they reflect correct colors
+    1. [x] Re-review why deploy sounds fire twice, assume deploy animation is being called by client and server
+    1. [x] mp_infiniteammo -> sv_infiniteammo
+1. Clean up
+    1. [x] Compact p_ models into one
+    1. [x] Compact w_ models into one
+    1. [x] Increase tempent limit from 500 to 2048 from [solokillers impl](https://github.com/SamVanheer/halflife-unified-sdk/commit/1a7c61aa0b58eceab6768712617ae224d3842a07)
+1. Game Dev Tools
+    1. [x] Add support for resgen for all maps in pipeline (https://github.com/kriswema/resgen)
 
 ### Beta 3
 
