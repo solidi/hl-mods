@@ -34,13 +34,7 @@ models\v_wrench.mdl
 models\v_snowball.mdl
 models\v_chainsaw.mdl
 models\v_12gauge.mdl
-models\w_357ammobox.mdl
-models\w_9mmarclip.mdl
-models\w_argrenade.mdl
-models\w_crossbow_clip.mdl
-models\w_shotbox.mdl
 models\w_gaussammo.mdl
-models\w_rpgammo.mdl
 models\v_357.mdl
 models\v_egon.mdl
 models\v_nuke.mdl
@@ -63,6 +57,7 @@ models\p_weapons.mdl
 models\w_cabinet.mdl
 models\v_sawedoff.mdl
 models\v_taunt.mdl
+models\w_ammo.mdl
 sound
 sound\knife_miss2.wav
 sprites

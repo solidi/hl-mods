@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "world_gaussammo"
+$body "body" "gaussammo"
 
 $texturegroup ice
 {
@@ -51,7 +51,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Box05" -9.830000 -13.310000 0.000000 9.800000 0.850000 10.110000
+$hbox 0 "gaussammo" -9.830000 -13.310000 0.000000 9.800000 0.850000 10.110000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

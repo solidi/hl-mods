@@ -1,7 +1,7 @@
 version 1
 nodes
-0 "Cylinder01" -1
-1 "Cylinder03" -1
+0 "rpgammo" -1
+1 "rpgammo_top" -1
 end
 skeleton
 time 0

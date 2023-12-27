@@ -216,21 +216,8 @@ try {
     Invert-Skin $binDir "w_battery" $modelsdir
     Invert-Skin $binDir "w_longjump" $modelsdir
     Invert-Skin $binDir "w_medkit" $modelsdir
-    Invert-Skin $binDir "w_357ammobox" $modelsdir
-    Invert-Skin $binDir "w_357ammobox" $modelsdir\hd
-    Invert-Skin $binDir "w_9mmclip" $modelsdir
-    Invert-Skin $binDir "w_9mmarclip" $modelsdir
-    Invert-Skin $binDir "w_9mmarclip" $modelsdir\hd
-    Invert-Skin $binDir "w_argrenade" $modelsdir
-    Invert-Skin $binDir "w_argrenade" $modelsdir\hd
-    Invert-Skin $binDir "w_crossbow_clip" $modelsdir
-    Invert-Skin $binDir "w_crossbow_clip" $modelsdir\hd
-    Invert-Skin $binDir "w_shotbox" $modelsdir
-    Invert-Skin $binDir "w_shotbox" $modelsdir\hd
     Invert-Skin $binDir "w_gaussammo" $modelsdir
     Invert-Skin $binDir "w_gaussammo" $modelsdir\hd
-    Invert-Skin $binDir "w_rpgammo" $modelsdir
-    Invert-Skin $binDir "w_rpgammo" $modelsdir\hd
     Invert-Skin $binDir "v_357" $modelsdir
     Invert-Skin $binDir "p_357" $modelsdir
     Invert-Skin $binDir "p_357" $modelsdir\hd
@@ -313,7 +300,6 @@ try {
     Invert-Skin $binDir "p_portalgun" $modelsdir
     Invert-Skin $binDir "w_portalgun" $modelsdir
     Invert-Skin $binDir "w_portal" $modelsdir
-    Invert-Skin $binDir "w_chainammo" $modelsdir
     Invert-Skin $binDir "p_sawedoff" $modelsdir
     Invert-Skin $binDir "v_sawedoff" $modelsdir\hd
     Invert-Skin $binDir "v_sawedoff" $modelsdir
@@ -422,22 +408,9 @@ try {
     Compile-Model $binDir "w_battery" $modelsdir $redistdir\models
     Compile-Model $binDir "w_medkit" $modelsdir $redistdir\models
     Compile-Model $binDir "w_longjump" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_357ammobox" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_357ammobox" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_9mmclip" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_9mmarclip" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_9mmarclip" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_argrenade" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_argrenade" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_crossbow_clip" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_crossbow_clip" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "w_shotbox" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_shotbox" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_gaussammo" $modelsdir $redistdir\models
     Compile-Model $binDir "w_gaussammo" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_gaussammo_light" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_rpgammo" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_rpgammo" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_357" $modelsdir $redistdir\models
     Compile-Model $binDir "v_357" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_egon" $modelsdir $redistdir\models
@@ -494,7 +467,6 @@ try {
     Compile-Model $binDir "p_portalgun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_portalgun" $modelsdir $redistdir\models
     Compile-Model $binDir "w_portal" $modelsdir $redistdir\models
-    Compile-Model $binDir "w_chainammo" $modelsdir $redistdir\models
     #Compile-Model $binDir "v_bluetakis" $modelsdir $redistdir\models
     Compile-Model $binDir "w_weapons" $modelsdir $redistdir\models
     Compile-Model $binDir "w_weapons" $modelsdir\hd $redisthddir\models
@@ -508,6 +480,7 @@ try {
     Compile-Model $binDir "w_tracer" $modelsdir $redistdir\models
     Compile-Model $binDir "box" $modelsdir $redistdir\models
     Compile-Model $binDir "hats" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_ammo" $modelsdir $redistdir\models
     }
 }
 catch

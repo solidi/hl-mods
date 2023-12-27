@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "ammo_box"
+$body "studio" "chainammo"
 
 $texturegroup ice
 {
@@ -59,7 +59,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Box01" -16.950001 -5.760000 -0.430000 10.070000 12.770000 14.180000
+$hbox 0 "chainammo" -16.950001 -5.760000 -0.430000 10.070000 12.770000 14.180000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

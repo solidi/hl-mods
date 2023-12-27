@@ -89,12 +89,19 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ### Beta 5
 
+1. New Weapons
+    1. [ ] Dual Hivehands
+    1. [ ] Dual Chainguns
+    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Game Modes
     1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
 1. Clean up
-    1. [ ] Compact w_ amko models
+    1. [x] Compact w_ ammo models
+1. Fixes
+    1. [ ] Angled dead arms
+    1. [ ] Change solid type of barrel after throw
 
 ### Unscheduled
 
@@ -189,11 +196,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
     1. [ ] Third Fire Options through Reload
         1. [ ] Sniper on Knife
-        1. [ ] Hurricane kick on Fists
-        1. [ ]
-    1. [ ] Dual Hivehands
-    1. [ ] Dual Chainguns
-    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
         1. Grenades and explosions ring the ears. See [this commit](https://github.com/edgarbarney/halflife-planckepoch/commit/0086a3d940b30397cd436aa8df083520fb2d7437) and the [improved version here](https://github.com/edgarbarney/halflife-planckepoch/commit/fc2d0ba440f49b41045964accca10dbf6bdf1fc8).
     1. [ ] Bio weapon (pigcop)

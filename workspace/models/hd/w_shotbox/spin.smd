@@ -1,6 +1,6 @@
 version 1
 nodes
-0 "Ammo_box" -1
+0 "shotbox" -1
 end
 skeleton
 time 0
