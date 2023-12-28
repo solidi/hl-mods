@@ -93,6 +93,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Dual Hivehands
     1. [ ] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
+1. Weapon Mechanics
+    1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
+1. Game Mechanics
+    1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Game Modes
@@ -223,9 +227,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] your weapon takes 10x more the amount of damage
         1. [ ] but the recoil is 10x more high and the accuracy is garbage
     1. [ ] Scientist Gun from RocketCrowbar
-    1. [ ] Throw any weapon as an attack
     1. [ ] Reduce animations in ironsights
-    1. [ ] Throw any weapon
     1. [ ] Quad weapon attachment?
     1. Crossbow
         1. [ ] Pluck animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
@@ -300,7 +302,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
-    1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
     1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
     1. [ ] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)

@@ -481,6 +481,7 @@ try {
     Compile-Model $binDir "box" $modelsdir $redistdir\models
     Compile-Model $binDir "hats" $modelsdir $redistdir\models
     Compile-Model $binDir "w_ammo" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_ammo" $modelsdir\hd $redisthddir\models
     }
 }
 catch
