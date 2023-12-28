@@ -41,7 +41,7 @@ $texturegroup ice
     "..\w_rpgammo\rpg_ammo.BMP"
   }
   {
-    "..\..\ww_9mmclip\invert_gclip.bmp"
+    "..\..\w_9mmclip\invert_gclip.bmp"
     "..\w_9mmarclip\invert_m4_ammo.BMP"
     "..\..\w_chainammo\invert_a_boxfront.bmp"
     "..\..\w_chainammo\invert_a_boxgreen.bmp"
