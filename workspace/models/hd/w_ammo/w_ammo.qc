@@ -12,9 +12,9 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $bodygroup "body"
 {
-studio "..\w_9mmclip\9mmclip_hd"
+studio "..\..\w_9mmclip\9mmclip_hd"
 studio "..\w_9mmarclip\9mmarclip"
-studio "..\w_chainammo\chainammo_hd"
+studio "..\..\w_chainammo\chainammo_hd"
 studio "..\w_argrenade\argrenades"
 studio "..\w_357ammobox\357ammobox"
 studio "..\w_shotbox\shotbox"
