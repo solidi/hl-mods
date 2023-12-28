@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_crossbow_clip_reference"
+$body "body" "crossbow_clip"
 
 
 $texturegroup ice
@@ -45,7 +45,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Crossbow01" -0.070000 -11.580000 -10.290000 1.920000 8.390000 10.960000
+$hbox 0 "crossbow_clip" -0.070000 -11.580000 -10.290000 1.920000 8.390000 10.960000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

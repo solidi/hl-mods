@@ -344,15 +344,8 @@ models\w_battery_light.mdl
 models\w_longjump.mdl
 models\w_medkit.mdl
 models\w_medkit_light.mdl
-models\w_357ammobox.mdl
-models\w_9mmclip.mdl
-models\w_9mmarclip.mdl
-models\w_argrenade.mdl
-models\w_crossbow_clip.mdl
-models\w_shotbox.mdl
 models\w_gaussammo.mdl
 models\w_gaussammo_light.mdl
-models\w_rpgammo.mdl
 models\v_357.mdl
 models\v_egon.mdl
 models\v_nuke.mdl
@@ -386,7 +379,6 @@ models\v_portalgun.mdl
 models\p_portalgun.mdl
 models\w_portalgun.mdl
 models\w_portal.mdl
-models\w_chainammo.mdl
 models\w_weapons.mdl
 models\p_weapons.mdl
 models\v_sawedoff.mdl
@@ -395,6 +387,7 @@ models\w_tracer.mdl
 models\hats.mdl
 models\box.mdl
 models\v_taunt.mdl
+models\w_ammo.mdl
 modes
 modes\jvs.txt
 modes\lms.txt

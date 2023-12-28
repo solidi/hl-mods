@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "gclip"
+$body "studio" "9mmclip"
 
 $texturegroup ice
 {
@@ -44,7 +44,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Box02" -2.750000 -6.040000 0.000000 2.030000 6.720000 2.040000
+$hbox 0 "9mmclip" -2.750000 -6.040000 0.000000 2.030000 6.720000 2.040000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

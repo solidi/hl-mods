@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_rpg_ammo"
+$body "body" "rpgammo"
 
 $texturegroup ice
 {
@@ -44,7 +44,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "Cylinder01" -4.160000 -12.040000 0.000000 7.490000 3.600000 29.610001
+$hbox 0 "rpgammo" -4.160000 -12.040000 0.000000 7.490000 3.600000 29.610001
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

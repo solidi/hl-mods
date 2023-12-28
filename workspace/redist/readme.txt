@@ -11,6 +11,9 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
+- Weapons Changes
+    -  Combined all world ammo models into one file
+
 Beta 4 Features:
 
 - HL25 patch compatibility

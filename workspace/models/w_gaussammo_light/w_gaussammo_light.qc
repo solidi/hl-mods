@@ -30,7 +30,7 @@ $body "body" "glow"
 $texrendermode "toxic_glow.bmp" "additive" 
 
 // hit box(es)
-$hbox 0 "Box05" -10.990000 -13.570000 0.000000 10.920000 0.850000 10.350000
+$hbox 0 "gaussammo" -10.990000 -13.570000 0.000000 10.920000 0.850000 10.350000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

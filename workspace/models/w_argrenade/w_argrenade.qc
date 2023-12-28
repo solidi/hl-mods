@@ -24,7 +24,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "w_mp5grenade"
+$body "studio" "argrenades"
 
 $texturegroup ice
 {
@@ -48,7 +48,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "NGON02" -2.120000 -1.840000 -5.310000 6.770000 5.680000 3.570000
+$hbox 0 "argrenades" -2.120000 -1.840000 -5.310000 6.770000 5.680000 3.570000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

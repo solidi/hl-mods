@@ -55,7 +55,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "SHELL01" -10.690000 -8.690000 -5.160000 7.190000 9.290000 12.980000
+$hbox 0 "shotbox" -10.690000 -8.690000 -5.160000 7.190000 9.290000 12.980000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 
