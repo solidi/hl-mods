@@ -13,6 +13,8 @@ Beta 5 Features:
 
 - Weapons Changes
     -  Combined all world ammo models into one file
+- Client Support
+    - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
 
 Beta 4 Features:
 
@@ -722,6 +724,7 @@ Client:
 - "cl_customtempents [0|1]" - for increased temporary entities support
 - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
 - "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
+- "cl_automelee [0|1]" - automatically kick or punch if enemy is close
 
 Server:
 

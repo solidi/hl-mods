@@ -324,4 +324,18 @@ DESCRIPTION INFO_OPTIONS
 		{ STRING }
 		{ "" }
 	}
+
+	"cl_objectives"
+	{
+		"#Ice_Objectives"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"cl_automelee"
+	{
+		"#Ice_AutoMelee"
+		{ BOOL }
+		{ "1" }
+	}
 }
