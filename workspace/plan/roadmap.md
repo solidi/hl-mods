@@ -96,16 +96,24 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
 1. Game Mechanics
-    1. [ ] Auto melee when close to player - may help lead the way to pistol whip for all
+    1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Game Modes
     1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
+1. Server Support
+    1. [ ] cvar for portal in skybox?
 1. Clean up
     1. [x] Compact w_ ammo models
 1. Fixes
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
+    1. [ ] Gungame - more feedback
+        1. [ ] mutators are intefering with the gungame, off by default?
+        1. [ ] Frag only counts on right weapon
+        1. [ ] vest? No death count?
+        1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
+        1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
 
 ### Unscheduled
 
