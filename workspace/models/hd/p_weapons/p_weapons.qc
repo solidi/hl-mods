@@ -58,6 +58,7 @@ studio "..\p_dual_mag60\dual_mag60"
 studio "..\p_dual_smg\dual_smg"
 studio "..\..\p_dual_sawedoff\dual_sawedoff_hd"
 studio "..\p_dual_usas\dual_usas"
+studio "..\p_dual_chaingun\dual_chaingun"
 studio "..\..\p_dual_railgun\dual_railgun_hd"
 studio "..\p_dual_rpg\dual_rpg"
 studio "..\..\p_dual_flamethrower\dual_flamethrower_hd"
@@ -168,6 +169,7 @@ $texturegroup ice
     "..\p_dual_usas\USAS-1.bmp"
     "..\p_dual_usas\USAS-2.bmp"
     "..\p_dual_usas\USAS-3.bmp"
+    "..\p_dual_chaingun\chrome1.bmp"
     "..\..\p_dual_railgun\Skin.bmp"
     "..\p_dual_rpg\w_rpg_reference.BMP"
     "..\..\p_dual_flamethrower\Chrome1.bmp"
@@ -251,6 +253,7 @@ $texturegroup ice
     "..\p_dual_usas\invert_USAS-1.bmp"
     "..\p_dual_usas\invert_USAS-2.bmp"
     "..\p_dual_usas\invert_USAS-3.bmp"
+    "..\p_dual_chaingun\invert_chrome1.bmp"
     "..\..\p_dual_railgun\invert_Skin.bmp"
     "..\p_dual_rpg\invert_w_rpg_reference.BMP"
     "..\..\p_dual_flamethrower\invert_Chrome1.bmp"
@@ -339,8 +342,10 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -469,6 +474,7 @@ $hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 // Dual smg?
 // Dual sawedoff?
 // Dual usas?
+// Dual chaingun?
 // Dual railgun?
 // Dual rpg?
 // Dual flamethrower?
@@ -520,6 +526,7 @@ $sequence "dual_mag60_idle" "..\p_dual_mag60\idle" fps 30
 $sequence "dual_smg_idle" "..\p_dual_smg\idle" fps 30 
 $sequence "dual_sawedoff_idle" "..\..\p_dual_sawedoff\idle" fps 30 
 $sequence "dual_usas_idle" "..\p_dual_usas\idle" fps 30 
+$sequence "dual_chaingun_idle" "..\p_dual_chaingun\idle" fps 30 
 $sequence "dual_railgun_idle" "..\..\p_dual_railgun\idle" fps 30 
 $sequence "dual_rpg_idle" "..\p_dual_rpg\idle" fps 30 
 $sequence "dual_flamethrower_idle" "..\..\p_dual_flamethrower\idle" fps 30 

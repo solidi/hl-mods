@@ -82,6 +82,7 @@ events\sawedoff1.sc
 events\sawedoff2.sc
 events\dualsawedoff1.sc
 events\dualsawedoff2.sc
+events\dual_chaingun.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -388,6 +389,7 @@ models\hats.mdl
 models\box.mdl
 models\v_taunt.mdl
 models\w_ammo.mdl
+models\v_dual_chaingun.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -956,6 +958,7 @@ sprites\weapon_dual_sawedoff.txt
 sprites\weapon_satchel.txt
 sprites\weapon_snark.txt
 sprites\weapon_handgrenade.txt
+sprites\weapon_dual_chaingun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

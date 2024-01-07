@@ -1,4 +1,4 @@
-263
+264
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -218,6 +218,7 @@ d_flamestream		640	640hudof11	192	48	48	16
 d_dual_flamethrower	640	640hudof11	192	64	48	16
 d_sawedoff		640	640hudof13	192	48	48	16
 d_dual_sawedoff	640	640hudof13	192	64	48	16
+d_dual_chaingun	640	640hudof13	192	80	48	16
 
 // Mutators
 coolflesh	640 gameicons	0	0	64	64

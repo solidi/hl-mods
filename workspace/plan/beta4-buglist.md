@@ -1,5 +1,21 @@
 ## New Recommendations
 
+##  Janurary 2024 GSS
+
+[ ] Slow bullets still stuck
+[ ] reset models after gamemode
+[ ] no time limit in gamegun
+[ ] frag kill visual indicator?
+[ ] golden gun mode
+[ ] show people in spectator in LMS when waiting?
+[ ] LMS frag count when killing someone?
+[ ] steam and cdiscord messages mutators
+[ ] 1 vs 1 "runss"
+[ ] Grynhorns deadname
+[ ] kill credit for jesus if they frag him
+
+## New Ideas
+
 [ ] Banker with melee
 [ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
 [ ] position number close to objective readout

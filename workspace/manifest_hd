@@ -58,6 +58,7 @@ models\w_cabinet.mdl
 models\v_sawedoff.mdl
 models\v_taunt.mdl
 models\w_ammo.mdl
+models\v_dual_chaingun.mdl
 sound
 sound\knife_miss2.wav
 sprites
