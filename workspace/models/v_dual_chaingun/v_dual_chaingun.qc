@@ -94,7 +94,7 @@ $sequence "idle" "idle" fps 10 loop ACT_IDLE 5
 $sequence "idle2" "idle" fps 10 loop ACT_IDLE 4 
 $sequence "spinup" "spinup_shift3" loop fps 32 
 $sequence "spindown" "spindown_shift3" fps 32 { event 5005 15 "chaingun_hellyeah.wav" }
-$sequence "fire" "fire" fps 64 loop { event 5001 0 "4" } 
+$sequence "fire" "fire" fps 64 loop { event 5001 0 "4" } { event 5011 3 "4" } 
 $sequence "draw_lowkey" "draw_shift3" fps 68 { event 5004 0 "default_draw.wav" } 
 $sequence "draw" "draw_shift3" fps 68 { event 5004 0 "default_draw.wav" } { event 5005 0 "chaingun_selected.wav" }
 $sequence "holster" "holster_shift3" fps 51 
