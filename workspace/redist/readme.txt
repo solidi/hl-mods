@@ -11,6 +11,9 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
+- 1 New Weapons
+    - Dual Chainguns
+        - Fire Chainguns
 - Weapons Changes
     -  Combined all world ammo models into one file
 - Client Support

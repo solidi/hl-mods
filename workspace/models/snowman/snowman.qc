@@ -158,7 +158,9 @@ $sequence "ref_shoot_dual_shotgun" "../common/ref_shoot_dual_shotgun_blend1_shif
 $sequence "crouch_aim_dual_shotgun" "../common/crouch_aim_dual_shotgun_blend1" "../common/crouch_aim_dual_shotgun_blend2" blend XR -45 45 fps 12 loop 
 $sequence "crouch_shoot_dual_shotgun" "../common/crouch_shoot_dual_shotgun_blend1_shift" "../common/crouch_shoot_dual_shotgun_blend2_shift" blend XR -45 45 fps 25 { event 5001 0 "51" } { event 5031 1 "51" }
 $sequence "ref_aim_dual_egon" "../common/ref_aim_dual_egon_blend1" "../common/ref_aim_dual_egon_blend2" blend XR -45 35 fps 12 loop 
+$sequence "ref_shoot_dual_egon" "../common/ref_aim_dual_egon_blend1" "../common/ref_aim_dual_egon_blend2" blend XR -45 45 fps 25 { event 5001 0 "51" } { event 5031 1 "51" } 
 $sequence "crouch_aim_dual_egon" "../common/crouch_aim_dual_egon_blend1" "../common/crouch_aim_dual_egon_blend2" blend XR -45 45 fps 12 loop 
+$sequence "crouch_shoot_dual_egon" "../common/crouch_aim_dual_egon_blend1" "../common/crouch_aim_dual_egon_blend2" blend XR -45 45 fps 25 { event 5001 0 "51" } { event 5031 1 "51" }
 $sequence "frozen" "../common/frozen" fps 16 ACT_FROZEN 1 
 $sequence "slide" "../common/slide" fps 10 ACT_SLIDE 1 
 $sequence "right_flip" "../common/wheel_r" LX LY fps 40 ACT_RIGHT_FLIP 1 
