@@ -105,6 +105,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] cvar for portal in skybox?
 1. Clean up
     1. [x] Compact w_ ammo models
+    1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
 1. Fixes
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw

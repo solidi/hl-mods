@@ -4474,11 +4474,6 @@
 "origin" "-211 821 -52"
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "268 -383 174"
-}
-{
 "classname" "func_detail"
 "zhlt_clipnodedetaillevel" "1"
 "zhlt_chopup" "0"

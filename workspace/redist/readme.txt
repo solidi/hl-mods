@@ -18,6 +18,8 @@ Beta 5 Features:
     -  Combined all world ammo models into one file
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
+- Fixes
+    - Remove deathmatch spawn point in wall
 
 Beta 4 Features:
 
