@@ -90,8 +90,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 5
 
 1. New Weapons
-    1. [ ] Dual Hivehands
-    1. [ ] Dual Chainguns
+    1. [x] Dual Hivehands
+    1. [x] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)

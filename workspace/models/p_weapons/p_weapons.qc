@@ -58,6 +58,7 @@ studio "..\p_dual_smg\dual_smg"
 studio "..\p_dual_sawedoff\dual_sawedoff"
 studio "..\p_dual_usas\dual_usas"
 studio "..\p_dual_chaingun\dual_chaingun"
+studio "..\p_dual_hgun\dual_hgun"
 studio "..\p_dual_railgun\dual_railgun"
 studio "..\p_dual_rpg\dual_rpg"
 studio "..\p_dual_flamethrower\dual_flamethrower"
@@ -235,6 +236,13 @@ $texturegroup ice
     "..\p_dual_chaingun\barrelend.bmp"
     "..\p_dual_chaingun\body_side.bmp"
     "..\p_dual_chaingun\grip.bmp"
+    "..\p_dual_hgun\Gun_Back2.BMP"
+    "..\p_dual_hgun\GUN_Cheek1.BMP"
+    "..\p_dual_hgun\Gun_Jaw1.bmp"
+    "..\p_dual_hgun\GUN_Mouth1.bmp"
+    "..\p_dual_hgun\Gun_Top1.bmp"
+    "..\p_dual_hgun\Gun_Top2.bmp"
+    "..\p_dual_hgun\HG_Side1.bmp"
     "..\p_dual_railgun\Skin.bmp"
     "..\p_dual_rpg\new_worldrpg_combo.BMP"
     "..\p_dual_flamethrower\Chrome1.bmp"
@@ -389,6 +397,13 @@ $texturegroup ice
     "..\p_dual_chaingun\invert_barrelend.bmp"
     "..\p_dual_chaingun\invert_body_side.bmp"
     "..\p_dual_chaingun\invert_grip.bmp"
+    "..\p_dual_hgun\invert_Gun_Back2.BMP"
+    "..\p_dual_hgun\invert_GUN_Cheek1.BMP"
+    "..\p_dual_hgun\invert_Gun_Jaw1.bmp"
+    "..\p_dual_hgun\invert_GUN_Mouth1.bmp"
+    "..\p_dual_hgun\invert_Gun_Top1.bmp"
+    "..\p_dual_hgun\invert_Gun_Top2.bmp"
+    "..\p_dual_hgun\invert_HG_Side1.bmp"
     "..\p_dual_railgun\invert_Skin.bmp"
     "..\p_dual_rpg\invert_new_worldrpg_combo.BMP"
     "..\p_dual_flamethrower\invert_Chrome1.bmp"
@@ -548,8 +563,22 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -751,6 +780,7 @@ $hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 // Dual sawedoff?
 // Dual usas?
 // Dual chaingun?
+// Dual hgun?
 // Dual railgun?
 // Dual rpg?
 // Dual flamethrower?
@@ -803,6 +833,7 @@ $sequence "dual_smg_idle" "..\p_dual_smg\idle" fps 30
 $sequence "dual_sawedoff_idle" "..\p_dual_sawedoff\idle" fps 30
 $sequence "dual_usas_idle" "..\p_dual_usas\idle" fps 30
 $sequence "dual_chaingun_idle" "..\p_dual_chaingun\idle" fps 30
+$sequence "dual_hgun_idle" "..\p_dual_hgun\idle" fps 30
 $sequence "dual_railgun_idle" "..\p_dual_railgun\idle" fps 30
 $sequence "dual_rpg_idle" "..\p_dual_rpg\idle" fps 30
 $sequence "dual_flamethrower_idle" "..\p_dual_flamethrower\idle" fps 30
