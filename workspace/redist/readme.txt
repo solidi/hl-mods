@@ -11,9 +11,11 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
-- 1 New Weapons
+- 2 New Weapons
     - Dual Chainguns
         - Fire Chainguns
+    - Dual Hornetguns
+        - Fire Hornets / Fast Hornets
 - Weapons Changes
     -  Combined all world ammo models into one file
 - Client Support

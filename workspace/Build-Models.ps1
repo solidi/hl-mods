@@ -234,10 +234,8 @@ try {
     Invert-Skin $binDir "p_gauss" $modelsdir
     Invert-Skin $binDir "p_gauss" $modelsdir\hd
     Invert-Skin $binDir "v_gauss" $modelsdir\hd
-    Invert-Skin $binDir "v_hgun" $modelsdir
     Invert-Skin $binDir "p_hgun" $modelsdir
     Invert-Skin $binDir "p_hgun" $modelsdir\hd
-    Invert-Skin $binDir "v_hgun" $modelsdir\hd
     Invert-Skin $binDir "w_hornet" $modelsdir
     Invert-Skin $binDir "v_squeak" $modelsdir
     Invert-Skin $binDir "p_squeak" $modelsdir
@@ -425,8 +423,6 @@ try {
     Compile-Model $binDir "v_nuke" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_gauss" $modelsdir $redistdir\models
     Compile-Model $binDir "v_gauss" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_hgun" $modelsdir $redistdir\models
-    Compile-Model $binDir "v_hgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_hornet" $modelsdir $redistdir\models
     Compile-Model $binDir "v_squeak" $modelsdir $redistdir\models
     Compile-Model $binDir "w_sqknest" $modelsdir $redistdir\models
@@ -490,6 +486,8 @@ try {
     Compile-Model $binDir "w_ammo" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_chaingun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_dual_chaingun" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_dual_hgun" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "v_dual_hgun" $modelsdir $redistdir\models
     }
 }
 catch

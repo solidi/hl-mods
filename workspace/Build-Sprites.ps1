@@ -162,6 +162,7 @@ try {
     Copy-Item $spritesDir\weapon_satchel.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_handgrenade.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_dual_chaingun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_dual_hornetgun.txt $redistDir\sprites
     Copy-Item $spritesDir\hud.txt $redistDir\sprites
 } catch {
     Write-Error "$($_.Exception.Message)"
