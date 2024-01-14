@@ -20,7 +20,7 @@ Beta 5 Features:
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
 - Game Modes
-    - LMS gamemode groupsactive players on scoreboard
+    - LMS gamemode groups active players on scoreboard
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
 - Fixes
