@@ -17,11 +17,15 @@ Beta 5 Features:
     - Dual Hornetguns
         - Fire Hornets / Fast Hornets
 - Weapons Changes
-    -  Combined all world ammo models into one file
+    - Combined all world ammo models into one file
+    - Vest death does not deduct frags
+- Game Modes
+    - LMS gamemode groups active players on scoreboard
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
 - Fixes
     - Remove deathmatch spawn point in wall
+    - Last Man Standing lives do not increase
 
 Beta 4 Features:
 

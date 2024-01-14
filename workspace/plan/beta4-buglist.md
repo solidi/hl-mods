@@ -7,11 +7,11 @@
 [ ] no time limit in gamegun
 [ ] frag kill visual indicator?
 [ ] golden gun mode
-[ ] show people in spectator in LMS when waiting?
-[ ] LMS frag count when killing someone? (also, split LMS game rules)
+[x] show people in spectator in LMS when waiting?
+[x] LMS frag count when killing someone? (also, split LMS game rules)
 [ ] steam and cdiscord messages mutators (https://www.myinstants.com/en/search/?name=ICQ)
 [ ] 1 vs 1 "runss"
-[ ] Grynhorns deadname
+[x] Grynhorns deadname
 [ ] kill credit for jesus if they frag him
 
 ## New Ideas
