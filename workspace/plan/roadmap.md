@@ -102,6 +102,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Modes
     1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
 1. Server Support
+    1. [ ] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
 1. Clean up
     1. [x] Compact w_ ammo models
@@ -286,7 +287,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
     1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
-    1. [ ] Assisted frag credit in all game modes
 1. Single Player
     1. [ ] Single player freeze effect for all monsters
 1. Client

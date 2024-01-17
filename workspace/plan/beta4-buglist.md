@@ -12,7 +12,7 @@
 [ ] steam and cdiscord messages mutators (https://www.myinstants.com/en/search/?name=ICQ)
 [ ] 1 vs 1 "runss"
 [x] Grynhorns deadname
-[ ] kill credit for jesus if they frag him
+[x] kill credit for jesus if they frag him
 
 ## New Ideas
 
