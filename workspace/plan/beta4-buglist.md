@@ -5,7 +5,7 @@
 [ ] Slow bullets still stuck
 [ ] reset models after gamemode
 [ ] no time limit in gamegun
-[ ] frag kill visual indicator?
+[x] frag kill visual indicator?
 [ ] golden gun mode
 [x] show people in spectator in LMS when waiting?
 [x] LMS frag count when killing someone? (also, split LMS game rules)
@@ -13,6 +13,7 @@
 [ ] 1 vs 1 "runss"
 [x] Grynhorns deadname
 [x] kill credit for jesus if they frag him
+[x] fix kill sound
 
 ## New Ideas
 

@@ -19,13 +19,17 @@ Beta 5 Features:
 - Weapons Changes
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
-- Game Modes
+- Game Mode Changes
     - LMS gamemode groups active players on scoreboard
+    - Add assist system where every 3 assists a frag is credited
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
+    - Indicate red frag notice if player is involved
 - Fixes
     - Remove deathmatch spawn point in wall
     - Last Man Standing lives do not increase
+    - Fix client crash when client cvar is null
+    - Fix buzzer sound on frag
 
 Beta 4 Features:
 

@@ -102,7 +102,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Modes
     1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
 1. Server Support
-    1. [ ] Assisted frag credit in all game modes
+    1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
 1. Clean up
     1. [x] Compact w_ ammo models
