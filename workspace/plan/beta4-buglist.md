@@ -13,6 +13,7 @@
 [ ] 1 vs 1 "runss"
 [x] Grynhorns deadname
 [x] kill credit for jesus if they frag him
+[x] fix kill sound
 
 ## New Ideas
 
