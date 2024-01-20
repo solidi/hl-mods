@@ -82,7 +82,7 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Hands biped R Hand" 45.000000 -7.500000 10.000000
-$attachment 0 "Hands biped L Hand" 45.000000 -7.500000 10.000000
+$attachment 1 "Hands biped L Hand" 45.000000 -7.500000 10.000000
 
 // hit box(es)
 $hbox 0 "Hands biped R Hand" 0.000000 -1.427086 0.000000 1.069065 0.000000 6.472652

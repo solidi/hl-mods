@@ -27,28 +27,13 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "body" "rpg_right"
 
-$body "body" "rpg_left"
+$body "body" "right_hands"
 
-$body "body" "v_gordon_hands_reference"
-
-//$bodygroup "right"
-//{
-//studio "v_rpg_reference"
-//studio "v_rpg_reference"
-//blank
-//}
-
-//$bodygroup "hands"
-//{
-//studio "v_gordon_hands_reference"
-//}
-
-//$bodygroup "left"
-//{
-//studio "v_left_rpg_reference"
-//blank
-//studio "v_left_rpg_reference"
-//}
+$bodygroup "left"
+{
+blank
+studio "rpg_left"
+}
 
 $texturegroup ice
 {
@@ -126,8 +111,8 @@ $hbox 0 "R_Arm_bone" -2.620000 -2.640000 -2.290000 2.060000 2.490000 7.990000
 
 // animation sequence(s)
 $sequence "draw_left" "draw_left" fps 30 
-$sequence "draw_both_lowkey" "draw_both_shift3" fps 72 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
-$sequence "draw_both" "draw_both_shift3" fps 72 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_rpg_selected.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "draw_both_lowkey" "draw_both_shift2" fps 72 { event 5004 0 "default_draw.wav" } { event 5004 5 "default_draw.wav" } 
+$sequence "draw_both" "draw_both_shift2" fps 72 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_rpg_selected.wav" } { event 5004 5 "default_draw.wav" } 
 $sequence "idle_both" "idle_both" fps 30 
 $sequence "fire_both" "fire_both_shift4" fps 30 
 $sequence "holster_both" "holster_both_shift2" fps 51 

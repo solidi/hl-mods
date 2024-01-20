@@ -30,6 +30,7 @@ Beta 5 Features:
     - Last Man Standing lives do not increase
     - Fix client crash when client cvar is null
     - Fix buzzer sound on frag
+    - Improve rocket launcher draw animations
 
 Beta 4 Features:
 
