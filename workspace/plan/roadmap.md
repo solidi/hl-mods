@@ -90,6 +90,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 5
 
 1. New Weapons
+    1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
@@ -205,7 +206,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. New Weapons
-    1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models

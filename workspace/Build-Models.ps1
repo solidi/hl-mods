@@ -106,7 +106,6 @@ try {
     Invert-Skin $binDir "v_crowbar" $modelsdir\hd
     Invert-Skin $binDir "v_grenade" $modelsdir\hd
     Invert-Skin $binDir "v_knife" $modelsdir\hd
-    Invert-Skin $binDir "v_rpg" $modelsdir\hd
     Invert-Skin $binDir "v_tripmine" $modelsdir\hd
     Invert-Skin $binDir "v_sniperrifle" $modelsdir\hd
     Invert-Skin $binDir "v_vest_radio" $modelsdir\hd
@@ -137,7 +136,6 @@ try {
     Invert-Skin $binDir "v_grenade" $modelsdir
     Invert-Skin $binDir "v_knife" $modelsdir
     Invert-Skin $binDir "v_railgun" $modelsdir
-    Invert-Skin $binDir "v_rpg" $modelsdir
     Invert-Skin $binDir "v_sniperrifle" $modelsdir
     Invert-Skin $binDir "v_tripmine" $modelsdir
     Invert-Skin $binDir "v_vest_radio" $modelsdir
@@ -350,8 +348,6 @@ try {
     Compile-Model $binDir "v_knife" $modelsdir $redistDir\models
     Compile-Model $binDir "v_crowbar" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_crowbar" $modelsdir $redistDir\models
-    Compile-Model $binDir "v_rpg" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_rpg" $modelsdir $redistDir\models
     Compile-Model $binDir "rpgrocket" $modelsdir $redistDir\models
     Compile-Model $binDir "rpgrocket" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_tripmine" $modelsdir\hd $redisthddir\models
