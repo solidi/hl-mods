@@ -10,7 +10,7 @@
 [x] show people in spectator in LMS when waiting?
 [x] LMS frag count when killing someone? (also, split LMS game rules)
 [ ] steam and cdiscord messages mutators (https://www.myinstants.com/en/search/?name=ICQ)
-[ ] 1 vs 1 "runss"
+[x] 1 vs 1 "runss"
 [x] Grynhorns deadname
 [x] kill credit for jesus if they frag him
 [x] fix kill sound
