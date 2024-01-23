@@ -2,4 +2,4 @@ Two potential victors are selected to battle at random.
 
 Be the last to stand and receive a round win!
 
-If time runss out, the person with the most frags wins.
+If time runs out, the person with the most frags wins.
