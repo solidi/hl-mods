@@ -20,7 +20,7 @@ Beta 5 Features:
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
 - Map Changes
-    - Improved waypoints for snowyard
+    - Improved waypoints for training, snowyard, and coldice
 - Game Mode Changes
     - LMS gamemode groups active players on scoreboard
     - Add assist system where every 3 assists a frag is credited
