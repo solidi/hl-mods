@@ -33,6 +33,7 @@ Beta 5 Features:
     - Fix client crash when client cvar is null
     - Fix buzzer sound on frag
     - Improve rocket launcher draw animations
+    - Reversed the LJ crate door in Snowyard
 
 Beta 4 Features:
 
