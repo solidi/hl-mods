@@ -84,7 +84,6 @@ events\dualsawedoff1.sc
 events\dualsawedoff2.sc
 events\dual_chaingun.sc
 events\dual_hornetgun.sc
-events\fingergun.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -394,7 +393,6 @@ models\v_taunt.mdl
 models\w_ammo.mdl
 models\v_dual_chaingun.mdl
 models\v_dual_hgun.mdl
-models\v_fingergun.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -965,7 +963,6 @@ sprites\weapon_snark.txt
 sprites\weapon_handgrenade.txt
 sprites\weapon_dual_chaingun.txt
 sprites\weapon_dual_hornetgun.txt
-sprites\weapon_fingergun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr
