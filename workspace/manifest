@@ -185,7 +185,8 @@ maps\frostmill.wpt
 maps\frostmill.txt
 maps\frozen_bunker.bsp
 maps\frozen_bunker.res
-maps\frozen_bunker.wpt
+maps\frozen_bunker.gbw
+maps\frozen_bunker.txt
 maps\snowtransit.bsp
 maps\snowtransit.res
 maps\snowtransit.wpt
