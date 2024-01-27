@@ -14,6 +14,7 @@
 [x] Grynhorns deadname
 [x] kill credit for jesus if they frag him
 [x] fix kill sound
+[ ] kicked bots still vote at end
 
 ## New Ideas
 

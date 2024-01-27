@@ -158,7 +158,8 @@ maps\defroster.wpt
 maps\defroster.txt
 maps\depot.bsp
 maps\depot.res
-maps\depot.wpt
+maps\depot.gbw
+maps\depot.txt
 maps\snowcross.bsp
 maps\snowcross.res
 maps\snowcross.wpt
@@ -178,7 +179,8 @@ maps\snow_camp.res
 maps\snow_camp.wpt
 maps\ice_pit.bsp
 maps\ice_pit.res
-maps\ice_pit.wpt
+maps\ice_pit.gbw
+maps\ice_pit.txt
 maps\frostmill.bsp
 maps\frostmill.res
 maps\frostmill.wpt
