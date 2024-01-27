@@ -162,7 +162,8 @@ maps\depot.gbw
 maps\depot.txt
 maps\snowcross.bsp
 maps\snowcross.res
-maps\snowcross.wpt
+maps\snowcross.gbw
+maps\snowcross.txt
 maps\frostfire.bsp
 maps\frostfire.res
 maps\frostfire.wpt
