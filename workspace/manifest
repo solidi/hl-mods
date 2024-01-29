@@ -118,7 +118,8 @@ gfx\vgui\icntlk_pl.tga
 maps
 maps\fences.bsp
 maps\fences.res
-maps\fences.wpt
+maps\fences.gbw
+maps\fences.txt
 maps\training.bsp
 maps\training.res
 maps\training.gbw
@@ -138,7 +139,8 @@ maps\focus.res
 maps\focus.wpt
 maps\furrow.bsp
 maps\furrow.res
-maps\furrow.wpt
+maps\furrow.gbw
+maps\furrow.txt
 maps\snowyard.bsp
 maps\snowyard.res
 maps\snowyard.gbw
