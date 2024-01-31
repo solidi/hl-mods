@@ -215,7 +215,7 @@ maps\chillworks.wpt
 maps\chillworks.txt
 maps\frosty.bsp
 maps\frosty.res
-maps\frosty.wpt
+maps\frosty.gbw
 maps\frosty.txt
 maps\overflow.bsp
 maps\overflow.res
@@ -227,7 +227,7 @@ maps\glupshitto.wpt
 maps\glupshitto.txt
 maps\cold_base.bsp
 maps\cold_base.res
-maps\cold_base.wpt
+maps\cold_base.gbw
 maps\cold_base.txt
 media
 media\gamestartup.mp3
