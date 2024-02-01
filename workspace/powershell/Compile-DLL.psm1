@@ -22,7 +22,7 @@ function Compile-DLL {
     [string]$grapplinghook = "GRAPPLING_HOOK"
     $preprocess = "`"$definitions`""
     $gitHash = Git-Hash
-    $buildValues = if ($gitHash -ne "unknown") { "GIT=\`"$gitHash\`"" }
+    $buildValues = if ($gitHash -ne "unknown") { "GIT=$gitHash" }
 
     echo "Compiling dll $slnpath > $dllname.dll..."
     # https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019
