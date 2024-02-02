@@ -147,7 +147,8 @@ maps\snowyard.gbw
 maps\snowyard.txt
 maps\canyon.bsp
 maps\canyon.res
-maps\canyon.wpt
+maps\canyon.gbw
+maps\canyon.txt
 maps\bounce2.bsp
 maps\bounce2.res
 maps\bounce2.wpt
@@ -211,7 +212,7 @@ maps\themill.res
 maps\themill.wpt
 maps\chillworks.bsp
 maps\chillworks.res
-maps\chillworks.wpt
+maps\chillworks.gbw
 maps\chillworks.txt
 maps\frosty.bsp
 maps\frosty.res
