@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "hheva"
+$body "body" "hhev"
 
 
 // attachment(s)

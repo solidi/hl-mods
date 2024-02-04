@@ -27,8 +27,23 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $bodygroup "body"
 {
-studio "DM_Scientist_Biped1"
-studio "DM_ScienceBiped1"
+studio "scientist"
+studio "scientist_nohead"
+blank
+}
+
+$bodygroup "heads"
+{
+blank
+studio "head"
+studio "..\common\camera"
+}
+
+$bodygroup "extras"
+{
+blank
+studio "..\common\jeep"
+studio "..\common\toilet"
 }
 
 
