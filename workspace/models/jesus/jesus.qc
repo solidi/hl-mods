@@ -25,7 +25,26 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "Jesus"
+$bodygroup "body"
+{
+studio "jesus"
+studio "jesus_nohead"
+blank
+}
+
+$bodygroup "heads"
+{
+blank
+studio "head"
+studio "..\common\camera"
+}
+
+$bodygroup "extras"
+{
+blank
+studio "..\common\jeep"
+studio "..\common\toilet"
+}
 
 
 // attachment(s)

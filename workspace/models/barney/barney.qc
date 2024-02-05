@@ -27,10 +27,24 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $bodygroup "body"
 {
-studio "lbarney_reference"
-studio "barney_reference"
+studio "barney"
+studio "barney_nohead"
+blank
 }
 
+$bodygroup "heads"
+{
+blank
+studio "head"
+studio "..\common\camera"
+}
+
+$bodygroup "extras"
+{
+blank
+studio "..\common\jeep"
+studio "..\common\toilet"
+}
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000

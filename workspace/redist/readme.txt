@@ -21,6 +21,10 @@ Beta 5 Features:
     - Vest death does not deduct frags
 - Map Changes
     - Improved waypoints for bots on all maps
+- Game Modes
+    - 2 New Mutators - supports combination and randomly selected (sv_mutators)
+        - "toilet" - we aint hurt nobody
+        - "jeepathon" - now available at your local Jeep Wrangler dealership
 - Game Mode Changes
     - LMS gamemode groups active players on scoreboard
     - Add assist system where every 3 assists a frag is credited
