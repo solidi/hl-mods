@@ -198,7 +198,8 @@ maps\snowtransit.res
 maps\snowtransit.wpt
 maps\doublefrost.bsp
 maps\doublefrost.res
-maps\doublefrost.wpt
+maps\doublefrost.gbw
+maps\doublefrost.txt
 maps\quadfrost.bsp
 maps\quadfrost.res
 maps\quadfrost.wpt
@@ -224,7 +225,7 @@ maps\overflow.wpt
 maps\overflow.txt
 maps\glupshitto.bsp
 maps\glupshitto.res
-maps\glupshitto.wpt
+maps\glupshitto.gbw
 maps\glupshitto.txt
 maps\cold_base.bsp
 maps\cold_base.res

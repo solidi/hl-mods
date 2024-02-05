@@ -15,6 +15,8 @@
 [x] kill credit for jesus if they frag him
 [x] fix kill sound
 [ ] kicked bots still vote at end
+[ ] fragged and walking if holding arrow button?
+[ ] aim mutator, only target enemy (different team, chumtoad holder)
 
 ## New Ideas
 
