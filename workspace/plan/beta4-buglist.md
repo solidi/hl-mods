@@ -17,6 +17,9 @@
 [ ] kicked bots still vote at end
 [ ] fragged and walking if holding arrow button?
 [ ] aim mutator, only target enemy (different team, chumtoad holder)
+[ ] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
+[ ] pushy and snowballs
+[ ] slow weapons should affect kick
 
 ## New Ideas
 
