@@ -99,11 +99,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
 1. Game Mechanics
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
+    1. [ ] Auto taunt after a frag
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Game Modes
     1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [ ] CTF mode, spawn two spots if no support?
+    1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
+1. Maps
+    1. [ ] Increase sky height of furrow
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
@@ -130,6 +134,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
     1. [ ] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1490s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
