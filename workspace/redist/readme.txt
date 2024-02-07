@@ -21,6 +21,7 @@ Beta 5 Features:
     - Vest death does not deduct frags
 - Map Changes
     - Improved waypoints for bots on all maps
+    - Increase sky height in furrow
 - Game Modes
     - 2 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
