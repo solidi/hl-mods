@@ -172,7 +172,7 @@ maps\frostfire.res
 maps\frostfire.wpt
 maps\frozenwarehouse.bsp
 maps\frozenwarehouse.res
-maps\frozenwarehouse.wpt
+maps\frozenwarehouse.gbw
 maps\frozenwarehouse.txt
 maps\drift.bsp
 maps\drift.res
@@ -187,7 +187,7 @@ maps\ice_pit.gbw
 maps\ice_pit.txt
 maps\frostmill.bsp
 maps\frostmill.res
-maps\frostmill.wpt
+maps\frostmill.gbw
 maps\frostmill.txt
 maps\frozen_bunker.bsp
 maps\frozen_bunker.res
