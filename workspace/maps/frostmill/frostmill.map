@@ -14878,7 +14878,7 @@
 "classname" "ambient_generic"
 "angle" "86"
 "spawnflags" "2"
-"message" "ambience/crickets.wav"
+"message" "ambience/wind2.wav"
 "health" "3"
 "preset" "0"
 "volstart" "0"
