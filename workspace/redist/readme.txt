@@ -23,6 +23,8 @@ Beta 5 Features:
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
 - Game Modes
+    - 1 New Game Modes (mp_gamemode)
+        - "coldskull" - be the first to collect all the skulls!
     - 2 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -32,6 +34,7 @@ Beta 5 Features:
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
     - Indicate red frag notice if player is involved
+    - Indicate bots on the scoreboard
 - Fixes
     - Remove deathmatch spawn point in wall
     - Last Man Standing lives do not increase

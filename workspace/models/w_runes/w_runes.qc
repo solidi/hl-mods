@@ -37,6 +37,7 @@ studio "power"
 studio "cloak"
 studio "ammo"
 studio "cir"
+studio "skull"
 }
 
 
