@@ -406,3 +406,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. Use `gl_clear 1` to set non-rendered world to red color, as see in Dario Casali's [YouTube video](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1491s).
 1. An [updated command list](https://sturmbot.org/index.php/dod-turtorials/day-of-defeat-commands/105-day-of-defeat-common-player-commands-cvars) in November 2023 of Half-Life. 
 1. A very good example of [waypoint generation](https://sturmbot.org/index.php/sturmbot-tutorials/strumbot-waypoint-tutorials/74-original-sturmbot-guide) on the HPB bot framework.
+1. [Here is a good](https://twhl.info/wiki/page/VERC%3A_MP3_playing_entity_with_Steam) tutorial on how to play mp3s in Half-Life.

@@ -97,17 +97,27 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] First quad weapon - rocket launcher?
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
+    1. [ ] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
 1. Game Mechanics
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [ ] Auto taunt after a frag
 1. Bots
     1. [ ] Custom waypoint files for all maps
+1. Mutators
+    1. [x] Toilet - we aint hurt nobody
+    1. [x] Jeepathon - check your local jeep dealer
+    1. [ ] Ricochet - no view angles or weapons fire discs
 1. Game Modes
-    1. [ ] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
+    1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [ ] CTF mode, spawn two spots if no support?
-    1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
+    1. Improvements
+      1. [ ] timer above if mp_timelimit set
+      1. [ ] score/wins on scoreboard
+      1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
+      1. [ ] Skeleton appears the moment fragged from suvivor
+      1. [ ] Only appear chumtoad if there is more than two players
 1. Maps
-    1. [ ] Increase sky height of furrow
+    1. [x] Increase sky height of furrow
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
@@ -182,7 +192,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] CrazyO - track reel of a person speaking
     1. [ ] Oneshot - 1 health start or reduce
-    1. [ ] Ricochet - no view angles or weapons fire discs
     1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
         1. [ ] Light up melee weapons

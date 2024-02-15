@@ -133,7 +133,8 @@ entity_state_t gamedll Entity_Encode
 
 	// Playerclass signifies it's a decalable glass item when referring to an object
 
-	DEFINE_DELTA( playerclass, DT_INTEGER, 1, 1.0 )
+	DEFINE_DELTA( playerclass, DT_INTEGER, 1, 1.0 ),
+	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 10, 128.0 )
 }
 
 entity_state_player_t gamedll Player_Encode
