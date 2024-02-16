@@ -114,8 +114,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
       1. [ ] timer above if mp_timelimit set
       1. [ ] score/wins on scoreboard
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
+        1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
       1. [ ] Skeleton appears the moment fragged from suvivor
-      1. [ ] Only appear chumtoad if there is more than two players
+      1. [x] Only appear chumtoad if there is more than two players
 1. Maps
     1. [x] Increase sky height of furrow
 1. Server Support
@@ -130,7 +131,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Gungame - more feedback
         1. [ ] mutators are intefering with the gungame, off by default?
         1. [ ] Frag only counts on right weapon
-        1. [ ] vest? No death count?
+        1. [x] vest? No death count?
         1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
         1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
 
