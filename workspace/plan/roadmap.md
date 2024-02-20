@@ -112,7 +112,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] CTF mode, spawn two spots if no support?
     1. Improvements
       1. [ ] timer above if mp_timelimit set
-      1. [ ] score/wins on scoreboard
+      1. [x] score/wins on scoreboard
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
       1. [ ] Skeleton appears the moment fragged from suvivor

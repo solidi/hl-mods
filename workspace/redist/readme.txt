@@ -29,12 +29,14 @@ Beta 5 Features:
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
 - Game Mode Changes
+    - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard
     - Add assist system where every 3 assists a frag is credited
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
+    - Show game timer if mp_timelimit is set
 - Fixes
     - Remove deathmatch spawn point in wall
     - Last Man Standing lives do not increase
