@@ -133,7 +133,8 @@ maps\coldice.gbw
 maps\coldice.txt
 maps\training2.bsp
 maps\training2.res
-maps\training2.wpt
+maps\training2.gbw
+maps\training2.txt
 maps\focus.bsp
 maps\focus.res
 maps\focus.wpt
@@ -206,7 +207,7 @@ maps\quadfrost.wpt
 maps\quadfrost.txt
 maps\thechill.bsp
 maps\thechill.res
-maps\thechill.wpt
+maps\thechill.gbw
 maps\thechill.txt
 maps\themill.bsp
 maps\themill.res
