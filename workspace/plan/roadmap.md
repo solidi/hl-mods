@@ -111,7 +111,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [ ] CTF mode, spawn two spots if no support?
     1. Improvements
-      1. [ ] timer above if mp_timelimit set
+      1. [x] timer above if mp_timelimit set
       1. [x] score/wins on scoreboard
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time

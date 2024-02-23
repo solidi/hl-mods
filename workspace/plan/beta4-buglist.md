@@ -19,7 +19,8 @@
 [ ] aim mutator, only target enemy (different team, chumtoad holder)
 [ ] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
 [ ] pushy and snowballs
-[ ] slow weapons should affect kick
+[x] slow weapons should affect kick
+[ ] fix server side crossbow zoom
 
 ## New Ideas
 
