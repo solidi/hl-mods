@@ -1,4 +1,4 @@
-268
+270
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -221,6 +221,7 @@ d_dual_flamethrower	640	640hudof11	192	64	48	16
 d_sawedoff		640	640hudof13	192	48	48	16
 d_dual_sawedoff	640	640hudof13	192	64	48	16
 d_dual_chaingun	640	640hudof13	192	80	48	16
+d_disc			640	640hudof13	192	208	32	16
 
 // Mutators
 coolflesh	640 gameicons	0	0	64	64
@@ -277,6 +278,7 @@ crate	640 gameicons4	64	0	64	64
 pumpkin	640 gameicons4	0	64	64	64
 toilet	640 gameicons4	64	64	64	64
 jeepathon	640 gameicons4	128	64	64	64
+ricochet	640 gameicons4	192	64	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
