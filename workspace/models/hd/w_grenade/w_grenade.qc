@@ -25,20 +25,28 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "grenade"
+$bodygroup "body"
+{
+studio "grenade"
+studio "disc"
+}
 
 $texturegroup ice
 {
   {
     "..\w_grenade\grenade128.bmp"
+    "disc.bmp"
   }
   {
     "..\w_grenade\invert_grenade128.bmp"
+    "invert_disc.bmp"
   }
   {
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
 }

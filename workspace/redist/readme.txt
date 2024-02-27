@@ -25,9 +25,10 @@ Beta 5 Features:
 - Game Modes
     - 1 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
-    - 2 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 3 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
+        - "ricochet" - the best mod ever made
     - Mutator Changes
         - Include offhand kick and punch to slow/fast mutators
         - Increase speed of slowweapons for improved play
