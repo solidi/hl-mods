@@ -106,7 +106,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Mutators
     1. [x] Toilet - we aint hurt nobody
     1. [x] Jeepathon - check your local jeep dealer
-    1. [ ] Ricochet - no view angles or weapons fire discs
+    1. [x] Ricochet - no view angles or weapons fire discs
+        1. [ ] Heads?
 1. Game Modes
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [ ] CTF mode, spawn two spots if no support?
