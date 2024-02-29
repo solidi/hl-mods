@@ -19,6 +19,8 @@ Beta 5 Features:
 - Weapons Changes
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
+    - Hand cannon pops player up when pointing down
+    - Improved hand cannon smoke effects
 - Map Changes
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
