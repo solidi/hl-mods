@@ -50,6 +50,9 @@ Beta 5 Features:
     - Fix buzzer sound on frag
     - Improve rocket launcher draw animations
     - Reversed the LJ crate door in Snowyard
+    - Rejected bots no longer vote during intermission
+    - Pause bots during intermission
+    - Reduce crashes due to edict limit to client
 
 Beta 4 Features:
 
@@ -989,3 +992,4 @@ Thanks To:
 - BlueNightHawk for the client side flashlight tutorial https://gamebanana.com/tuts/14971
 - Pumpkin head by Valve https://gamebanana.com/mods/179426
 - Uncache sv_cheats code by Solokiller https://github.com/SamVanheer/halflife-updated/commit/04f8b91ffacb272e414363dcbbb551f16b6bf21b
+- 2048 client fix from hl-updated https://github.com/twhl-community/halflife-updated/commit/6ecc8f298bdd205eb056f7711f0b283e58f0bd60
