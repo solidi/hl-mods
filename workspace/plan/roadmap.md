@@ -97,7 +97,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] First quad weapon - rocket launcher?
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
-    1. [ ] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
+    1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
 1. Game Mechanics
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [ ] Auto taunt after a frag
@@ -146,6 +146,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
     1. [ ] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
         1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
@@ -311,7 +312,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Single player freeze effect for all monsters
 1. Client
     1. [ ] Server cvar that allows the hats, and if it's on 1, then a client command that allows a menu for selecting your hat (Napoleon)
-    1. [ ] Time remaining counter like op4dm
+    1. [x] Time remaining counter like op4dm
     1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
     1. [ ] Even better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
     1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
@@ -444,7 +445,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
-    1. [ ] Respawning breakable glass (Napoleon)
+    1. [x] Respawning breakable glass (Napoleon)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
 
 ### Beta 4

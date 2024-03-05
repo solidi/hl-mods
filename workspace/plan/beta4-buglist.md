@@ -14,7 +14,7 @@
 [x] Grynhorns deadname
 [x] kill credit for jesus if they frag him
 [x] fix kill sound
-[ ] kicked bots still vote at end
+[x] kicked bots still vote at end
 [ ] fragged and walking if holding arrow button?
 [ ] aim mutator, only target enemy (different team, chumtoad holder)
 [ ] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
@@ -60,7 +60,7 @@
 [ ] chumtoad throw animation
 [x] chumtoad trail to 8 seconds
 [ ] grenade mutator and sniper scope
-[ ] freeze bots in intermission
+[x] freeze bots in intermission
 [x] catch chumtoad "the" missing in menu
 [ ] visual scoreboard still screwed on widescreen
 [ ] killed self with handgrenade?
@@ -99,13 +99,13 @@
 [x] floating arms in observer still?
 [x] {cir_window01.bmp} blue fix it.
 [x] lights in chillworks dim?
-[ ] send bots to observer during intermission
+[x] send bots to observer during intermission
 [ ] gibbed sanic should disappear?
 [ ] fix hornetgun on fast weapon regen of hornets
 [ ] bot should throw chumtoad if taking damage
-[ ] custom waypoint for cold base
+[x] custom waypoint for cold base
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
-[ ] inf-nodes? chillworks.
+[x] inf-nodes? chillworks.
 [ ] 00:00 from 1v1 to gungame - shut off during intermission?
 [x] spawn protection prevents pickups
 [x] losing crosshairs (check Audioz video)
@@ -168,7 +168,7 @@
 [ ] Oldtime doesn't seem to work
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [ ] Defroster - Loaded, but crashed after a few minutes with the same error above
-[ ] jeepathon / func_vehicle - car over player model?
+[x] jeepathon / func_vehicle - car over player model?
 [ ] 18, 38, or 50 for extra gif
 [x] reload on rpg disables / enables laser
 [x] jope mutator Doesn't put player names back after the mutator is removed
