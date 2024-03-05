@@ -53,6 +53,8 @@ Beta 5 Features:
     - Rejected bots no longer vote during intermission
     - Pause bots during intermission
     - Reduce crashes due to edict limit to client
+    - Fixed stuck kick animation
+    - Fixed melee attacks as incorrect credit in death notice
 
 Beta 4 Features:
 
