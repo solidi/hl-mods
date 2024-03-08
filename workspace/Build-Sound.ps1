@@ -137,6 +137,11 @@ Compile-Sound $binDir $redistDir $soundDir "greatjob.mp3" 2.5 "sound\greatjob.wa
 Compile-Sound $binDir $redistDir $soundDir "votestarted.mp3" 2.5 "sound\votestarted.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "votemutator.mp3" 2.5 "sound\votemutator.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "ryu_hurricane_kick.mp3" 3.5 "sound\fists_hurricane.wav" "wav" 0 1.25
+Compile-Sound $binDir $redistDir $soundDir "I_am_proud_to_serve_and_proud_to_die_male.mp3" 1.0 "sound\taunt01.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "Nothing_can_stop_me_male.mp3" 1.0 "sound\taunt02.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "You_died_a_horrible_death_male.mp3" 1.0 "sound\taunt03.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "Another_body_for_the_pile_male.mp3" 1.0 "sound\taunt04.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "Nice_try_now_die_male.mp3" 1.0 "sound\taunt05.wav" "wav"
 }
 catch
 {
