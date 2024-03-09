@@ -338,4 +338,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_autotaunt"
+	{
+		"#Ice_AutoTaunt"
+		{ BOOL }
+		{ "1" }
+	}
 }

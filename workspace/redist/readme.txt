@@ -40,6 +40,7 @@ Beta 5 Features:
     - Add assist system where every 3 assists a frag is credited
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
+    - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
@@ -765,6 +766,7 @@ Client:
 - "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
 - "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
 - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
+- "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
 
 Server:
 
