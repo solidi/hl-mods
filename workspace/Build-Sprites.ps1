@@ -75,6 +75,8 @@ try {
     Compile-Sprite $binDir "640hudof12" $spritesDir $redistDir\sprites
     Compile-Sprite $binDir "640hudof13" $spritesDir $redistDir\sprites
     Compile-Sprite $binDir "640hudof14" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof15" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof16" $spritesDir $redistDir\sprites
     Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
@@ -163,6 +165,7 @@ try {
     Copy-Item $spritesDir\weapon_handgrenade.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_dual_chaingun.txt $redistDir\sprites
     Copy-Item $spritesDir\weapon_dual_hornetgun.txt $redistDir\sprites
+    Copy-Item $spritesDir\weapon_fingergun.txt $redistDir\sprites
     Copy-Item $spritesDir\hud.txt $redistDir\sprites
 } catch {
     Write-Error "$($_.Exception.Message)"

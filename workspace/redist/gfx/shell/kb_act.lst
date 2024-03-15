@@ -47,6 +47,7 @@
 "blank"			"#Valve_Weapon_Category_1"
 "blank"			"=========================="
 "use weapon_fists"			"#Ice_Fists"
+"use weapon_fingergun"		"#Ice_Fingergun"
 "use weapon_crowbar"		"#Ice_StandardCrowbar"
 "use weapon_knife"			"#Ice_CombatKnife"
 "use weapon_wrench"			"#Ice_Wrench"
