@@ -84,6 +84,7 @@ events\dualsawedoff1.sc
 events\dualsawedoff2.sc
 events\dual_chaingun.sc
 events\dual_hornetgun.sc
+events\fingergun.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -401,6 +402,7 @@ models\v_taunt.mdl
 models\w_ammo.mdl
 models\v_dual_chaingun.mdl
 models\v_dual_hgun.mdl
+models\v_fingergun.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -625,6 +627,7 @@ sound\hev\dual_rpg_selected.wav
 sound\hev\dual_flamethrower_selected.wav
 sound\hev\sawedoff_selected.wav
 sound\hev\dual_sawedoff_selected.wav
+sound\hev\fingergun_selected.wav
 sound\sentences.txt
 sound\materials.txt
 sound\vest_selected.wav
@@ -932,6 +935,8 @@ sprites\640hudof11.spr
 sprites\640hudof12.spr
 sprites\640hudof13.spr
 sprites\640hudof14.spr
+sprites\640hudof15.spr
+sprites\640hudof16.spr
 sprites\snowballhit.spr
 sprites\gunsmoke.spr
 sprites\smokeball2.spr
@@ -977,6 +982,7 @@ sprites\weapon_snark.txt
 sprites\weapon_handgrenade.txt
 sprites\weapon_dual_chaingun.txt
 sprites\weapon_dual_hornetgun.txt
+sprites\weapon_fingergun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

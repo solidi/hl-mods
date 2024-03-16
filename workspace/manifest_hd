@@ -58,6 +58,7 @@ models\v_taunt.mdl
 models\w_ammo.mdl
 models\v_dual_chaingun.mdl
 models\v_dual_hgun.mdl
+models\v_fingergun.mdl
 sound
 sound\knife_miss2.wav
 sprites

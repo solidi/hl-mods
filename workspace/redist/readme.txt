@@ -11,11 +11,13 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
-- 2 New Weapons
+- 3 New Weapons
     - Dual Chainguns
         - Fire Chainguns
     - Dual Hornetguns
         - Fire Hornets / Fast Hornets
+    - Finger Gun
+        - Fire Confusion Shot
 - Weapons Changes
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
@@ -38,6 +40,7 @@ Beta 5 Features:
     - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard
     - Add assist system where every 3 assists a frag is credited
+    - Disabled first blood award in LMS and Arena modes
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
     - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
@@ -56,6 +59,7 @@ Beta 5 Features:
     - Reduce crashes due to edict limit to client
     - Fixed stuck kick animation
     - Fixed melee attacks as incorrect credit in death notice
+    - Fixed grapple hook sound effect when touching a breakable
 
 Beta 4 Features:
 

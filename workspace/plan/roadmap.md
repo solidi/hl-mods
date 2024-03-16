@@ -90,7 +90,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 5
 
 1. New Weapons
-    1. [ ] Pointing, Hand gun, makes people confused, like in jabroni
+    1. [x] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
@@ -100,7 +100,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
 1. Game Mechanics
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
-    1. [ ] Auto taunt after a frag
+    1. [x] Auto taunt after a frag
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Mutators
