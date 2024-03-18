@@ -98,6 +98,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
     1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
+    1. [x] Third Fire Options through Reload
+        1. [x] Sniper on Knife
 1. Game Mechanics
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
@@ -229,8 +231,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
-    1. [ ] Third Fire Options through Reload
-        1. [ ] Sniper on Knife
     1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
         1. Grenades and explosions ring the ears. See [this commit](https://github.com/edgarbarney/halflife-planckepoch/commit/0086a3d940b30397cd436aa8df083520fb2d7437) and the [improved version here](https://github.com/edgarbarney/halflife-planckepoch/commit/fc2d0ba440f49b41045964accca10dbf6bdf1fc8).
     1. [ ] Bio weapon (pigcop)
