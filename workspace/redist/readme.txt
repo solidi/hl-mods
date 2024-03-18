@@ -18,6 +18,10 @@ Beta 5 Features:
         - Fire Hornets / Fast Hornets
     - Finger Gun
         - Fire Confusion Shot
+- Third Function Weapon Support
+    - Via the reload button
+        - Knife
+            - Added knife snipe
 - Weapons Changes
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
@@ -60,6 +64,7 @@ Beta 5 Features:
     - Fixed stuck kick animation
     - Fixed melee attacks as incorrect credit in death notice
     - Fixed grapple hook sound effect when touching a breakable
+    - Kicks and punches no longer gib
 
 Beta 4 Features:
 
