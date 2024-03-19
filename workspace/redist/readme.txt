@@ -27,6 +27,7 @@ Beta 5 Features:
     - Vest death does not deduct frags
     - Hand cannon pops player up when pointing down
     - Improved hand cannon smoke effects
+    - Hornetgun supports fast/slow weapon mutators
 - Map Changes
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow

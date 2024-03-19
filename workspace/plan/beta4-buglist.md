@@ -101,7 +101,7 @@
 [x] lights in chillworks dim?
 [x] send bots to observer during intermission
 [ ] gibbed sanic should disappear?
-[ ] fix hornetgun on fast weapon regen of hornets
+[x] fix hornetgun on fast weapon regen of hornets
 [ ] bot should throw chumtoad if taking damage
 [x] custom waypoint for cold base
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
