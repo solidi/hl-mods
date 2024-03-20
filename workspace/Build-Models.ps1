@@ -167,9 +167,7 @@ try {
     Invert-Skin $binDir "p_mag60" $modelsdir
     Invert-Skin $binDir "v_mag60" $modelsdir
     Invert-Skin $binDir "p_chaingun" $modelsdir\hd
-    Invert-Skin $binDir "v_chaingun" $modelsdir\hd
     Invert-Skin $binDir "p_chaingun" $modelsdir
-    Invert-Skin $binDir "v_chaingun" $modelsdir
     Invert-Skin $binDir "p_glauncher" $modelsdir\hd
     Invert-Skin $binDir "v_glauncher" $modelsdir\hd
     Invert-Skin $binDir "p_glauncher" $modelsdir
@@ -382,8 +380,6 @@ try {
     Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_mag60" $modelsdir $redistDir\models
     Compile-Model $binDir "v_mag60" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_chaingun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_chaingun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_glauncher" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_glauncher" $modelsdir $redistdir\models
     Compile-Model $binDir "w_contact_grenade" $modelsdir $redistdir\models
