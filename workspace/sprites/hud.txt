@@ -1,4 +1,4 @@
-270
+271
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -279,6 +279,7 @@ pumpkin	640 gameicons4	0	64	64	64
 toilet	640 gameicons4	64	64	64	64
 jeepathon	640 gameicons4	128	64	64	64
 ricochet	640 gameicons4	192	64	64	64
+notify	640 gameicons4	64	128	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
