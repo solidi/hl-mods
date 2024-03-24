@@ -13,13 +13,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.1
+      uses: microsoft/setup-msbuild@v2
 
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -35,7 +35,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
 
     - name: Upload tools
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}/tools.zip
@@ -45,13 +45,13 @@ jobs:
     needs: [compile_tools]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Download tools
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -83,7 +83,7 @@ jobs:
         Get-ChildItem -Path $env:TEMP -Filter *.wad | Compress-Archive -DestinationPath .\wads.zip -Force
 
     - name: Upload Wads
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}/wads.zip
@@ -96,13 +96,13 @@ jobs:
         map: [quadfrost, defroster]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Download tools
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -117,7 +117,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download wads
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}
@@ -149,7 +149,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{matrix.map}}.zip -Force
 
     - name: Upload ${{matrix.map}}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ${{matrix.map}}
         path: ./${{env.FOLDER_NAME}}/${{matrix.map}}.zip
@@ -159,7 +159,7 @@ jobs:
     needs: [compile_addon_maps]
 
     steps:
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         path: ./${{env.FOLDER_NAME}}
 
@@ -172,7 +172,7 @@ jobs:
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: compiled_maps
         path: ./${{env.FOLDER_NAME}}/maps.zip
@@ -182,13 +182,13 @@ jobs:
     needs: [combine_maps]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
         submodules: recursive
 
     - name: Download wads
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled_wads
         path: ./${{env.FOLDER_NAME}}
@@ -201,7 +201,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download maps
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled_maps
         path: ./${{env.FOLDER_NAME}}
@@ -214,7 +214,7 @@ jobs:
         Remove-Item .\${{env.FOLDER_NAME}}\maps.zip -Recurse -Force -ErrorAction Ignore
 
     - name: Download tools
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: compiled_tools
         path: ./${{env.FOLDER_NAME}}
@@ -243,7 +243,7 @@ jobs:
       run: .\${{env.FOLDER_NAME}}\add-ons\Build-Addons-${{env.BUILD_CONFIGURATION}}.ps1 -ConfigFile Config
 
     - name: Archive Cold Ice Add-Ons ${{env.BUILD_CONFIGURATION}}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: coldice-addons-build
         path: .\${{env.FOLDER_NAME}}\add-ons\*-add-on-*.7z
