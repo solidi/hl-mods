@@ -21950,3 +21950,10 @@
 ( -3460 1976 -132 ) ( -3460 1972 -132 ) ( -3268 1976 -132 ) CLIP [ 1 0 0 16 ] [ 0 -1 0 16 ] -0 1 1
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-1740 -1753 -440"
+"health" "2"
+"message" "media/01-snowflakes.mp3"
+"spawnflags" "1"
+}

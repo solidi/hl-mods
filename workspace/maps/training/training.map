@@ -6763,3 +6763,10 @@
 "angles" "0 315 0"
 "origin" "-419 -58 -408"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-419 -58 -408"
+"health" "29"
+"message" "media/gamestartup.mp3"
+"spawnflags" "1"
+}

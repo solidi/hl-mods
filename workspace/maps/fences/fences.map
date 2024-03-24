@@ -3193,3 +3193,10 @@
 "classname" "env_snow"
 "origin" "-96 0 112"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-96 0 112"
+"health" "13"
+"message" "media/13-topsy-turvy.mp3"
+"spawnflags" "1"
+}

@@ -5886,3 +5886,10 @@
 "angles" "0 90 0"
 "origin" "-304 864 -1120"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-304 864 -1120"
+"health" "7"
+"message" "media/06-serenity.mp3"
+"spawnflags" "1"
+}

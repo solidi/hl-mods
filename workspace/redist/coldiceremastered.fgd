@@ -3397,3 +3397,12 @@
 		4: "Cabinet" : 0
 	]
 ]
+@PointClass base(Targetname) = trigger_mp3audio : "Trigger Mp3 Audio"
+[
+    message(string) : "MP3 Name"
+    spawnflags(flags) =
+    [
+        1: "Loop" : 0
+        2: "Remove on fire" : 0
+    ]
+]

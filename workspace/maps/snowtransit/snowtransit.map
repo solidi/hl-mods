@@ -17353,3 +17353,10 @@
 "classname" "env_snow"
 "origin" "-384 560 -134"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-384 560 -134"
+"health" "13"
+"message" "media/13-topsy-turvy.mp3"
+"spawnflags" "1"
+}

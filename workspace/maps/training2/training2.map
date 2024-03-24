@@ -3747,3 +3747,10 @@
 ( 1162 944 -224 ) ( 685 912 -224 ) ( 564 904 336 ) CIR_ROCK03 [ 1 0 0 128 ] [ 0 0 -1 224 ] 0 3 3 
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-864 -613 -88"
+"health" "3"
+"message" "media/02-snowfall.mp3"
+"spawnflags" "1"
+}

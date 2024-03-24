@@ -4596,3 +4596,10 @@
 "angles" "0 145 0"
 "origin" "3055 253 288"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "3055 253 288"
+"health" "5"
+"message" "media/04-gifts.mp3"
+"spawnflags" "1"
+}

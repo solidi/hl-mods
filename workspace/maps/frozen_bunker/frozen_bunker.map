@@ -11346,3 +11346,10 @@
 "classname" "env_snow"
 "origin" "-1032 -88 526"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-1032 -88 526"
+"health" "3"
+"message" "media/02-snowfall.mp3"
+"spawnflags" "1"
+}

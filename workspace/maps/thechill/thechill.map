@@ -5227,3 +5227,10 @@
 ( -768 0 120 ) ( -784 0 120 ) ( -768 80 120 ) {INVISIBLE [ 1 0 0 0 ] [ 0 -1 0 0 ] 0 8 8
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-212 -96 834"
+"health" "10"
+"message" "media/09-whispers.mp3"
+"spawnflags" "1"
+}

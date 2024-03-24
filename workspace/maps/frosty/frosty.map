@@ -5726,3 +5726,10 @@
 "classname" "env_snow"
 "origin" "240 -320 256"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "240 -320 256"
+"health" "6"
+"message" "media/05-jubilee.mp3"
+"spawnflags" "1"
+}

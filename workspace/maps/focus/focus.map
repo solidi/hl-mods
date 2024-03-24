@@ -12894,3 +12894,10 @@
 "classname" "info_player_deathmatch"
 "origin" "-864 -185 -112"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-864 -185 -112"
+"health" "14"
+"message" "media/14-honor-guard.mp3"
+"spawnflags" "1"
+}

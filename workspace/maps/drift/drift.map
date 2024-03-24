@@ -14673,3 +14673,10 @@
 ( -544 3216 240 ) ( -544 3168 240 ) ( -552 3216 240 ) {INVISIBLE [ -0 1 0 12 ] [ 1 0 0 15.9998 ] 0 1 1
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-1171 -487 0"
+"health" "12"
+"message" "media/12-last-rites.mp3"
+"spawnflags" "1"
+}

@@ -17219,3 +17219,10 @@
 "angles" "0 0 0"
 "origin" "-160 1912 -1615"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-160 1912 -1615"
+"health" "9"
+"message" "media/08-lamenting.mp3"
+"spawnflags" "1"
+}
