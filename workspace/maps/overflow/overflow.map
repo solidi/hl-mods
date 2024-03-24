@@ -10179,3 +10179,10 @@
 "classname" "env_snow"
 "origin" "-128 0 480"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-128 0 480"
+"health" "10"
+"message" "media/09-whispers.mp3"
+"spawnflags" "1"
+}

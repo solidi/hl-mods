@@ -21110,3 +21110,10 @@
 "angles" "0 0 0"
 "origin" "-1422 2234 -64"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-1422 2234 -64"
+"health" "11"
+"message" "media/10-another-one.mp3"
+"spawnflags" "1"
+}

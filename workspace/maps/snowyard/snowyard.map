@@ -5063,3 +5063,10 @@
 "classname" "env_snow"
 "origin" "832 1104 96"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "830 1104 96"
+"health" "29"
+"message" "media/gamestartup.mp3"
+"spawnflags" "1"
+}

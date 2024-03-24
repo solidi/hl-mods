@@ -8536,3 +8536,10 @@
 "_light" "255 255 255 100"
 "origin" "-1184 1008 -2128"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-1184 1008 -2128"
+"health" "4"
+"message" "media/03-frostfight.mp3"
+"spawnflags" "1"
+}

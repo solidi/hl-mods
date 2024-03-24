@@ -28,6 +28,8 @@ Beta 5 Features:
     - Hand cannon pops player up when pointing down
     - Improved hand cannon smoke effects
     - Hornetgun supports fast/slow weapon mutators
+- Soundtrack
+    - Includes 14 new tracks, each map plays a set track
 - Map Changes
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
@@ -50,6 +52,7 @@ Beta 5 Features:
 - Client Support
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
     - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
+    - "cl_playmusic [0|1]" - start / stop tracklist music during gaming
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
@@ -778,6 +781,7 @@ Client:
 - "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
 - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
 - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
+- "cl_playmusic [0|1]" - start / stop tracklist music during gaming
 
 Server:
 
@@ -856,6 +860,10 @@ Server:
     - "marshmellow" - come back 1999 to you
     - "crate" - a tribute to boxwars
     - "pumpkin" - on Halloween, he appears
+    - "toilet" - we aint hurt nobody
+    - "jeepathon" - now available at your local Jeep Wrangler dealership
+    - "ricochet" - the best mod ever made
+    - "notify" - your boss is reaching out
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "sv_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
@@ -863,13 +871,15 @@ Server:
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
 - "sv_weather [0|1]" - enable or disable all weather effects on the server
 - "mp_gamemode" to select game mode
+    - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
+    - "coldskull" - be the first to collect all the skulls!
+    - "ctc" - capture the chumtoad, hold on to it to receive points!
+    - "gungame" - get specific weapons for frags and level up!
     - "ffa" - traditional free-for-all deathmatch
     - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - "lms" - last man standing, protect your lives be the last person standing to win
-    - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
-    - "gungame" - get specific weapons for frags and level up!
-    - "ctc" - capture the chumtoad, hold on to it to receive points!
+    - "teamplay" - frag with teams
 - "mp_randomgamemodes [0|1]" selects a random game mode on map change
 - "mp_roundlimit" number of rounds in game mode before map change
 - "mp_roundtimelimit" timelimit in round before rotation

@@ -32081,3 +32081,10 @@
 "classname" "env_snow"
 "origin" "47 -2390 -2000"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "47 -2390 -2000"
+"health" "29"
+"message" "media/gamestartup.mp3"
+"spawnflags" "1"
+}

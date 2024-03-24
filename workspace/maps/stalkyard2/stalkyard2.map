@@ -3125,3 +3125,10 @@
 "classname" "env_rain"
 "origin" "219 1051 -96"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "219 1051 -96"
+"health" "14"
+"message" "media/14-honor-guard.mp3"
+"spawnflags" "1"
+}

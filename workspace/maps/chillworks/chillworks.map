@@ -10890,3 +10890,10 @@
 ( 752 -868 204 ) ( -16 -868 204 ) ( 752 -864 204 ) {BLUE [ 1 0 0 0 ] [ 0 -1 0 -8 ] 0 1 1
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-195 -727 527"
+"health" "6"
+"message" "media/05-jubilee.mp3"
+"spawnflags" "1"
+}

@@ -8932,3 +8932,10 @@
 "scale" "2"
 "origin" "1656 1316 544"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "1656 1316 544"
+"health" "4"
+"message" "media/03-frostfight.mp3"
+"spawnflags" "1"
+}

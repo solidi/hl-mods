@@ -9636,3 +9636,10 @@
 "_light" "0 170 255 150"
 "origin" "232 -1168 20"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "232 -1168 20"
+"health" "6"
+"message" "media/05-jubilee.mp3"
+"spawnflags" "1"
+}

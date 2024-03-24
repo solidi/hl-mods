@@ -392,7 +392,7 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. Max viewable distance, or anything above 4096 [may be a problem](https://twhl.info/thread/view/18347) with a reliable overflow. [Here is alternative](https://forums.alliedmods.net/showthread.php?t=8195) opinion.
 1. [Here is a good list](https://stackoverflow.com/questions/5246015/copy-built-assemblies-including-pdb-config-and-xml-comment-files-to-folder-p) of how to discern the artifact outputs of a visual studio project
 1. Changing languages in Half-Life is as easy as [creating a new mod folder](https://www.reddit.com/r/HalfLife/comments/m3f73s/how_to_change_the_halflife_1_language_from_files/)
-1. [Here is a list](https://wiki.alliedmods.net/Half-Life_1_Engine_Messages) of all server messages available from the Half-Life engine. `SVC_TIMESCALE` could be very useful.
+1. [Here is a list](https://wiki.alliedmods.net/Half-Life_1_Engine_Messages) of all server messages available from the Half-Life engine. `SVC_TIMESCALE`, and `SVC_CDTRACK` could be very useful.
 1. [Here is a tutorial](http://web.archive.org/web/20040807141100/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=37) on how to make game rounds. I've already accomplished this, but it seems to be a good alternative.
 1. [Here is a tutorial](http://web.archive.org/web/20050212030855/http://www.planethalflife.com/fixxxer/hltuts/hl_msg.htm) about how messages work in Half-Life.
 1. The list for Half-Life single player is long. [Here is the list](https://steamcommunity.com/sharedfiles/filedetails/?id=1330328357) of all single player maps in order.
@@ -408,3 +408,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. A very good example of [waypoint generation](https://sturmbot.org/index.php/sturmbot-tutorials/strumbot-waypoint-tutorials/74-original-sturmbot-guide) on the HPB bot framework.
 1. [Here is a good](https://twhl.info/wiki/page/VERC%3A_MP3_playing_entity_with_Steam) tutorial on how to play mp3s in Half-Life.
 1. Use `info locals`, `info args` and `info variables` to list out [certain variables](https://stackoverflow.com/questions/6261392/printing-all-global-variables-local-variables) using gdb for debugging.
+1. This [list of music](https://developer.valvesoftware.com/wiki/List_of_Half-Life_1_music) was helpful for naming all music in Cold Ice.

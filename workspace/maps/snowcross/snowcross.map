@@ -14436,3 +14436,10 @@
 ( -80 1152 -1360 ) ( -144 1152 -1360 ) ( -144 1160 -1360 ) FIFTIES_DR5D [ 1 0 0 79.171 ] [ 0 -1 0 16 ] 0 1 1 
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-385 344 -1792"
+"health" "9"
+"message" "media/08-lamenting.mp3"
+"spawnflags" "1"
+}

@@ -4504,3 +4504,10 @@
 ( -26.0167 2326.56 -1 ) ( 171.343 2749.81 -1 ) ( -25.1105 2326.14 -1 ) CIR_ICE01 [ 1 0 0 -16.5856 ] [ 0 -1 0 193 ] 0 1 1
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-211 821 -52"
+"health" "3"
+"message" "media/02-snowfall.mp3"
+"spawnflags" "1"
+}

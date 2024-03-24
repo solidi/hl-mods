@@ -12506,3 +12506,10 @@
 ( 1280 368 -328 ) ( 1280 832 -328 ) ( 1440 368 -328 ) !CIR_WATER01 [ -0 1 0 15 ] [ 1 0 0 -26 ] -90 0.8 0.8
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-512 -448 24"
+"health" "11"
+"message" "media/10-another-one.mp3"
+"spawnflags" "1"
+}

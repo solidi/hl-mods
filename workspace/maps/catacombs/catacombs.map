@@ -11157,3 +11157,10 @@
 "angles" "0 320 0"
 "origin" "-16 960 80"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-16 960 80"
+"health" "8"
+"message" "media/07-catching-santa.mp3"
+"spawnflags" "1"
+}
