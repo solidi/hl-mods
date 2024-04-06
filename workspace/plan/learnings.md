@@ -409,3 +409,6 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. [Here is a good](https://twhl.info/wiki/page/VERC%3A_MP3_playing_entity_with_Steam) tutorial on how to play mp3s in Half-Life.
 1. Use `info locals`, `info args` and `info variables` to list out [certain variables](https://stackoverflow.com/questions/6261392/printing-all-global-variables-local-variables) using gdb for debugging.
 1. This [list of music](https://developer.valvesoftware.com/wiki/List_of_Half-Life_1_music) was helpful for naming all music in Cold Ice.
+1. Good [guide](https://gist.github.com/danieldogeanu/739f88ea5312aaa23180e162e3ae89ab) to rename master branch to main branch.
+1. Always declare `pev->classname = MAKE_STRING("class_name")` so that the engine will recognize the entity in a find loop
+1. Dont use `pev->origin = ` in a think function. Use `UTIL_SetOrigin` for safety, otherwise there maybe crashes

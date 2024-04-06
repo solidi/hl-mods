@@ -24,13 +24,14 @@ DESCRIPTION SERVER_OPTIONS
 			"Free for All" "0"
 			"1 vs. 1 Arena" "1"
 			"Battle Royal" "2"
-			"Chilldemic" "3"
-			"Cold Skulls" "4"
-			"Capture the Chumtoad" "5"
-			"GunGame" "6"
-			"Jesus vs. Santa" "7"
-			"Snowball Fight" "8"
-			"Teamplay" "9"
+			"CTF" "3"
+			"Chilldemic" "4"
+			"Cold Skulls" "5"
+			"Capture the Chumtoad" "6"
+			"GunGame" "7"
+			"Jesus vs. Santa" "8"
+			"Snowball Fight" "9"
+			"Teamplay" "10"
 		}
 		{ "0" }
 	}
@@ -449,5 +450,19 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_MeleeDrop"
 		{ BOOL }
 		{ "1" }
+	}
+
+	"mp_ctfspawn1"
+	{
+		"#Ice_CtfSpawn1"
+		{ STRING }
+		{ "weapon_9mmAR" }
+	}
+
+	"mp_ctfspawn2"
+	{
+		"#Ice_CtfSpawn2"
+		{ STRING }
+		{ "weapon_shotgun" }
 	}
 }

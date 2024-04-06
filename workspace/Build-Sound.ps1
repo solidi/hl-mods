@@ -350,6 +350,8 @@ Copy-Item $soundDir\sawedoff_click.wav $redistdir\sound
 Copy-Item $soundDir\sawedoff.wav $redistdir\sound
 Copy-Item $soundDir\goldeneye_respawn.wav $redistdir\sound
 Copy-Item $soundDir\taunt_blah.wav $redistdir\sound
+Copy-Item $soundDir\ctf_flag_taken.wav $redistdir\sound
+Copy-Item $soundDir\ctf_flag_capture.wav $redistdir\sound
 
 Copy-Item $soundDir\valve_sound.wav $redistdir\sound\ui\
 

@@ -122,6 +122,7 @@ try {
     Compile-Sprite $binDir "gameicons2" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons3" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons4" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "ctf_hud1" $spritesDir $redistdir\sprites
 
     Write-Output "Copying sprite text files..."
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites

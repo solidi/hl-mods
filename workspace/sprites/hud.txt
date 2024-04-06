@@ -1,4 +1,4 @@
-271
+275
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -306,3 +306,8 @@ target  640 640hud7	144	72	24	24
 info  640 640hud7	144	96	24	24
 trophy  640 640hud7	228	72	24	24
 mouse  640 640hud7	192	24	40	40
+
+item_ctfflagh 640 ctf_hud1 67 75  38  42
+item_ctfflagc 640 ctf_hud1 105 75  38  42
+item_ctfflagd 640 ctf_hud1 143 75  38  42
+item_ctfflagg 640 ctf_hud1 181 75  38  42

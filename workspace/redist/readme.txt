@@ -34,8 +34,9 @@ Beta 5 Features:
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
 - Game Modes
-    - 1 New Game Modes (mp_gamemode)
+    - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
+        - "ctf" - capture the flag, grab the flag and run it back to base!
     - 4 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -56,6 +57,8 @@ Beta 5 Features:
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
+- Server
+    - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
 - Fixes
     - Remove deathmatch spawn point in wall
     - Last Man Standing lives do not increase
@@ -874,6 +877,7 @@ Server:
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "coldskull" - be the first to collect all the skulls!
     - "ctc" - capture the chumtoad, hold on to it to receive points!
+    - "ctf" - capture the flag, grab the flag and run it back to base!
     - "gungame" - get specific weapons for frags and level up!
     - "ffa" - traditional free-for-all deathmatch
     - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
@@ -892,6 +896,8 @@ Server:
 - "mp_spawnprotectiontime" - amount of time in seconds spawn protection is enabled
 - "sv_chaosfilter" - list of mutators which are ignored in chaos mode
 - "mp_meleedrop [0|1]" - allow kick or punch attcks to drop weapons out of hands
+- "mp_ctfspawn1" - name of entity where blue base will spawn in map
+- "mp_ctfspawn2" - name of entity where red base will spawn in map
 
 Report Bugs:
 

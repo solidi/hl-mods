@@ -9,7 +9,7 @@
 [ ] golden gun mode
 [x] show people in spectator in LMS when waiting?
 [x] LMS frag count when killing someone? (also, split LMS game rules)
-[ ] steam and cdiscord messages mutators (https://www.myinstants.com/en/search/?name=ICQ)
+[x] steam and cdiscord messages mutators (https://www.myinstants.com/en/search/?name=ICQ)
 [x] 1 vs 1 "runss"
 [x] Grynhorns deadname
 [x] kill credit for jesus if they frag him
@@ -62,7 +62,7 @@
 [ ] grenade mutator and sniper scope
 [x] freeze bots in intermission
 [x] catch chumtoad "the" missing in menu
-[ ] visual scoreboard still screwed on widescreen
+[x] visual scoreboard still screwed on widescreen
 [ ] killed self with handgrenade?
 [ ] boxes not explosive in frozen_bunker
 [ ] pirate sounds when hat mutator on

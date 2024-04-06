@@ -1,0 +1,5 @@
+Capture the Flag
+
+Grab the flag and run it back to base!
+
+Bases appear set to two weapon areas
