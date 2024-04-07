@@ -415,6 +415,8 @@ models\w_ammo.mdl
 models\v_dual_chaingun.mdl
 models\v_dual_hgun.mdl
 models\v_fingergun.mdl
+models\flag.mdl
+models\flagbase.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -427,6 +429,7 @@ modes\ffa.txt
 modes\random.txt
 modes\teamplay.txt
 modes\coldskull.txt
+modes\ctf.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -933,6 +936,8 @@ sound\notify20.wav
 sound\notify21.wav
 sound\notify22.wav
 sound\notify23.wav
+sound\ctf_flag_taken.wav
+sound\ctf_flag_capture.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -1058,6 +1063,7 @@ sprites\640hudrunes.spr
 sprites\gameicons2.spr
 sprites\gameicons3.spr
 sprites\gameicons4.spr
+sprites\ctf_hud1.spr
 liblist.gam
 ReadMe.txt
 settings.scr

@@ -1102,3 +1102,8 @@ coldskull
 {
 COLD SKULLS
 }
+
+ctf
+{
+CTF
+}

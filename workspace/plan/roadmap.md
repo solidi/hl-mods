@@ -95,6 +95,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual Chainguns
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] First quad weapon - rocket launcher?
+    1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
     1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
@@ -109,10 +110,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Toilet - we aint hurt nobody
     1. [x] Jeepathon - check your local jeep dealer
     1. [x] Ricochet - no view angles or weapons fire discs
-        1. [ ] Heads?
+        1. [x] Heads?
 1. Game Modes
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
-    1. [ ] CTF mode, spawn two spots if no support?
+    1. [x] CTF mode, spawn two spots if no support?
     1. Improvements
       1. [x] timer above if mp_timelimit set
       1. [x] score/wins on scoreboard
@@ -220,7 +221,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] headcrabs
         1. [ ] houndeye
     1. [ ] apache helicopter
-    1. [ ] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
+    1. [x] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [ ] chums/snarks wont die
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
     1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
@@ -284,7 +285,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Correct all brass shell ejection points
     1. [ ] Use attachment point for each model
     1. Chaingun
-        1. [ ] Secondary chaingun idea?
+        1. [x] Secondary chaingun idea?
         1. [ ] Faster spin?
         1. [ ] Tracers on all bullets?
     1. [ ] [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
@@ -302,6 +303,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Customize iron-sight values, add support to other weapons at runtime.
     1. [ ] Support mdl model [fullbrights] and sven texturerender mode using [this repo](https://github.com/BlueNightHawk/halflife_fullbright)
 1. Environment look and feel
+    1. [ ] [Static Stencil lighting](https://twhl.info/wiki/page/Tutorial%3A_Adding_hack-free_Stencil_Shadows_to_Half-Life) requected by Naploeon
     1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Server Support
@@ -311,6 +313,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Single Player
     1. [ ] Single player freeze effect for all monsters
 1. Client
+    1. [ ] [Streaming event messaging](https://www.youtube.com/watch?v=v0m1fXOYPsA) on HUD
     1. [ ] Server cvar that allows the hats, and if it's on 1, then a client command that allows a menu for selecting your hat (Napoleon)
     1. [x] Time remaining counter like op4dm
     1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
@@ -359,7 +362,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Ragdoll effect (speak to Napoleon)
     1. [ ] Shader water implementation...(something that's not Trinity, (speak to Napoleon))
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
-    1. [ ] Swap blue sprites with real sprites with cl_icemodels?
+    1. [x] Swap blue sprites with real sprites with cl_icemodels?
 1. UI / Menu
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
