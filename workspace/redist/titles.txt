@@ -217,8 +217,8 @@ Cold Ice Remastered is:
 
 END1
 {
-OG Crew 1999+
-Surreal / Slimshady
+[Original Team] (1999-2002)
+Slimshady / Surreal
 Infinity
 rory
 Coconutmonkey28
@@ -234,7 +234,7 @@ Panic
 
 END2
 {
-Rebuild Crew 2000
+[Rebuild Team] (2000-2001)
 AudioCraZ
 DarkCloud14
 CRash&bleED;
@@ -244,14 +244,30 @@ AxeL
 
 END3
 {
-Remastered Crew 2021+
+[Remastered Team] (2021-2024)
 Surreal
 AudioCraZ
 Napoleon
-TheSpacePirate
-BlueNightHawk
 Bacontsu
-Radiation Hazard
+BlueNightHawk
+TheSpacePirate
+RadiationHazard
+Kralich/David
+ssfcgasl'sgo!
+Strast
+MitchellTheBoneLord
+}
+
+END4
+{
+[Thanks To GoldSrc Saturdays]
+crazydog
+Gryfhorn
+Ferrick
+b1rd
+pigcop
+nellia
+twten
 }
 
 //INTRO TITLES

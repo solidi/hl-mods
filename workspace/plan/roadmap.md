@@ -168,6 +168,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] noone can reload
+    1. [x] [credits](https://www.youtube.com/watch?v=ilVxUcd6Ot8)
+    1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
     1. [ ] how about another mutator where the view / screen is turned sideways? (Napoleon)
     1. [ ] jammed radar mutator
     1. [ ] rocketjump mutator
