@@ -1,4 +1,4 @@
-275
+276
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -162,7 +162,7 @@ train_forward3	640	640hud6 170	72	72	72
 autoaim_c		640	crosshairs	96	0	24	24
 
 title_half		640 640hud4	0	226	256	30
-title_life		640 640hud5	0	226	220	30
+title_life		640 640hudof12	0	226	220	30
 
 d_crowbar		640	640hud1	192	0	48	16
 d_flying_crowbar		640	640hud1	192	0	48	16
@@ -280,6 +280,7 @@ toilet	640 gameicons4	64	64	64	64
 jeepathon	640 gameicons4	128	64	64	64
 ricochet	640 gameicons4	192	64	64	64
 notify	640 gameicons4	64	128	64	64
+credits	640 gameicons4	128	128	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64

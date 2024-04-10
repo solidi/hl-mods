@@ -37,11 +37,12 @@ Beta 5 Features:
     - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
-    - 4 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 5 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
         - "notify" - your boss is reaching out
+        - "credits" - show all contributors in an endless loop
     - Mutator Changes
         - Include offhand kick and punch to slow/fast mutators
         - Increase speed of slowweapons for improved play
@@ -813,60 +814,61 @@ Server:
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "sv_mutators" - Add mutators to gameplay
     - "chaos" - randomly selects three mutators every 30 seconds!
-    - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
-    - "instagib" - spawn with dual railguns that dole one hit kills
-    - "volatile" - where players or monsters blow up when fragged
-    - "plumber" - spawn with pipe wrenches
-    - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
-    - "bighead" - players heads are very large
-    - "superjump" - jump three times the height, disables fall damage
-    - "megarun" - run 50% faster
-    - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
-    - "slowmo" - everything is slowed down by half! (Single-player only)
-    - "ice" - all the ground is covered in ice
-    - "topsyturvy" - everything is turned upside down
-    - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
-    - "turrets" - random sentry guns random firing bullets and rockets at everyone
-    - "chumxplode" - killer chumtoads appear directly after an explosion
-    - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair (hambone icon)
-    - "santahat" - players are capped off with santa hats and randomly say "hohoho", "merry christmas" (santahat icon)
-    - "sanic" - evil santa and sanic with a santa hat team up against you
-    - "loopback" - teleport to the place of your last frag
-    - "maxpack" - drop all weapons and ammo in play (Multiplayer only)
-    - "infiniteammo" - all weapons have infinite ammo
-    - "randomweapon" - spawn with a randomly selected weapon
-    - "speedup" - everything is sped up by half! (Single-player only)
-    - "rockets" - a random chance of rockets throw on attack!
-    - "invisible" - everyone is partially invisible!
-    - "grenades" - a random chance of a grenade throw on attack
+    - "999" - start with 999 health and battery.
     - "astronaut" - gravity is turned down
-    - "snowballs" - a random chance of snowballs throw on attack
-    - "pushy" - all weapon attacks push you back like a gauss attack
-    - "portal" - now you're thinking with portals
-    - "jope" - you've been joped!
+    - "autoaim" - all weapons have extreme autoaim.
+    - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
+    - "berserker" - go crazy with chainsaws and fists.
+    - "bighead" - players heads are very large
+    - "chumxplode" - a killer chumtoad appears directly after an explosion
+    - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
+    - "crate" - boxwars in the 2020's.
+    - "credits" - show all contributors in an endless loop.
+    - "dontshoot" - firing any weapon will explode the player.
+    - "explosiveai" - AI blows up when it cannot find its next task
+    - "fastweapons" - all weapons are faster.
+    - "grenades" - a random chance of a grenade throw on attack
+    - "ice" - all the ground is covered in ice
+    - "infiniteammo" - all weapons have infinite ammo
+    - "instagib" - spawn with dual railguns that dole one hit kills
     - "inverse" - colors are inverted
-    - "oldtime" - colors are black and white
-    - "sildenafil" - all you see is blue
-    - "longjump" - everyone has a long jump module
-    - "slowbullets" - all bullets are slowed down
-    - "explosiveai" - ai blows up if they cannot find their next task
-    - "itemsexplode" - items and weapons react to explosions
+    - "invisible" - everyone is partially invisible!
+    - "itemsexplode" - weapons and items react to explosions
+    - "jack" - we don't make it 'til you order it.
+    - "jeepathon" - everyone is a jeep.
+    - "jope" - it's all a jope!
+    - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
+    - "longjump" - everyone receives a long jump module
+    - "loopback" - teleport to the place of your last frag
+    - "marshmellow" - come back 1999 to you.
+    - "maxpack" - drop all weapons and ammo in play (mp only!)
+    - "megarun" - run faster than normal
+    - "notify" - interrupt players with annoying chat notifications
     - "notthebees" - hornets spawn from a player or monster who was killed
-    - "dontshoot" - firing any weapon will explode in the players hands (melee only)
-    - "999" - start with 999 health and battery
-    - "berserker" - go crazy with chainsaws and fists
-    - "autoaim" - weapons have extreme auto aim
-    - "slowweapons" - weapons fire slowly
-    - "fastweapons" - weapons fire fast
-    - "jack" - we don't make it until you order it
-    - "piratehat" - argh matey
-    - "marshmellow" - come back 1999 to you
-    - "crate" - a tribute to boxwars
-    - "pumpkin" - on Halloween, he appears
-    - "toilet" - we aint hurt nobody
-    - "jeepathon" - now available at your local Jeep Wrangler dealership
+    - "oldtime" - gameplay becomes desaturated
+    - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
+    - "piratehat" - argh, maty.
+    - "plumber" - spawn with dual pipe wrenches
+    - "portal" - now you're thinking with portals
+    - "pumpkin" - on Halloween, he appears.
+    - "pushy" - all weapon attacks push you back like a gauss attack
+    - "randomweapon" - spawn with a randomly selected weapon
     - "ricochet" - the best mod ever made
-    - "notify" - your boss is reaching out
+    - "rockets" - a random chance of rockets throw on attack!
+    - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+    - "sanic" - evil santa and sanic with a santa hat team up against you
+    - "santahat" - everyone wears a santa hat and says hohoho randomly
+    - "sildenafil" - screen goes blue
+    - "slowbullets" - bullets travel slowly to target
+    - "slowmo" - everything is slowed down by half! (sp only!)
+    - "slowweapons" - all weapons are slower.
+    - "snowballs" - a random chance of snowballs throw on attack
+    - "speedup" - everything is sped up by half! (sp only!)
+    - "superjump" - jump three times the height, disables fall damage.
+    - "topsyturvy" - everything is turned upside down (sp only!)
+    - "toilet" - game is in the toilet, we ain't hurt nobody.
+    - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
+    - "volatile" - where players blow up when fragged
 - "mp_randommutators [0|1]" selects three random mutators on map change
 - "sv_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
