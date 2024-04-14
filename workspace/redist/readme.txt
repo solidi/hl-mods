@@ -37,12 +37,13 @@ Beta 5 Features:
     - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
-    - 5 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 6 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
         - "notify" - your boss is reaching out
         - "credits" - show all contributors in an endless loop
+        - "goldenguns" - guns provide one shot frags
     - Mutator Changes
         - Include offhand kick and punch to slow/fast mutators
         - Increase speed of slowweapons for improved play
@@ -827,6 +828,7 @@ Server:
     - "dontshoot" - firing any weapon will explode the player.
     - "explosiveai" - AI blows up when it cannot find its next task
     - "fastweapons" - all weapons are faster.
+    - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
     - "ice" - all the ground is covered in ice
     - "infiniteammo" - all weapons have infinite ammo
