@@ -168,6 +168,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] rats around map
+    1. [ ] random textures
+    1. [ ] random sounds
+    1. [ ] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
     1. [ ] give mutator, random, and fast.
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
     1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
@@ -184,7 +188,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
-    1. [ ] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
+    1. [x] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
     1. [ ] Fire Bullets
     1. [ ] Vampire (increase health too)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)

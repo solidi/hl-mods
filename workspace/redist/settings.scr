@@ -43,7 +43,7 @@ DESCRIPTION SERVER_OPTIONS
 		{ "0" }
 	}
 
-	"sv_mutators"
+	"sv_addmutator"
 	{
 		"#Ice_Mutators"
 		{
@@ -110,11 +110,18 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"sv_chaostime"
+	"sv_mutatoramount"
 	{
-		"#Ice_ChaosTime"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "45" }
+		"#Ice_MutatorAmount"
+		{ NUMBER 0.000000 7.000000 }
+		{ "3" }
+	}
+
+	"sv_mutatortime"
+	{
+		"#Ice_MutatorTime"
+		{ NUMBER 10.000000 120.000000 }
+		{ "30" }
 	}
 
 	"sv_chaosfilter"

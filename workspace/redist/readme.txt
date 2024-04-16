@@ -45,6 +45,12 @@ Beta 5 Features:
         - "credits" - show all contributors in an endless loop
         - "goldenguns" - guns provide one shot frags
     - Mutator Changes
+        - Mutators are independent timers
+        - Changed "sv_mutators" to "sv_addmutator"
+        - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
+        - Added "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
+        - Added "sv_mutatortime [30 (10-120)]\" - how long mutator lasts in seconds
+        - Removed "mp_randommutators" and "sv_chaostime"
         - Include offhand kick and punch to slow/fast mutators
         - Increase speed of slowweapons for improved play
 - Game Mode Changes
@@ -813,7 +819,10 @@ Server:
 - "mp_icesprites [0|1]" - Switch between select ice and real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
-- "sv_mutators" - Add mutators to gameplay
+- "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
+- "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
+- "sv_mutatortime [30 (10-120)]\" - how long mutator lasts in seconds
+- "sv_addmutator" - Add mutators to gameplay
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "999" - start with 999 health and battery.
     - "astronaut" - gravity is turned down
@@ -871,8 +880,6 @@ Server:
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "volatile" - where players blow up when fragged
-- "mp_randommutators [0|1]" selects three random mutators on map change
-- "sv_chaostime" - how many seconds until chaos mutators are rotated
 - "mp_spawnweapons [0|1]" - Spawn weapons or not
 - "sv_disallowlist" a list of classname entities that will not spawn
 - "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
