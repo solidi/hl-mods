@@ -37,13 +37,14 @@ Beta 5 Features:
     - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
-    - 6 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 7 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
         - "notify" - your boss is reaching out
         - "credits" - show all contributors in an endless loop
         - "goldenguns" - guns provide one shot frags
+        - "stahp" - some sounds replaced with stahp!
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
