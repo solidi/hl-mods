@@ -37,19 +37,20 @@ Beta 5 Features:
     - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
-    - 6 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 7 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
         - "notify" - your boss is reaching out
         - "credits" - show all contributors in an endless loop
         - "goldenguns" - guns provide one shot frags
+        - "stahp" - some sounds replaced with stahp!
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
         - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
         - Added "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
-        - Added "sv_mutatortime [30 (10-120)]\" - how long mutator lasts in seconds
+        - Added "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds
         - Removed "mp_randommutators" and "sv_chaostime"
         - Include offhand kick and punch to slow/fast mutators
         - Increase speed of slowweapons for improved play
@@ -800,28 +801,60 @@ Server:
 - "help_server_more" - Displays more server Cold Ice Remastered options
 - "addbot" - Add a bot
 - "botdontshoot [0|1]" - Enable or disable bots attacking others
-- "mp_grapplinghook [0|1]" - Allow grappling hook on server
-- "mp_grapplinghookdeploytime 1.0" - Time (seconds) when the next grappling hook can deploy
-- "mp_grapplesky [0|1]" - Allow player to grapple the sky
-- "mp_spawnweaponlist "weapon_fists;weapon_crowbar;weapon_9mmhandgun"" Modify the player's spawn weapons
+- "botpause [0|1]" - Bots stay in place
 - "mp_allowrunes [0|1]" - Allow powerup runes on server
-- "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay
+- "mp_allowvoiceovers [0|1]" - Allow public voiceovers
+- "mp_ctcsecondsforpoint" - amount of second holding chumtoad for a point
+- "mp_ctfspawn1" - name of entity where blue base will spawn in map
+- "mp_ctfspawn2" - name of entity where red base will spawn in map
+- "mp_dualsonly [0|1]" - Replace all weapons with duals only
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
+- "mp_gamemode" to select game mode
+    - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
+    - "coldskull" - be the first to collect all the skulls!
+    - "ctc" - capture the chumtoad, hold on to it to receive points!
+    - "ctf" - capture the flag, grab the flag and run it back to base!
+    - "gungame" - get specific weapons for frags and level up!
+    - "ffa" - traditional free-for-all deathmatch
+    - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
+    - "lms" - last man standing, protect your lives be the last person standing to win
+    - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
+    - "teamplay" - frag with teams
+- "mp_ggstartlevel" - Sets default start level of gun game
+- "mp_grapplesky [0|1]" - Allow player to grapple the sky
+- "mp_grapplinghook [0|1]" - Allow grappling hook on server
+- "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
+- "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay
+- "mp_iceblood [0|1]" - Enable blue blood
+- "mp_icesprites [0|1]" - Switch between select ice or real environment sprites
+- "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib"" - A semicolon separated list of items that are "interactive" (kickable, pickupable)
+- "mp_meleedrop "[0|1]"" - allow kick or punch attcks to drop weapons out of hands
+- "mp_moreblood [0-5]" - Increase blood up to 0-5 times
+- "mp_nukemode "[0|1|2]"" - 2 - nuke kills all, 1 - radius damage, 0 - sharts nothing but bubbles
+- "mp_randomgamemodes "[0|1]"" - selects a random gamemode on map change
+- "mp_randomweapon [0|1]" - To spawn with a random weapon
+- "mp_roundfraglimit" - Sets the max frags in a round during an 1 on 1 arena
+- "mp_roundlimit" - Sets the maximum amount of game rounds before a map change
+- "mp_roundtimelimit" - Sets the maximum amount of time a round will run
+- "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
+- "mp_spawnitems" - Spawn items or not
+- "mp_spawnprotectiontime" - amount of time in seconds a player is protected from damage
+- "mp_spawnweaponlist "weapon_9mmhandgun"" A semicolon separated list of the player's spawn weapons
+- "mp_spawnweapons" - Spawn weapons or not
+- "mp_startwithall [0|1]" - Start with all weapons
+- "mp_startwithlives" - Sets the starting lifes during last man standing
+- "mp_voting "[0|1]"" - enable or disable end of the map voting
+- "sv_acrobatics [0|1]" allow or disallow wall climbing, slides, and flips
+- "sv_breakabletime" - amount of seconds before a breakable entity respawns
+- "sv_chaosfilter" - a list of mutators inwhich are ignored during chaos mode
+- "sv_disallowlist" a list of entities that will not spawn
 - "sv_infiniteammo [0|1|2]" - Infinite ammo ala CS 1.6
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
-- "mp_iceblood [0|1]" - Enable blue blood
-- "mp_moreblood [0|2]" - Increase blood up to 0-5 times
-- "mp_startwithall [0|1]" - Start with all weapons
-- "mp_allowvoiceovers [0|1]" - Allow public voiceovers
-- "mp_dualsonly [0|1]" - Allow dual weapons only
-- "sv_jumpheight 45" - Adjustable player's jump height
-- "mp_icesprites [0|1]" - Switch between select ice and real environment sprites
-- "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark"", a semicolon separated list of items that are "interactive" (kickable, pickupable)
-- "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
+- "sv_jumpheight 45" - Adjust the player's jump height
 - "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
 - "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
-- "sv_mutatortime [30 (10-120)]\" - how long mutator lasts in seconds
+- "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds (approx)
 - "sv_addmutator" - Add mutators to gameplay
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "999" - start with 999 health and battery.
@@ -875,40 +908,13 @@ Server:
     - "slowweapons" - all weapons are slower.
     - "snowballs" - a random chance of snowballs throw on attack
     - "speedup" - everything is sped up by half! (sp only!)
+    - "stahp" - some sounds replaced with stahp!
     - "superjump" - jump three times the height, disables fall damage.
     - "topsyturvy" - everything is turned upside down (sp only!)
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "volatile" - where players blow up when fragged
-- "mp_spawnweapons [0|1]" - Spawn weapons or not
-- "sv_disallowlist" a list of classname entities that will not spawn
-- "mp_nukemode [0|1|2]" - how the nuke plays 0 - sharts! 1 - radius damage 2 - all
-- "sv_weather [0|1]" - enable or disable all weather effects on the server
-- "mp_gamemode" to select game mode
-    - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
-    - "coldskull" - be the first to collect all the skulls!
-    - "ctc" - capture the chumtoad, hold on to it to receive points!
-    - "ctf" - capture the flag, grab the flag and run it back to base!
-    - "gungame" - get specific weapons for frags and level up!
-    - "ffa" - traditional free-for-all deathmatch
-    - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
-    - "lms" - last man standing, protect your lives be the last person standing to win
-    - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
-    - "teamplay" - frag with teams
-- "mp_randomgamemodes [0|1]" selects a random game mode on map change
-- "mp_roundlimit" number of rounds in game mode before map change
-- "mp_roundtimelimit" timelimit in round before rotation
-- "mp_roundfraglimit" fraglimit in round before rotation, used for arena
-- "mp_startwithlives" amount of starting lives in last man standing
-- "sys_timescale" for experimental server time adjustment (slowmo, speedup)
-- "sv_slowbullets" - all bullets are slowed down
-- "sv_breakabletime" - time inwhich breakables respawn
-- "mp_voting" - turn end of map voting on or off
-- "mp_spawnprotectiontime" - amount of time in seconds spawn protection is enabled
-- "sv_chaosfilter" - list of mutators which are ignored in chaos mode
-- "mp_meleedrop [0|1]" - allow kick or punch attcks to drop weapons out of hands
-- "mp_ctfspawn1" - name of entity where blue base will spawn in map
-- "mp_ctfspawn2" - name of entity where red base will spawn in map
+- "sv_weather [0|1]" allow or disallow weather effects on server
 
 Report Bugs:
 
