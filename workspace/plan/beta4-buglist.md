@@ -6,7 +6,7 @@
 [ ] reset models after gamemode
 [ ] no time limit in gamegun
 [x] frag kill visual indicator?
-[ ] golden gun mode
+[x] golden gun mode
 [x] show people in spectator in LMS when waiting?
 [x] LMS frag count when killing someone? (also, split LMS game rules)
 [x] steam and cdiscord messages mutators (https://www.myinstants.com/en/search/?name=ICQ)

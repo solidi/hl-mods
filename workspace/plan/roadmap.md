@@ -171,12 +171,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] rats around map
     1. [ ] random textures
     1. [ ] random sounds
-    1. [ ] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
+    1. [x] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
     1. [ ] give mutator, random, and fast.
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
     1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
-    1. [ ] noone can reload
+    1. [x] noone can reload
     1. [x] [credits](https://www.youtube.com/watch?v=ilVxUcd6Ot8)
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
     1. [ ] how about another mutator where the view / screen is turned sideways? (Napoleon)
@@ -195,7 +195,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
-    1. [ ] Golden Gun - all guns are gold, bullets kill in one shot
+    1. [x] Golden Gun - all guns are gold, bullets kill in one shot
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
     1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
