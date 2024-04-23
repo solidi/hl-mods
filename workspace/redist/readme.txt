@@ -37,7 +37,7 @@ Beta 5 Features:
     - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
-    - 7 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 8 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -45,6 +45,7 @@ Beta 5 Features:
         - "credits" - show all contributors in an endless loop
         - "goldenguns" - guns provide one shot frags
         - "stahp" - some sounds replaced with stahp!
+        - "noreload" - no one can reload
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -887,6 +888,7 @@ Server:
     - "marshmellow" - come back 1999 to you.
     - "maxpack" - drop all weapons and ammo in play (mp only!)
     - "megarun" - run faster than normal
+    - "noreload" - no one can reload
     - "notify" - interrupt players with annoying chat notifications
     - "notthebees" - hornets spawn from a player or monster who was killed
     - "oldtime" - gameplay becomes desaturated

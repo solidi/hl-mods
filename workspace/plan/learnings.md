@@ -412,3 +412,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. Good [guide](https://gist.github.com/danieldogeanu/739f88ea5312aaa23180e162e3ae89ab) to rename master branch to main branch.
 1. Always declare `pev->classname = MAKE_STRING("class_name")` so that the engine will recognize the entity in a find loop
 1. Dont use `pev->origin = ` in a think function. Use `UTIL_SetOrigin` for safety, otherwise there maybe crashes
+1. HSPRITE and HSPRITE__ * conflict is discussed [here](https://github.com/ValveSoftware/halflife/issues/2930). The work around is to order the <windows.h> declaration below the cl_dll headers.
