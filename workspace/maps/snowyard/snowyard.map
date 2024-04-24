@@ -5070,3 +5070,12 @@
 "message" "media/gamestartup.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "env_fog"
+"origin" "830 1104 98"
+"startdist" "600"
+"enddist" "1500"
+rendercolor "125 125 125"
+blendtime "0"
+"spawnflags" "1"
+}

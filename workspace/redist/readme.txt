@@ -33,6 +33,7 @@ Beta 5 Features:
 - Map Changes
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
+    - Added fog effect to snowyard
 - Game Modes
     - 2 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
@@ -46,6 +47,7 @@ Beta 5 Features:
         - "goldenguns" - guns provide one shot frags
         - "stahp" - some sounds replaced with stahp!
         - "noreload" - no one can reload
+        - "fog" - heavy fog moves into the gameplay
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -69,6 +71,8 @@ Beta 5 Features:
     - Show game timer if mp_timelimit is set
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
+- Environment
+    - Added fog effect in select maps
 - Fixes
     - Remove deathmatch spawn point in wall
     - Last Man Standing lives do not increase
@@ -1043,3 +1047,4 @@ Thanks To:
 - Pumpkin head by Valve https://gamebanana.com/mods/179426
 - Uncache sv_cheats code by Solokiller https://github.com/SamVanheer/halflife-updated/commit/04f8b91ffacb272e414363dcbbb551f16b6bf21b
 - 2048 client fix from hl-updated https://github.com/twhl-community/halflife-updated/commit/6ecc8f298bdd205eb056f7711f0b283e58f0bd60
+- Client fog tutorial by Overfloater https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog

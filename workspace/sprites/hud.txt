@@ -1,4 +1,4 @@
-279
+280
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -284,6 +284,7 @@ credits	640 gameicons4	128	128	64	64
 goldenguns	640 gameicons4	192	128	64	64
 stahp	640 gameicons4	0	192	64	64
 noreload	640 gameicons4	64	192	64	64
+fog	640 gameicons4	128	192	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
