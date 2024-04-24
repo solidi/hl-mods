@@ -81,7 +81,7 @@ $hbox 5 "Bip01 R Arm1" -1.880000 -2.470000 -2.160000 11.810000 3.280000 2.810000
 $hbox 5 "Bip01 R Arm2" 0.440000 -1.970000 -2.340000 10.590000 2.720000 2.220000
 $hbox 5 "Bip01 R Hand" 0.000000 -1.000000 -2.000000 3.000000 1.500000 3.500000
 
-// 77 animation sequence(s)
+// animation sequence(s)
 $sequence "look_idle" "look_idle" fps 14 loop ACT_IDLE 2 
 $sequence "idle" "idle" fps 14 loop ACT_IDLE 1 
 $sequence "deep_idle" "deep_idle" fps 12 loop ACT_IDLE 4 
@@ -108,7 +108,7 @@ $sequence "headshot" "headshot" fps 24 ACT_DIE_HEADSHOT 4 { event 2001 22 }
 $sequence "die_spin" "die_spin" fps 30 ACT_DIE_HEADSHOT 1 { event 2001 16 } 
 $sequence "gutshot" "gutshot" fps 26 ACT_DIE_GUTSHOT 1 { event 2001 22 } 
 $sequence "ref_aim_crowbar" "ref_aim_crowbar_blend1" "ref_aim_crowbar_blend2" blend XR -45 45 fps 12 loop 
-$sequence "ref_shoot_crowbar" "ref_shoot_crowbar_blend1" "ref_shoot_crowbar_blend2" blend XR -45 45 fps 24 
+$sequence "ref_shoot_crowbar" "ref_shoot_crowbar_blend1" "ref_shoot_crowbar_blend2" blend XR -45 45 fps 24
 $sequence "crouch_aim_crowbar" "crouch_aim_crowbar_blend1" "crouch_aim_crowbar_blend2" blend XR -45 45 fps 12 loop 
 $sequence "crouch_shoot_crowbar" "crouch_shoot_crowbar_blend1" "crouch_shoot_crowbar_blend2" blend XR -45 45 fps 24 
 $sequence "ref_aim_trip" "ref_aim_trip_blend1" "ref_aim_trip_blend2" blend XR -45 45 fps 12 loop 
