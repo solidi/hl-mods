@@ -315,7 +315,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Support mdl model [fullbrights] and sven texturerender mode using [this repo](https://github.com/BlueNightHawk/halflife_fullbright)
 1. Environment look and feel
     1. [ ] [Static Stencil lighting](https://twhl.info/wiki/page/Tutorial%3A_Adding_hack-free_Stencil_Shadows_to_Half-Life) requected by Naploeon
-    1. [ ] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
+    1. [x] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Server Support
     1. [ ] mp_semiauto
@@ -342,6 +342,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Dying [player fades](https://twitter.com/KrispyKhristian/status/1782644111620862002) out instead of death animation.
     1. [ ] Small sound like Jabroni when inflicting damage?
         1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)

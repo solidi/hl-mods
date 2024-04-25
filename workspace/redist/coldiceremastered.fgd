@@ -3397,12 +3397,23 @@
 		4: "Cabinet" : 0
 	]
 ]
-@PointClass base(Targetname) = trigger_mp3audio : "Trigger Mp3 Audio"
+@PointClass base(Targetname) = trigger_mp3audio : "Trigger MP3 Audio"
 [
     message(string) : "MP3 Name"
     spawnflags(flags) =
     [
         1: "Loop" : 0
         2: "Remove on fire" : 0
+    ]
+]
+@PointClass base(Targetname) size(-16 -16 -16, 16 16 16) = env_fog : "Client Fog"
+[
+    startdist(integer) : "Start Distance" : 1
+    enddist(integer) : "End Distance" : 500
+    rendercolor(color255) : "Fog Color (R G B)" : "0 0 0"
+    blendtime(integer): "Blend time" : 0
+    spawnflags(flags) =
+    [
+       1 : "Start On" : 0
     ]
 ]
