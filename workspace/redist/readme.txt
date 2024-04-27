@@ -28,6 +28,8 @@ Beta 5 Features:
     - Hand cannon pops player up when pointing down
     - Improved hand cannon smoke effects
     - Hornetgun supports fast/slow weapon mutators
+    - Player with equipped with vest explodes when fragged
+    - Railguns beams reflect at angles
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
