@@ -68,6 +68,7 @@ Beta 5 Features:
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
     - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
     - "cl_playmusic [0|1]" - start / stop tracklist music during gaming
+    - cl_playpoint now play ding when damaging enemy, frag score now dong
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
@@ -773,7 +774,7 @@ Client:
 - "cl_weaponsway [0|1]" - Weapon Sway - To switch between view models swaying with turn movement
 - "cl_weaponfidget [0|1]" - Weapon Fidget - To switch between view models fidgeting with jump landings
 - "cl_weaponretract [0|1]" - Weapon Retracts - To switch between view models that retract against walls
-- "cl_playpoint [0|1]" - Play buzzer/bell when frag achieved - To switch on/off playing this sound effect
+- "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag - To switch on/off playing these sound effects
 - "cl_announcehumor [0|1]" - Play voice announce / humor on weapons - To switch on/off playing these sound effects
 - "cl_showtips [0|1]" - Show helpful text tips during gameplay
 - "cl_shadows [0|1]" - Show rendered shadows underneath models

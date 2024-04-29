@@ -78,7 +78,7 @@ Compile-Sound $binDir $redistDir $soundDir "pull_back.mp3" 1.75 "sound\pull_back
 Compile-Sound $binDir $redistDir $soundDir "chainsaw_E069GVr.mp3" 1.75 "sound\chainsaw_selected.wav" "wav" 0 3
 Compile-Sound $binDir $redistDir $soundDir "cta-samuel.mp3" 6.5 "sound\12gauge_jackson.wav" "wav" 9.5 11.5
 Compile-Sound $binDir $redistDir $soundDir "clint-eastwood.mp3" 2.0 "sound\357_selected.wav" "wav" 0 4.5
-Compile-Sound $binDir $redistDir $soundDir "point.wav" 5.0 "sound\point.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "family-feud-good-answer.mp3" 2.0 "sound\point.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters_eNjs1Aq.mp3" 1.0 "sound\egon_selected.wav" "wav" 0 5
 Compile-Sound $binDir $redistDir $soundDir "ghostbusters-bad.mp3" 2.0 "sound\egon_switch.wav" "wav" 3.5 6
 Compile-Sound $binDir $redistDir $soundDir "boomstick.mp3" 1.0 "sound\shotgun_boomstick.wav" "wav"
@@ -165,6 +165,7 @@ Compile-Sound $binDir $redistDir $soundDir "notify-ding-vibrate.mp3" 1.0 "sound\
 Compile-Sound $binDir $redistDir $soundDir "notify-zoom.mp3" 1.0 "sound\notify21.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "notify-skype.mp3" 1.0 "sound\notify22.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "notify-video-call.mp3" 1.0 "sound\notify23.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "ding-sound-effect_2.mp3" 1.0 "sound\ding.wav" "wav" 0 2
 }
 catch
 {

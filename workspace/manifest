@@ -938,6 +938,7 @@ sound\notify22.wav
 sound\notify23.wav
 sound\ctf_flag_taken.wav
 sound\ctf_flag_capture.wav
+sound\ding.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
