@@ -72,6 +72,7 @@ Beta 5 Features:
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
+    - Added the custom spraypaint "flake"
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
 - Environment

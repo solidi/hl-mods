@@ -116,6 +116,8 @@ gfx\shell\kb_act.lst
 gfx\shell\kb_def.lst
 gfx\vgui
 gfx\vgui\icntlk_pl.tga
+logos
+logos\flake.bmp
 maps
 maps\fences.bsp
 maps\fences.res

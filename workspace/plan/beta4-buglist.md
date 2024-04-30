@@ -28,7 +28,7 @@
 [ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
 [ ] position number close to objective readout
 [ ] weighted mutators on chaos
-[ ] decal spray of CIR snowflake
+[x] decal spray of CIR snowflake
 [ ] heads up for jesus of how many survive on kill?
 [ ] image on maps
 [ ] blinding snowballs
