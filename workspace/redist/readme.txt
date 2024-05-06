@@ -73,6 +73,8 @@ Beta 5 Features:
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
     - Added the custom spraypaint "flake"
+- HUD changes
+    - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
 - Environment
@@ -91,6 +93,7 @@ Beta 5 Features:
     - Fixed melee attacks as incorrect credit in death notice
     - Fixed grapple hook sound effect when touching a breakable
     - Kicks and punches no longer gib
+    - Improved grenade roll animation
 
 Beta 4 Features:
 
@@ -741,22 +744,28 @@ Client:
     - See installation above for Xash3d for support of HD models
 - "help" - Displays specific client Cold Ice Remastered options
 - "help_more" - Displays more client Cold Ice Remastered options
-- "+hook" - Deploy an offhand grappling hook
-- "+ironsight" - Use experimental iron sights when available 
-- "impulse 205" - Swap between single and dual weapon, if available
-- "impulse 206" - Use for kick function
-- "impulse 207" supports the punch function
-- "impulse 208" supports the slide function
-- "impulse 209" supports offhand grenade throw
-- "impulse 210" - to perform a right roll
-- "impulse 211" - to perform a left roll
-- "impulse 212" - to perform a back flip
-- "impulse 213" - to perform a front flip
-- "drop_rune" - Drop rune
-- "feign" - Fake your death
-- "taunt" - Humiliate your competition
-- "snowman" - God mode (when sv_cheats 1)
-- "cl_icemodels [0-6]" - Ice Models - To switch between weapon ice skins and real skins
+- "+hook" - Deploy hook
+- "+ironsight" - Use ironsights
+- "cl_achievements [0|1|2|3]" - displays fast fragging achievements
+    - "0" - off
+    - "1" - voice / screen print
+    - "2" - voice / screen print / small timed bar
+    - "3" - voice / screen print / large centered circles
+- "cl_announcehumor [0|1]" - Play announcement/humor on weapons
+- "cl_automelee [0|1]" - auto kick or punch an enemy if they are close
+- "cl_autotaunt [0|1]" - auto taunt on frag when its safe to do so
+- "cl_autowepswitch [0|1]" - auto switches weapon on pickup
+- "cl_bobtilt [0|1]" - Old Bob Tilt
+- "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
+- "cl_crosshairammo [0|1]" - show ammo status in crosshairs
+- "cl_customtempents [0|1]" - allow or disallow increased temporary entites
+- "cl_flashonpickup [0|1]" - Flash HUD when picking up weapon or item
+- "cl_glasshud [0|1]" - switch elements of the hud bouncing/bobbing on or off
+- "cl_glowmodels [0|1]" - Show glow models is available
+- "cl_gunsmoke [0|1]" - turn on or off gun smoke effects when fired
+- "cl_hudbend" - experimental bending factor of HUD elements
+- "cl_hudscale" - experimental scaling factor of HUD elements
+- "cl_icemodels [0-6]" - changes models with specific ice skins
     - "0" - real skin
     - "1" - original inverted skin
     - "2" - 1.75 blue ice skin
@@ -764,45 +773,37 @@ Client:
     - "4" - real skin + blue hev
     - "5" - silver skin
     - "6" - gold skin
-- "cl_oldscoreboard [0|1]" - Old Scoreboard - To switch between old and new style scoreboards
-- "cl_oldmotd [0|1]" - Old MOTD (Message of the Day) - To switch between old and new style message of the day
-- "cl_viewroll [0|1]" - Old View Roll - To switch between view roll during movement
-- "cl_bobtilt [0|1]" - Old Bob Tilt - To switch between bob tilt walking animation
-- "cl_righthand [0|1]" - Right-Hand Models - To switch between right and left-handed models
-- "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
-- "cl_gunsmoke [0|1]" - turn on or off gun smoke effects when fired
-- "cl_glasshud [0|1]" - Glass Hud - To switch elements of the hud bouncing/bobbing on or off
-- "cl_weaponsway [0|1]" - Weapon Sway - To switch between view models swaying with turn movement
-- "cl_weaponfidget [0|1]" - Weapon Fidget - To switch between view models fidgeting with jump landings
-- "cl_weaponretract [0|1]" - Weapon Retracts - To switch between view models that retract against walls
-- "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag - To switch on/off playing these sound effects
-- "cl_announcehumor [0|1]" - Play voice announce / humor on weapons - To switch on/off playing these sound effects
-- "cl_showtips [0|1]" - Show helpful text tips during gameplay
-- "cl_shadows [0|1]" - Show rendered shadows underneath models
-- "cl_glowmodels [0|1]" - Show models with a glow effect if available
-- "cl_flashonpickup [0|1]" - Flash HUD when picking up a weapon or item
-- "cl_autowepswitch [0|1]" - auto switches weapon on pickup
-- "cl_lifemeters [0|1]" - show or hide lifemeters above other players
-- "cl_achievements [0|1|2|3]" - show or hide sprees achievements
-    - "0" - off
-    - "1" - voice / screen print
-    - "2" - voice / screen print / small timed bar
-    - "3" - voice / screen print / large centered circles
-- "cl_infomessage [0|1]" - displays weapon and rune messages on top center
-- "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
-- "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
-- "cl_weather [0|1|2|3]" - enable or disable all weather effects on the client
-- "cl_hudscale" - experimental scaling factor of HUD elements
-- "cl_hudbend" - experimental bending factor of HUD elements
-- "cl_wallclimbindicator [0|1]" shows when wallclimb is available
+- "cl_infomessage [0|1]" - display weapon and rune pick up messages
+- "cl_objectives [0|1]" - show objective read out on HUD
+- "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
+- "cl_oldscoreboard [0|1]" - Old Scoreboard
 - "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
+- "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag
+- "cl_playmusic [0|1]" - Play soundtrack set by map
 - "cl_radar [0|1]" enables or disables player radar
-- "cl_customtempents [0|1]" - for increased temporary entities support
-- "cl_voiceoverpath [folder]" - select custom folder for weapon voiceovers
-- "cl_objectives [0|1]" - show or hide timer and objectives on the HUD
-- "cl_automelee [0|1]" - automatically kick or punch if enemy is close
-- "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
-- "cl_playmusic [0|1]" - start / stop tracklist music during gaming
+- "cl_righthand [0|1]" - Right/Left Handed Models
+- "cl_shadows [0|1]" - Show rendered shadows underneath models
+- "cl_showtips [0|1]" - Show random text tips during play
+- "cl_viewroll [0|1]" - Old View Roll
+- "cl_voiceoverpath [string]" - folder path to custom voiceovers
+- "cl_wallclimbindicator [0|1]" - shows when wallclimb is available
+- "cl_weaponfidget [0|1]" - Weapon Fidget
+- "cl_weaponretract [0|1]" - Weapon Retract
+- "cl_weaponsway [0|1]" - Weapon Sway
+- "cl_weather [0|1]" - allow or disallow weather effects on client
+- "feign" - Fake your death
+- "drop_rune" - Drop rune
+- "impulse 205" - Swap between single and dual weapon, if available
+- "impulse 206" - Kick
+- "impulse 207" - Punch
+- "impulse 208" - Slide
+- "impulse 209" - Grenade
+- "impulse 210" - Roll Right
+- "impulse 211" - Roll Left
+- "impulse 212" - Back Flip
+- "impulse 213" - Front Flip
+- "snowman" - God mode (when sv_cheats 1)
+- "vote" - type in the chat to start a vote
 
 Server:
 
@@ -1052,3 +1053,5 @@ Thanks To:
 - Uncache sv_cheats code by Solokiller https://github.com/SamVanheer/halflife-updated/commit/04f8b91ffacb272e414363dcbbb551f16b6bf21b
 - 2048 client fix from hl-updated https://github.com/twhl-community/halflife-updated/commit/6ecc8f298bdd205eb056f7711f0b283e58f0bd60
 - Client fog tutorial by Overfloater https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog
+- mp3 tutorial by Ghoul https://web.archive.org/web/20061027224308/http://collective.valve-erc.com/index.php?doc=1071795162-73085000
+- Grenade fix by Solokiller https://github.com/twhl-community/halflife-updated/commit/96ff7d7515fba7e0bc172217e07dbbea6fb659b8

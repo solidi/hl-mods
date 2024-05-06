@@ -98,6 +98,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
 1. Weapon Mechanics
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
+    1. [x] Ammo read around crosshairs like base defense
     1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
@@ -150,6 +151,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
     1. [ ] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
+        1. [ ] Fart flying
+        1. [ ] Stomp on head
+        1. [ ] Fart mechanism
+        1. [ ] Sprite of player model
+        1. [ ] Game loop
+        1. [ ] Teamplay logic
+    1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
+        1. [ ] Amount of emenies increase from 5 to 10
+        1. [ ] Their health keep going up
+        1. [ ] ID bar
+        1. [ ] Basic task based on kills for upgrade
     1. [ ] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
         1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
@@ -168,6 +180,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] rats around map
     1. [ ] random textures
     1. [ ] random sounds
@@ -235,7 +248,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [ ] chums/snarks wont die
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
-    1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
@@ -412,6 +424,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
+    1. [x] Cancel taunt if switching weapon
+    1. [ ] scoreboard is not ordered right in deathmatch
+    1. [ ] Hide viewmodel when ricochet is enabled
+    1. [x] cool flesh increase flesh time, add pick up cue
+    1. [ ] black blood of hornets?
+    1. [ ] rpg second attack empty is clicking
     1. [ ] Player projectiles follow aiment while flipping
     1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
