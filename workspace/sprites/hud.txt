@@ -1,4 +1,4 @@
-280
+283
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -316,3 +316,7 @@ item_ctfflagh 640 ctf_hud1 67 75  38  42
 item_ctfflagc 640 ctf_hud1 105 75  38  42
 item_ctfflagd 640 ctf_hud1 143 75  38  42
 item_ctfflagg 640 ctf_hud1 181 75  38  42
+
+c_brackets 640 crosshair_brackets 0 0 64 64
+c_left 640 crosshair_left 0 0 64 64
+c_right 640 crosshair_right 0 0 64 64

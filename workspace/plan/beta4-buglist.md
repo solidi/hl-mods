@@ -2,6 +2,11 @@
 
 ##  Janurary 2024 GSS
 
+[ ] fragged and walking if holding arrow button?
+[ ] aim mutator, only target enemy (different team, chumtoad holder)
+[ ] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
+[ ] pushy and snowballs
+[ ] fix server side crossbow zoom
 [ ] Slow bullets still stuck
 [ ] reset models after gamemode
 [ ] no time limit in gamegun
@@ -15,12 +20,7 @@
 [x] kill credit for jesus if they frag him
 [x] fix kill sound
 [x] kicked bots still vote at end
-[ ] fragged and walking if holding arrow button?
-[ ] aim mutator, only target enemy (different team, chumtoad holder)
-[ ] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
-[ ] pushy and snowballs
 [x] slow weapons should affect kick
-[ ] fix server side crossbow zoom
 
 ## New Ideas
 
@@ -28,7 +28,6 @@
 [ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
 [ ] position number close to objective readout
 [ ] weighted mutators on chaos
-[x] decal spray of CIR snowflake
 [ ] heads up for jesus of how many survive on kill?
 [ ] image on maps
 [ ] blinding snowballs
@@ -38,10 +37,10 @@
 [ ] chumtoad or snark on crowbar
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
+[x] decal spray of CIR snowflake
 [x] jesus walks on water?
 [x] sp icon?
 [x] trail for chumtoad when free?
-[ ] ---
 [x] option to shut off kick weapons out of hand
 [x] non-cache cheats
 [x] trail of chumtoad
@@ -49,7 +48,6 @@
 
 ## December 2023
 
-[x] slide box secret to left
 [ ] no man stands - corruption n objectives underneath
 [ ] increase slowbullets dmg
 [ ] env_snow in chillworks
@@ -58,11 +56,7 @@
 [ ] chumtoad slipped away in vote
 [ ] crowbar replace drift, weird spawn thing 
 [ ] chumtoad throw animation
-[x] chumtoad trail to 8 seconds
 [ ] grenade mutator and sniper scope
-[x] freeze bots in intermission
-[x] catch chumtoad "the" missing in menu
-[x] visual scoreboard still screwed on widescreen
 [ ] killed self with handgrenade?
 [ ] boxes not explosive in frozen_bunker
 [ ] pirate sounds when hat mutator on
@@ -76,6 +70,15 @@
 [ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
 [ ] lower case VOTE to count
+[ ] gibbed sanic should disappear?
+[ ] bot should throw chumtoad if taking damage
+[ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[ ] 00:00 from 1v1 to gungame - shut off during intermission?
+[x] slide box secret to left
+[x] chumtoad trail to 8 seconds
+[x] freeze bots in intermission
+[x] catch chumtoad "the" missing in menu
+[x] visual scoreboard still screwed on widescreen
 [x] death icon over head
 [x] dead arms still screwed on angle
 [x] barrel/cabinet shouldnt blow up on touch
@@ -100,13 +103,9 @@
 [x] {cir_window01.bmp} blue fix it.
 [x] lights in chillworks dim?
 [x] send bots to observer during intermission
-[ ] gibbed sanic should disappear?
 [x] fix hornetgun on fast weapon regen of hornets
-[ ] bot should throw chumtoad if taking damage
 [x] custom waypoint for cold base
-[ ] 3 - 4 second on chumtoad, then higher chance of dropping
 [x] inf-nodes? chillworks.
-[ ] 00:00 from 1v1 to gungame - shut off during intermission?
 [x] spawn protection prevents pickups
 [x] losing crosshairs (check Audioz video)
 [x] punch in air by other, and then landed in death, died by own fists?
@@ -135,9 +134,9 @@
 
 [x] dontshoot is too annoying
     [x] place icon in center
-[ ] portal gun didnt give? (icons didnt reset?)
-    [ ] mutators not active, hud still showing
-[ ] keep chaos in vote mode?
+[x] portal gun didnt give? (icons didnt reset?)
+    [x] mutators not active, hud still showing
+[x] keep chaos in vote mode?
 [x] cannot pick up nuke?
     [x] disable in chilldemic and JVS
 [x] vest, no damage to others?
@@ -169,7 +168,6 @@
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [ ] Defroster - Loaded, but crashed after a few minutes with the same error above
 [x] jeepathon / func_vehicle - car over player model?
-[ ] 18, 38, or 50 for extra gif
 [x] reload on rpg disables / enables laser
 [x] jope mutator Doesn't put player names back after the mutator is removed
 [x] Bot names don't change with jope mutator

@@ -1067,6 +1067,9 @@ sprites\gameicons2.spr
 sprites\gameicons3.spr
 sprites\gameicons4.spr
 sprites\ctf_hud1.spr
+sprites\crosshair_brackets.spr
+sprites\crosshair_left.spr
+sprites\crosshair_right.spr
 liblist.gam
 ReadMe.txt
 settings.scr
