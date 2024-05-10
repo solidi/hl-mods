@@ -150,13 +150,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
-        1. [ ] Fart flying
+    1. [x] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
+        1. [x] Fart flying
         1. [ ] Stomp on head
-        1. [ ] Fart mechanism
-        1. [ ] Sprite of player model
-        1. [ ] Game loop
-        1. [ ] Teamplay logic
+        1. [x] Fart mechanism
+        1. [x] Sprite of player model
+        1. [x] Game loop
+        1. [x] Teamplay logic
     1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
         1. [ ] Amount of emenies increase from 5 to 10
         1. [ ] Their health keep going up
@@ -180,6 +180,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] bigfoot (sv_stepsize 192)
+    1. [ ] +1 health
+    1. [ ] nothing
+    1. [ ] swap armor and health
+    1. [ ] +100 health
+    1. [ ] +100 armor
+    1. [ ] 1 health
+    1. [ ] nice (69/69)
     1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] rats around map
     1. [ ] random textures
@@ -213,7 +221,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
-    1. [ ] [Leeroy Jenkins] mode (start with vest)
+    1. [x] [Leeroy Jenkins] mode (start with vest)
     1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
     1. [ ] Rising ice / lava (CrazyO)

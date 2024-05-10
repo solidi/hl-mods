@@ -4,7 +4,7 @@
 
 [ ] fragged and walking if holding arrow button?
 [ ] aim mutator, only target enemy (different team, chumtoad holder)
-[ ] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
+[x] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
 [ ] pushy and snowballs
 [ ] fix server side crossbow zoom
 [ ] Slow bullets still stuck

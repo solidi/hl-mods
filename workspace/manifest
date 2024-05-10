@@ -432,6 +432,7 @@ modes\random.txt
 modes\teamplay.txt
 modes\coldskull.txt
 modes\ctf.txt
+modes\shidden.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -941,6 +942,7 @@ sound\notify23.wav
 sound\ctf_flag_taken.wav
 sound\ctf_flag_capture.wav
 sound\ding.wav
+sound\fart.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -1070,6 +1072,8 @@ sprites\ctf_hud1.spr
 sprites\crosshair_brackets.spr
 sprites\crosshair_left.spr
 sprites\crosshair_right.spr
+sprites\fart_smoke.spr
+sprites\gameicons5.spr
 liblist.gam
 ReadMe.txt
 settings.scr
