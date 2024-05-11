@@ -37,10 +37,11 @@ Beta 5 Features:
     - Increase sky height in furrow
     - Added fog effect to snowyard
 - Game Modes
-    - 2 New Game Modes (mp_gamemode)
+    - 3 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
-    - 8 New Mutators - supports combination and randomly selected (sv_mutators)
+        - "shidden" - some are hidden, equipped with deadly farts.
+    - 11 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -50,9 +51,13 @@ Beta 5 Features:
         - "stahp" - some sounds replaced with stahp!
         - "noreload" - no one can reload
         - "fog" - heavy fog moves into the gameplay
+        - "vested" - everyone starts with a vest
+        - "noclip" - fly through walls
+        - "dealter" - dealing with farts, of course
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
+        - Added "unchaos" to shut off chaos mode
         - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
         - Added "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
         - Added "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds
@@ -867,6 +872,7 @@ Server:
 - "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds (approx)
 - "sv_addmutator" - Add mutators to gameplay
     - "chaos" - randomly selects three mutators every 30 seconds!
+    - "unchaos" - to shut off chaos mode
     - "999" - start with 999 health and battery.
     - "astronaut" - gravity is turned down
     - "autoaim" - all weapons have extreme autoaim.
@@ -877,9 +883,11 @@ Server:
     - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
     - "crate" - boxwars in the 2020's.
     - "credits" - show all contributors in an endless loop.
+    - "dealter" - dealing with farts, of course
     - "dontshoot" - firing any weapon will explode the player.
     - "explosiveai" - AI blows up when it cannot find its next task
     - "fastweapons" - all weapons are faster.
+    - "fog" - heavy fog moves into the gameplay
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
     - "ice" - all the ground is covered in ice
@@ -897,6 +905,7 @@ Server:
     - "marshmellow" - come back 1999 to you.
     - "maxpack" - drop all weapons and ammo in play (mp only!)
     - "megarun" - run faster than normal
+    - "noclip" - fly through walls
     - "noreload" - no one can reload
     - "notify" - interrupt players with annoying chat notifications
     - "notthebees" - hornets spawn from a player or monster who was killed
@@ -924,6 +933,7 @@ Server:
     - "topsyturvy" - everything is turned upside down (sp only!)
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
+    - "vested" - everyone starts with a vest
     - "volatile" - where players blow up when fragged
 - "sv_weather [0|1]" allow or disallow weather effects on server
 

@@ -126,6 +126,8 @@ try {
     Compile-Sprite $binDir "crosshair_brackets" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "crosshair_right" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "crosshair_left" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "gameicons5" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "fart_smoke" $spritesDir $redistdir\sprites
 
     Write-Output "Copying sprite text files..."
     Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites

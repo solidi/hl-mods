@@ -108,10 +108,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Mutators
+    1. [ ] Sleepy - pulsing black outs
     1. [x] Toilet - we aint hurt nobody
     1. [x] Jeepathon - check your local jeep dealer
     1. [x] Ricochet - no view angles or weapons fire discs
         1. [x] Heads?
+    1. [x] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
+    1. [x] noone can reload
+    1. [x] [credits](https://www.youtube.com/watch?v=ilVxUcd6Ot8)
+    1. [x] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
+    1. [x] Golden Gun - all guns are gold, bullets kill in one shot
+    1. [x] [Leeroy Jenkins] mode (start with vest)
 1. Game Modes
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [x] CTF mode, spawn two spots if no support?
@@ -122,6 +129,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
       1. [ ] Skeleton appears the moment fragged from suvivor
       1. [x] Only appear chumtoad if there is more than two players
+    1. [x] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
+        1. [x] Fart flying
+        1. [ ] Stomp on head
+        1. [x] Fart mechanism
+        1. [x] Sprite of player model
+        1. [x] Game loop
+        1. [x] Teamplay logic
 1. Maps
     1. [x] Increase sky height of furrow
 1. Server Support
@@ -139,6 +153,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] vest? No death count?
         1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
         1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
+    1. [x] scoreboard is not ordered right in deathmatch
+    1. [x] Cancel taunt if switching weapon
+    1. [x] cool flesh increase flesh time, add pick up cue
 
 ### Unscheduled
 
@@ -150,13 +167,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
-        1. [ ] Fart flying
-        1. [ ] Stomp on head
-        1. [ ] Fart mechanism
-        1. [ ] Sprite of player model
-        1. [ ] Game loop
-        1. [ ] Teamplay logic
     1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
         1. [ ] Amount of emenies increase from 5 to 10
         1. [ ] Their health keep going up
@@ -180,17 +190,22 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] bigfoot (sv_stepsize 192)
+    1. [ ] +1 health
+    1. [ ] nothing
+    1. [ ] swap armor and health
+    1. [ ] +100 health
+    1. [ ] +100 armor
+    1. [ ] 1 health
+    1. [ ] nice (69/69)
     1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] rats around map
     1. [ ] random textures
     1. [ ] random sounds
-    1. [x] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
     1. [ ] give mutator, random, and fast.
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
     1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
-    1. [x] noone can reload
-    1. [x] [credits](https://www.youtube.com/watch?v=ilVxUcd6Ot8)
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
     1. [ ] how about another mutator where the view / screen is turned sideways? (Napoleon)
     1. [ ] jammed radar mutator
@@ -201,19 +216,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
-    1. [x] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
     1. [ ] Fire Bullets
     1. [ ] Vampire (increase health too)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
-    1. [x] Golden Gun - all guns are gold, bullets kill in one shot
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
     1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
-    1. [ ] [Leeroy Jenkins] mode (start with vest)
     1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
     1. [ ] Rising ice / lava (CrazyO)
@@ -424,10 +436,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
-    1. [x] Cancel taunt if switching weapon
-    1. [ ] scoreboard is not ordered right in deathmatch
     1. [ ] Hide viewmodel when ricochet is enabled
-    1. [x] cool flesh increase flesh time, add pick up cue
     1. [ ] black blood of hornets?
     1. [ ] rpg second attack empty is clicking
     1. [ ] Player projectiles follow aiment while flipping
@@ -478,7 +487,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
-    1. [x] Respawning breakable glass (Napoleon)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
 
 ### Beta 4
@@ -515,6 +523,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Knock weapons out of hands with punch or kicks
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)
     1. [x] Front flip
+    1. [x] Respawning breakable glass (Napoleon)
 1. Weapons
     1. [x] Increase accuracy of weapons when in ironsights mode
     1. [x] Flame Thrower (Napoleon)
