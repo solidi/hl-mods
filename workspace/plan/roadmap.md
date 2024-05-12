@@ -119,6 +119,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
     1. [x] Golden Gun - all guns are gold, bullets kill in one shot
     1. [x] [Leeroy Jenkins] mode (start with vest)
+    1. [x] bigfoot (sv_stepsize 192)
 1. Game Modes
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [x] CTF mode, spawn two spots if no support?
@@ -190,7 +191,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
-    1. [ ] bigfoot (sv_stepsize 192)
     1. [ ] +1 health
     1. [ ] nothing
     1. [ ] swap armor and health

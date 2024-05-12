@@ -41,7 +41,7 @@ Beta 5 Features:
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "shidden" - some are hidden, equipped with deadly farts.
-    - 11 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 12 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -54,6 +54,7 @@ Beta 5 Features:
         - "vested" - everyone starts with a vest
         - "noclip" - fly through walls
         - "dealter" - dealing with farts, of course
+        - "bigfoot" - step size is crazy big
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -878,6 +879,7 @@ Server:
     - "autoaim" - all weapons have extreme autoaim.
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
     - "berserker" - go crazy with chainsaws and fists.
+    - "bigfoot" - step size is crazy big
     - "bighead" - players heads are very large
     - "chumxplode" - a killer chumtoad appears directly after an explosion
     - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
@@ -1065,3 +1067,4 @@ Thanks To:
 - Client fog tutorial by Overfloater https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog
 - mp3 tutorial by Ghoul https://web.archive.org/web/20061027224308/http://collective.valve-erc.com/index.php?doc=1071795162-73085000
 - Grenade fix by Solokiller https://github.com/twhl-community/halflife-updated/commit/96ff7d7515fba7e0bc172217e07dbbea6fb659b8
+- ScriptedSnark for the GSChaos mod (and mutator code hints!) https://github.com/ScriptedSnark/GSChaos
