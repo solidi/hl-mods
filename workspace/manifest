@@ -433,6 +433,7 @@ modes\teamplay.txt
 modes\coldskull.txt
 modes\ctf.txt
 modes\shidden.txt
+modes\horde.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -943,6 +944,8 @@ sound\ctf_flag_taken.wav
 sound\ctf_flag_capture.wav
 sound\ding.wav
 sound\fart.wav
+sound\wavebegins.wav
+sound\waveends.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

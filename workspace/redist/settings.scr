@@ -29,10 +29,11 @@ DESCRIPTION SERVER_OPTIONS
 			"Cold Skulls" "5"
 			"Capture the Chumtoad" "6"
 			"GunGame" "7"
-			"Jesus vs. Santa" "8"
-			"Shidden" "9"
-			"Snowball Fight" "10"
-			"Teamplay" "11"
+			"Horde" "8"
+			"Jesus vs. Santa" "9"
+			"Shidden" "10"
+			"Snowball Fight" "11"
+			"Teamplay" "12"
 		}
 		{ "0" }
 	}
