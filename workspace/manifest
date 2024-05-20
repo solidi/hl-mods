@@ -945,7 +945,7 @@ sound\ctf_flag_capture.wav
 sound\ding.wav
 sound\fart.wav
 sound\wavebegins.wav
-sound\waveends.wav
+sound\waveended.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
