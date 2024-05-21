@@ -1,0 +1,5 @@
+Fight enemies in groups.
+
+Survive as many waves.
+
+Each wave gets harder.

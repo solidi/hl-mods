@@ -37,9 +37,10 @@ Beta 5 Features:
     - Increase sky height in furrow
     - Added fog effect to snowyard
 - Game Modes
-    - 3 New Game Modes (mp_gamemode)
+    - 4 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
+        - "horde" - fight npc's, survive waves.
         - "shidden" - some are hidden, equipped with deadly farts.
     - 12 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody

@@ -1128,3 +1128,8 @@ shidden
 {
 SHIDDEN
 }
+
+horde
+{
+HORDE
+}

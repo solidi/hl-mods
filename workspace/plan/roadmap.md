@@ -137,6 +137,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Sprite of player model
         1. [x] Game loop
         1. [x] Teamplay logic
+    1. [x] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
+        1. [ ] Amount of emenies increase from 5 to 10
+        1. [x] Their health keep going up
+        1. [x] ID bar
+        1. [ ] Basic task based on kills for upgrade
 1. Maps
     1. [x] Increase sky height of furrow
 1. Server Support
@@ -168,11 +173,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
-        1. [ ] Amount of emenies increase from 5 to 10
-        1. [ ] Their health keep going up
-        1. [ ] ID bar
-        1. [ ] Basic task based on kills for upgrade
     1. [ ] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
         1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
@@ -191,6 +191,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] am i dead?
     1. [ ] +1 health
     1. [ ] nothing
     1. [ ] swap armor and health
