@@ -42,7 +42,7 @@ Beta 5 Features:
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
         - "shidden" - some are hidden, equipped with deadly farts.
-    - 12 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 13 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -56,6 +56,7 @@ Beta 5 Features:
         - "noclip" - fly through walls
         - "dealter" - dealing with farts, of course
         - "bigfoot" - step size is crazy big
+        - "mirror" - mirror, mirror on the wall
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -908,6 +909,7 @@ Server:
     - "marshmellow" - come back 1999 to you.
     - "maxpack" - drop all weapons and ammo in play (mp only!)
     - "megarun" - run faster than normal
+    - "mirror" - mirror, mirror on the wall
     - "noclip" - fly through walls
     - "noreload" - no one can reload
     - "notify" - interrupt players with annoying chat notifications
@@ -1069,3 +1071,4 @@ Thanks To:
 - mp3 tutorial by Ghoul https://web.archive.org/web/20061027224308/http://collective.valve-erc.com/index.php?doc=1071795162-73085000
 - Grenade fix by Solokiller https://github.com/twhl-community/halflife-updated/commit/96ff7d7515fba7e0bc172217e07dbbea6fb659b8
 - ScriptedSnark for the GSChaos mod (and mutator code hints!) https://github.com/ScriptedSnark/GSChaos
+- Base Defense for selected sound effects https://www.moddb.com/mods/b-def
