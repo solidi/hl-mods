@@ -97,18 +97,24 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] First quad weapon - rocket launcher?
     1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
 1. Weapon Mechanics
+    1. [ ] Remove water poly from SD pipe wrench.
     1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
     1. [x] Ammo read around crosshairs like base defense
     1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
 1. Game Mechanics
+    1. [ ] Position next to objective?
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
 1. Bots
     1. [ ] Custom waypoint files for all maps
 1. Mutators
+    1. [ ] cool flesh, add pick up sprite on HUD.
+    1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
+    1. [ ] 3 to life
     1. [ ] Sleepy - pulsing black outs
+    1. [x] Mirror - reflect view
     1. [x] Toilet - we aint hurt nobody
     1. [x] Jeepathon - check your local jeep dealer
     1. [x] Ricochet - no view angles or weapons fire discs
@@ -154,11 +160,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] Gungame - more feedback
+        1. [ ] ammo in place of weapons
         1. [ ] mutators are intefering with the gungame, off by default?
         1. [ ] Frag only counts on right weapon
         1. [x] vest? No death count?
         1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
         1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
+        1. [ ] dual railguns still drop?
+    1. [ ] sildenafil - make weapons
+    1. [ ] maxpack - drop all
     1. [x] scoreboard is not ordered right in deathmatch
     1. [x] Cancel taunt if switching weapon
     1. [x] cool flesh increase flesh time, add pick up cue
