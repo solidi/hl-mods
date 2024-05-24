@@ -111,11 +111,12 @@ DESCRIPTION SERVER_OPTIONS
 			"speedup (sp only)" "58"
 			"stahp" "59"
 			"superjump" "60"
-			"toilet" "61"
-			"topsyturvy (sp only)" "62"
-			"turrets" "63"
-			"vested" "64"
-			"volatile" "65"
+			"thirdperson" "61"
+			"toilet" "62"
+			"topsyturvy (sp only)" "63"
+			"turrets" "64"
+			"vested" "65"
+			"volatile" "66"
 		}
 		{ "1" }
 	}
