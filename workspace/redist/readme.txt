@@ -42,7 +42,7 @@ Beta 5 Features:
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
         - "shidden" - some are hidden, equipped with deadly farts.
-    - 13 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 14 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -57,6 +57,7 @@ Beta 5 Features:
         - "dealter" - dealing with farts, of course
         - "bigfoot" - step size is crazy big
         - "mirror" - mirror, mirror on the wall
+        - "thirdperson" - an out of body experience
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -935,6 +936,7 @@ Server:
     - "speedup" - everything is sped up by half! (sp only!)
     - "stahp" - some sounds replaced with stahp!
     - "superjump" - jump three times the height, disables fall damage.
+    - "thirdperson" - an out of body experience
     - "topsyturvy" - everything is turned upside down (sp only!)
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
@@ -1072,3 +1074,4 @@ Thanks To:
 - Grenade fix by Solokiller https://github.com/twhl-community/halflife-updated/commit/96ff7d7515fba7e0bc172217e07dbbea6fb659b8
 - ScriptedSnark for the GSChaos mod (and mutator code hints!) https://github.com/ScriptedSnark/GSChaos
 - Base Defense for selected sound effects https://www.moddb.com/mods/b-def
+- Napoleon, BlueNightHawk, and Bacontsu for thirdperson support
