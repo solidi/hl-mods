@@ -112,8 +112,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Mutators
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
+    1. [ ] Animation bar of coming next chaos item (like GSChaos)
     1. [ ] 3 to life
     1. [ ] Sleepy - pulsing black outs
+    1. [x] thirdperson
     1. [x] Mirror - reflect view
     1. [x] Toilet - we aint hurt nobody
     1. [x] Jeepathon - check your local jeep dealer
@@ -223,7 +225,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] rocketjump mutator
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
-    1. [ ] thirdperson
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
