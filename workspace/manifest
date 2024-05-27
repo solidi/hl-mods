@@ -173,14 +173,15 @@ maps\snowcross.gbw
 maps\snowcross.txt
 maps\frostfire.bsp
 maps\frostfire.res
-maps\frostfire.wpt
+maps\frostfire.gbw
+maps\frostfire.txt
 maps\frozenwarehouse.bsp
 maps\frozenwarehouse.res
 maps\frozenwarehouse.gbw
 maps\frozenwarehouse.txt
 maps\drift.bsp
 maps\drift.res
-maps\drift.wpt
+maps\drift.gbw
 maps\drift.txt
 maps\snow_camp.bsp
 maps\snow_camp.res
