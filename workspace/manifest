@@ -155,10 +155,12 @@ maps\canyon.gbw
 maps\canyon.txt
 maps\bounce2.bsp
 maps\bounce2.res
-maps\bounce2.wpt
+maps\bounce2.gbw
+maps\bounce2.txt
 maps\catacombs.bsp
 maps\catacombs.res
-maps\catacombs.wpt
+maps\catacombs.gbw
+maps\catacombs.txt
 maps\defroster.bsp
 maps\defroster.res
 maps\defroster.wpt
