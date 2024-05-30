@@ -86,6 +86,8 @@ Beta 5 Features:
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
+- Gameplay
+    - Provide frag credit to drivable train
 - Environment
     - Added fog effect in select maps
 - Fixes
@@ -103,6 +105,7 @@ Beta 5 Features:
     - Fixed grapple hook sound effect when touching a breakable
     - Kicks and punches no longer gib
     - Improved grenade roll animation
+    - Fix crash related to waypoint creation
 
 Beta 4 Features:
 
