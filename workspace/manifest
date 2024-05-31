@@ -129,7 +129,8 @@ maps\training.gbw
 maps\training.txt
 maps\stalkyard2.bsp
 maps\stalkyard2.res
-maps\stalkyard2.wpt
+maps\stalkyard2.gbw
+maps\stalkyard2.txt
 maps\coldice.bsp
 maps\coldice.res
 maps\coldice.gbw
@@ -202,7 +203,8 @@ maps\frozen_bunker.gbw
 maps\frozen_bunker.txt
 maps\snowtransit.bsp
 maps\snowtransit.res
-maps\snowtransit.wpt
+maps\snowtransit.gbw
+maps\snowtransit.txt
 maps\doublefrost.bsp
 maps\doublefrost.res
 maps\doublefrost.gbw
