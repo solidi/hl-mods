@@ -415,3 +415,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. HSPRITE and HSPRITE__ * conflict is discussed [here](https://github.com/ValveSoftware/halflife/issues/2930). The work around is to order the <windows.h> declaration below the cl_dll headers.
 1. If a entity does not define a classname, and a property is set on that entity, then the classname much be explicitly defined.
 1. To determine if a player is going backward or forward in space, ussign of the [dot product](https://devforum.roblox.com/t/how-to-check-if-player-is-moving-backwards/940106) between the velocity of the player character and the look-vector of that character. If it is positive then they are moving forward, negative if they are moving backwards, and zero if sideways.
+1. When waypointing, bots are intelligent to fill gaps betwene waypoints. Flow waypoints toward a center meeting point in map, so it encourages contact and battle.
