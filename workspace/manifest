@@ -141,7 +141,8 @@ maps\training2.gbw
 maps\training2.txt
 maps\focus.bsp
 maps\focus.res
-maps\focus.wpt
+maps\focus.gbw
+maps\focus.txt
 maps\furrow.bsp
 maps\furrow.res
 maps\furrow.gbw
@@ -188,7 +189,8 @@ maps\drift.gbw
 maps\drift.txt
 maps\snow_camp.bsp
 maps\snow_camp.res
-maps\snow_camp.wpt
+maps\snow_camp.gbw
+maps\snow_camp.txt
 maps\ice_pit.bsp
 maps\ice_pit.res
 maps\ice_pit.gbw
@@ -219,7 +221,8 @@ maps\thechill.gbw
 maps\thechill.txt
 maps\themill.bsp
 maps\themill.res
-maps\themill.wpt
+maps\themill.gbw
+maps\themill.txt
 maps\chillworks.bsp
 maps\chillworks.res
 maps\chillworks.gbw
