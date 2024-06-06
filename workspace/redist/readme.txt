@@ -106,6 +106,9 @@ Beta 5 Features:
     - Kicks and punches no longer gib
     - Improved grenade roll animation
     - Fix crash related to waypoint creation
+    - Fix incorrect timer on map change
+    - Fix crash on wrench throw
+    - Autoaim no longer targets teammates
 
 Beta 4 Features:
 
