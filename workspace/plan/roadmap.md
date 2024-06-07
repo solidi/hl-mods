@@ -486,7 +486,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 (Napoleon)
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
     1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)

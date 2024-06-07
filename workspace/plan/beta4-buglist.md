@@ -3,7 +3,7 @@
 ##  Janurary 2024 GSS
 
 [ ] fragged and walking if holding arrow button?
-[ ] aim mutator, only target enemy (different team, chumtoad holder)
+[x] aim mutator, only target enemy (different team, chumtoad holder)
 [x] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
 [ ] pushy and snowballs
 [ ] fix server side crossbow zoom
