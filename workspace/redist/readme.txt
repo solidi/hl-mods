@@ -30,6 +30,7 @@ Beta 5 Features:
     - Hornetgun supports fast/slow weapon mutators
     - Player equipped with vest explodes when fragged
     - Railguns beams reflect at angles
+    - Decreased chaingun spin up time
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
@@ -62,12 +63,15 @@ Beta 5 Features:
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
         - Added "unchaos" to shut off chaos mode
+        - Added chaos timer bar on HUD indicating next mutator
         - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
         - Added "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
         - Added "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds
         - Removed "mp_randommutators" and "sv_chaostime"
         - Include offhand kick and punch to slow/fast mutators
         - Increase speed of slowweapons for improved play
+        - Increased cool flesh time to live
+        - Fixed lightsout environment light remaining dark
 - Game Mode Changes
     - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard
