@@ -59,6 +59,8 @@ Beta 5 Features:
         - "bigfoot" - step size is crazy big
         - "mirror" - mirror, mirror on the wall
         - "thirdperson" - an out of body experience
+    - Gamemode Changes
+        - Disable randomweapons mutator from gungame
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -92,6 +94,7 @@ Beta 5 Features:
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
 - Gameplay
     - Provide frag credit to drivable train
+    - Telefrags fixed with maps containing these entities
 - Environment
     - Added fog effect in select maps
 - Fixes
