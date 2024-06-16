@@ -43,7 +43,7 @@ Beta 5 Features:
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
         - "shidden" - some are hidden, equipped with deadly farts.
-    - 14 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 16 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -59,8 +59,11 @@ Beta 5 Features:
         - "bigfoot" - step size is crazy big
         - "mirror" - mirror, mirror on the wall
         - "thirdperson" - an out of body experience
+        - "closeup" - ironsights are locked in
     - Gamemode Changes
         - Disable randomweapons mutator from gungame
+        - Disable numerous mutators from snowball game mode
+        - Tweaked game mode waiting times
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
