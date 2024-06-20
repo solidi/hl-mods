@@ -90,7 +90,7 @@ $sequence "spindown" "spindown" fps 21 { event 5005 15 "chaingun_hellyeah.wav" }
 $sequence "shoot" "shoot" fps 45 loop { event 5001 0 "4" } 
 $sequence "shoot_both" "shoot" fps 45 loop { event 5001 0 "4" } { event 5011 3 "4" } 
 $sequence "draw_lowkey" "draw_shift2" fps 16 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "draw_shift2" fps 16 { event 5004 0 "default_draw.wav" } { event 5005 0 "chaingun_selected.wav" }
+$sequence "draw" "draw_shift2" fps 16 { event 5004 0 "default_draw.wav" } { event 5005 0 "dual_chaingun_selected.wav" }
 $sequence "holster" "holster_shift2" fps 21 
 $sequence "reload" "reload_shift3" fps 4
 

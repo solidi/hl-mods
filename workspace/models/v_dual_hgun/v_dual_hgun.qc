@@ -98,7 +98,7 @@ $sequence "fidgetSway" "fidgetSway_shift3" fps 16
 $sequence "fidgetShake" "fidgetShake_shift3" fps 16 
 $sequence "down" "down_shift3" fps 54 
 $sequence "draw_lowkey" "up_shift3" fps 120 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "up_shift3" fps 120 { event 5004 0 "default_draw.wav" } { event 5005 0 "hgun_selected.wav" }
+$sequence "draw" "up_shift3" fps 120 { event 5004 0 "default_draw.wav" } { event 5005 0 "dual_hivehand_selected.wav" }
 $sequence "Shoot" "Shoot" fps 24 
 
 // End of QC script.

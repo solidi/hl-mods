@@ -655,6 +655,8 @@ sound\hev\dual_flamethrower_selected.wav
 sound\hev\sawedoff_selected.wav
 sound\hev\dual_sawedoff_selected.wav
 sound\hev\fingergun_selected.wav
+sound\hev\dual_chaingun_selected.wav
+sound\hev\dual_hivehand_selected.wav
 sound\sentences.txt
 sound\materials.txt
 sound\vest_selected.wav
