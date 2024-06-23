@@ -1096,3 +1096,5 @@ Thanks To:
 - ScriptedSnark for the GSChaos mod (and mutator code hints!) https://github.com/ScriptedSnark/GSChaos
 - Base Defense for selected sound effects https://www.moddb.com/mods/b-def
 - Napoleon, BlueNightHawk, and Bacontsu for thirdperson support
+- Syko for the Zapper model https://gamebanana.com/mods/180221
+- Nexon, Valve, CSO for the tombstone, reskinned by Napoleon
