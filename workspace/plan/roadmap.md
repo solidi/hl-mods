@@ -104,17 +104,19 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
 1. Game Mechanics
+    1. [ ] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
     1. [ ] Position next to objective?
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
+    1. [ ] 3 at once
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
-    1. [ ] Animation bar of coming next chaos item (like GSChaos)
+    1. [x] Animation bar of coming next chaos item (like GSChaos)
     1. [ ] 3 to life
-    1. [ ] Sleepy - pulsing black outs
+    1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [x] thirdperson
     1. [x] Mirror - reflect view
     1. [x] Toilet - we aint hurt nobody
@@ -378,7 +380,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
-    1. [ ] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" mechanism?
     1. [ ] Dying [player fades](https://twitter.com/KrispyKhristian/status/1782644111620862002) out instead of death animation.
     1. [ ] Small sound like Jabroni when inflicting damage?
         1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)
@@ -422,7 +423,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
-    1. [ ] Indicate death notice of my frag more distinctly?
+    1. [x] Indicate death notice of my frag more distinctly?
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
@@ -464,6 +465,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
     1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
+    1. [ ] Compact loose non-weapon w_ models into one
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
