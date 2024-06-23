@@ -331,7 +331,6 @@ models\props
 models\props\skeleton.mdl
 models\v_9mmAR.mdl
 models\v_shotgun.mdl
-models\p_vest.mdl
 models\v_vest_radio.mdl
 models\v_9mmhandgun.mdl
 models\v_9mmhandguns.mdl
@@ -406,7 +405,6 @@ models\v_gravitygun.mdl
 models\w_barrel.mdl
 models\w_cabinet.mdl
 models\w_sentry.mdl
-models\p_flamethrower.mdl
 models\v_flamethrower.mdl
 models\v_dual_flamethrower.mdl
 models\v_portalgun.mdl
@@ -427,6 +425,8 @@ models\v_dual_hgun.mdl
 models\v_fingergun.mdl
 models\flag.mdl
 models\flagbase.mdl
+models\v_zapgun.mdl
+models\w_tombstone.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -442,6 +442,7 @@ modes\coldskull.txt
 modes\ctf.txt
 modes\shidden.txt
 modes\horde.txt
+modes\instagib.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -657,6 +658,7 @@ sound\hev\dual_sawedoff_selected.wav
 sound\hev\fingergun_selected.wav
 sound\hev\dual_chaingun_selected.wav
 sound\hev\dual_hivehand_selected.wav
+sound\hev\zapgun_selected.wav
 sound\sentences.txt
 sound\materials.txt
 sound\vest_selected.wav
@@ -956,6 +958,7 @@ sound\ding.wav
 sound\fart.wav
 sound\wavebegins.wav
 sound\waveended.wav
+sound\zapgun.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -1041,6 +1044,7 @@ sprites\weapon_handgrenade.txt
 sprites\weapon_dual_chaingun.txt
 sprites\weapon_dual_hornetgun.txt
 sprites\weapon_fingergun.txt
+sprites\weapon_zapgun.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

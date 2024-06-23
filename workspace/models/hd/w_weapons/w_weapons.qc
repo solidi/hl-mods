@@ -63,6 +63,7 @@ studio "..\w_dual_hgun\dual_hgun"
 studio "..\..\w_dual_railgun\dual_railgun_hd"
 studio "..\w_dual_rpg\dual_rpg"
 studio "..\..\w_dual_flamethrower\dual_flamethrower_hd"
+studio "..\..\w_zapgun\zapgun_hd"
 }
 
 $bodygroup "addition"
@@ -234,6 +235,7 @@ $texturegroup ice
     "..\..\w_dual_flamethrower\Chrome1.bmp"
     "..\..\w_dual_flamethrower\Chrome2(Brass).bmp"
     "..\..\w_dual_flamethrower\W-FLAME_Base1.bmp"
+    "..\..\w_zapgun\zapper_skin.bmp"
   }
   {
     "..\w_crowbar\invert_wbottom.bmp"
@@ -318,8 +320,10 @@ $texturegroup ice
     "..\..\w_dual_railgun\invert_Skin.bmp"
     "..\w_dual_rpg\invert_w_rpg_reference.BMP"
     "..\..\w_dual_flamethrower\invert_Chrome1.bmp"
-    "..\..\w_dual_flamethrower\invert_Chrome2(Brass).bmp"
-    "..\..\w_dual_flamethrower\invert_W-FLAME_Base1.bmp"
+    // disabled because we are at 16mb limit
+    //"..\..\w_dual_flamethrower\invert_Chrome2(Brass).bmp"
+    //"..\..\w_dual_flamethrower\invert_W-FLAME_Base1.bmp"
+    //"..\..\w_zapgun\invert_zapper_skin.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -406,8 +410,10 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -580,6 +586,7 @@ $hbox 0 "dual_hgun" -10.140000 -9.360000 -23.620001 11.280000 11.370000 46.91000
 $hbox 0 "dual_railgun" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.620000
 $hbox 0 "dual_rpg" -6.860000 -34.560001 -12.600000 6.860000 34.560001 12.600000
 $hbox 0 "dual_flamethrower" -5.280000 -14.650000 -9.510000 18.809999 0.000000 7.800000
+$hbox 0 "zapgun" -4.440000 -8.190000 -0.200000 5.360000 26.860001 2.810000
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\w_crowbar\idle" fps 30 
@@ -682,5 +689,7 @@ $sequence "dual_rpg_idle" "..\w_dual_rpg\idle" fps 30
 $sequence "dual_rpg_spin" "..\w_dual_rpg\spin" fps 21 loop 
 $sequence "dual_flamethrower_idle" "..\..\w_dual_flamethrower\idle" fps 30 
 $sequence "dual_flamethrower_spin" "..\..\w_dual_flamethrower\spin" fps 21 loop 
+$sequence "zapgun_idle" "..\..\w_zapgun\idle" fps 30 
+$sequence "zapgun_spin" "..\..\w_zapgun\spin" fps 21 loop 
 
 // End of QC script.

@@ -11,13 +11,15 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
-- 3 New Weapons
+- 4 New Weapons
     - Dual Chainguns
         - Fire Chainguns
     - Dual Hornetguns
         - Fire Hornets / Fast Hornets
     - Finger Gun
         - Fire Confusion Shot
+    - Zapgun
+        - Fire killer shot
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -31,6 +33,7 @@ Beta 5 Features:
     - Player equipped with vest explodes when fragged
     - Railguns beams reflect at angles
     - Decreased chaingun spin up time
+    - Notify HUD when obtaining handgun
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
@@ -38,11 +41,12 @@ Beta 5 Features:
     - Increase sky height in furrow
     - Added fog effect to snowyard
 - Game Modes
-    - 4 New Game Modes (mp_gamemode)
+    - 5 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
         - "shidden" - some are hidden, equipped with deadly farts.
+        - "instagib" - grab a zapper and get to work.
     - 16 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -77,6 +81,7 @@ Beta 5 Features:
         - Increase speed of slowweapons for improved play
         - Increased cool flesh time to live
         - Fixed lightsout environment light remaining dark
+        - Removed dont shoot explosion during spawn protection
 - Game Mode Changes
     - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard

@@ -304,6 +304,11 @@ try {
     Invert-Skin $binDir "v_dual_chaingun" $modelsdir\hd
     Invert-Skin $binDir "p_dual_chaingun" $modelsdir\hd
     Invert-Skin $binDir "w_dual_chaingun" $modelsdir\hd
+    Invert-Skin $binDir "v_zapgun" $modelsdir
+    Invert-Skin $binDir "v_zapgun" $modelsdir\hd
+    Invert-Skin $binDir "p_zapgun" $modelsdir
+    Invert-Skin $binDir "w_zapgun" $modelsdir
+    Invert-Skin $binDir "w_tombstone" $modelsdir
 
     Compile-Player "alpina" $binDir $modelsdir $redistDir
     Compile-Player "army" $binDir $modelsdir $redistDir
@@ -331,7 +336,6 @@ try {
     Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_shotgun" $modelsdir $redistDir\models
     Compile-Model $binDir "v_shotgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "p_vest" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_9mmhandgun" $modelsdir $redistDir\models
@@ -455,7 +459,6 @@ try {
     Compile-Model $binDir "w_cabinet" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_sentry" $modelsdir $redistdir\models
     Compile-Model $binDir "v_flamethrower" $modelsdir $redistdir\models
-    Compile-Model $binDir "p_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_flamethrower" $modelsdir $redistdir\models
     Compile-Model $binDir "v_portalgun" $modelsdir $redistdir\models
     Compile-Model $binDir "p_portalgun" $modelsdir $redistdir\models
@@ -484,6 +487,9 @@ try {
     Compile-Model $binDir "v_fingergun" $modelsdir $redistdir\models
     Compile-Model $binDir "flag" $modelsdir $redistdir\models
     Compile-Model $binDir "flagbase" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_zapgun" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_zapgun" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "w_tombstone" $modelsdir $redistdir\models
     }
 }
 catch
