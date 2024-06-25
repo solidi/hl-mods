@@ -167,6 +167,7 @@ Compile-Sound $binDir $redistDir $soundDir "notify-skype.mp3" 1.0 "sound\notify2
 Compile-Sound $binDir $redistDir $soundDir "notify-video-call.mp3" 1.0 "sound\notify23.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "ding-sound-effect_2.mp3" 1.0 "sound\ding.wav" "wav" 0 2
 Compile-Sound $binDir $redistDir $soundDir "perfect-fart.mp3" 1.0 "sound\fart.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "064-laser-thum_hYpSdXS.mp3" 1.0 "sound\zapgun.wav" "wav"
 }
 catch
 {

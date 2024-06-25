@@ -63,6 +63,7 @@ studio "..\p_dual_hgun\dual_hgun"
 studio "..\..\p_dual_railgun\dual_railgun_hd"
 studio "..\p_dual_rpg\dual_rpg"
 studio "..\..\p_dual_flamethrower\dual_flamethrower_hd"
+studio "..\..\p_zapgun\zapgun_hd"
 }
 
 $bodygroup "addition_1"
@@ -177,6 +178,7 @@ $texturegroup ice
     "..\..\p_dual_flamethrower\Chrome1.bmp"
     "..\..\p_dual_flamethrower\Chrome2(Brass).bmp"
     "..\..\p_dual_flamethrower\W-FLAME_Base1.bmp"
+    "..\..\p_zapgun\zapper_skin.bmp"
   }
   {
     "..\p_crowbar\invert_wbottom.bmp"
@@ -262,6 +264,7 @@ $texturegroup ice
     "..\..\p_dual_flamethrower\invert_Chrome1.bmp"
     "..\..\p_dual_flamethrower\invert_Chrome2(Brass).bmp"
     "..\..\p_dual_flamethrower\invert_W-FLAME_Base1.bmp"
+    "..\..\p_zapgun\invert_zapper_skin.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -347,8 +350,10 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -484,6 +489,7 @@ $hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 // Dual railgun?
 // Dual rpg?
 // Dual flamethrower?
+$hbox 0 "zapgun" -4.610000 -0.640000 -3.150000 18.370001 1.050000 3.510000
 
 
 // animation sequence(s)
@@ -537,5 +543,6 @@ $sequence "dual_hgun_idle" "..\p_dual_hgun\idle" fps 30
 $sequence "dual_railgun_idle" "..\..\p_dual_railgun\idle" fps 30 
 $sequence "dual_rpg_idle" "..\p_dual_rpg\idle" fps 30 
 $sequence "dual_flamethrower_idle" "..\..\p_dual_flamethrower\idle" fps 30 
+$sequence "zapgun_idle" "..\..\p_zapgun\idle" fps 30 
 
 // End of QC script.

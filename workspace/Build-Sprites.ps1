@@ -129,50 +129,9 @@ try {
     Compile-Sprite $binDir "gameicons5" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "fart_smoke" $spritesDir $redistdir\sprites
 
+    # weapon_*.txt, hud.txt, etc.
     Write-Output "Copying sprite text files..."
-    Copy-Item $spritesDir\weapon_vest.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_knife.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_9mmhandgun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_rpg.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_chumtoad.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_sniperrifle.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_railgun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_cannon.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_mag60.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_chaingun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_glauncher.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_smg.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_usas.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_fists.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_wrench.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_snowball.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_chainsaw.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_12gauge.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_nuke.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_deagle.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_deagle.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_rpg.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_mag60.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_smg.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_wrench.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_usas.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_crowbar.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_freezegun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_rocketcrowbar.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_railgun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_gravitygun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_flamethrower.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_flamethrower.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_ashpod.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_sawedoff.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_sawedoff.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_snark.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_satchel.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_handgrenade.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_chaingun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_dual_hornetgun.txt $redistDir\sprites
-    Copy-Item $spritesDir\weapon_fingergun.txt $redistDir\sprites
-    Copy-Item $spritesDir\hud.txt $redistDir\sprites
+    Copy-Item $spritesDir\*.txt $redistDir\sprites
 } catch {
     Write-Error "$($_.Exception.Message)"
 } finally {
