@@ -490,6 +490,7 @@ try {
     Compile-Model $binDir "v_zapgun" $modelsdir $redistdir\models
     Compile-Model $binDir "v_zapgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_tombstone" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_forcegrab" $modelsdir $redistdir\models
     }
 }
 catch

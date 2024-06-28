@@ -168,6 +168,8 @@ Compile-Sound $binDir $redistDir $soundDir "notify-video-call.mp3" 1.0 "sound\no
 Compile-Sound $binDir $redistDir $soundDir "ding-sound-effect_2.mp3" 1.0 "sound\ding.wav" "wav" 0 2
 Compile-Sound $binDir $redistDir $soundDir "perfect-fart.mp3" 1.0 "sound\fart.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "064-laser-thum_hYpSdXS.mp3" 1.0 "sound\zapgun.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "heavenly-choir-crowd-react-w.mp3" 1.0 "sound\heaven.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "ode-to-joy.mp3" 1.0 "sound\odetojoy.wav" "wav"
 }
 catch
 {
