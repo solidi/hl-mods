@@ -24,6 +24,8 @@ Beta 5 Features:
     - Via the reload button
         - Knife
             - Added knife snipe
+- Force Grab
+    - While looking at a player, press "G" to grab their weapon
 - Weapons Changes
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
@@ -124,6 +126,7 @@ Beta 5 Features:
     - Fix incorrect timer on map change
     - Fix crash on wrench throw
     - Autoaim no longer targets teammates
+    - Fixed sticking leg kick
 
 Beta 4 Features:
 
@@ -832,6 +835,8 @@ Client:
 - "impulse 211" - Roll Left
 - "impulse 212" - Back Flip
 - "impulse 213" - Front Flip
+- "impulse 214" - Hurricane Kick
+- "impulse 215" - Force Grab
 - "snowman" - God mode (when sv_cheats 1)
 - "vote" - type in the chat to start a vote
 
@@ -1098,3 +1103,4 @@ Thanks To:
 - Napoleon, BlueNightHawk, and Bacontsu for thirdperson support
 - Syko for the Zapper model https://gamebanana.com/mods/180221
 - Nexon, Valve, CSO for the tombstone, reskinned by Napoleon
+- DokuGamesLTD for inspiration, and their game Out Of Action https://store.steampowered.com/app/1670780/Out_of_Action/

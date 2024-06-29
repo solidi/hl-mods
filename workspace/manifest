@@ -85,6 +85,7 @@ events\dualsawedoff2.sc
 events\dual_chaingun.sc
 events\dual_hornetgun.sc
 events\fingergun.sc
+events\zapgun.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -427,6 +428,7 @@ models\flag.mdl
 models\flagbase.mdl
 models\v_zapgun.mdl
 models\w_tombstone.mdl
+models\v_forcegrab.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -959,6 +961,8 @@ sound\fart.wav
 sound\wavebegins.wav
 sound\waveended.wav
 sound\zapgun.wav
+sound\odetojoy.wav
+sound\heaven.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
