@@ -1108,3 +1108,4 @@ Thanks To:
 - Syko for the Zapper model https://gamebanana.com/mods/180221
 - Nexon, Valve, CSO for the tombstone, reskinned by Napoleon
 - DokuGamesLTD for inspiration, and their game Out Of Action https://store.steampowered.com/app/1670780/Out_of_Action/
+- FWGS team for the func_vehicle implementation https://github.com/FWGS/hlsdk-portable
