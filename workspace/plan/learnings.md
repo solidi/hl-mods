@@ -418,3 +418,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. When waypointing, bots are intelligent to fill gaps betwene waypoints. Flow waypoints toward a center meeting point in map, so it encourages contact and battle.
 1. [Fisher Yates](https://stackoverflow.com/questions/42321370/fisher-yates-shuffling-algorithm-in-c) is a good algo to randomly sort and assign a set of integers into two groups.
 1. Weapons require ```AddToPlayer``` function for bots to recognize and select the item. I learned this through zapgun problem.
+1. Using ```SET_MODEL``` on a entity later, will reset size and movetype. Order is movetype/sold, then ```SET_MODEl`` then setsize and origin (if needed).

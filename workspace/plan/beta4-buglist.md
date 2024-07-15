@@ -1,6 +1,24 @@
 ## New Recommendations
 
-##  Janurary 2024 GSS
+##  June 2024 GSS #132
+
+[ ] execute configs on game mode.
+[ ] if people leave, voting count still too high
+[ ] switch to give weapon.
+[ ] double vote influence on steamids (for $$$)
+[ ] ice_pit, railign is non-blocking
+[ ] a bad entity in index of edict
+[ ] map voting, when joining.
+[ ] rocket bees?
+[ ] when typing jope, turns on jope mutator
+[ ] 69 mutator, change as many numbers to 69
+[ ] pair of dice, roll the dice, roll it for a weapon
+
+loopback, paintball, superjump - crash? edict
+nuke?
+
+
+##  Janurary 2024 GSS #109
 
 [ ] fragged and walking if holding arrow button?
 [x] aim mutator, only target enemy (different team, chumtoad holder)

@@ -20,6 +20,9 @@ Beta 5 Features:
         - Fire Confusion Shot
     - Zapgun
         - Fire killer shot
+- Added func_vehicle and func_vehiclecontrols support
+- 1 New Map
+    - comnet, a ice rink with Zambonis by b1rd
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -127,6 +130,7 @@ Beta 5 Features:
     - Fix crash on wrench throw
     - Autoaim no longer targets teammates
     - Fixed sticking leg kick
+    - Fixed button select sound
 
 Beta 4 Features:
 

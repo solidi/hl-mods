@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.33
+	ORIGIN	0 	0	394
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/comet.bmp"
+	HEIGHT	-77
+}
