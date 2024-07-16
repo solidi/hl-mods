@@ -422,6 +422,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
+    1. [ ] headshot indicator in death notice
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
     1. [x] Indicate death notice of my frag more distinctly?
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)

@@ -6,7 +6,7 @@
 [ ] if people leave, voting count still too high
 [ ] switch to give weapon.
 [ ] double vote influence on steamids (for $$$)
-[ ] ice_pit, railign is non-blocking
+[x] ice_pit, railign is non-blocking
 [ ] a bad entity in index of edict
 [ ] map voting, when joining.
 [ ] rocket bees?

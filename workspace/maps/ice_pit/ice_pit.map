@@ -6847,7 +6847,7 @@
 }
 }
 {
-"classname" "func_illusionary"
+"classname" "func_wall"
 "rendermode" "4"
 "renderamt" "255"
 "skin" "-1"
