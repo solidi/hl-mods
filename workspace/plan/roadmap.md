@@ -104,8 +104,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
 1. Game Mechanics
-    1. [ ] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
     1. [ ] Position next to objective?
+    1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
+    1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
 1. Bots
@@ -389,7 +390,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
     1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
     1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
-    1. [ ] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
     1. [ ] Drop battery power (Napoleon)
     1. [ ] Fall smash like [from boltgun](https://www.youtube.com/watch?v=ZUcAQC8gCyM&t=125s)
     1. [ ] [Wall running](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/player.cpp#L6270-L6501)

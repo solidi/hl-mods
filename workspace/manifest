@@ -86,6 +86,7 @@ events\dual_chaingun.sc
 events\dual_hornetgun.sc
 events\fingergun.sc
 events\zapgun.sc
+events\vehicle.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -244,6 +245,10 @@ maps\cold_base.bsp
 maps\cold_base.res
 maps\cold_base.gbw
 maps\cold_base.txt
+maps\comet.bsp
+maps\comet.res
+maps\comet.gbw
+maps\comet.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -458,6 +463,8 @@ overviews\coldice.bmp
 overviews\coldice.txt
 overviews\cold_base.bmp
 overviews\cold_base.txt
+overviews\comet.bmp
+overviews\comet.txt
 overviews\defroster.bmp
 overviews\defroster.txt
 overviews\depot.bmp
@@ -598,6 +605,9 @@ sound\ambience\wind6_loop1.wav
 sound\env
 sound\env\fluorescent.wav
 sound\env\vent.wav
+sound\comet
+sound\comet\hockeyoffplay.wav
+sound\comet\watero.wav
 sound\defroster
 sound\defroster\cavewind.wav
 sound\defroster\fireplace.wav
@@ -1122,5 +1132,6 @@ decals.wad
 gameinfo.txt
 delta.lst
 spacepirate.wad
+icerink.wad
 coldiceremastered.fgd
 titles.txt

@@ -95,6 +95,7 @@ if ([string]::IsNullOrEmpty($mapName)) {
     Compile-Map $binDir "frostmill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "glupshitto" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "cold_base" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+    Compile-Map $binDir "comet" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     # Add-ons
     Compile-Map $binDir "quadfrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     Compile-Map $binDir "defroster" $mapsDir $redistDir $wadsDir $finalCompile $noWad

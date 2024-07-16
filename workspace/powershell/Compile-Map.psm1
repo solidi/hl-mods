@@ -16,6 +16,7 @@ all {
     $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
     $wadsDir\xeno.wad
+    $wadsDir\icerink.wad
     $wadsDir\quadfrost.wad
 }
 "@
@@ -30,6 +31,7 @@ all {
     $wadsDir\liquids.wad
     $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
+    $wadsDir\icerink.wad
     $wadsDir\xeno.wad
 }
 "@
