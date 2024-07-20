@@ -2,17 +2,17 @@
 
 ##  June 2024 GSS #132
 
-[ ] execute configs on game mode.
-[ ] if people leave, voting count still too high
-[ ] switch to give weapon.
-[ ] double vote influence on steamids (for $$$)
-[x] ice_pit, railign is non-blocking
 [ ] a bad entity in index of edict
 [ ] map voting, when joining.
+[ ] if people leave, voting count still too high
+[ ] double vote influence on steamids (for $$$)
 [ ] rocket bees?
-[ ] when typing jope, turns on jope mutator
 [ ] 69 mutator, change as many numbers to 69
 [ ] pair of dice, roll the dice, roll it for a weapon
+[x] execute configs on game mode.
+[x] switch to give weapon.
+[x] ice_pit, railign is non-blocking
+[x] when typing jope, turns on jope mutator or at least says all hail.
 
 loopback, paintball, superjump - crash? edict
 nuke?
@@ -21,13 +21,13 @@ nuke?
 ##  Janurary 2024 GSS #109
 
 [ ] fragged and walking if holding arrow button?
-[x] aim mutator, only target enemy (different team, chumtoad holder)
-[x] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
 [ ] pushy and snowballs
 [ ] fix server side crossbow zoom
 [ ] Slow bullets still stuck
 [ ] reset models after gamemode
 [ ] no time limit in gamegun
+[x] aim mutator, only target enemy (different team, chumtoad holder)
+[x] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
 [x] frag kill visual indicator?
 [x] golden gun mode
 [x] show people in spectator in LMS when waiting?
@@ -87,11 +87,11 @@ nuke?
 [ ] disable lifebar when fragged?
 [ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
-[ ] lower case VOTE to count
 [ ] gibbed sanic should disappear?
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
 [ ] 00:00 from 1v1 to gungame - shut off during intermission?
+[x] lower case VOTE to count
 [x] slide box secret to left
 [x] chumtoad trail to 8 seconds
 [x] freeze bots in intermission
