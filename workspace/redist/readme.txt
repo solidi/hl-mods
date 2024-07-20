@@ -73,6 +73,8 @@ Beta 5 Features:
         - Disable randomweapons mutator from gungame
         - Disable numerous mutators from snowball game mode
         - Tweaked game mode waiting times
+        - Show lives in battle royale
+        - Show persons who are in arena mode on scoreboard
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -105,6 +107,7 @@ Beta 5 Features:
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
+    - "vote" command now case insensitive
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
