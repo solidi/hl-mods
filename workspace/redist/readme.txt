@@ -46,12 +46,13 @@ Beta 5 Features:
     - Increase sky height in furrow
     - Added fog effect to snowyard
 - Game Modes
-    - 5 New Game Modes (mp_gamemode)
+    - 6 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
         - "shidden" - some are hidden, equipped with deadly farts.
         - "instagib" - grab a zapper and get to work.
+        - "prophunt" - spawn as a item, hide from thehunters
     - 16 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -108,6 +109,8 @@ Beta 5 Features:
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
     - "vote" command now case insensitive
+    - Support to exec gamemode script file when game mode starts
+        - example: "gungame.cfg" is executed when game begins if available
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
@@ -369,7 +372,7 @@ Beta 3 Features:
     - 30 Mutators - supports combination and randomly selected (sv_mutators)
         - "chaos" - randomly selects three mutators every 45 seconds!
         - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
-        - "instagib" - spawn with dual railguns that dole one hit kills
+        - "instagib" - spawn with a zapgun that dole one hit kills
         - "volatile" - where players blow up when fragged (explode icon)
         - "plumber" - spawn with pipe wrenches
         - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
@@ -930,7 +933,7 @@ Server:
     - "grenades" - a random chance of a grenade throw on attack
     - "ice" - all the ground is covered in ice
     - "infiniteammo" - all weapons have infinite ammo
-    - "instagib" - spawn with dual railguns that dole one hit kills
+    - "instagib" - spawn with a zapgun that dole one hit kills
     - "inverse" - colors are inverted
     - "invisible" - everyone is partially invisible!
     - "itemsexplode" - weapons and items react to explosions

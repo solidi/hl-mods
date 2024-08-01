@@ -66,7 +66,7 @@ clientdata_t none
 	DEFINE_DELTA( fuser1, DT_SIGNED | DT_FLOAT, 22, 128.0 ),
 	DEFINE_DELTA( fuser2, DT_SIGNED | DT_FLOAT, 10, 128.0 ),
 	DEFINE_DELTA( fuser3, DT_SIGNED | DT_FLOAT, 10, 128.0 ),
-	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 10, 128.0 ),
+	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 16, 8.0 ),
 
 	DEFINE_DELTA( iuser4, DT_INTEGER, 32, 1.0 ) // for 64 weapon hud slot support
 }
@@ -134,7 +134,7 @@ entity_state_t gamedll Entity_Encode
 	// Playerclass signifies it's a decalable glass item when referring to an object
 
 	DEFINE_DELTA( playerclass, DT_INTEGER, 1, 1.0 ),
-	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 10, 128.0 )
+	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 16, 8.0 )
 }
 
 entity_state_player_t gamedll Player_Encode
@@ -193,7 +193,7 @@ entity_state_player_t gamedll Player_Encode
 	DEFINE_DELTA( velocity[2], DT_SIGNED | DT_FLOAT, 16, 8.0 ),
 	DEFINE_DELTA( spectator, DT_INTEGER, 1, 1.0 ),
 	DEFINE_DELTA( health, DT_SIGNED | DT_INTEGER, 11, 1.0 ),
-	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 10, 128.0 )
+	DEFINE_DELTA( fuser4, DT_SIGNED | DT_FLOAT, 16, 8.0 )
 }
 
 custom_entity_state_t gamedll Custom_Encode

@@ -132,6 +132,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Leeroy Jenkins] mode (start with vest)
     1. [x] bigfoot (sv_stepsize 192)
 1. Game Modes
+    1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
+        1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [x] CTF mode, spawn two spots if no support?
     1. Improvements
@@ -153,6 +155,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Their health keep going up
         1. [x] ID bar
         1. [ ] Basic task based on kills for upgrade
+        1. [ ] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
 1. Maps
     1. [x] Increase sky height of furrow
 1. Server Support
@@ -188,8 +191,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
-        1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
     1. [ ] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1490s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
@@ -382,7 +383,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for macOS
 1. Game Mechanics
     1. [ ] Dying [player fades](https://twitter.com/KrispyKhristian/status/1782644111620862002) out instead of death animation.
-    1. [ ] Small sound like Jabroni when inflicting damage?
+    1. [x] Small sound like Jabroni when inflicting damage?
         1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)

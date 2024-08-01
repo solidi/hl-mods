@@ -1133,3 +1133,13 @@ horde
 {
 HORDE
 }
+
+instagib
+{
+INSTAGIB
+}
+
+prophunt
+{
+PROPHUNT
+}
