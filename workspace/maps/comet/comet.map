@@ -26901,3 +26901,10 @@
 "angles" "0 0 0"
 "origin" "0 -1136 192"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-304 864 -1120"
+"health" "7"
+"message" "media/02-snowfall.mp3"
+"spawnflags" "1"
+}
