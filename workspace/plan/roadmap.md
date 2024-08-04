@@ -161,6 +161,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
+1. HUD
+    1. [x] headshot indicator in death notice
+    1. [x] Indicate death notice of my frag more distinctly?
 1. Clean up
     1. [x] Compact w_ ammo models
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
@@ -300,6 +303,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Reload / No Ammo indicator](https://www.youtube.com/watch?v=r5dXK9f2DGE&t=380s) from Halo Combar Evolved
     1. [ ] Akimbo's (select weapons)
         1. [ ] Gauss (Order of _billy recommendations)
+        1. [ ] 12 guage
         1. [ ] Egon
         1. [ ] Crossbow
         1. [ ] Snark
@@ -423,9 +427,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
-    1. [ ] headshot indicator in death notice
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
-    1. [x] Indicate death notice of my frag more distinctly?
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Add map name to the scoreboard
