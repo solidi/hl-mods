@@ -26903,8 +26903,8 @@
 }
 {
 "classname" "trigger_mp3audio"
-"origin" "-304 864 -1120"
-"health" "7"
+"origin" "-576 0 80"
+"health" "3"
 "message" "media/02-snowfall.mp3"
 "spawnflags" "1"
 }
