@@ -172,12 +172,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Change solid type of barrel after throw
     1. [ ] Gungame - more feedback
         1. [ ] ammo in place of weapons
-        1. [ ] mutators are intefering with the gungame, off by default?
-        1. [ ] Frag only counts on right weapon
-        1. [x] vest? No death count?
         1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
         1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
         1. [ ] dual railguns still drop?
+        1. [ ] Frag only counts on right weapon
+        1. [x] mutators are intefering with the gungame, off by default?
+        1. [x] vest? No death count?
     1. [ ] sildenafil - make weapons
     1. [ ] maxpack - drop all
     1. [x] scoreboard is not ordered right in deathmatch
