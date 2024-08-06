@@ -106,6 +106,7 @@ Beta 5 Features:
     - Added the custom spraypaint "flake"
 - HUD changes
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
+    - Added headshot indicator in death notice
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
     - "vote" command now case insensitive
@@ -137,6 +138,7 @@ Beta 5 Features:
     - Autoaim no longer targets teammates
     - Fixed sticking leg kick
     - Fixed button select sound
+    - Fixed voice tracks playing after weapon is holstered
 
 Beta 4 Features:
 

@@ -1,4 +1,4 @@
-296
+298
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -228,6 +228,7 @@ d_dual_rpg	640	640hud1	192	96	48	16
 d_freezegun		640	640hudof01	192	16	48	16
 d_zapgun		640	640hudof15	192	32	48	16
 d_vehicle	640	640hud1	192	240	32	16
+d_headshot  	640	640hudof15 192	112	40	16
 
 // Mutators
 coolflesh	640 gameicons	0	0	64	64
@@ -298,6 +299,7 @@ bigfoot	640 gameicons5	128	0	64	64
 mirror	640 gameicons5	192	0	64	64
 thirdperson	640 gameicons5	0	64	64	64
 closeup	640 gameicons5	64	64	64	64
+railguns	640 gameicons3	64	0	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
