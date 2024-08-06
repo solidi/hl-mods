@@ -53,7 +53,7 @@ Beta 5 Features:
         - "shidden" - some are hidden, equipped with deadly farts.
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
-    - 16 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 17 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -70,6 +70,7 @@ Beta 5 Features:
         - "mirror" - mirror, mirror on the wall
         - "thirdperson" - an out of body experience
         - "closeup" - ironsights are locked in
+        - "three" - three random mutators at once
     - Gamemode Changes
         - Disable randomweapons mutator from gungame
         - Disable numerous mutators from snowball game mode
@@ -975,6 +976,7 @@ Server:
     - "stahp" - some sounds replaced with stahp!
     - "superjump" - jump three times the height, disables fall damage.
     - "thirdperson" - an out of body experience
+    - "three" - three random mutators at once
     - "topsyturvy" - everything is turned upside down (sp only!)
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
