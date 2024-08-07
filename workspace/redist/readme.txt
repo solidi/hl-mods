@@ -29,6 +29,8 @@ Beta 5 Features:
             - Added knife snipe
 - Force Grab
     - While looking at a player, press "G" to grab their weapon
+- Throw Explosive weapon
+    - Press "O" to throw your weapon as an explosive
 - Weapons Changes
     - Combined all world ammo models into one file
     - Vest death does not deduct frags
@@ -100,6 +102,7 @@ Beta 5 Features:
     - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
     - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
     - "cl_playmusic [0|1]" - start / stop tracklist music during gaming
+    - "cl_autowepthrow [0|1]" - auto throws weapon on empty
     - cl_playpoint now play ding when damaging enemy, frag score now dong
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
@@ -801,6 +804,7 @@ Client:
 - "cl_automelee [0|1]" - auto kick or punch an enemy if they are close
 - "cl_autotaunt [0|1]" - auto taunt on frag when its safe to do so
 - "cl_autowepswitch [0|1]" - auto switches weapon on pickup
+- "cl_autowepthrow [0|1]" - auto throws weapon on empty
 - "cl_bobtilt [0|1]" - Old Bob Tilt
 - "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
 - "cl_crosshairammo [0|1]" - show ammo status in crosshairs
@@ -850,6 +854,7 @@ Client:
 - "impulse 213" - Front Flip
 - "impulse 214" - Hurricane Kick
 - "impulse 215" - Force Grab
+- "impulse 216" - Throw Explosive Weapon
 - "snowman" - God mode (when sv_cheats 1)
 - "vote" - type in the chat to start a vote
 

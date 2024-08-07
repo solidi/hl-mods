@@ -30,10 +30,12 @@ DESCRIPTION SERVER_OPTIONS
 			"Capture the Chumtoad" "6"
 			"GunGame" "7"
 			"Horde" "8"
-			"Jesus vs. Santa" "9"
-			"Shidden" "10"
-			"Snowball Fight" "11"
-			"Teamplay" "12"
+			"Instagib" "9"
+			"Jesus vs. Santa" "10"
+			"Prop Hunt" "11"
+			"Shidden" "12"
+			"Snowball Fight" "13"
+			"Teamplay" "14"
 		}
 		{ "0" }
 	}

@@ -98,7 +98,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
 1. Weapon Mechanics
     1. [x] Remove water poly from SD pipe wrench.
-    1. [ ] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
+    1. [x] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
     1. [x] Ammo read around crosshairs like base defense
     1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
     1. [x] Third Fire Options through Reload
@@ -112,12 +112,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
-    1. [ ] 3 at once
+    1. [ ] clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
-    1. [x] Animation bar of coming next chaos item (like GSChaos)
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
+    1. [x] Animation bar of coming next chaos item (like GSChaos)
+    1. [x] 3 at once
     1. [x] thirdperson
     1. [x] Mirror - reflect view
     1. [x] Toilet - we aint hurt nobody
@@ -144,18 +145,18 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
       1. [ ] Skeleton appears the moment fragged from suvivor
       1. [x] Only appear chumtoad if there is more than two players
     1. [x] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
-        1. [x] Fart flying
         1. [ ] Stomp on head
+        1. [x] Fart flying
         1. [x] Fart mechanism
         1. [x] Sprite of player model
         1. [x] Game loop
         1. [x] Teamplay logic
     1. [x] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
         1. [ ] Amount of emenies increase from 5 to 10
-        1. [x] Their health keep going up
-        1. [x] ID bar
         1. [ ] Basic task based on kills for upgrade
         1. [ ] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
+        1. [x] Their health keep going up
+        1. [x] ID bar
 1. Maps
     1. [x] Increase sky height of furrow
 1. Server Support
