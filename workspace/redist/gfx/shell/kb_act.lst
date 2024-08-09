@@ -141,3 +141,5 @@
 "impulse 212"	"#Ice_BackFlip"
 "impulse 213"	"#Ice_FrontFlip"
 "impulse 214"	"#Ice_HurricaneKick"
+"impulse 215"	"#Ice_ForceGrab"
+"impulse 216"	"#Ice_ThrowWeapon"
