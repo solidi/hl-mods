@@ -3451,3 +3451,34 @@
 [
 	target(target_destination) : "Vehicle Name"
 ]
+@PointClass base(Monster, Sequence) size(-16 -16 0, 16 16 36) studio("models/panthereye.mdl") = monster_panthereye : "Panthereye" 
+[
+	sequence(Choices) : "Animation Sequence (editor)" : 0 =
+	[
+		0 : "get_bug"
+		1 : "itch"
+		2 : "shakes"
+		3 : "walk"
+		4 : "run"
+		5 : "turn_left"
+		6 : "turn_right"
+		7 : "crouch idle"
+		8 : "crouch idle figit"
+		9 : "crouch_to_crawl"
+		10 : "crawl_on_belly"
+		11 : "crouch_to_jump"
+		12 : "flinch"
+		13 : "flinch_hard"
+		14 : "flinch_light"
+		15 : "death_drop"
+		16 : "death_simple"
+		17 : "death_violent"
+		18 : "attack_primary"
+		19 : "attack_main_claw"
+		20 : "attack_simple_claw"
+		21 : "walk_to_crouch"
+		22 : "walk_to_stand"
+		23 : "walk_to_run"
+		24 : "fall_c1a1b"
+	]
+]
