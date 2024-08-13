@@ -694,8 +694,8 @@ sound\panthereye\pa_idle1.wav
 sound\panthereye\pa_idle2.wav
 sound\panthereye\pa_idle3.wav
 sound\panthereye\pa_idle4.wav
-sound\panthereye\pain1.wav
-sound\panthereye\pain2.wav
+sound\panthereye\pa_pain1.wav
+sound\panthereye\pa_pain2.wav
 sound\player
 sound\player\pl_snow1.wav
 sound\player\pl_snow2.wav
