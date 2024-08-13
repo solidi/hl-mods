@@ -434,6 +434,7 @@ models\flagbase.mdl
 models\v_zapgun.mdl
 models\w_tombstone.mdl
 models\v_forcegrab.mdl
+models\panthereye.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -686,6 +687,15 @@ sound\clustergrenades_selected.wav
 sound\holy_handgrenade.wav
 sound\grapple_hit.wav
 sound\grapple_deploy.wav
+sound\panthereye
+sound\panthereye\pa_alert1.wav
+sound\panthereye\pa_alert2.wav
+sound\panthereye\pa_idle1.wav
+sound\panthereye\pa_idle2.wav
+sound\panthereye\pa_idle3.wav
+sound\panthereye\pa_idle4.wav
+sound\panthereye\pain1.wav
+sound\panthereye\pain2.wav
 sound\player
 sound\player\pl_snow1.wav
 sound\player\pl_snow2.wav

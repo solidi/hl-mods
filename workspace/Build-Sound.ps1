@@ -51,6 +51,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\media)
     [void](New-Item -ItemType directory -Path $redistDir\sound\ui)
     [void](New-Item -ItemType directory -Path $redistDir\sound\comet)
+    [void](New-Item -ItemType directory -Path $redistDir\sound\panthereye)
 }
 
 try {
@@ -372,6 +373,8 @@ Write-Output "Copying voice-overs..."
 Copy-Item -Recurse -Force -Path $soundDir\hev\* -Destination $redistdir\sound\hev
 Write-Output "Copying media..."
 Copy-Item -Recurse -Force -Path $soundDir\media\* -Destination $redistdir\media
+Write-Output "Copying monster sounds..."
+Copy-Item -Recurse -Force -Path $soundDir\panthereye\* -Destination $redistdir\sound\panthereye
 Write-Output "Copying map sounds..."
 Copy-Item -Recurse -Force -Path $soundDir\comet\* -Destination $redistdir\sound\comet
 
