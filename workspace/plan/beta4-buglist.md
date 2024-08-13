@@ -46,7 +46,6 @@ nuke?
 [ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
 [ ] position number close to objective readout
 [ ] weighted mutators on chaos
-[ ] heads up for jesus of how many survive on kill?
 [ ] image on maps
 [ ] blinding snowballs
 [ ] giant float head mutator
@@ -55,6 +54,7 @@ nuke?
 [ ] chumtoad or snark on crowbar
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
+[x] heads up for jesus of how many survive on kill?
 [x] decal spray of CIR snowflake
 [x] jesus walks on water?
 [x] sp icon?

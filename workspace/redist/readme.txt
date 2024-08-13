@@ -52,6 +52,7 @@ Beta 5 Features:
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
+            - Includes the pantherye monster
         - "shidden" - some are hidden, equipped with deadly farts.
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
@@ -79,6 +80,7 @@ Beta 5 Features:
         - Tweaked game mode waiting times
         - Show lives in battle royale
         - Show persons who are in arena mode on scoreboard
+        - Improved objectives in JVS
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -1124,3 +1126,4 @@ Thanks To:
 - Nexon, Valve, CSO for the tombstone, reskinned by Napoleon
 - DokuGamesLTD for inspiration, and their game Out Of Action https://store.steampowered.com/app/1670780/Out_of_Action/
 - FWGS team for the func_vehicle implementation https://github.com/FWGS/hlsdk-portable
+- Monster panthereye monster code by Alan https://github.com/Magic-Nipples

@@ -169,6 +169,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Compact w_ ammo models
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
 1. Fixes
+    1. [ ] spectator angle, disconnected bots are available in spectator view?
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] Gungame - more feedback
