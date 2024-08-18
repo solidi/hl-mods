@@ -421,3 +421,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. Using ```SET_MODEL``` on a entity later, will reset size and movetype. Order is movetype/sold, then ```SET_MODEl`` then setsize and origin (if needed).
 1. Here [is a post](https://stackoverflow.com/questions/27303062/strstr-function-like-that-ignores-upper-or-lower-case) on how to make case insensitive string comparsions.
 1. A [good article](https://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size) on how to clean up virtual machine sizes
+1. Setting a players health to 100 in a fragged state can lead to weirdness with spawn and state.

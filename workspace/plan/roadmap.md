@@ -107,11 +107,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Position next to objective?
     1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
     1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
+        1. [ ] Force grab toward charger heals?
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
+    1. [ ] firestarter - get dual flamethrowers
     1. [ ] clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
@@ -182,6 +184,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] vest? No death count?
     1. [ ] sildenafil - make weapons
     1. [ ] maxpack - drop all
+    1. [x] Nuke to kill monsters
     1. [x] scoreboard is not ordered right in deathmatch
     1. [x] Cancel taunt if switching weapon
     1. [x] cool flesh increase flesh time, add pick up cue
@@ -463,7 +466,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
     1. [ ] [mouse raw fix](https://github.com/ValveSoftware/halflife/issues/1546)
-    1. [ ] Nuke to kill monsters
     1. [ ] Add git hash to server name in dll
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.

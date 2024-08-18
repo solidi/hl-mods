@@ -20,12 +20,12 @@ nuke?
 
 ##  Janurary 2024 GSS #109
 
-[ ] fragged and walking if holding arrow button?
 [ ] pushy and snowballs
 [ ] fix server side crossbow zoom
-[ ] Slow bullets still stuck
 [ ] reset models after gamemode
 [ ] no time limit in gamegun
+[x] Slow bullets still stuck
+[x] fragged and walking if holding arrow button?
 [x] aim mutator, only target enemy (different team, chumtoad holder)
 [x] maxpack and snowballs, no need to enable, chumxplode in capture (mutator filter)
 [x] frag kill visual indicator?
