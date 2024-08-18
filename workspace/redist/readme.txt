@@ -41,6 +41,8 @@ Beta 5 Features:
     - Railguns beams reflect at angles
     - Decreased chaingun spin up time
     - Notify HUD when obtaining handgun
+    - Freezegun does not freeze its owner
+    - Reduced freezegun speed and power
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
@@ -962,7 +964,7 @@ Server:
     - "notify" - interrupt players with annoying chat notifications
     - "notthebees" - hornets spawn from a player or monster who was killed
     - "oldtime" - gameplay becomes desaturated
-    - "paintball" - weapons and explosions leave paint decals, weapons reduced to 1/4 damage
+    - "paintball" - weapons and explosions leave paint decals
     - "piratehat" - argh, maty.
     - "plumber" - spawn with dual pipe wrenches
     - "portal" - now you're thinking with portals
