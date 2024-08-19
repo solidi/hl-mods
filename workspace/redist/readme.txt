@@ -49,6 +49,7 @@ Beta 5 Features:
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
     - Added fog effect to snowyard
+    - Added poolside to training2
 - Game Modes
     - 6 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
