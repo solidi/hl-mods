@@ -161,6 +161,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] ID bar
 1. Maps
     1. [x] Increase sky height of furrow
+    1. [x] Training 2 pool in new area opposite of garage
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
@@ -439,8 +440,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
     1. [ ] Finish arena, texture in Cold Ice style
-    1. [ ] Training 2
-        1. [ ] Frozen pool in new area opposite of garage
     1. [ ] Frozen Lake map idea
     1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)

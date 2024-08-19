@@ -1,12 +1,12 @@
 global 
 {
-	ZOOM	1.70
-	ORIGIN	-292.31 	315.13	48
+	ZOOM	1.47
+	ORIGIN	-619.19 	-178.19	64
 	ROTATED	0
 }
 
 layer 
 {
 	IMAGE	"overviews/training2.bmp"
-	HEIGHT	-353
+	HEIGHT	-657
 }
