@@ -59,7 +59,7 @@ Beta 5 Features:
         - "shidden" - some are hidden, equipped with deadly farts.
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
-    - 17 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 20 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -77,6 +77,9 @@ Beta 5 Features:
         - "thirdperson" - an out of body experience
         - "closeup" - ironsights are locked in
         - "three" - three random mutators at once
+        - "firestarter" - start with a flamethrower
+        - "rocketbees" - hornets are explosive
+        - "napkinstory" - the legend reduced to two words
     - Gamemode Changes
         - Disable randomweapons mutator from gungame
         - Disable numerous mutators from snowball game mode
@@ -941,6 +944,7 @@ Server:
     - "dontshoot" - firing any weapon will explode the player.
     - "explosiveai" - AI blows up when it cannot find its next task
     - "fastweapons" - all weapons are faster.
+    - "firestarter" - start with a flamethrower
     - "fog" - heavy fog moves into the gameplay
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
@@ -960,6 +964,7 @@ Server:
     - "maxpack" - drop all weapons and ammo in play (mp only!)
     - "megarun" - run faster than normal
     - "mirror" - mirror, mirror on the wall
+    - "napkinstory" - the legend reduced to two words
     - "noclip" - fly through walls
     - "noreload" - no one can reload
     - "notify" - interrupt players with annoying chat notifications
@@ -973,8 +978,9 @@ Server:
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "randomweapon" - spawn with a randomly selected weapon
     - "ricochet" - the best mod ever made
-    - "rockets" - a random chance of rockets throw on attack!
+    - "rocketbees" - hornets are explosive
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+    - "rockets" - a random chance of rockets throw on attack!
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "santahat" - everyone wears a santa hat and says hohoho randomly
     - "sildenafil" - screen goes blue
