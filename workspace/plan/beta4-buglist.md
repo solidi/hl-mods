@@ -6,9 +6,9 @@
 [ ] map voting, when joining.
 [ ] if people leave, voting count still too high
 [ ] double vote influence on steamids (for $$$)
-[ ] rocket bees?
 [ ] 69 mutator, change as many numbers to 69
 [ ] pair of dice, roll the dice, roll it for a weapon
+[x] rocket bees?
 [x] execute configs on game mode.
 [x] switch to give weapon.
 [x] ice_pit, railign is non-blocking

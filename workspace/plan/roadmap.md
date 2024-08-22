@@ -113,12 +113,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
-    1. [ ] firestarter - get dual flamethrowers
     1. [ ] clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
+    1. [x] firestarter - get dual flamethrowers
     1. [x] Animation bar of coming next chaos item (like GSChaos)
     1. [x] 3 at once
     1. [x] thirdperson

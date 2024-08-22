@@ -1,4 +1,4 @@
-298
+301
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -300,6 +300,9 @@ mirror	640 gameicons5	192	0	64	64
 thirdperson	640 gameicons5	0	64	64	64
 closeup	640 gameicons5	64	64	64	64
 railguns	640 gameicons3	64	0	64	64
+firestarter	640 gameicons5	128	64	64	64
+rocketbees	640 gameicons5	192	64	64	64
+napkinstory	640 gameicons5	0	128	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
