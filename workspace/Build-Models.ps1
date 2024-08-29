@@ -93,14 +93,14 @@ try {
     } else {
     Invert-Skin $binDir "p_9mmhandgun" $modelsdir\hd
     Invert-Skin $binDir "p_9mmhandguns" $modelsdir\hd
+    Invert-Skin $binDir "p_9mmhandgun" $modelsdir
+    Invert-Skin $binDir "p_9mmhandguns" $modelsdir
     Invert-Skin $binDir "p_crossbow" $modelsdir\hd
     Invert-Skin $binDir "p_grenade" $modelsdir\hd
     Invert-Skin $binDir "p_knife" $modelsdir\hd
     Invert-Skin $binDir "p_rpg" $modelsdir\hd
     Invert-Skin $binDir "p_tripmine" $modelsdir\hd
     Invert-Skin $binDir "rpgrocket" $modelsdir\hd
-    Invert-Skin $binDir "v_9mmhandgun" $modelsdir\hd
-    Invert-Skin $binDir "v_9mmhandguns" $modelsdir\hd
     Invert-Skin $binDir "v_chumtoad" $modelsdir\hd
     Invert-Skin $binDir "v_crossbow" $modelsdir\hd
     Invert-Skin $binDir "v_crowbar" $modelsdir\hd
@@ -114,8 +114,6 @@ try {
     Invert-Skin $binDir "v_sniperrifle" $modelsdir\hd
     Invert-Skin $binDir "p_sniperrifle" $modelsdir\hd
     Invert-Skin $binDir "w_sniperrifle" $modelsdir\hd
-    Invert-Skin $binDir "p_9mmhandgun" $modelsdir
-    Invert-Skin $binDir "p_9mmhandguns" $modelsdir
     Invert-Skin $binDir "p_chumtoad" $modelsdir
     Invert-Skin $binDir "p_crossbow" $modelsdir
     Invert-Skin $binDir "p_crowbar" $modelsdir
@@ -128,8 +126,6 @@ try {
     Invert-Skin $binDir "p_tripmine" $modelsdir
     Invert-Skin $binDir "p_vest" $modelsdir
     Invert-Skin $binDir "rpgrocket" $modelsdir
-    Invert-Skin $binDir "v_9mmhandgun" $modelsdir
-    Invert-Skin $binDir "v_9mmhandguns" $modelsdir
     Invert-Skin $binDir "v_chumtoad" $modelsdir
     Invert-Skin $binDir "v_crossbow" $modelsdir
     Invert-Skin $binDir "v_crowbar" $modelsdir
@@ -309,6 +305,12 @@ try {
     Invert-Skin $binDir "p_zapgun" $modelsdir
     Invert-Skin $binDir "w_zapgun" $modelsdir
     Invert-Skin $binDir "w_tombstone" $modelsdir
+    Invert-Skin $binDir "v_dual_handgun" $modelsdir $redistdir\models
+    Invert-Skin $binDir "v_dual_handgun" $modelsdir\hd $redisthddir\models
+    Invert-Skin $binDir "p_dual_handgun" $modelsdir
+    Invert-Skin $binDir "p_dual_handgun" $modelsdir\hd $redisthddir\models
+    Invert-Skin $binDir "w_dual_handgun" $modelsdir
+    Invert-Skin $binDir "w_dual_handgun" $modelsdir\hd $redisthddir\models
 
     Compile-Player "alpina" $binDir $modelsdir $redistDir
     Compile-Player "army" $binDir $modelsdir $redistDir
@@ -338,10 +340,6 @@ try {
     Compile-Model $binDir "v_shotgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir $redistDir\models
     Compile-Model $binDir "v_vest_radio" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_9mmhandgun" $modelsdir $redistDir\models
-    Compile-Model $binDir "v_9mmhandgun" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_9mmhandguns" $modelsdir\hd $redisthddir\models
-    Compile-Model $binDir "v_9mmhandguns" $modelsdir $redistDir\models
     Compile-Model $binDir "v_grenade" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_grenade" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_grenade" $modelsdir $redistDir\models
@@ -492,6 +490,8 @@ try {
     Compile-Model $binDir "w_tombstone" $modelsdir $redistdir\models
     Compile-Model $binDir "v_forcegrab" $modelsdir $redistdir\models
     Compile-Model $binDir "panthereye" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_dual_handgun" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_dual_handgun" $modelsdir\hd $redisthddir\models
     }
 }
 catch

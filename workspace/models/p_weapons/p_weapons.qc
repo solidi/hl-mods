@@ -63,6 +63,7 @@ studio "..\p_dual_railgun\dual_railgun"
 studio "..\p_dual_rpg\dual_rpg"
 studio "..\p_dual_flamethrower\dual_flamethrower"
 studio "..\p_zapgun\zapgun"
+studio "..\p_dual_handgun\dual_handgun"
 }
 
 $bodygroup "body"
@@ -124,6 +125,7 @@ $texturegroup ice
     "..\p_9mmhandguns\back.bmp"
     "..\p_9mmhandguns\side.bmp"
     "..\p_9mmhandguns\chrome.bmp"
+    "..\p_9mmhandguns\glockfront.bmp"
     "..\p_9mmhandguns\top.bmp"
     "..\p_357\wrld_python.bmp"
     "..\p_deagle\glockback.bmp"
@@ -250,6 +252,10 @@ $texturegroup ice
     "..\p_dual_flamethrower\Chrome2(Brass).bmp"
     "..\p_dual_flamethrower\W-FLAME_Base1.bmp"
     "..\p_zapgun\zapper_skin.bmp"
+    "..\p_dual_handgun\side.bmp"
+    "..\p_dual_handgun\chrome.bmp"
+    "..\p_dual_handgun\glockfront.bmp"
+    "..\p_dual_handgun\top.bmp"
   }
   {
     "..\p_crowbar\invert_p_pipe.bmp"
@@ -286,6 +292,7 @@ $texturegroup ice
     "..\p_9mmhandguns\invert_back.bmp"
     "..\p_9mmhandguns\invert_side.bmp"
     "..\p_9mmhandguns\invert_chrome.bmp"
+    "..\p_9mmhandguns\invert_glockfront.bmp"
     "..\p_9mmhandguns\invert_top.bmp"
     "..\p_357\invert_wrld_python.bmp"
     "..\p_deagle\invert_glockback.bmp"
@@ -412,6 +419,10 @@ $texturegroup ice
     "..\p_dual_flamethrower\invert_Chrome2(Brass).bmp"
     "..\p_dual_flamethrower\invert_W-FLAME_Base1.bmp"
     "..\p_zapgun\invert_zapper_skin.bmp"
+    "..\p_dual_handgun\invert_side.bmp"
+    "..\p_dual_handgun\invert_chrome.bmp"
+    "..\p_dual_handgun\invert_glockfront.bmp"
+    "..\p_dual_handgun\invert_top.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -574,8 +585,18 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
   }
   {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -790,6 +811,7 @@ $hbox 0 "chumtoad" -4.020000 -4.000000 -3.650000 4.010000 3.960000 4.480000
 // Dual rpg?
 // Dual flamethrower?
 $hbox 0 "zapgun" -4.610000 -0.640000 -3.150000 18.370001 1.050000 3.510000
+// Dual handgun?
 
 
 // animation sequence(s)
@@ -844,3 +866,4 @@ $sequence "dual_railgun_idle" "..\p_dual_railgun\idle" fps 30
 $sequence "dual_rpg_idle" "..\p_dual_rpg\idle" fps 30
 $sequence "dual_flamethrower_idle" "..\p_dual_flamethrower\idle" fps 30
 $sequence "zapgun_idle" "..\p_zapgun\idle" fps 30
+$sequence "dual_handgun_idle" "..\p_dual_handgun\idle" fps 30

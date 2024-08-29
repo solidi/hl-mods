@@ -11,7 +11,7 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
-- 4 New Weapons
+- 5 New Weapons
     - Dual Chainguns
         - Fire Chainguns
     - Dual Hornetguns
@@ -20,9 +20,11 @@ Beta 5 Features:
         - Fire Confusion Shot
     - Zapgun
         - Fire killer shot
+    - Dual Silencers
+        - Fire Silencers / Add/Remove Silencers
 - Added func_vehicle and func_vehiclecontrols support
 - 1 New Map
-    - comnet, a ice rink with Zambonis by b1rd
+    - comet, a ice rink with Zambonis by b1rd
 - Third Function Weapon Support
     - Via the reload button
         - Knife

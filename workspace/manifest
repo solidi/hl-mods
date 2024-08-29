@@ -87,6 +87,7 @@ events\dual_hornetgun.sc
 events\fingergun.sc
 events\zapgun.sc
 events\vehicle.sc
+events\dual_glock.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -338,8 +339,6 @@ models\props\skeleton.mdl
 models\v_9mmAR.mdl
 models\v_shotgun.mdl
 models\v_vest_radio.mdl
-models\v_9mmhandgun.mdl
-models\v_9mmhandguns.mdl
 models\v_grenade.mdl
 models\w_grenade.mdl
 models\v_knife.mdl
@@ -435,6 +434,7 @@ models\v_zapgun.mdl
 models\w_tombstone.mdl
 models\v_forcegrab.mdl
 models\panthereye.mdl
+models\v_dual_handgun.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -1072,6 +1072,7 @@ sprites\weapon_dual_chaingun.txt
 sprites\weapon_dual_hornetgun.txt
 sprites\weapon_fingergun.txt
 sprites\weapon_zapgun.txt
+sprites\weapon_dual_glock.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

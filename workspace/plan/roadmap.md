@@ -93,6 +93,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
+    1. [x] Dual berettas (GSS #73 idea)
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] First quad weapon - rocket launcher?
     1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
@@ -156,7 +157,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
         1. [ ] Amount of emenies increase from 5 to 10
         1. [ ] Basic task based on kills for upgrade
-        1. [ ] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
+        1. [x] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
         1. [x] Their health keep going up
         1. [x] ID bar
 1. Maps
@@ -170,6 +171,20 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Indicate death notice of my frag more distinctly?
 1. Clean up
     1. [x] Compact w_ ammo models
+    1. [ ] Compact w_ item models
+            w_shotgunshell
+            w_shell
+            w_weaponbox
+            w_suit
+            w_longjump
+            w_cabinet
+            w_barrel
+            w_bolt
+            w_rocket
+            w_nuke
+            w_tombstone
+            w_portal?
+            box?
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
 1. Fixes
     1. [ ] spectator angle, disconnected bots are available in spectator view?
@@ -315,7 +330,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Snark
         1. [ ] Tripmine
         1. [ ] Clusters
-        1. [ ] Dual berettas (GSS #73 idea)
     1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
         1. [ ] your weapon takes 10x more the amount of damage

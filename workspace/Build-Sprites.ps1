@@ -76,7 +76,9 @@ try {
     Compile-Sprite $binDir "640hudof13" $spritesDir $redistDir\sprites
     Compile-Sprite $binDir "640hudof14" $spritesDir $redistDir\sprites
     Compile-Sprite $binDir "640hudof15" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof15" $spritesDir\hd $redisthddir\sprites
     Compile-Sprite $binDir "640hudof16" $spritesDir $redistDir\sprites
+    Compile-Sprite $binDir "640hudof16" $spritesDir\hd $redisthddir\sprites
     Compile-Sprite $binDir "snowballhit" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gunsmoke" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "smokeball2" $spritesDir $redistdir\sprites
