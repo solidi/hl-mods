@@ -45,6 +45,7 @@ Beta 5 Features:
     - Notify HUD when obtaining handgun
     - Freezegun does not freeze its owner
     - Reduced freezegun speed and power
+    - Improved rocketcrowbar rocket launching
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
@@ -103,6 +104,7 @@ Beta 5 Features:
         - Increased cool flesh time to live
         - Fixed lightsout environment light remaining dark
         - Removed dont shoot explosion during spawn protection
+        - Rocket launchers support autoaim
 - Game Mode Changes
     - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard
@@ -153,6 +155,7 @@ Beta 5 Features:
     - Fixed sticking leg kick
     - Fixed button select sound
     - Fixed voice tracks playing after weapon is holstered
+    - Fixed meleedrop cvar, default is now off
 
 Beta 4 Features:
 
