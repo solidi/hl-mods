@@ -1,4 +1,4 @@
-301
+302
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -229,6 +229,7 @@ d_freezegun		640	640hudof01	192	16	48	16
 d_zapgun		640	640hudof15	192	32	48	16
 d_vehicle	640	640hud1	192	240	32	16
 d_headshot  	640	640hudof15 192	112	40	16
+d_dual_glock		640	640hudof15	192	16	48	16
 
 // Mutators
 coolflesh	640 gameicons	0	0	64	64

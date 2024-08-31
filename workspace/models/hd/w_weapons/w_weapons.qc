@@ -64,6 +64,7 @@ studio "..\..\w_dual_railgun\dual_railgun_hd"
 studio "..\w_dual_rpg\dual_rpg"
 studio "..\..\w_dual_flamethrower\dual_flamethrower_hd"
 studio "..\..\w_zapgun\zapgun_hd"
+studio "..\w_dual_handgun\dual_handgun"
 }
 
 $bodygroup "addition"
@@ -236,6 +237,9 @@ $texturegroup ice
     "..\..\w_dual_flamethrower\Chrome2(Brass).bmp"
     "..\..\w_dual_flamethrower\W-FLAME_Base1.bmp"
     "..\..\w_zapgun\zapper_skin.bmp"
+    "..\w_dual_handgun\chrome.bmp"
+    "..\w_dual_handgun\glockfront.bmp"
+    "..\w_dual_handgun\v_beretta_main.bmp"
   }
   {
     "..\w_crowbar\invert_wbottom.bmp"
@@ -317,13 +321,16 @@ $texturegroup ice
     "..\w_dual_usas\invert_USAS-3.bmp"
     "..\w_dual_chaingun\invert_chrome1.bmp"
     "..\w_dual_hgun\invert_w_hivehand.bmp"
-    "..\..\w_dual_railgun\invert_Skin.bmp"
-    "..\w_dual_rpg\invert_w_rpg_reference.BMP"
-    "..\..\w_dual_flamethrower\invert_Chrome1.bmp"
     // disabled because we are at 16mb limit
+    //"..\..\w_dual_railgun\invert_Skin.bmp"
+    //"..\w_dual_rpg\invert_w_rpg_reference.BMP"
+    //"..\..\w_dual_flamethrower\invert_Chrome1.bmp"
     //"..\..\w_dual_flamethrower\invert_Chrome2(Brass).bmp"
     //"..\..\w_dual_flamethrower\invert_W-FLAME_Base1.bmp"
     //"..\..\w_zapgun\invert_zapper_skin.bmp"
+    //"..\w_dual_handgun\invert_chrome.bmp"
+    //"..\w_dual_handgun\invert_glockfront.bmp"
+    //"..\w_dual_handgun\invert_v_beretta_main.bmp"
   }
   {
     "..\..\ringchrome.bmp"
@@ -411,8 +418,14 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
   }
   {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
@@ -587,6 +600,7 @@ $hbox 0 "dual_railgun" -20.410000 -6.680000 -2.620000 20.410000 6.680000 2.62000
 $hbox 0 "dual_rpg" -6.860000 -34.560001 -12.600000 6.860000 34.560001 12.600000
 $hbox 0 "dual_flamethrower" -5.280000 -14.650000 -9.510000 18.809999 0.000000 7.800000
 $hbox 0 "zapgun" -4.440000 -8.190000 -0.200000 5.360000 26.860001 2.810000
+$hbox 0 "dual_handgun" -4.890000 -6.370000 -0.840000 4.890000 6.370000 0.840000
 
 // animation sequence(s)
 $sequence "crowbar_idle" "..\w_crowbar\idle" fps 30 
@@ -691,5 +705,7 @@ $sequence "dual_flamethrower_idle" "..\..\w_dual_flamethrower\idle" fps 30
 $sequence "dual_flamethrower_spin" "..\..\w_dual_flamethrower\spin" fps 21 loop 
 $sequence "zapgun_idle" "..\..\w_zapgun\idle" fps 30 
 $sequence "zapgun_spin" "..\..\w_zapgun\spin" fps 21 loop 
+$sequence "dual_handgun_idle" "..\w_dual_handgun\idle" fps 30 
+$sequence "dual_handgun_spin" "..\w_dual_handgun\spin" fps 21 loop 
 
 // End of QC script.
