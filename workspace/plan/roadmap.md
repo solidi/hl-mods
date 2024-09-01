@@ -105,6 +105,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
 1. Game Mechanics
+    1. [ ] Respawn bar or counter on HUD after death like roblox
     1. [ ] Position next to objective?
     1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
     1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
@@ -215,6 +216,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
+    1. [ ] Chilling - plyers equipped with vice only, kill themself. Typing increases health, using voice as well Frags awarded if reach 200 health.
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
     1. [ ] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1490s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
@@ -453,6 +456,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
+    1. [ ] extend depot with another area, possibly creating a circle for the train.
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Frozen Lake map idea
     1. [ ] datacore (crystalcore)
