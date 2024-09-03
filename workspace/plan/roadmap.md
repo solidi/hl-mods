@@ -115,6 +115,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
+    1. [ ] assassin like jumpscare
+    1. [ ] godmode
+    1. [ ] half-life - cl_icemodels 0
     1. [ ] clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
@@ -137,6 +140,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Leeroy Jenkins] mode (start with vest)
     1. [x] bigfoot (sv_stepsize 192)
 1. Game Modes
+    1. [ ] CtC, more than one chumtoad?
     1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
         1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
@@ -162,12 +166,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Their health keep going up
         1. [x] ID bar
 1. Maps
+    1. [x] datacore (crystalcore)
     1. [x] Increase sky height of furrow
     1. [x] Training 2 pool in new area opposite of garage
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
 1. HUD
+    1. [ ] Visual keyboard layout plus commandmenu. Server/Bots and client sections
     1. [x] headshot indicator in death notice
     1. [x] Indicate death notice of my frag more distinctly?
 1. Clean up
@@ -192,6 +198,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] Gungame - more feedback
+        1. [ ] dont los levels on death
         1. [ ] ammo in place of weapons
         1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
         1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
@@ -459,7 +466,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] extend depot with another area, possibly creating a circle for the train.
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Frozen Lake map idea
-    1. [ ] datacore (crystalcore)
     1. [ ] rapidcore (icecore)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right

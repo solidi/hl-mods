@@ -23,8 +23,9 @@ Beta 5 Features:
     - Dual Silencers
         - Fire Silencers / Add/Remove Silencers
 - Added func_vehicle and func_vehiclecontrols support
-- 1 New Map
+- 2 New Maps
     - comet, a ice rink with Zambonis by b1rd
+    - datafloe, a reskin of datacore by b1rd
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -814,6 +815,7 @@ Client:
     - "2" - voice / screen print / small timed bar
     - "3" - voice / screen print / large centered circles
 - "cl_announcehumor [0|1]" - Play announcement/humor on weapons
+- "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
 - "cl_automelee [0|1]" - auto kick or punch an enemy if they are close
 - "cl_autotaunt [0|1]" - auto taunt on frag when its safe to do so
 - "cl_autowepswitch [0|1]" - auto switches weapon on pickup
@@ -837,14 +839,18 @@ Client:
     - "5" - silver skin
     - "6" - gold skin
 - "cl_infomessage [0|1]" - display weapon and rune pick up messages
+- "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
+- "cl_lifemeters [0|1]" - show or hide lifemeters above other players
 - "cl_objectives [0|1]" - show objective read out on HUD
 - "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
 - "cl_oldscoreboard [0|1]" - Old Scoreboard
 - "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
 - "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag
 - "cl_playmusic [0|1]" - Play soundtrack set by map
+- "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
 - "cl_radar [0|1]" enables or disables player radar
 - "cl_righthand [0|1]" - Right/Left Handed Models
+- "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
 - "cl_shadows [0|1]" - Show rendered shadows underneath models
 - "cl_showtips [0|1]" - Show random text tips during play
 - "cl_viewroll [0|1]" - Old View Roll
