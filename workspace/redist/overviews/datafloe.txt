@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.29
+	ORIGIN	-2258 	2119	1010
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/datafloe.bmp"
+	HEIGHT	327
+}

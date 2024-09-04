@@ -10,13 +10,14 @@ function Select-Wad-List {
     @"
 all {
     $wadsDir\coldice.wad
+    $wadsDir\datafloe.wad
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\liquids.wad
+    $wadsDir\icerink.wad
     $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
     $wadsDir\xeno.wad
-    $wadsDir\icerink.wad
     $wadsDir\quadfrost.wad
 }
 "@
@@ -26,12 +27,13 @@ all {
     @"
 all {
     $wadsDir\coldice.wad
+    $wadsDir\datafloe.wad
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
+    $wadsDir\icerink.wad
     $wadsDir\liquids.wad
     $wadsDir\spacepirate.wad
     $wadsDir\spraypaint.wad
-    $wadsDir\icerink.wad
     $wadsDir\xeno.wad
 }
 "@

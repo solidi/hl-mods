@@ -250,6 +250,10 @@ maps\comet.bsp
 maps\comet.res
 maps\comet.gbw
 maps\comet.txt
+maps\datafloe.bsp
+maps\datafloe.res
+maps\datafloe.gbw
+maps\datafloe.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -467,6 +471,8 @@ overviews\cold_base.bmp
 overviews\cold_base.txt
 overviews\comet.bmp
 overviews\comet.txt
+overviews\datafloe.bmp
+overviews\datafloe.txt
 overviews\defroster.bmp
 overviews\defroster.txt
 overviews\depot.bmp
@@ -1119,6 +1125,7 @@ sprites\crosshair_left.spr
 sprites\crosshair_right.spr
 sprites\fart_smoke.spr
 sprites\gameicons5.spr
+sprites\xsmoke1.spr
 liblist.gam
 ReadMe.txt
 settings.scr
@@ -1147,5 +1154,6 @@ gameinfo.txt
 delta.lst
 spacepirate.wad
 icerink.wad
+datafloe.wad
 coldiceremastered.fgd
 titles.txt
