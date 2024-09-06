@@ -116,6 +116,7 @@ Beta 5 Features:
     - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
     - "cl_playmusic [0|1]" - start / stop tracklist music during gaming
     - "cl_autowepthrow [0|1]" - auto throws weapon on empty
+    - "keyboard" - show default key binds on the HUD
     - cl_playpoint now play ding when damaging enemy, frag score now dong
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
@@ -124,6 +125,7 @@ Beta 5 Features:
 - HUD changes
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
     - Added headshot indicator in death notice
+    - Added default keyboard layout and command menu items
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
     - "vote" command now case insensitive
@@ -874,6 +876,7 @@ Client:
 - "impulse 214" - Hurricane Kick
 - "impulse 215" - Force Grab
 - "impulse 216" - Throw Explosive Weapon
+- "keyboard" - show default key binds on the HUD
 - "snowman" - God mode (when sv_cheats 1)
 - "vote" - type in the chat to start a vote
 
@@ -894,12 +897,17 @@ Server:
 - "mp_gamemode" to select game mode
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "coldskull" - be the first to collect all the skulls!
+    - "chilldemic" - be the survivor from the virus
     - "ctc" - capture the chumtoad, hold on to it to receive points!
     - "ctf" - capture the flag, grab the flag and run it back to base!
     - "gungame" - get specific weapons for frags and level up!
+    - "horde" - fight npc's, survive waves.
     - "ffa" - traditional free-for-all deathmatch
+    - "instagib" - grab a zapper and get to work.
     - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - "lms" - last man standing, protect your lives be the last person standing to win
+    - "prophunt" - spawn as a item, hide from thehunters
+    - "shidden" - some are hidden, equipped with deadly farts.
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
     - "teamplay" - frag with teams
 - "mp_ggstartlevel" - Sets default start level of gun game
