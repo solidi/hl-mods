@@ -1,0 +1,142 @@
+// Command Menu definition
+// 
+// Basic Format:
+//		"<Bound Key>" "<Button Text>" "<Command sent to server>"
+//
+// Or you can check for a specific class:
+//		<Class> "<BoundKey>" "<Button Text>" "<Command sent to server>"
+// Where <Class> is one of: SCOUT, SNIPER, SOLDIER, DEMOMAN, MEDIC, HWGUY, PYRO, SPY, ENGINEER
+// 
+// Or you can check for a specific map:
+//		MAP <MapName> "<BoundKey>" "<Button Text>" "<Command sent to server>"
+// Where <MapName> is the name of the map, without the ".bsp".
+//
+// Or you can check for a specific team:
+//		TEAM1 "<BoundKey>" "<Button Text>" "<Command sent to server>"
+//		TEAM2 "<BoundKey>" "<Button Text>" "<Command sent to server>"
+// TEAM3, TEAM4 work as well
+//
+// Buttons can also open up submenus, as follows:
+// {
+// 	"Some More Options",
+//	{
+//		...
+//	}
+// }
+//
+// Class can be any of the following:
+//		SCOUT, SNIPER, SOLDER, DEMOMAN, MEDIC, HWGUY, PYRO, SPY, ENGINEER
+//	Buttons prepended with a class name will only be seen if the player
+//	is that class. 
+//
+// Buttons preceded with "CUSTOM" are handled in special ways. They can only be moved
+// around or deleted.
+//
+//
+// Limitations:
+//		Maximum of 40 menus.
+//		Maximum of 100 buttons per menu.
+
+//--------------------------------------------------------
+// Everything below here is editable
+
+"1" "Combat"
+{
+    "1" "Auto Melee"
+    {
+        "1" "On" "cl_automelee 1"
+        "2" "Off" "cl_automelee 0"
+    }
+    "2" "Throw Weapon" "impulse 216"
+    "3" "Auto Weapon Throw"
+    {
+        "1" "On" "cl_autowepthrow 1"
+        "2" "Off" "cl_autowepthrow 0"
+    }
+    "4" "Auto Taunt"
+    {
+        "1" "On" "cl_autotaunt 1"
+        "2" "Off" "cl_autotaunt 0"
+    }
+    "5" "Auto Weapon Switch"
+    {
+        "1" "On" "cl_autowepswitch 1"
+        "2" "Off" "cl_autowepswitch 0"
+    }
+}
+"2" "HUD"
+{
+    "1" "Show Objectives"
+    {
+        "1" "On" "cl_objectives 1"
+        "2" "Off" "cl_objectives 0"
+    }
+    "2" "Sprees"
+    {
+        "0" "Off" "cl_achievements 0"
+        "1" "Screen Print" "cl_achievements 1"
+        "2" "Small Timed Bar" "cl_achievements 2"
+        "3" "Centered Circles" "cl_achievements 2"
+    }
+    "3" "Radar"
+    {
+        "1" "On" "cl_radar 1"
+        "2" "Off" "cl_radar 0"
+    }
+    "4" "Show Tips"
+    {
+        "1" "On" "cl_showtips 1"
+        "2" "Off" "cl_showtips 0"
+    }
+    "5" "Old Scoreboard"
+    {
+        "1" "On" "cl_oldscoreboard 1"
+        "2" "Off" "cl_oldscoreboard 0"
+    }
+    "6" "Old MOTD"
+    {
+        "1" "On" "cl_oldmotd 1"
+        "2" "Off" "cl_oldmotd 0"
+    }
+}
+"3" "Environment"
+{
+    "1" "Show Life Meters"
+    {
+        "1" "On" "cl_lifemeters 1"
+        "2" "Off" "cl_lifemeters 0"
+    }
+}
+"4" "Drop Rune" "drop_rune"
+"5" "Weapons"
+{
+    "1" "Models"
+    {
+        "1" "Original" "cl_icemodels 0"
+        "2" "Inverted" "cl_icemodels 1"
+        "3" "Iced" "cl_icemodels 2"
+        "4" "Special Edition" "cl_icemodels 3"
+        "5" "Original + Blue HEV" "cl_icemodels 4"
+        "6" "Silver" "cl_icemodels 5"
+        "7" "Gold" "cl_icemodels 6"
+    }
+    "2" "Gun Smoke"
+    {
+        "1" "On" "cl_gunsmoke 1"
+        "2" "Off" "cl_gunsmoke 0"
+    }
+}
+"6" "Sound"
+{
+    "1" "Play Music"
+    {
+        "1" "On" "cl_playmusic 1"
+        "2" "Off" "cl_playmusic 0"
+    }
+    "2" "Play Point"
+    {
+        "1" "On" "cl_playpoint 1"
+        "2" "Off" "cl_playpoint 0"
+    }
+}
+"7" "Keyboard" "keyboard"
