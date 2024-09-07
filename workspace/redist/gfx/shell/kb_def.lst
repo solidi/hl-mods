@@ -21,7 +21,7 @@
 "END"			"force_centerview"
 "ALT"			"+strafe"
 "INS"			"+klook"
-";"				"+mlook"
+";"				"+commandmenu"
 "r"				"+reload"
 "SHIFT"			"+speed"
 "MOUSE1"		"+attack"

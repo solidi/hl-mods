@@ -130,6 +130,7 @@ try {
     Compile-Sprite $binDir "crosshair_left" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons5" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "fart_smoke" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "keyboard" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "xsmoke1" $spritesDir $redistdir\sprites
 
     # weapon_*.txt, hud.txt, etc.

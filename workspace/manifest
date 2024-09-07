@@ -1126,6 +1126,7 @@ sprites\crosshair_right.spr
 sprites\fart_smoke.spr
 sprites\gameicons5.spr
 sprites\xsmoke1.spr
+sprites\keyboard.spr
 liblist.gam
 ReadMe.txt
 settings.scr
@@ -1157,3 +1158,4 @@ icerink.wad
 datafloe.wad
 coldiceremastered.fgd
 titles.txt
+commandmenu.txt
