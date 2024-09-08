@@ -55,7 +55,7 @@ Beta 5 Features:
     - Added fog effect to snowyard
     - Added poolside to training2
 - Game Modes
-    - 6 New Game Modes (mp_gamemode)
+    - 7 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
         - "ctf" - capture the flag, grab the flag and run it back to base!
         - "horde" - fight npc's, survive waves.
@@ -63,6 +63,7 @@ Beta 5 Features:
         - "shidden" - some are hidden, equipped with deadly farts.
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
+        - "busters" - one player has the egon and busts ghosts
     - 20 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -896,6 +897,7 @@ Server:
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
 - "mp_gamemode" to select game mode
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
+    - "busters" - one player has the egon and busts ghosts
     - "coldskull" - be the first to collect all the skulls!
     - "chilldemic" - be the survivor from the virus
     - "ctc" - capture the chumtoad, hold on to it to receive points!
@@ -1155,3 +1157,4 @@ Thanks To:
 - DokuGamesLTD for inspiration, and their game Out Of Action https://store.steampowered.com/app/1670780/Out_of_Action/
 - FWGS team for the func_vehicle implementation https://github.com/FWGS/hlsdk-portable
 - Monster panthereye monster code by Alan https://github.com/Magic-Nipples
+- Ian Prest for the github keyboard layout editor http://www.keyboard-layout-editor.com
