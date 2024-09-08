@@ -115,6 +115,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
+    1. [ ] busters (give egon)
     1. [ ] assassin like jumpscare
     1. [ ] godmode
     1. [ ] half-life - cl_icemodels 0
@@ -329,6 +330,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Taser
     1. [ ] Counter-Strike penguin
 1. Weapons Mechanics
+    1. [ ] [Drop a forklift](https://www.youtube.com/watch?v=6MTjdllk1_E&t=450s) on players (third function, gravity gun)
+    1. [ ] [Dio's Zawarudo](https://www.youtube.com/watch?v=6MTjdllk1_E&t=470s) on players
     1. [ ] [Sideways weapons?](https://www.reddit.com/r/AskGames/comments/6ktkki/what_was_the_first_shooter_game_where_the_player/)
     1. [ ] Freezegun secondary fire beam to explode primary plasma
     1. [ ] [Reload / No Ammo indicator](https://www.youtube.com/watch?v=r5dXK9f2DGE&t=380s) from Halo Combar Evolved
@@ -457,6 +460,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Prefabs / Extras
     1. [Decay wall chargers](https://github.com/FWGS/hlsdk-portable/blob/decay-pc/dlls/healthkit.cpp#L255-L609), models can be [found here](https://www.moddb.com/games/half-life-decay/addons/hev-charger-and-healt-charger-from-half-life-decay)
 1. HUD
+    1. [ ] Frag [spree counter](https://www.youtube.com/watch?v=6MTjdllk1_E&t=350) with large number (combine with place?)
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?

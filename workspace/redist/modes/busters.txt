@@ -1,0 +1,9 @@
+The gamemode that makes you feel good.
+
+A player with the least frags is granted the egon.
+
+Bust the skeletons.
+
+If the buster dies, the egon is up for grabs.
+
+If time passes without a new owner, it begins again.
