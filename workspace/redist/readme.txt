@@ -174,6 +174,7 @@ Beta 5 Features:
     - Fixed meleedrop cvar, default is now off
     - Dont count players in vote who disconnected
     - Fix spectator view after round ends
+    - Fixed func_friction behavior in multiplayer
 
 Beta 4 Features:
 
