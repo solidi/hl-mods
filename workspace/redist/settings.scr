@@ -463,8 +463,8 @@ DESCRIPTION SERVER_OPTIONS
 	"mp_voting"
 	{
 		"#Ice_Voting"
-		{ BOOL }
-		{ "1" }
+		{ NUMBER 10.000000 120.000000 }
+		{ "30" }
 	}
 
 	"mp_spawnprotectiontime"

@@ -44,24 +44,24 @@
 {
     "1" "Auto Melee"
     {
-        "1" "On" "cl_automelee 1"
-        "2" "Off" "cl_automelee 0"
+        "1" "On" "cl_am 1"
+        "2" "Off" "cl_am 0"
     }
     "2" "Throw Weapon" "impulse 216"
     "3" "Auto Weapon Throw"
     {
-        "1" "On" "cl_autowepthrow 1"
-        "2" "Off" "cl_autowepthrow 0"
+        "1" "On" "cl_awt 1"
+        "2" "Off" "cl_atw 0"
     }
     "4" "Auto Taunt"
     {
-        "1" "On" "cl_autotaunt 1"
-        "2" "Off" "cl_autotaunt 0"
+        "1" "On" "cl_at 1"
+        "2" "Off" "cl_at 0"
     }
     "5" "Auto Weapon Switch"
     {
-        "1" "On" "cl_autowepswitch 1"
-        "2" "Off" "cl_autowepswitch 0"
+        "1" "On" "cl_aws 1"
+        "2" "Off" "cl_aws 0"
     }
 }
 "2" "HUD"
@@ -130,8 +130,8 @@
 {
     "1" "Play Music"
     {
-        "1" "On" "cl_playmusic 1"
-        "2" "Off" "cl_playmusic 0"
+        "1" "On" "cl_music 1"
+        "2" "Off" "cl_music 0"
     }
     "2" "Play Point"
     {

@@ -176,7 +176,7 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
-	"cl_autowepswitch"
+	"cl_aws"
 	{
 		"#Ice_WepSwitch"
 		{
@@ -211,7 +211,7 @@ DESCRIPTION INFO_OPTIONS
 		{ "3" }
 	}
 
-	"cl_infomessage"
+	"cl_info"
 	{
 		"#Ice_InfoMessage"
 		{
@@ -233,7 +233,7 @@ DESCRIPTION INFO_OPTIONS
 		{ "0" }
 	}
 
-	"cl_keyboardacrobatics"
+	"cl_kacro"
 	{
 		"#Ice_KeyboardAcrobatics"
 		{
@@ -332,16 +332,23 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
-	"cl_automelee"
+	"cl_am"
 	{
 		"#Ice_AutoMelee"
 		{ BOOL }
 		{ "1" }
 	}
 
-	"cl_autotaunt"
+	"cl_at"
 	{
 		"#Ice_AutoTaunt"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"cl_awt"
+	{
+		"#Ice_AutoWeaponThrow"
 		{ BOOL }
 		{ "1" }
 	}

@@ -16610,3 +16610,10 @@
 ( -1884 1976 520 ) ( -1884 1976 328 ) ( -1944 1868 520 ) AAATRIGGER [ 0 1 0 0 ] [ 0 0 -1 11 ] 0 1 1
 }
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "-3576 1576 832"
+"health" "14"
+"message" "media/13-topsy-turvy.mp3"
+"spawnflags" "1"
+}
