@@ -4,10 +4,10 @@
 
 [ ] a bad entity in index of edict
 [ ] map voting, when joining.
-[ ] if people leave, voting count still too high
 [ ] double vote influence on steamids (for $$$)
 [ ] 69 mutator, change as many numbers to 69
 [ ] pair of dice, roll the dice, roll it for a weapon
+[x] if people leave, voting count still too high
 [x] rocket bees?
 [x] execute configs on game mode.
 [x] switch to give weapon.
@@ -20,10 +20,10 @@ nuke?
 
 ##  Janurary 2024 GSS #109
 
-[ ] pushy and snowballs
 [ ] fix server side crossbow zoom
-[ ] reset models after gamemode
 [ ] no time limit in gamegun
+[x] reset models after gamemode
+[x] pushy and snowballs
 [x] Slow bullets still stuck
 [x] fragged and walking if holding arrow button?
 [x] aim mutator, only target enemy (different team, chumtoad holder)

@@ -86,6 +86,7 @@ Beta 5 Features:
         - "rocketbees" - hornets are explosive
         - "napkinstory" - the legend reduced to two words
     - Gamemode Changes
+        - Show game rules on connection
         - Disable randomweapons mutator from gungame
         - Disable numerous mutators from snowball game mode
         - Tweaked game mode waiting times
@@ -95,6 +96,7 @@ Beta 5 Features:
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
+        - Added "clear" to remove all active mutators
         - Added "unchaos" to shut off chaos mode
         - Added chaos timer bar on HUD indicating next mutator
         - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
@@ -107,22 +109,29 @@ Beta 5 Features:
         - Fixed lightsout environment light remaining dark
         - Removed dont shoot explosion during spawn protection
         - Rocket launchers support autoaim
+        - Egon and snowball pushy mutator fixed
 - Game Mode Changes
     - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard
     - Add assist system where every 3 assists a frag is credited
     - Disabled first blood award in LMS and Arena modes
+    - Changed "mp_voting [time]" to enable or disable end of the map voting with timer
+    - Levels are not lost in gungame
 - Client Support
-    - "cl_automelee [0|1]" - automatically kick or punch if enemy is close
-    - "cl_autotaunt [0|1]" - automatically taunt after frag if its safe to do so
-    - "cl_playmusic [0|1]" - start / stop tracklist music during gaming
-    - "cl_autowepthrow [0|1]" - auto throws weapon on empty
+    - "cl_am [0|1]" - automatically kick or punch if enemy is close
+    - "cl_at [0|1]" - automatically taunt after frag if its safe to do so
+    - "cl_music [0|1]" - start / stop tracklist music during gaming
+    - "cl_awt [0|1]" - auto throws weapon on empty
     - "keyboard" - show default key binds on the HUD
     - cl_playpoint now play ding when damaging enemy, frag score now dong
     - Indicate red frag notice if player is involved
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
     - Added the custom spraypaint "flake"
+- Client Support Changes
+    - Changed "cl_keyboardacrobatics" to "cl_kacro"
+    - Changed "cl_infomessage" to "cl_info"
+    - Changed "cl_autowepswitch" to "cl_aws"
 - HUD changes
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
     - Added headshot indicator in death notice
@@ -135,8 +144,11 @@ Beta 5 Features:
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
+    - Players celebrate if they are the round winner
 - Environment
     - Added fog effect in select maps
+- Runes
+    - Reduced dropped runes in battle
 - Fixes
     - Remove deathmatch spawn point in wall
     - Last Man Standing lives do not increase
@@ -160,6 +172,9 @@ Beta 5 Features:
     - Fixed button select sound
     - Fixed voice tracks playing after weapon is holstered
     - Fixed meleedrop cvar, default is now off
+    - Dont count players in vote who disconnected
+    - Fix spectator view after round ends
+    - Fixed func_friction behavior in multiplayer
 
 Beta 4 Features:
 
@@ -819,10 +834,10 @@ Client:
     - "3" - voice / screen print / large centered circles
 - "cl_announcehumor [0|1]" - Play announcement/humor on weapons
 - "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
-- "cl_automelee [0|1]" - auto kick or punch an enemy if they are close
-- "cl_autotaunt [0|1]" - auto taunt on frag when its safe to do so
-- "cl_autowepswitch [0|1]" - auto switches weapon on pickup
-- "cl_autowepthrow [0|1]" - auto throws weapon on empty
+- "cl_am [0|1]" - auto kick or punch an enemy if they are close
+- "cl_at [0|1]" - auto taunt on frag when its safe to do so
+- "cl_aws [0|1]" - auto switches weapon on pickup
+- "cl_awt [0|1]" - auto throws weapon on empty
 - "cl_bobtilt [0|1]" - Old Bob Tilt
 - "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
 - "cl_crosshairammo [0|1]" - show ammo status in crosshairs
@@ -841,15 +856,15 @@ Client:
     - "4" - real skin + blue hev
     - "5" - silver skin
     - "6" - gold skin
-- "cl_infomessage [0|1]" - display weapon and rune pick up messages
-- "cl_keyboardacrobatics [0|1]" - enable/disable key input three times to perform slides and flips
+- "cl_info [0|1]" - display weapon and rune pick up messages
+- "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
 - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
 - "cl_objectives [0|1]" - show objective read out on HUD
 - "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
 - "cl_oldscoreboard [0|1]" - Old Scoreboard
 - "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
 - "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag
-- "cl_playmusic [0|1]" - Play soundtrack set by map
+- "cl_music [0|1]" - Play soundtrack set by map
 - "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
 - "cl_radar [0|1]" enables or disables player radar
 - "cl_righthand [0|1]" - Right/Left Handed Models
@@ -935,7 +950,7 @@ Server:
 - "mp_spawnweapons" - Spawn weapons or not
 - "mp_startwithall [0|1]" - Start with all weapons
 - "mp_startwithlives" - Sets the starting lifes during last man standing
-- "mp_voting "[0|1]"" - enable or disable end of the map voting
+- "mp_voting [time]" - enable or disable end of the map voting with timer
 - "sv_acrobatics [0|1]" allow or disallow wall climbing, slides, and flips
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns
 - "sv_chaosfilter" - a list of mutators inwhich are ignored during chaos mode

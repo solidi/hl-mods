@@ -26904,7 +26904,7 @@
 {
 "classname" "trigger_mp3audio"
 "origin" "-576 0 80"
-"health" "3"
-"message" "media/02-snowfall.mp3"
+"health" "8"
+"message" "media/07-catching-santa.mp3"
 "spawnflags" "1"
 }
