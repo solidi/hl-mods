@@ -211,7 +211,7 @@ DESCRIPTION INFO_OPTIONS
 		{ "3" }
 	}
 
-	"cl_info"
+	"cl_minfo"
 	{
 		"#Ice_InfoMessage"
 		{

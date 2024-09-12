@@ -98,6 +98,11 @@
         "1" "On" "cl_oldmotd 1"
         "2" "Off" "cl_oldmotd 0"
     }
+    "7" "Rune and Weapon Info"
+    {
+        "1" "On" "cl_minfo 1"
+        "2" "Off" "cl_minfo 0"
+    }
 }
 "3" "Environment"
 {

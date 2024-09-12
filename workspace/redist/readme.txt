@@ -130,7 +130,7 @@ Beta 5 Features:
     - Added the custom spraypaint "flake"
 - Client Support Changes
     - Changed "cl_keyboardacrobatics" to "cl_kacro"
-    - Changed "cl_infomessage" to "cl_info"
+    - Changed "cl_infomessage" to "cl_minfo"
     - Changed "cl_autowepswitch" to "cl_aws"
 - HUD changes
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
@@ -856,7 +856,7 @@ Client:
     - "4" - real skin + blue hev
     - "5" - silver skin
     - "6" - gold skin
-- "cl_info [0|1]" - display weapon and rune pick up messages
+- "cl_minfo [0|1]" - display weapon and rune pick up messages
 - "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
 - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
 - "cl_objectives [0|1]" - show objective read out on HUD
