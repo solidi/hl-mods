@@ -63,6 +63,11 @@
         "1" "On" "cl_aws 1"
         "2" "Off" "cl_aws 0"
     }
+    "6" "Keyboard Acrobatics"
+    {
+        "1" "On" "cl_kacro 1"
+        "2" "Off" "cl_karco 0"
+    }
 }
 "2" "HUD"
 {

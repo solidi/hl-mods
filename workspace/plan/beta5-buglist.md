@@ -2,37 +2,40 @@
 
 ##  Sept 2024 GSS #143
 
-[ ] CTF - balancing teams was off - choose team?
-[ ] CTF - scoreboard adjusting? First connection was off.
-[ ] CTF - Add what team am im on on HUD.
-[ ] Prop hunt - black out on HUD hunter
-[ ] Prop hunt - every shot takes away health from hunter
-[ ] Prop hunt - disable automelee
-[ ] Prop hunt - disable flips and stuff for prophunt
-[ ] Prop hunt - No damage on hiding time
-[ ] Prop hunt - disable lifebar on prop
-[ ] Raise ricochet mutator up to eye level
-[ ] Invisible mutator not working?
-[ ] Mutator perm after map
-[ ] Shut off acro on command menu
-[ ] invalid index of edict crashes?
-[ ] Should not throw explosive weapon in gungame
-[ ] Gungame - shut off barrel mutator
-[ ] Interupt taunts without health credit
-[ ] Shut off mp_timelimit in gungame. Timer was still showing?
+[ ] glock and chaingun ironsight disabled
+[ ] Interrupt taunts without health credit
+[ ] Lose invinicibily on attack 
+---
 [ ] Idea - Broken mouse mutator
-[ ] Gungame - No rounds, end game on win.
-[ ] When nooclip mutator ends, respawn
-[x] Snowballs gamemode list update was wrong title?
-[ ] Idea: asmr weapon for UT
-[ ] Inverse forward and back for mirror mutator
-[ ] Recoil mutator?
-[ ] Hornets too slow when firing head of th eplayer
-[ ] Make messages reliable
-[ ] Draw attention to voted items on HUD.
-[ ] Friend fire on busting?
-[ ] Loose invinicibily on attack 
-[ ] "Dealter" under gun
-[ ] Skulls floating, fix pick up problem
-[ ] Farts in chilldemic may kill teammate?
 [ ] Bird to fix canyon?
+[ ] ASMR weapon from UT?
+[ ] Recoil mutator?
+---
+[x] Make messages reliable
+[x] Invisible mutator not working?
+[x] Mutator perm after map
+[x] When noclip mutator ends, respawn
+[x] CTF - balancing teams was off - choose team?
+[x] CTF - Add what team am im on HUD.
+[x] CTF - scoreboard adjusting? First connection was off.
+[x] Prop hunt - black out on HUD hunter
+[x] Prop hunt - every shot takes away health from hunter
+[x] Prop hunt - disable automelee
+[x] Prop hunt - disable flips and stuff for prophunt
+[x] Prop hunt - No damage on hiding time
+[x] Prop hunt - disable lifebar on prop
+[x] Raise ricochet mutator up to eye level
+[x] Shut off acro on command menu
+[ ] invalid index of edict crashes?
+[x] Gungame - Should not throw explosive weapon
+[x] Gungame - shut off barrel mutator
+[x] Gungame - Shut off mp_timelimit. Timer was still showing?
+[x] Gungame - No rounds, end game on win.
+[x] Snowballs gamemode list update was wrong title?
+[x] Inverse forward and back for mirror mutator
+[x] Hornets too slow when firing head of th eplayer
+[x] Draw attention to voted items on HUD.
+[x] Friendly fire on busting?
+[x] "Dealter" under gun
+[x] Skulls floating, fix pick up problem
+[x] Farts in chilldemic may kill teammate?

@@ -47,6 +47,7 @@ Beta 5 Features:
     - Freezegun does not freeze its owner
     - Reduced freezegun speed and power
     - Improved rocketcrowbar rocket launching
+    - Fix hornetgun velocity while running
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
@@ -87,12 +88,13 @@ Beta 5 Features:
         - "napkinstory" - the legend reduced to two words
     - Gamemode Changes
         - Show game rules on connection
-        - Disable randomweapons mutator from gungame
+        - Disable numerous Mutators from gungame
         - Disable numerous mutators from snowball game mode
         - Tweaked game mode waiting times
         - Show lives in battle royale
         - Show persons who are in arena mode on scoreboard
         - Improved objectives in JVS
+        - Gungame is now roundless
     - Mutator Changes
         - Mutators are independent timers
         - Changed "sv_mutators" to "sv_addmutator"
@@ -136,6 +138,7 @@ Beta 5 Features:
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
     - Added headshot indicator in death notice
     - Added default keyboard layout and command menu items
+    - Vote menu highlights selected items
 - Server
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
     - "vote" command now case insensitive
