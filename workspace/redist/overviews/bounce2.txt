@@ -1,12 +1,12 @@
 global 
 {
-	ZOOM	1.16
-	ORIGIN	-264 	456	-1680
+	ZOOM	1.36
+	ORIGIN	-170.50 	156	-1552
 	ROTATED	0
 }
 
 layer 
 {
 	IMAGE	"overviews/bounce2.bmp"
-	HEIGHT	-2785
+	HEIGHT	-2497
 }
