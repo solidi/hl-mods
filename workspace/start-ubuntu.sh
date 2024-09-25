@@ -10,13 +10,15 @@ debug=0
 singlePlayer=0
 detailTextures=0
 mapName=snowyard
-while getopts "m:h:s:d:p:t:w:" flag
+listen=0
+while getopts "m:h:s:d:l:p:t:w:" flag
 do
     case "${flag}" in
         m) maxplayers=${OPTARG};;
         h) hiDef=${OPTARG};;
         s) skipDistro=${OPTARG};;
         d) debug=${OPTARG};;
+        l) listen=${OPTARG};;
         p) singlePlayer=${OPTARG};;
         t) detailTextures=${OPTARG};;
         w) mapName=${OPTARG};;
@@ -68,7 +70,15 @@ if [[ $debug -eq 1 ]]; then
     export LD_LIBRARY_PATH=~/.steam/debian-installation/steamapps/common/Half-Life:~/.steam/bin32/steam-runtime/usr/lib/i386-linux-gnu:~/.steam/bin32/steam-runtime/lib/i386-linux-gnu
     ulimit -c unlimited
     cd ~/.steam/debian-installation/steamapps/common/Half-Life
-    gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
+    if [[ $listen -eq 0 ]]; then
+        gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
+    else
+        gdb -ex=r --args hlds_linux -autoupdate -secure -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
+    fi
 else
-    steam steam://rungameid/70//-console%20-dev%20-condebug%20-game%20${icefolder}%20-zone%208192%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20${mapName}%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
+    if [[ $listen -eq 1 ]]; then
+        steam steam://rungameid/70//-console%20-dev%20-condebug%20-game%20${icefolder}%20-zone%208192%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20${mapName}%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
+    else
+        steam steam://rungameid/90//-console%20-dev%20-condebug%20-game%20${icefolder}%20-zone%208192%20-windowed%20-gl%20-w%20640%20-h%20480%20+developer%202%20+log%20on%20+sv_lan%201%20+map%20${mapName}%20+deathmatch%201%20+maxplayers%20${maxplayers}%20+_sethdmodels%20${hiDef}
+    fi
 fi
