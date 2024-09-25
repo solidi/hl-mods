@@ -20370,10 +20370,6 @@
 "origin" "-2585 1736 -242"
 }
 {
-"classname" "monster_barney"
-"origin" "-3369 1821 -323"
-}
-{
 "classname" "func_button"
 "angle" "-1"
 "speed" "100"
