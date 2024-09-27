@@ -59,6 +59,7 @@ Beta 5 Features:
         - Added cliffs and vertical improvements to canyon
         - Fixed glupshitto and themill defects
         - Fixed bounce2 jumppads
+    - Removed barney from frostmill
 - Game Modes
     - 7 New Game Modes (mp_gamemode)
         - "coldskull" - be the first to collect all the skulls!
@@ -123,6 +124,8 @@ Beta 5 Features:
     - Disabled first blood award in LMS and Arena modes
     - Changed "mp_voting [time]" to enable or disable end of the map voting with timer
     - Levels are not lost in gungame
+    - Fixed single survivor winner in chilldemic
+    - Remove fragged player models after round ends
 - Client Support
     - "cl_am [0|1]" - automatically kick or punch if enemy is close
     - "cl_at [0|1]" - automatically taunt after frag if its safe to do so
@@ -182,6 +185,7 @@ Beta 5 Features:
     - Dont count players in vote who disconnected
     - Fix spectator view after round ends
     - Fixed func_friction behavior in multiplayer
+    - Disabled grappling hook in spectator mode
 
 Beta 4 Features:
 
