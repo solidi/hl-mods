@@ -1,4 +1,4 @@
-304
+305
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -306,6 +306,7 @@ rocketbees	640 gameicons5	192	64	64	64
 napkinstory	640 gameicons5	0	128	64	64
 minime	640 gameicons5	64	128	64	64
 paper	640 gameicons5	128	128	64	64
+cowboy	640 gameicons5	192	128	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64

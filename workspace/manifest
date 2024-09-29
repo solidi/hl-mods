@@ -993,6 +993,7 @@ sound\odetojoy.wav
 sound\heaven.wav
 sound\sprayer.wav
 sound\napkin_story.wav
+sound\dual_sawedoff_selected.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
