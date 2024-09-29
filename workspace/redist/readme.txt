@@ -70,7 +70,7 @@ Beta 5 Features:
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
         - "busters" - one player has the egon and busts ghosts
-    - 20 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 22 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -91,6 +91,8 @@ Beta 5 Features:
         - "firestarter" - start with a flamethrower
         - "rocketbees" - hornets are explosive
         - "napkinstory" - the legend reduced to two words
+        - "minime" - players are half the size
+        - "paper" - players are flat
     - Gamemode Changes
         - Show game rules on connection
         - Disable numerous Mutators from gungame
@@ -117,6 +119,7 @@ Beta 5 Features:
         - Removed dont shoot explosion during spawn protection
         - Rocket launchers support autoaim
         - Egon and snowball pushy mutator fixed
+        - Bots no longer vote for filtered mutators
 - Game Mode Changes
     - Added round wins to the scoreboard
     - LMS gamemode groups active players on scoreboard
@@ -1010,6 +1013,7 @@ Server:
     - "marshmellow" - come back 1999 to you.
     - "maxpack" - drop all weapons and ammo in play (mp only!)
     - "megarun" - run faster than normal
+    - "minime" - players are half the size
     - "mirror" - mirror, mirror on the wall
     - "napkinstory" - the legend reduced to two words
     - "noclip" - fly through walls
@@ -1018,6 +1022,7 @@ Server:
     - "notthebees" - hornets spawn from a player or monster who was killed
     - "oldtime" - gameplay becomes desaturated
     - "paintball" - weapons and explosions leave paint decals
+    - "paper" - players are flat
     - "piratehat" - argh, maty.
     - "plumber" - spawn with dual pipe wrenches
     - "portal" - now you're thinking with portals
