@@ -173,6 +173,7 @@ Compile-Sound $binDir $redistDir $soundDir "064-laser-thum_hYpSdXS.mp3" 1.0 "sou
 Compile-Sound $binDir $redistDir $soundDir "heavenly-choir-crowd-react-w.mp3" 1.0 "sound\heaven.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "ode-to-joy.mp3" 1.0 "sound\odetojoy.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "nap-kehn-storie.mp3" 2.0 "sound\napkin_story.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "engineer_gunslinger.mp3" 1.0 "sound\dual_sawedoff_selected.wav" "wav"
 }
 catch
 {

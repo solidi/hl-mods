@@ -93,6 +93,7 @@ Beta 5 Features:
         - "napkinstory" - the legend reduced to two words
         - "minime" - players are half the size
         - "paper" - players are flat
+        - "cowboy" - cowboy hats with dual cannons!
     - Gamemode Changes
         - Show game rules on connection
         - Disable numerous Mutators from gungame
@@ -988,6 +989,7 @@ Server:
     - "bighead" - players heads are very large
     - "chumxplode" - a killer chumtoad appears directly after an explosion
     - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
+    - "cowboy" - cowboy hats with dual cannons!
     - "crate" - boxwars in the 2020's.
     - "credits" - show all contributors in an endless loop.
     - "dealter" - dealing with farts, of course
@@ -1189,3 +1191,4 @@ Thanks To:
 - FWGS team for the func_vehicle implementation https://github.com/FWGS/hlsdk-portable
 - Monster panthereye monster code by Alan https://github.com/Magic-Nipples
 - Ian Prest for the github keyboard layout editor http://www.keyboard-layout-editor.com
+- Galy Raffo for the cowboy hat https://gamebanana.com/mods/380978

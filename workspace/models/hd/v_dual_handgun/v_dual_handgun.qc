@@ -184,6 +184,7 @@ $sequence "RELOAD" "RELOAD" fps 39 {
 $sequence "draw_lowkey" "DEPLOY" fps 114 { event 5004 0 "default_draw.wav" } { event 5004 15 "default_draw.wav" } 
 $sequence "draw" "DEPLOY" fps 114 { event 5004 0 "default_draw.wav" } { event 5005 2 "handgun_selected.wav" } { event 5004 15 "default_draw.wav" } 
 $sequence "HOLSTER" "HOLSTER" fps 114 
+$sequence "HOLSTER_BOND" "HOLSTER" fps 114 { event 5005 0 "handgun_bond.wav" }
 $sequence "FIRE_BOTH" "FIRE_BOTH" fps 30 { event 5001 0 "31" } { event 5001 4 "31" }
 $sequence "IDLE_LEFTEMPTY" "IDLE_LEFTEMPTY" fps 30 loop 
 $sequence "FIRE_LEFT_LEFTEMPTY" "FIRE_LEFT_LEFTEMPTY" fps 30 

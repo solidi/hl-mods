@@ -32,6 +32,7 @@ studio "piratehat"
 studio "marshmellowhat"
 studio "jackhat"
 studio "pumpkinhat"
+studio "cowboyhat"
 }
 
 $texrendermode "pirate_hat.bmp" "masked" 

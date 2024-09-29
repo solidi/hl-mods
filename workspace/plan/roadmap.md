@@ -468,10 +468,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
+    1. [ ] rapidcore (icecore)
+    1. [ ] RATS styled map
+    1. [ ] UT Phobos like map, but around an ice planet or moon like Europa
     1. [ ] extend depot with another area, possibly creating a circle for the train.
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Frozen Lake map idea
-    1. [ ] rapidcore (icecore)
     1. [ ] Add info_intermission points
     1. [ ] Realign large blue crate textures so detailed textures is left to right
     1. [ ] Clip sky in Focus
