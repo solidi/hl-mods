@@ -151,6 +151,7 @@ Beta 5 Features:
     - Added default keyboard layout and command menu items
     - Vote menu highlights selected items
 - Server
+    - Added "mutator" command to call rtv of mutators
     - Added "mp_ctfspawn1" and "mp_ctfspawn2" where flagbases will spawn
     - "vote" command now case insensitive
     - Support to exec gamemode script file when game mode starts
@@ -910,6 +911,7 @@ Client:
 - "keyboard" - show default key binds on the HUD
 - "snowman" - God mode (when sv_cheats 1)
 - "vote" - type in the chat to start a vote
+- "mutator" - type in the chat to start a rtv of mutators
 
 Server:
 
