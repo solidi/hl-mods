@@ -59,22 +59,30 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\models\player\assassin)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\baer)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\barney)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\bbbbarney)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\commando)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\frost)
-    [void](New-Item -ItemType directory -Path $redistDir\models\player\grunt)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\hgrunt)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\hhev)
-    [void](New-Item -ItemType directory -Path $redistDir\models\player\holo)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\gina)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\gman)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\gordon)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\helmet)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\hotfire)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\iceman)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\ivan)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\jesus)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\navy)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\recon)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\robo)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\santa)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\scientist)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\skeleton)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\snowman)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\stormtrooper)
     [void](New-Item -ItemType directory -Path $redistDir\models\player\swat)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\tmcm)
+    [void](New-Item -ItemType directory -Path $redistDir\models\player\zombie)
     [void](New-Item -ItemType directory -Path $redisthddir\models)
 }
 
@@ -317,22 +325,30 @@ try {
     Compile-Player "assassin" $binDir $modelsdir $redistDir
     Compile-Player "baer" $binDir $modelsdir $redistDir
     Compile-Player "barney" $binDir $modelsdir $redistDir
+    Compile-Player "bbbbarney" $binDir $modelsdir $redistDir
     Compile-Player "commando" $binDir $modelsdir $redistDir
     Compile-Player "frost" $binDir $modelsdir $redistDir
-    Compile-Player "grunt" $binDir $modelsdir $redistDir
+    Compile-Player "gman" $binDir $modelsdir $redistDir
+    Compile-Player "gina" $binDir $modelsdir $redistDir
+    Compile-Player "gordon" $binDir $modelsdir $redistDir
+    Compile-Player "hgrunt" $binDir $modelsdir $redistDir
+    Compile-Player "helmet" $binDir $modelsdir $redistDir
     Compile-Player "hhev" $binDir $modelsdir $redistDir
-    Compile-Player "holo" $binDir $modelsdir $redistDir
     Compile-Player "hotfire" $binDir $modelsdir $redistDir
     Compile-Player "iceman" $binDir $modelsdir $redistDir
+    Compile-Player "ivan" $binDir $modelsdir $redistDir
     Compile-Player "jesus" $binDir $modelsdir $redistDir
     Compile-Player "navy" $binDir $modelsdir $redistDir
     Compile-Player "recon" $binDir $modelsdir $redistDir
+    Compile-Player "robo" $binDir $modelsdir $redistDir
     Compile-Player "santa" $binDir $modelsdir $redistDir
     Compile-Player "scientist" $binDir $modelsdir $redistDir
     Compile-Player "skeleton" $binDir $modelsdir $redistDir
     Compile-Player "snowman" $binDir $modelsdir $redistDir
     Compile-Player "stormtrooper" $binDir $modelsdir $redistDir
     Compile-Player "swat" $binDir $modelsdir $redistDir
+    Compile-Player "tmcm" $binDir $modelsdir $redistDir
+    Compile-Player "zombie" $binDir $modelsdir $redistDir
 
     Compile-Model $binDir "v_9mmAR" $modelsdir $redistDir\models
     Compile-Model $binDir "v_9mmAR" $modelsdir\hd $redisthddir\models

@@ -141,6 +141,10 @@ Beta 5 Features:
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
     - Added the custom spraypaint "flake"
+- New Player Models
+    - Renamed player model holo to gina, grunt to hgrunt
+    - Added animation support for remaining player models
+        - Including the added HL25 models
 - Client Support Changes
     - Changed "cl_keyboardacrobatics" to "cl_kacro"
     - Changed "cl_infomessage" to "cl_minfo"

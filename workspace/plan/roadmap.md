@@ -195,6 +195,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             w_portal?
             box?
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
+1. Player Models
+    1. [x] Import rest of player models, replace skeleton and holo with gina
 1. Fixes
     1. [ ] spectator angle, disconnected bots are available in spectator view?
     1. [ ] Angled dead arms
@@ -471,6 +473,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] rapidcore (icecore)
     1. [ ] RATS styled map
     1. [ ] UT Phobos like map, but around an ice planet or moon like Europa
+    1. [ ] Rebuild and reskin contamination, pool_party, disposal, and rocket_frenzy from HL25
     1. [ ] extend depot with another area, possibly creating a circle for the train.
     1. [ ] Finish arena, texture in Cold Ice style
     1. [ ] Frozen Lake map idea
@@ -485,7 +488,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
-    1. [ ] Import rest of player models, replace skeleton and holo with gina
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
