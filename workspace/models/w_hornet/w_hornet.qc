@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "HG_BULLET_Template_Pose1"
+$body "studio" "hornet"
 
 $texturegroup ice
 {
@@ -45,7 +45,7 @@ $texturegroup ice
 
 
 // hit box(es)
-$hbox 0 "Bone04" -7.090000 -1.900000 -0.600800 2.880000 2.280000 0.632300
+$hbox 0 "hornet" -7.090000 -1.900000 -0.600800 2.880000 2.280000 0.632300
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 loop 

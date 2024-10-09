@@ -180,20 +180,19 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Indicate death notice of my frag more distinctly?
 1. Clean up
     1. [x] Compact w_ ammo models
-    1. [ ] Compact w_ item models
-            w_shotgunshell
+    1. [x] Compact w_ item models
             w_shell
+            w_shotgunshell
+            w_762shell
             w_weaponbox
-            w_suit
             w_longjump
             w_cabinet
             w_barrel
             w_bolt
             w_rocket
-            w_nuke
             w_tombstone
-            w_portal?
-            box?
+            w_tracer
+            w_hornet
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
 1. Player Models
     1. [x] Import rest of player models, replace skeleton and holo with gina

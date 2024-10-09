@@ -10,7 +10,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "w_cabinet"
+$body "studio" "cabinet"
 
 $texturegroup ice
 {
@@ -29,7 +29,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "root" -18.00000 -18.00000 -72.000000 18.00000 18.00000 72.000000
+$hbox 0 "cabinet" -18.00000 -18.00000 -72.000000 18.00000 18.00000 72.000000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 

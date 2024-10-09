@@ -25,15 +25,15 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "shell"
+$body "studio" "shotgunshell"
 
 $texturegroup ice
 {
   {
-    "shell.bmp"
+    "..\w_shotgunshell\shell.bmp"
   }
   {
-    "invert_shell.bmp"
+    "..\w_shotgunshell\invert_shell.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -44,10 +44,10 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "shell" -0.800000 -0.800000 0.000000 0.800000 0.800000 3.510000
+// hit box(es)
+$hbox 0 "shotgunshell" -0.800000 -0.800000 0.000000 0.800000 0.800000 3.510000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 0 
 
 // End of QC script.

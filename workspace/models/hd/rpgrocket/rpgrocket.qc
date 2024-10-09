@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "rpg_rocket"
+$body "body" "rocket"
 
 $texturegroup ice
 {
@@ -47,10 +47,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Line01" -2.160000 -2.120000 -0.080000 2.160000 2.190000 15.470000
+// hit box(es)
+$hbox 0 "rocket" -2.160000 -2.120000 -0.080000 2.160000 2.190000 15.470000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 loop 
 
 // End of QC script.

@@ -160,6 +160,7 @@ Beta 5 Features:
     - "vote" command now case insensitive
     - Support to exec gamemode script file when game mode starts
         - example: "gungame.cfg" is executed when game begins if available
+    - Combined selected items to global model file
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
