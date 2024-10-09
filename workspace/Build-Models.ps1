@@ -426,6 +426,7 @@ try {
     Compile-Model $binDir "w_sqknest" $modelsdir $redistdir\models
     Compile-Model $binDir "v_squeak" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_sqknest" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "w_squeak" $modelsdir $redistdir\models
     Compile-Model $binDir "w_squeak" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_leg" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_leg" $modelsdir $redistdir\models
