@@ -196,6 +196,7 @@ Beta 5 Features:
     - Fix spectator view after round ends
     - Fixed func_friction behavior in multiplayer
     - Disabled grappling hook in spectator mode
+    - Remove rune from all spectators
 
 Beta 4 Features:
 
