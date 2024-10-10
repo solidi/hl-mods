@@ -30,14 +30,14 @@ $body "studio" "shell"
 $texturegroup ice
 {
   {
-    "back.bmp"
-    "bulletCHROME.bmp"
-    "front.bmp"
+    "..\w_shell\back.bmp"
+    "..\w_shell\bulletCHROME.bmp"
+    "..\w_shell\front.bmp"
   }
   {
-    "invert_back.bmp"
-    "invert_bulletCHROME.bmp"
-    "invert_front.bmp"
+    "..\w_shell\invert_back.bmp"
+    "..\w_shell\invert_bulletCHROME.bmp"
+    "..\w_shell\invert_front.bmp"
   }
   {
     "..\ringchrome.bmp"

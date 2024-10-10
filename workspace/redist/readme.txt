@@ -197,6 +197,7 @@ Beta 5 Features:
     - Fixed func_friction behavior in multiplayer
     - Disabled grappling hook in spectator mode
     - Remove rune from all spectators
+    - Fix crash involving monster projectiles
 
 Beta 4 Features:
 

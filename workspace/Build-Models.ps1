@@ -398,6 +398,8 @@ try {
     Compile-Model $binDir "v_usas" $modelsdir $redistdir\models
     Compile-Model $binDir "w_shotgunshell" $modelsdir $redistdir\models
     Compile-Model $binDir "w_shotgunshell" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "w_shell" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_shell" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_fists" $modelsdir $redistdir\models
     Compile-Model $binDir "v_fists" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_wrench" $modelsdir $redistdir\models

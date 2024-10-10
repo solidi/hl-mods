@@ -30,10 +30,10 @@ $body "studio" "shell"
 $texturegroup ice
 {
   {
-    "shell.bmp"
+    "..\w_shell\shell.bmp"
   }
   {
-    "invert_shell.bmp"
+    "..\w_shell\invert_shell.bmp"
   }
   {
     "..\..\ringchrome.bmp"
