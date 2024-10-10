@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "Bone04" -1
+  0 "hornet" -1
   1 "MDLDEC_Bone1" 0
   2 "MDLDEC_Bone2" 0
 end

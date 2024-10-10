@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "default" -1
+  0 "barrel" -1
 end
 skeleton
 time 0

@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "cir_arcade"
+$body "body" "cabinet"
 
 $texrendermode "cir_arcade01.bmp" "masked" 
 $texrendermode "cir_arcade02.bmp" "masked" 
@@ -54,7 +54,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "w_cir_arcade" -20.000000 -21.570000 -79.989998 20.000000 20.510000 0.000000
+$hbox 0 "cabinet" -20.000000 -21.570000 -79.989998 20.000000 20.510000 0.000000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 1 loop 

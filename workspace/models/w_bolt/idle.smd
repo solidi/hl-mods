@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "Crossbow03" -1
+  0 "bolt" -1
 end
 skeleton
 time 0

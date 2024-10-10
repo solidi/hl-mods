@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "grenade1_update"
+$body "studio" "contactgrenade"
 
 
 $texturegroup ice
@@ -49,10 +49,10 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "MDLDEC_Bone1" -4.730000 -9.880000 -4.100000 4.730000 9.880000 4.100000
+// hit box(es)
+$hbox 0 "contactgrenade" -4.730000 -9.880000 -4.100000 4.730000 9.880000 4.100000
 
-// 1 animation sequence(s)
-$sequence "idle1" "idle1" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.

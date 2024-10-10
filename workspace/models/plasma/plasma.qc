@@ -25,14 +25,14 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "shock_effect"
+$body "body" "null"
 
 
-// 2 attachment(s)
+// attachment(s)
 $attachment 0 "shock_effect" 5.000000 -40.000000 0.000000
 $attachment 1 "shock_effect" 5.000000 40.000000 0.000000
 
-// 1 animation sequence(s)
-$sequence "idle1" "idle1" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.

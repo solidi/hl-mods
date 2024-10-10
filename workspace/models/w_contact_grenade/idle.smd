@@ -1,7 +1,7 @@
 version 1
 nodes
   0 "NGon01" -1
-  1 "MDLDEC_Bone1" 0
+  1 "contactgrenade" 0
 end
 skeleton
 time 0

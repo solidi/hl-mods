@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "w_crossbow_bolt_reference"
+$body "body" "bolt"
 
 $texturegroup ice
 {
@@ -43,10 +43,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Object02" -0.930000 -8.280000 -0.820000 0.930000 8.280000 0.820000
+// hit box(es)
+$hbox 0 "bolt" -0.930000 -8.280000 -0.820000 0.930000 8.280000 0.820000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

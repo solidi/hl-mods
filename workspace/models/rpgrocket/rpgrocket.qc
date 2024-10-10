@@ -47,10 +47,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "Line01" -14.180000 -2.840000 -2.840000 0.020000 2.840000 2.840000
+// hit box(es)
+$hbox 0 "rocket" -14.180000 -2.840000 -2.840000 0.020000 2.840000 2.840000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 15 loop 
 
 // End of QC script.

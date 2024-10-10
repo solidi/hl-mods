@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "shellcase"
+$body "studio" "762shell"
 
 $texturegroup ice
 {
@@ -44,10 +44,10 @@ $texturegroup ice
 }
 
 
-// 1 hit box(es)
-$hbox 0 "Cylinder01" -0.810000 -0.850000 -2.530000 0.650000 0.710000 3.900000
+// hit box(es)
+$hbox 0 "762shell" -0.810000 -0.850000 -2.530000 0.650000 0.710000 3.900000
 
-// 1 animation sequence(s)
-$sequence "shell" "shell" fps 30 
+// animation sequence(s)
+$sequence "idle" "idle" fps 30 
 
 // End of QC script.

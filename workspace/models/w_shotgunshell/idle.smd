@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "shell" -1
+  0 "shotgunshell" -1
 end
 skeleton
 time 0

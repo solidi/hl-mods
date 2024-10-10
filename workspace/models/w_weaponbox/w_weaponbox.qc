@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "studio" "wrld_itemcontainer"
+$body "studio" "weaponbox"
 
 $texturegroup ice
 {
@@ -51,10 +51,10 @@ $texturegroup ice
   }
 }
 
-// 1 hit box(es)
-$hbox 0 "CYLINDER01" -7.120000 -5.500000 -22.920000 7.120000 5.360000 9.490000
+// hit box(es)
+$hbox 0 "weaponbox" -7.120000 -5.500000 -22.920000 7.120000 5.360000 9.490000
 
-// 1 animation sequence(s)
+// animation sequence(s)
 $sequence "idle" "idle" fps 30 
 
 // End of QC script.

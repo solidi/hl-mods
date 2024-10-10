@@ -1,6 +1,6 @@
 version 1
 nodes
-  0 "CYLINDER01" -1
+  0 "weaponbox" -1
 end
 skeleton
 time 0

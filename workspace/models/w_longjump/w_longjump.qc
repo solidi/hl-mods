@@ -61,7 +61,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "CYLINDER01" -13.170000 -8.970000 -16.820000 13.530000 11.690000 19.469999
+$hbox 0 "longjump" -13.170000 -8.970000 -16.820000 13.530000 11.690000 19.469999
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 30 
