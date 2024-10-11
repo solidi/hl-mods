@@ -1,7 +1,7 @@
 version 1
 nodes
   0 "Bone01" -1
-  1 "w_cir_arcade" 0
+  1 "cabinet" 0
 end
 skeleton
 time 0

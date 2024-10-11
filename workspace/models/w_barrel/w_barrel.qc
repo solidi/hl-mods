@@ -25,7 +25,7 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
-$body "body" "barrel_metal"
+$body "body" "barrel"
 
 
 $texturegroup ice 
@@ -45,7 +45,7 @@ $texturegroup ice
 }
 
 // hit box(es)
-$hbox 0 "default" -12.160000 -12.290000 -18.000000 12.160000 12.290000 18.000000
+$hbox 0 "barrel" -12.160000 -12.290000 -18.000000 12.160000 12.290000 18.000000
 
 // animation sequence(s)
 $sequence "idle" "idle" fps 1 
