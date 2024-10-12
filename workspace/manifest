@@ -254,6 +254,10 @@ maps\datafloe.bsp
 maps\datafloe.res
 maps\datafloe.gbw
 maps\datafloe.txt
+maps\thetemple.bsp
+maps\thetemple.res
+maps\thetemple.gbw
+maps\thetemple.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -533,6 +537,8 @@ overviews\thechill.bmp
 overviews\thechill.txt
 overviews\themill.bmp
 overviews\themill.txt
+overviews\thetemple.bmp
+overviews\thetemple.txt
 overviews\training.bmp
 overviews\training.txt
 overviews\training2.bmp
@@ -1171,6 +1177,7 @@ delta.lst
 spacepirate.wad
 icerink.wad
 datafloe.wad
+thetemple.wad
 coldiceremastered.fgd
 titles.txt
 commandmenu.txt
