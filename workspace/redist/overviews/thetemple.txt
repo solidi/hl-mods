@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.21
+	ORIGIN	676 	-128	614
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/thetemple.bmp"
+	HEIGHT	-21.92
+}

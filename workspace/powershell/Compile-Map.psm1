@@ -11,6 +11,7 @@ function Select-Wad-List {
 all {
     $wadsDir\coldice.wad
     $wadsDir\datafloe.wad
+    $wadsDir\thetemple.wad
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\liquids.wad
@@ -28,6 +29,7 @@ all {
 all {
     $wadsDir\coldice.wad
     $wadsDir\datafloe.wad
+    $wadsDir\thetemple.wad
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\icerink.wad

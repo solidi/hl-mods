@@ -26,6 +26,7 @@ Beta 5 Features:
 - 2 New Maps
     - comet, a ice rink with Zambonis by b1rd
     - datafloe, a reskin of datacore by b1rd
+    - thetemple, an original map by b1rd
 - Third Function Weapon Support
     - Via the reload button
         - Knife
