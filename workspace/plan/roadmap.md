@@ -171,6 +171,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] datacore (crystalcore)
     1. [x] Increase sky height of furrow
     1. [x] Training 2 pool in new area opposite of garage
+    1. [x] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [ ] cvar for portal in skybox?
@@ -485,7 +486,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Real 3d skybox](https://discord.com/channels/511209951923011604/511212204121653258/1084687068246069259)
     1. [ ] jope by pigcop
     1. [ ] [ts_frigid remake](https://www.tsmod.net/maps/?vp_page=3)
-    1. [ ] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
 1. Integrations
