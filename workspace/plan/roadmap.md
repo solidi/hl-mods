@@ -115,10 +115,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
-    1. [ ] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
+    1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
     1. [ ] busters (give egon)
     1. [ ] assassin like jumpscare
-    1. [ ] godmode
+    1. [x] godmode
     1. [ ] half-life - cl_icemodels 0
     1. [ ] clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
