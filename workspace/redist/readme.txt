@@ -23,7 +23,7 @@ Beta 5 Features:
     - Dual Silencers
         - Fire Silencers / Add/Remove Silencers
 - Added func_vehicle and func_vehiclecontrols support
-- 2 New Maps
+- 3 New Maps
     - comet, a ice rink with Zambonis by b1rd
     - datafloe, a reskin of datacore by b1rd
     - thetemple, an original map by b1rd
@@ -71,7 +71,7 @@ Beta 5 Features:
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
         - "busters" - one player has the egon and busts ghosts
-    - 22 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 23 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -95,6 +95,7 @@ Beta 5 Features:
         - "minime" - players are half the size
         - "paper" - players are flat
         - "cowboy" - cowboy hats with dual cannons!
+        - "godmode" - everyone is invincible
     - Gamemode Changes
         - Show game rules on connection
         - Disable numerous Mutators from gungame
@@ -162,6 +163,7 @@ Beta 5 Features:
     - Support to exec gamemode script file when game mode starts
         - example: "gungame.cfg" is executed when game begins if available
     - Combined selected items to global model file
+    - Added "sv_botsmelee" to toggle bots close combat
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
@@ -977,6 +979,7 @@ Server:
 - "mp_startwithlives" - Sets the starting lifes during last man standing
 - "mp_voting [time]" - enable or disable end of the map voting with timer
 - "sv_acrobatics [0|1]" allow or disallow wall climbing, slides, and flips
+- "sv_botsmelee [0|1]" to toggle bots close combat on or off
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns
 - "sv_chaosfilter" - a list of mutators inwhich are ignored during chaos mode
 - "sv_disallowlist" a list of entities that will not spawn
@@ -1008,6 +1011,7 @@ Server:
     - "fastweapons" - all weapons are faster.
     - "firestarter" - start with a flamethrower
     - "fog" - heavy fog moves into the gameplay
+    - "godmode" - everyone is invincible
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
     - "ice" - all the ground is covered in ice
