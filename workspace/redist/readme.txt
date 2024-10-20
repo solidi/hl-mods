@@ -132,6 +132,7 @@ Beta 5 Features:
     - Levels are not lost in gungame
     - Fixed single survivor winner in chilldemic
     - Remove fragged player models after round ends
+    - No credits for airstrike in gungame
 - Client Support
     - "cl_am [0|1]" - automatically kick or punch if enemy is close
     - "cl_at [0|1]" - automatically taunt after frag if its safe to do so
