@@ -55,6 +55,8 @@ Beta 5 Features:
     - Improved waypoints for bots on all maps
     - Increase sky height in furrow
     - Added fog effect to snowyard
+    - Fix snow in chillworks
+    - Fix explosive crates in frozen_bunker
     - Updates by b1rd
         - Added poolside to training2
         - Added cliffs and vertical improvements to canyon

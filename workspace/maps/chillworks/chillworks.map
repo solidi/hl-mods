@@ -10897,3 +10897,7 @@
 "message" "media/05-jubilee.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "env_snow"
+"origin" "-195 -727 528"
+}
