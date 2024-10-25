@@ -45,7 +45,6 @@ nuke?
 [ ] Banker with melee
 [ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
 [ ] position number close to objective readout
-[ ] weighted mutators on chaos
 [ ] image on maps
 [ ] blinding snowballs
 [ ] giant float head mutator
@@ -54,6 +53,7 @@ nuke?
 [ ] chumtoad or snark on crowbar
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
+[x] weighted mutators on chaos
 [x] heads up for jesus of how many survive on kill?
 [x] decal spray of CIR snowflake
 [x] jesus walks on water?
@@ -68,7 +68,6 @@ nuke?
 
 [ ] no man stands - corruption n objectives underneath
 [ ] increase slowbullets dmg
-[ ] env_snow in chillworks
 [ ] release hook on player damage
 [ ] refix chillworks
 [ ] chumtoad slipped away in vote
@@ -76,21 +75,22 @@ nuke?
 [ ] chumtoad throw animation
 [ ] grenade mutator and sniper scope
 [ ] killed self with handgrenade?
-[ ] boxes not explosive in frozen_bunker
 [ ] pirate sounds when hat mutator on
 [ ] slowbullets match dmg of weapon held
 [ ] 999 + airstirke doesnt kill people
 [ ] spawn point at end of hill in canyon needs fixing
 [ ] fire in observer?
 [ ] normal hp for chumtoad holder in 999 mutator
-[ ] egon beam broken
 [ ] disable lifebar when fragged?
 [ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
 [ ] gibbed sanic should disappear?
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
-[ ] 00:00 from 1v1 to gungame - shut off during intermission?
+[x] boxes not explosive in frozen_bunker
+[x] egon beam broken
+[x] 00:00 from 1v1 to gungame - shut off during intermission?
+[x] env_snow in chillworks
 [x] lower case VOTE to count
 [x] slide box secret to left
 [x] chumtoad trail to 8 seconds

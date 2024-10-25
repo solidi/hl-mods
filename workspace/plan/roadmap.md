@@ -115,16 +115,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
-    1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
-    1. [ ] busters (give egon)
     1. [ ] assassin like jumpscare
-    1. [x] godmode
-    1. [ ] half-life - cl_icemodels 0
+    1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
     1. [ ] clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
+    1. [x] half-life - cl_icemodels 0
+    1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
+    1. [x] busters (give egon)
+    1. [x] godmode
     1. [x] firestarter - get dual flamethrowers
     1. [x] Animation bar of coming next chaos item (like GSChaos)
     1. [x] 3 at once
@@ -198,15 +199,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Player Models
     1. [x] Import rest of player models, replace skeleton and holo with gina
 1. Fixes
-    1. [ ] spectator angle, disconnected bots are available in spectator view?
+    1. [x] spectator angle, disconnected bots are available in spectator view?
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] Gungame - more feedback
-        1. [ ] dont los levels on death
+        1. [x] dont los levels on death
         1. [ ] ammo in place of weapons
-        1. [ ] you skip that many weapons as the killed players with the nuke in snowcross
-        1. [ ] also on "Win" the game should load a new map, not get all score to 0/0
-        1. [ ] dual railguns still drop?
+        1. [x] you skip that many weapons as the killed players with the nuke in snowcross
+        1. [x] also on "Win" the game should load a new map, not get all score to 0/0
+        1. [x] dual railguns still drop?
         1. [ ] Frag only counts on right weapon
         1. [x] mutators are intefering with the gungame, off by default?
         1. [x] vest? No death count?
