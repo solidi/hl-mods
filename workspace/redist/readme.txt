@@ -167,6 +167,7 @@ Beta 5 Features:
         - example: "gungame.cfg" is executed when game begins if available
     - Combined selected items to global model file
     - Added "sv_botsmelee" to toggle bots close combat
+    - Changed "mp_grapplesky" to "mp_grabsky", now supports portals
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
@@ -958,7 +959,7 @@ Server:
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
     - "teamplay" - frag with teams
 - "mp_ggstartlevel" - Sets default start level of gun game
-- "mp_grapplesky [0|1]" - Allow player to grapple the sky
+- "mp_grabsky [0|1]" - Allow player to grapple or portal the sky
 - "mp_grapplinghook [0|1]" - Allow grappling hook on server
 - "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
 - "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay

@@ -377,9 +377,9 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"mp_grapplesky"
+	"mp_grabsky"
 	{
-		"#Ice_GrappleSky"
+		"#Ice_GrabSky"
 		{ BOOL }
 		{ "1" }
 	}
