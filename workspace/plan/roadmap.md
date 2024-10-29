@@ -94,9 +94,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
     1. [x] Dual berettas (GSS #73 idea)
-    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
-    1. [ ] First quad weapon - rocket launcher?
-    1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
 1. Weapon Mechanics
     1. [x] Remove water poly from SD pipe wrench.
     1. [x] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
@@ -115,13 +112,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
-    1. [ ] assassin like jumpscare
-    1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
-    1. [ ] clickboom - randomly throw weapon
-    1. [ ] cool flesh, add pick up sprite on HUD.
-    1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
-    1. [ ] 3 to life
-    1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
+    1. [ ] Fire Bullets
     1. [x] half-life - cl_icemodels 0
     1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
     1. [x] busters (give egon)
@@ -143,7 +134,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Leeroy Jenkins] mode (start with vest)
     1. [x] bigfoot (sv_stepsize 192)
 1. Game Modes
-    1. [ ] CtC, more than one chumtoad?
+    1. [ ] coldspot - retro fit it to existing hldm maps like ctf, select two entities like with ctf to be controlling areas. make a  large mdl model, that's outlined and semi transparent walls so player goes in it to start control, on the  gameloop check if team member is in a radius loop of the containing player. Same unit size as the mdl
+    1. [ ] lms with team support
+    1. [x] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
     1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
         1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
@@ -175,9 +168,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
 1. Server Support
     1. [x] Assisted frag credit in all game modes
-    1. [ ] cvar for portal in skybox?
+    1. [x] cvar for portal in skybox?
 1. HUD
-    1. [ ] Visual keyboard layout plus commandmenu. Server/Bots and client sections
+    1. [x] Visual keyboard layout plus commandmenu. Server/Bots and client sections
     1. [x] headshot indicator in death notice
     1. [x] Indicate death notice of my frag more distinctly?
 1. Clean up
@@ -195,20 +188,18 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
             w_tombstone
             w_tracer
             w_hornet
-    1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
+    1. [x] Compact loose non-weapon w_ models into one
 1. Player Models
     1. [x] Import rest of player models, replace skeleton and holo with gina
 1. Fixes
     1. [x] spectator angle, disconnected bots are available in spectator view?
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
-    1. [ ] Gungame - more feedback
+    1. [x] Gungame - more feedback
         1. [x] dont los levels on death
-        1. [ ] ammo in place of weapons
         1. [x] you skip that many weapons as the killed players with the nuke in snowcross
         1. [x] also on "Win" the game should load a new map, not get all score to 0/0
         1. [x] dual railguns still drop?
-        1. [ ] Frag only counts on right weapon
         1. [x] mutators are intefering with the gungame, off by default?
         1. [x] vest? No death count?
     1. [ ] sildenafil - make weapons
@@ -228,7 +219,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
+    1. [ ] Gungame - more feedback
+        1. [ ] ammo in place of weapons
+        1. [ ] Frag only counts on right weapon
+    1. [ ] CtC, more than one chumtoad?
     1. [ ] Chilling - plyers equipped with vice only, kill themself. Typing increases health, using voice as well Frags awarded if reach 200 health.
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
@@ -246,6 +240,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
+    1. [ ] assassin like jumpscare
+    1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
+    1. [ ] clickboom - randomly throw weapon
+    1. [ ] cool flesh, add pick up sprite on HUD.
+    1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
+    1. [ ] 3 to life
+    1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [ ] ooof sound
     1. [ ] am i dead?
     1. [ ] +1 health
@@ -272,7 +274,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
-    1. [ ] Fire Bullets
     1. [ ] Vampire (increase health too)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
@@ -313,13 +314,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] headcrabs
         1. [ ] houndeye
     1. [ ] apache helicopter
-    1. [x] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [ ] chums/snarks wont die
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. New Weapons
+    1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
+    1. [ ] First quad weapon - rocket launcher?
+    1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
@@ -506,7 +509,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
     1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
-    1. [ ] Compact loose non-weapon w_ models into one
+    1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
@@ -560,6 +563,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] glupshitto by pigcop
 1. Game Modes
     1. [x] Bonedemic (includes skeletons)
+        1. [x] mutator idea: infected - 1 person spawns as infected (they have 1000 health, 10-20% faster movement speed, melee only). if the infected kills someone then that person becomes infected. if at least 1 of the not infected is alive then they win, but if everyone becomes infected the infected win (ya boi)
     1. [x] Support
         1. [x] Vote game mode, mutators, and map after map ends, like jabroni 3
         1. [x] Objective, and # info in upper right stacked, like jabroni 3

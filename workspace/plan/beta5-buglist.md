@@ -7,7 +7,7 @@
 [ ] Lose invinicibily on attack 
 ---
 [ ] Idea - Broken mouse mutator
-[ ] Bird to fix canyon?
+[x] Bird to fix canyon?
 [ ] ASMR weapon from UT?
 [ ] Recoil mutator?
 ---
