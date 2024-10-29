@@ -73,7 +73,7 @@ Beta 5 Features:
         - "instagib" - grab a zapper and get to work.
         - "prophunt" - spawn as a item, hide from thehunters
         - "busters" - one player has the egon and busts ghosts
-    - 23 New Mutators - supports combination and randomly selected (sv_mutators)
+    - 24 New Mutators - supports combination and randomly selected (sv_mutators)
         - "toilet" - we aint hurt nobody
         - "jeepathon" - now available at your local Jeep Wrangler dealership
         - "ricochet" - the best mod ever made
@@ -98,6 +98,7 @@ Beta 5 Features:
         - "paper" - players are flat
         - "cowboy" - cowboy hats with dual cannons!
         - "godmode" - everyone is invincible
+        - "firebullets" - all tracers are hot
     - Gamemode Changes
         - Show game rules on connection
         - Disable numerous Mutators from gungame
@@ -1013,6 +1014,7 @@ Server:
     - "dontshoot" - firing any weapon will explode the player.
     - "explosiveai" - AI blows up when it cannot find its next task
     - "fastweapons" - all weapons are faster.
+    - "firebullets" - all tracers are hot
     - "firestarter" - start with a flamethrower
     - "fog" - heavy fog moves into the gameplay
     - "godmode" - everyone is invincible
