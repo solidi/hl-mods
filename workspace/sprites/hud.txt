@@ -1,4 +1,4 @@
-308
+309
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -310,6 +310,7 @@ cowboy	640 gameicons5	192	128	64	64
 godmode	640 gameicons5	0	192	64	64
 busters	640 gameicons5	64	192	64	64
 halflife	640 gameicons5	128	192	64	64
+firebullets	640 gameicons5	192	192	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
