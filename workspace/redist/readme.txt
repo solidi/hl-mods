@@ -27,6 +27,79 @@ Beta 5 Features:
     - comet, a ice rink with Zambonis by b1rd
     - datafloe, a reskin of datacore by b1rd
     - thetemple, an original map by b1rd
+- 8 New Game Modes (mp_gamemode)
+    - "coldskull" - be the first to collect all the skulls!
+    - "ctf" - capture the flag, grab the flag and run it back to base!
+    - "horde" - fight npc's, survive waves.
+        - Includes the pantherye monster
+    - "shidden" - some are hidden, equipped with deadly farts.
+    - "instagib" - grab a zapper and get to work.
+    - "prophunt" - spawn as a item, hide from thehunters.
+    - "busters" - one player has the egon and busts ghosts.
+    - "coldspot" - stay in a rotating zon to score points.
+- Gamemode Changes
+    - Show game rules on connection
+    - Disable numerous Mutators from gungame
+    - Disable numerous mutators from snowball game mode
+    - Tweaked game mode waiting times
+    - Show lives in battle royale
+    - Show persons who are in arena mode on scoreboard
+    - Improved objectives in JVS
+    - Gungame is now roundless
+    - Added round wins to the scoreboard
+    - LMS gamemode groups active players on scoreboard
+    - Add assist system where every 3 assists a frag is credited
+    - Disabled first blood award in LMS and Arena modes
+    - Changed "mp_voting [time]" to enable or disable end of the map voting with timer
+    - Levels are not lost in gungame
+    - Fixed single survivor winner in chilldemic
+    - Remove fragged player models after round ends
+    - No credits for airstrike in gungame
+    - Game_equip entity disabled for certain gameplay modes
+- 24 New Mutators - supports combination and randomly selected (sv_mutators)
+    - "toilet" - we aint hurt nobody
+    - "jeepathon" - now available at your local Jeep Wrangler dealership
+    - "ricochet" - the best mod ever made
+    - "notify" - your boss is reaching out
+    - "credits" - show all contributors in an endless loop
+    - "goldenguns" - guns provide one shot frags
+    - "stahp" - some sounds replaced with stahp!
+    - "noreload" - no one can reload
+    - "fog" - heavy fog moves into the gameplay
+    - "vested" - everyone starts with a vest
+    - "noclip" - fly through walls
+    - "dealter" - dealing with farts, of course
+    - "bigfoot" - step size is crazy big
+    - "mirror" - mirror, mirror on the wall
+    - "thirdperson" - an out of body experience
+    - "closeup" - ironsights are locked in
+    - "three" - three random mutators at once
+    - "firestarter" - start with a flamethrower
+    - "rocketbees" - hornets are explosive
+    - "napkinstory" - the legend reduced to two words
+    - "minime" - players are half the size
+    - "paper" - players are flat
+    - "cowboy" - cowboy hats with dual cannons!
+    - "godmode" - everyone is invincible
+    - "firebullets" - all tracers are hot
+- Mutator Changes
+    - Mutators are independent timers
+    - Changed "sv_mutators" to "sv_addmutator"
+    - Added "clear" to remove all active mutators
+    - Added "unchaos" to shut off chaos mode
+    - Added chaos timer bar on HUD indicating next mutator
+    - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
+    - Added "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
+    - Added "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds
+    - Removed "mp_randommutators" and "sv_chaostime"
+    - Include offhand kick and punch to slow/fast mutators
+    - Increase speed of slowweapons for improved play
+    - Increased cool flesh time to live
+    - Fixed lightsout environment light remaining dark
+    - Removed dont shoot explosion during spawn protection
+    - Rocket launchers support autoaim
+    - Egon and snowball pushy mutator fixed
+    - Bots no longer vote for filtered mutators
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -63,79 +136,6 @@ Beta 5 Features:
         - Fixed glupshitto and themill defects
         - Fixed bounce2 jumppads
     - Removed barney from frostmill
-- Game Modes
-    - 7 New Game Modes (mp_gamemode)
-        - "coldskull" - be the first to collect all the skulls!
-        - "ctf" - capture the flag, grab the flag and run it back to base!
-        - "horde" - fight npc's, survive waves.
-            - Includes the pantherye monster
-        - "shidden" - some are hidden, equipped with deadly farts.
-        - "instagib" - grab a zapper and get to work.
-        - "prophunt" - spawn as a item, hide from thehunters
-        - "busters" - one player has the egon and busts ghosts
-    - 24 New Mutators - supports combination and randomly selected (sv_mutators)
-        - "toilet" - we aint hurt nobody
-        - "jeepathon" - now available at your local Jeep Wrangler dealership
-        - "ricochet" - the best mod ever made
-        - "notify" - your boss is reaching out
-        - "credits" - show all contributors in an endless loop
-        - "goldenguns" - guns provide one shot frags
-        - "stahp" - some sounds replaced with stahp!
-        - "noreload" - no one can reload
-        - "fog" - heavy fog moves into the gameplay
-        - "vested" - everyone starts with a vest
-        - "noclip" - fly through walls
-        - "dealter" - dealing with farts, of course
-        - "bigfoot" - step size is crazy big
-        - "mirror" - mirror, mirror on the wall
-        - "thirdperson" - an out of body experience
-        - "closeup" - ironsights are locked in
-        - "three" - three random mutators at once
-        - "firestarter" - start with a flamethrower
-        - "rocketbees" - hornets are explosive
-        - "napkinstory" - the legend reduced to two words
-        - "minime" - players are half the size
-        - "paper" - players are flat
-        - "cowboy" - cowboy hats with dual cannons!
-        - "godmode" - everyone is invincible
-        - "firebullets" - all tracers are hot
-    - Gamemode Changes
-        - Show game rules on connection
-        - Disable numerous Mutators from gungame
-        - Disable numerous mutators from snowball game mode
-        - Tweaked game mode waiting times
-        - Show lives in battle royale
-        - Show persons who are in arena mode on scoreboard
-        - Improved objectives in JVS
-        - Gungame is now roundless
-    - Mutator Changes
-        - Mutators are independent timers
-        - Changed "sv_mutators" to "sv_addmutator"
-        - Added "clear" to remove all active mutators
-        - Added "unchaos" to shut off chaos mode
-        - Added chaos timer bar on HUD indicating next mutator
-        - Added "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
-        - Added "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
-        - Added "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds
-        - Removed "mp_randommutators" and "sv_chaostime"
-        - Include offhand kick and punch to slow/fast mutators
-        - Increase speed of slowweapons for improved play
-        - Increased cool flesh time to live
-        - Fixed lightsout environment light remaining dark
-        - Removed dont shoot explosion during spawn protection
-        - Rocket launchers support autoaim
-        - Egon and snowball pushy mutator fixed
-        - Bots no longer vote for filtered mutators
-- Game Mode Changes
-    - Added round wins to the scoreboard
-    - LMS gamemode groups active players on scoreboard
-    - Add assist system where every 3 assists a frag is credited
-    - Disabled first blood award in LMS and Arena modes
-    - Changed "mp_voting [time]" to enable or disable end of the map voting with timer
-    - Levels are not lost in gungame
-    - Fixed single survivor winner in chilldemic
-    - Remove fragged player models after round ends
-    - No credits for airstrike in gungame
 - Client Support
     - "cl_am [0|1]" - automatically kick or punch if enemy is close
     - "cl_at [0|1]" - automatically taunt after frag if its safe to do so

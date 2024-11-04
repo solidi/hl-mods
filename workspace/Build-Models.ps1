@@ -494,6 +494,7 @@ try {
     Compile-Model $binDir "v_dual_handgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_items" $modelsdir $redistdir\models
     Compile-Model $binDir "w_items" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "coldspot" $modelsdir $redistdir\models
     }
 }
 catch

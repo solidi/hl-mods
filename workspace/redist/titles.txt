@@ -1148,3 +1148,8 @@ busters
 {
 BUSTERS
 }
+
+coldspot
+{
+COLDSPOT
+}

@@ -1,0 +1,3 @@
+A cold spot on the map allows players to hold ground.
+
+For each second its held, a point is scored for the team.
