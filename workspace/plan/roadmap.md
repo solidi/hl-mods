@@ -219,6 +219,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] Fix busters - if you're the buster and somehow suiside... you'll still trigger the message "Youyrname killed the buster yourname"
+    1. [ ] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
     1. [ ] Gungame - more feedback
         1. [ ] ammo in place of weapons
         1. [ ] Frag only counts on right weapon
@@ -240,6 +242,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
     1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
@@ -428,6 +431,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Spree awards for players - rewards like ammo, weapons and items for it... [Napoleon]
     1. [ ] Dying [player fades](https://twitter.com/KrispyKhristian/status/1782644111620862002) out instead of death animation.
     1. [x] Small sound like Jabroni when inflicting damage?
         1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)

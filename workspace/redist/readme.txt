@@ -100,6 +100,7 @@ Beta 5 Features:
     - Rocket launchers support autoaim
     - Egon and snowball pushy mutator fixed
     - Bots no longer vote for filtered mutators
+    - Improved sanic sprites by fading after death
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -156,6 +157,7 @@ Beta 5 Features:
     - Changed "cl_infomessage" to "cl_minfo"
     - Changed "cl_autowepswitch" to "cl_aws"
 - HUD changes
+    - Added "cl_respawnbar [0|1]" to show when a player can spawn
     - Added "cl_crosshairammo [0|1]" to show ammo status in crosshairs
     - Added headshot indicator in death notice
     - Added default keyboard layout and command menu items

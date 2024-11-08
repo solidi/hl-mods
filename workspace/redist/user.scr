@@ -352,4 +352,18 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_crosshairammo"
+	{
+		"#Ice_CrosshairAmmo"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"cl_respawnbar"
+	{
+		"#Ice_RespawnBar"
+		{ BOOL }
+		{ "1" }
+	}
 }
