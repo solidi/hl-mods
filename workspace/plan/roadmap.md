@@ -409,6 +409,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Single Player
     1. [ ] Single player freeze effect for all monsters
 1. Client
+    1. [ ] [Provide a watermark?](https://github.com/YaLTeR/OpenAG/pull/191#discussion_r1822434626)
     1. [ ] [Streaming event messaging](https://www.youtube.com/watch?v=v0m1fXOYPsA) on HUD
     1. [ ] Server cvar that allows the hats, and if it's on 1, then a client command that allows a menu for selecting your hat (Napoleon)
     1. [x] Time remaining counter like op4dm

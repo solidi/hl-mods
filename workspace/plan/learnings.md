@@ -423,3 +423,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. A [good article](https://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size) on how to clean up virtual machine sizes
 1. Setting a players health to 100 in a fragged state can lead to weirdness with spawn and state.
 1. [What follows](https://javagl.github.io/GLConstantsTranslator/GLConstantsTranslator.html) is a great library of constants for GL rendering.
+1. A hack for pushing an entity (or player) on the ground is to set `pOther->pev->flags &= ~FL_ONGROUND;` temproarily, and then in its `prethink`, set the desired velocity.
