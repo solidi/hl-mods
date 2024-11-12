@@ -2,15 +2,15 @@
 
 ##  Sept 2024 GSS #143
 
-[ ] glock and chaingun ironsight disabled
 [ ] Interrupt taunts without health credit
 [ ] Lose invinicibily on attack 
 ---
 [ ] Idea - Broken mouse mutator
-[x] Bird to fix canyon?
 [ ] ASMR weapon from UT?
 [ ] Recoil mutator?
 ---
+[x] Bird to fix canyon?
+[x] glock and chaingun ironsight disabled
 [x] Make messages reliable
 [x] Invisible mutator not working?
 [x] Mutator perm after map
