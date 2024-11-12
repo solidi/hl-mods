@@ -123,6 +123,7 @@ Beta 5 Features:
     - Reduced freezegun speed and power
     - Improved rocketcrowbar rocket launching
     - Fix hornetgun velocity while running
+    - Sniper rifle smooth zoom reverted
 - Soundtrack
     - Includes 14 new tracks, each map plays a set track
 - Map Changes
@@ -171,6 +172,7 @@ Beta 5 Features:
     - Combined selected items to global model file
     - Added "sv_botsmelee" to toggle bots close combat
     - Changed "mp_grapplesky" to "mp_grabsky", now supports portals
+    - Improved first frag award, reset on rounds
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
@@ -208,6 +210,7 @@ Beta 5 Features:
     - Disabled grappling hook in spectator mode
     - Remove rune from all spectators
     - Fix crash involving monster projectiles
+    - Fixed sys_timescale in latest engine, including linux
 
 Beta 4 Features:
 

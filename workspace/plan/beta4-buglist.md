@@ -20,8 +20,8 @@ nuke?
 
 ##  Janurary 2024 GSS #109
 
-[ ] fix server side crossbow zoom
-[ ] no time limit in gamegun
+[x] fix server side crossbow zoom
+[x] no time limit in gamegun
 [x] reset models after gamemode
 [x] pushy and snowballs
 [x] Slow bullets still stuck
@@ -70,7 +70,6 @@ nuke?
 [ ] increase slowbullets dmg
 [ ] release hook on player damage
 [ ] refix chillworks
-[ ] chumtoad slipped away in vote
 [ ] crowbar replace drift, weird spawn thing 
 [ ] chumtoad throw animation
 [ ] grenade mutator and sniper scope
@@ -81,12 +80,13 @@ nuke?
 [ ] spawn point at end of hill in canyon needs fixing
 [ ] fire in observer?
 [ ] normal hp for chumtoad holder in 999 mutator
-[ ] disable lifebar when fragged?
 [ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
-[ ] gibbed sanic should disappear?
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[x] gibbed sanic should disappear?
+[x] chumtoad slipped away in vote
+[x] disable lifebar when fragged?
 [x] boxes not explosive in frozen_bunker
 [x] egon beam broken
 [x] 00:00 from 1v1 to gungame - shut off during intermission?
