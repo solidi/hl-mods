@@ -107,7 +107,7 @@ jobs:
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.so
 
   macOS_libs:
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
@@ -116,7 +116,7 @@ jobs:
         submodules: recursive
     - uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '15.0.1'
+        xcode-version: '14.3.1'
 
     - name: Install MacOSX10.8.sdk
       run: |
