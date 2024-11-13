@@ -942,6 +942,8 @@ Server:
 - "botpause [0|1]" - Bots stay in place
 - "mp_allowrunes [0|1]" - Allow powerup runes on server
 - "mp_allowvoiceovers [0|1]" - Allow public voiceovers
+- "mp_coldspotspawn" - name of entity where the spot will spawn
+- "mp_coldspottime" - time in seconds of when spot move 
 - "mp_ctcsecondsforpoint" - amount of second holding chumtoad for a point
 - "mp_ctfspawn1" - name of entity where blue base will spawn in map
 - "mp_ctfspawn2" - name of entity where red base will spawn in map
