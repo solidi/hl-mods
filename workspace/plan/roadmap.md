@@ -90,6 +90,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 5
 
 1. New Weapons
+    1. [ ] replace zapper with cir blaster
+    1. [ ] vice weapon
     1. [x] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
@@ -102,17 +104,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
 1. Game Mechanics
-    1. [ ] Respawn bar or counter on HUD after death like roblox
     1. [ ] Position next to objective?
+    1. [x] Respawn bar or counter on HUD after death like roblox
     1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
     1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
-        1. [ ] Force grab toward charger heals?
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
-    1. [ ] Fire Bullets
+    1. [x] Fire Bullets
     1. [x] half-life - cl_icemodels 0
     1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
     1. [x] busters (give egon)
@@ -134,30 +135,22 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Leeroy Jenkins] mode (start with vest)
     1. [x] bigfoot (sv_stepsize 192)
 1. Game Modes
-    1. [ ] coldspot - retro fit it to existing hldm maps like ctf, select two entities like with ctf to be controlling areas. make a  large mdl model, that's outlined and semi transparent walls so player goes in it to start control, on the  gameloop check if team member is in a radius loop of the containing player. Same unit size as the mdl
-    1. [ ] lms with team support
+    1. [x] coldspot - retro fit it to existing hldm maps like ctf, select two entities like with ctf to be controlling areas. make a  large mdl model, that's outlined and semi transparent walls so player goes in it to start control, on the  gameloop check if team member is in a radius loop of the containing player. Same unit size as the mdl
     1. [x] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
     1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
-        1. [ ] [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [x] CTF mode, spawn two spots if no support?
     1. Improvements
       1. [x] timer above if mp_timelimit set
       1. [x] score/wins on scoreboard
-      1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
-        1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
-      1. [ ] Skeleton appears the moment fragged from suvivor
       1. [x] Only appear chumtoad if there is more than two players
     1. [x] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
-        1. [ ] Stomp on head
         1. [x] Fart flying
         1. [x] Fart mechanism
         1. [x] Sprite of player model
         1. [x] Game loop
         1. [x] Teamplay logic
     1. [x] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
-        1. [ ] Amount of emenies increase from 5 to 10
-        1. [ ] Basic task based on kills for upgrade
         1. [x] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
         1. [x] Their health keep going up
         1. [x] ID bar
@@ -193,8 +186,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Import rest of player models, replace skeleton and holo with gina
 1. Fixes
     1. [x] spectator angle, disconnected bots are available in spectator view?
-    1. [ ] Angled dead arms
-    1. [ ] Change solid type of barrel after throw
     1. [x] Gungame - more feedback
         1. [x] dont los levels on death
         1. [x] you skip that many weapons as the killed players with the nuke in snowcross
@@ -202,8 +193,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] dual railguns still drop?
         1. [x] mutators are intefering with the gungame, off by default?
         1. [x] vest? No death count?
-    1. [ ] sildenafil - make weapons
-    1. [ ] maxpack - drop all
     1. [x] Nuke to kill monsters
     1. [x] scoreboard is not ordered right in deathmatch
     1. [x] Cancel taunt if switching weapon
@@ -219,6 +208,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] Horde mode improvements
+        1. [ ] Amount of emenies increase from 5 to 10
+            1. [ ] Basic task based on kills for upgrade
+    1. [ ] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
+    1. [ ] Chilldemic improvements
+      1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
+        1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
+      1. [ ] Skeleton appears the moment fragged from suvivor
+    1. [ ] Shidden, Stomp on head
+    1. [ ] lms with team support
     1. [ ] Fix busters - if you're the buster and somehow suiside... you'll still trigger the message "Youyrname killed the buster yourname"
     1. [ ] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
     1. [ ] Gungame - more feedback
@@ -431,6 +430,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Force grab toward charger heals?
     1. [ ] Spree awards for players - rewards like ammo, weapons and items for it... [Napoleon]
     1. [ ] Dying [player fades](https://twitter.com/KrispyKhristian/status/1782644111620862002) out instead of death animation.
     1. [x] Small sound like Jabroni when inflicting damage?
@@ -552,6 +552,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
+1. Fixes
+    1. [ ] Angled dead arms
+    1. [ ] Change solid type of barrel after throw
+    1. [ ] sildenafil - make weapons
+    1. [ ] maxpack - drop all
 
 ### Beta 4
 

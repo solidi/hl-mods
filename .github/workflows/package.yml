@@ -107,7 +107,7 @@ jobs:
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.so
 
   macOS_libs:
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4

@@ -509,4 +509,18 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_coldspotspawn"
+	{
+		"#Ice_ColdSpotSpawn"
+		{ STRING }
+		{ "info_player_deathmatch" }
+	}
+
+	"mp_ctfspawn2"
+	{
+		"#Ice_ColdSpotTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "30" }
+	}
 }

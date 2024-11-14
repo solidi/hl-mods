@@ -144,6 +144,9 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "muzzleflash" 0.000000 0.000000 0.000000
+$attachment 1 "muzzleflash" 0.000000 0.000000 0.000000
+// aim
+$attachment 2 "muzzleflash" 0.0 2.0 8.0
 
 // hit box(es)
 $hbox 0 "Hands biped R Forearm" -0.390000 -2.110000 -2.020000 11.430000 2.590000 1.120000
