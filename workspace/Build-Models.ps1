@@ -494,6 +494,8 @@ try {
     Compile-Model $binDir "v_dual_handgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "w_items" $modelsdir $redistdir\models
     Compile-Model $binDir "w_items" $modelsdir\hd $redisthddir\models
+    Compile-Model $binDir "v_vice" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_vice_light" $modelsdir $redistdir\models
     Compile-Model $binDir "coldspot" $modelsdir $redistdir\models
     }
 }

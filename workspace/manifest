@@ -88,6 +88,7 @@ events\fingergun.sc
 events\zapgun.sc
 events\vehicle.sc
 events\dual_glock.sc
+events\vice.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -457,6 +458,8 @@ models\panthereye.mdl
 models\v_dual_handgun.mdl
 models\w_items.mdl
 models\coldspot.mdl
+models\v_vice.mdl
+models\v_vice_light.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -1015,6 +1018,8 @@ sound\heaven.wav
 sound\sprayer.wav
 sound\napkin_story.wav
 sound\dual_sawedoff_selected.wav
+sound\smoking.wav
+sound\drinking.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -1102,6 +1107,7 @@ sprites\weapon_dual_hornetgun.txt
 sprites\weapon_fingergun.txt
 sprites\weapon_zapgun.txt
 sprites\weapon_dual_glock.txt
+sprites\weapon_vice.txt
 sprites\ice_nuke2.spr
 sprites\nuke2.spr
 sprites\ice_hotglow.spr

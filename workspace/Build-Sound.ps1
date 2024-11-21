@@ -174,6 +174,8 @@ Compile-Sound $binDir $redistDir $soundDir "heavenly-choir-crowd-react-w.mp3" 1.
 Compile-Sound $binDir $redistDir $soundDir "ode-to-joy.mp3" 1.0 "sound\odetojoy.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "nap-kehn-storie.mp3" 2.0 "sound\napkin_story.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "engineer_gunslinger.mp3" 1.0 "sound\dual_sawedoff_selected.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "Smoking_Sound_Effect.mp3" 1.0 "sound\smoking.wav" "wav" 5 9
+Compile-Sound $binDir $redistDir $soundDir "Drinking_Sound_Effect.mp3" 1.0 "sound\drinking.wav" "wav" 1 4
 }
 catch
 {
