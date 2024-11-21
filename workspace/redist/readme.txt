@@ -11,7 +11,7 @@ This mod features works from the community. Without their dedication and hard wo
 
 Beta 5 Features:
 
-- 5 New Weapons
+- 6 New Weapons
     - Dual Chainguns
         - Fire Chainguns
     - Dual Hornetguns
@@ -22,6 +22,8 @@ Beta 5 Features:
         - Fire killer shot
     - Dual Silencers
         - Fire Silencers / Add/Remove Silencers
+    - Vice
+        - Smoke / Drink
 - Added func_vehicle and func_vehiclecontrols support
 - 3 New Maps
     - comet, a ice rink with Zambonis by b1rd
