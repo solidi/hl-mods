@@ -91,7 +91,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. New Weapons
     1. [ ] replace zapper with cir blaster
-    1. [ ] vice weapon
+    1. [x] vice weapon
     1. [x] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
@@ -104,7 +104,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Third Fire Options through Reload
         1. [x] Sniper on Knife
 1. Game Mechanics
-    1. [ ] Position next to objective?
+    1. [x] Position next to objective?
     1. [x] Respawn bar or counter on HUD after death like roblox
     1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
     1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?

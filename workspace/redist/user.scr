@@ -366,4 +366,11 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"cl_showposition"
+	{
+		"#Ice_ShowPosition"
+		{ BOOL }
+		{ "1" }
+	}
 }

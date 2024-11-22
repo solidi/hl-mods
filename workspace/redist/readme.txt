@@ -151,6 +151,7 @@ Beta 5 Features:
     - Indicate bots on the scoreboard
     - Show game timer if mp_timelimit is set
     - Added the custom spraypaint "flake"
+    - "cl_showposition [0|1]" - show or hide leaderboard position on HUD
 - New Player Models
     - Renamed player model holo to gina, grunt to hgrunt
     - Added animation support for remaining player models
@@ -898,6 +899,7 @@ Client:
 - "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
 - "cl_lifemeters [0|1]" - show or hide lifemeters above other players
 - "cl_objectives [0|1]" - show objective read out on HUD
+- "cl_showposition [0|1]" - show or hide leaderboard position on HUD
 - "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
 - "cl_oldscoreboard [0|1]" - Old Scoreboard
 - "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower

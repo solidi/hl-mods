@@ -108,6 +108,11 @@
         "1" "On" "cl_minfo 1"
         "2" "Off" "cl_minfo 0"
     }
+    "8" "Show Position"
+    {
+        "1" "On" "cl_showposition 1"
+        "2" "Off" "cl_showposition 0"
+    }
 }
 "3" "Environment"
 {
