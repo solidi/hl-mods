@@ -25,7 +25,11 @@ $eyeposition 0.000000 0.000000 0.000000
 
 
 //reference mesh(es)
+$bodygroup "body"
+{
+$body "studio" "blaster"
 $body "studio" "zapgun"
+}
 
 $body "studio" "v_gordon_hands_Reference"
 
@@ -33,35 +37,49 @@ $texturegroup ice
 {
   {
     "zapper_skin.bmp"
+    "main.bmp"
+    "meter.bmp"
     "..\gordon_sleeve.bmp"
     "..\gordon_glove.bmp"
   }
   {
     "invert_zapper_skin.bmp"
+    "invert_main.bmp"
+    "invert_meter.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }
   {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
     "..\..\ringchrome.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }
   {
     "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }
   {
     "zapper_skin.bmp"
+    "main.bmp"
+    "meter.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }
   {
     "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
+    "..\..\silverChrome.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"
   }
   {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
     "..\..\goldCHROME.bmp"
     "..\iceSleeve.bmp"
     "..\iceGlove.bmp"

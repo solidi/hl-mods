@@ -90,13 +90,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 ### Beta 5
 
 1. New Weapons
-    1. [ ] replace zapper with cir blaster
+    1. [x] replace zapper with cir blaster
     1. [x] vice weapon
     1. [x] Pointing, Hand gun, makes people confused, like in jabroni
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
     1. [x] Dual berettas (GSS #73 idea)
 1. Weapon Mechanics
+    1. [ ] Change freeze explosion effect to shattered glass
     1. [x] Remove water poly from SD pipe wrench.
     1. [x] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
     1. [x] Ammo read around crosshairs like base defense
