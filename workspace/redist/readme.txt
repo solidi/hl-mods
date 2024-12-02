@@ -1223,3 +1223,4 @@ Thanks To:
 - Monster panthereye monster code by Alan https://github.com/Magic-Nipples
 - Ian Prest for the github keyboard layout editor http://www.keyboard-layout-editor.com
 - Galy Raffo for the cowboy hat https://gamebanana.com/mods/380978
+- Venko for the ice_bro player model
