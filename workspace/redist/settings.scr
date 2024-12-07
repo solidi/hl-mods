@@ -184,14 +184,14 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Valve_Frag_Limit"
 		{ NUMBER 0.000000 -1.000000 }
-		{ "0.000000" }
+		{ "30.000000" }
 	}
 
 	"mp_timelimit"
 	{
 		"#Valve_Time_Limit"
 		{ NUMBER 0.000000 -1.000000 }
-		{ "0.000000" }
+		{ "20.000000" }
 	}
 
 	"mp_falldamage"
@@ -223,7 +223,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Valve_Force_Respawn"
 		{ BOOL }
-		{ "0" }
+		{ "1" }
 	}
 
 	"mp_footsteps"
