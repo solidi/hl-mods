@@ -140,6 +140,8 @@ Beta 5 Features:
         - Fixed glupshitto and themill defects
         - Fixed bounce2 jumppads
     - Removed barney from frostmill
+- Menu
+    - Added intro Cold Ice Remastered video
 - Client Support
     - "cl_am [0|1]" - automatically kick or punch if enemy is close
     - "cl_at [0|1]" - automatically taunt after frag if its safe to do so
@@ -1224,3 +1226,4 @@ Thanks To:
 - Ian Prest for the github keyboard layout editor http://www.keyboard-layout-editor.com
 - Galy Raffo for the cowboy hat https://gamebanana.com/mods/380978
 - Venko for the ice_bro player model
+- Modern Cold Ice Remastered intro video developed by Napoleon
