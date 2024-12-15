@@ -58,6 +58,10 @@ Beta 5 Features:
     - Remove fragged player models after round ends
     - No credits for airstrike in gungame
     - Game_equip entity disabled for certain gameplay modes
+    - Disable dontshoot in Capture the Chumtoad
+    - Enable score points in Capture the Chumtoad
+    - Remove pink flame from self skeleton in Chilldemic
+    - Limit weapons available to skeletons in Chilldemic
 - 24 New Mutators - supports combination and randomly selected (sv_mutators)
     - "toilet" - we aint hurt nobody
     - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -103,6 +107,7 @@ Beta 5 Features:
     - Egon and snowball pushy mutator fixed
     - Bots no longer vote for filtered mutators
     - Improved sanic sprites by fading after death
+    - Soften pushy, enable on ground
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -216,6 +221,7 @@ Beta 5 Features:
     - Remove rune from all spectators
     - Fix crash involving monster projectiles
     - Fixed sys_timescale in latest engine, including linux
+    - Improved deadlock vote tie-breaker, visual of mutator voting
 
 Beta 4 Features:
 
