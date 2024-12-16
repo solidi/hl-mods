@@ -965,6 +965,7 @@ Server:
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
     - "busters" - one player has the egon and busts ghosts
     - "coldskull" - be the first to collect all the skulls!
+    - "coldspot" - stay in a rotating zon to score points.
     - "chilldemic" - be the survivor from the virus
     - "ctc" - capture the chumtoad, hold on to it to receive points!
     - "ctf" - capture the flag, grab the flag and run it back to base!
