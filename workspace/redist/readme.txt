@@ -23,7 +23,7 @@ Beta 5 Features:
     - Dual Silencers
         - Fire Silencers / Add/Remove Silencers
     - Vice
-        - Smoke / Drink
+        - Smoke / Drink (enabled during godmode)
 - Added func_vehicle and func_vehiclecontrols support
 - 3 New Maps
     - comet, a ice rink with Zambonis by b1rd
