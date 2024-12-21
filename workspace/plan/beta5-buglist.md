@@ -1,9 +1,30 @@
 ## New Recommendations
 
+## December 2024 Test #2
+
+[ ] check height of enemy to step down?
+[ ] increase puppy velocity
+[ ] play a sound on round over
+[ ] death walk in instagib after death? (check video)
+[ ] panthers first
+[x] Blue menu when vote in middle when half-life
+[x] increase grunt health
+[x] increase attack damage of puppy
+[x] chainsaw second hit, pulls you away?
+[x] finger gun in mutator?
+[x] noreload on crosshairs
+[x] 15 seconds, rounds over
+[x] text in middle of screen, show who you are on round start.
+[x] santahat mutator during prop hunt
+[x] hunted prophunt cannot observer after death
+[x] busters: shell invisible in busters is werid.
+[x] busters: skeletons not invisible with mutator on after spawn
+[x] throw weapon, instagib, disable
+
 ## December 2024 Test #1
 
-[ ] doublefrost player spawn points and func_wall
 [ ] vested mutator not giving vest
+[x] doublefrost player spawn points and func_wall
 [x] ctf frag on game end?
 [x] prophunt model spin fix?
     [x] fix invisible model index
