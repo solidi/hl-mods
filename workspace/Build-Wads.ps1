@@ -45,6 +45,7 @@ Compile-Wad $binDir "decals" $wadsDir $redistDir
 Compile-Wad $binDir "icerink" $wadsDir $redistDir
 Compile-Wad $binDir "datafloe" $wadsDir $redistDir
 Compile-Wad $binDir "thetemple" $wadsDir $redistDir
+Compile-Wad $binDir "glacialcore" $wadsDir $redistDir
 Compile-Wad $binDir "quadfrost" $wadsDir $redistDir
 
 Set-Location -Path ${PSScriptRoot}

@@ -12,6 +12,7 @@ all {
     $wadsDir\coldice.wad
     $wadsDir\datafloe.wad
     $wadsDir\thetemple.wad
+    $wadsDir\glacialcore.wad
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\liquids.wad
@@ -30,6 +31,7 @@ all {
     $wadsDir\coldice.wad
     $wadsDir\datafloe.wad
     $wadsDir\thetemple.wad
+    $wadsDir\glacialcore.wad
     $wadsDir\decals.wad
     $wadsDir\halflife.wad
     $wadsDir\icerink.wad
