@@ -424,3 +424,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. Setting a players health to 100 in a fragged state can lead to weirdness with spawn and state.
 1. [What follows](https://javagl.github.io/GLConstantsTranslator/GLConstantsTranslator.html) is a great library of constants for GL rendering.
 1. A hack for pushing an entity (or player) on the ground is to set `pOther->pev->flags &= ~FL_ONGROUND;` temproarily, and then in its `prethink`, set the desired velocity.
+1. To clear decals, use the `for ( int x = 0; x < (int)CVAR_GET_FLOAT( "r_decals" ); x++ ) gEngfuncs.pEfxAPI->R_DecalRemoveAll ( x );` on the client size.

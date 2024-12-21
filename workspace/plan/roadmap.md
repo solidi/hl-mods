@@ -209,6 +209,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
     1. [ ] Horde mode improvements
         1. [ ] Amount of emenies increase from 5 to 10
             1. [ ] Basic task based on kills for upgrade
