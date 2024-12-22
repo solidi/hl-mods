@@ -160,6 +160,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Increase sky height of furrow
     1. [x] Training 2 pool in new area opposite of garage
     1. [x] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
+    1. [x] rapidcore (icecore)
+    1. [ ] RATS styled map
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [x] cvar for portal in skybox?
@@ -482,8 +484,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
-    1. [ ] rapidcore (icecore)
-    1. [ ] RATS styled map
     1. [ ] UT Phobos like map, but around an ice planet or moon like Europa
     1. [ ] Rebuild and reskin contamination, pool_party, disposal, and rocket_frenzy from HL25
     1. [ ] extend depot with another area, possibly creating a circle for the train.

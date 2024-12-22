@@ -6,7 +6,7 @@
 [ ] increase puppy velocity
 [ ] play a sound on round over
 [ ] death walk in instagib after death? (check video)
-[ ] panthers first
+[x] panthers first
 [x] Blue menu when vote in middle when half-life
 [x] increase grunt health
 [x] increase attack damage of puppy

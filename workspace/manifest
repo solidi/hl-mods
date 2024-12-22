@@ -259,6 +259,10 @@ maps\thetemple.bsp
 maps\thetemple.res
 maps\thetemple.gbw
 maps\thetemple.txt
+maps\glacialcore.bsp
+maps\glacialcore.res
+maps\glacialcore.wpt
+maps\glacialcore.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -524,6 +528,8 @@ overviews\frozen_bunker.bmp
 overviews\frozen_bunker.txt
 overviews\frozenwarehouse.bmp
 overviews\frozenwarehouse.txt
+overviews\glacialcore.bmp
+overviews\glacialcore.txt
 overviews\glupshitto.bmp
 overviews\glupshitto.txt
 overviews\overflow.bmp
@@ -1160,6 +1166,7 @@ sprites\fart_smoke.spr
 sprites\gameicons5.spr
 sprites\xsmoke1.spr
 sprites\keyboard.spr
+sprites\glowbig.spr
 liblist.gam
 ReadMe.txt
 settings.scr
@@ -1190,6 +1197,7 @@ spacepirate.wad
 icerink.wad
 datafloe.wad
 thetemple.wad
+glacialcore.wad
 coldiceremastered.fgd
 titles.txt
 commandmenu.txt
