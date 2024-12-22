@@ -25,11 +25,12 @@ Beta 5 Features:
     - Vice
         - Smoke / Drink (enabled during godmode)
 - Added func_vehicle and func_vehiclecontrols support
-- 4 New Maps
+- 5 New Maps
     - comet, a ice rink with Zambonis by b1rd
     - datafloe, a reskin of datacore by b1rd
     - thetemple, an original map by b1rd
     - glacialcore, a reskin of rapidcore by b1rd
+    - latenightxmas, an original rats styled map by b1rd
 - 8 New Game Modes (mp_gamemode)
     - "coldskull" - be the first to collect all the skulls!
     - "ctf" - capture the flag, grab the flag and run it back to base!

@@ -161,7 +161,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Training 2 pool in new area opposite of garage
     1. [x] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
     1. [x] rapidcore (icecore)
-    1. [ ] RATS styled map
+    1. [x] RATS styled map
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [x] cvar for portal in skybox?

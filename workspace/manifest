@@ -263,6 +263,10 @@ maps\glacialcore.bsp
 maps\glacialcore.res
 maps\glacialcore.wpt
 maps\glacialcore.txt
+maps\latenightxmas.bsp
+maps\latenightxmas.res
+maps\latenightxmas.wpt
+maps\latenightxmas.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -532,6 +536,8 @@ overviews\glacialcore.bmp
 overviews\glacialcore.txt
 overviews\glupshitto.bmp
 overviews\glupshitto.txt
+overviews\latenightxmas.bmp
+overviews\latenightxmas.txt
 overviews\overflow.bmp
 overviews\overflow.txt
 overviews\quadfrost.bmp
@@ -1030,6 +1036,8 @@ sound\napkin_story.wav
 sound\dual_sawedoff_selected.wav
 sound\smoking.wav
 sound\drinking.wav
+sound\grunch.wav
+sound\snowfall2.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -1167,6 +1175,10 @@ sprites\gameicons5.spr
 sprites\xsmoke1.spr
 sprites\keyboard.spr
 sprites\glowbig.spr
+sprites\bobble.spr
+sprites\glow03.spr
+sprites\star.spr
+sprites\flowerxmas.spr
 liblist.gam
 ReadMe.txt
 settings.scr
@@ -1198,6 +1210,7 @@ icerink.wad
 datafloe.wad
 thetemple.wad
 glacialcore.wad
+latenightxmas.wad
 coldiceremastered.fgd
 titles.txt
 commandmenu.txt

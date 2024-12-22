@@ -16757,3 +16757,10 @@
 "scale" "3"
 "origin" "112 -804 -44"
 }
+{
+"classname" "trigger_mp3audio"
+"origin" "96 -804 -82"
+"health" "11"
+"message" "media/10-another-one.mp3"
+"spawnflags" "1"
+}
