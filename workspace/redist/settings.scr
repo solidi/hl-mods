@@ -433,6 +433,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "5" }
 	}
 
+	"mp_roundwaittime"
+	{
+		"#Ice_RoundWaitTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "15" }
+	}
+
 	"mp_roundfraglimit"
 	{
 		"#Ice_RoundFragLimit"
