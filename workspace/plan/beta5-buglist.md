@@ -4,8 +4,8 @@
 
 [ ] check height of enemy to step down?
 [ ] increase puppy velocity
-[ ] play a sound on round over
 [ ] death walk in instagib after death? (check video)
+[x] play a sound on round over
 [x] panthers first
 [x] Blue menu when vote in middle when half-life
 [x] increase grunt health

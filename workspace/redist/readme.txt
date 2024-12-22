@@ -110,6 +110,7 @@ Beta 5 Features:
     - Bots no longer vote for filtered mutators
     - Improved sanic sprites by fading after death
     - Soften pushy, enable on ground
+    - Give fingergn during DontShoot
 - Third Function Weapon Support
     - Via the reload button
         - Knife
@@ -185,6 +186,7 @@ Beta 5 Features:
     - Added "sv_botsmelee" to toggle bots close combat
     - Changed "mp_grapplesky" to "mp_grabsky", now supports portals
     - Improved first frag award, reset on rounds
+    - Added "mp_roundwaittime" for number of seconds til next round
 - Gameplay
     - Provide frag credit to drivable train
     - Telefrags fixed with maps containing these entities
