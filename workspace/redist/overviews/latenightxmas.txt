@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.99
+	ORIGIN	-648.47 	-80.75	116
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/latenightxmas.bmp"
+	HEIGHT	-513
+}
