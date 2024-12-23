@@ -31,6 +31,7 @@ Beta 5 Features:
     - thetemple, an original map by b1rd
     - glacialcore, a reskin of rapidcore by b1rd
     - latenightxmas, an original rats styled map by b1rd
+    - storm, an rebuild of ci_massacre by b1rd
 - 8 New Game Modes (mp_gamemode)
     - "coldskull" - be the first to collect all the skulls!
     - "ctf" - capture the flag, grab the flag and run it back to base!
@@ -64,6 +65,7 @@ Beta 5 Features:
     - Enable score points in Capture the Chumtoad
     - Remove pink flame from self skeleton in Chilldemic
     - Limit weapons available to skeletons in Chilldemic
+    - Added round end sound sfx
 - 24 New Mutators - supports combination and randomly selected (sv_mutators)
     - "toilet" - we aint hurt nobody
     - "jeepathon" - now available at your local Jeep Wrangler dealership
@@ -110,7 +112,7 @@ Beta 5 Features:
     - Bots no longer vote for filtered mutators
     - Improved sanic sprites by fading after death
     - Soften pushy, enable on ground
-    - Give fingergn during DontShoot
+    - Give fingergun during DontShoot
 - Third Function Weapon Support
     - Via the reload button
         - Knife

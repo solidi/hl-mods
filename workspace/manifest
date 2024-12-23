@@ -267,6 +267,10 @@ maps\latenightxmas.bsp
 maps\latenightxmas.res
 maps\latenightxmas.wpt
 maps\latenightxmas.txt
+maps\storm.bsp
+maps\storm.res
+maps\storm.wpt
+maps\storm.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -546,6 +550,8 @@ overviews\snow_camp.bmp
 overviews\snow_camp.txt
 overviews\snowcross.bmp
 overviews\snowcross.txt
+overviews\storm.bmp
+overviews\storm.txt
 overviews\frostfire.bmp
 overviews\frostfire.txt
 overviews\snowtransit.bmp
@@ -1212,6 +1218,7 @@ datafloe.wad
 thetemple.wad
 glacialcore.wad
 latenightxmas.wad
+storm.wad
 coldiceremastered.fgd
 titles.txt
 commandmenu.txt
