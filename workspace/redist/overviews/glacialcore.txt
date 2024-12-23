@@ -2,7 +2,7 @@ global
 {
 	ZOOM	2.10
 	ORIGIN	-454.00 	-390.88	-380
-	ROTATED	0
+	ROTATED	1
 }
 
 layer 

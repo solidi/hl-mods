@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	1.92
+	ORIGIN	450.83 	935.81	665.82
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/storm.bmp"
+	HEIGHT	-77.37
+}
