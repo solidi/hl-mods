@@ -9,6 +9,17 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+Beta 6 Features:
+
+- Gamemode Changes
+    - Battle Royale offers team based play with safe area
+        - Added mp_royaleteam [0|1] for teamplay option
+- Bots
+    - When sv_defaultbots is set to 0, all bots are kicked
+- Fixes
+    - Scoreboard sorting fixed
+    - Kicked bots do not rejoin game
+
 Beta 5 Features:
 
 - 6 New Weapons
@@ -1001,6 +1012,7 @@ Server:
 - "mp_roundfraglimit" - Sets the max frags in a round during an 1 on 1 arena
 - "mp_roundlimit" - Sets the maximum amount of game rounds before a map change
 - "mp_roundtimelimit" - Sets the maximum amount of time a round will run
+- "mp_royaleteam [0|1]" - Sets teamplay option for battle royale
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_spawnitems" - Spawn items or not
 - "mp_spawnprotectiontime" - amount of time in seconds a player is protected from damage

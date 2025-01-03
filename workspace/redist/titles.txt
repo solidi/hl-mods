@@ -146,7 +146,7 @@ Gitbgff
 
 CR20
 {
-EnemeyZero
+EnemyZero
 }
 
 CR21

@@ -27,11 +27,11 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $bodygroup "studio"
 {
-studio "coldspot"
+studio "coldspot_solid"
 }
 
-$texrendermode "cube_green.bmp" "additive" 
-$texrendermode "cube_green.bmp" "masked" 
+$texrendermode "cube_green_wall.bmp" "additive" 
+$texrendermode "cube_green_wall.bmp" "masked" 
 
 // hit box(es)
 $hbox 0 "coldspot" -6.810000 -5.730000 -3.450000 6.810000 5.730000 3.450000
