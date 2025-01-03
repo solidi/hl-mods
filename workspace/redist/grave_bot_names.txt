@@ -34,7 +34,7 @@ Rapturer
 Kurayamikage
 SplitSpine
 Gitbgff
-EnemeyZero
+EnemyZero
 ToonCop
 Hero
 Jolteon

@@ -530,4 +530,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "30" }
 	}
+
+	"mp_royaleteam"
+	{
+		"#Ice_RoyaleTeam"
+		{ BOOL }
+		{ "1" }
+	}
 }

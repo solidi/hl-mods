@@ -87,6 +87,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
+### Beta 6
+
+1. Game Support
+    1. [x] LMS
+        1. [x] with team support
+        1. [x] Shrinking safe zone pinned to info_player_start
+1. Player Models
+    1. [ ] Vanilla Ice
+
 ### Beta 5
 
 1. New Weapons
@@ -221,7 +230,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
       1. [ ] Skeleton appears the moment fragged from suvivor
     1. [ ] Shidden, Stomp on head
-    1. [ ] lms with team support
     1. [ ] Fix busters - if you're the buster and somehow suiside... you'll still trigger the message "Youyrname killed the buster yourname"
     1. [ ] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
     1. [ ] Gungame - more feedback
