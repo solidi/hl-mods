@@ -31,7 +31,7 @@ function Compile-Sprite {
         Throw "$out`n> Could not compile ${target}."
     }
     Move-Item $spritesDir\$target\$target.spr $outDir\$target.spr -force
-    Remove-Item $spritesDir\$target\sprgen.exe
+    Remove-Item $spritesDir\$target\sprgen.exe -ErrorAction Ignore
 }
 
 function Colorize-Folder {
