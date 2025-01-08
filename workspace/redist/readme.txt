@@ -14,11 +14,16 @@ Beta 6 Features:
 - Gamemode Changes
     - Battle Royale offers team based play with safe area
         - Added mp_royaleteam [0|1] for teamplay option
+    - Round based games remove decals and items when round is over
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
+    - Gameplay
+        - Players who spectate during round do not count
+    - Weapons
+        - Nuke camera is reset properly
 
 Beta 5 Features:
 
