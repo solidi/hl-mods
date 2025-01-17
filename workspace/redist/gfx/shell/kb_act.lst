@@ -112,7 +112,7 @@
 "blank"			"#Ice_Weapon_Category_7"
 "blank"			"=========================="
 "use weapon_dual_chaingun"		"#Ice_DualChaingun"
-"use weapon_dual_hornetgun"		"#Ice_DualHortnetgun"
+"use weapon_dual_hornetgun"		"#Ice_DualHornetgun"
 "use weapon_dual_railgun"		"#Ice_DualRailgun"
 "use weapon_dual_rpg"			"#Ice_DualRpg"
 "use weapon_dual_flamethrower"	"#Ice_DualFlameThrower"

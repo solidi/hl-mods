@@ -1,5 +1,17 @@
 ## New Recommendations
 
+## Janurary 2025 GSS Test
+
+[ ] vote on ctf was wrong
+[x] round 2 gungame fix?
+[x] no drowning in prophunt as prop
+[x] mini slide problem
+[x] no winners in horde mode
+    [x] improve winning scores
+[x] add weapon tilt calculation in zapper mode
+[x] crash in 1 on 1 when bot is kicked
+[x] fix dualhornet gun config text
+
 ## December 2024 Test #2
 
 [ ] check height of enemy to step down?
