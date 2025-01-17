@@ -22,8 +22,16 @@ Beta 6 Features:
     - Kicked bots do not rejoin game
     - Gameplay
         - Players who spectate during round do not count
+        - Patch game crash when bot is kicked from the server during arena
+        - Fix gungame winner printout
+        - Never drown as a prop
+        - Normalize determine winner calculations, and include tie wins
+        - Remove difficult to understand jvs damage rule
+    - Mutators
+        - Do not duck in minime mode during selaco slide
     - Weapons
         - Nuke camera is reset properly
+        - Remove zapgun punch angles
 
 Beta 5 Features:
 
