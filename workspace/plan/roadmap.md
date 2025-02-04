@@ -93,6 +93,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] LMS
         1. [x] with team support
         1. [x] Shrinking safe zone pinned to info_player_start
+1. Game Mechanics
+    1. [ ] Combo meter for hits applied without taking damage
+1. Mutators
+    1. [ ] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
 1. Player Models
     1. [ ] Vanilla Ice
 
@@ -220,6 +224,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
+    1. [ ] One of those beeing Hide and Seek -> one player gets invisibility that he can use to move around the map, the rest are trying to find and kill him. While moving he's partially visible, while not moving he's invisible. The invisible player gets points every 30 seconds he's not taking damage. The invisible player has no weapons and cannot pick up weapons. If round rules are in effect if the round finishes, the alive invisible player gets a reward.
+        [ ] The invisible player only gets slappers / back attack
     1. [ ] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
     1. [ ] Horde mode improvements
         1. [ ] Amount of emenies increase from 5 to 10

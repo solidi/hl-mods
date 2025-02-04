@@ -15,6 +15,7 @@ Beta 6 Features:
     - Battle Royale offers team based play with safe area
         - Added mp_royaleteam [0|1] for teamplay option
     - Round based games remove decals and items when round is over
+    - Added Gungame level to the scoreboard
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
 - Fixes
@@ -23,15 +24,19 @@ Beta 6 Features:
     - Gameplay
         - Players who spectate during round do not count
         - Patch game crash when bot is kicked from the server during arena
-        - Fix gungame winner printout
         - Never drown as a prop
         - Normalize determine winner calculations, and include tie wins
         - Remove difficult to understand jvs damage rule
+        - Gungame
+            - Fix empty scoreboard during Gungame
+            - Fix Gungame winner printout
     - Mutators
         - Do not duck in minime mode during selaco slide
     - Weapons
         - Nuke camera is reset properly
         - Remove zapgun punch angles
+    - Game Mechanics
+        - Patched flying with spamming frontflip
 
 Beta 5 Features:
 
