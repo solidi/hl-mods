@@ -253,7 +253,7 @@ weapon_data_t none
 	DEFINE_DELTA( m_fAimedDamage, DT_FLOAT, 6, 0.1 ),
 	DEFINE_DELTA( m_fInZoom, DT_INTEGER, 1, 1.0 ),
 	DEFINE_DELTA( m_iWeaponState, DT_INTEGER, 2, 1.0 ),
-	DEFINE_DELTA( m_iId, DT_INTEGER, 5, 1.0 ),
+	DEFINE_DELTA( m_iId, DT_INTEGER, 10, 1.0 ),
 	DEFINE_DELTA( iuser1, DT_SIGNED | DT_INTEGER, 10, 1.0  ),
 	DEFINE_DELTA( iuser2, DT_SIGNED | DT_INTEGER, 10, 1.0  ),
 	DEFINE_DELTA( iuser3, DT_SIGNED | DT_INTEGER, 10, 1.0  ),
