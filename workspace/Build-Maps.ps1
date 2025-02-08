@@ -65,47 +65,56 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\maps)
 }
 
-if ([string]::IsNullOrEmpty($mapName)) {
-    Compile-Map $binDir "fences" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "snowyard" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "depot" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "snowcross" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "frostfire" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "drift" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "snow_camp" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "ice_pit" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "frozen_bunker" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "snowtransit" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "doublefrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "themill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "chillworks" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "frosty" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "overflow" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "frozenwarehouse" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "thechill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "frostmill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "glupshitto" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "cold_base" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "comet" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "datafloe" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "thetemple" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "glacialcore" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "latenightxmas" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "storm" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    # Add-ons
-    Compile-Map $binDir "quadfrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-    Compile-Map $binDir "defroster" $mapsDir $redistDir $wadsDir $finalCompile $noWad
-} else {
-    Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile $noWad
+try
+{
+    if ([string]::IsNullOrEmpty($mapName)) {
+        Compile-Map $binDir "fences" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "training" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "stalkyard2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "coldice" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "training2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "focus" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "furrow" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "snowyard" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "canyon" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "bounce2" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "catacombs" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "depot" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "snowcross" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "frostfire" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "drift" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "snow_camp" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "ice_pit" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "frozen_bunker" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "snowtransit" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "doublefrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "themill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "chillworks" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "frosty" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "overflow" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "frozenwarehouse" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "thechill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "frostmill" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "glupshitto" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "cold_base" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "comet" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "datafloe" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "thetemple" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "glacialcore" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "latenightxmas" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "storm" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        # Add-ons
+        Compile-Map $binDir "quadfrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "defroster" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+    } else {
+        Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile $noWad
+    }
 }
-
-Set-Location -Path ${PSScriptRoot}
+catch
+{
+    Write-Error "$($_.Exception.Message)"
+}
+finally
+{
+    Set-Location -Path ${PSScriptRoot}
+}
