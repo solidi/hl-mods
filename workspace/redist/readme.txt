@@ -18,6 +18,8 @@ Beta 6 Features:
     - Added Gungame level to the scoreboard
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
+- Map Changes
+    - Add vertical play in fences
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game

@@ -124,6 +124,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
     1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
     1. [x] Auto taunt after a frag
+1. Map Changes
+    1. [x] Add vertical play within fences
 1. Bots
     1. [x] Custom waypoint files for all maps
 1. Mutators
@@ -340,6 +342,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
 1. New Weapons
+    1. [ ] Kiss bomb, and floats and blows up
+    1. [ ] Flying rose, makes you fly
     1. [ ] [Blue Takis](https://www.youtube.com/watch?v=2LaOo_xo7O0)
     1. [ ] First quad weapon - rocket launcher?
     1. [ ] [BFG](https://youtu.be/2KL89T9T9UA?si=hB-I4g2LhazBRp_W) / Displacer

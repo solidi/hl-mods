@@ -2,7 +2,7 @@
 
 ##  June 2024 GSS #132
 
-[ ] a bad entity in index of edict
+[x] a bad entity in index of edict
 [ ] map voting, when joining.
 [ ] double vote influence on steamids (for $$$)
 [ ] 69 mutator, change as many numbers to 69

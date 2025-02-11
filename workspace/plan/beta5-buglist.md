@@ -2,7 +2,7 @@
 
 ## Janurary 2025 GSS Test
 
-[ ] vote on ctf was wrong
+[x] vote on ctf was wrong
 [x] round 2 gungame fix?
 [x] no drowning in prophunt as prop
 [x] mini slide problem
@@ -54,7 +54,7 @@
 [x] smoke on sawed off too much
 [x] flamethrower close up fix
 [x] ctf score keeps disappearing after spawn?
-    [ ] ctf score board not ordered on wins or frags -- maybe deaths?
+    [x] ctf score board not ordered on wins or frags -- maybe deaths?
 [x] cancel taunt on weapon change?
 [x] Stop coldspot from moving when game is over
 [x] fixed disc angle, path, and angles
