@@ -16,8 +16,11 @@ Beta 6 Features:
         - Added mp_royaleteam [0|1] for teamplay option
     - Round based games remove decals and items when round is over
     - Added Gungame level to the scoreboard
+- Mutator Changes
+    - Add kick-boom effect to kick when volatile is enabled
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
+    - Patched broken bot names when rejoining
 - Map Changes
     - Add vertical play in fences
 - Fixes
