@@ -93,6 +93,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] LMS
         1. [x] with team support
         1. [x] Shrinking safe zone pinned to info_player_start
+    1. [x] Cold Skulls
+        1. [x] Self frag, player should drop a single skull, not half of the skulls
+        1. [x] Fix dropped skull contents
+        1. [x] Move cold skull pickups to score
 1. Game Mechanics
     1. [ ] Combo meter for hits applied without taking damage
 1. Mutators

@@ -35,6 +35,10 @@ Beta 6 Features:
         - Gungame
             - Fix empty scoreboard during Gungame
             - Fix Gungame winner printout
+        - Cold Skulls
+            - Player drops a single skull when self-fragged
+            - Fix dropped skull contents to match count
+            - Move cold skull pickups to score column
     - Mutators
         - Do not duck in minime mode during selaco slide
     - Weapons
