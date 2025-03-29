@@ -426,3 +426,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. A hack for pushing an entity (or player) on the ground is to set `pOther->pev->flags &= ~FL_ONGROUND;` temproarily, and then in its `prethink`, set the desired velocity.
 1. To clear decals, use the `for ( int x = 0; x < (int)CVAR_GET_FLOAT( "r_decals" ); x++ ) gEngfuncs.pEfxAPI->R_DecalRemoveAll ( x );` on the client size.
 1. Using Vmware Fusion, if the mouse is behavioring poorly, use the config value `mks.gamingMouse.policy = "gaming"` in the vmx config file. See this [thread](https://www.reddit.com/r/vmware/comments/p0x7yy/with_vmware_tools_how_to_keep_the_mouse_grabbed/)
+1. To remap colors within the player models, [here is the tutorial](https://www.the303.org/tutorials/gold_remap.htm) to do it.

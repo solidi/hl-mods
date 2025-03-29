@@ -1153,3 +1153,13 @@ coldspot
 {
 COLDSPOT
 }
+
+level
+{
+LEVEL
+}
+
+skulls
+{
+SKULLS
+}

@@ -265,6 +265,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] Dropped item floats to victor
     1. [ ] Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
