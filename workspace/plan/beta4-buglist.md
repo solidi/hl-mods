@@ -68,7 +68,6 @@ nuke?
 
 [ ] no man stands - corruption n objectives underneath
 [ ] increase slowbullets dmg
-[ ] release hook on player damage
 [ ] refix chillworks
 [ ] crowbar replace drift, weird spawn thing 
 [ ] chumtoad throw animation
@@ -84,6 +83,7 @@ nuke?
 [ ] Make "chaos" in vote menu caps
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[x] release hook on player damage
 [x] gibbed sanic should disappear?
 [x] chumtoad slipped away in vote
 [x] disable lifebar when fragged?
