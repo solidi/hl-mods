@@ -53,7 +53,7 @@ jobs:
         path: ./${{env.FOLDER_NAME}}/dlls.zip
 
   linux_libs:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -62,10 +62,10 @@ jobs:
         submodules: recursive
 
     - name: Update sources to include xenial main
-      run: sudo su -c "echo 'deb http://us.archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list"
+      run: sudo su -c "echo 'deb [trusted=yes] http://us.archive.ubuntu.com/ubuntu/ xenial main' >> /etc/apt/sources.list"
 
     - name: Update sources to include xenial universe
-      run: sudo su -c "echo 'deb http://us.archive.ubuntu.com/ubuntu/ xenial universe' >> /etc/apt/sources.list"
+      run: sudo su -c "echo 'deb [trusted=yes] http://us.archive.ubuntu.com/ubuntu/ xenial universe' >> /etc/apt/sources.list"
 
     - name: Update packages
       run: sudo apt update -y
@@ -73,13 +73,7 @@ jobs:
     - name: Install make
       run: sudo apt-get install make
 
-    - name: Install g++-4.8
-      run: sudo apt install g++-4.8 gcc-4.8 -y
-
     - name: Install headers
-      run: sudo apt-get install gcc-4.8-multilib g++-4.8-multilib -y
-
-    - name: Install modern headers
       run: sudo apt-get install gcc-multilib g++-multilib -y
 
     - name: Install GL headers

@@ -46,6 +46,7 @@ Beta 6 Features:
         - Remove zapgun punch angles
     - Game Mechanics
         - Patched flying with spamming frontflip
+        - Fixed grapple hook stuck to players
 
 Beta 5 Features:
 
