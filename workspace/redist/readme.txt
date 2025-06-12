@@ -39,8 +39,11 @@ Beta 6 Features:
             - Player drops a single skull when self-fragged
             - Fix dropped skull contents to match count
             - Move cold skull pickups to score column
+        - Capture the Chumtoad
+            - Disable 999 mutator during gameplay
     - Mutators
         - Do not duck in minime mode during selaco slide
+        - Fix 999 mutator during an airstrike
     - Weapons
         - Nuke camera is reset properly
         - Remove zapgun punch angles

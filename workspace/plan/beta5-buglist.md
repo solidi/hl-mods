@@ -1,5 +1,9 @@
 ## New Recommendations
 
+## Napoleon
+
+[ ] Airstrike should damage everyone
+
 ## Janurary 2025 GSS Test
 
 [x] vote on ctf was wrong
