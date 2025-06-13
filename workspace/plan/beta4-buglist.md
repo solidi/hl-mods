@@ -76,10 +76,10 @@ nuke?
 [ ] pirate sounds when hat mutator on
 [ ] slowbullets match dmg of weapon held
 [ ] fire in observer?
-[ ] replace weapons with ammo in gungame?
 [ ] Make "chaos" in vote menu caps
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[x] replace weapons with ammo in gungame?
 [x] 999 + airstirke doesnt kill people
 [x] normal hp for chumtoad holder in 999 mutator
 [x] spawn point at end of hill in canyon needs fixing
