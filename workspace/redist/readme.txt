@@ -33,6 +33,7 @@ Beta 6 Features:
         - Normalize determine winner calculations, and include tie wins
         - Remove difficult to understand jvs damage rule
         - Gungame
+            - Spawn random ammo and items in place of weapons
             - Fix empty scoreboard during Gungame
             - Fix Gungame winner printout
         - Cold Skulls
