@@ -18,6 +18,7 @@ Beta 6 Features:
     - Added Gungame level to the scoreboard
 - Mutator Changes
     - Add kick-boom effect to kick when volatile is enabled
+    - Slow bullets support variable damage based on weapon
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
     - Patched broken bot names when rejoining
