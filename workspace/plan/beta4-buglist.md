@@ -67,18 +67,18 @@ nuke?
 ## December 2023
 
 [ ] no man stands - corruption n objectives underneath
-[ ] increase slowbullets dmg
 [ ] refix chillworks
 [ ] crowbar replace drift, weird spawn thing 
 [ ] chumtoad throw animation
 [ ] grenade mutator and sniper scope
 [ ] killed self with handgrenade?
 [ ] pirate sounds when hat mutator on
-[ ] slowbullets match dmg of weapon held
 [ ] fire in observer?
 [ ] Make "chaos" in vote menu caps
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[x] increase slowbullets dmg
+[x] slowbullets match dmg of weapon held
 [x] replace weapons with ammo in gungame?
 [x] 999 + airstirke doesnt kill people
 [x] normal hp for chumtoad holder in 999 mutator
