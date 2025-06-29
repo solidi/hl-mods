@@ -537,4 +537,32 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_ggstartlevel"
+	{
+		"#Ice_GGStartLevel"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "1" }
+	}
+
+	"mp_ggsteallevel"
+	{
+		"#Ice_GGStealLevel"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_ggfrags"
+	{
+		"#Ice_GGFrags"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "1" }
+	}
+
+	"mp_ggsuicide"
+	{
+		"#Ice_GGSuicide"
+		{ BOOL }
+		{ "1" }
+	}
 }

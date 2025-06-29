@@ -70,13 +70,13 @@ nuke?
 [ ] refix chillworks
 [ ] crowbar replace drift, weird spawn thing 
 [ ] chumtoad throw animation
-[ ] grenade mutator and sniper scope
 [ ] killed self with handgrenade?
 [ ] pirate sounds when hat mutator on
 [ ] fire in observer?
 [ ] Make "chaos" in vote menu caps
 [ ] bot should throw chumtoad if taking damage
 [ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[x] grenade mutator and sniper scope
 [x] increase slowbullets dmg
 [x] slowbullets match dmg of weapon held
 [x] replace weapons with ammo in gungame?
@@ -179,12 +179,12 @@ nuke?
 [ ] toolgun - delete person
 [ ] hungery meter, blueberries, blue nanas
 [ ] icon of chumtoad when you have it.
-[ ] steal levels in gungame?
 [ ] time stopping mechanism
 [ ] Inverse mutator doesn't seem to work
 [ ] Oldtime doesn't seem to work
 [ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [ ] Defroster - Loaded, but crashed after a few minutes with the same error above
+[x] steal levels in gungame?
 [x] jeepathon / func_vehicle - car over player model?
 [x] reload on rpg disables / enables laser
 [x] jope mutator Doesn't put player names back after the mutator is removed

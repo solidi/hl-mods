@@ -15,13 +15,26 @@ Beta 6 Features:
     - Battle Royale offers team based play with safe area
         - Added mp_royaleteam [0|1] for teamplay option
     - Round based games remove decals and items when round is over
-    - Added Gungame level to the scoreboard
+    - Gungame
+        - Add fingergun, rocketcrowbar, and zapgun
+        - Added level to the scoreboard
+        - Add level steals with knife (added ggsteallevel)
+        - Loose level on self-frag (added ggsuicide)
+        - Enable the golden knife at the end of the game
+        - Knife is now one slash frag
+        - Immediately remove entities when weapon upgrades
+        - Improve weapon upgrades with server-defined amount (added ggfrags)
+        - Disabled throwable weapons
+        - Increase initial weapon ammo in gungame
+        - Disable scoring on punch or kicks
 - Mutator Changes
     - Add kick-boom effect to kick when volatile is enabled
     - Slow bullets support variable damage based on weapon
+    - Disabled weapon spawn mutators when zoomed in
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
     - Patched broken bot names when rejoining
+    - Disabled offhand melee attacks in gungame
 - Map Changes
     - Add vertical play in fences
 - Fixes
@@ -33,10 +46,13 @@ Beta 6 Features:
         - Never drown as a prop
         - Normalize determine winner calculations, and include tie wins
         - Remove difficult to understand jvs damage rule
+        - Fix player having rune after respawn
         - Gungame
             - Spawn random ammo and items in place of weapons
             - Fix empty scoreboard during Gungame
             - Fix Gungame winner printout
+            - Fix forcegrab in gungame
+            - Fix ggstartlevel so it matches the correct level
         - Cold Skulls
             - Player drops a single skull when self-fragged
             - Fix dropped skull contents to match count
@@ -49,6 +65,7 @@ Beta 6 Features:
     - Weapons
         - Nuke camera is reset properly
         - Remove zapgun punch angles
+        - Dual glocks fire underwater
     - Game Mechanics
         - Patched flying with spamming frontflip
         - Fixed grapple hook stuck to players
@@ -1030,6 +1047,9 @@ Server:
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
     - "teamplay" - frag with teams
 - "mp_ggstartlevel" - Sets default start level of gun game
+- "mp_ggsteallevel [0|1]" - Enable level stealing if fragged with punch
+- "mp_ggfrags" - Amount of frags to upgrade each weapon
+- "mp_ggsuicide [0|1]" - Lose a level on self frag if enabled
 - "mp_grabsky [0|1]" - Allow player to grapple or portal the sky
 - "mp_grapplinghook [0|1]" - Allow grappling hook on server
 - "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
