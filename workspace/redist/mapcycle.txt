@@ -6,6 +6,7 @@ cold_base
 coldice
 comet
 datafloe
+defroster
 depot
 doublefrost
 drift
@@ -22,6 +23,7 @@ glupshitto
 ice_pit
 latenightxmas
 overflow
+quadfrost
 snow_camp
 snowcross
 snowtransit

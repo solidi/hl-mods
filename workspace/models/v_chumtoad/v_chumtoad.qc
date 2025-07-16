@@ -110,10 +110,10 @@ $sequence "idle1" "idle1" fps 16 loop
 $sequence "fidgetLick" "fidgetLick" fps 16 
 $sequence "fidgetCroak" "fidgetCroak" fps 16 
 $sequence "down" "down" fps 60 
-$sequence "up" "up" fps 140 
+$sequence "up" "up" fps 60 
 $sequence "Throw" "Throw" fps 24 
 $sequence "release" "Throw" fps 24 { event 5005 0 "chumtoad_release.wav" }
-$sequence "draw_lowkey" "up" fps 140 { event 5004 0 "default_draw.wav" } 
-$sequence "draw" "up" fps 140 { event 5004 0 "default_draw.wav" } { event 5005 0 "chumtoad_selected.wav" }
+$sequence "draw_lowkey" "up" fps 60 { event 5004 0 "default_draw.wav" } 
+$sequence "draw" "up" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "chumtoad_selected.wav" }
 
 // End of QC script.

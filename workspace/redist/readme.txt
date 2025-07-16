@@ -36,10 +36,12 @@ Beta 6 Features:
     - Patched broken bot names when rejoining
     - Disabled offhand melee attacks in gungame
 - Map Changes
+    - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
+    - Enabled quadfrost and defroster to map voting
     - Gameplay
         - Players who spectate during round do not count
         - Patch game crash when bot is kicked from the server during arena
@@ -58,7 +60,12 @@ Beta 6 Features:
             - Fix dropped skull contents to match count
             - Move cold skull pickups to score column
         - Capture the Chumtoad
+            - Bots throw chumtoad at enemy if low on health
             - Disable 999 mutator during gameplay
+            - Improve logic on dropping the chumtoad so its less abrupt
+            - Show chumtoad icon while holding it in ctc
+            - Always show the holder of the chumtoad on top of the scoreboard
+            - Fix chumtoad not appearing on radar
     - Mutators
         - Do not duck in minime mode during selaco slide
         - Fix 999 mutator during an airstrike
@@ -66,9 +73,11 @@ Beta 6 Features:
         - Nuke camera is reset properly
         - Remove zapgun punch angles
         - Dual glocks fire underwater
+        - Fix chumtoad and snark holster animation, fix velocity of release
     - Game Mechanics
         - Patched flying with spamming frontflip
         - Fixed grapple hook stuck to players
+        - Do not show fire on players who cannot take damage
 
 Beta 5 Features:
 

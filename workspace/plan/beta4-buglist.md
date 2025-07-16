@@ -2,21 +2,17 @@
 
 ##  June 2024 GSS #132
 
-[x] a bad entity in index of edict
 [ ] map voting, when joining.
 [ ] double vote influence on steamids (for $$$)
 [ ] 69 mutator, change as many numbers to 69
 [ ] pair of dice, roll the dice, roll it for a weapon
+[x] a bad entity in index of edict
 [x] if people leave, voting count still too high
 [x] rocket bees?
 [x] execute configs on game mode.
 [x] switch to give weapon.
 [x] ice_pit, railign is non-blocking
 [x] when typing jope, turns on jope mutator or at least says all hail.
-
-loopback, paintball, superjump - crash? edict
-nuke?
-
 
 ##  Janurary 2024 GSS #109
 
@@ -69,13 +65,13 @@ nuke?
 [ ] no man stands - corruption n objectives underneath
 [ ] refix chillworks
 [ ] crowbar replace drift, weird spawn thing 
-[ ] chumtoad throw animation
 [ ] killed self with handgrenade?
 [ ] pirate sounds when hat mutator on
 [ ] fire in observer?
 [ ] Make "chaos" in vote menu caps
-[ ] bot should throw chumtoad if taking damage
-[ ] 3 - 4 second on chumtoad, then higher chance of dropping
+[x] chumtoad throw animation
+[x] bot should throw chumtoad if taking damage
+[x] 3 - 4 second on chumtoad, then higher chance of dropping
 [x] grenade mutator and sniper scope
 [x] increase slowbullets dmg
 [x] slowbullets match dmg of weapon held
@@ -178,12 +174,12 @@ nuke?
 [ ] player model colors
 [ ] toolgun - delete person
 [ ] hungery meter, blueberries, blue nanas
-[ ] icon of chumtoad when you have it.
 [ ] time stopping mechanism
 [ ] Inverse mutator doesn't seem to work
 [ ] Oldtime doesn't seem to work
-[ ] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
-[ ] Defroster - Loaded, but crashed after a few minutes with the same error above
+[x] icon of chumtoad when you have it.
+[x] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
+[x] Defroster - Loaded, but crashed after a few minutes with the same error above
 [x] steal levels in gungame?
 [x] jeepathon / func_vehicle - car over player model?
 [x] reload on rpg disables / enables laser
