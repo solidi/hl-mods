@@ -16,6 +16,7 @@ Beta 6 Features:
         - Added mp_royaleteam [0|1] for teamplay option
     - Round based games remove decals and items when round is over
     - Gungame
+        - Spawn random ammo and items in place of weapons
         - Add fingergun, rocketcrowbar, and zapgun
         - Added level to the scoreboard
         - Add level steals with knife (added ggsteallevel)
@@ -27,10 +28,22 @@ Beta 6 Features:
         - Disabled throwable weapons
         - Increase initial weapon ammo in gungame
         - Disable scoring on punch or kicks
+    - Cold Skulls
+        - Player drops a single skull when self-fragged
+        - Move cold skull pickups to score column
+    - Capture the Chumtoad
+        - Bots throw chumtoad at enemy if low on health
+        - Improve logic on dropping the chumtoad so its less abrupt
+        - Show chumtoad icon while holding it in ctc
+        - Always show the holder of the chumtoad on top of the scoreboard
 - Mutator Changes
     - Add kick-boom effect to kick when volatile is enabled
     - Slow bullets support variable damage based on weapon
     - Disabled weapon spawn mutators when zoomed in
+    - Dont shoot mutator
+        - Inflicts damage of the selected weapon
+        - Zapgun and rocketcrowbar now added
+        - Bots sometimes use weapons
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
     - Patched broken bot names when rejoining
@@ -38,10 +51,10 @@ Beta 6 Features:
 - Map Changes
     - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
+    - Enabled quadfrost and defroster to map voting
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
-    - Enabled quadfrost and defroster to map voting
     - Gameplay
         - Players who spectate during round do not count
         - Patch game crash when bot is kicked from the server during arena
@@ -50,21 +63,14 @@ Beta 6 Features:
         - Remove difficult to understand jvs damage rule
         - Fix player having rune after respawn
         - Gungame
-            - Spawn random ammo and items in place of weapons
             - Fix empty scoreboard during Gungame
             - Fix Gungame winner printout
             - Fix forcegrab in gungame
             - Fix ggstartlevel so it matches the correct level
         - Cold Skulls
-            - Player drops a single skull when self-fragged
             - Fix dropped skull contents to match count
-            - Move cold skull pickups to score column
         - Capture the Chumtoad
-            - Bots throw chumtoad at enemy if low on health
             - Disable 999 mutator during gameplay
-            - Improve logic on dropping the chumtoad so its less abrupt
-            - Show chumtoad icon while holding it in ctc
-            - Always show the holder of the chumtoad on top of the scoreboard
             - Fix chumtoad not appearing on radar
     - Mutators
         - Do not duck in minime mode during selaco slide
@@ -74,6 +80,7 @@ Beta 6 Features:
         - Remove zapgun punch angles
         - Dual glocks fire underwater
         - Fix chumtoad and snark holster animation, fix velocity of release
+        - Fix Fingergun bullet decals
     - Game Mechanics
         - Patched flying with spamming frontflip
         - Fixed grapple hook stuck to players
