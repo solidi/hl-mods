@@ -97,10 +97,22 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Self frag, player should drop a single skull, not half of the skulls
         1. [x] Fix dropped skull contents
         1. [x] Move cold skull pickups to score
+    1. [x] Gungame - more feedback
+        1. [x] ammo in place of weapons
+        1. [x] Frag only counts on right weapon
+    1. Capture the Chumtoad
+        1. [x] Bots throw chumtoad at enemy if low on health
+        1. [x] Disable 999 mutator during gameplay
+        1. [x] Improve logic on dropping the chumtoad so its less abrupt
+        1. [x] Show chumtoad icon while holding it in ctc
+        1. [x] Always show the holder of the chumtoad on top of the scoreboard
+        1. [x] Fix chumtoad not appearing on radar
 1. Game Mechanics
     1. [ ] Combo meter for hits applied without taking damage
+    1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
 1. Mutators
     1. [ ] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
+    1. [x] Improve dont shoot mutator, calculate damage of weapon
 1. Player Models
     1. [ ] Vanilla Ice
 
@@ -157,6 +169,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Modes
     1. [x] coldspot - retro fit it to existing hldm maps like ctf, select two entities like with ctf to be controlling areas. make a  large mdl model, that's outlined and semi transparent walls so player goes in it to start control, on the  gameloop check if team member is in a radius loop of the containing player. Same unit size as the mdl
     1. [x] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
+        1. [x] Fix busters - if you're the buster and somehow suicide... you'll still trigger the message "Youyrname killed the buster yourname"
     1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
     1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
     1. [x] CTF mode, spawn two spots if no support?
@@ -234,7 +247,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Assimilated - if you frag a player from the opponent's team they join your team - the players can't change teams, and the round ends when the time runs out or when all players are in one team at any given point - basically kill and assimilate - obviously... I need to figure out what happens when the player count drops under two... xD - I would assume the round ends and those two players would be sucked back into waiting as observer lol. Or game could go so that if the last person is fragged on the opposite team, and then it ends. "Assimilated" is a nice name to the mode... (Napoleon's idea)
     1. [ ] One of those beeing Hide and Seek -> one player gets invisibility that he can use to move around the map, the rest are trying to find and kill him. While moving he's partially visible, while not moving he's invisible. The invisible player gets points every 30 seconds he's not taking damage. The invisible player has no weapons and cannot pick up weapons. If round rules are in effect if the round finishes, the alive invisible player gets a reward.
         [ ] The invisible player only gets slappers / back attack
-    1. [ ] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
     1. [ ] Horde mode improvements
         1. [ ] Amount of emenies increase from 5 to 10
             1. [ ] Basic task based on kills for upgrade
@@ -244,11 +256,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
       1. [ ] Skeleton appears the moment fragged from suvivor
     1. [ ] Shidden, Stomp on head
-    1. [ ] Fix busters - if you're the buster and somehow suiside... you'll still trigger the message "Youyrname killed the buster yourname"
     1. [ ] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
-    1. [ ] Gungame - more feedback
-        1. [ ] ammo in place of weapons
-        1. [ ] Frag only counts on right weapon
     1. [ ] CtC, more than one chumtoad?
     1. [ ] Chilling - plyers equipped with vice only, kill themself. Typing increases health, using voice as well Frags awarded if reach 200 health.
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
@@ -267,6 +275,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] Dropped item floats to victor
     1. [ ] Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
