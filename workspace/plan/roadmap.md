@@ -108,13 +108,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Always show the holder of the chumtoad on top of the scoreboard
         1. [x] Fix chumtoad not appearing on radar
 1. Game Mechanics
-    1. [ ] Combo meter for hits applied without taking damage
     1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
 1. Mutators
-    1. [ ] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
+    1. [x] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
     1. [x] Improve dont shoot mutator, calculate damage of weapon
-1. Player Models
-    1. [ ] Vanilla Ice
+1. Weapon / Model Effects
+    1. [x] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+1. Extras
+    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
 
 ### Beta 5
 
@@ -198,6 +199,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Assisted frag credit in all game modes
     1. [x] cvar for portal in skybox?
 1. HUD
+    1. [x] Small sound like Jabroni when inflicting damage?
     1. [x] Visual keyboard layout plus commandmenu. Server/Bots and client sections
     1. [x] headshot indicator in death notice
     1. [x] Indicate death notice of my frag more distinctly?
@@ -232,6 +234,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] scoreboard is not ordered right in deathmatch
     1. [x] Cancel taunt if switching weapon
     1. [x] cool flesh increase flesh time, add pick up cue
+    1. [x] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
 
 ### Unscheduled
 
@@ -256,7 +259,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
       1. [ ] Skeleton appears the moment fragged from suvivor
     1. [ ] Shidden, Stomp on head
-    1. [ ] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
     1. [ ] CtC, more than one chumtoad?
     1. [ ] Chilling - plyers equipped with vice only, kill themself. Typing increases health, using voice as well Frags awarded if reach 200 health.
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
@@ -275,6 +277,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] Dropped item floats to victor
     1. [ ] Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
@@ -432,7 +435,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
     1. [ ] [Third version of HD gordon arms?](https://www.moddb.com/mods/half-life-2-classic)
-    1. [ ] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
     1. [ ] Ice hands in addition
     1. [ ] Additional attachment values for configurable speeds and fov
     1. [ ] Damage / blood / stains on view model and player as seen in bhl
@@ -452,7 +454,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Provide a watermark?](https://github.com/YaLTeR/OpenAG/pull/191#discussion_r1822434626)
     1. [ ] [Streaming event messaging](https://www.youtube.com/watch?v=v0m1fXOYPsA) on HUD
     1. [ ] Server cvar that allows the hats, and if it's on 1, then a client command that allows a menu for selecting your hat (Napoleon)
-    1. [x] Time remaining counter like op4dm
     1. [ ] [Radar minimap from spectator](https://www.moddb.com/mods/xdm/downloads) version would be a nice touch?
     1. [ ] Even better [dynamic client lighting](https://twhl.info/wiki/page/Tutorial%3A_Client_sided_dynamic_lights_%28muzzle_flash%2C_flashlight...%29)
     1. [ ] [Classic Menu and Console](https://github.com/BlueNightHawk/nlui-classic/commit/6e429891eba259bd404eeec08ac5960a2329883b)
@@ -468,11 +469,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bot support for hook
     1. [ ] Bot support for macOS
 1. Game Mechanics
+    1. [ ] Combo meter for hits applied without taking damage
     1. [ ] Force grab toward charger heals?
     1. [ ] Spree awards for players - rewards like ammo, weapons and items for it... [Napoleon]
     1. [ ] Dying [player fades](https://twitter.com/KrispyKhristian/status/1782644111620862002) out instead of death animation.
-    1. [x] Small sound like Jabroni when inflicting damage?
-        1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)
+    1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [ ] Grapple hook support for bots
@@ -533,6 +534,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [ts_frigid remake](https://www.tsmod.net/maps/?vp_page=3)
 1. Player Models
     1. [ ] All Cold Ice 1.6 player models
+    1. [ ] Vanilla Ice
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
@@ -574,7 +576,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
     1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
@@ -625,6 +626,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. Chumtoad holder had extra health
         1. Chumtoad holder had faster run speed (I believe this was with guns enabled).
         1. [Quake 3 example](https://www.youtube.com/watch?v=b0RIB6th91M), and [summary](https://lvlworld.com/mod/id:5)
+    1. [x] Time remaining counter like op4dm
 1. Game Mechanics
     1. [x] Knock weapons out of hands with punch or kicks
     1. [x] Feign death binding (Napoleon/Rocket Crowbar)

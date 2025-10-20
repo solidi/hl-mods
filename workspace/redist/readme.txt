@@ -52,6 +52,8 @@ Beta 6 Features:
     - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
     - Enabled quadfrost and defroster to map voting
+- Client Support
+    - Support left handed knife when cl_righthand is set to -1
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
@@ -998,7 +1000,7 @@ Client:
 - "cl_music [0|1]" - Play soundtrack set by map
 - "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
 - "cl_radar [0|1]" enables or disables player radar
-- "cl_righthand [0|1]" - Right/Left Handed Models
+- "cl_righthand [0|1|-1]" - Right/Left Handed Models, or left knife
 - "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
 - "cl_shadows [0|1]" - Show rendered shadows underneath models
 - "cl_showtips [0|1]" - Show random text tips during play

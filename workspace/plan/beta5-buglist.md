@@ -84,7 +84,7 @@
 ##  Sept 2024 GSS #143
 
 [ ] Lose invinicibily on attack
-[ ] invalid index of edict crashes?
+[x] invalid index of edict crashes?
 ---
 [ ] Idea - Broken mouse mutator
 [ ] ASMR weapon from UT?
