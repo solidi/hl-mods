@@ -52,6 +52,8 @@ Beta 6 Features:
     - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
     - Enabled quadfrost and defroster to map voting
+- Client Support
+    - Support left handed knife when cl_righthand is set to -1
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
