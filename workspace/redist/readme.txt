@@ -54,6 +54,8 @@ Beta 6 Features:
     - Enabled quadfrost and defroster to map voting
 - Client Support
     - Support left handed knife when cl_righthand is set to -1
+- Extras
+    - Clients who use impulse when sv_cheats are off, explode.
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game

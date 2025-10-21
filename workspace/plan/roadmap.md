@@ -115,126 +115,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Weapon / Model Effects
     1. [x] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
 1. Extras
-    1. [ ] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
-
-### Beta 5
-
-1. New Weapons
-    1. [x] replace zapper with cir blaster
-    1. [x] vice weapon
-    1. [x] Pointing, Hand gun, makes people confused, like in jabroni
-    1. [x] Dual Hivehands
-    1. [x] Dual Chainguns
-    1. [x] Dual berettas (GSS #73 idea)
-1. Weapon Mechanics
-    1. [x] Change freeze explosion effect to shattered glass
-    1. [x] Remove water poly from SD pipe wrench.
-    1. [x] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
-    1. [x] Ammo read around crosshairs like base defense
-    1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
-    1. [x] Third Fire Options through Reload
-        1. [x] Sniper on Knife
-1. Game Mechanics
-    1. [x] Position next to objective?
-    1. [x] Respawn bar or counter on HUD after death like roblox
-    1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
-    1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
-    1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
-    1. [x] Auto taunt after a frag
-1. Map Changes
-    1. [x] Add vertical play within fences
-1. Bots
-    1. [x] Custom waypoint files for all maps
-1. Mutators
-    1. [x] Fire Bullets
-    1. [x] half-life - cl_icemodels 0
-    1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
-    1. [x] busters (give egon)
-    1. [x] godmode
-    1. [x] firestarter - get dual flamethrowers
-    1. [x] Animation bar of coming next chaos item (like GSChaos)
-    1. [x] 3 at once
-    1. [x] thirdperson
-    1. [x] Mirror - reflect view
-    1. [x] Toilet - we aint hurt nobody
-    1. [x] Jeepathon - check your local jeep dealer
-    1. [x] Ricochet - no view angles or weapons fire discs
-        1. [x] Heads?
-    1. [x] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
-    1. [x] noone can reload
-    1. [x] [credits](https://www.youtube.com/watch?v=ilVxUcd6Ot8)
-    1. [x] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
-    1. [x] Golden Gun - all guns are gold, bullets kill in one shot
-    1. [x] [Leeroy Jenkins] mode (start with vest)
-    1. [x] bigfoot (sv_stepsize 192)
-1. Game Modes
-    1. [x] coldspot - retro fit it to existing hldm maps like ctf, select two entities like with ctf to be controlling areas. make a  large mdl model, that's outlined and semi transparent walls so player goes in it to start control, on the  gameloop check if team member is in a radius loop of the containing player. Same unit size as the mdl
-    1. [x] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
-        1. [x] Fix busters - if you're the buster and somehow suicide... you'll still trigger the message "Youyrname killed the buster yourname"
-    1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
-    1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
-    1. [x] CTF mode, spawn two spots if no support?
-    1. Improvements
-      1. [x] timer above if mp_timelimit set
-      1. [x] score/wins on scoreboard
-      1. [x] Only appear chumtoad if there is more than two players
-    1. [x] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
-        1. [x] Fart flying
-        1. [x] Fart mechanism
-        1. [x] Sprite of player model
-        1. [x] Game loop
-        1. [x] Teamplay logic
-    1. [x] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
-        1. [x] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
-        1. [x] Their health keep going up
-        1. [x] ID bar
-1. Maps
-    1. [x] datacore (crystalcore)
-    1. [x] Increase sky height of furrow
-    1. [x] Training 2 pool in new area opposite of garage
-    1. [x] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
-    1. [x] rapidcore (icecore)
-    1. [x] RATS styled map
-1. Server Support
-    1. [x] Assisted frag credit in all game modes
-    1. [x] cvar for portal in skybox?
-1. HUD
-    1. [x] Small sound like Jabroni when inflicting damage?
-    1. [x] Visual keyboard layout plus commandmenu. Server/Bots and client sections
-    1. [x] headshot indicator in death notice
-    1. [x] Indicate death notice of my frag more distinctly?
-1. Clean up
-    1. [x] Compact w_ ammo models
-    1. [x] Compact w_ item models
-            w_shell
-            w_shotgunshell
-            w_762shell
-            w_weaponbox
-            w_longjump
-            w_cabinet
-            w_barrel
-            w_bolt
-            w_rocket
-            w_tombstone
-            w_tracer
-            w_hornet
-    1. [x] Compact loose non-weapon w_ models into one
-1. Player Models
-    1. [x] Import rest of player models, replace skeleton and holo with gina
-1. Fixes
-    1. [x] spectator angle, disconnected bots are available in spectator view?
-    1. [x] Gungame - more feedback
-        1. [x] dont los levels on death
-        1. [x] you skip that many weapons as the killed players with the nuke in snowcross
-        1. [x] also on "Win" the game should load a new map, not get all score to 0/0
-        1. [x] dual railguns still drop?
-        1. [x] mutators are intefering with the gungame, off by default?
-        1. [x] vest? No death count?
-    1. [x] Nuke to kill monsters
-    1. [x] scoreboard is not ordered right in deathmatch
-    1. [x] Cancel taunt if switching weapon
-    1. [x] cool flesh increase flesh time, add pick up cue
-    1. [x] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
+    1. [x] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
 
 ### Unscheduled
 
@@ -548,7 +429,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add git hash to server name in dll
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
-    1. [ ] Snowball not exhaustable?
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
     1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
@@ -593,7 +473,125 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] sildenafil - make weapons
-    1. [ ] maxpack - drop all
+
+### Beta 5
+
+1. New Weapons
+    1. [x] replace zapper with cir blaster
+    1. [x] vice weapon
+    1. [x] Pointing, Hand gun, makes people confused, like in jabroni
+    1. [x] Dual Hivehands
+    1. [x] Dual Chainguns
+    1. [x] Dual berettas (GSS #73 idea)
+1. Weapon Mechanics
+    1. [x] Change freeze explosion effect to shattered glass
+    1. [x] Remove water poly from SD pipe wrench.
+    1. [x] Throw any weapon [as an attack](https://twitter.com/DokuGamesLTD/status/1734294474233143357)
+    1. [x] Ammo read around crosshairs like base defense
+    1. [x] Sawed off pops [you in air](https://www.youtube.com/watch?v=DnhNOItsZhU&t=250s)
+    1. [x] Third Fire Options through Reload
+        1. [x] Sniper on Knife
+1. Game Mechanics
+    1. [x] Position next to objective?
+    1. [x] Respawn bar or counter on HUD after death like roblox
+    1. [x] [func_vehicle](https://gitlab.com/hlrally/src) and (https://github.com/bacontsu/halflife-car)
+    1. [x] "[Force grip](https://twitter.com/DokuGamesLTD/status/1802028387826811369)" / [Steal / Throw Weapon](https://twitter.com/DokuGamesLTD/status/1802337752450543945), [nano wire](https://twitter.com/DokuGamesLTD/status/1797776517088325993) mechanism?
+    1. [x] Auto melee when close to player - may help lead the way to pistol whip for all
+    1. [x] Auto taunt after a frag
+1. Map Changes
+    1. [x] Add vertical play within fences
+1. Bots
+    1. [x] Custom waypoint files for all maps
+1. Mutators
+    1. [x] Fire Bullets
+    1. [x] half-life - cl_icemodels 0
+    1. [x] cowboy (dual cannons + [hat](https://gamebanana.com/mods/380978))
+    1. [x] busters (give egon)
+    1. [x] godmode
+    1. [x] firestarter - get dual flamethrowers
+    1. [x] Animation bar of coming next chaos item (like GSChaos)
+    1. [x] 3 at once
+    1. [x] thirdperson
+    1. [x] Mirror - reflect view
+    1. [x] Toilet - we aint hurt nobody
+    1. [x] Jeepathon - check your local jeep dealer
+    1. [x] Ricochet - no view angles or weapons fire discs
+        1. [x] Heads?
+    1. [x] [stahp](https://www.youtube.com/watch?v=M-QsyZYSYgw) (stop, scientist mutator)
+    1. [x] noone can reload
+    1. [x] [credits](https://www.youtube.com/watch?v=ilVxUcd6Ot8)
+    1. [x] Mutators as [indepedent timers](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s)
+    1. [x] Golden Gun - all guns are gold, bullets kill in one shot
+    1. [x] [Leeroy Jenkins] mode (start with vest)
+    1. [x] bigfoot (sv_stepsize 192)
+1. Game Modes
+    1. [x] coldspot - retro fit it to existing hldm maps like ctf, select two entities like with ctf to be controlling areas. make a  large mdl model, that's outlined and semi transparent walls so player goes in it to start control, on the  gameloop check if team member is in a radius loop of the containing player. Same unit size as the mdl
+    1. [x] [Busting makes me feel good](https://github.com/ValveSoftware/halflife/blob/def1e48342df280c58593fe5ba88ed709c429f94/dlls/gamerules.h#L363), [rules explained](https://twitter.com/brokenphilip/status/1728360893132812320).
+        1. [x] Fix busters - if you're the buster and somehow suicide... you'll still trigger the message "Youyrname killed the buster yourname"
+    1. [x] [Prop Hunt](https://www.youtube.com/watch?v=97FpmBDhWlE) with Half-Life items
+    1. [x] Head Hunter - [A trophy-collecting gamemode](https://jabronibrawl.com/gamemodes). Players drop a skull on death along with any other skulls they were carrying. Whoever is holding the most skulls at the end of the round, will win! To avoid a massive spam of skulls everywhere, the skulls do group under different tiers worth different amounts.
+    1. [x] CTF mode, spawn two spots if no support?
+    1. Improvements
+      1. [x] timer above if mp_timelimit set
+      1. [x] score/wins on scoreboard
+      1. [x] Only appear chumtoad if there is more than two players
+    1. [x] [Shidden](https://www.youtube.com/watch?v=tyqLoOMnvUI)
+        1. [x] Fart flying
+        1. [x] Fart mechanism
+        1. [x] Sprite of player model
+        1. [x] Game loop
+        1. [x] Teamplay logic
+    1. [x] Lite version of [Base Defense](https://www.moddb.com/mods/b-def) horde mode
+        1. [x] Add Alan's [panthereye code](https://discord.com/channels/607900335633334272/1040794595157618728/1268209470345969717) to the monster list
+        1. [x] Their health keep going up
+        1. [x] ID bar
+1. Maps
+    1. [x] datacore (crystalcore)
+    1. [x] Increase sky height of furrow
+    1. [x] Training 2 pool in new area opposite of garage
+    1. [x] [thetemple](https://cohost.org/b1rd/post/1185353-thetemple-it-s-the)
+    1. [x] rapidcore (icecore)
+    1. [x] RATS styled map
+1. Server Support
+    1. [x] Assisted frag credit in all game modes
+    1. [x] cvar for portal in skybox?
+1. HUD
+    1. [x] Small sound like Jabroni when inflicting damage?
+    1. [x] Visual keyboard layout plus commandmenu. Server/Bots and client sections
+    1. [x] headshot indicator in death notice
+    1. [x] Indicate death notice of my frag more distinctly?
+1. Clean up
+    1. [x] Compact w_ ammo models
+    1. [x] Compact w_ item models
+            w_shell
+            w_shotgunshell
+            w_762shell
+            w_weaponbox
+            w_longjump
+            w_cabinet
+            w_barrel
+            w_bolt
+            w_rocket
+            w_tombstone
+            w_tracer
+            w_hornet
+    1. [x] Compact loose non-weapon w_ models into one
+1. Player Models
+    1. [x] Import rest of player models, replace skeleton and holo with gina
+1. Fixes
+    1. [x] spectator angle, disconnected bots are available in spectator view?
+    1. [x] Gungame - more feedback
+        1. [x] dont los levels on death
+        1. [x] you skip that many weapons as the killed players with the nuke in snowcross
+        1. [x] also on "Win" the game should load a new map, not get all score to 0/0
+        1. [x] dual railguns still drop?
+        1. [x] mutators are intefering with the gungame, off by default?
+        1. [x] vest? No death count?
+    1. [x] Nuke to kill monsters
+    1. [x] scoreboard is not ordered right in deathmatch
+    1. [x] Cancel taunt if switching weapon
+    1. [x] cool flesh increase flesh time, add pick up cue
+    1. [x] Fix first blood achievement - no teamplay frag, and reset on round start [Napoleon]
 
 ### Beta 4
 
