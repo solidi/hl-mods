@@ -109,6 +109,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Fix chumtoad not appearing on radar
 1. Game Mechanics
     1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
+    1. [ ] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
 1. Mutators
     1. [x] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
     1. [x] Improve dont shoot mutator, calculate damage of weapon
@@ -116,6 +117,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
 1. Extras
     1. [x] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
+1. Fixes
+    1. [x] Mute RPG second attack empty rapid clicking
 
 ### Unscheduled
 
@@ -127,12 +130,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. Game Modes
-    1. [ ] Ice Tag - Teamplay, two teams. -When a player is killed (not a suiside) that player is Frozen. A frozen player will die after say 10-15 seconds, however if a teammate touches them they will revive (unfreeze).If all players on a give team are frozen then the round is lost by that team. (Napoleon's idea)
+    1. [ ] Ice Tag - Teamplay, two teams. -When a player is killed (not a suicide) that player is Frozen. A frozen player will die after say 10-15 seconds, however if a teammate touches them they will revive (unfreeze).If all players on a give team are frozen then the round is lost by that team. (Napoleon's idea)
     1. [ ] Assimilated - if you frag a player from the opponent's team they join your team - the players can't change teams, and the round ends when the time runs out or when all players are in one team at any given point - basically kill and assimilate - obviously... I need to figure out what happens when the player count drops under two... xD - I would assume the round ends and those two players would be sucked back into waiting as observer lol. Or game could go so that if the last person is fragged on the opposite team, and then it ends. "Assimilated" is a nice name to the mode... (Napoleon's idea)
     1. [ ] One of those beeing Hide and Seek -> one player gets invisibility that he can use to move around the map, the rest are trying to find and kill him. While moving he's partially visible, while not moving he's invisible. The invisible player gets points every 30 seconds he's not taking damage. The invisible player has no weapons and cannot pick up weapons. If round rules are in effect if the round finishes, the alive invisible player gets a reward.
         [ ] The invisible player only gets slappers / back attack
     1. [ ] Horde mode improvements
-        1. [ ] Amount of emenies increase from 5 to 10
+        1. [ ] Amount of enemies increase from 5 to 10
             1. [ ] Basic task based on kills for upgrade
     1. [ ] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [ ] Chilldemic improvements
@@ -276,7 +279,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Tripmine
         1. [ ] Clusters
     1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
-    1. [ ] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
+    1. While smoking ...
         1. [ ] your weapon takes 10x more the amount of damage
         1. [ ] but the recoil is 10x more high and the accuracy is garbage
     1. [ ] Scientist Gun from RocketCrowbar
@@ -421,7 +424,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Fixes
     1. [ ] Hide viewmodel when ricochet is enabled
     1. [ ] black blood of hornets?
-    1. [ ] rpg second attack empty is clicking
     1. [ ] Player projectiles follow aiment while flipping
     1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
@@ -483,6 +485,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dual Hivehands
     1. [x] Dual Chainguns
     1. [x] Dual berettas (GSS #73 idea)
+    1. [x] [Smoking cigarette](https://www.youtube.com/watch?v=kv0lLYG4eiE)
 1. Weapon Mechanics
     1. [x] Change freeze explosion effect to shattered glass
     1. [x] Remove water poly from SD pipe wrench.
