@@ -85,6 +85,7 @@ Beta 6 Features:
         - Dual glocks fire underwater
         - Fix chumtoad and snark holster animation, fix velocity of release
         - Fix Fingergun bullet decals
+        - Mute RPG second attack empty rapid clicking
     - Game Mechanics
         - Patched flying with spamming frontflip
         - Fixed grapple hook stuck to players
