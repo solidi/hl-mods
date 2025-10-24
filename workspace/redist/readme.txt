@@ -55,7 +55,8 @@ Beta 6 Features:
 - Client Support
     - Support left handed knife when cl_righthand is set to -1
 - Extras
-    - Clients who use impulse when sv_cheats are off, explode.
+    - Clients who use impulse when sv_cheats are off, explode
+    - Add support for blue and yellow bullet tracers
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
