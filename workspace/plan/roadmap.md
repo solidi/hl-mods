@@ -117,6 +117,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
 1. Extras
     1. [x] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
+    1. [x] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
 1. Fixes
     1. [x] Mute RPG second attack empty rapid clicking
 
@@ -310,7 +311,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Chaingun
         1. [x] Secondary chaingun idea?
         1. [ ] Faster spin?
-        1. [ ] Tracers on all bullets?
+        1. [x] Tracers on all bullets?
     1. [ ] [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
     1. [ ] Grenades that randomly teleport when they bounce? (AudioCraZ)
     1. [ ] Grenades that never stop bouncing and have a random timer to detonate. (Flubber bomb) (AudioCraZ)
@@ -331,7 +332,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server Support
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
-    1. [ ] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
 1. Single Player
     1. [ ] Single player freeze effect for all monsters
 1. Client
