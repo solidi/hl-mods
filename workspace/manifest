@@ -1045,6 +1045,8 @@ sound\drinking.wav
 sound\grunch.wav
 sound\snowfall2.wav
 sound\round_over.wav
+sound\chicken.wav
+sound\horse_neigh.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
