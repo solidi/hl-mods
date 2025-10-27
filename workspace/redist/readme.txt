@@ -37,7 +37,7 @@ Beta 6 Features:
         - Show chumtoad icon while holding it in ctc
         - Always show the holder of the chumtoad on top of the scoreboard
 - Instant Mutators
-    Add 9 new mutators that are applied during chaos mode:
+    Add 10 new mutators that are applied during chaos mode:
         - +1 health
         - nothing
         - swap armor and health
@@ -47,6 +47,7 @@ Beta 6 Features:
         - nice (69/69)
         - six, seveeen (67/67)
         - hot potato, a grenade is spawned at everyones feet
+        - random damage
     - Added a chicken sound when instant mutator is applied
 - Mutator Changes
     - Add horse sound when a mutator is enabled
