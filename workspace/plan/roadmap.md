@@ -111,6 +111,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
     1. [ ] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
 1. Mutators
+    1. Added 9 Instant mutators
+        1. [x] +1 health
+        1. [x] nothing
+        1. [x] swap armor and health
+        1. [x] +100 health
+        1. [x] +100 armor
+        1. [x] 1 health
+        1. [x] nice (69/69)
+        1. [x] six, seveeen (67/67)
+        1. [x] hot potato
     1. [x] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
     1. [x] Improve dont shoot mutator, calculate damage of weapon
 1. Weapon / Model Effects
@@ -162,32 +172,26 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
-    1. [ ] "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
+    1. Instant mutators
+        1. [ ] give mutator, random, and fast.
+    1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] Dropped item floats to victor
-    1. [ ] Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
+    1. [ ] "firestarter" Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
     1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
-    1. [ ] clickboom - randomly throw weapon
+    1. [ ] "dontshoot?" clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [ ] ooof sound
     1. [ ] am i dead?
-    1. [ ] +1 health
-    1. [ ] nothing
-    1. [ ] swap armor and health
-    1. [ ] +100 health
-    1. [ ] +100 armor
-    1. [ ] 1 health
-    1. [ ] nice (69/69)
     1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] rats around map
     1. [ ] random textures
     1. [ ] random sounds
-    1. [ ] give mutator, random, and fast.
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
     1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
@@ -240,7 +244,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] headcrabs
         1. [ ] houndeye
     1. [ ] apache helicopter
-    1. [ ] chums/snarks wont die
+    1. [ ] "Same mutator?" chums/snarks wont die or when person dies, spawn chums/snarks
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
@@ -327,7 +331,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Support mdl model [fullbrights] and sven texturerender mode using [this repo](https://github.com/BlueNightHawk/halflife_fullbright)
 1. Environment look and feel
     1. [ ] [Static Stencil lighting](https://twhl.info/wiki/page/Tutorial%3A_Adding_hack-free_Stencil_Shadows_to_Half-Life) requected by Naploeon
-    1. [x] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Server Support
     1. [ ] mp_semiauto
@@ -472,7 +475,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
 1. Fixes
-    1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] sildenafil - make weapons
 
@@ -558,6 +560,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [x] cvar for portal in skybox?
+1. Environment
+    1. [x] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
 1. HUD
     1. [x] Small sound like Jabroni when inflicting damage?
     1. [x] Visual keyboard layout plus commandmenu. Server/Bots and client sections

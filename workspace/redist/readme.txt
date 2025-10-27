@@ -36,7 +36,20 @@ Beta 6 Features:
         - Improve logic on dropping the chumtoad so its less abrupt
         - Show chumtoad icon while holding it in ctc
         - Always show the holder of the chumtoad on top of the scoreboard
+- Instant Mutators
+    Add 9 new mutators that are applied during chaos mode:
+        - +1 health
+        - nothing
+        - swap armor and health
+        - +100 health
+        - +100 armor
+        - 1 health
+        - nice (69/69)
+        - six, seveeen (67/67)
+        - hot potato, a grenade is spawned at everyones feet
+    - Added a chicken sound when instant mutator is applied
 - Mutator Changes
+    - Add horse sound when a mutator is enabled
     - Add kick-boom effect to kick when volatile is enabled
     - Slow bullets support variable damage based on weapon
     - Disabled weapon spawn mutators when zoomed in
@@ -91,6 +104,7 @@ Beta 6 Features:
         - Patched flying with spamming frontflip
         - Fixed grapple hook stuck to players
         - Do not show fire on players who cannot take damage
+    - Fix crash on func_vehicle damage
 
 Beta 5 Features:
 

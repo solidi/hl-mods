@@ -177,6 +177,8 @@ Compile-Sound $binDir $redistDir $soundDir "engineer_gunslinger.mp3" 1.0 "sound\
 Compile-Sound $binDir $redistDir $soundDir "Smoking_Sound_Effect.mp3" 1.0 "sound\smoking.wav" "wav" 5 9
 Compile-Sound $binDir $redistDir $soundDir "Drinking_Sound_Effect.mp3" 1.0 "sound\drinking.wav" "wav" 1 4
 Compile-Sound $binDir $redistDir $soundDir "round_over.mp3" 1.0 "sound\round_over.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "horse-neigh-390297.mp3" 1.0 "sound\horse_neigh.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "chicken_1.mp3" 1.0 "sound\chicken.wav" "wav"
 }
 catch
 {
