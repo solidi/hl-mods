@@ -13,68 +13,62 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 # Launch List
 
 1. [ ] Burn in mod with bots on dedicated server for hours
-    1. [x] Cluster Grenades
-        1. [x] Linux
-    1. [x] Railgun
-    1. [x] Silencer
-    1. [x] RPG
-    1. [x] Chumtoad
-    1. [x] Boltgun
-    1. [x] Cannon
-        1. [x] Linux
-    1. [x] Knife
-        1. [x] Linux
-    1. [x] Crowbar
-        1. [x] Linux
-    1. [x] Sniper Rifle
-    1. [x] Mag60
-    1. [x] Chaingun
-    1. [x] Grenade Launcher
-    1. [x] mp5k
-    1. [x] Usas
-    1. [x] Fists
-        1. Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
-        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
-    1. [x] Wrench
-    1. [x] Snowball
-        1. [x] Linux
-    1. [x] Chainsaw
-    1. [x] 12 Gauge
-    1. [x] 44 Magnum
-    1. [x] M16
-    1. [x] Explosive Assault Shotgun
-    1. [x] Nuke Launcher
-        1. [x] Linux
-    1. [x] Snarks
-        1. [x] Linux
-    1. [x] Deagle
-    1. [x] Dual Deagles
-    1. [x] Dual RPG
-    1. [x] Dual Wrench
-    1. [x] Dual SMG
-    1. [x] Dual USAS
-    1. [x] Freezegun
-        1. [x] Linux
-    1. [x] Flamethrower
-        1. [x] Linux
-    1. [x] Flak Cannon
-        1. [x] Linux
-    1. [x] Gravity Gun
-        1. [x] Linux
-    1. [x] Sliding
-        1. [x] Linux
-    1. [x] Crossbow
-        1. [x] Linux
-    1. [x] Grapplehook
-        1. [x] Linux
-    1. [x] Portal Gun
-        1. [x] Linux
-    1. [x] Dual hand cannons
-        1. [x] Linux
+    1. [ ] [ ] Fists
+    1. [ ] [ ] Fingergun
+    1. [ ] [ ] Crowbar
+    1. [ ] [ ] Knife
+    1. [ ] [ ] Wrench
+    1. [ ] [ ] Chainsaw
+    1. [ ] [ ] Rocketcrowbar
+    1. [ ] [ ] GravityGun
+    1. [ ] [ ] PortalGun
+    1. [ ] [ ] PPK
+    1. [ ] [ ] Revolver
+    1. [ ] [ ] Deagle
+    1. [ ] [ ] Mag60
+    1. [ ] [ ] SMG
+    1. [ ] [ ] DualSMG
+    1. [ ] [ ] Sawedoff
+    1. [ ] [ ] DualSawedoff
+    1. [ ] [ ] Zapgun
+    1. [ ] [ ] m16
+    1. [ ] [ ] 12gauge
+    1. [ ] [ ] Assault
+    1. [ ] [ ] Boltgun
+    1. [ ] [ ] Sniper
+    1. [ ] [ ] Chaingun
+    1. [ ] [ ] Freezegun
+    1. [ ] [ ] RPG
+    1. [ ] [ ] Gauss
+    1. [ ] [ ] Egon
+    1. [ ] [ ] Hivehand
+    1. [ ] [ ] Railgun
+    1. [ ] [ ] Glaunch
+    1. [ ] [ ] Cannon
+    1. [ ] [ ] Nuke
+    1. [ ] [ ] Snowball
+    1. [ ] [ ] Cluster
+    1. [ ] [ ] Tripmine
+    1. [ ] [ ] Decoy
+    1. [ ] [ ] Snark
+    1. [ ] [ ] Chumtoad
+    1. [ ] [ ] Vest
+    1. [ ] [ ] Flamethrower
+    1. [ ] [ ] DualWrench
+    1. [ ] [ ] DualPPK
+    1. [ ] [ ] DualDeagle
+    1. [ ] [ ] DualMag60
+    1. [ ] [ ] DualUsas
+    1. [ ] [ ] DualChaingun
+    1. [ ] [ ] DualHivehand
+    1. [ ] [ ] DualRailgun
+    1. [ ] [ ] DualRPG
+    1. [ ] [ ] DualFlamethrower
+    1. [ ] [ ] Vice
 1. [ ] Testing
-    1. [x] Weapons behaviors under water
+    1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
-    1. [x] Map changes with all weapons
+    1. [ ] Map changes with all weapons
     1. [ ] Client sided test to local server
 1. [ ] Publish
     1. [x] [ModDB Entry](https://www.moddb.com/mods/cold-ice-remastered)
@@ -111,6 +105,16 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
     1. [ ] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
 1. Mutators
+    1. Added 9 Instant mutators
+        1. [x] +1 health
+        1. [x] nothing
+        1. [x] swap armor and health
+        1. [x] +100 health
+        1. [x] +100 armor
+        1. [x] 1 health
+        1. [x] nice (69/69)
+        1. [x] six, seveeen (67/67)
+        1. [x] hot potato
     1. [x] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
     1. [x] Improve dont shoot mutator, calculate damage of weapon
 1. Weapon / Model Effects
@@ -162,32 +166,26 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
-    1. [ ] "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
+    1. Instant mutators
+        1. [ ] give mutator, random, and fast.
+    1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] Dropped item floats to victor
-    1. [ ] Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
+    1. [ ] "firestarter" Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
     1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
-    1. [ ] clickboom - randomly throw weapon
+    1. [ ] "dontshoot?" clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [ ] ooof sound
     1. [ ] am i dead?
-    1. [ ] +1 health
-    1. [ ] nothing
-    1. [ ] swap armor and health
-    1. [ ] +100 health
-    1. [ ] +100 armor
-    1. [ ] 1 health
-    1. [ ] nice (69/69)
     1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] rats around map
     1. [ ] random textures
     1. [ ] random sounds
-    1. [ ] give mutator, random, and fast.
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
     1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
@@ -240,7 +238,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] headcrabs
         1. [ ] houndeye
     1. [ ] apache helicopter
-    1. [ ] chums/snarks wont die
+    1. [ ] "Same mutator?" chums/snarks wont die or when person dies, spawn chums/snarks
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
@@ -327,7 +325,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Support mdl model [fullbrights] and sven texturerender mode using [this repo](https://github.com/BlueNightHawk/halflife_fullbright)
 1. Environment look and feel
     1. [ ] [Static Stencil lighting](https://twhl.info/wiki/page/Tutorial%3A_Adding_hack-free_Stencil_Shadows_to_Half-Life) requected by Naploeon
-    1. [x] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
     1. [ ] [Sun/lens flare effect](https://github.com/HLSources/Spirit-of-Half-Life/blob/5ad2e00fe1546cc73e19255c75512a11ee3980c8/dlls/effects.cpp#L195), better implementation [codename-boera](https://github.com/bacontsu/codename-borea/commit/84c02ef7031f4d0098ab041eeac19c44f5bdfd09)
 1. Server Support
     1. [ ] mp_semiauto
@@ -472,9 +469,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
 1. Fixes
-    1. [ ] Angled dead arms
     1. [ ] Change solid type of barrel after throw
     1. [ ] sildenafil - make weapons
+    1. [ ] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
 
 ### Beta 5
 
@@ -558,6 +555,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [x] cvar for portal in skybox?
+1. Environment
+    1. [x] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
 1. HUD
     1. [x] Small sound like Jabroni when inflicting damage?
     1. [x] Visual keyboard layout plus commandmenu. Server/Bots and client sections
@@ -881,6 +880,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
     1. [x] Invisible tripmines
     1. [x] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
+        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [x] Increase ammo total counts to match bhl
 1. Weapon ViewModel / Effects
     1. [x] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
