@@ -13,68 +13,62 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 # Launch List
 
 1. [ ] Burn in mod with bots on dedicated server for hours
-    1. [x] Cluster Grenades
-        1. [x] Linux
-    1. [x] Railgun
-    1. [x] Silencer
-    1. [x] RPG
-    1. [x] Chumtoad
-    1. [x] Boltgun
-    1. [x] Cannon
-        1. [x] Linux
-    1. [x] Knife
-        1. [x] Linux
-    1. [x] Crowbar
-        1. [x] Linux
-    1. [x] Sniper Rifle
-    1. [x] Mag60
-    1. [x] Chaingun
-    1. [x] Grenade Launcher
-    1. [x] mp5k
-    1. [x] Usas
-    1. [x] Fists
-        1. Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
-        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
-    1. [x] Wrench
-    1. [x] Snowball
-        1. [x] Linux
-    1. [x] Chainsaw
-    1. [x] 12 Gauge
-    1. [x] 44 Magnum
-    1. [x] M16
-    1. [x] Explosive Assault Shotgun
-    1. [x] Nuke Launcher
-        1. [x] Linux
-    1. [x] Snarks
-        1. [x] Linux
-    1. [x] Deagle
-    1. [x] Dual Deagles
-    1. [x] Dual RPG
-    1. [x] Dual Wrench
-    1. [x] Dual SMG
-    1. [x] Dual USAS
-    1. [x] Freezegun
-        1. [x] Linux
-    1. [x] Flamethrower
-        1. [x] Linux
-    1. [x] Flak Cannon
-        1. [x] Linux
-    1. [x] Gravity Gun
-        1. [x] Linux
-    1. [x] Sliding
-        1. [x] Linux
-    1. [x] Crossbow
-        1. [x] Linux
-    1. [x] Grapplehook
-        1. [x] Linux
-    1. [x] Portal Gun
-        1. [x] Linux
-    1. [x] Dual hand cannons
-        1. [x] Linux
+    1. [ ] [ ] Fists
+    1. [ ] [ ] Fingergun
+    1. [ ] [ ] Crowbar
+    1. [ ] [ ] Knife
+    1. [ ] [ ] Wrench
+    1. [ ] [ ] Chainsaw
+    1. [ ] [ ] Rocketcrowbar
+    1. [ ] [ ] GravityGun
+    1. [ ] [ ] PortalGun
+    1. [ ] [ ] PPK
+    1. [ ] [ ] Revolver
+    1. [ ] [ ] Deagle
+    1. [ ] [ ] Mag60
+    1. [ ] [ ] SMG
+    1. [ ] [ ] DualSMG
+    1. [ ] [ ] Sawedoff
+    1. [ ] [ ] DualSawedoff
+    1. [ ] [ ] Zapgun
+    1. [ ] [ ] m16
+    1. [ ] [ ] 12gauge
+    1. [ ] [ ] Assault
+    1. [ ] [ ] Boltgun
+    1. [ ] [ ] Sniper
+    1. [ ] [ ] Chaingun
+    1. [ ] [ ] Freezegun
+    1. [ ] [ ] RPG
+    1. [ ] [ ] Gauss
+    1. [ ] [ ] Egon
+    1. [ ] [ ] Hivehand
+    1. [ ] [ ] Railgun
+    1. [ ] [ ] Glaunch
+    1. [ ] [ ] Cannon
+    1. [ ] [ ] Nuke
+    1. [ ] [ ] Snowball
+    1. [ ] [ ] Cluster
+    1. [ ] [ ] Tripmine
+    1. [ ] [ ] Decoy
+    1. [ ] [ ] Snark
+    1. [ ] [ ] Chumtoad
+    1. [ ] [ ] Vest
+    1. [ ] [ ] Flamethrower
+    1. [ ] [ ] DualWrench
+    1. [ ] [ ] DualPPK
+    1. [ ] [ ] DualDeagle
+    1. [ ] [ ] DualMag60
+    1. [ ] [ ] DualUsas
+    1. [ ] [ ] DualChaingun
+    1. [ ] [ ] DualHivehand
+    1. [ ] [ ] DualRailgun
+    1. [ ] [ ] DualRPG
+    1. [ ] [ ] DualFlamethrower
+    1. [ ] [ ] Vice
 1. [ ] Testing
-    1. [x] Weapons behaviors under water
+    1. [ ] Weapons behaviors under water
     1. [ ] Fakelag with weapons
-    1. [x] Map changes with all weapons
+    1. [ ] Map changes with all weapons
     1. [ ] Client sided test to local server
 1. [ ] Publish
     1. [x] [ModDB Entry](https://www.moddb.com/mods/cold-ice-remastered)
@@ -477,6 +471,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Fixes
     1. [ ] Change solid type of barrel after throw
     1. [ ] sildenafil - make weapons
+    1. [ ] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
 
 ### Beta 5
 
@@ -885,6 +880,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Throwing crowbar](http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/)?
     1. [x] Invisible tripmines
     1. [x] [Manos de piedros](https://gamebanana.com/skins/103896) when no weapons available
+        1. [x] Big uppercut punch secondary fire with fists (Shoryuken)
     1. [x] Increase ammo total counts to match bhl
 1. Weapon ViewModel / Effects
     1. [x] [Smoke effect on firing](https://www.youtube.com/watch?v=ktk0wxVhFqs&t=106s)
