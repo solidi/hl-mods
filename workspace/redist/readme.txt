@@ -66,6 +66,7 @@ Beta 6 Features:
     - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
     - Enabled quadfrost and defroster to map voting
+    - Fix spawnpoint in bounce2
 - Client Support
     - Support left handed knife when cl_righthand is set to -1
 - Extras
@@ -91,6 +92,8 @@ Beta 6 Features:
         - Capture the Chumtoad
             - Disable 999 mutator during gameplay
             - Fix chumtoad not appearing on radar
+        - Prophunt
+            - Bots unpause correctly
     - Mutators
         - Do not duck in minime mode during selaco slide
         - Fix 999 mutator during an airstrike
