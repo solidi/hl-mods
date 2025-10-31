@@ -12,8 +12,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 # Launch List
 
-1. [ ] Burn in mod with bots on dedicated server for hours
-    1. [ ] [ ] Fists
+1. Burn in mod with bots on dedicated server for hours
+    1. [x] [x] Fists
     1. [ ] [ ] Fingergun
     1. [ ] [ ] Crowbar
     1. [ ] [ ] Knife
