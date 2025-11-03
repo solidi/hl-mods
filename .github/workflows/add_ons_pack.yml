@@ -6,7 +6,7 @@ env:
   BUILD_CONFIGURATION: Release
   FOLDER_NAME: workspace
   GAME_TITLE: Cold Ice Remastered
-  GAME_FOLDER: ice_beta5
+  GAME_FOLDER: ice_v1
 
 jobs:
   compile_tools:

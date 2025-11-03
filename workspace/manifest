@@ -574,7 +574,7 @@ resource
 resource\BackgroundLayout.txt
 resource\BackgroundLoadingLayout.txt
 resource\TrackerScheme.res
-resource\ice_beta5_english.txt
+resource\ice_v1_english.txt
 resource\game_menu.tga
 resource\game_menu_mouseover.tga
 resource\GameMenu.res
