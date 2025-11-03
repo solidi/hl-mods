@@ -16,7 +16,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [x] Fists
     1. [x] [x] Fingergun
     1. [x] [x] Crowbar
-    1. [ ] [ ] Knife
+    1. [x] [x] Knife
     1. [ ] [ ] Wrench
     1. [ ] [ ] Chainsaw
     1. [ ] [ ] Rocketcrowbar
@@ -81,7 +81,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
-### Beta 6
+### v1
 
 1. Game Support
     1. [x] LMS
