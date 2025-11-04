@@ -71,9 +71,9 @@ if [[ $debug -eq 1 ]]; then
     ulimit -c unlimited
     cd ~/.steam/debian-installation/steamapps/common/Half-Life
     if [[ $listen -eq 0 ]]; then
-        gdb -ex=r --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
+        gdb -ex=r --cd grave-bot-src/dlls --args hl_linux -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
     else
-        gdb -ex=r --args hlds_linux -autoupdate -secure -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
+        gdb -ex=r --cd grave-bot-src/dlls --args hlds_linux -autoupdate -secure -console -dev -condebug -game ${icefolder} -zone 8192 -heapsize 131047 -windowed -gl -w 640 -h 480 +fs_perf_warnings 1 +fs_precache_timings 1 +fs_startup_timings 1 +developer 2 +log on +sv_lan 1 +mp_gamemode gungame +deathmatch 1 +map ${mapName} +maxplayers ${maxplayers} +_sethdmodels ${hiDef} +sv_cheats 1
     fi
 else
     if [[ $listen -eq 1 ]]; then

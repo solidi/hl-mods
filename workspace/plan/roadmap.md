@@ -44,7 +44,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [ ] Hivehand
     1. [ ] [ ] Railgun
     1. [ ] [ ] Glaunch
-    1. [ ] [ ] Cannon
+    1. [x] [x] Cannon
     1. [ ] [ ] Nuke
     1. [ ] [ ] Snowball
     1. [ ] [ ] Cluster
