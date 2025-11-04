@@ -9,7 +9,7 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
-Beta 6 Features:
+v1 Features:
 
 - Gamemode Changes
     - Battle Royale offers team based play with safe area
@@ -36,6 +36,8 @@ Beta 6 Features:
         - Improve logic on dropping the chumtoad so its less abrupt
         - Show chumtoad icon while holding it in ctc
         - Always show the holder of the chumtoad on top of the scoreboard
+    - Horde
+        - Improve panther speed, attack only humans
 - Instant Mutators
     Add 10 new mutators that are applied during chaos mode:
         - +1 health
@@ -50,7 +52,7 @@ Beta 6 Features:
         - random damage
     - Added a chicken sound when instant mutator is applied
 - Mutator Changes
-    - Add horse sound when a mutator is enabled
+    - Add horse sound when a mutator is applied
     - Add kick-boom effect to kick when volatile is enabled
     - Slow bullets support variable damage based on weapon
     - Disabled weapon spawn mutators when zoomed in
@@ -94,6 +96,9 @@ Beta 6 Features:
             - Fix chumtoad not appearing on radar
         - Prophunt
             - Bots unpause correctly
+        - Horde
+            - Fix HUD health bar and waiting label
+            - Fix panther melee attack
     - Mutators
         - Do not duck in minime mode during selaco slide
         - Fix 999 mutator during an airstrike
