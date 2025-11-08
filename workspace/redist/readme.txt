@@ -114,6 +114,7 @@ v1 Features:
         - Fixed grapple hook stuck to players
         - Do not show fire on players who cannot take damage
     - Fix crash on func_vehicle damage
+    - Fix crash on kick and slide when applying damage
 
 Beta 5 Features:
 

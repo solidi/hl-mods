@@ -37,7 +37,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [ ] Boltgun
     1. [ ] [ ] Sniper
     1. [ ] [ ] Chaingun
-    1. [ ] [ ] Freezegun
+    1. [x] [x] Freezegun
     1. [ ] [ ] RPG
     1. [ ] [ ] Gauss
     1. [ ] [ ] Egon
@@ -53,7 +53,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [ ] Snark
     1. [ ] [ ] Chumtoad
     1. [ ] [ ] Vest
-    1. [ ] [ ] Flamethrower
+    1. [x] [x] Flamethrower
     1. [ ] [ ] DualWrench
     1. [ ] [ ] DualPPK
     1. [ ] [ ] DualDeagle
@@ -166,12 +166,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. Add hornetgun(s) to instagib as powerup
     1. Instant mutators
         1. [ ] give mutator, random, and fast.
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] Dropped item floats to victor
-    1. [ ] "firestarter" Flame Wars/Arena- every attack set the target on fire. Tge attack itself does no damage the fire however does [Napoleon]
+    1. [ ] "firestarter" Flame Wars/Arena- every attack set the target on fire. The attack itself does no damage the fire however does [Napoleon]
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
     1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
