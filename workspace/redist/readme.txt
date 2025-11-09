@@ -94,6 +94,9 @@ v1 Features:
         - Capture the Chumtoad
             - Disable 999 mutator during gameplay
             - Fix chumtoad not appearing on radar
+        - Capture the Flag
+            - Fix issue where a player cannot capture a flag
+            - Fix crash because of missing entity to place base
         - Prophunt
             - Bots unpause correctly
         - Horde
