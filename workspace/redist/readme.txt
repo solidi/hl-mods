@@ -77,6 +77,7 @@ v1 Features:
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
+    - Bots can use chumtoad
     - Gameplay
         - Players who spectate during round do not count
         - Patch game crash when bot is kicked from the server during arena

@@ -51,7 +51,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [ ] Tripmine
     1. [ ] [ ] Decoy
     1. [ ] [ ] Snark
-    1. [ ] [ ] Chumtoad
+    1. [x] [x] Chumtoad
     1. [ ] [ ] Vest
     1. [x] [x] Flamethrower
     1. [ ] [ ] DualWrench
