@@ -77,6 +77,7 @@ v1 Features:
 - Fixes
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
+    - Bots can use chumtoad
     - Gameplay
         - Players who spectate during round do not count
         - Patch game crash when bot is kicked from the server during arena
@@ -94,6 +95,9 @@ v1 Features:
         - Capture the Chumtoad
             - Disable 999 mutator during gameplay
             - Fix chumtoad not appearing on radar
+        - Capture the Flag
+            - Fix issue where a player cannot capture a flag
+            - Fix crash because of missing entity to place base
         - Prophunt
             - Bots unpause correctly
         - Horde
