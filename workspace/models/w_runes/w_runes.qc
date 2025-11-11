@@ -38,6 +38,7 @@ studio "cloak"
 studio "ammo"
 studio "cir"
 studio "skull"
+studio "hornet"
 }
 
 
