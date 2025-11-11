@@ -69,12 +69,15 @@ v1 Features:
     - Add vertical play in fences
     - Enabled quadfrost and defroster to map voting
     - Fix spawnpoint in bounce2
+    - Prevent unused triggers to fire on frostmill
 - Client Support
     - Support left handed knife when cl_righthand is set to -1
 - Extras
     - Clients who use impulse when sv_cheats are off, explode
     - Add support for blue and yellow bullet tracers
 - Fixes
+    - Scoreboard colors fixed when halflife mutator enabled
+    - Fix stuck fraglimit read-out on HUD
     - Scoreboard sorting fixed
     - Kicked bots do not rejoin game
     - Bots can use chumtoad
