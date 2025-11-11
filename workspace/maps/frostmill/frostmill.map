@@ -15416,7 +15416,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_8"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -15479,7 +15478,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_15"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20704,7 +20702,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_5"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20727,7 +20724,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_6"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20750,7 +20746,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_7"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20773,7 +20768,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_16"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20811,7 +20805,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_23"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20841,7 +20834,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_13"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20864,7 +20856,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_12"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20887,7 +20878,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_11"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20910,7 +20900,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_10"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20933,7 +20922,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_9"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20956,7 +20944,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_17"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -20995,7 +20982,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_25"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -21018,7 +21004,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_26"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -21049,7 +21034,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_18"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -21072,7 +21056,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_22"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -21109,7 +21092,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_19"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -21132,7 +21114,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_14"
 "style" "32"
 "sounds" "0"
 "delay" "0"
@@ -21267,7 +21248,6 @@
 }
 {
 "classname" "trigger_multiple"
-"target" "trigger_mm_room_24"
 "style" "32"
 "sounds" "0"
 "delay" "0"
