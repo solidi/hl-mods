@@ -33,11 +33,9 @@ aurora\tracer_fire.aur
 aurora\ice_tracer_fire.aur
 cl_dlls
 cl_dlls\client.dll
-cl_dlls\client.dylib
 cl_dlls\client.so
 dlls
 dlls\ice.dll
-dlls\ice.dylib
 dlls\ice.so
 dlls\grave_bot.dll
 dlls\gravebot.so
