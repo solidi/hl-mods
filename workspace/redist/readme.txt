@@ -122,6 +122,8 @@ v1 Features:
         - Do not show fire on players who cannot take damage
     - Fix crash on func_vehicle damage
     - Fix crash on kick and slide when applying damage
+- Platform
+    - Removed support for macOS
 
 Beta 5 Features:
 
