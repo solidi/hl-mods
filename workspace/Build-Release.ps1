@@ -62,15 +62,12 @@ Remove-Item $redistSpDir\dlls -Force -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\ice.dll $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\grave_bot.dll $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\cl_dlls\client.dll $redistDir\cl_dlls -ErrorAction Ignore
-Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\ice.so $redistDir\dlls -ErrorAction Ignore
-Copy-Item ${RootDir}\libs\cl_dlls\client.dylib $redistDir\cl_dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\cl_dlls\client.so $redistDir\cl_dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\gravebot.so $redistDir\dlls -ErrorAction Ignore
 
 # SP
 Copy-Item ${RootDir}\libs\dlls\ice.dll $redistSpDir\dlls -ErrorAction Ignore
-Copy-Item ${RootDir}\libs\dlls\ice.dylib $redistSpDir\dlls -ErrorAction Ignore
 Copy-Item ${RootDir}\libs\dlls\ice.so $redistSpDir\dlls -ErrorAction Ignore
 
 Compile-Font $binDir $redistDir "Arial"

@@ -100,42 +100,6 @@ jobs:
         name: linux_client
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.so
 
-  macOS_libs:
-    runs-on: macos-13
-
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
-        submodules: recursive
-    - uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: '14.3.1'
-
-    - name: Install MacOSX10.8.sdk
-      run: |
-        mkdir /tmp/sdk
-        cd /tmp/sdk
-        curl -sSL https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX10.8.sdk.tar.xz > sdk.tar
-        tar -xvf sdk.tar
-        sudo ln -s /tmp/sdk/MacOSX10.8.sdk $(/usr/bin/xcode-select -print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
-        rm sdk.tar
-
-    - name: Build macOS dylibs
-      run: ./${{env.FOLDER_NAME}}/build-mac.sh CFG=${{env.BUILD_CONFIGURATION}}
-
-    - name: Upload ice.dylib
-      uses: actions/upload-artifact@v4
-      with:
-        name: macOS_ice
-        path: ./${{env.FOLDER_NAME}}/libs/dlls/ice.dylib
-
-    - name: Upload client.dylib
-      uses: actions/upload-artifact@v4
-      with:
-        name: macOS_client
-        path: ./${{env.FOLDER_NAME}}/libs/cl_dlls/client.dylib
-
   compile_tools:
     runs-on: windows-latest
 
@@ -520,7 +484,7 @@ jobs:
 
   package_coldice:
     runs-on: windows-latest
-    needs: [windows_libs, linux_libs, macOS_libs, compile_models, combine_maps, compile_sprites, compile_sounds]
+    needs: [windows_libs, linux_libs, compile_models, combine_maps, compile_sprites, compile_sounds]
 
     steps:
     - uses: actions/checkout@v4
@@ -559,18 +523,6 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: linux_client
-        path: ./${{env.FOLDER_NAME}}/libs/cl_dlls
-
-    - name: Download ice.dylib
-      uses: actions/download-artifact@v4
-      with:
-        name: macOS_ice
-        path: ./${{env.FOLDER_NAME}}/libs/dlls
-
-    - name: Download client.dylib
-      uses: actions/download-artifact@v4
-      with:
-        name: macOS_client
         path: ./${{env.FOLDER_NAME}}/libs/cl_dlls
 
     - name: Download models

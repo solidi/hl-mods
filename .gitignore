@@ -2,10 +2,8 @@
 debughl/
 *.pdb
 ice.dll
-ice.dylib
 ice.so
 client.dll
-client.dylib
 client.so
 grave_bot.dll
 gravebot.so
