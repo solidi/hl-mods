@@ -383,7 +383,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Ragdoll effect (speak to Napoleon)
     1. [ ] Shader water implementation...(something that's not Trinity, (speak to Napoleon))
     1. [ ] Override texture wads to make it feel different, add similar, iced themed textures (start with stalkyard,use impulse 107)
-    1. [x] Swap blue sprites with real sprites with cl_icemodels?
 1. UI / Menu
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
@@ -555,6 +554,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server Support
     1. [x] Assisted frag credit in all game modes
     1. [x] cvar for portal in skybox?
+    1. [x] Swap blue sprites with real sprites with cl_icemodels
 1. Environment
     1. [x] [Fog effect](https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog) and [this tutorial](https://web.archive.org/web/20040902100119/http://www.3rdlife.net:80/3port/articles/show.php/2) and [here](https://github.com/Magic-Nipples/Xash3D-VS2019-Clean/commit/793208bcdb3c3d14aaf593064969a09142aba9be)
 1. HUD

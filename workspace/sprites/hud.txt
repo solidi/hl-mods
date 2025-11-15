@@ -1,4 +1,4 @@
-310
+311
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -323,6 +323,7 @@ rune_gravity	640 640hudrunes	64	64	64	64
 rune_strength	640 640hudrunes	128	64	64	64
 rune_cloak		640 640hudrunes	192	64	64	64
 rune_ammo		640 640hudrunes	0	128	64	64
+rune_hornet 	640 gameicons3	0	0	64	64
 
 wins		640 640hud7	194	24	64	32
 
