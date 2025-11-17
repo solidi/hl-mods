@@ -14,7 +14,9 @@ v1 Features:
 - Gamemode Changes
     - Battle Royale offers team based play with safe area
         - Added mp_royaleteam [0|1] for teamplay option
-    - Round based games remove decals and items when round is over
+    - Round based games now:
+        - Remove decals and items when round is over
+        - Show current round limit where possible
     - Gungame
         - Spawn random ammo and items in place of weapons
         - Add fingergun, rocketcrowbar, and zapgun
@@ -65,9 +67,9 @@ v1 Features:
     - Patched broken bot names when rejoining
     - Disabled offhand melee attacks in gungame
 - Map Changes
-    - Re-enable defroster and quadfrost after large memory patch in october
+    - Re-enable defroster after large memory patch in october
     - Add vertical play in fences
-    - Enabled quadfrost and defroster to map voting
+    - Enabled defroster to map voting
     - Fix spawnpoint in bounce2
     - Prevent unused triggers to fire on frostmill
 - Client Support
