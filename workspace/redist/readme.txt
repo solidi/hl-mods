@@ -40,6 +40,8 @@ v1 Features:
         - Always show the holder of the chumtoad on top of the scoreboard
     - Horde
         - Improve panther speed, attack only humans
+    - Instagib
+        - Provide hornet rune powerup that provides a hornetgun
 - Instant Mutators
     Add 10 new mutators that are applied during chaos mode:
         - +1 health
