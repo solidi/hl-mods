@@ -8,7 +8,7 @@
 
 [ ] waypoint for defroster
 [ ] waypoint for quadfrost
-[ ] waypoint for glacialcore
+[x] waypoint for glacialcore
 [ ] waypoint for latenightxmas
 [ ] waypoint for storm
 [x] vote on ctf was wrong
