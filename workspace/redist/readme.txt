@@ -69,6 +69,9 @@ v1 Features:
     - Patched broken bot names when rejoining
     - Disabled offhand melee attacks in gungame
 - Map Changes
+    - Add bot waypoints for glacialcore
+    - Improve bot waypoints with sentry pattern in:
+        - snowyard.bsp
     - Re-enable defroster after large memory patch in october
     - Add vertical play in fences
     - Enabled defroster to map voting
