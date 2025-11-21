@@ -72,17 +72,20 @@ v1 Features:
     - Add bot waypoints for glacialcore
     - Improve bot waypoints with sentry pattern in:
         - snowyard.bsp
-    - Re-enable defroster after large memory patch in october
+    - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
-    - Enabled defroster to map voting
+    - Enabled defroster and quadfrost in map voting
     - Fix spawnpoint in bounce2
     - Prevent unused triggers to fire on frostmill
+    - Increased spawn points in frostmill
 - Client Support
     - Support left handed knife when cl_righthand is set to -1
 - Extras
     - Clients who use impulse when sv_cheats are off, explode
     - Add support for blue and yellow bullet tracers
 - Fixes
+    - Patched rain system so it does not lock the client
+    - Ptahced physics bugs related to flying/spectator
     - Scoreboard colors fixed when halflife mutator enabled
     - Fix stuck fraglimit read-out on HUD
     - Scoreboard sorting fixed

@@ -21933,3 +21933,33 @@
 "message" "media/01-snowflakes.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "403 180 -281"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "243 470 -200"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-1736 380 -316"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 230 0"
+"origin" "-814 1080 -316"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 245 0"
+"origin" "-1523 1372 -85"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "-2078 1096 -296"
+}
