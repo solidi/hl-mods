@@ -14,7 +14,7 @@ v1 Features:
 - Gamemode Changes
     - Battle Royale offers team based play with safe area
         - Added mp_royaleteam [0|1] for teamplay option
-        - Added mp_royaledamage [0|1] to enable damage outsie safe zone
+        - Added mp_royaledamage [0|1] to enable damage outside safe zone
     - Round based games now:
         - Remove decals and items when round is over
         - Show current round limit where possible
