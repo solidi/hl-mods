@@ -14,6 +14,7 @@ v1 Features:
 - Gamemode Changes
     - Battle Royale offers team based play with safe area
         - Added mp_royaleteam [0|1] for teamplay option
+        - Added mp_royaledamage [0|1] to enable damage outside safe zone
     - Round based games now:
         - Remove decals and items when round is over
         - Show current round limit where possible
@@ -43,7 +44,8 @@ v1 Features:
     - Instagib
         - Provide hornet rune powerup that provides a hornetgun
 - Instant Mutators
-    Add 10 new mutators that are applied during chaos mode:
+    - Add 10 new mutators that are applied during chaos mode.
+        - Use "sv_instantmutators" for enable/disable
         - +1 health
         - nothing
         - swap armor and health
@@ -79,6 +81,7 @@ v1 Features:
     - Prevent unused triggers to fire on frostmill
     - Increased spawn points in frostmill
 - Client Support
+    - Added game mode and map name to the scoreboard
     - Support left handed knife when cl_righthand is set to -1
 - Extras
     - Clients who use impulse when sv_cheats are off, explode
@@ -1131,6 +1134,7 @@ Server:
 - "mp_roundlimit" - Sets the maximum amount of game rounds before a map change
 - "mp_roundtimelimit" - Sets the maximum amount of time a round will run
 - "mp_royaleteam [0|1]" - Sets teamplay option for battle royale
+- "mp_royaledamage [0|1]" - Enable damage outside of safe zone
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_spawnitems" - Spawn items or not
 - "mp_spawnprotectiontime" - amount of time in seconds a player is protected from damage
@@ -1228,6 +1232,7 @@ Server:
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "vested" - everyone starts with a vest
     - "volatile" - where players blow up when fragged
+- "sv_instantmutators [0|1]" - Enable or disable instant mutators
 - "sv_weather [0|1]" allow or disallow weather effects on server
 
 Report Bugs:

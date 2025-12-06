@@ -138,6 +138,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
+	"sv_instantmutators"
+	{
+		"#Ice_InstantMutators"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"sv_mutatoramount"
 	{
 		"#Ice_MutatorAmount"
@@ -534,6 +541,13 @@ DESCRIPTION SERVER_OPTIONS
 	"mp_royaleteam"
 	{
 		"#Ice_RoyaleTeam"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_royaledamage"
+	{
+		"#Ice_RoyaleDamage"
 		{ BOOL }
 		{ "1" }
 	}
