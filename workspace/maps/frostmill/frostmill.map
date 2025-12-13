@@ -14578,7 +14578,7 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "274"
+"angles" "0 274 0"
 "origin" "-2588 2080 -88"
 }
 {
@@ -14587,17 +14587,17 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "183"
+"angles" "0 183 0"
 "origin" "-20 808 -80"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "270"
+"angles" "0 270 0"
 "origin" "404 680 -196"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "183"
+"angles" "0 183 0"
 "origin" "40 356 -396"
 }
 {
@@ -14606,37 +14606,37 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "177"
+"angles" "0 177 0"
 "origin" "-1556 1592 -292"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "177"
+"angles" "0 177 0"
 "origin" "-244 1572 -276"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "177"
+"angles" "0 177 0"
 "origin" "-1580 1192 -292"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "183"
+"angles" "0 183 0"
 "origin" "-2616 1732 -292"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "323"
+"angles" "0 323 0"
 "origin" "-3368 2044 -88"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "183"
+"angles" "0 183 0"
 "origin" "732 364 -196"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "219"
+"angles" "0 219 0"
 "origin" "-188 2244 -292"
 }
 {
@@ -15022,12 +15022,12 @@
 }
 {
 "classname" "info_player_start"
-"angle" "219"
+"angles" "0 219 0"
 "origin" "-232 2244 -292"
 }
 {
 "classname" "info_player_start"
-"angle" "88"
+"angles" "0 88 0"
 "origin" "-1072 -992 -402"
 }
 {

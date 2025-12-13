@@ -11262,7 +11262,6 @@
 }
 {
 "classname" "info_player_start"
-"angle" "131"
 "angles" "0 131 0"
 "origin" "416 816 -1632"
 }
@@ -13273,97 +13272,81 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "335"
 "angles" "0 335 0"
 "origin" "-976 -144 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "62"
 "angles" "0 62 0"
 "origin" "-848 -992 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
 "angles" "0 180 0"
 "origin" "1216 -1472 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "143"
 "angles" "0 143 0"
 "origin" "928 -1120 -1584"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "213"
 "angles" "0 213 0"
 "origin" "1248 -288 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
 "angles" "0 180 0"
 "origin" "640 -1024 -1776"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "172"
 "angles" "0 172 0"
 "origin" "216 -1472 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "139"
 "angles" "0 139 0"
 "origin" "-544 -1248 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
 "angles" "0 180 0"
 "origin" "-704 -576 -1640"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
 "angles" "0 180 0"
 "origin" "-688 -648 -1520"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "90"
 "angles" "0 90 0"
 "origin" "1184 -1104 -1648"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "142"
 "angles" "0 142 0"
 "origin" "1232 -1360 -1520"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "270"
 "angles" "0 270 0"
 "origin" "480 -64 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "213"
 "angles" "0 213 0"
 "origin" "1232 96 -1648"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "270"
 "angles" "0 270 0"
 "origin" "-400 -160 -1632"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "323"
 "angles" "0 323 0"
 "origin" "-32 -464 -1568"
 }

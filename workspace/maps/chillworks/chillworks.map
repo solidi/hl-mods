@@ -9767,7 +9767,7 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "90"
+"angles" "0 90 0"
 "origin" "64 -632 -640"
 }
 {
@@ -9776,12 +9776,12 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "16 872 -920"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "-72 -584 -640"
 }
 {
@@ -9802,12 +9802,12 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "90"
+"angles" "0 90 0"
 "origin" "504 320 -648"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "480 168 -648"
 }
 {
