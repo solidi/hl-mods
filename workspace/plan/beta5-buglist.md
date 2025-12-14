@@ -6,7 +6,7 @@
 
 ## Janurary 2025 GSS Test
 
-[ ] waypoint for defroster
+[x] waypoint for defroster
 [x] waypoint for quadfrost
 [x] waypoint for glacialcore
 [ ] waypoint for latenightxmas

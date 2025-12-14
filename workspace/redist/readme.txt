@@ -71,7 +71,7 @@ v1 Features:
     - Patched broken bot names when rejoining
     - Disabled offhand melee attacks in gungame
 - Map Changes
-    - Add bot waypoints for glacialcore, quadfrost
+    - Add bot waypoints for glacialcore, quadfrost, defroster
     - Improve bot waypoints with sentry pattern in:
         - snowyard.bsp
     - Re-enable defroster and quadfrost after large memory patch in october
