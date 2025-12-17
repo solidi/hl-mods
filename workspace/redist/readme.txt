@@ -70,10 +70,13 @@ v1 Features:
     - When sv_defaultbots is set to 0, all bots are kicked
     - Patched broken bot names when rejoining
     - Disabled offhand melee attacks in gungame
+    - Fixed crash related to bot client update
 - Map Changes
-    - Add bot waypoints for glacialcore
+    - Add bot waypoints for glacialcore, quadfrost, defroster, storm
     - Improve bot waypoints with sentry pattern in:
-        - snowyard.bsp
+        - snowyard
+        - frozen_bunker
+    - Fixed pool area waypoints in training
     - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
     - Enabled defroster and quadfrost in map voting
@@ -88,7 +91,7 @@ v1 Features:
     - Add support for blue and yellow bullet tracers
 - Fixes
     - Patched rain system so it does not lock the client
-    - Ptahced physics bugs related to flying/spectator
+    - Pathced physics bugs related to flying/spectator
     - Scoreboard colors fixed when halflife mutator enabled
     - Fix stuck fraglimit read-out on HUD
     - Scoreboard sorting fixed

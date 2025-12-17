@@ -3480,7 +3480,7 @@
 }
 {
 "classname" "info_player_start"
-"angle" "135"
+"angles" "0 135 0"
 "origin" "688 -528 48"
 }
 {
@@ -4075,12 +4075,12 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "592 -256 48"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "592 256 48"
 }
 {
@@ -4093,27 +4093,27 @@
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "496 512 -80"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "180"
+"angles" "0 180 0"
 "origin" "448 -480 -80"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "270"
+"angles" "0 270 0"
 "origin" "-704 448 48"
 }
 {
 "classname" "info_player_deathmatch"
-"angle" "90"
+"angles" "0 90 0"
 "origin" "704 -320 48"
 }
 {
 "classname" "ammo_gaussclip"
-"angle" "270"
+"angles" "0 270 0"
 "delay" "0"
 "origin" "464 384 272"
 }

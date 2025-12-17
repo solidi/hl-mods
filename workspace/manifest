@@ -167,7 +167,7 @@ maps\catacombs.gbw
 maps\catacombs.txt
 maps\defroster.bsp
 maps\defroster.res
-maps\defroster.wpt
+maps\defroster.gbw
 maps\defroster.txt
 maps\depot.bsp
 maps\depot.res
@@ -215,7 +215,7 @@ maps\doublefrost.gbw
 maps\doublefrost.txt
 maps\quadfrost.bsp
 maps\quadfrost.res
-maps\quadfrost.wpt
+maps\quadfrost.gbw
 maps\quadfrost.txt
 maps\thechill.bsp
 maps\thechill.res
@@ -263,11 +263,11 @@ maps\glacialcore.gbw
 maps\glacialcore.txt
 maps\latenightxmas.bsp
 maps\latenightxmas.res
-maps\latenightxmas.wpt
+maps\latenightxmas.gbw
 maps\latenightxmas.txt
 maps\storm.bsp
 maps\storm.res
-maps\storm.wpt
+maps\storm.gbw
 maps\storm.txt
 media
 media\01-snowflakes.mp3

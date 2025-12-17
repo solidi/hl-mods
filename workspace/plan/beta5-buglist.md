@@ -6,11 +6,11 @@
 
 ## Janurary 2025 GSS Test
 
-[ ] waypoint for defroster
-[ ] waypoint for quadfrost
+[x] waypoint for defroster
+[x] waypoint for quadfrost
 [x] waypoint for glacialcore
-[ ] waypoint for latenightxmas
-[ ] waypoint for storm
+[x] waypoint for latenightxmas
+[x] waypoint for storm
 [x] vote on ctf was wrong
 [x] round 2 gungame fix?
 [x] no drowning in prophunt as prop
