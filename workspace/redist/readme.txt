@@ -86,6 +86,7 @@ v1 Features:
     - Fix spawnpoint in bounce2
     - Prevent unused triggers to fire on frostmill
     - Increased spawn points in frostmill
+    - Fixed dim lights in frozen_bunker
 - Client Support
     - Added game mode and map name to the scoreboard
     - Support left handed knife when cl_righthand is set to -1
