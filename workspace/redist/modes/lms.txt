@@ -1,5 +1,7 @@
 Start with a set number of lives and battle.
 
+Stay in the shrinking green zone, otherwise take damage.
+
 Be the last to stand in the round and receive a round win!
 
 If time runs out, the person with the most lives wins.

@@ -39,10 +39,13 @@ v1 Features:
         - Improve logic on dropping the chumtoad so its less abrupt
         - Show chumtoad icon while holding it in ctc
         - Always show the holder of the chumtoad on top of the scoreboard
+    - Capture the Flag
+        - Added mp_ctfdistance for minimum units between flags
     - Horde
         - Improve panther speed, attack only humans
     - Instagib
         - Provide hornet rune powerup that provides a hornetgun
+    - HUD color will change to blue or red depending on team assignment
 - Instant Mutators
     - Add 10 new mutators that are applied during chaos mode.
         - Use "sv_instantmutators" for enable/disable
@@ -117,6 +120,7 @@ v1 Features:
         - Capture the Flag
             - Fix issue where a player cannot capture a flag
             - Fix crash because of missing entity to place base
+            - Fix crash due to missing entity by flag
         - Prophunt
             - Bots unpause correctly
         - Horde
@@ -138,6 +142,7 @@ v1 Features:
         - Do not show fire on players who cannot take damage
     - Fix crash on func_vehicle damage
     - Fix crash on kick and slide when applying damage
+    - Auto melee ignores god mode entities
 - Platform
     - Removed support for macOS
 
@@ -1097,6 +1102,7 @@ Server:
 - "mp_ctcsecondsforpoint" - amount of second holding chumtoad for a point
 - "mp_ctfspawn1" - name of entity where blue base will spawn in map
 - "mp_ctfspawn2" - name of entity where red base will spawn in map
+- "mp_ctfdistance" - minimum units between flags
 - "mp_dualsonly [0|1]" - Replace all weapons with duals only
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
 - "mp_gamemode" to select game mode
