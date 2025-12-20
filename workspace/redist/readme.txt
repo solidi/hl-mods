@@ -69,6 +69,7 @@ v1 Features:
         - Inflicts damage of the selected weapon
         - Zapgun and rocketcrowbar now added
         - Bots sometimes use weapons
+    - Do not fire notthebees from gibbed victims (fixes nuke crash)
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
     - Patched broken bot names when rejoining
