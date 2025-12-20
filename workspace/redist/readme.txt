@@ -45,7 +45,7 @@ v1 Features:
         - Improve panther speed, attack only humans
     - Instagib
         - Provide hornet rune powerup that provides a hornetgun
-    - HUD color will change to blue or red depending on team assignment
+    - HUD color will change to blue or red depending on team assignment or mission
 - Instant Mutators
     - Add 10 new mutators that are applied during chaos mode.
         - Use "sv_instantmutators" for enable/disable
