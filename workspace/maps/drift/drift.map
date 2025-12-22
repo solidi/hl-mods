@@ -14466,14 +14466,6 @@
 "origin" "-1509 -556 32"
 }
 {
-"classname" "info_node"
-"origin" "128 -1368 32"
-}
-{
-"classname" "info_node"
-"origin" "296 2736 -120"
-}
-{
 "classname" "weapon_9mmAR"
 "delay" "0"
 "angles" "0 0 0"
@@ -14492,7 +14484,7 @@
 "origin" "-1524 1544 -192"
 }
 {
-"classname" "weapon_crowbar"
+"classname" "weapon_shotgun"
 "delay" "0"
 "angles" "0 0 0"
 "origin" "-1084 1369 0"
@@ -14679,4 +14671,14 @@
 "health" "12"
 "message" "media/12-last-rites.mp3"
 "spawnflags" "1"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 225 0"
+"origin" "252 153 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-529 -626 36"
 }

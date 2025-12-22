@@ -17052,3 +17052,43 @@
 "message" "media/13-topsy-turvy.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "-308 160 -28"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-720 160 -28"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-1505 737 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-993 1679 -28"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "-28 1683 -28"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "-828 731 260"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "38 2 -156"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "433 911 -60"
+}

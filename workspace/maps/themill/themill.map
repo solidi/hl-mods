@@ -16388,3 +16388,68 @@
 ( 1609.68 580.632 736 ) ( 1623 576 736 ) ( 1609.68 580.632 432 ) CIR_ROCK01 [ 0.944497 -0.328521 -0 -195.411 ] [ 0 -0 -1 146 ] 0 1.00001 1
 }
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "190 827 324"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "312 154 324"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "473 284 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "1373 253 50"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "1578 -59 468"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "834 1845 467"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 305 0"
+"origin" "196 1735 323"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "55 1529 468"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "278 1110 468"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 89 0"
+"origin" "1240 1339 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "1794 1893 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "1514 1254 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 300 0"
+"origin" "668 1052 468"
+}

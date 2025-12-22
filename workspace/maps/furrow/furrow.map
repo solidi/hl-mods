@@ -3877,3 +3877,28 @@
 "message" "media/07-catching-santa.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "-658 -315 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-433 175 212"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "210 -78 100"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-141 372 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 91 0"
+"origin" "81 -374 324"
+}

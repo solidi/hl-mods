@@ -8939,3 +8939,58 @@
 "message" "media/03-frostfight.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "2121 -229 291"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "584 -192 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "801 454 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "755 777 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "743 1137 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "856 1442 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 181 0"
+"origin" "2109 1140 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 38 0"
+"origin" "-228 -223 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 91 0"
+"origin" "-455 -226 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "-559 1290 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-479 440 36"
+}

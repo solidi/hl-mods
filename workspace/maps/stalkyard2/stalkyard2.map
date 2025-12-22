@@ -3132,3 +3132,23 @@
 "message" "media/14-honor-guard.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "1751 656 -18"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "178 2222 -83"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "956 1922 -202"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 230 0"
+"origin" "2218 2158 -51"
+}

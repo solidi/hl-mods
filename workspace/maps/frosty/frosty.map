@@ -5733,3 +5733,58 @@
 "message" "media/05-jubilee.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "-852 0 195"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-1338 -4 196"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-786 808 196"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "-309 -584 196"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 105 0"
+"origin" "122 -810 196"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-569 182 356"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-567 -189 356"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 100 0"
+"origin" "-690 280 196"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 30 0"
+"origin" "-219 -540 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-93 189 355"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-95 -182 356"
+}

@@ -76,6 +76,7 @@ v1 Features:
     - Disabled offhand melee attacks in gungame
     - Fixed crash related to bot client update
 - Map Changes
+    - Supports up to 24 spawn locations on every map
     - Add bot waypoints for glacialcore, quadfrost, defroster, storm
     - Improve bot waypoints with sentry pattern in:
         - snowyard

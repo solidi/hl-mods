@@ -9643,3 +9643,73 @@
 "message" "media/05-jubilee.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "249 103 -108"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 305 0"
+"origin" "-469 -59 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 225 0"
+"origin" "76 -515 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "735 -1199 -60"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "502 -503 -508"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "581 -1150 -508"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "318 -703 -508"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 230 0"
+"origin" "1185 -431 -412"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "697 -747 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-730 -855 84"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-568 -1303 84"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "73 -385 -108"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "206 -323 -412"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "-471 -758 84"
+}

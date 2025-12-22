@@ -3376,3 +3376,23 @@
 "angles" "0 0 0"
 "origin" "1152 551 96"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "327 -186 212"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "891 -820 131"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "1139 568 131"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 120 0"
+"origin" "1473 -436 211"
+}

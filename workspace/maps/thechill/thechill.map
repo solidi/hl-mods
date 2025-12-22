@@ -5234,3 +5234,78 @@
 "message" "media/09-whispers.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "711 -2 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "729 730 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-219 548 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-732 -743 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 179 0"
+"origin" "163 -537 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 120 0"
+"origin" "220 -267 931"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-344 -130 772"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-165 -292 580"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "294 -586 387"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "429 -323 580"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 179 0"
+"origin" "365 384 579"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-386 403 387"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 305 0"
+"origin" "-598 600 195"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-599 -597 195"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-391 -408 387"
+}
