@@ -4139,6 +4139,7 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 90 0"
 "origin" "57 -675 64"
 }
 {
@@ -4205,4 +4206,24 @@
 "health" "10"
 "message" "media/09-whispers.mp3"
 "spawnflags" "1"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-83 -363 -28"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-510 -696 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 271 0"
+"origin" "-180 -67 148"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 30 0"
+"origin" "-1251 -628 52"
 }

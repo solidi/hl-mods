@@ -19427,7 +19427,7 @@
 "origin" "696 -1440 160"
 }
 {
-"classname" "weapon_crowbar"
+"classname" "weapon_shotgun"
 "delay" "0"
 "angles" "0 0 0"
 "origin" "-222 250 0"

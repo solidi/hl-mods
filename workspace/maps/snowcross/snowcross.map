@@ -11780,11 +11780,6 @@
 "origin" "208 544 -1680"
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 122 0"
-"origin" "32 320 -1784"
-}
-{
 "classname" "weapon_9mmAR"
 "angles" "0 180 0"
 "delay" "0"
@@ -11817,16 +11812,6 @@
 "classname" "ammo_buckshot"
 "delay" "0"
 "origin" "-688 1296 -1680"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 180 0"
-"origin" "-688 512 -1645"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 307 0"
-"origin" "-992 1504 -1645"
 }
 {
 "classname" "weapon_357"
@@ -11975,31 +11960,6 @@
 "origin" "-704 976 -1520"
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 270 0"
-"origin" "-272 1232 -1488"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 219 0"
-"origin" "424 1064 -1488"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 219 0"
-"origin" "424 936 -1632"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 31 0"
-"origin" "-744 920 -1488"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 320 0"
-"origin" "-984 1304 -1648"
-}
-{
 "classname" "weapon_shotgun"
 "delay" "0"
 "origin" "-688 1264 -1680"
@@ -12069,45 +12029,6 @@
 {
 "classname" "item_battery"
 "origin" "-680 280 -1520"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 180 0"
-"origin" "848 1152 -1486"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "496 840 -1486"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 219 0"
-"origin" "672 1488 -1488"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 194 0"
-"origin" "16 1488 -1488"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 194 0"
-"origin" "-32 1488 -1648"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 270 0"
-"origin" "208 1504 -1800"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 180 0"
-"origin" "864 704 -1800"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 90 0"
-"origin" "208 224 -1640"
 }
 {
 "classname" "weapon_shotgun"
@@ -12884,11 +12805,6 @@
 "angles" "0 90 0"
 "delay" "0"
 "origin" "736 176 -1840"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 71 0"
-"origin" "624 160 -1800"
 }
 {
 "classname" "trigger_multiple"
@@ -14294,26 +14210,6 @@
 "origin" "-931 -176 -1344"
 }
 {
-"classname" "info_player_deathmatch"
-"origin" "821 1447 -1280"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "-384 1467 -1280"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "-880 788 -1268"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "843 507 -1280"
-}
-{
-"classname" "info_player_deathmatch"
-"origin" "-839 332 -1264"
-}
-{
 "classname" "weapon_handgrenade"
 "origin" "318 826 -1344"
 }
@@ -14442,4 +14338,130 @@
 "health" "9"
 "message" "media/08-lamenting.mp3"
 "spawnflags" "1"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 122 0"
+"origin" "32 320 -1784"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "-688 512 -1645"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 307 0"
+"origin" "-992 1504 -1645"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-272 1232 -1488"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 219 0"
+"origin" "424 1064 -1488"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 219 0"
+"origin" "424 936 -1632"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 31 0"
+"origin" "-744 920 -1488"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "-984 1304 -1648"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "848 1152 -1486"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "496 840 -1486"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 219 0"
+"origin" "672 1488 -1488"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 194 0"
+"origin" "16 1488 -1488"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 194 0"
+"origin" "-32 1488 -1648"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "208 1504 -1800"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "864 704 -1800"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "208 224 -1640"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 71 0"
+"origin" "624 160 -1800"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "821 1447 -1280"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-384 1467 -1280"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-880 788 -1268"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "843 507 -1280"
+}
+{
+"classname" "info_player_deathmatch"
+"origin" "-839 332 -1264"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 305 0"
+"origin" "-1086 1604 -1436"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "946 1586 -1437"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 181 0"
+"origin" "838 -136 -1820"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 135 0"
+"origin" "-492 -279 -1820"
 }

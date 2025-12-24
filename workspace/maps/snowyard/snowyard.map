@@ -5307,3 +5307,23 @@ blendtime "0"
 "classname" "info_node"
 "origin" "-979 -279 128"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 310 0"
+"origin" "-960 510 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 269 0"
+"origin" "736 214 108"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "575 1378 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-606 1262 100"
+}

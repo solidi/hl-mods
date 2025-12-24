@@ -16591,3 +16591,43 @@
 ( -1040 2112 -1840 ) ( -1040 -1536 -1840 ) ( 1040 2112 -1840 ) AAATRIGGER [ -1 0 0 0 ] [ 0 -1 0 0 ] 0 1 1
 }
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "939 -793 -1596"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "1 -221 -1485"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-768 487 -1484"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 91 0"
+"origin" "229 -132 -1692"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-380 -815 -1660"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "199 -1335 -1660"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 300 0"
+"origin" "-286 166 -1692"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 181 0"
+"origin" "651 295 -1660"
+}

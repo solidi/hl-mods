@@ -5893,3 +5893,23 @@
 "message" "media/06-serenity.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-607 633 -476"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 229 0"
+"origin" "146 2090 -444"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-379 -1223 -530"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 315 0"
+"origin" "-833 218 -540"
+}

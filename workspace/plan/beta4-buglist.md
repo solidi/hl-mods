@@ -63,12 +63,12 @@
 ## December 2023
 
 [ ] no man stands - corruption n objectives underneath
-[ ] refix chillworks
-[ ] crowbar replace drift, weird spawn thing 
 [ ] killed self with handgrenade?
 [ ] pirate sounds when hat mutator on
 [ ] fire in observer?
 [ ] Make "chaos" in vote menu caps
+[x] crowbar replace drift, weird spawn thing 
+[x] refix chillworks
 [x] chumtoad throw animation
 [x] bot should throw chumtoad if taking damage
 [x] 3 - 4 second on chumtoad, then higher chance of dropping

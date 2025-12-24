@@ -10266,7 +10266,7 @@
 {
 "classname" "info_player_deathmatch"
 "spawnflags" "0"
-"angles" "0 0 0"
+"angles" "0 270 0"
 "origin" "-2744 -1076 -60"
 }
 {
@@ -11354,4 +11354,44 @@
 "health" "3"
 "message" "media/02-snowfall.mp3"
 "spawnflags" "1"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "62 -710 608"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "1030 -377 648"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 316 0"
+"origin" "-2752 -881 216"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-2610 -1203 616"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "-1573 -1291 432"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "-2853 470 -44"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 45 0"
+"origin" "-2861 -449 -44"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 330 0"
+"origin" "-2365 680 420"
 }

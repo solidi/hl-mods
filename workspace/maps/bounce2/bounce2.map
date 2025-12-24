@@ -7370,3 +7370,23 @@
 ( 1277.84 -184.011 -2304 ) ( 1277.84 -184.011 -2140 ) ( 1222.35 -128 -2304 ) AAATRIGGER [ -0.703764 0.710434 0 -1.71232 ] [ 0 0 -1 0 ] 0 1 1
 }
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 320 0"
+"origin" "386 1716 -1932"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "147 -694 -1932"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "1861 -1318 -1932"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "1056 1786 -1787"
+}

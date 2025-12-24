@@ -9032,12 +9032,12 @@
 "locked_sentence" "0"
 "unlocked_sentence" "0"
 {
-( 4 784 -960 ) ( 4 784 -1568 ) ( 4 752 -960 ) AAATRIGGER [ 0 0 1 0 ] [ 0 1 -0 0 ] 270 2 2
 ( 0 752 -960 ) ( 0 752 -1568 ) ( 0 784 -960 ) {LADDER1 [ 0 1 0 16 ] [ 0 0 -1 0 ] -0 1 1
-( 0 784 -960 ) ( 0 784 -1568 ) ( 4 784 -960 ) {LADDER1 [ 1 0 0 31 ] [ 0 0 -1 0 ] -0 1 1
+( 4 784 -960 ) ( 4 784 -1568 ) ( 4 752 -960 ) {LADDER1 [ 0 1 0 16 ] [ -0 0 -1 0 ] 0 1 1
 ( 4 752 -960 ) ( 4 752 -1568 ) ( 0 752 -960 ) {LADDER1 [ 1 0 0 31 ] [ 0 0 -1 0 ] -0 1 1
-( 0 752 -960 ) ( 0 784 -960 ) ( 4 752 -960 ) {LADDER1 [ 1 0 0 30 ] [ 0 -1 0 0 ] -0 1 1
+( 0 784 -960 ) ( 0 784 -1568 ) ( 4 784 -960 ) {LADDER1 [ 1 0 0 31 ] [ 0 0 -1 0 ] -0 1 1
 ( 0 784 -1568 ) ( 0 752 -1568 ) ( 4 784 -1568 ) C3A1_W3A [ 1 0 0 10 ] [ 0 -1 0 0 ] -0 2 2
+( 0 752 -960 ) ( 0 784 -960 ) ( 4 752 -960 ) {LADDER1 [ 1 0 0 30 ] [ 0 -1 0 0 ] -0 1 1
 }
 }
 {
@@ -10900,4 +10900,44 @@
 {
 "classname" "env_snow"
 "origin" "-195 -727 528"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 225 0"
+"origin" "710 1282 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "330 494 171"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "-460 447 172"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "-382 -595 563"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-1123 -317 -1117"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 179 0"
+"origin" "226 -298 -1116"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 179 0"
+"origin" "-532 1106 -1244"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 305 0"
+"origin" "-1074 1367 -1244"
 }

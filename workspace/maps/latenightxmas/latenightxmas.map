@@ -11672,3 +11672,28 @@
 "message" "media/10-another-one.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 300 0"
+"origin" "-1425 951 -476"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-1341 581 -196"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 220 0"
+"origin" "529 -444 -477"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 90 0"
+"origin" "-1788 -1143 -476"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 269 0"
+"origin" "-1809 931 -476"
+}

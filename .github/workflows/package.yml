@@ -80,7 +80,7 @@ jobs:
       run: sudo apt install libgl-dev -y
 
     - name: Build linux so libs
-      run: ./${{env.FOLDER_NAME}}/build-linux.sh CFG=${{env.BUILD_CONFIGURATION}}
+      run: ./${{env.FOLDER_NAME}}/build-linux.sh -x CFG=${{env.BUILD_CONFIGURATION}}
 
     - name: Upload ice.so
       uses: actions/upload-artifact@v4

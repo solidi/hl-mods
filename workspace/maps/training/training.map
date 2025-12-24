@@ -6770,3 +6770,23 @@
 "message" "media/gamestartup.mp3"
 "spawnflags" "1"
 }
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "1263 79 -76"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 300 0"
+"origin" "-432 -917 -208"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "236 -1189 -427"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 145 0"
+"origin" "680 -1743 -249"
+}
