@@ -81,6 +81,7 @@ v1 Features:
     - Improve bot waypoints with sentry pattern in:
         - snowyard
         - frozen_bunker
+        - coldice
     - Fixed pool area waypoints in training
     - Re-enable defroster and quadfrost after large memory patch in october
     - Add vertical play in fences
@@ -1253,6 +1254,7 @@ Please report defects by creating an issue here or in discord: https://github.co
 
 Thanks To:
 
+- postal and the JaBroni Brawl 3 dev crew for original game mode creations https://jabronibrawl.com/
 - Infinity for original and resurrection Cold-Ice models https://www.chaosworx.net/
 - Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
 - GameBanana for "the" archive of models, effects, and everything https://gamebanana.com/
