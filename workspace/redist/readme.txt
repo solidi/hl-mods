@@ -160,6 +160,7 @@ v1 Features:
     - Fix crash on func_vehicle damage
     - Fix crash on kick and slide when applying damage
     - Auto melee ignores god mode entities
+    - Fixed server crash when bots used tripmines
 - Platform
     - Removed support for macOS
 
