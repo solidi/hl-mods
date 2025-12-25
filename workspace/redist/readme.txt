@@ -45,9 +45,12 @@ v1 Features:
         - Improve panther speed, attack only humans
     - Instagib
         - Provide hornet rune powerup that provides a hornetgun
+    - Snowball Fight
+        - Added vice to the gameplay
     - HUD color will change to blue or red depending on team assignment or mission
+    - Burn damage will not kill, but come close to mortally wounding a player
 - Instant Mutators
-    - Add 10 new mutators that are applied during chaos mode.
+    - Add 14 new mutators that are applied using the chaos timer.
         - Use "sv_instantmutators" for enable/disable
         - +1 health
         - nothing
@@ -59,9 +62,14 @@ v1 Features:
         - six, seveeen (67/67)
         - hot potato, a grenade is spawned at everyones feet
         - random damage
+        - pet chumtoads
+        - human assassins
+        - random tripmines
+        - pet snarks
     - Added a chicken sound when instant mutator is applied
 - Mutator Changes
     - Add horse sound when a mutator is applied
+    - Firestarter mutator turns all damage into flammable damage
     - Add kick-boom effect to kick when volatile is enabled
     - Slow bullets support variable damage based on weapon
     - Disabled weapon spawn mutators when zoomed in
@@ -70,6 +78,9 @@ v1 Features:
         - Zapgun and rocketcrowbar now added
         - Bots sometimes use weapons
     - Do not fire notthebees from gibbed victims (fixes nuke crash)
+    - Fixed missing perm mutator during mutator rotation
+    - Fixed mutator rtv voting in gun game
+    - Fixd turrets firing at one another
 - Bots
     - When sv_defaultbots is set to 0, all bots are kicked
     - Patched broken bot names when rejoining
@@ -130,6 +141,8 @@ v1 Features:
         - Horde
             - Fix HUD health bar and waiting label
             - Fix panther melee attack
+        - Royale 
+            - Fix (null) winner if no one survives
     - Mutators
         - Do not duck in minime mode during selaco slide
         - Fix 999 mutator during an airstrike
