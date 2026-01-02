@@ -9,6 +9,15 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+v1.1 Features:
+
+- Server
+    - Added "botfinditem [0-1]" to turn on/off search logic
+- Fixes
+    - Patch traceline crashes
+    - Fix BotFindItem crash
+    - Added support for Ubunutu 22+ on Linux
+
 v1 Features:
 
 - Gamemode Changes
