@@ -653,6 +653,7 @@ resource\background\normal\cir-6-4.tga
 sound
 sound\ambience
 sound\ambience\mechwine.wav
+sound\ambience\water_flowing2.wav
 sound\ambience\wind5_loop1.wav
 sound\ambience\wind6_loop1.wav
 sound\env

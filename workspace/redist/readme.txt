@@ -17,6 +17,7 @@ v1.1 Features:
     - Patch traceline crashes
     - Fix BotFindItem crash
     - Added support for Ubunutu 22+ on Linux
+    - Added missing wav file, ambience/water_flowing2.wav
 
 v1 Features:
 
