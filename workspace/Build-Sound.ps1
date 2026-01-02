@@ -52,6 +52,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\sound\ui)
     [void](New-Item -ItemType directory -Path $redistDir\sound\comet)
     [void](New-Item -ItemType directory -Path $redistDir\sound\panthereye)
+    [void](New-Item -ItemType directory -Path $redistDir\sound\ambience)
 }
 
 try {
