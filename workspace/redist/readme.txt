@@ -14,10 +14,14 @@ v1.1 Features:
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
 - Fixes
-    - Patch traceline crashes
-    - Fix BotFindItem crash
-    - Added support for Ubunutu 22+ on Linux
-    - Added missing wav file, ambience/water_flowing2.wav
+    - Bots
+        - Patch traceline crashes
+        - Fix BotFindItem crash
+    - Maps
+        - Fixed spawnpoints in snowtransit
+    - Server
+        - Added support for Ubunutu 22+ on Linux
+        - Added missing wav file, ambience/water_flowing2.wav
 
 v1 Features:
 
