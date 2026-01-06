@@ -19,6 +19,11 @@ v1.1 Features:
         - Fix BotFindItem crash
     - Maps
         - Fixed spawnpoints in snowtransit
+    - Gamemodes
+        - Jesus vs Santa
+            - Fixed new scoreboard team names
+    - Client
+        - Fixed team scoreboard team color, usernames in spectator are neutral
     - Server
         - Added support for Ubunutu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
