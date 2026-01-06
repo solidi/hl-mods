@@ -17055,12 +17055,12 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"origin" "-308 160 -28"
+"origin" "-320 160 -28"
 }
 {
 "classname" "info_player_deathmatch"
 "angles" "0 0 0"
-"origin" "-720 160 -28"
+"origin" "-704 160 -28"
 }
 {
 "classname" "info_player_deathmatch"

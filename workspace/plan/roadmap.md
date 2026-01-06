@@ -81,49 +81,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Steam Community Forums](https://steamcommunity.com/app/70/discussions/0/1489992713697672376/)
     1. [x] Update url_dl in liblist.gam
 
-### v1
-
-1. Game Support
-    1. [x] LMS
-        1. [x] with team support
-        1. [x] Shrinking safe zone pinned to info_player_start
-    1. [x] Cold Skulls
-        1. [x] Self frag, player should drop a single skull, not half of the skulls
-        1. [x] Fix dropped skull contents
-        1. [x] Move cold skull pickups to score
-    1. [x] Gungame - more feedback
-        1. [x] ammo in place of weapons
-        1. [x] Frag only counts on right weapon
-    1. Capture the Chumtoad
-        1. [x] Bots throw chumtoad at enemy if low on health
-        1. [x] Disable 999 mutator during gameplay
-        1. [x] Improve logic on dropping the chumtoad so its less abrupt
-        1. [x] Show chumtoad icon while holding it in ctc
-        1. [x] Always show the holder of the chumtoad on top of the scoreboard
-        1. [x] Fix chumtoad not appearing on radar
-1. Game Mechanics
-    1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
-    1. [ ] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
-1. Mutators
-    1. Added 9 Instant mutators
-        1. [x] +1 health
-        1. [x] nothing
-        1. [x] swap armor and health
-        1. [x] +100 health
-        1. [x] +100 armor
-        1. [x] 1 health
-        1. [x] nice (69/69)
-        1. [x] six, seveeen (67/67)
-        1. [x] hot potato
-    1. [x] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
-    1. [x] Improve dont shoot mutator, calculate damage of weapon
-1. Weapon / Model Effects
-    1. [x] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
-1. Extras
-    1. [x] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
-    1. [x] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
-1. Fixes
-    1. [x] Mute RPG second attack empty rapid clicking
+### v1.1
 
 ### Unscheduled
 
@@ -471,6 +429,50 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Change solid type of barrel after throw
     1. [ ] sildenafil - make weapons
     1. [ ] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
+
+### v1
+
+1. Game Support
+    1. [x] LMS
+        1. [x] with team support
+        1. [x] Shrinking safe zone pinned to info_player_start
+    1. [x] Cold Skulls
+        1. [x] Self frag, player should drop a single skull, not half of the skulls
+        1. [x] Fix dropped skull contents
+        1. [x] Move cold skull pickups to score
+    1. [x] Gungame - more feedback
+        1. [x] ammo in place of weapons
+        1. [x] Frag only counts on right weapon
+    1. Capture the Chumtoad
+        1. [x] Bots throw chumtoad at enemy if low on health
+        1. [x] Disable 999 mutator during gameplay
+        1. [x] Improve logic on dropping the chumtoad so its less abrupt
+        1. [x] Show chumtoad icon while holding it in ctc
+        1. [x] Always show the holder of the chumtoad on top of the scoreboard
+        1. [x] Fix chumtoad not appearing on radar
+1. Game Mechanics
+    1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
+    1. [ ] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
+1. Mutators
+    1. Added 9 Instant mutators
+        1. [x] +1 health
+        1. [x] nothing
+        1. [x] swap armor and health
+        1. [x] +100 health
+        1. [x] +100 armor
+        1. [x] 1 health
+        1. [x] nice (69/69)
+        1. [x] six, seveeen (67/67)
+        1. [x] hot potato
+    1. [x] Boom Kick [seen in cruel](https://www.youtube.com/watch?v=5zpBkubVhtw)
+    1. [x] Improve dont shoot mutator, calculate damage of weapon
+1. Weapon / Model Effects
+    1. [x] `cl_righthand -1` where [knife is left handed, and weapons are right handed.](https://www.reddit.com/r/GlobalOffensive/comments/43y47t/is_it_possible_to_implement_cl_righthand_1_again/)
+1. Extras
+    1. [x] Explode player if using impulse cheat but sv_cheats on server is 0 and -2 frags (Napoleon)
+    1. [x] Color [bullet tracers](https://twhl.info/thread/view/19663?page=last#post-341544)
+1. Fixes
+    1. [x] Mute RPG second attack empty rapid clicking
 
 ### Beta 5
 

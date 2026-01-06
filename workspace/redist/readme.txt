@@ -9,6 +9,20 @@ Join us on Discord: https://discord.gg/Hu2Q6pcJn3
 
 This mod features works from the community. Without their dedication and hard work, this mod wouldn't look good. See the thanks section below for details!
 
+v1.1 Features:
+
+- Server
+    - Added "botfinditem [0-1]" to turn on/off search logic
+- Fixes
+    - Bots
+        - Patch traceline crashes
+        - Fix BotFindItem crash
+    - Maps
+        - Fixed spawnpoints in snowtransit
+    - Server
+        - Added support for Ubunutu 22+ on Linux
+        - Added missing wav file, ambience/water_flowing2.wav
+
 v1 Features:
 
 - Gamemode Changes
