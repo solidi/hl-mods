@@ -16,7 +16,7 @@ v1.1 Features:
 - Fixes
     - Bots
         - Patch traceline crashes
-        - Fix BotFindItem crash
+        - Fix BotFindItem crash, including linux server crash
     - Maps
         - Fixed spawnpoints in snowtransit
     - Gamemodes
