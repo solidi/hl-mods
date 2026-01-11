@@ -36,18 +36,22 @@ Import-Module $PSScriptRoot\powershell\Compile-DLL.psm1 -Force -DisableNameCheck
 $rootDir = ${PSScriptRoot}.Trimend('\')
 $msBuild = $Config['msBuild'] ?? "msbuild"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
+$mapsOnly = $Config['mapsOnly'] ?? $false
 
+if ($mapsOnly -eq $false)
+{
 Compile-Exe $msBuild "${RootDir}\bsp-tools\BSP_tool\BSP_tool.sln" "BSP_tool" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\sprgen\sprgen.sln" "sprgen" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\makels\makels.sln" "makels" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\qlumpy\qlumpy.sln" "qlumpy" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\qpakman\qpakman.sln" "qpakman" $buildConfiguration $rebuild
+Compile-Exe $msBuild "${RootDir}\src\utils\studiomdl\studiomdl.sln" "studiomdl" $buildConfiguration $rebuild
+}
 Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlcsg" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlbsp" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlrad" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\vhlt\zhlt.sln" "hlvis" $buildConfiguration $rebuild
-Compile-Exe $msBuild "${RootDir}\src\utils\studiomdl\studiomdl.sln" "studiomdl" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\resgen\RESGen.sln" "RESGen" $buildConfiguration $rebuild
 
 Set-Location -Path ${PSScriptRoot}

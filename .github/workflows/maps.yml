@@ -27,7 +27,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}', 'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -46,6 +46,11 @@ jobs:
   compile_wads:
     runs-on: windows-latest
     needs: [compile_tools]
+
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
 
     steps:
     - name: Download tools
@@ -66,7 +71,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}', 'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile Wads
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -123,7 +128,7 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}', 'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
