@@ -1,6 +1,9 @@
 name: Detailed Textures Pack
 
-on: [push]
+on:
+  push:
+    tags:
+      - '*'
 
 env:
   FOLDER_NAME: workspace\detailed-textures
