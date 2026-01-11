@@ -73,6 +73,11 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+
+    - name: Unpack Add-ons
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
 
     - name: Compile Wads
       working-directory: ${{env.GITHUB_WORKSPACE}}
