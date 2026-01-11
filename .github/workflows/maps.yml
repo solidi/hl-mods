@@ -1,0 +1,266 @@
+name: Individual Maps Release
+
+on: [push]
+
+env:
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: Release
+  FOLDER_NAME: workspace
+  GAME_TITLE: Cold Ice Remastered
+  GAME_FOLDER: ice_v1
+
+jobs:
+  compile_tools:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+
+    - name: Compile tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\${{env.FOLDER_NAME}}\Build-Tools.ps1 -ConfigFile Config
+        [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
+        Copy-Item -Recurse -Force .\bin $env:TEMP
+        Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
+
+    - name: Upload tools
+      uses: actions/upload-artifact@v4
+      with:
+        name: compiled_tools
+        path: ./${{env.FOLDER_NAME}}/tools.zip
+
+  compile_wads:
+    runs-on: windows-latest
+    needs: [compile_tools]
+
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
+
+    - name: Download tools
+      uses: actions/download-artifact@v4
+      with:
+        name: compiled_tools
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+
+    - name: Unpack Add-ons
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
+
+    - name: Compile Wads
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        .\${{env.FOLDER_NAME}}\Build-Wads.ps1 -Clean -ConfigFile Config
+        Get-ChildItem -Path .\redist\ -Filter *.wad | Copy-Item -Destination $env:TEMP -Force -PassThru
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Compress-Archive -DestinationPath .\wads.zip -Force
+
+    - name: Upload Wads
+      uses: actions/upload-artifact@v4
+      with:
+        name: compiled_wads
+        path: ./${{env.FOLDER_NAME}}/wads.zip
+
+  compile_maps:
+    runs-on: windows-latest
+    needs: [compile_tools, compile_wads]
+    strategy:
+      matrix:
+        map: [snowyard,latenightxmas]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Download tools
+      uses: actions/download-artifact@v4
+      with:
+        name: compiled_tools
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack tools
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\tools.zip -DestinationPath $env:TEMP
+        Remove-Item .\${{env.FOLDER_NAME}}\bin\\* -Recurse -Force -ErrorAction Ignore
+        Remove-Item .\${{env.FOLDER_NAME}}\bin -Force -ErrorAction Ignore
+        Move-Item $env:TEMP\bin .\${{env.FOLDER_NAME}}
+        Remove-Item .\${{env.FOLDER_NAME}}\tools.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Download wads
+      uses: actions/download-artifact@v4
+      with:
+        name: compiled_wads
+        path: ./${{env.FOLDER_NAME}}
+
+    - name: Unpack wads
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\wads.zip -DestinationPath $env:TEMP
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\wads -Force -PassThru
+        Get-ChildItem -Path $env:TEMP -Filter *.wad | Move-Item -Destination .\${{env.FOLDER_NAME}}\redist -Force -PassThru
+        Remove-Item .\${{env.FOLDER_NAME}}\wads.zip -Recurse -Force -ErrorAction Ignore
+
+    - name: Write Config File
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+
+    - name: Compile ${{matrix.map}}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        Install-Module 7Zip4PowerShell -MinimumVersion 2.2.0 -Scope AllUsers -Force -Verbose
+        Import-Module 7Zip4PowerShell -Force -ErrorAction Stop
+
+        $tempMaps = Join-Path $env:TEMP 'maps'
+        $tempOverviews = Join-Path $env:TEMP 'overviews'
+        $tempGfxEnv = Join-Path $env:TEMP 'gfx\env'
+        New-Item -ItemType Directory -Force -Path $tempMaps, $tempOverviews, $tempGfxEnv | Out-Null
+
+        $mapName = '${{matrix.map}}'
+        $mapFile = Join-Path $tempMaps "$mapName.map"
+        if (-not (Test-Path $mapFile)) {
+          $mapFileObj = Get-ChildItem -Path '.\redist\maps' -Filter "$mapName.*" -File -ErrorAction SilentlyContinue | Select-Object -First 1
+          if ($mapFileObj) { $mapFile = $mapFileObj.FullName }
+        }
+
+        $packageRoot = Join-Path $env:TEMP $mapName
+        # include map metadata (.gbw, .txt) from workspace/maps/$mapName into packageRoot\map
+        $mapSourceDir = Join-Path ${{env.FOLDER_NAME}} 'maps' $mapName
+        $mapTargetDir = Join-Path $packageRoot 'maps'
+        if (Test-Path $mapSourceDir) {
+          Get-ChildItem -Path $mapSourceDir -Include '*.gbw','*.txt' -File -ErrorAction SilentlyContinue |
+            ForEach-Object { Copy-Item -Path $_.FullName -Destination $mapTargetDir -Force }
+        } else {
+          Write-Host "Map source dir not found: $mapSourceDir"
+        }
+
+        .\${{env.FOLDER_NAME}}\Build-Maps.ps1 -Clean -ConfigFile Config -NoWad -Map ${{matrix.map}}
+        # ensure the compiled map(s) are placed in $tempMaps so the folder is included in the zip
+        if (Test-Path $mapFile) {
+          Copy-Item -Path $mapFile -Destination $tempMaps -Force -ErrorAction SilentlyContinue
+        } else {
+          # fallback: copy any matching map files from redist\maps (if present)
+          Get-ChildItem -Path '.\redist\maps' -Filter "$($mapName).*" -File -ErrorAction SilentlyContinue |
+            ForEach-Object { Copy-Item -Path $_.FullName -Destination $tempMaps -Force }
+        }
+
+        $sourceMap = ".\redist\maps\$mapName.bsp"
+        Write-Host "sourceMap: $sourceMap"
+        if (Test-Path $sourceMap) {
+          $content = Get-Content -Path $sourceMap -Raw -ErrorAction SilentlyContinue
+          if ($content -match '"skyname"\s*"([^"]+)"') {
+            $sky = $matches[1]
+            Write-Host "Found skyname: $sky"
+            $srcEnv = Join-Path '.\redist\gfx' 'env'
+            if (Test-Path $srcEnv) {
+              Get-ChildItem -Path $srcEnv -Filter "$($sky)*.tga" -File -ErrorAction SilentlyContinue |
+                ForEach-Object { Copy-Item -Path $_.FullName -Destination $tempGfxEnv -Force }
+            } else {
+              Write-Host "gfx env source not found: $srcEnv"
+            }
+          } else {
+            Write-Host "skyname not found in $sourceMap"
+          }
+        } else {
+          Write-Host "Map file not found: $sourceMap"
+        }
+
+        $overviewSrc = Join-Path '.\redist' 'overviews'
+        if (Test-Path $overviewSrc) {
+          Get-ChildItem -Path $overviewSrc -Filter "$($mapName)*" -File -ErrorAction SilentlyContinue |
+            ForEach-Object { Copy-Item -Path $_.FullName -Destination $tempOverviews -Force }
+        } else {
+          Write-Host "Overview source not found: $overviewSrc"
+        }
+
+        # create readme at root of temp so it will be included in the zip
+        $readmePath = Join-Path $env:TEMP 'readme.txt'
+        "Cold Ice Remastered Map: $mapName" | Out-File -FilePath $readmePath -Encoding UTF8
+        "https://www.moddb.com/mods/cold-ice-remastered" | Out-File -FilePath $readmePath -Encoding UTF8 -Append
+        "`r`nThis map is an original reskin compiled at high resolution.`r`nSee the text file within the maps/ for more information on this wonderous level." | Out-File -FilePath $readmePath -Encoding UTF8 -Append
+
+        # Do NOT copy the entire redist; only package the specific temp folders and readme
+        # Build a clean package root to ensure zip root contains only the desired folders/files
+        Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $packageRoot
+        New-Item -ItemType Directory -Force -Path $packageRoot | Out-Null
+
+        # Copy the prepared temp folders into the package root as direct children
+        Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempMaps (Join-Path $packageRoot 'maps')
+        Copy-Item -Recurse -Force -ErrorAction SilentlyContinue (Join-Path $env:TEMP 'gfx') (Join-Path $packageRoot 'gfx')
+        Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempOverviews (Join-Path $packageRoot 'overviews')
+        Copy-Item -Force -ErrorAction SilentlyContinue $readmePath (Join-Path $packageRoot 'readme.txt')
+
+        # remove empty gfx/env and gfx folders (defensive) before creating the .7z
+        $gfxDir = Join-Path $packageRoot 'gfx'
+        $gfxEnvDir = Join-Path $gfxDir 'env'
+        foreach ($d in @($gfxEnvDir, $gfxDir)) {
+          if (Test-Path $d) {
+            $hasFiles = Get-ChildItem -Path $d -Recurse -Force -File -ErrorAction SilentlyContinue | Select-Object -First 1
+            if (-not $hasFiles) {
+              Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $d
+              Write-Host "Removed empty folder: $d"
+            }
+          }
+        }
+
+        # create the .7z OUTSIDE packageRoot so it's not included in the archive
+        $sevenArchivePath = Join-Path $env:GITHUB_WORKSPACE "$mapName.7z"
+
+        # remove any existing .7z at that location
+        if (Test-Path $sevenArchivePath) {
+          Remove-Item -Force -ErrorAction SilentlyContinue $sevenArchivePath
+        }
+
+        try {
+          Write-Host "Creating 7z archive: $sevenArchivePath"
+          # compress the CHILDREN of packageRoot (cd into it and compress *) so the archive root contains maps/, gfx/, etc.
+          Compress-7Zip -Path $packageRoot -ArchiveFileName $sevenArchivePath -ErrorAction Stop
+        } catch {
+          Write-Host "Failed to create .7z via 7Zip4PowerShell: $($_.Exception.Message)"
+        }
+
+        # ensure the created .7z is available in the repository workspace for the upload step
+        $destSeven = Join-Path $env:GITHUB_WORKSPACE "$mapName.7z"
+        if (Test-Path $sevenArchivePath) {
+          Copy-Item -Force -ErrorAction SilentlyContinue $sevenArchivePath $destSeven
+          Write-Host "Copied 7z to workspace: $destSeven"
+        } else {
+          Write-Host "7z not found at $sevenArchivePath; upload may fail."
+        }
+
+    - name: Upload ${{matrix.map}}
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{matrix.map}}
+        path: ./${{matrix.map}}.7z
