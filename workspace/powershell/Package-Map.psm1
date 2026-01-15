@@ -138,7 +138,9 @@ function Package-Map {
         [string]$detailedTexturesDir
     )
 
-    Install-Module 7Zip4PowerShell -MinimumVersion 2.2.0 -Scope AllUsers -Force -Verbose
+    if (-not (Get-Module -ListAvailable -Name '7Zip4PowerShell')) {
+        Install-Module 7Zip4PowerShell -MinimumVersion 2.2.0 -Scope AllUsers -Force -Verbose
+    }
     Import-Module 7Zip4PowerShell -Force -ErrorAction Stop
 
     # Create temporary directories
