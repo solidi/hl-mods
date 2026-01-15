@@ -97,7 +97,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,latenightxmas]
+        map: [snowyard]
 
     steps:
     - uses: actions/checkout@v4
@@ -175,6 +175,7 @@ jobs:
             ForEach-Object { Copy-Item -Path $_.FullName -Destination $tempMaps -Force }
         }
 
+        # in future, crawl .res file to find and copy all matching asset files
         $sourceMap = ".\redist\maps\$mapName.bsp"
         Write-Host "sourceMap: $sourceMap"
         if (Test-Path $sourceMap) {
@@ -205,10 +206,10 @@ jobs:
         }
 
         # create readme at root of temp so it will be included in the zip
-        $readmePath = Join-Path $env:TEMP 'readme.txt'
+        $readmePath = Join-Path $env:TEMP "$mapName_readme.txt"
         "Cold Ice Remastered Map: $mapName" | Out-File -FilePath $readmePath -Encoding UTF8
         "https://www.moddb.com/mods/cold-ice-remastered" | Out-File -FilePath $readmePath -Encoding UTF8 -Append
-        "`r`nThis map is an original reskin compiled at high resolution.`r`nSee the text file within the maps/ for more information on this wonderous level." | Out-File -FilePath $readmePath -Encoding UTF8 -Append
+        "`r`nThis map is an original map (or reskin) compiled at high resolution.`r`nSee the text file within the maps/ for more information on this wondrous level." | Out-File -FilePath $readmePath -Encoding UTF8 -Append
 
         # Do NOT copy the entire redist; only package the specific temp folders and readme
         # Build a clean package root to ensure zip root contains only the desired folders/files
@@ -219,7 +220,7 @@ jobs:
         Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempMaps (Join-Path $packageRoot 'maps')
         Copy-Item -Recurse -Force -ErrorAction SilentlyContinue (Join-Path $env:TEMP 'gfx') (Join-Path $packageRoot 'gfx')
         Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempOverviews (Join-Path $packageRoot 'overviews')
-        Copy-Item -Force -ErrorAction SilentlyContinue $readmePath (Join-Path $packageRoot 'readme.txt')
+        Copy-Item -Force -ErrorAction SilentlyContinue $readmePath (Join-Path $packageRoot "$mapName_readme.txt")
 
         # remove empty gfx/env and gfx folders (defensive) before creating the .7z
         $gfxDir = Join-Path $packageRoot 'gfx'
