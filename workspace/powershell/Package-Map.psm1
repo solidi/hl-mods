@@ -1,4 +1,4 @@
-Import-Module $PSScriptRoot\powershell\Git-Utils.psm1 -Force -DisableNameChecking
+Import-Module $PSScriptRoot\Git-Utils.psm1 -Force -DisableNameChecking
 
 function Copy-SkyTextures {
     param (
