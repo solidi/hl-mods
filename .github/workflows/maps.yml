@@ -198,13 +198,13 @@ jobs:
           Write-Host "Map file not found: $sourceMap"
         }
 
-        # Process detail textures from workspace/detail-textures
-        $detailTxtPath = Join-Path $env:GITHUB_WORKSPACE (Join-Path 'workspace' (Join-Path 'detail-textures' (Join-Path 'maps' "$mapName`_detail.txt")))
+        # Process detail textures from workspace/detailed-textures
+        $detailTxtPath = Join-Path $env:GITHUB_WORKSPACE (Join-Path 'workspace' (Join-Path 'detailed-textures' (Join-Path 'maps' "$mapName`_detail.txt")))
         Write-Host "Looking for detail texture file: $detailTxtPath"
         if (Test-Path $detailTxtPath) {
           Write-Host "Found detail texture file, processing..."
           $detailLines = Get-Content -Path $detailTxtPath -ErrorAction SilentlyContinue
-          $detailSourceDir = Join-Path $env:GITHUB_WORKSPACE (Join-Path 'workspace' (Join-Path 'detail-textures' (Join-Path 'gfx' 'detail')))
+          $detailSourceDir = Join-Path $env:GITHUB_WORKSPACE (Join-Path 'workspace' (Join-Path 'detailed-textures' (Join-Path 'gfx' 'detail')))
 
           foreach ($line in $detailLines) {
             # Match lines containing detail/textureName pattern (without .tga extension in the file)
@@ -236,7 +236,7 @@ jobs:
         }
 
         # create readme at root of temp so it will be included in the zip
-        $readmePath = Join-Path $env:TEMP "$mapName_readme.txt"
+        $readmePath = Join-Path $env:TEMP "${mapName}_readme.txt"
         "Cold Ice Remastered Map: $mapName" | Out-File -FilePath $readmePath -Encoding UTF8
         "https://www.moddb.com/mods/cold-ice-remastered" | Out-File -FilePath $readmePath -Encoding UTF8 -Append
         "`r`nThis map is an original map (or reskin) compiled at high resolution.`r`nSee the text file within the maps/ for more information on this wondrous level." | Out-File -FilePath $readmePath -Encoding UTF8 -Append
@@ -250,7 +250,7 @@ jobs:
         Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempMaps (Join-Path $packageRoot 'maps')
         Copy-Item -Recurse -Force -ErrorAction SilentlyContinue (Join-Path $env:TEMP 'gfx') (Join-Path $packageRoot 'gfx')
         Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempOverviews (Join-Path $packageRoot 'overviews')
-        Copy-Item -Force -ErrorAction SilentlyContinue $readmePath (Join-Path $packageRoot "$mapName_readme.txt")
+        Copy-Item -Force -ErrorAction SilentlyContinue $readmePath (Join-Path $packageRoot "${mapName}_readme.txt")
 
         # remove empty gfx/env and gfx folders (defensive) before creating the .7z
         $gfxDir = Join-Path $packageRoot 'gfx'
@@ -265,8 +265,12 @@ jobs:
           }
         }
 
+        # get truncated git hash for filename
+        $gitHash = (git rev-parse --short=7 HEAD).Trim()
+        Write-Host "Git hash: $gitHash"
+
         # create the .7z OUTSIDE packageRoot so it's not included in the archive
-        $sevenArchivePath = Join-Path $env:GITHUB_WORKSPACE "$mapName.7z"
+        $sevenArchivePath = Join-Path $env:GITHUB_WORKSPACE "${mapName}-${gitHash}.7z"
 
         # remove any existing .7z at that location
         if (Test-Path $sevenArchivePath) {
@@ -282,7 +286,7 @@ jobs:
         }
 
         # ensure the created .7z is available in the repository workspace for the upload step
-        $destSeven = Join-Path $env:GITHUB_WORKSPACE "$mapName.7z"
+        $destSeven = Join-Path $env:GITHUB_WORKSPACE "${mapName}-${gitHash}.7z"
         if (Test-Path $sevenArchivePath) {
           Copy-Item -Force -ErrorAction SilentlyContinue $sevenArchivePath $destSeven
           Write-Host "Copied 7z to workspace: $destSeven"
@@ -294,4 +298,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{matrix.map}}
-        path: ./${{matrix.map}}.7z
+        path: ./${{matrix.map}}-*.7z
