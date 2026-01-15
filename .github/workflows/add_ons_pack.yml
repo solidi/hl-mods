@@ -1,6 +1,9 @@
 name: Add-Ons Pack
 
-on: [push]
+on:
+  push:
+    tags:
+      - '*'
 
 env:
   BUILD_CONFIGURATION: Release
