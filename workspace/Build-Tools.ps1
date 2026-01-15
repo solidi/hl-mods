@@ -13,6 +13,7 @@ Set-ConsoleColor 'DarkCyan' 'White'
 $Config = @{ }
 [string]$buildConfiguration = "Release"
 [string]$rebuild = "Build"
+[bool]$mapsOnlyParam = $false
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -26,6 +27,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "Clean") {
         $rebuild = "Rebuild"
         echo "rebuilding all code sources..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "MapsOnly") {
+        $mapsOnlyParam = $true
+        echo "mapsOnly within tools..."
     }
 }
 
@@ -38,7 +42,7 @@ $msBuild = $Config['msBuild'] ?? "msbuild"
 $binDir = $Config['binDir'] ?? "${rootDir}\bin"
 $mapsOnly = $Config['mapsOnly'] ?? $false
 
-if ($mapsOnly -eq $false)
+if ($mapsOnly -eq $false -and $mapsOnlyParam -eq $false)
 {
 Compile-Exe $msBuild "${RootDir}\bsp-tools\BSP_tool\BSP_tool.sln" "BSP_tool" $buildConfiguration $rebuild
 Compile-Exe $msBuild "${RootDir}\src\utils\makefont\makefont.sln" "makefont" $buildConfiguration $rebuild

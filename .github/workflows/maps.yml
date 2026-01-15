@@ -27,12 +27,12 @@ jobs:
     - name: Write Config File
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
     - name: Compile tools
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        .\${{env.FOLDER_NAME}}\Build-Tools.ps1 -ConfigFile Config
+        .\${{env.FOLDER_NAME}}\Build-Tools.ps1 -ConfigFile Config -MapsOnly
         [void](New-Item -Force -ItemType Directory $env:TEMP\bin)
         Copy-Item -Recurse -Force .\bin $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\bin -DestinationPath .\tools.zip -Force
@@ -101,6 +101,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
+        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v4
