@@ -145,7 +145,8 @@ jobs:
         $tempMaps = Join-Path $env:TEMP 'maps'
         $tempOverviews = Join-Path $env:TEMP 'overviews'
         $tempGfxEnv = Join-Path $env:TEMP 'gfx\env'
-        New-Item -ItemType Directory -Force -Path $tempMaps, $tempOverviews, $tempGfxEnv | Out-Null
+        $tempGfxDetail = Join-Path $env:TEMP 'gfx\detail'
+        New-Item -ItemType Directory -Force -Path $tempMaps, $tempOverviews, $tempGfxEnv, $tempGfxDetail | Out-Null
 
         $mapName = '${{matrix.map}}'
         $mapFile = Join-Path $tempMaps "$mapName.map"
@@ -195,6 +196,35 @@ jobs:
           }
         } else {
           Write-Host "Map file not found: $sourceMap"
+        }
+
+        # Process detail textures from workspace/detail-textures
+        $detailTxtPath = Join-Path $env:GITHUB_WORKSPACE (Join-Path 'workspace' (Join-Path 'detail-textures' (Join-Path 'maps' "$mapName`_detail.txt")))
+        Write-Host "Looking for detail texture file: $detailTxtPath"
+        if (Test-Path $detailTxtPath) {
+          Write-Host "Found detail texture file, processing..."
+          $detailLines = Get-Content -Path $detailTxtPath -ErrorAction SilentlyContinue
+          $detailSourceDir = Join-Path $env:GITHUB_WORKSPACE (Join-Path 'workspace' (Join-Path 'detail-textures' (Join-Path 'gfx' 'detail')))
+
+          foreach ($line in $detailLines) {
+            # Match lines containing detail/textureName pattern (without .tga extension in the file)
+            if ($line -match 'detail/([^\s]+)') {
+              $textureName = $matches[1]
+              $detailTgaPath = Join-Path $detailSourceDir "$textureName.tga"
+              if (Test-Path $detailTgaPath) {
+                Copy-Item -Path $detailTgaPath -Destination $tempGfxDetail -Force
+                Write-Host "Copied detail texture: $textureName.tga"
+              } else {
+                Write-Host "Detail texture not found: $detailTgaPath"
+              }
+            }
+          }
+
+          # Copy the _detail.txt file itself to $tempMaps
+          Copy-Item -Path $detailTxtPath -Destination $tempMaps -Force
+          Write-Host "Copied detail texture mapping file to maps folder"
+        } else {
+          Write-Host "No detail texture file found for this map"
         }
 
         $overviewSrc = Join-Path '.\redist' 'overviews'
