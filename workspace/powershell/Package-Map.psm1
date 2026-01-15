@@ -1,24 +1,4 @@
-
-function Git-Hash {
-    param (
-        [bool]$shortHash = $true
-    )
-
-    $commitHash = "unknown"
-
-    try {
-        if ($shortHash) {
-            $commitHash = (git rev-parse --short=7 HEAD).Trim()
-        } else {
-            $commitHash = (git rev-parse HEAD).Trim()
-        }
-    } catch {
-        Write-Warning "git is unavailable, using 'unknown' as hash"
-    }
-
-    return $commitHash
-}
-
+Import-Module Git-Utils
 function Copy-SkyTextures {
     param (
         [string]$mapBspPath,
