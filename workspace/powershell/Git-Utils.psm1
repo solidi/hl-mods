@@ -22,3 +22,24 @@ function Git-Current-Branch-Name {
 
     return $branchName
 }
+
+function Git-Hash {
+    param (
+        $withDate
+    )
+
+    $commitHash = "unknown"
+
+    try {
+        $commitHash = (git rev-parse HEAD).Substring(0,7)
+    } catch {
+        Write-Error "git is unavailable"
+    }
+
+    if ($withDate) {
+        $versionDate = [System.DateTime]::Now.ToString('yyyy-MM-dd.HH:mm:ss') + "-"
+    }
+    $version = "${versionDate}git-$commitHash"
+
+    return $version
+}
