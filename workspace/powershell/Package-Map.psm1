@@ -1,5 +1,20 @@
 Import-Module $PSScriptRoot\Git-Utils.psm1 -Force -DisableNameChecking
 
+function Get-NormalizedPathWithSeparator {
+    param (
+        [string]$path
+    )
+    
+    try {
+        $fullPath = [System.IO.Path]::GetFullPath($path)
+        return $fullPath.TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
+    }
+    catch {
+        Write-Host "  Error normalizing path: $path" -ForegroundColor Red
+        return $null
+    }
+}
+
 function Copy-ResAssets {
     param (
         [string]$mapBspPath,
@@ -17,6 +32,15 @@ function Copy-ResAssets {
 
     Write-Host "Processing .res file: $resFilePath"
 
+    # Pre-compute normalized base paths for performance and security
+    $resolvedRedistPath = Get-NormalizedPathWithSeparator -path $redistDir
+    $resolvedTempPath = Get-NormalizedPathWithSeparator -path $tempRoot
+    
+    if (-not $resolvedRedistPath -or -not $resolvedTempPath) {
+        Write-Host "  Error: Failed to normalize base directories" -ForegroundColor Red
+        return
+    }
+
     $resLines = Get-Content -Path $resFilePath -Encoding UTF8 -ErrorAction SilentlyContinue
     
     foreach ($line in $resLines) {
@@ -33,12 +57,46 @@ function Copy-ResAssets {
         # Extract asset path
         $assetPath = $line.Trim()
         if ($assetPath) {
+            # Validate asset path to prevent path traversal attacks
+            if ($assetPath -match '\.\.|^/|^\\|:') {
+                Write-Host "  Skipping potentially malicious path: $assetPath" -ForegroundColor Red
+                continue
+            }
+            
             # Source file in redist directory
             $sourceFile = Join-Path $redistDir $assetPath
+            
+            # Verify the resolved source path is still within the redist directory
+            try {
+                $resolvedSourcePath = [System.IO.Path]::GetFullPath($sourceFile)
+            }
+            catch {
+                Write-Host "  Skipping invalid path: $assetPath" -ForegroundColor Red
+                continue
+            }
+            
+            if (-not $resolvedSourcePath.StartsWith($resolvedRedistPath, [StringComparison]::OrdinalIgnoreCase)) {
+                Write-Host "  Skipping path outside redist directory: $assetPath" -ForegroundColor Red
+                continue
+            }
             
             if (Test-Path $sourceFile) {
                 # Destination file in temp directory
                 $destFile = Join-Path $tempRoot $assetPath
+                
+                # Verify the resolved destination path is still within the temp directory
+                try {
+                    $resolvedDestPath = [System.IO.Path]::GetFullPath($destFile)
+                }
+                catch {
+                    Write-Host "  Skipping invalid destination path: $assetPath" -ForegroundColor Red
+                    continue
+                }
+                
+                if (-not $resolvedDestPath.StartsWith($resolvedTempPath, [StringComparison]::OrdinalIgnoreCase)) {
+                    Write-Host "  Skipping path outside temp directory: $assetPath" -ForegroundColor Red
+                    continue
+                }
                 
                 # Create destination directory if it doesn't exist
                 $destDir = Split-Path -Parent $destFile
