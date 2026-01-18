@@ -33,12 +33,34 @@ function Copy-ResAssets {
         # Extract asset path
         $assetPath = $line.Trim()
         if ($assetPath) {
+            # Validate asset path to prevent path traversal attacks
+            if ($assetPath -match '\.\.|^/|^\\|:') {
+                Write-Host "  Skipping potentially malicious path: $assetPath" -ForegroundColor Red
+                continue
+            }
+            
             # Source file in redist directory
             $sourceFile = Join-Path $redistDir $assetPath
+            
+            # Verify the resolved source path is still within the redist directory
+            $resolvedSourcePath = [System.IO.Path]::GetFullPath($sourceFile)
+            $resolvedRedistPath = [System.IO.Path]::GetFullPath($redistDir)
+            if (-not $resolvedSourcePath.StartsWith($resolvedRedistPath, [StringComparison]::OrdinalIgnoreCase)) {
+                Write-Host "  Skipping path outside redist directory: $assetPath" -ForegroundColor Red
+                continue
+            }
             
             if (Test-Path $sourceFile) {
                 # Destination file in temp directory
                 $destFile = Join-Path $tempRoot $assetPath
+                
+                # Verify the resolved destination path is still within the temp directory
+                $resolvedDestPath = [System.IO.Path]::GetFullPath($destFile)
+                $resolvedTempPath = [System.IO.Path]::GetFullPath($tempRoot)
+                if (-not $resolvedDestPath.StartsWith($resolvedTempPath, [StringComparison]::OrdinalIgnoreCase)) {
+                    Write-Host "  Skipping path outside temp directory: $assetPath" -ForegroundColor Red
+                    continue
+                }
                 
                 # Create destination directory if it doesn't exist
                 $destDir = Split-Path -Parent $destFile
