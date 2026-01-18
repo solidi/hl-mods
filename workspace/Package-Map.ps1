@@ -30,6 +30,20 @@ if ([string]::IsNullOrWhiteSpace($mapName)) {
     exit 1
 }
 
+# Verify map folder exists
+$mapFolder = Join-Path $PSScriptRoot "maps\$mapName"
+if (-not (Test-Path $mapFolder)) {
+    Write-Error "Map folder does not exist: $mapFolder"
+    exit 1
+}
+
+# Verify compiled map exists
+$compiledMap = Join-Path $PSScriptRoot "redist\maps\$mapName.bsp"
+if (-not (Test-Path $compiledMap)) {
+    Write-Error "Compiled map does not exist: $compiledMap. Please compile the map first."
+    exit 1
+}
+
 $host.UI.RawUI.WindowTitle = "Packaging $($Config['projectName']) Map: $mapName"
 
 Import-Module $PSScriptRoot\powershell\Git-Utils.psm1 -Force -DisableNameChecking

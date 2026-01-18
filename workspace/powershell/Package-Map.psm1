@@ -1,39 +1,58 @@
 Import-Module $PSScriptRoot\Git-Utils.psm1 -Force -DisableNameChecking
 
-function Copy-SkyTextures {
+function Copy-ResAssets {
     param (
         [string]$mapBspPath,
-        [string]$gfxEnvSourceDir,
-        [string]$gfxEnvDestDir
+        [string]$redistDir,
+        [string]$tempRoot
     )
 
-    if (-not (Test-Path $mapBspPath)) {
-        Write-Host "Map BSP not found: $mapBspPath"
+    # Derive .res file path from .bsp path
+    $resFilePath = $mapBspPath -replace '\.bsp$', '.res'
+    
+    if (-not (Test-Path $resFilePath)) {
+        Write-Host "  No .res file found: $resFilePath"
         return
     }
 
-    Write-Host "Extracting skyname from: $mapBspPath"
-    $content = Get-Content -Path $mapBspPath -Raw -ErrorAction SilentlyContinue
+    Write-Host "Processing .res file: $resFilePath"
+
+    $resLines = Get-Content -Path $resFilePath -Encoding UTF8 -ErrorAction SilentlyContinue
     
-    if ($content -match '"skyname"\s+"([^"]+)"') {
-        $sky = $matches[1]
-        Write-Host "Found skyname: $sky"
-        
-        if (Test-Path $gfxEnvSourceDir) {
-            $skyFiles = Get-ChildItem -Path $gfxEnvSourceDir -Filter "$($sky)*.tga" -File -ErrorAction SilentlyContinue
-            if ($skyFiles) {
-                $skyFiles | ForEach-Object { 
-                    Copy-Item -Path $_.FullName -Destination $gfxEnvDestDir -Force
-                    Write-Host "  Copied sky texture: $($_.Name)"
-                }
-            } else {
-                Write-Host "  No sky textures found matching: $($sky)*.tga"
-            }
-        } else {
-            Write-Host "  gfx env source not found: $gfxEnvSourceDir"
+    foreach ($line in $resLines) {
+        # Skip comments and empty lines
+        if ($line -match '^\s*//|^\s*$') {
+            continue
         }
-    } else {
-        Write-Host "  skyname not found in map BSP"
+        
+        # Skip .wad files
+        if ($line -imatch '\.wad$') {
+            continue
+        }
+        
+        # Extract asset path
+        $assetPath = $line.Trim()
+        if ($assetPath) {
+            # Source file in redist directory
+            $sourceFile = Join-Path $redistDir $assetPath
+            
+            if (Test-Path $sourceFile) {
+                # Destination file in temp directory
+                $destFile = Join-Path $tempRoot $assetPath
+                
+                # Create destination directory if it doesn't exist
+                $destDir = Split-Path -Parent $destFile
+                if (-not (Test-Path $destDir)) {
+                    New-Item -ItemType Directory -Force -Path $destDir | Out-Null
+                }
+                
+                # Copy the file
+                Copy-Item -Path $sourceFile -Destination $destFile -Force
+                Write-Host "  Copied: $assetPath"
+            } else {
+                Write-Host "  Asset not found: $sourceFile" -ForegroundColor Yellow
+            }
+        }
     }
 }
 
@@ -72,29 +91,6 @@ function Copy-DetailTextures {
         Write-Host "  Copied detail texture mapping file to maps folder"
     } else {
         Write-Host "  No detail texture file found for this map"
-    }
-}
-
-function Copy-MapOverviews {
-    param (
-        [string]$mapName,
-        [string]$redistDir,
-        [string]$tempOverviews
-    )
-
-    $overviewSrc = Join-Path $redistDir 'overviews'
-    if (Test-Path $overviewSrc) {
-        $overviewFiles = Get-ChildItem -Path $overviewSrc -Filter "$($mapName)*" -File -ErrorAction SilentlyContinue
-        if ($overviewFiles) {
-            $overviewFiles | ForEach-Object { 
-                Copy-Item -Path $_.FullName -Destination $tempOverviews -Force
-                Write-Host "  Copied overview: $($_.Name)"
-            }
-        } else {
-            Write-Host "  No overview files found for: $mapName"
-        }
-    } else {
-        Write-Host "  Overview source not found: $overviewSrc"
     }
 }
 
@@ -140,9 +136,15 @@ function Package-Map {
     )
 
     if (-not (Get-Module -ListAvailable -Name '7Zip4PowerShell')) {
-        Install-Module 7Zip4PowerShell -MinimumVersion 2.2.0 -Scope AllUsers -Force -Verbose
+        Install-Module 7Zip4PowerShell -MinimumVersion 2.2.0 -Scope CurrentUser -Force -Verbose
     }
     Import-Module 7Zip4PowerShell -Force -ErrorAction Stop
+
+    # Clean temp root directory before copying
+    if (Test-Path $env:TEMP) {
+        Get-ChildItem -Path $env:TEMP -ErrorAction SilentlyContinue | 
+            Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+    }
 
     # Create temporary directories
     $tempMaps = Join-Path $env:TEMP 'maps'
@@ -165,19 +167,15 @@ function Package-Map {
             }
     }
 
-    # Extract and copy sky textures
-    Write-Host "`nProcessing sky textures..."
     $mapBspPath = Join-Path $redistMapsDir "$mapName.bsp"
-    $gfxEnvSourceDir = Join-Path $redistDir 'gfx\env'
-    Copy-SkyTextures -mapBspPath $mapBspPath -gfxEnvSourceDir $gfxEnvSourceDir -gfxEnvDestDir $tempGfxEnv
+
+    # Copy assets from .res file
+    Write-Host "`nProcessing .res assets..."
+    Copy-ResAssets -mapBspPath $mapBspPath -redistDir $redistDir -tempRoot $env:TEMP
 
     # Process detail textures
     Write-Host "`nProcessing detail textures..."
     Copy-DetailTextures -mapName $mapName -detailedTexturesDir $detailedTexturesDir -tempGfxDetail $tempGfxDetail -tempMaps $tempMaps
-
-    # Copy overview files
-    Write-Host "`nProcessing overview files..."
-    Copy-MapOverviews -mapName $mapName -redistDir $redistDir -tempOverviews $tempOverviews
 
     # Create readme
     Write-Host "`nCreating readme..."
@@ -194,6 +192,17 @@ function Package-Map {
     Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempMaps (Join-Path $packageRoot 'maps')
     Copy-Item -Recurse -Force -ErrorAction SilentlyContinue (Join-Path $env:TEMP 'gfx') (Join-Path $packageRoot 'gfx')
     Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $tempOverviews (Join-Path $packageRoot 'overviews')
+
+    # Copy additional asset folders from .res processing (sound, sprites, models, etc.)
+    $additionalFolders = @('sound', 'sprites', 'models')
+    foreach ($folder in $additionalFolders) {
+        $sourceFolder = Join-Path $env:TEMP $folder
+        if (Test-Path $sourceFolder) {
+            Copy-Item -Recurse -Force -ErrorAction SilentlyContinue $sourceFolder (Join-Path $packageRoot $folder)
+            Write-Host "  Copied $folder folder to package"
+        }
+    }
+
     Copy-Item -Force -ErrorAction SilentlyContinue $readmePath (Join-Path $packageRoot "${mapName}_readme.txt")
 
     # Clean up empty directories
