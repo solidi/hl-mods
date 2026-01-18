@@ -5,7 +5,7 @@
 General Issues
 [ ] All bots but needed one more vote for mutators?
     Example: Napoleon crashed but wasnt on the board. Confirm that only people connected are counted.
-[ ] No file located on server connect - sound/ambience/thunder_clap.wav
+[x] No file located on server connect - sound/ambience/thunder_clap.wav
 [ ] waterflow2.wav is missing
 [ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
 [ ] If timer is running out, countdown last five seconds?
