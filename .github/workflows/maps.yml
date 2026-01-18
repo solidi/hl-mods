@@ -144,6 +144,18 @@ jobs:
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'mapsOnly' = $true }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
 
+    - name: Build Sounds
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        # Sounds are needed for packaging
+        .\${{env.FOLDER_NAME}}\Build-Sound.ps1 -ConfigFile Config -Clean
+
+    - name: Build Sprites
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        # Sprites are needed for packaging
+        .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config -Clean
+
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
@@ -152,9 +164,6 @@ jobs:
     - name: Package ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        # Sprites and sounds are needed for packaging
-        .\${{env.FOLDER_NAME}}\Build-Sound.ps1 -ConfigFile Config -Clean
-        .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config -Clean
         .\${{env.FOLDER_NAME}}\Package-Map.ps1 -ConfigFile Config -Map ${{matrix.map}}
 
     - name: Upload ${{matrix.map}}
