@@ -97,7 +97,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,frostmill]
+        map: [snowyard,latenightxmas]
 
     steps:
     - uses: actions/checkout@v4
