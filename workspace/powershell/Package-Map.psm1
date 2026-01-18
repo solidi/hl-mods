@@ -5,8 +5,14 @@ function Get-NormalizedPathWithSeparator {
         [string]$path
     )
     
-    $fullPath = [System.IO.Path]::GetFullPath($path)
-    return $fullPath.TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
+    try {
+        $fullPath = [System.IO.Path]::GetFullPath($path)
+        return $fullPath.TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
+    }
+    catch {
+        Write-Host "  Error normalizing path: $path" -ForegroundColor Red
+        return $null
+    }
 }
 
 function Copy-ResAssets {
@@ -25,6 +31,15 @@ function Copy-ResAssets {
     }
 
     Write-Host "Processing .res file: $resFilePath"
+
+    # Pre-compute normalized base paths for performance and security
+    $resolvedRedistPath = Get-NormalizedPathWithSeparator -path $redistDir
+    $resolvedTempPath = Get-NormalizedPathWithSeparator -path $tempRoot
+    
+    if (-not $resolvedRedistPath -or -not $resolvedTempPath) {
+        Write-Host "  Error: Failed to normalize base directories" -ForegroundColor Red
+        return
+    }
 
     $resLines = Get-Content -Path $resFilePath -Encoding UTF8 -ErrorAction SilentlyContinue
     
@@ -52,8 +67,14 @@ function Copy-ResAssets {
             $sourceFile = Join-Path $redistDir $assetPath
             
             # Verify the resolved source path is still within the redist directory
-            $resolvedSourcePath = [System.IO.Path]::GetFullPath($sourceFile)
-            $resolvedRedistPath = Get-NormalizedPathWithSeparator -path $redistDir
+            try {
+                $resolvedSourcePath = [System.IO.Path]::GetFullPath($sourceFile)
+            }
+            catch {
+                Write-Host "  Skipping invalid path: $assetPath" -ForegroundColor Red
+                continue
+            }
+            
             if (-not $resolvedSourcePath.StartsWith($resolvedRedistPath, [StringComparison]::OrdinalIgnoreCase)) {
                 Write-Host "  Skipping path outside redist directory: $assetPath" -ForegroundColor Red
                 continue
@@ -64,8 +85,14 @@ function Copy-ResAssets {
                 $destFile = Join-Path $tempRoot $assetPath
                 
                 # Verify the resolved destination path is still within the temp directory
-                $resolvedDestPath = [System.IO.Path]::GetFullPath($destFile)
-                $resolvedTempPath = Get-NormalizedPathWithSeparator -path $tempRoot
+                try {
+                    $resolvedDestPath = [System.IO.Path]::GetFullPath($destFile)
+                }
+                catch {
+                    Write-Host "  Skipping invalid destination path: $assetPath" -ForegroundColor Red
+                    continue
+                }
+                
                 if (-not $resolvedDestPath.StartsWith($resolvedTempPath, [StringComparison]::OrdinalIgnoreCase)) {
                     Write-Host "  Skipping path outside temp directory: $assetPath" -ForegroundColor Red
                     continue
