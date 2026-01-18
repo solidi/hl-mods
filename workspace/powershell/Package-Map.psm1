@@ -44,7 +44,7 @@ function Copy-ResAssets {
             
             # Verify the resolved source path is still within the redist directory
             $resolvedSourcePath = [System.IO.Path]::GetFullPath($sourceFile)
-            $resolvedRedistPath = [System.IO.Path]::GetFullPath($redistDir)
+            $resolvedRedistPath = [System.IO.Path]::GetFullPath($redistDir).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
             if (-not $resolvedSourcePath.StartsWith($resolvedRedistPath, [StringComparison]::OrdinalIgnoreCase)) {
                 Write-Host "  Skipping path outside redist directory: $assetPath" -ForegroundColor Red
                 continue
@@ -56,7 +56,7 @@ function Copy-ResAssets {
                 
                 # Verify the resolved destination path is still within the temp directory
                 $resolvedDestPath = [System.IO.Path]::GetFullPath($destFile)
-                $resolvedTempPath = [System.IO.Path]::GetFullPath($tempRoot)
+                $resolvedTempPath = [System.IO.Path]::GetFullPath($tempRoot).TrimEnd([System.IO.Path]::DirectorySeparatorChar, [System.IO.Path]::AltDirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
                 if (-not $resolvedDestPath.StartsWith($resolvedTempPath, [StringComparison]::OrdinalIgnoreCase)) {
                     Write-Host "  Skipping path outside temp directory: $assetPath" -ForegroundColor Red
                     continue
