@@ -373,6 +373,7 @@ Copy-Item $soundDir\sprayer.wav $redistdir\sound
 Copy-Item $soundDir\grunch.wav $redistdir\sound
 Copy-Item $soundDir\snowfall2.wav $redistdir\sound
 Copy-Item $soundDir\water_flowing2.wav $redistdir\sound\ambience\
+Copy-Item $soundDir\thunder_clap.wav $redistdir\sound\ambience\
 
 Copy-Item $soundDir\valve_sound.wav $redistdir\sound\ui\
 

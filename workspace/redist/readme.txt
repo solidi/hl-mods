@@ -27,6 +27,7 @@ v1.1 Features:
     - Server
         - Added support for Ubunutu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
+        - Added missing wav file, ambience/thunder_clap.wav
 
 v1 Features:
 
