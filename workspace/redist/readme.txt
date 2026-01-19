@@ -17,6 +17,10 @@ v1.1 Features:
     - Bots
         - Patch traceline crashes
         - Fix BotFindItem crash, including linux server crash
+        - Fixed issueds with sv_defaultbots
+            - Initial map load value is respected
+            - When sv_defaultbots is set to less value, overrage of bots are kicked
+            - Added sv_defaultbots -1 where operator can manually add or remove bots
     - Maps
         - Fixed spawnpoints in snowtransit
     - Gamemodes
@@ -1197,6 +1201,7 @@ Server:
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns
 - "sv_chaosfilter" - a list of mutators inwhich are ignored during chaos mode
 - "sv_disallowlist" a list of entities that will not spawn
+- "sv_defaultbots [0-31|-1]" amount of bots added to server, -1 for manual mode
 - "sv_infiniteammo [0|1|2]" - Infinite ammo ala CS 1.6
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading

@@ -11,7 +11,7 @@ function Set-ConsoleColor ($bc, $fc) {
 Set-ConsoleColor 'DarkCyan' 'White'
 
 $Config = @{ }
-[int]$botCount = 20
+[int]$botCount = 0
 [int]$hdModels = 1
 [string]$map = "snowyard"
 [int]$teamplay = 0
@@ -105,9 +105,14 @@ if ($timelimit) {
     "mp_timelimit `"$timelimt`"" | Add-Content $iceDir\game.cfg
 }
 
-for ($bot = 0; $bot -lt $botCount; $bot++) {
-    "addbot 3" | Add-Content $iceDir\grave_bot.cfg
-    "pause 3" | Add-Content $iceDir\grave_bot.cfg
+if ($botCount -gt 0) {
+    $listenServerPath = "$iceDir\listenserver.cfg"
+    if (Test-Path $listenServerPath) {
+        $content = Get-Content $listenServerPath
+        $content = $content | Where-Object { $_ -notmatch '^sv_defaultbots' }
+        $content | Set-Content $listenServerPath
+    }
+    "sv_defaultbots $botCount" | Add-Content $listenServerPath
 }
 
 Set-Location -Path $hldir
