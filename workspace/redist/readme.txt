@@ -17,9 +17,9 @@ v1.1 Features:
     - Bots
         - Patch traceline crashes
         - Fix BotFindItem crash, including linux server crash
-        - Fixed issueds with sv_defaultbots
+        - Fixed issues with sv_defaultbots
             - Initial map load value is respected
-            - When sv_defaultbots is set to less value, overrage of bots are kicked
+            - When sv_defaultbots is set to less value, overage of bots are kicked
             - Added sv_defaultbots -1 where operator can manually add or remove bots
     - Maps
         - Fixed spawnpoints in snowtransit
