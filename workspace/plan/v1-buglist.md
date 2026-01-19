@@ -6,7 +6,7 @@ General Issues
 [ ] All bots but needed one more vote for mutators?
     Example: Napoleon crashed but wasnt on the board. Confirm that only people connected are counted.
 [x] No file located on server connect - sound/ambience/thunder_clap.wav
-[ ] waterflow2.wav is missing
+[x] waterflow2.wav is missing
 [ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
 [ ] If timer is running out, countdown last five seconds?
 [ ] RTV vote time should be increased from 30 to 60 or turned to cvar
