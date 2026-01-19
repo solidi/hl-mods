@@ -23,9 +23,9 @@
 
 ## December 2024 Test #2
 
-[ ] check height of enemy to step down?
-[ ] increase puppy velocity
 [ ] death walk in instagib after death? (check video)
+[x] check height of enemy to step down?
+[x] increase puppy velocity
 [x] play a sound on round over
 [x] panthers first
 [x] Blue menu when vote in middle when half-life

@@ -22,6 +22,8 @@ v1.1 Features:
     - Gamemodes
         - Jesus vs Santa
             - Fixed new scoreboard team names
+        - Horde
+            - Improved panthereye leaping, made damage easier
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
     - Server
