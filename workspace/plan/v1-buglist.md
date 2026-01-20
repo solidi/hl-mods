@@ -21,7 +21,7 @@ Busters
 [ ] The buster is dead, but cannot find egon - move it around every thirty seconds or give to someone?
 [ ] Remove average ping on scoreboard
 Cold Skulls
-[ ] ask AI how to make it better so more skulls can be collected
+[x] ask AI how to make it better so more skulls can be collected
 Cold spot
 [ ] The coldspot should stop giving point after game 
 Prophunt

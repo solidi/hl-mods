@@ -24,6 +24,10 @@ v1.1 Features:
     - Maps
         - Fixed spawnpoints in snowtransit
     - Gamemodes
+        - Cold Skulls
+            - Improved play, better chance to hit collection limit
+            - Some skulls will be "magnetized" to the awarded player
+            - Fixed skull limit ending game
         - Jesus vs Santa
             - Fixed new scoreboard team names
         - Horde
