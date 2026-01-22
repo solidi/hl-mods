@@ -13,6 +13,8 @@ v1.1 Features:
 
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
+- Mutators
+    - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
 - Fixes
     - Bots
         - Patch traceline crashes

@@ -3,9 +3,6 @@
 ##  June 2024 GSS #132
 
 [ ] map voting, when joining.
-[ ] double vote influence on steamids (for $$$)
-[ ] 69 mutator, change as many numbers to 69
-[ ] pair of dice, roll the dice, roll it for a weapon
 [x] a bad entity in index of edict
 [x] if people leave, voting count still too high
 [x] rocket bees?
@@ -38,6 +35,9 @@
 
 ## New Ideas
 
+[ ] double vote influence on steamids (for $$$)
+[ ] 69 mutator, change as many numbers to 69
+[ ] pair of dice, roll the dice, roll it for a weapon
 [ ] Banker with melee
 [ ] hand arena (link) https://www.moddb.com/mods/hand-arena/videos/arm-stretch-version-2
 [ ] position number close to objective readout
@@ -175,8 +175,8 @@
 [ ] toolgun - delete person
 [ ] hungery meter, blueberries, blue nanas
 [ ] time stopping mechanism
-[ ] Inverse mutator doesn't seem to work
-[ ] Oldtime doesn't seem to work
+[x] Inverse mutator doesn't seem to work
+[x] Oldtime doesn't seem to work
 [x] icon of chumtoad when you have it.
 [x] Quadfrost - Crashes on load - FATAL ERROR (shutting down): Cache_TryAlloc: 16871552 is greater then free hunk
 [x] Defroster - Loaded, but crashed after a few minutes with the same error above

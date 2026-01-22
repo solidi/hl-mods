@@ -24,6 +24,7 @@ Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
 [ ] The coldspot should stop giving point after game 
+[ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
 Prophunt
 [ ] No fall damage to convert
 Shidden
