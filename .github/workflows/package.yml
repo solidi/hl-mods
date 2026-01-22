@@ -620,6 +620,10 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
 
+    - name: Copy Detail Textures to Redist
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\detailed-textures\Copy-To-Redist.ps1
+
     - name: Package and verify Cold Ice
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: .\${{env.FOLDER_NAME}}\Build-${{env.BUILD_CONFIGURATION}}.ps1 -ConfigFile Config

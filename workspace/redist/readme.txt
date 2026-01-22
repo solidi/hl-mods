@@ -15,6 +15,9 @@ v1.1 Features:
     - Added "botfinditem [0-1]" to turn on/off search logic
 - Mutators
     - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
+- Maps
+    - Includes high-res textures for all new deathmatch maps
+        - Use r_detailtextures 1 to enable
 - Fixes
     - Bots
         - Patch traceline crashes
