@@ -14336,7 +14336,7 @@
 "classname" "trigger_mp3audio"
 "origin" "-385 344 -1792"
 "health" "9"
-"message" "media/08-lamenting.mp3"
+"message" "media/15-that-time-again.mp3"
 "spawnflags" "1"
 }
 {

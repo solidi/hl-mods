@@ -1295,7 +1295,7 @@
 {
 "classname" "trigger_mp3audio"
 "health" "3"
-"message" "media/02-snowfall.mp3"
+"message" "media/16-the-snowman.mp3"
 "spawnflags" "1"
 "origin" "-211 821 -52"
 }
