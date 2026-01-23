@@ -13,7 +13,7 @@ v1.1 Features:
 
 - Game
     - Added two new music tracks by Napoleon
-        - snowcross, thenill, latenightxmas, and glupshitto tracks were updated
+        - snowcross, themill, latenightxmas, and glupshitto tracks were updated
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
 - Mutators
