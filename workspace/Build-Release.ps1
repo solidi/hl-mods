@@ -76,9 +76,6 @@ Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 
 # Add-ons removal
 Remove-Item $redistDir\quadfrost.wad -ErrorAction Ignore
-Remove-Item $redistDir\maps\quadfrost_detail.txt -ErrorAction Ignore
-Remove-Item $redistDir\gfx\detail\\* -Recurse -Force -ErrorAction Ignore
-Remove-Item $redistDir\gfx\detail -Force -ErrorAction Ignore
 
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir
