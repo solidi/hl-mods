@@ -36,10 +36,14 @@ v1.1 Features:
             - Improved play, better chance to hit collection limit
             - Some skulls will be "magnetized" to the awarded player
             - Fixed skull limit ending game
-        - Jesus vs Santa
-            - Fixed new scoreboard team names
         - Horde
             - Improved panthereye leaping, made damage easier
+        - Instagib
+            - Fix spread calculations
+            - Zapgun gibs monsters
+            - Removed useless runes like strength
+         - Jesus vs Santa
+            - Fixed new scoreboard team names
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
     - Server
