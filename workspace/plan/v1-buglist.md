@@ -15,6 +15,7 @@ Maps
 [ ] Add more spawn points in glup
 [ ] Train AI to make new map?
 [ ] cold_base.bsp outside area showing tunnel in sky
+[ ] From Ben_Montes' video, add the size of the map to voting
 Busters
 [ ] Large shell on taunt hands if having cloak rune and buster
 [ ] Note to player in busters as skeleton to find the buster - not the skeleton
@@ -33,11 +34,12 @@ Shidden
 [ ] Hidders dont die in the pit on glup - trigger hurt should hurt them?
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
+[ ] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)
 Instagib
-[ ] Remove runes like half damage
-[ ] Spread number is off by one
+[x] Remove runes like half damage
+[x] Spread number is off by one
 Horde mode
-[ ] Monster should look down and attack person below - Ask AI
+[x] Monster should look down and attack person below - Ask AI
 New Stuff
 [ ] Add support paper to v_ models
 [ ] Tinnitus mutator
@@ -45,6 +47,7 @@ New Stuff
 [ ] Ice cold mutator, flip it all
 [ ] skybox mutator kill mutator
 [ ] ricochet mutator speed should match weapon fire rate
+[ ] From Ben_Montes’ video, add an armor bar and/or damage numbers?
 Bugs
 [ ] Host_Error: UserMsg: Not Present on Client 134
 
