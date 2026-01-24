@@ -39,10 +39,10 @@ v1.1 Features:
         - Horde
             - Improved panthereye leaping, made damage easier
         - Instagib
-            - Fix spread calculations
+            - Fixed spread calculations
             - Zapgun gibs monsters
             - Removed useless runes like strength
-         - Jesus vs Santa
+        - Jesus vs Santa
             - Fixed new scoreboard team names
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
