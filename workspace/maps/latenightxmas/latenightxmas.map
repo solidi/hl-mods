@@ -11669,7 +11669,7 @@
 "classname" "trigger_mp3audio"
 "origin" "432 -656 -210"
 "health" "11"
-"message" "media/10-another-one.mp3"
+"message" "media/16-the-snowman.mp3"
 "spawnflags" "1"
 }
 {
