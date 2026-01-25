@@ -16,7 +16,7 @@ v1.1 Features:
         - snowcross, themill, latenightxmas, and glupshitto tracks were updated
 - Weapons
     - Snowball
-        - Improve throw performance of the weapon so its more predictable
+        - Improve throw performance of the weapon so it's more predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
