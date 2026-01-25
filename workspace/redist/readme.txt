@@ -21,6 +21,7 @@ v1.1 Features:
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
 - Mutators
+    - Now pausing mutators inbetween rounds and during intermission
     - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
 - Maps
     - Includes high-res textures for all new deathmatch maps
@@ -36,6 +37,8 @@ v1.1 Features:
     - Maps
         - Fixed spawnpoints in snowtransit
     - Gamemodes
+        - 1 vs. 1
+            - Fixed bug related to disconnected player
         - Cold Skulls
             - Improved play, better chance to hit collection limit
             - Some skulls will be "magnetized" to the awarded player
@@ -50,6 +53,7 @@ v1.1 Features:
             - Fixed new scoreboard team names
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
+        - Reduced the chaos HUD bar by one unit
     - Server
         - Added support for Ubunutu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav

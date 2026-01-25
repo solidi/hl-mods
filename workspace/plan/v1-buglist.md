@@ -10,7 +10,7 @@ General Issues
 [ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
 [ ] If timer is running out, countdown last five seconds?
 [ ] RTV vote time should be increased from 30 to 60 or turned to cvar
-[ ] Gate a lot of thinks not to fire at of game
+[x] Gate a lot of thinks not to fire at of game
 Maps
 [ ] Add more spawn points in glup
 [ ] Train AI to make new map?
