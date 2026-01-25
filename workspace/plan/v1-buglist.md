@@ -34,7 +34,7 @@ Shidden
 [ ] Hidders dont die in the pit on glup - trigger hurt should hurt them?
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
-[ ] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)
+[x] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)
 Instagib
 [x] Remove runes like half damage
 [x] Spread number is off by one
