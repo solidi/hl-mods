@@ -55,7 +55,7 @@ v1.1 Features:
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
     - Server
-        - Added support for Ubunutu 22+ on Linux
+        - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
         - Added missing wav file, ambience/thunder_clap.wav
 
