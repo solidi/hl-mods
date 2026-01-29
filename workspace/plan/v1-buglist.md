@@ -11,6 +11,7 @@ General Issues
 [ ] If timer is running out, countdown last five seconds?
 [ ] RTV vote time should be increased from 30 to 60 or turned to cvar
 [x] Gate a lot of thinks not to fire at of game
+[ ] ability for player to choose auto assign / red or blue team, where appropriate?
 Maps
 [ ] Add more spawn points in glup
 [ ] Train AI to make new map?
@@ -18,20 +19,21 @@ Maps
 [ ] From Ben_Montes' video, add the size of the map to voting
 Busters
 [ ] Large shell on taunt hands if having cloak rune and buster
-[ ] Note to player in busters as skeleton to find the buster - not the skeleton
-[ ] The buster is dead, but cannot find egon - move it around every thirty seconds or give to someone?
-[ ] Remove average ping on scoreboard
+[x] Note to player in busters as skeleton to find the buster - not the skeleton
+[x] The buster is dead, but cannot find egon - move it around every thirty seconds or give to someone?
+[x] Remove average ping on scoreboard
 Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
-[ ] The coldspot should stop giving point after game 
+[x] The coldspot should stop giving point after game 
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
 Prophunt
-[ ] No fall damage to convert
+[x] No fall damage to convert
+[ ] bot doesnt pause if prop after hunters released
 Shidden
 [ ] Add "your shiting yourself" voice over
-[ ] Cannot understand what team im on
-[ ] Hidders dont die in the pit on glup - trigger hurt should hurt them?
+[x] Cannot understand what team im on
+[x] Hidders dont die in the pit on glup - trigger hurt should hurt them?
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
 [x] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)
@@ -61,6 +63,6 @@ Bugs
 
 [ ] "Dead hands" should not move with camera.
 [ ] Assists should not credit same-team member if team damage is off
-[ ] Disable "busters" in chilldemic / remove egon from world
+[x] Disable "busters" in chilldemic / remove egon from world
 [ ] Patch possible ammo crash - see code fix from PM on 12/25/2025
 [x] When player is sucked to spectator, remove team information so red/blue does not should on new scoreboard
