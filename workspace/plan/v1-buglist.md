@@ -33,7 +33,7 @@ Prophunt
 Shidden
 [ ] Add "your shiting yourself" voice over
 [x] Cannot understand what team im on
-[x] Hidders dont die in the pit on glup - trigger hurt should hurt them?
+[x] Hiders dont die in the pit on glup - trigger hurt should hurt them?
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
 [x] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)

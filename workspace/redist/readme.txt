@@ -24,7 +24,7 @@ v1.1 Features:
     - Added "botfinditem [0-1]" to turn on/off search logic
 - Client
     - Sort certain game mode teams by lowest player for visibility
-    - Remove unuseful team score and ping total counts from scoreboards
+    - Remove not useful team score and ping total counts from scoreboards
 - Mutators
     - Now pausing mutators inbetween rounds and during intermission
     - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
