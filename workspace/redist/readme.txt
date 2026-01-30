@@ -14,12 +14,17 @@ v1.1 Features:
 - Game
     - Added two new music tracks by Napoleon
         - snowcross, themill, latenightxmas, and glupshitto tracks were updated
+- Game Modes
+    - Added banner system so that it is clear of team objective on spawning
 - Weapons
     - Snowball
         - Improve throw performance of the weapon so it's more predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
+- Client
+    - Sort certain game mode teams by lowest player for visibility
+    - Remove not useful team score and ping total counts from scoreboards
 - Mutators
     - Now pausing mutators inbetween rounds and during intermission
     - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
@@ -39,6 +44,17 @@ v1.1 Features:
     - Gamemodes
         - 1 vs. 1
             - Fixed bug related to disconnected player
+        - Battle Royale
+            - Fixed safe spot hurt after round ends
+        - Busters
+            - Fix bug where disconnected clients may become the busters
+            - Fixed gamemode, only one person can be a buster
+            - Disable "busters" mutator to prevent more than one buster
+            - Disabled throwing the egon in this gamemode
+        - Chilldemic
+            - Rename skeleton to skeletons
+        - Cold Spot
+            - Prevent scoring after rounds ends
         - Cold Skulls
             - Improved play, better chance to hit collection limit
             - Some skulls will be "magnetized" to the awarded player
@@ -51,6 +67,9 @@ v1.1 Features:
             - Removed useless runes like strength
         - Jesus vs Santa
             - Fixed new scoreboard team names
+        - Prophunt
+            - Props no longer register fall damage
+        - Fix numerous gamemodes where "trigger_hurt" does not register
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit

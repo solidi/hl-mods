@@ -1,6 +1,11 @@
 name: Individual Maps Release
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - 'workspace/plan/**'
+      - '*.md'
+      - 'LICENSE'
 
 env:
   # Configuration type to build.
