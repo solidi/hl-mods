@@ -3,20 +3,20 @@
 ## GSS January 2026
 
 General Issues
-[ ] All bots but needed one more vote for mutators?
+[x] All bots but needed one more vote for mutators?
     Example: Napoleon crashed but wasnt on the board. Confirm that only people connected are counted.
 [x] No file located on server connect - sound/ambience/thunder_clap.wav
 [x] waterflow2.wav is missing
 [ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
 [ ] If timer is running out, countdown last five seconds?
-[ ] RTV vote time should be increased from 30 to 60 or turned to cvar
+[x] RTV vote time should be increased from 30 to 60 or turned to cvar
 [x] Gate a lot of thinks not to fire at of game
 [ ] ability for player to choose auto assign / red or blue team, where appropriate?
 Maps
 [ ] Add more spawn points in glup
 [ ] Train AI to make new map?
 [ ] cold_base.bsp outside area showing tunnel in sky
-[ ] From Ben_Montes' video, add the size of the map to voting
+[x] From Ben_Montes' video, add the size of the map to voting
 Busters
 [ ] Large shell on taunt hands if having cloak rune and buster
 [x] Note to player in busters as skeleton to find the buster - not the skeleton
@@ -26,7 +26,11 @@ Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
 [x] The coldspot should stop giving point after game 
+[ ] Print in center that you scored a point, add prize sound
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
+[ ] Hud indicator that floats at the borders so it directs the player to cold spot?
+Gungame
+[ ] Print Leveled Up! in center, add prize sound
 Prophunt
 [x] No fall damage to convert
 [ ] bot doesnt pause if prop after hunters released

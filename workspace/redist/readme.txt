@@ -22,6 +22,7 @@ v1.1 Features:
         - Primary attack is medium throw, secondary is hold/charge for longer throw
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
+    - Added "mp_rtvtime [sec]" for real time voting time
 - Client
     - Sort certain game mode teams by lowest player for visibility
     - Remove not useful team score and ping total counts from scoreboards
@@ -67,6 +68,7 @@ v1.1 Features:
             - Removed useless runes like strength
         - Jesus vs Santa
             - Fixed new scoreboard team names
+            - Fixed network message not a client shutdown on missing player
         - Prophunt
             - Props no longer register fall damage
         - Fix numerous gamemodes where "trigger_hurt" does not register
@@ -1231,6 +1233,7 @@ Server:
 - "mp_roundtimelimit" - Sets the maximum amount of time a round will run
 - "mp_royaleteam [0|1]" - Sets teamplay option for battle royale
 - "mp_royaledamage [0|1]" - Enable damage outside of safe zone
+- "mp_rtvtime [sec]" - sets real time voting time
 - "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_spawnitems" - Spawn items or not
 - "mp_spawnprotectiontime" - amount of time in seconds a player is protected from damage
