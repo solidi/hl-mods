@@ -489,6 +489,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "30" }
 	}
 
+	"mp_rtvtime"
+	{
+		"#Ice_RTVTime"
+		{ NUMBER 10.000000 120.000000 }
+		{ "60" }
+	}
+
 	"mp_spawnprotectiontime"
 	{
 		"#Ice_SpawnProtection"
