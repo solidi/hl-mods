@@ -68,7 +68,7 @@ v1.1 Features:
             - Removed useless runes like strength
         - Jesus vs Santa
             - Fixed new scoreboard team names
-            - Fixed network message not a client shutdown on missing player
+            - Fixed shutdown caused by a "not a client" network message when a player was missing
         - Prophunt
             - Props no longer register fall damage
         - Fix numerous gamemodes where "trigger_hurt" does not register
