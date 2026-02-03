@@ -16,6 +16,15 @@ v1.1 Features:
         - snowcross, themill, latenightxmas, and glupshitto tracks were updated
 - Game Modes
     - Added banner system so that it is clear of team objective on spawning
+    - Added directional indicators on HUD to direct player to objectives
+    - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
+    - Battle Royale
+        - Play siren sound when the safespot shrinks
+        - Added warning and reduced timed damage outside safe area
+    - Prophunt
+        - Props no longer register fall damage
+        - Props not longer play footsteps
+    - Changed HUD to green when holding the chumtoad
 - Weapons
     - Snowball
         - Improve throw performance of the weapon so it's more predictable
@@ -26,9 +35,13 @@ v1.1 Features:
 - Client
     - Sort certain game mode teams by lowest player for visibility
     - Remove not useful team score and ping total counts from scoreboards
+    - Support for "rtv" in the chat, as confirmation of a vote challenge
+    - Dead hands lock when on ground
 - Mutators
     - Now pausing mutators inbetween rounds and during intermission
     - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
+    - Improved player rendering of the minime mutator
+    - Improve loopback so that the player copies the viewangles of their victim
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
@@ -52,6 +65,11 @@ v1.1 Features:
             - Fixed gamemode, only one person can be a buster
             - Disable "busters" mutator to prevent more than one buster
             - Disabled throwing the egon in this gamemode
+        - Capture the Chumtoad
+            - Chumtoad is removed when held during client disconnected
+            - Do not allow instant chumtoad mutator
+        - Capture the Flag
+            - Fixed double return flag bug
         - Chilldemic
             - Rename skeleton to skeletons
         - Cold Spot
@@ -70,11 +88,13 @@ v1.1 Features:
             - Fixed new scoreboard team names
             - Fixed shutdown caused by a "not a client" network message when a player was missing
         - Prophunt
-            - Props no longer register fall damage
+            - Fixed spinning animation of numerous props
         - Fix numerous gamemodes where "trigger_hurt" does not register
+        - Removed runes and mutator entities inbetween rounds
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
+        - Center the protips across the screen correctly
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
