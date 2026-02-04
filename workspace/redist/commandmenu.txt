@@ -140,6 +140,11 @@
         "1" "On" "cl_gunsmoke 1"
         "2" "Off" "cl_gunsmoke 0"
     }
+    "3" "Voice Overs"
+    {
+        "1" "Original" "cl_voiceoverpath \'\'"
+        "2" "HEV" "cl_voiceoverpath hev"
+    }
 }
 "6" "Sound"
 {

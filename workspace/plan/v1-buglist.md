@@ -12,11 +12,14 @@ General Issues
 [x] RTV vote time should be increased from 30 to 60 or turned to cvar
 [x] Gate a lot of thinks not to fire at of game
 [ ] ability for player to choose auto assign / red or blue team, where appropriate?
+[ ] balance out random mutators in chaos, so that all get a chance before reset
+[ ] Add timestamp to client talking
 Maps
 [ ] Add more spawn points in glup
 [ ] Train AI to make new map?
 [ ] cold_base.bsp outside area showing tunnel in sky
 [x] From Ben_Montes' video, add the size of the map to voting
+[ ] snowyard spawn point on healthkit in yard, people get stuck
 Busters
 [ ] Large shell on taunt hands if having cloak rune and buster
 [x] Note to player in busters as skeleton to find the buster - not the skeleton
@@ -26,18 +29,21 @@ Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
 [x] The coldspot should stop giving point after game 
-[ ] Print in center that you scored a point, add prize sound
+[x] Print in center that you scored a point, add prize sound
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
-[ ] Hud indicator that floats at the borders so it directs the player to cold spot?
+[x] Hud indicator that floats at the borders so it directs the player to cold spot?
 Gungame
-[ ] Print Leveled Up! in center, add prize sound
+[x] Print Leveled Up! in center, add prize sound
 Prophunt
 [x] No fall damage to convert
 [ ] bot doesnt pause if prop after hunters released
+[ ] Still needs further testing related to gameplay to smooth it out
 Shidden
 [ ] Add "your shiting yourself" voice over
 [x] Cannot understand what team im on
 [x] Hiders dont die in the pit on glup - trigger hurt should hurt them?
+JVS
+[ ] balance out participants to JVS, so all get a chance.
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
 [x] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)
@@ -65,7 +71,7 @@ Bugs
 
 ### Napoleon Notes
 
-[ ] "Dead hands" should not move with camera.
+[x] "Dead hands" should not move with camera.
 [ ] Assists should not credit same-team member if team damage is off
 [x] Disable "busters" in chilldemic / remove egon from world
 [ ] Patch possible ammo crash - see code fix from PM on 12/25/2025
