@@ -43,7 +43,7 @@ Shidden
 [x] Cannot understand what team im on
 [x] Hiders dont die in the pit on glup - trigger hurt should hurt them?
 JVS
-[ ] balance out participats to JVS, so all get a chance.
+[ ] balance out participants to JVS, so all get a chance.
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
 [x] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)

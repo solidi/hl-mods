@@ -23,7 +23,7 @@ v1.1 Features:
         - Added warning and reduced timed damage outside safe area
     - Prophunt
         - Props no longer register fall damage
-        - Props not longer play footsteps
+        - Props no longer play footsteps
     - Changed HUD to green when holding the chumtoad
 - Weapons
     - Snowball
@@ -90,7 +90,7 @@ v1.1 Features:
         - Prophunt
             - Fixed spinning animation of numerous props
         - Fix numerous gamemodes where "trigger_hurt" does not register
-        - Removed runes and mutator entities inbetween rounds
+        - Removed runes and mutator entities in between rounds
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
