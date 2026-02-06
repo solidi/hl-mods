@@ -23,8 +23,11 @@ v1.1 Features:
         - Added warning and reduced timed damage outside safe area
     - Prophunt
         - Props no longer register fall damage
-        - Props no longer play footsteps
-    - Changed HUD to green when holding the chumtoad
+        - Props not longer play footsteps
+    - Capture the Chumtoad
+        - Changed HUD to green when holding the chumtoad
+    - Teamplay
+        - Add assists to the scoreboard
 - Weapons
     - Snowball
         - Improve throw performance of the weapon so it's more predictable
@@ -32,6 +35,7 @@ v1.1 Features:
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
     - Added "mp_rtvtime [sec]" for real time voting time
+    - Added server timestamps to chat messaging
 - Client
     - Sort certain game mode teams by lowest player for visibility
     - Remove not useful team score and ping total counts from scoreboards
@@ -56,6 +60,10 @@ v1.1 Features:
     - Maps
         - Fixed spawnpoints in snowtransit
     - Gamemodes
+        - Frag assists removed from individual play and corrected for teamplay modes
+        - Fixed view model invisible render properties
+        - Fixed issue related to clean up the area before gameplay
+        - Changed default observer mode to free roaming
         - 1 vs. 1
             - Fixed bug related to disconnected player
         - Battle Royale
@@ -89,6 +97,8 @@ v1.1 Features:
             - Fixed shutdown caused by a "not a client" network message when a player was missing
         - Prophunt
             - Fixed spinning animation of numerous props
+        - Teamplay
+            - Reset default teamlist if a previous gamemode changed it
         - Fix numerous gamemodes where "trigger_hurt" does not register
         - Removed runes and mutator entities in between rounds
     - Client
@@ -99,6 +109,7 @@ v1.1 Features:
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
         - Added missing wav file, ambience/thunder_clap.wav
+        - Fixed possible ammo pack crash
 
 v1 Features:
 
