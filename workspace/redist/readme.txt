@@ -60,7 +60,7 @@ v1.1 Features:
     - Maps
         - Fixed spawnpoints in snowtransit
     - Gamemodes
-        - Frag assists removed from individual play and and corrected for teamplay modes
+        - Frag assists removed from individual play and corrected for teamplay modes
         - Fixed view model invisible render properties
         - Fixed issue related to clean up the area before gameplay
         - Changed default observer mode to free roaming
