@@ -11,24 +11,24 @@ This mod features works from the community. Without their dedication and hard wo
 
 v1.1 Features:
 
-- Game
-    - Added two new music tracks by Napoleon
-        - snowcross, themill, latenightxmas, and glupshitto tracks were updated
-- Game Modes
-    - Added banner system so that it is clear of team objective on spawning
-    - Added directional indicators on HUD to direct player to objectives
+- Game Modes Additions
+    - Added banner system so that it is clear of team objective on entering
+    - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Battle Royale
         - Play siren sound when the safespot shrinks
-        - Added warning and reduced timed damage outside safe area
-    - Prophunt
-        - Props no longer register fall damage
-        - Props not longer play footsteps
+        - Added screen warning and reduced timed damage outside safe area
     - Capture the Chumtoad
         - Changed HUD to green when holding the chumtoad
+    - JVS
+        - Each player has a chance to become Jesus in a random pool so all are cycled
+    - Prophunt
+        - Added "mp_prophunttime" to set time hunters are frozen
+        - Props no longer register fall damage
+        - Props not longer play footsteps
     - Teamplay
         - Add assists to the scoreboard
-- Weapons
+- Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's more predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
@@ -37,18 +37,25 @@ v1.1 Features:
     - Added "mp_rtvtime [sec]" for real time voting time
     - Added server timestamps to chat messaging
 - Client
-    - Sort certain game mode teams by lowest player for visibility
-    - Remove not useful team score and ping total counts from scoreboards
-    - Support for "rtv" in the chat, as confirmation of a vote challenge
-    - Dead hands lock when on ground
+    - Sort certain game mode (like CTC) by lowest team member count for objective visibility
+    - Remove unuseful team score and ping total counts from scoreboards
+    - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
+    - Dead hands now lock when on ground
+    - HUD blinks red on low health
 - Mutators
+    - Improve mutator voting menu with scrolling panel
+    - In chaos mode, each mutator rotates in a random reducing pool so all are experienced
     - Now pausing mutators inbetween rounds and during intermission
     - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
     - Improved player rendering of the minime mutator
     - Improve loopback so that the player copies the viewangles of their victim
+    - Add fvox countdown when a chaos mutator is about to rotate
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
+- Media
+    - Added two new music tracks by Napoleon
+        - snowcross, themill, latenightxmas, and glupshitto tracks were updated
 - Fixes
     - Bots
         - Patch traceline crashes
@@ -57,8 +64,6 @@ v1.1 Features:
             - Initial map load value is respected
             - When sv_defaultbots is set to less value, overage of bots are kicked
             - Added sv_defaultbots -1 where operator can manually add or remove bots
-    - Maps
-        - Fixed spawnpoints in snowtransit
     - Gamemodes
         - Frag assists removed from individual play and corrected for teamplay modes
         - Fixed view model invisible render properties
@@ -88,6 +93,7 @@ v1.1 Features:
             - Fixed skull limit ending game
         - Horde
             - Improved panthereye leaping, made damage easier
+            - Improve winner determination when there is a tie
         - Instagib
             - Fixed spread calculations
             - Zapgun gibs monsters
@@ -97,10 +103,17 @@ v1.1 Features:
             - Fixed shutdown caused by a "not a client" network message when a player was missing
         - Prophunt
             - Fixed spinning animation of numerous props
+            - Fixed repeating wading sound on props
+            - Prevent props from picking up weapons
         - Teamplay
             - Reset default teamlist if a previous gamemode changed it
         - Fix numerous gamemodes where "trigger_hurt" does not register
         - Removed runes and mutator entities in between rounds
+    - Maps
+        - Fixed spawnpoints in snowtransit
+    - Mutators
+        - Ricochet discs no longer apply a double death, fixed team colors
+        - Made ricochet disc easier to decap
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
@@ -1257,6 +1270,7 @@ Server:
 - "mp_meleedrop "[0|1]"" - allow kick or punch attcks to drop weapons out of hands
 - "mp_moreblood [0-5]" - Increase blood up to 0-5 times
 - "mp_nukemode "[0|1|2]"" - 2 - nuke kills all, 1 - radius damage, 0 - sharts nothing but bubbles
+- "mp_prophunttime [time]" to set time hunters are frozen
 - "mp_randomgamemodes "[0|1]"" - selects a random gamemode on map change
 - "mp_randomweapon [0|1]" - To spawn with a random weapon
 - "mp_roundfraglimit" - Sets the max frags in a round during an 1 on 1 arena

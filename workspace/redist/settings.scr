@@ -593,4 +593,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+
+	"mp_prophunttime"
+	{
+		"#Ice_PropHuntTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "30" }
+	}
 }
