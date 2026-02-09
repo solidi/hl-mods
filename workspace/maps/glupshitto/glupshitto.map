@@ -9114,25 +9114,21 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"target" "yas"
 "origin" "569 1326 -63"
 }
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"target" "yas"
 "origin" "715 1119 -65"
 }
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"target" "yas"
 "origin" "551 1063 -65"
 }
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"target" "yas"
 "origin" "643 1074 -65"
 }
 {
@@ -9173,19 +9169,16 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 90 0"
-"target" "yas"
 "origin" "-589 1923 -231"
 }
 {
 "classname" "info_player_deathmatch"
 "angles" "0 220 0"
-"target" "yas"
 "origin" "543 2392 -227"
 }
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"target" "yas"
 "origin" "605 2457 -227"
 }
 {
@@ -9201,7 +9194,6 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"target" "yas"
 "origin" "669 2318 -227"
 }
 {
@@ -9237,7 +9229,6 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 240 0"
-"target" "yas"
 "origin" "51 2694 -241"
 }
 {
