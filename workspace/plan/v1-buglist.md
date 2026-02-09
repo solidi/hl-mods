@@ -19,7 +19,7 @@ Maps
 [x] Add more spawn points in glup
 [ ] cold_base.bsp outside area showing tunnel in sky
 [x] snowyard spawn point on healthkit in yard, people get stuck
-[ ] focus - outside area near window (snow incline), stuck
+[x] focus - outside area near window (snow incline), stuck
 [ ] bounce2 - inside tunnel, spawn facing wall?
 [ ] frosty - stuck in wall, second level
 [x] From Ben_Montes' video, add the size of the map to voting

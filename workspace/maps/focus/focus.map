@@ -10172,10 +10172,6 @@
 }
 }
 {
-"classname" "info_player_start"
-"origin" "128 -400 -128"
-}
-{
 "classname" "func_button"
 "spawnflags" "1"
 "speed" "5"
@@ -12815,6 +12811,10 @@
 "spawnflags" "1"
 }
 {
+"classname" "info_player_start"
+"origin" "128 -400 -128"
+}
+{
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
 "origin" "2256 272 0"
@@ -12867,6 +12867,7 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 240 0"
 "origin" "504 2441 48"
 }
 {
@@ -12875,10 +12876,12 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 220 0"
 "origin" "404 257 55"
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 180 0"
 "origin" "800 -388 -112"
 }
 {
@@ -12919,5 +12922,5 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 120 0"
-"origin" "546 1383 4"
+"origin" "530 1397 6"
 }
