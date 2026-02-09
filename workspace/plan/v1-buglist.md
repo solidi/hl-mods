@@ -3,6 +3,8 @@
 ## GSS January 2026
 
 General Issues
+[ ] ability for player to choose auto assign / red or blue team, where appropriate?
+[ ] roll through all gameplay and ask AI what mutator and runes to filter?
 [x] All bots but needed one more vote for mutators?
     Example: Napoleon crashed but wasnt on the board. Confirm that only people connected are counted.
 [x] No file located on server connect - sound/ambience/thunder_clap.wav
@@ -11,18 +13,16 @@ General Issues
 [x] If timer is running out, countdown last five seconds?
 [x] RTV vote time should be increased from 30 to 60 or turned to cvar
 [x] Gate a lot of thinks not to fire at of game
-[ ] ability for player to choose auto assign / red or blue team, where appropriate?
-[ ] balance out random mutators in chaos, so that all get a chance before reset
+[x] balance out random mutators in chaos, so that all get a chance before reset
 [x] Add timestamp to client talking
-[ ] roll through all gameplay and ask AI what mutator and runes to filter?
 Maps
 [ ] Add more spawn points in glup
-[ ] Train AI to make new map?
 [ ] cold_base.bsp outside area showing tunnel in sky
-[x] From Ben_Montes' video, add the size of the map to voting
 [ ] snowyard spawn point on healthkit in yard, people get stuck
 [ ] focus - outside area near window (snow incline), stuck
 [ ] bounce2 - inside tunnel, spawn facing wall?
+[ ] frosty - stuck in wall, second level
+[x] From Ben_Montes' video, add the size of the map to voting
 Busters
 [x] Large shell on taunt hands if having cloak rune and buster
 [x] Note to player in busters as skeleton to find the buster - not the skeleton
@@ -31,22 +31,24 @@ Busters
 Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
+[ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
 [x] The coldspot should stop giving point after game 
 [x] Print in center that you scored a point, add prize sound
-[ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
 [x] Hud indicator that floats at the borders so it directs the player to cold spot?
 Gungame
 [x] Print Leveled Up! in center, add prize sound
 Prophunt
 [x] No fall damage to convert
-[ ] bot doesnt pause if prop after hunters released
-[ ] Still needs further testing related to gameplay to smooth it out
+[x] bot doesnt pause if prop after hunters released
+[x] Still needs further testing related to gameplay to smooth it out
 Shidden
 [ ] Add "your shiting yourself" voice over
+[ ] Change to Frozen, fart freezes, then must knife attack.
+[ ] less players as delaters.
 [x] Cannot understand what team im on
 [x] Hiders dont die in the pit on glup - trigger hurt should hurt them?
 JVS
-[ ] balance out participants to JVS, so all get a chance.
+[x] balance out participants to JVS, so all get a chance.
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
 [ ] Add powerup like a snowball gun that is also a slime thrower - modeled after hlwe15, and a rune that gives you it (similar to instagib)
@@ -56,8 +58,9 @@ Instagib
 [x] Spread number is off by one
 Horde mode
 [x] Monster should look down and attack person below - Ask AI
-[ ] no one won when round ended, but all monsters defeated (2 players left)
+[x] no one won when round ended, but all monsters defeated (2 players left)
 New Stuff
+[ ] Train AI to make new map?
 [ ] Add support paper to v_ models
 [ ] Tinnitus mutator
 [ ] Ice tean ps3 brown filter mutator - name it iced tea
@@ -70,6 +73,13 @@ New Stuff
 [ ] upside down mutator (180)
 [ ] mclaine mutator (gun upside down)
 [ ] am I dead mutator (80)
+[ ] no radar mutator
+[ ] perm arrow on player head w/ life bar see through walls
+[x] distance read out for edge detection under arrow
+[x] blinking red health under 20
+voting
+[ ] ask AI to place elements into a scrollable window?
+[ ] dynamic map voting based on maps in folder?
 Bugs
 [ ] Host_Error: UserMsg: Not Present on Client 134
 
