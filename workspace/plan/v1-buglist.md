@@ -16,9 +16,9 @@ General Issues
 [x] balance out random mutators in chaos, so that all get a chance before reset
 [x] Add timestamp to client talking
 Maps
-[ ] Add more spawn points in glup
+[x] Add more spawn points in glup
 [ ] cold_base.bsp outside area showing tunnel in sky
-[ ] snowyard spawn point on healthkit in yard, people get stuck
+[x] snowyard spawn point on healthkit in yard, people get stuck
 [ ] focus - outside area near window (snow incline), stuck
 [ ] bounce2 - inside tunnel, spawn facing wall?
 [ ] frosty - stuck in wall, second level
