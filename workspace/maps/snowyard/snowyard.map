@@ -5314,8 +5314,8 @@ blendtime "0"
 }
 {
 "classname" "info_player_deathmatch"
-"angles" "0 269 0"
-"origin" "736 214 108"
+"angles" "0 270 0"
+"origin" "736 206 110"
 }
 {
 "classname" "info_player_deathmatch"
