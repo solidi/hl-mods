@@ -51,7 +51,7 @@ JVS
 [x] balance out participants to JVS, so all get a chance.
 Snowballs
 [ ] Add infinity snowbals, and remove the fists
-[ ] Add powerup like a snowball gun that is also a slime thrower - modeled after hlwe15, and a rune that gives you it (similar to instagib)
+[x] Add powerup like a snowball gun that is also a slime thrower - modeled after hlwe15, and a rune that gives you it (similar to instagib)
 [x] Better control of snowball throw - [seen in snowwar](https://www.youtube.com/watch?v=L0nMLacofDs)
 Instagib
 [x] Remove runes like half damage
