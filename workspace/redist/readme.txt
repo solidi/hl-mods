@@ -26,6 +26,9 @@ v1.1 Features:
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props not longer play footsteps
+    - Snowball Fight
+        - Added snowball launcher power up
+        - Snowball launcher secondary attack fires a larger snowball bomb
     - Teamplay
         - Add assists to the scoreboard
 - Weapons Additions
@@ -42,6 +45,7 @@ v1.1 Features:
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
     - Dead hands now lock when on ground
     - HUD blinks red on low health
+    - Removed unneeded rune title and messages
 - Mutators
     - Improve mutator voting menu with scrolling panel
     - In chaos mode, each mutator rotates in a random reducing pool so all are experienced
@@ -114,6 +118,7 @@ v1.1 Features:
     - Mutators
         - Ricochet discs no longer apply a double death, fixed team colors
         - Made ricochet disc easier to decap
+        - Fixed snowballs mutator icon
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit

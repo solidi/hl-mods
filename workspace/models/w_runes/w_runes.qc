@@ -39,6 +39,7 @@ studio "ammo"
 studio "cir"
 studio "skull"
 studio "hornet"
+studio "slauncher"
 }
 
 

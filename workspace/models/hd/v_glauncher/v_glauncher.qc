@@ -100,5 +100,6 @@ $sequence "draw" "draw" fps 32 { event 5004 0 "default_draw.wav" } { event 5005 
 $sequence "holster" "holster" fps 21 
 $sequence "reload" "reload" fps 13 
 $sequence "shoot" "shoot" fps 13 { event 5001 0 "2" } 
+$sequence "shoot2" "shoot2" fps 13 { event 5001 0 "2" }
 
 // End of QC script.

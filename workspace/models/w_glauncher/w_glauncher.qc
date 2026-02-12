@@ -30,10 +30,10 @@ $body "studio" "glauncher"
 $texturegroup ice
 {
   {
-    "tfc_gl_world_map.bmp"
+    "glauncher.bmp"
   }
   {
-    "invert_tfc_gl_world_map.bmp"
+    "invert_glauncher.bmp"
   }
   {
     "..\ringchrome.bmp"
