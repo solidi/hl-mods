@@ -123,7 +123,7 @@ $sequence "gholster" "gholster" fps 45
 //$sequence "greload2" "greload2" fps 60 
 $sequence "greload3" "greload3" fps 30 
 $sequence "gfire" "gfire" fps 30 { event 5001 0 "11" } 
-$sequence "gfire2" "gfire" fps 30
+$sequence "gfire2" "gfire" fps 30 { event 5001 0 "11" }
 //$sequence "pidle" "pidle" fps 10 loop 
 //$sequence "pfire" "pfire" fps 30 loop 
 //$sequence "preload1" "preload1" fps 60 
