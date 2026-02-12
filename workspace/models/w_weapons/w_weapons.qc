@@ -413,7 +413,7 @@ $texturegroup ice
     "..\w_hgun\invert_Gun_Top2.bmp"
     "..\w_hgun\invert_HG_Side1.bmp"
     "..\w_railgun\invert_Skin.BMP"
-    "..\w_glauncher\glauncher.bmp"
+    "..\w_glauncher\invert_glauncher.bmp"
     "..\w_cannon\invert_box1.bmp"
     "..\w_cannon\invert_button.bmp"
     "..\w_cannon\invert_chrome1.bmp"
