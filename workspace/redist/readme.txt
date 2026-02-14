@@ -13,7 +13,7 @@ v1.1 Features:
 
 - Game Modes Additions
     - Added banner system so that it is clear of team objective on entering
-    - Added initial spectator mode and menu selection on certian game modes
+    - Added initial spectator mode and menu selection on certain game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Battle Royale

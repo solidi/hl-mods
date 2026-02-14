@@ -59,7 +59,7 @@
         "2" "Auto Weapon Throw"
         {
             "1" "On" "cl_awt 1"
-            "2" "Off" "cl_atw 0"
+            "2" "Off" "cl_awt 0"
         }
         "3" "Auto Taunt"
         {
@@ -74,7 +74,7 @@
         "5" "Keyboard Acrobatics"
         {
             "1" "On" "cl_kacro 1"
-            "2" "Off" "cl_karco 0"
+            "2" "Off" "cl_kacro 0"
         }
         "6" "Anti-Vomit"
         {
