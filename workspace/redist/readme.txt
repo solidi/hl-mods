@@ -13,6 +13,7 @@ v1.1 Features:
 
 - Game Modes Additions
     - Added banner system so that it is clear of team objective on entering
+    - Added initial spectator mode and menu selection on certian game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Battle Royale
@@ -95,6 +96,8 @@ v1.1 Features:
             - Improved play, better chance to hit collection limit
             - Some skulls will be "magnetized" to the awarded player
             - Fixed skull limit ending game
+        - Gun Game
+            - Fixed bug when level does not advance
         - Horde
             - Improved panthereye leaping, made damage easier
             - Improve winner determination when there is a tie
@@ -123,6 +126,7 @@ v1.1 Features:
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
         - Center the protips across the screen correctly
+        - Fixed in-eye spectator secondary weapon models not appearing
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
