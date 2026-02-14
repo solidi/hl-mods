@@ -41,6 +41,8 @@ v1.1 Features:
     - Added "mp_rtvtime [sec]" for real time voting time
     - Added server timestamps to chat messaging
 - Client
+    - Improved voting menus for mutators and maps, made panel scrollable
+    - Vote tallies on buttons are now are right side, and font size increased for readibility
     - Sort certain game mode (like CTC) by lowest team member count for objective visibility
     - Remove unuseful team score and ping total counts from scoreboards
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
