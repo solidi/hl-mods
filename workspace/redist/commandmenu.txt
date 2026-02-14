@@ -40,33 +40,47 @@
 //--------------------------------------------------------
 // Everything below here is editable
 
+"0" "Spectating"
+{
+    "1" "Join Menu" "menu"
+    "2" "Spectate" "spectate"
+}
 "1" "Combat"
 {
-    "1" "Auto Melee"
+    "1" "Throw Weapon" "impulse 216"
+    "2" "Drop Rune" "drop_rune"
+    "3" "Options"
     {
-        "1" "On" "cl_am 1"
-        "2" "Off" "cl_am 0"
-    }
-    "2" "Throw Weapon" "impulse 216"
-    "3" "Auto Weapon Throw"
-    {
-        "1" "On" "cl_awt 1"
-        "2" "Off" "cl_atw 0"
-    }
-    "4" "Auto Taunt"
-    {
-        "1" "On" "cl_at 1"
-        "2" "Off" "cl_at 0"
-    }
-    "5" "Auto Weapon Switch"
-    {
-        "1" "On" "cl_aws 1"
-        "2" "Off" "cl_aws 0"
-    }
-    "6" "Keyboard Acrobatics"
-    {
-        "1" "On" "cl_kacro 1"
-        "2" "Off" "cl_karco 0"
+        "1" "Auto Melee"
+        {
+            "1" "On" "cl_am 1"
+            "2" "Off" "cl_am 0"
+        }
+        "2" "Auto Weapon Throw"
+        {
+            "1" "On" "cl_awt 1"
+            "2" "Off" "cl_awt 0"
+        }
+        "3" "Auto Taunt"
+        {
+            "1" "On" "cl_at 1"
+            "2" "Off" "cl_at 0"
+        }
+        "4" "Auto Weapon Switch"
+        {
+            "1" "On" "cl_aws 1"
+            "2" "Off" "cl_aws 0"
+        }
+        "5" "Keyboard Acrobatics"
+        {
+            "1" "On" "cl_kacro 1"
+            "2" "Off" "cl_kacro 0"
+        }
+        "6" "Anti-Vomit"
+        {
+            "1" "On" "cl_antivomit 1"
+            "2" "Off" "cl_antivomit 0"
+        }
     }
 }
 "2" "HUD"
@@ -122,8 +136,7 @@
         "2" "Off" "cl_lifemeters 0"
     }
 }
-"4" "Drop Rune" "drop_rune"
-"5" "Weapons"
+"4" "Weapons"
 {
     "1" "Models"
     {
@@ -146,7 +159,7 @@
         "2" "HEV" "cl_voiceoverpath hev"
     }
 }
-"6" "Sound"
+"5" "Sound"
 {
     "1" "Play Music"
     {
@@ -159,4 +172,4 @@
         "2" "Off" "cl_playpoint 0"
     }
 }
-"7" "Keyboard" "keyboard"
+"6" "Keyboard" "keyboard"

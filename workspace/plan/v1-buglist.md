@@ -3,13 +3,13 @@
 ## GSS January 2026
 
 General Issues
-[ ] ability for player to choose auto assign / red or blue team, where appropriate?
 [ ] roll through all gameplay and ask AI what mutator and runes to filter?
+[ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
+[x] ability for player to choose auto assign / red or blue team, where appropriate?
 [x] All bots but needed one more vote for mutators?
     Example: Napoleon crashed but wasnt on the board. Confirm that only people connected are counted.
 [x] No file located on server connect - sound/ambience/thunder_clap.wav
 [x] waterflow2.wav is missing
-[ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
 [x] If timer is running out, countdown last five seconds?
 [x] RTV vote time should be increased from 30 to 60 or turned to cvar
 [x] Gate a lot of thinks not to fire at of game
@@ -32,6 +32,7 @@ Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
+[ ] Player balancing is somewhat unbalanced to one side. Review and fix algo
 [x] The coldspot should stop giving point after game 
 [x] Print in center that you scored a point, add prize sound
 [x] Hud indicator that floats at the borders so it directs the player to cold spot?
