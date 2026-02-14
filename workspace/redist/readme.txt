@@ -42,7 +42,7 @@ v1.1 Features:
     - Added server timestamps to chat messaging
 - Client
     - Improved voting menus for mutators and maps, made panel scrollable
-    - Vote tallies on buttons are now are right side, and font size increased for readibility
+    - Vote tallies on buttons are now on the are right side, and font size increased for readability
     - Sort certain game mode (like CTC) by lowest team member count for objective visibility
     - Remove unuseful team score and ping total counts from scoreboards
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
@@ -553,6 +553,7 @@ Please report defects by creating an issue here or in discord: https://github.co
 
 Thanks To:
 
+- Eyepoke42 the YouTube channel and playtesting Beta 5 https://www.youtube.com/@Eyepoke42
 - postal and the JaBroni Brawl 3 dev crew for original game mode creations https://jabronibrawl.com/
 - Infinity for original and resurrection Cold-Ice models https://www.chaosworx.net/
 - Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/

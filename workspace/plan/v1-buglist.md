@@ -5,6 +5,7 @@
 General Issues
 [ ] roll through all gameplay and ask AI what mutator and runes to filter?
 [ ] MWHEELDOWN in config doesnt have Mouse Wheel Up associated text
+[ ] chainsaw climb, if looking up should go up!
 [x] ability for player to choose auto assign / red or blue team, where appropriate?
 [x] All bots but needed one more vote for mutators?
     Example: Napoleon crashed but wasnt on the board. Confirm that only people connected are counted.
@@ -79,8 +80,8 @@ New Stuff
 [x] distance read out for edge detection under arrow
 [x] blinking red health under 20
 voting
-[ ] ask AI to place elements into a scrollable window?
 [ ] dynamic map voting based on maps in folder?
+[x] ask AI to place elements into a scrollable window?
 Bugs
 [ ] Host_Error: UserMsg: Not Present on Client 134
 
