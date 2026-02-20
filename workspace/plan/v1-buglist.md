@@ -33,7 +33,7 @@ Cold Skulls
 [x] ask AI how to make it better so more skulls can be collected
 Cold spot
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
-[ ] Player balancing is somewhat unbalanced to one side. Review and fix algo
+[x] Player balancing is somewhat unbalanced to one side. Review and fix algo
 [x] The coldspot should stop giving point after game 
 [x] Print in center that you scored a point, add prize sound
 [x] Hud indicator that floats at the borders so it directs the player to cold spot?
@@ -76,7 +76,7 @@ New Stuff
 [ ] mclaine mutator (gun upside down)
 [ ] am I dead mutator (80)
 [ ] no radar mutator
-[ ] perm arrow on player head w/ life bar see through walls
+[x] perm arrow on player head w/ life bar see through walls
 [x] distance read out for edge detection under arrow
 [x] blinking red health under 20
 voting

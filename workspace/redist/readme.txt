@@ -21,6 +21,9 @@ v1.1 Features:
         - Added screen warning and reduced timed damage outside safe area
     - Capture the Chumtoad
         - Changed HUD to green when holding the chumtoad
+    - Cold Spot
+        - Added world to screen visual indicator of the spot
+        - Player scores only if the they see the center of the spot
     - JVS
         - Each player has a chance to become Jesus in a random pool so all are cycled
     - Prophunt
@@ -72,6 +75,7 @@ v1.1 Features:
             - When sv_defaultbots is set to less value, overage of bots are kicked
             - Added sv_defaultbots -1 where operator can manually add or remove bots
     - Gamemodes
+        - Fixed a bug in the auto balance of team players
         - Frag assists removed from individual play and corrected for teamplay modes
         - Fixed view model invisible render properties
         - Fixed issue related to clean up the area before gameplay
