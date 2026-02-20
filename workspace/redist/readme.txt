@@ -138,6 +138,8 @@ v1.1 Features:
         - Added missing wav file, ambience/water_flowing2.wav
         - Added missing wav file, ambience/thunder_clap.wav
         - Fixed possible ammo pack crash
+    - Weapons
+        - Improved chainsaw climb when looking up
 
 v1 Features:
 
