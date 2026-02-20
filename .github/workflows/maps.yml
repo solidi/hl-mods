@@ -102,7 +102,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,snowcross,latenightxmas,datafloe]
+        map: [snowyard,snowcross,latenightxmas,datafloe,themill]
 
     steps:
     - uses: actions/checkout@v4
