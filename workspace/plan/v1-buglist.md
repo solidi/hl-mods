@@ -47,7 +47,7 @@ Prophunt
 [x] Still needs further testing related to gameplay to smooth it out
 Shidden
 [ ] Add "your shiting yourself" voice over
-[ ] w_ knife model is a bit larger, make smaller
+[x] w_ knife model is a bit larger, make smaller
 [x] Change to Frozen, fart freezes, then must knife attack.
 [x] less players as delaters.
 [x] Cannot understand what team im on

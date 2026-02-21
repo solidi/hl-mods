@@ -146,6 +146,7 @@ v1.1 Features:
     - Weapons
         - Improved chainsaw climb when looking up
         - Fixed ghost walking caused by the vest weapon
+        - Fixed scale of knife world models
 
 v1 Features:
 
