@@ -19,6 +19,7 @@ General Issues
 [x] Add timestamp to client talking
 Maps
 [ ] cold_base.bsp outside area showing tunnel in sky
+[ ] reversed textures on inside crate ends for proper highdef alignment
 [x] Add more spawn points in glup
 [x] snowyard spawn point on healthkit in yard, people get stuck
 [x] focus - outside area near window (snow incline), stuck
@@ -46,8 +47,9 @@ Prophunt
 [x] Still needs further testing related to gameplay to smooth it out
 Shidden
 [ ] Add "your shiting yourself" voice over
-[ ] Change to Frozen, fart freezes, then must knife attack.
-[ ] less players as delaters.
+[ ] w_ knife model is a bit larger, make smaller
+[x] Change to Frozen, fart freezes, then must knife attack.
+[x] less players as delaters.
 [x] Cannot understand what team im on
 [x] Hiders dont die in the pit on glup - trigger hurt should hurt them?
 JVS

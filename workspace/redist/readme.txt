@@ -30,6 +30,11 @@ v1.1 Features:
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props not longer play footsteps
+    - Shidden
+        - Fart no longer instantly kills, now freezes player
+        - Provided knife to dealters to frag player with knife when frozen
+        - Dealters no longer has access to other weapons or items
+        - Removed cloak rune from gameplay
     - Snowball Fight
         - Added snowball launcher power up
         - Snowball launcher secondary attack fires a larger snowball bomb
@@ -140,6 +145,7 @@ v1.1 Features:
         - Fixed possible ammo pack crash
     - Weapons
         - Improved chainsaw climb when looking up
+        - Fixed ghost walking caused by the vest weapon
 
 v1 Features:
 
