@@ -24,6 +24,8 @@ v1.1 Features:
     - Cold Spot
         - Added world to screen visual indicator of the spot
         - Player scores only if the they see the center of the spot
+    - Horde
+        - Improved HUD health bar of enemies, show red on low health
     - JVS
         - Each player has a chance to become Jesus in a random pool so all are cycled
     - Prophunt
@@ -80,6 +82,7 @@ v1.1 Features:
             - When sv_defaultbots is set to less value, overage of bots are kicked
             - Added sv_defaultbots -1 where operator can manually add or remove bots
     - Gamemodes
+        - Don't show respawn bar on HUD if your round is over
         - Fixed a bug in the auto balance of team players
         - Frag assists removed from individual play and corrected for teamplay modes
         - Fixed view model invisible render properties
@@ -139,6 +142,7 @@ v1.1 Features:
         - Reduced the chaos HUD bar by one unit
         - Center the protips across the screen correctly
         - Fixed in-eye spectator secondary weapon models not appearing
+        - Fixed observer moveleft and moveright so they remain straight
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
