@@ -124,9 +124,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
-    1. Add hornetgun(s) to instagib as powerup
+    1. [x] Add hornetgun(s) to instagib as powerup
     1. Instant mutators
-        1. [ ] give mutator, random, and fast.
+        1. [x] give mutator, random, and fast.
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] Dropped item floats to victor
@@ -273,6 +273,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Grenades that randomly teleport when they bounce? (AudioCraZ)
     1. [ ] Grenades that never stop bouncing and have a random timer to detonate. (Flubber bomb) (AudioCraZ)
 1. Weapon ViewModel / Effects
+    1. [ ] Hand up effect if [taking blast damage likea tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
     1. [ ] Bob up/down like HL New Light v3
     1. [ ] Breakable gibs spawned from bullet damage as seen in MiniMod
     1. [ ] [Centered models?](https://gamebanana.com/mods/179800)
