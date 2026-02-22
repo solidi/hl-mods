@@ -129,7 +129,7 @@ v1.1 Features:
         - Removed runes and mutator entities in between rounds
     - Maps
         - Fixed spawnpoints in snowtransit
-        - Fixed inverted textures on blue crates
+        - Fixed inverted textures on blue crates in snowyard
     - Mutators
         - Ricochet discs no longer apply a double death, fixed team colors
         - Made ricochet disc easier to decap
