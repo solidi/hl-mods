@@ -19,7 +19,7 @@ General Issues
 [x] Add timestamp to client talking
 Maps
 [ ] cold_base.bsp outside area showing tunnel in sky
-[ ] reversed textures on inside crate ends for proper highdef alignment
+[x] reversed textures on inside crate ends for proper highdef alignment
 [x] Add more spawn points in glup
 [x] snowyard spawn point on healthkit in yard, people get stuck
 [x] focus - outside area near window (snow incline), stuck
