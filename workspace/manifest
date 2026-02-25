@@ -1581,6 +1581,7 @@ sound\chicken.wav
 sound\horse_neigh.wav
 sound\level_up.wav
 sound\nope.wav
+sound\tinnitus_buzz.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

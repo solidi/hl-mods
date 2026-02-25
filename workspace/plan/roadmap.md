@@ -124,6 +124,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Game Mutators
+    1. [ ] Deadly water, like skyhook, but with water textures
+    1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
+    1. [ ] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [x] Add hornetgun(s) to instagib as powerup
     1. Instant mutators
         1. [x] give mutator, random, and fast.
@@ -140,9 +144,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [ ] ooof sound
-    1. [ ] am i dead?
+    1. [x] am i dead?
     1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
-    1. [ ] rats around map
+    1. [x] rats around map
     1. [ ] random textures
     1. [ ] random sounds
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
@@ -184,7 +188,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Ghost riders](https://gamebanana.com/mods/167145) add players to wheelthrones
     1. [ ] Tiny
     1. [ ] Tiktok - exploder (random explosions of people)
-    1. [ ] Floor is lava
+    1. [ ] Floor is lava [perhaps search textures floor,ice,grass,etc](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
     1. [ ] 10x mode (yai boi)
     1. [ ] penguins in place of toads

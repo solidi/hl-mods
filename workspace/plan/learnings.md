@@ -429,3 +429,4 @@ A core file can be reloaded and [read later in gdb](https://stackoverflow.com/qu
 1. To remap colors within the player models, [here is the tutorial](https://www.the303.org/tutorials/gold_remap.htm) to do it.
 1. [A list of all updates](https://steamcommunity.com/app/70/announcements/) to Half-Life. Included in the october 2024 release Enabled /LARGEADDRESSAWARE to support mods with large memory requirements.
 1. If the runtime value of an int/float is NaN, the hack to check is `a != a` - comparisons involving themselves are always false. This helped with an odd-bug in Half-Life. [See this thread](https://stackoverflow.com/questions/570669/checking-if-a-double-or-float-is-nan-in-c).
+1. Half-Life engine supports WAV SMPL chunk loop points to loop it on CHAN_STATIC. Any audio editor (Audacity, Adobe Audition) can add loop points to a mono 22050hz WAV.

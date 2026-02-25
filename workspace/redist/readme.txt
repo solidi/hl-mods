@@ -11,14 +11,22 @@ This mod features works from the community. Without their dedication and hard wo
 
 v1.1 Features:
 
-- Game Modes Additions
-    - Added banner system so that it is clear of team objective on entering
+- New Mutators
+    - "amidead" - tilts view by eight degrees
+    - "mcclane" - reverse the up and down weapon view model
+    - "rats" - spawns numerous explosive rats on the map
+    - "skyhook" - if a player touches a sky texture, they are gibbed
+    - "tinnitus" - lowers sfx volume and introduces that buzzing sound
+    - "upsidedown" - reverses up and down views
+- Game Modes Changes
+    - Added banner system so that it is clear of team objective on entering arena
     - Added initial spectator mode and menu selection on certain game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Battle Royale
         - Play siren sound when the safespot shrinks
         - Added screen warning and reduced timed damage outside safe area
+        - Added world to screen visual indicator of the safe spot
     - Capture the Chumtoad
         - Changed HUD to green when holding the chumtoad
     - Cold Spot
@@ -38,28 +46,12 @@ v1.1 Features:
         - Dealters no longer has access to other weapons or items
         - Removed cloak rune from gameplay
     - Snowball Fight
-        - Added snowball launcher power up
+        - Added snowball launcher power up (ammo rune)
         - Snowball launcher secondary attack fires a larger snowball bomb
     - Teamplay
         - Add assists to the scoreboard
-- Weapons Additions
-    - Snowball
-        - Improve throw performance of the weapon so it's more predictable
-        - Primary attack is medium throw, secondary is hold/charge for longer throw
-- Server
-    - Added "botfinditem [0-1]" to turn on/off search logic
-    - Added "mp_rtvtime [sec]" for real time voting time
-    - Added server timestamps to chat messaging
-- Client
-    - Improved voting menus for mutators and maps, made panel scrollable
-    - Vote tallies on buttons are now on the are right side, and font size increased for readability
-    - Sort certain game mode (like CTC) by lowest team member count for objective visibility
-    - Remove unuseful team score and ping total counts from scoreboards
-    - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
-    - Dead hands now lock when on ground
-    - HUD blinks red on low health
-    - Removed unneeded rune title and messages
-- Mutators
+- Mutator Changes
+    - Mirror mutator fully inverses the screenplay
     - Improve mutator voting menu with scrolling panel
     - In chaos mode, each mutator rotates in a random reducing pool so all are experienced
     - Now pausing mutators inbetween rounds and during intermission
@@ -67,6 +59,23 @@ v1.1 Features:
     - Improved player rendering of the minime mutator
     - Improve loopback so that the player copies the viewangles of their victim
     - Add fvox countdown when a chaos mutator is about to rotate
+- Weapons Additions
+    - Snowball
+        - Improve throw performance of the weapon so it's predictable
+        - Primary attack is medium throw, secondary is hold/charge for longer throw
+- Server
+    - Added "botfinditem [0-1]" to turn on/off search logic
+    - Added "mp_rtvtime [sec]" for real time voting time
+    - Added server timestamps to chat messaging
+- Client
+    - Improved voting menus for mutators and maps, made panels scrollable
+    - Vote tallies on buttons are now on the are right side, and font size increased for readability
+    - Sort certain game mode (like CTC) by lowest team member count for objective visibility
+    - Remove unuseful team score and ping total counts from scoreboards
+    - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
+    - Dead hands now lock when on ground
+    - HUD blinks red on low health
+    - Removed unneeded rune title and messages
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
@@ -152,6 +161,7 @@ v1.1 Features:
         - Improved chainsaw climb when looking up
         - Fixed ghost walking caused by the vest weapon
         - Fixed scale of knife world models
+        - Fixed missing portalgun on HUD
 
 v1 Features:
 
@@ -489,6 +499,7 @@ Server:
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "unchaos" - to shut off chaos mode
     - "999" - start with 999 health and battery.
+    - "amidead" - tilts view by eight degrees
     - "astronaut" - gravity is turned down
     - "autoaim" - all weapons have extreme autoaim.
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
@@ -524,6 +535,7 @@ Server:
     - "loopback" - teleport to the place of your last frag
     - "marshmellow" - come back 1999 to you.
     - "maxpack" - drop all weapons and ammo in play (mp only!)
+    - "mcclane" - reverse the up and down weapon view model
     - "megarun" - run faster than normal
     - "minime" - players are half the size
     - "mirror" - mirror, mirror on the wall
@@ -541,6 +553,7 @@ Server:
     - "pumpkin" - on Halloween, he appears.
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "randomweapon" - spawn with a randomly selected weapon
+    - "rats" - spawns numerous explosive rats omn the map
     - "ricochet" - the best mod ever made
     - "rocketbees" - hornets are explosive
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
@@ -548,6 +561,7 @@ Server:
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "santahat" - everyone wears a santa hat and says hohoho randomly
     - "sildenafil" - screen goes blue
+    - "skyhook" - if a player touches a sky texture, they are gibbed
     - "slowbullets" - bullets travel slowly to target
     - "slowmo" - everything is slowed down by half! (sp only!)
     - "slowweapons" - all weapons are slower.
@@ -556,10 +570,12 @@ Server:
     - "stahp" - some sounds replaced with stahp!
     - "superjump" - jump three times the height, disables fall damage.
     - "thirdperson" - an out of body experience
+    - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "three" - three random mutators at once
     - "topsyturvy" - everything is turned upside down (sp only!)
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
+    - "upsidedown" - reverses up and down views
     - "vested" - everyone starts with a vest
     - "volatile" - where players blow up when fragged
 - "sv_instantmutators [0|1]" - Enable or disable instant mutators
