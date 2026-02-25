@@ -14,7 +14,7 @@ v1.1 Features:
 - New Mutators
     - "amidead" - tilts view by eight degrees
     - "mcclane" - reverse the up and down weapon view model
-    - "rats" - spawns numerous explosive rats omn the map
+    - "rats" - spawns numerous explosive rats on the map
     - "skyhook" - if a player touches a sky texture, they are gibbed
     - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "upsidedown" - reverses up and down views
@@ -70,7 +70,7 @@ v1.1 Features:
 - Client
     - Improved voting menus for mutators and maps, made panels scrollable
     - Vote tallies on buttons are now on the are right side, and font size increased for readability
-    - Sort certain game mode (like CTC) sort by lowest team member count for objective visibility
+    - Sort certain game mode (like CTC) by lowest team member count for objective visibility
     - Remove unuseful team score and ping total counts from scoreboards
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
     - Dead hands now lock when on ground

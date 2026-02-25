@@ -75,7 +75,7 @@ New Stuff
 [x] Tinnitus mutator
 [x] skybox mutator kill mutator
 [x] upside down mutator (180)
-[x] mclaine mutator (gun upside down)
+[x] mcclane mutator (gun upside down)
 [x] am I dead mutator (80)
 [x] no radar mutator
 [x] perm arrow on player head w/ life bar see through walls
