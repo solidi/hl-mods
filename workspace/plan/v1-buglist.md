@@ -67,18 +67,17 @@ Horde mode
 New Stuff
 [ ] Train AI to make new map?
 [ ] Add support paper to v_ models
-[ ] Tinnitus mutator
 [ ] Ice tean ps3 brown filter mutator - name it iced tea
 [ ] oj mutator, like ice tea but orange
-[ ] skycrane - touch the sky and you die 
 [ ] Ice cold mutator, flip it all
-[ ] skybox mutator kill mutator
 [ ] ricochet mutator speed should match weapon fire rate
 [ ] From Ben_Montes’ video, add an armor bar and/or damage numbers?
-[ ] upside down mutator (180)
-[ ] mclaine mutator (gun upside down)
-[ ] am I dead mutator (80)
-[ ] no radar mutator
+[x] Tinnitus mutator
+[x] skybox mutator kill mutator
+[x] upside down mutator (180)
+[x] mclaine mutator (gun upside down)
+[x] am I dead mutator (80)
+[x] no radar mutator
 [x] perm arrow on player head w/ life bar see through walls
 [x] distance read out for edge detection under arrow
 [x] blinking red health under 20

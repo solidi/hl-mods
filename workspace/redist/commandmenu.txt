@@ -155,8 +155,9 @@
     }
     "3" "Voice Overs"
     {
-        "1" "Original" "cl_voiceoverpath \'\'"
-        "2" "HEV" "cl_voiceoverpath hev"
+        "0" "Off" "cl_announcehumor 0"
+        "1" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
+        "2" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
     }
 }
 "5" "Sound"
