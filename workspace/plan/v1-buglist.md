@@ -71,7 +71,7 @@ New Stuff
 [ ] oj mutator, like ice tea but orange
 [ ] Ice cold mutator, flip it all
 [ ] ricochet mutator speed should match weapon fire rate
-[ ] From Ben_Montes’ video, add an armor bar and/or damage numbers?
+[x] From Ben_Montes’ video, add an armor bar and/or damage numbers?
 [x] Tinnitus mutator
 [x] skybox mutator kill mutator
 [x] upside down mutator (180)

@@ -68,6 +68,7 @@ v1.1 Features:
     - Added "mp_rtvtime [sec]" for real time voting time
     - Added server timestamps to chat messaging
 - Client
+    - Added damage numbers applied to the enemy rendered on the HUD
     - Improved voting menus for mutators and maps, made panels scrollable
     - Vote tallies on buttons are now on the are right side, and font size increased for readability
     - Sort certain game mode (like CTC) by lowest team member count for objective visibility
