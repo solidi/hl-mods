@@ -193,9 +193,11 @@ DESCRIPTION INFO_OPTIONS
 		{
 			LIST
 			"Hide" "0"
-			"Display" "1"
+			"Bar" "1"
+			"Bar + Damage Numbers" "2"
+			"Bar + Health Left" "3"
 		}
-		{ "1" }
+		{ "2" }
 	}
 
 	"cl_achievements"

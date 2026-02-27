@@ -132,8 +132,10 @@
 {
     "1" "Show Life Meters"
     {
-        "1" "On" "cl_lifemeters 1"
-        "2" "Off" "cl_lifemeters 0"
+        "1" "Off" "cl_lifemeters 0"
+        "2" "Bar" "cl_lifemeters 1"
+        "3" "Bar + Damage Numbers" "cl_lifemeters 2"
+        "4" "Bar + Health Left" "cl_lifemeters 3"
     }
 }
 "4" "Weapons"

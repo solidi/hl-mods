@@ -68,6 +68,7 @@ v1.1 Features:
     - Added "mp_rtvtime [sec]" for real time voting time
     - Added server timestamps to chat messaging
 - Client
+    - Added damage numbers applied to the enemy rendered on the HUD
     - Improved voting menus for mutators and maps, made panels scrollable
     - Vote tallies on buttons are now on the are right side, and font size increased for readability
     - Sort certain game mode (like CTC) by lowest team member count for objective visibility
@@ -376,7 +377,7 @@ Client:
     - "6" - gold skin
 - "cl_minfo [0|1]" - display weapon and rune pick up messages
 - "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
-- "cl_lifemeters [0|1]" - show or hide lifemeters above other players
+- "cl_lifemeters [0|1|2|3]" - show or hide lifemeters, damage numbers above players head
 - "cl_objectives [0|1]" - show objective read out on HUD
 - "cl_showposition [0|1]" - show or hide leaderboard position on HUD
 - "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
