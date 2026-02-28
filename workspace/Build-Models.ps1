@@ -491,6 +491,7 @@ try {
     Compile-Model $binDir "v_zapgun" $modelsdir $redistdir\models
     Compile-Model $binDir "v_zapgun" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "v_forcegrab" $modelsdir $redistdir\models
+    Compile-Model $binDir "v_forcegrab" $modelsdir\hd $redisthddir\models
     Compile-Model $binDir "panthereye" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_handgun" $modelsdir $redistdir\models
     Compile-Model $binDir "v_dual_handgun" $modelsdir\hd $redisthddir\models
