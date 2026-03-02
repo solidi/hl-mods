@@ -79,5 +79,6 @@ $hbox 0 "Bip01 R Hand" 0.000000 -0.870000 -2.210000 18.139999 3.320000 5.040000
 // animation sequence(s)
 $sequence "idle" "idle" fps 1  
 $sequence "grab" "grab" fps 15 
+$sequence "protect" "protect" fps 15 
 
 // End of QC script.
