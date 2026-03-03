@@ -79,5 +79,6 @@ $sequence "idle2" "idle1" fps 20
 $sequence "idle3" "idle1" fps 20 
 $sequence "pullup" "pullup" fps 42 
 $sequence "die" "die" fps 20 
+$sequence "offhand_left" "offhand_left" fps 25 
 
 // End of QC script.
