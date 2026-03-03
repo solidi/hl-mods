@@ -19,8 +19,10 @@ v1.1 Features:
     - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "upsidedown" - reverses up and down views
 - New Player Mechanics
-    - Forcegrab and punch enabled for single handed weapons
-    - Taunt supports offhand, auto taunt on offhand only, no longer preventing attacks
+    - Forcegrab and punch enabled for single-handed weapons
+    - Taunt now supports offhand use
+    - Auto-taunt triggers only when using the offhand
+    - Using taunt no longer prevents attacking
 - Game Modes Changes
     - Added banner system so that it is clear of team objective on entering arena
     - Added initial spectator mode and menu selection on certain game modes
