@@ -18,6 +18,9 @@ v1.1 Features:
     - "skyhook" - if a player touches a sky texture, they are gibbed
     - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "upsidedown" - reverses up and down views
+- New Player Mechanics
+    - Forcegrab and punch enabled for single handed weapons
+    - Taunt supports offhand, auto taunt on offhand only, no longer preventing attacks
 - Game Modes Changes
     - Added banner system so that it is clear of team objective on entering arena
     - Added initial spectator mode and menu selection on certain game modes
@@ -147,12 +150,14 @@ v1.1 Features:
         - Ricochet discs no longer apply a double death, fixed team colors
         - Made ricochet disc easier to decap
         - Fixed snowballs mutator icon
+        - Patched 999 mutator creating dead walking players
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
         - Center the protips across the screen correctly
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
+        - Disabled weapon throw of cigarettes
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav

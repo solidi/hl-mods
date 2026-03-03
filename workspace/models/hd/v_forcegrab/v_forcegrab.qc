@@ -21,7 +21,7 @@ $cliptotextures
 
 $bbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
 $cbox 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000
-$origin 0.000000 6.000000 0.000000
+$origin -3.000000 10.000000 2.000000
 $eyeposition 0.000000 0.000000 0.000000
 
 
@@ -75,3 +75,4 @@ $sequence "grab" "grab" fps 15
 $sequence "protect" "protect" fps 15 
 
 // End of QC script.
+
