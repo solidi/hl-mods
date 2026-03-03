@@ -146,7 +146,7 @@ v1.1 Features:
         - Fix numerous gamemodes where "trigger_hurt" does not register
         - Removed runes and mutator entities in between rounds
     - Maps
-        - Fixed spawnpoints in snowtransit
+        - Fixed spawnpoints in snowtransit, depot, focus
         - Fixed inverted textures on blue crates in snowyard
     - Mutators
         - Ricochet discs no longer apply a double death, fixed team colors
