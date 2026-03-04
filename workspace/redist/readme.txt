@@ -64,6 +64,7 @@ v1.1 Features:
     - Improved player rendering of the minime mutator
     - Improve loopback so that the player copies the viewangles of their victim
     - Add fvox countdown when a chaos mutator is about to rotate
+    - Weapons are hidden on Richochet mutator
 - Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's predictable
@@ -159,7 +160,7 @@ v1.1 Features:
         - Center the protips across the screen correctly
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
-        - Disabled weapon throw of cigarettes
+        - Send current menu to a connecting player during a vote
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
@@ -170,6 +171,7 @@ v1.1 Features:
         - Fixed ghost walking caused by the vest weapon
         - Fixed scale of knife world models
         - Fixed missing portalgun on HUD
+        - Disabled weapon throw of cigarettes
 
 v1 Features:
 
