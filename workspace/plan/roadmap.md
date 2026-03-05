@@ -97,7 +97,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] am i dead?
     1. [x] rats around map
 1. Weapon ViewModel / Effects
-    1. [x] Hand up effect if [taking blast damage likea tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
+    1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Fixes
     1. [x] sildenafil - make weapons fast
     1. [x] Change solid type of barrel after throw

@@ -45,7 +45,7 @@ v1.1 Features:
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props not longer play footsteps
-        - Play "pause beat" music during initial hiding
+        - Play "pause-beat" music during initial hiding
     - Shidden
         - Fart no longer instantly kills, now freezes player
         - Provided knife to dealters to frag player with knife when frozen
@@ -65,7 +65,7 @@ v1.1 Features:
     - Improved player rendering of the minime mutator
     - Improve loopback so that the player copies the viewangles of their victim
     - Add fvox countdown when a chaos mutator is about to rotate
-    - Weapons are hidden on Richochet mutator
+    - Weapons are hidden on Ricochet mutator
     - Weapons fire faster on the sildenafil mutator
 - Weapons Additions
     - Snowball
