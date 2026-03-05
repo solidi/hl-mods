@@ -45,13 +45,14 @@ v1.1 Features:
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props not longer play footsteps
+        - Play "pause-beat" music during initial hiding
     - Shidden
         - Fart no longer instantly kills, now freezes player
         - Provided knife to dealters to frag player with knife when frozen
         - Dealters no longer has access to other weapons or items
         - Removed cloak rune from gameplay
     - Snowball Fight
-        - Added snowball launcher power up (ammo rune)
+        - Added snowball launcher power up (ammo rune), added 12% chance of spawning
         - Snowball launcher secondary attack fires a larger snowball bomb
     - Teamplay
         - Add assists to the scoreboard
@@ -64,6 +65,8 @@ v1.1 Features:
     - Improved player rendering of the minime mutator
     - Improve loopback so that the player copies the viewangles of their victim
     - Add fvox countdown when a chaos mutator is about to rotate
+    - Weapons are hidden on Ricochet mutator
+    - Weapons fire faster on the sildenafil mutator
 - Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's predictable
@@ -153,13 +156,14 @@ v1.1 Features:
         - Made ricochet disc easier to decap
         - Fixed snowballs mutator icon
         - Patched 999 mutator creating dead walking players
+        - Patched fog mutator to correctly pass alpha
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
         - Center the protips across the screen correctly
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
-        - Disabled weapon throw of cigarettes
+        - Send current menu to a connecting player during a vote
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
@@ -170,6 +174,7 @@ v1.1 Features:
         - Fixed ghost walking caused by the vest weapon
         - Fixed scale of knife world models
         - Fixed missing portalgun on HUD
+        - Disabled weapon throw of cigarettes
 
 v1 Features:
 

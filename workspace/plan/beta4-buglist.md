@@ -2,7 +2,7 @@
 
 ##  June 2024 GSS #132
 
-[ ] map voting, when joining.
+[x] map voting, when joining.
 [x] a bad entity in index of edict
 [x] if people leave, voting count still too high
 [x] rocket bees?
@@ -62,11 +62,11 @@
 
 ## December 2023
 
-[ ] no man stands - corruption n objectives underneath
-[ ] killed self with handgrenade?
 [ ] pirate sounds when hat mutator on
-[ ] fire in observer?
-[ ] Make "chaos" in vote menu caps
+[x] no man stands - corruption n objectives underneath
+[x] fire in observer?
+[x] Make "chaos" in vote menu caps
+[x] killed self with handgrenade?
 [x] crowbar replace drift, weird spawn thing 
 [x] refix chillworks
 [x] chumtoad throw animation

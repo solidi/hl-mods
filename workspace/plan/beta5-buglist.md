@@ -23,7 +23,7 @@
 
 ## December 2024 Test #2
 
-[ ] death walk in instagib after death? (check video)
+[x] death walk in instagib after death? (check video)
 [x] check height of enemy to step down?
 [x] increase puppy velocity
 [x] play a sound on round over
@@ -44,7 +44,7 @@
 
 ## December 2024 Test #1
 
-[ ] vested mutator not giving vest
+[x] vested mutator not giving vest
 [x] doublefrost player spawn points and func_wall
 [x] ctf frag on game end?
 [x] prophunt model spin fix?
