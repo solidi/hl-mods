@@ -120,7 +120,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Horde mode improvements
         1. [ ] Amount of enemies increase from 5 to 10
             1. [ ] Basic task based on kills for upgrade
-    1. [ ] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
+    1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
     1. [ ] Chilldemic improvements
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time

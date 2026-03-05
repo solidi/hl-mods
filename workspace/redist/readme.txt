@@ -45,13 +45,14 @@ v1.1 Features:
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props not longer play footsteps
+        - Play "pause beat" music during initial hiding
     - Shidden
         - Fart no longer instantly kills, now freezes player
         - Provided knife to dealters to frag player with knife when frozen
         - Dealters no longer has access to other weapons or items
         - Removed cloak rune from gameplay
     - Snowball Fight
-        - Added snowball launcher power up (ammo rune)
+        - Added snowball launcher power up (ammo rune), added 12% chance of spawning
         - Snowball launcher secondary attack fires a larger snowball bomb
     - Teamplay
         - Add assists to the scoreboard
@@ -65,6 +66,7 @@ v1.1 Features:
     - Improve loopback so that the player copies the viewangles of their victim
     - Add fvox countdown when a chaos mutator is about to rotate
     - Weapons are hidden on Richochet mutator
+    - Weapons fire faster on the sildenafil mutator
 - Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's predictable
@@ -154,6 +156,7 @@ v1.1 Features:
         - Made ricochet disc easier to decap
         - Fixed snowballs mutator icon
         - Patched 999 mutator creating dead walking players
+        - Patched fog mutator to correctly pass alpha
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
