@@ -38,6 +38,8 @@ v1.1 Features:
         - Added world to screen visual indicator of the spot
         - Player scores only if the they see the center of the spot
     - Horde
+        - Added headcrab, zombie, houndeye to the monster rounds
+        - Improved aggressiveness of all monsters to directly attack players
         - Improved HUD health bar of enemies, show red on low health
     - JVS
         - Each player has a chance to become Jesus in a random pool so all are cycled
@@ -164,6 +166,7 @@ v1.1 Features:
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
         - Send current menu to a connecting player during a vote
+        - Fixed fire loop sound if on fire and placed in observer
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
