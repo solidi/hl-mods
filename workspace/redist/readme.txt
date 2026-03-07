@@ -39,7 +39,7 @@ v1.1 Features:
         - Player scores only if the they see the center of the spot
     - Horde
         - Added headcrab, zombie, houndeye to the monster rounds
-        - Improved agressiveness of all monsters to directly attack players
+        - Improved aggressiveness of all monsters to directly attack players
         - Improved HUD health bar of enemies, show red on low health
     - JVS
         - Each player has a chance to become Jesus in a random pool so all are cycled
