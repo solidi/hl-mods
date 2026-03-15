@@ -11,6 +11,10 @@ This mod features works from the community. Without their dedication and hard wo
 
 v1.1 Features:
 
+- New Game Modes
+    - "Loot" - teamed based battle to find hidden loot in a crate and bring it back to score
+        - All maps are supported
+        - A re-creation of what was described by Dario Casali, author of boot_camp
 - New Mutators
     - "amidead" - tilts view by eight degrees
     - "mcclane" - reverse the up and down weapon view model

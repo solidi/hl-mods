@@ -1007,6 +1007,8 @@ models\w_items.mdl
 models\coldspot.mdl
 models\v_vice.mdl
 models\v_vice_light.mdl
+models\w_crate.mdl
+models\w_isotopebox.mdl
 modes
 modes\jvs.txt
 modes\lms.txt
@@ -1026,6 +1028,7 @@ modes\instagib.txt
 modes\prophunt.txt
 modes\busters.txt
 modes\coldspot.txt
+modes\loot.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt

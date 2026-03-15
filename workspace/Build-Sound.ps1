@@ -181,7 +181,7 @@ Compile-Sound $binDir $redistDir $soundDir "round_over.mp3" 1.0 "sound\round_ove
 Compile-Sound $binDir $redistDir $soundDir "horse-neigh-390297.mp3" 1.0 "sound\horse_neigh.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "chicken_1.mp3" 1.0 "sound\chicken.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "rhodesmas_level-up.mp3" 2.0 "sound\level_up.wav" "wav"
-Compile-Sound $binDir $redistDir $soundDir "engineer_no01_1.mp3" 2.0 "sound\nope.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "engineer_no01_1.mp3" 3.0 "sound\nope.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "tinnitus_buzz_ext.mp3" 2.0 "sound\tinnitus_buzz.wav" "wav"
 }
 catch

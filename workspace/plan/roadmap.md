@@ -88,7 +88,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. See v1-buglist.md
 
 1. Game Modes
+    1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
+1. Gamemode Changes
     1. [x] Shidden, Stomp on head
+    1. [ ] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
 1. Game Mutators
     1. [x] Add hornetgun(s) to instagib as powerup
     1. Instant mutators
@@ -129,7 +132,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Chilling - plyers equipped with vice only, kill themself. Typing increases health, using voice as well Frags awarded if reach 200 health.
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
-    1. [ ] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
     1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
     1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] What about "Hot Potato". Grenade is on a count down to explode,  and you have to throw and hit someone with it. If it lands on the ground, after 2 seconds it goes back to the last player. When it goes off... gib fountain! (AudioCraZ)
