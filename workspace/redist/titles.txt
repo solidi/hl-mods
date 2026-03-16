@@ -1183,3 +1183,8 @@ Select_Mode
 {
 SELECT MODE
 }
+
+loot
+{
+LOOT
+}

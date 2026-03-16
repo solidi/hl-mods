@@ -1,0 +1,7 @@
+Teams of players spawn together.
+
+Crates are created, and one crate has the loot in a box.
+
+Fight and find the loot.
+
+Then bring it to the goal and win.

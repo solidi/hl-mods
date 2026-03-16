@@ -500,6 +500,8 @@ try {
     Compile-Model $binDir "v_vice" $modelsdir $redistdir\models
     Compile-Model $binDir "v_vice_light" $modelsdir $redistdir\models
     Compile-Model $binDir "coldspot" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_crate" $modelsdir $redistdir\models
+    Compile-Model $binDir "w_isotopebox" $modelsdir $redistdir\models
     }
 }
 catch
