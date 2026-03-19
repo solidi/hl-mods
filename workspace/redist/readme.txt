@@ -605,3 +605,7 @@ Server:
 Report Bugs:
 
 Please report defects by creating an issue here or in discord: https://github.com/solidi/hl-mods/issues
+
+Credits:
+
+For acknowledgements and contributor credits, please see credits.txt

@@ -114,7 +114,7 @@ Thanks To:
 - Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
 - Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins for the Jesus player model https://gamebanana.com/mods/179553
 - Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton
-- 101soundboards for Bill CLinton AI voice https://www.101soundboards.com/
+- 101soundboards for Bill Clinton AI voice https://www.101soundboards.com/
 - PunkAss for the Jack head model https://gamebanana.com/mods/179228
 - Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
 - Box player model from PlanetSun of Boxwars https://www.moddb.com/mods/boxwar
@@ -134,7 +134,7 @@ Thanks To:
 - DokuGamesLTD for inspiration, and their game Out Of Action https://store.steampowered.com/app/1670780/Out_of_Action/
 - FWGS team for the func_vehicle implementation https://github.com/FWGS/hlsdk-portable
 - Monster panthereye monster code by Alan https://github.com/Magic-Nipples
-- Ian Prest for the github keyboard layout editor http://www.keyboard-layout-editor.com
+- Ian Prest for the GitHub keyboard layout editor http://www.keyboard-layout-editor.com
 - Galy Raffo for the cowboy hat https://gamebanana.com/mods/380978
 - Venko for the ice_bro player model
 - Modern Cold Ice Remastered intro video developed by Napoleon
