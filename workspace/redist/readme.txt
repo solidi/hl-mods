@@ -456,8 +456,8 @@ Server:
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
 - "mp_gamemode" to select game mode
     - "ffa" - traditional free-for-all deathmatch
-    - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
-    - "lms" - battle royale, protect your lives in a shrinking saf\e-zone
+    - "arena" - 1 on 1 arena, two potential victors are selected to battle to a frag limit
+    - "lms" - battle royale, protect your lives in a shrinking safe zone
     - "busters" - one player has the egon and busts ghosts
     - "coldskull" - be the first to collect all the skulls!
     - "coldspot" - stay in a rotating zon to score points.
