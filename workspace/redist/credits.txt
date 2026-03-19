@@ -1,0 +1,140 @@
+Thanks To:
+
+- gravitos for inspiration of the 8 sided LJ https://gamebanana.com/mods/388995
+- Jeepy for pointing out sounds/barney/c1a2_ba_4zomb.wav https://www.youtube.com/watch?v=6xNh5qErf_E&t=528s
+- Eyepoke42 the YouTube channel and playtesting Beta 5 https://www.youtube.com/@Eyepoke42
+- postal and the JaBroni Brawl 3 dev crew for original game mode creations https://jabronibrawl.com/
+- Infinity for original and resurrection Cold-Ice models https://www.chaosworx.net/
+- Cathal McNally for every damn Half-Life programming tutorial brought together https://www.sourcemodding.com/
+- GameBanana for "the" archive of models, effects, and everything https://gamebanana.com/
+- Various for documenting all cut items from Half-Life https://tcrf.net/Half-Life_(Windows)
+- the303 for complete mdl spec documentation https://the303.org/tutorials/gold_qc.htm
+- Sparken for OzMod grapple hook source https://www.facebook.com/HalfLifeOzDMMod
+- zikshadow with handgun silencers https://gamebanana.com/skins/158498
+- Chris Whitman for the silencer tutorial https://web.archive.org/web/20011204054313fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/02.htm
+- Slartibarty for the fixed beretta model https://gamebanana.com/skins/142561
+- RR2DO2 for the cluster grenades tutorial http://web.archive.org/web/20010720214509/http://www.contaminated.net/whenitsdone/tutorials/coding/clustergrenades/index.shtml
+- APGRoboCop for grave bot https://github.com/APGRoboCop/grave_bot
+- MachIII for the weapons label tutorial http://web.archive.org/web/20040702181915/http://www.contaminated.net/mach3/tutorials/weapons/weapon_names.html
+- MyInstants.com, soundboard.com, movie-sounds.org and MovieSoundClips for humorous movie clips https://www.myinstants.com/ http://www.moviesoundclips.net/
+- RealPatryQVortex for the combat knife https://gamebanana.com/skins/174427
+- Flying Crowbar tutorial http://web.archive.org/web/20020717063241/http://lambda.bubblemod.org/tuts/crowbar/
+- GearBox for select sound effects, models, and hud sprites from Opposing Force
+- [BT]FLoyD for the adjustable tripmine beam tutorial http://web.archive.org/web/20040807130953/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=26
+- Romk4 for the HD Chumtoad models and sound https://gamebanana.com/skins/174694
+- L453rh4wk and sabianroberts for the view roll and bob tilt restoration https://github.com/ValveSoftware/halflife/issues/1544
+- Valve for select models from Team Fortress Classic
+- JoelTroch for the crowbar idle weapon fix https://github.com/ValveSoftware/halflife/issues/1585
+- Powerup deathmatch runes tutorial by Phantasiere (nrich@iinet.net.au)
+- Trond for the Holster animation fix tutorial https://web.archive.org/web/20011006194358fw_/http://www.planethalflife.com:80/wavelength/coding/tutorials/11.htm
+- Maxxiii for HLSources/Headcrab Frenzy for left-handed view model code https://github.com/HLSources
+- Teh Snake for the USAS-12 model https://gamebanana.com/mods/230345
+- Sgt.Leon and the HIT Forum for the HIT Fist pack https://gamebanana.com/mods/180184
+- Gaming Sound FX for sound and effects https://www.youtube.com/channel/UCi-xN4ZB6e-0JcXzvBEomlw
+- Audio Library - Free Sound Effects for sound and effects https://www.youtube.com/channel/UCkq5JZ2yOF7b0rkMQMgdAIA
+- WastelandHL for sound effects, animation, models, and inspiration http://wastelandhalflife.com/screenshots.shtml
+- Nucleo for the excellent pipe wrench https://gamebanana.com/mods/180196
+- The classic TFC wrench model by Valve https://www.moddb.com/mods/team-fortress-classic/addons/old-wrench-model
+- Snow-War for snowball models https://www.moddb.com/mods/snow-war
+- Gunship Mark II and MiniMod for select sprites https://gunshipstuff.x10.mx/
+- BlueNightHawk for modern camera, eflags tutorial, and model view effects https://www.youtube.com/channel/UC0PNv922mRm4moyG5a7yrqA
+- Koshak_HL for the HD chainsaw model and hud sprites http://www.mediafire.com/file/e58fkqupd1059qv/Half_Life_New_Weapons_Mod.rar/file
+- Ghoul_bb for the SD chainsaw models https://gamebanana.com/mods/180187
+- Fritz the Cat! for the hhev player model
+- SMOD series for the iron sights switch sounds effects https://www.moddb.com/mods/smod-40a
+- Jouko "Rapturer" Karvinen for the original Cold Ice map
+- Schrade for the focus map and Apo for the furrow map
+- zoonyarts and Brutal Half-Life for select sound, decals, and model assets https://www.moddb.com/mods/brutal-half-life
+- mikela-valve for the infinite ammo approach https://github.com/ValveSoftware/halflife/issues/2598
+- Bobito_Pawner and Firearms for the M16 model with reanimations https://www.moddb.com/games/half-life/addons/m16-reanimations-released
+- The Cold-Ice team 2.5 for the m16 weapon model
+- malortie for the crossbow and glock animation fixes https://github.com/malortie/halflife
+- The overhaul pack for select glow models and sound effects https://www.moddb.com/mods/half-life-overhaul-pack
+- Ghoul-bb and team for the BFG model, flakcannon, sprites from the Weapons Edition mod https://www.moddb.com/mods/half-life-weapon-edition
+- The nuclear explosion sound effect https://www.youtube.com/watch?v=BnTN19D7i0M
+- Steve Theodore of Valve for the Santa player model https://gamebanana.com/mods/179426
+- Nikolay Aulov for posting demos of interesting mod work https://www.youtube.com/channel/UC84fg8XhWXVhaw4Kfy2ch1g
+- AudioCraZ for the dedicated server and last minute testing for Beta 1
+- Napoleon for 64+ weapon support tutorial, game icons, and select sprites https://www.moddb.com/mods/flatlinea, https://hlfx.ru/forum/printthread.php?s=bfe881fac5dfaa3d7ba925e6641576ad&threadid=5299
+- Bobito_Pawner for select weapon animations https://www.moddb.com/members/bobitopawner
+- BlueNightHawk for thicker crosshairs and scalable HUD from New Light https://www.moddb.com/mods/half-life-new-light
+- Illya and Ku2zoff for plasma rifle / freeze gun code, CSO's plasma gun model https://cso.fandom.com/wiki/Plasma_Gun
+- Zarko 'Napoleon' Dinev for crossfire2k source as reskinned as snowcross https://gamebanana.com/mods/59331
+- BlackShadow306 for the cl_shadows tutorial https://twhl.info/thread/view/20220 
+- BlueNightHawk for weapon retract code https://github.com/BlueNightHawk/hl-newlight / https://www.moddb.com/mods/half-life-new-light
+- TheSpacePirate for frostfire, a reskin of bounfire https://www.reddit.com/r/HalfLife/comments/n0eq4o/i_made_all_the_original_halflife_multiplayer_maps/ / https://twhl.info/vault/view/6608
+- Bacontsu and others for glow model code found in Half-Life Extended SDK https://github.com/bacontsu/halflife-extended
+- Unnamed for the startup jingle from Stanley Steemer (call them for carpets cleaned!) https://www.youtube.com/watch?v=kda7SJHtUhk
+- Radiation Hazard for testing Beta 2 and uncovering bugs https://www.youtube.com/c/radiationhazardyt
+- Kralich/David for helping up get headlines on ModDB! https://www.moddb.com/members/kralichddg
+- Dave Johnston for dust, and AudioCraZ for his reskin called "drift"
+- suXin and the Half-Payne team for the dual mag60 animations https://www.moddb.com/mods/half-payne
+- Laser for the rocketcrowbar standard model https://gamebanana.com/mods/38100
+- Dario Casali for the original boot_camp, Napoleon for the rebuild, and AudioCraZ for the reskin of snow_camp
+- Romka, A.I., Valve (PS HD Pack), Napoleon for the baer model
+- Dario Casali for the original snark_pit, Napoleon for the rebuild, and AudioCraZ for the reskin of ice_pit
+- Martin "BulliT" Webrant for the autowepswitch code from agmod https://github.com/martinwebrant/agmod
+- Dave Riller for the original lambda_bunker, Napoleon for the rebuild, and AudioCraZ for the reskin of frozen_bunker
+- Goodlyay for the skull sprite found in the life meter https://www.deviantart.com/goodlyay/art/Skull-Sprite-407179427
+- crazydog for hosting Cold Ice Remastered on GoldSrc Saturdays https://www.goldsrcsaturdays.com/
+- sabianroberts and the Aura-SE project for the subtransit map file https://github.com/phoenixprojectsoftware/Aura-SE
+- Strast for boosting our discord server and suggesting a toggle on grappling to the sky
+- BlueNightHawk for the gravity gun code https://github.com/BlueNightHawk/hl-gravgun
+- Reworked animations of player somersaults and melees from The Specialists https://www.moddb.com/mods/the-specialists
+- Bo9da for testing and providing clear feedback on beta 2, and the idea of default_fov in config
+- Vertthrasher, Trusty Crowbar Team, H4wk, Thanez and others for the portal / gravity gun fusion model https://gamebanana.com/mods/180491
+- Balls in Yo Jaws for the Shart effect https://www.youtube.com/watch?v=ApU26gcYfkA
+- Randy Lundeen for the original gasworks, AudioCraZ for the rebuild and the reskin of chillworks
+- Bacontsu for wall climbing and other grappling from Codename Borea https://github.com/bacontsu/codename-borea/
+- Spirit of Half-Life for rain and snow effects https://github.com/HLSources/Spirit-of-Half-Life
+- FreeSlave for the latest Half-Life forge game data file (.fgd) https://github.com/FreeSlave/halflife-fgd
+- Dmitry for the video game cabinet model
+- Santa sound effects and delicious! from various youtube sources
+- Sanic and Evil Santa art from their perspective authors
+- suXin for sys_timescale support and deep mutator inspirations https://github.com/suXinjke/HalfPayne
+- Santa hat and winter accessories converted from CSO https://cso.fandom.com/wiki/Santa_hat
+- Unreal Tournament and its series for gameplay and round sound effects https://www.epicgames.com/unrealtournament
+- Napoleon for the snowman/iceman and mutators icons
+- The evil santa icon used in the game https://villainsfanon.fandom.com/wiki/Evil_Santa
+- The evil santa background used in the game https://pngtree.com/freebackground/merry-christmas-wood-plank-texture-background_1266178.html
+- Sonic-The-Falcon for sprite icon used in the game https://www.deviantart.com/sonic-the-falcon/art/Sanic-With-A-Christmas-Hat-509543445
+- Dexter for the converted TFC flamethrower models https://gamebanana.com/mods/180503
+- Shapirlic, Chyvachok and the newlife team for modified particle engine, fire and flame thrower https://www.moddb.com/mods/alternative-way
+- botman and Napoleon for the client radar tutorial https://web.archive.org/web/20011211004512/http://hlpp.valveworld.com:80/tuts/attrd.html
+- MrGnang for Half-Life Echoes (QuadFrost Antenna and look and feel) - https://en.wikipedia.org/wiki/Half-Life:_Echoes
+- Bacontsu for portalgun code and his work on mirroring https://github.com/bacontsu/halflife_portal
+- cagemonkey for the invention of the GunGame mode in Counter-Strike and the amx plugin https://avalanche.gungame.org/download.php
+- kriswema, Jeroen Bogers, and Zero3Cool for the resgen tool https://github.com/kriswema/resgen
+- Marc Laidlaw and Trashbang for dm_lister, and AudioCraZ for the opulent reskin https://thetrashbang.tumblr.com/
+- Valve, Romka, A.I. for the scientist HEV suit player model https://gamebanana.com/mods/179924
+- Nexon for the HD arcade cabinet, and updated skins by Napoleon
+- International Minds for select base skeletal animations https://www.moddb.com/mods/crack-life/downloads/crack-life-anniversary-v11
+- The Counter-Strike team for the skylake_ skybox used in frostmill
+- Iconfinder, thenounproject, and other sites for game icons https://www.iconfinder.com
+- Biggs for the respawning func_breakable tutorial https://web.archive.org/web/20080915083720/http://hlpp.thewavelength.net/tuts/respawnentities.txt
+- Marc "Pharaoh" Nuar and Brian "EvilBastard" Collins for the Jesus player model https://gamebanana.com/mods/179553
+- Valve for the skeleton model https://www.moddb.com/games/half-life/addons/skeleton
+- 101soundboards for Bill Clinton AI voice https://www.101soundboards.com/
+- PunkAss for the Jack head model https://gamebanana.com/mods/179228
+- Napoleon for the Beta 4 startup jingle, "ETA Never" using https://lmms.io/
+- Box player model from PlanetSun of Boxwars https://www.moddb.com/mods/boxwar
+- Original Cold Ice intro video by Coconutmonkey 28, sfx added by AudioCraZ and b1rd
+- BlueNightHawk for the client side flashlight tutorial https://gamebanana.com/tuts/14971
+- Pumpkin head by Valve https://gamebanana.com/mods/179426
+- Uncache sv_cheats code by Solokiller https://github.com/SamVanheer/halflife-updated/commit/04f8b91ffacb272e414363dcbbb551f16b6bf21b
+- 2048 client fix from hl-updated https://github.com/twhl-community/halflife-updated/commit/6ecc8f298bdd205eb056f7711f0b283e58f0bd60
+- Client fog tutorial by Overfloater https://twhl.info/wiki/page/Tutorial%3A_Coding_Fog
+- mp3 tutorial by Ghoul https://web.archive.org/web/20061027224308/http://collective.valve-erc.com/index.php?doc=1071795162-73085000
+- Grenade fix by Solokiller https://github.com/twhl-community/halflife-updated/commit/96ff7d7515fba7e0bc172217e07dbbea6fb659b8
+- ScriptedSnark for the GSChaos mod (and mutator code hints!) https://github.com/ScriptedSnark/GSChaos
+- Base Defense for selected sound effects https://www.moddb.com/mods/b-def
+- Napoleon, BlueNightHawk, and Bacontsu for thirdperson support
+- Syko for the Zapper model https://gamebanana.com/mods/180221
+- Nexon, Valve, CSO for the tombstone, reskinned by Napoleon
+- DokuGamesLTD for inspiration, and their game Out Of Action https://store.steampowered.com/app/1670780/Out_of_Action/
+- FWGS team for the func_vehicle implementation https://github.com/FWGS/hlsdk-portable
+- Monster panthereye monster code by Alan https://github.com/Magic-Nipples
+- Ian Prest for the GitHub keyboard layout editor http://www.keyboard-layout-editor.com
+- Galy Raffo for the cowboy hat https://gamebanana.com/mods/380978
+- Venko for the ice_bro player model
+- Modern Cold Ice Remastered intro video developed by Napoleon

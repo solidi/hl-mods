@@ -92,6 +92,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Gamemode Changes
     1. [x] Shidden, Stomp on head
     1. [ ] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
+    1. [ ] Provide side icons for flag, ctc toad, and lj when obtained
 1. Game Mutators
     1. [x] Add hornetgun(s) to instagib as powerup
     1. Instant mutators
