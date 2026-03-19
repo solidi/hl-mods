@@ -455,7 +455,9 @@ Server:
 - "mp_dualsonly [0|1]" - Replace all weapons with duals only
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
 - "mp_gamemode" to select game mode
+    - "ffa" - traditional free-for-all deathmatch
     - "arena" - 1 on 1 Arena - two potential victors are selected to battle to a frag limit
+    - "lms" - battle royale, protect your lives in a shrinking saf\e-zone
     - "busters" - one player has the egon and busts ghosts
     - "coldskull" - be the first to collect all the skulls!
     - "coldspot" - stay in a rotating zon to score points.
@@ -464,10 +466,9 @@ Server:
     - "ctf" - capture the flag, grab the flag and run it back to base!
     - "gungame" - get specific weapons for frags and level up!
     - "horde" - fight npc's, survive waves.
-    - "ffa" - traditional free-for-all deathmatch
     - "instagib" - grab a zapper and get to work.
     - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
-    - "lms" - last man standing, protect your lives be the last person standing to win
+    - "loot" - teamplay with hidden loot, get it to the goal
     - "prophunt" - spawn as a item, hide from thehunters
     - "shidden" - some are hidden, equipped with deadly farts.
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
