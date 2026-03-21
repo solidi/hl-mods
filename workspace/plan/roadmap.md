@@ -91,8 +91,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
 1. Gamemode Changes
     1. [x] Shidden, Stomp on head
-    1. [ ] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
-    1. [ ] Provide side icons for flag, ctc toad, and lj when obtained
+    1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
+    1. [x] Provide side icons for flag, ctc toad, and lj when obtained
 1. Game Mutators
     1. [x] Add hornetgun(s) to instagib as powerup
     1. Instant mutators
@@ -967,6 +967,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ## Tutorials
 
-1. [ ] Turret and airstrike credit
+1. [x] Turret and airstrike credit
 1. [ ] Walk back commits and see if any other tutorials can be posted to ModDB
-    1. [ ] [Fastswitch tutorial](https://twhl.info/wiki/page/Tutorial%3A_Change_hud_fastswitch_to_behave_like_Half-Life_Source) on TWHL
+    1. [x] [Fastswitch tutorial](https://twhl.info/wiki/page/Tutorial%3A_Change_hud_fastswitch_to_behave_like_Half-Life_Source) on TWHL

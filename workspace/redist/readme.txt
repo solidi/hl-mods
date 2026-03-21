@@ -15,6 +15,7 @@ v1.1 Features:
     - "Loot" - teamed based battle to find hidden loot in a crate and bring it back to score
         - All maps are supported
         - A re-creation of what was described by Dario Casali, author of boot_camp
+        - Introduces thirdperson camera support when running with loot
 - New Mutators
     - "amidead" - tilts view by eight degrees
     - "mcclane" - reverse the up and down weapon view model
@@ -33,12 +34,30 @@ v1.1 Features:
     - Added initial spectator mode and menu selection on certain game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
+    - Added teammate radar indicators above each player head
     - Battle Royale
         - Play siren sound when the safespot shrinks
         - Added screen warning and reduced timed damage outside safe area
         - Added world to screen visual indicator of the safe spot
+        - Slowly add health to safezone players
+        - Improve timeup team win calculation
+    - Busters
+        - Place the player's view in thirdperson when having the egon
+        - The player will always switch to the egon if they pick it up
+        - Buster cannot pickup weapons or ammo
+        - Disconnected buster is announced, choose new player
     - Capture the Chumtoad
+        - Place the player's view in thirdperson when having the chumtoad
         - Changed HUD to green when holding the chumtoad
+        - Chumtoad holder cannot pickup weapons or ammo
+    - Capture the Flag
+        - Place the player's view in thirdperson when having the flag
+    - Chilldemic
+        - Virus players no longer can pick up ammo and weapons
+    - Cold Skulls
+        - Improved play, better chance to hit collection limit
+        - Some skulls will be "magnetized" to the awarded player
+        - Flash screen when picking up skulls
     - Cold Spot
         - Added world to screen visual indicator of the spot
         - Player scores only if the they see the center of the spot
@@ -63,6 +82,7 @@ v1.1 Features:
         - Snowball launcher secondary attack fires a larger snowball bomb
     - Teamplay
         - Add assists to the scoreboard
+        - Show team color hud and radar indicators
 - Mutator Changes
     - Mirror mutator fully inverses the screenplay
     - Improve mutator voting menu with scrolling panel
@@ -92,6 +112,7 @@ v1.1 Features:
     - Dead hands now lock when on ground
     - HUD blinks red on low health
     - Removed unneeded rune title and messages
+    - Added longjump icon to hud when the item is accquired
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
@@ -118,10 +139,12 @@ v1.1 Features:
         - Battle Royale
             - Fixed safe spot hurt after round ends
         - Busters
+            - Fixed support for forced weapon grab of buster's egon
             - Fix bug where disconnected clients may become the busters
             - Fixed gamemode, only one person can be a buster
             - Disable "busters" mutator to prevent more than one buster
             - Disabled throwing the egon in this gamemode
+            - Disabled random change of egon spawning
         - Capture the Chumtoad
             - Chumtoad is removed when held during client disconnected
             - Do not allow instant chumtoad mutator
@@ -132,8 +155,6 @@ v1.1 Features:
         - Cold Spot
             - Prevent scoring after rounds ends
         - Cold Skulls
-            - Improved play, better chance to hit collection limit
-            - Some skulls will be "magnetized" to the awarded player
             - Fixed skull limit ending game
         - Gun Game
             - Fixed bug when level does not advance
@@ -172,6 +193,9 @@ v1.1 Features:
         - Fixed observer moveleft and moveright so they remain straight
         - Send current menu to a connecting player during a vote
         - Fixed fire loop sound if on fire and placed in observer
+        - Fixed ejection shell after respawn
+        - Don't show healthbar of player while invew spectator
+        - Forcegrab ignore teammates
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
@@ -332,6 +356,7 @@ v1 Features:
         - Patched flying with spamming frontflip
         - Fixed grapple hook stuck to players
         - Do not show fire on players who cannot take damage
+        - Forcegrab does not work on teammates
     - Fix crash on func_vehicle damage
     - Fix crash on kick and slide when applying damage
     - Auto melee ignores god mode entities
