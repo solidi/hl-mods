@@ -34,7 +34,7 @@ v1.1 Features:
     - Added initial spectator mode and menu selection on certain game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
-    - Added teammate radar indicators above each player head
+    - Added teammate radar indicators above each player's head
     - Battle Royale
         - Play siren sound when the safespot shrinks
         - Added screen warning and reduced timed damage outside safe area
@@ -112,7 +112,7 @@ v1.1 Features:
     - Dead hands now lock when on ground
     - HUD blinks red on low health
     - Removed unneeded rune title and messages
-    - Added longjump icon to hud when the item is accquired
+    - Added longjump icon to hud when the item is acquired
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
@@ -194,8 +194,8 @@ v1.1 Features:
         - Send current menu to a connecting player during a vote
         - Fixed fire loop sound if on fire and placed in observer
         - Fixed ejection shell after respawn
-        - Don't show healthbar of player while invew spectator
-        - Forcegrab ignore teammates
+        - Don't show healthbar of player while in-view spectator
+        - Forcegrab ignores teammates
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
