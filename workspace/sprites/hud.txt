@@ -1,4 +1,4 @@
-321
+324
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -321,6 +321,9 @@ skyhook	640 gameicons	192	0	64	64
 noradar	640 gameicons3	128	64	64	64
 tinnitus	640 gameicons4	0	128	64	64
 loot	640 gameicons2	128	192	64	64
+flag	640 gameicons6	0	0	64	64
+buster	640 gameicons5	64	192	64	64
+virus	640 gameicons3	64	192	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
