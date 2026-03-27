@@ -48,8 +48,9 @@
 "1" "Combat"
 {
     "1" "Throw Weapon" "impulse 216"
-    "2" "Drop Rune" "drop_rune"
-    "3" "Options"
+    "2" "Force Grab" "impulse 215"
+    "3" "Drop Rune" "drop_rune"
+    "4" "Auto Options"
     {
         "1" "Auto Melee"
         {
@@ -85,57 +86,83 @@
 }
 "2" "HUD"
 {
-    "1" "Show Objectives"
+    "0" "Gameplay Info"
     {
-        "1" "On" "cl_objectives 1"
-        "2" "Off" "cl_objectives 0"
+        "0" "Objectives"
+        {
+            "1" "On" "cl_objectives 1"
+            "2" "Off" "cl_objectives 0"
+        }
+        "1" "Sprees"
+        {
+            "1" "Screen Print" "cl_achievements 1"
+            "2" "Small Timed Bar" "cl_achievements 2"
+            "3" "Centered Circles" "cl_achievements 2"
+            "0" "Off" "cl_achievements 0"
+        }
+        "2" "Radar"
+        {
+            "1" "On" "cl_radar 1"
+            "2" "Off" "cl_radar 0"
+        }
+        "3" "Show Tips"
+        {
+            "1" "On" "cl_showtips 1"
+            "2" "Off" "cl_showtips 0"
+        }
+        "4" "Rune and Weapon Info"
+        {
+            "1" "On" "cl_minfo 1"
+            "2" "Off" "cl_minfo 0"
+        }
     }
-    "2" "Sprees"
+    "1" "Leaderboards"
     {
-        "0" "Off" "cl_achievements 0"
-        "1" "Screen Print" "cl_achievements 1"
-        "2" "Small Timed Bar" "cl_achievements 2"
-        "3" "Centered Circles" "cl_achievements 2"
+        "0" "Old Scoreboard"
+        {
+            "1" "On" "cl_oldscoreboard 1"
+            "2" "Off" "cl_oldscoreboard 0"
+        }
+        "1" "Old MOTD"
+        {
+            "1" "On" "cl_oldmotd 1"
+            "2" "Off" "cl_oldmotd 0"
+        }
+        "2" "Show Position"
+        {
+            "1" "On" "cl_showposition 1"
+            "2" "Off" "cl_showposition 0"
+        }
     }
-    "3" "Radar"
+    "2" "Respawn Bar"
     {
-        "1" "On" "cl_radar 1"
-        "2" "Off" "cl_radar 0"
+        "1" "On" "cl_respawnbar 1"
+        "2" "Off" "cl_respawnbar 0"
     }
-    "4" "Show Tips"
+    "3" "Flash on Pickup"
     {
-        "1" "On" "cl_showtips 1"
-        "2" "Off" "cl_showtips 0"
-    }
-    "5" "Old Scoreboard"
-    {
-        "1" "On" "cl_oldscoreboard 1"
-        "2" "Off" "cl_oldscoreboard 0"
-    }
-    "6" "Old MOTD"
-    {
-        "1" "On" "cl_oldmotd 1"
-        "2" "Off" "cl_oldmotd 0"
-    }
-    "7" "Rune and Weapon Info"
-    {
-        "1" "On" "cl_minfo 1"
-        "2" "Off" "cl_minfo 0"
-    }
-    "8" "Show Position"
-    {
-        "1" "On" "cl_showposition 1"
-        "2" "Off" "cl_showposition 0"
+        "1" "On" "cl_flashonpickup 1"
+        "2" "Off" "cl_flashonpickup 0"
     }
 }
 "3" "Environment"
 {
     "1" "Show Life Meters"
     {
-        "1" "Off" "cl_lifemeters 0"
-        "2" "Bar" "cl_lifemeters 1"
-        "3" "Bar + Damage Numbers" "cl_lifemeters 2"
-        "4" "Bar + Health Left" "cl_lifemeters 3"
+        "1" "Bar" "cl_lifemeters 1"
+        "2" "Bar + Damage Numbers" "cl_lifemeters 2"
+        "3" "Bar + Health Left" "cl_lifemeters 3"
+        "4" "Off" "cl_lifemeters 0"
+    }
+    "2" "Thirdperson Camera"
+    {
+        "1" "On" "cl_thirdcamera 1"
+        "2" "Off" "cl_thirdcamera 0"
+    }
+    "3" "Weather"
+    {
+        "1" "On" "cl_weather 3"
+        "2" "Off" "cl_weather 3"
     }
 }
 "4" "Weapons"
@@ -157,9 +184,48 @@
     }
     "3" "Voice Overs"
     {
-        "0" "Off" "cl_announcehumor 0"
-        "1" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
-        "2" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
+        "0" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
+        "1" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
+        "2" "Off" "cl_announcehumor 0"
+    }
+    "4" "Crosshair Ammo"
+    {
+        "1" "On" "cl_crosshairammo 1"
+        "2" "Off" "cl_crosshairammo 0"
+    }
+    "5" "Arm Position"
+    {
+        "1" "Right Hand" "cl_righthand 1"
+        "2" "Left Hand" "cl_righthand 0"
+        "3" "Left Knife" "cl_righthand -1"
+    }
+    "6" "Dynamics"
+    {
+        "0" "Weapon Sway"
+        {
+            "1" "On" "cl_weaponsway 1"
+            "0" "Off" "cl_weaponsway 0"
+        }
+        "1" "Weapon Fidget"
+        {
+            "1" "On" "cl_weaponfidget 1"
+            "2" "Off" "cl_weaponfidget 0"
+        }
+        "2" "Weapon Retract"
+        {
+            "1" "On" "cl_weaponretract 1"
+            "2" "Off" "cl_weaponretract 0"
+        }
+        "3" "Bob Tilt"
+        {
+            "1" "On" "cl_bobtilt 1"
+            "2" "Off" "cl_bobtilt 0"
+        }
+        "4" "Viewroll"
+        {
+            "1" "On" "cl_viewroll 1"
+            "2" "Off" "cl_viewroll 0"
+        }
     }
 }
 "5" "Sound"
@@ -169,10 +235,39 @@
         "1" "On" "cl_music 1"
         "2" "Off" "cl_music 0"
     }
-    "2" "Play Point"
+    "2" "Play Point Sound"
     {
         "1" "On" "cl_playpoint 1"
         "2" "Off" "cl_playpoint 0"
     }
 }
 "6" "Keyboard" "keyboard"
+"7" "Experimental"
+{
+    "1" "HUD Bend"
+    {
+        "1" "On" "cl_hudbend 0.05"
+        "2" "Off" "cl_hudbend 0"
+    }
+    "2" "HUD Scale"
+    {
+        "1" "Big" "cl_hudscale 0.5"
+        "2" "Bigger" "cl_hudscale 1"
+        "3" "Off" "cl_hudscale 0"
+    }
+    "3" "Particle System"
+    {
+        "1" "On" "cl_particlesystem 1"
+        "2" "Off" "cl_particlesystem 0"
+    }
+    "4" "Shadows"
+    {
+        "1" "On" "r_shadows 1"
+        "2" "Off" "r_shadows 0"
+    }
+    "5" "Glowmodels"
+    {
+        "1" "On" "cl_glowmodels 1"
+        "2" "Off" "cl_glowmodels 0"
+    }
+}
