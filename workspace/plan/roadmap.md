@@ -93,6 +93,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Shidden, Stomp on head
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
     1. [x] Provide side icons for flag, ctc toad, and lj when obtained
+    1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
 1. Game Mutators
     1. [x] Add hornetgun(s) to instagib as powerup
     1. Instant mutators
@@ -116,28 +117,19 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Add compiled mmod linux library
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
-1. Game Modes
+1. New Game Modes
+    1. [ ] last gun standing. similar to LMS and gun game. You start with strong weapon, each time you get killed next respawn you get a weaker weapon. The first to drop to the weakest weapon ends the round/game. It could be not just a weapon, but random weapon from a weapon category.
+    1. [ ] 1 vs. 1 mode, visualize leadership ladder board so there is an ulimate fight before mode ends
     1. [ ] Ice Tag - Teamplay, two teams. -When a player is killed (not a suicide) that player is Frozen. A frozen player will die after say 10-15 seconds, however if a teammate touches them they will revive (unfreeze).If all players on a give team are frozen then the round is lost by that team. (Napoleon's idea)
     1. [ ] Assimilated - if you frag a player from the opponent's team they join your team - the players can't change teams, and the round ends when the time runs out or when all players are in one team at any given point - basically kill and assimilate - obviously... I need to figure out what happens when the player count drops under two... xD - I would assume the round ends and those two players would be sucked back into waiting as observer lol. Or game could go so that if the last person is fragged on the opposite team, and then it ends. "Assimilated" is a nice name to the mode... (Napoleon's idea)
     1. [ ] One of those beeing Hide and Seek -> one player gets invisibility that he can use to move around the map, the rest are trying to find and kill him. While moving he's partially visible, while not moving he's invisible. The invisible player gets points every 30 seconds he's not taking damage. The invisible player has no weapons and cannot pick up weapons. If round rules are in effect if the round finishes, the alive invisible player gets a reward.
         [ ] The invisible player only gets slappers / back attack
-    1. [ ] Horde mode improvements
-        1. [ ] Amount of enemies increase from 5 to 10
-            1. [ ] Basic task based on kills for upgrade
-    1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
-    1. [ ] Chilldemic improvements
-      1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
-        1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
-      1. [ ] Skeleton appears the moment fragged from suvivor
-    1. [ ] CtC, more than one chumtoad?
     1. [ ] Chilling - plyers equipped with vice only, kill themself. Typing increases health, using voice as well Frags awarded if reach 200 health.
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
     1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
     1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] What about "Hot Potato". Grenade is on a count down to explode,  and you have to throw and hit someone with it. If it lands on the ground, after 2 seconds it goes back to the last player. When it goes off... gib fountain! (AudioCraZ)
-    1. [ ] Support
-        1. [ ] Wins / Rounds Left visual support
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
         1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)
         1. [ ] Point awards like [Maximum Action](https://www.youtube.com/watch?v=17isfGEjf20) (in death queue messages?)
@@ -145,6 +137,20 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Race to bottom (most deaths wins)
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
+1. Gamemode Improvements
+    1. [ ] Instagib
+        1. [ ] Golden gun / golden metal corpse fall
+        1. [ ] Oblierated,/ pixels death
+    1. [ ] Support
+        1. [ ] Wins / Rounds Left visual support
+    1. [ ] Horde mode improvements
+        1. [ ] Amount of enemies increase from 5 to 10
+            1. [ ] Basic task based on kills for upgrade
+    1. [ ] Chilldemic improvements
+      1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
+        1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
+      1. [ ] Skeleton appears the moment fragged from suvivor
+    1. [ ] CtC, more than one chumtoad?
 1. Game Mutators
     1. [ ] Deadly water, like skyhook, but with water textures
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
