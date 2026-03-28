@@ -1,4 +1,4 @@
-324
+326
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -312,7 +312,6 @@ godmode	640 gameicons5	0	192	64	64
 busters	640 gameicons5	64	192	64	64
 halflife	640 gameicons5	128	192	64	64
 firebullets	640 gameicons5	192	192	64	64
-chumtoad	640 gameicons	192	192	64	64
 mcclane	640 gameicons5	64	64	64	64
 upsidedown	640 gameicons	192	64	64	64
 rats	640 gameicons	0	0	64	64
@@ -320,10 +319,13 @@ amidead	640 gameicons3	0	128	64	64
 skyhook	640 gameicons	192	0	64	64
 noradar	640 gameicons3	128	64	64	64
 tinnitus	640 gameicons4	0	128	64	64
-loot	640 gameicons2	128	192	64	64
-flag	640 gameicons6	0	0	64	64
-buster	640 gameicons5	64	192	64	64
-virus	640 gameicons3	64	192	64	64
+cam_chumtoad	640 gameicons	192	192	64	64
+cam_loot	640 gameicons2	128	192	64	64
+cam_flag	640 gameicons6	0	0	64	64
+cam_buster	640 gameicons5	64	192	64	64
+cam_virus	640 gameicons3	64	192	64	64
+cam_winner	640 gameicons6	64	0	64	64
+cam_zone	640 gameicons3	128	128	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
