@@ -325,7 +325,7 @@ cam_flag	640 gameicons6	0	0	64	64
 cam_buster	640 gameicons5	64	192	64	64
 cam_virus	640 gameicons3	64	192	64	64
 cam_winner	640 gameicons6	64	0	64	64
-cam_zone 	640 gameicons3	128	128	64	64
+cam_zone	640 gameicons3	128	128	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64
