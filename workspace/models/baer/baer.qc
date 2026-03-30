@@ -46,6 +46,38 @@ studio "..\common\jeep"
 studio "..\common\toilet"
 }
 
+$texturegroup ice
+{
+  {
+    "remap1_000_126_255.bmp"
+    "bear_head_white.bmp"
+    "bear_head.bmp"
+    "bear_arms.bmp"
+    "bear_arms_white.bmp"
+    "Grunt_rucksack1.bmp"
+    "Grunt_boots.bmp"
+    "Grunt_misc.bmp"
+    "Grunt_Vest.bmp"
+    "Grunt_Helmet.bmp"
+    "Grunt_Hand_wht.bmp"
+    "Grunt_Hand_wht_white.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
+
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
 $attachment 1 "Bip01 R Hand" 15.000000 1.500000 3.750000

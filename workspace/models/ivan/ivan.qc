@@ -46,6 +46,33 @@ studio "..\common\jeep"
 studio "..\common\toilet"
 }
 
+$texturegroup ice
+{
+  {
+    "Glove_Top1.bmp"
+    "Remap1_000_000_255.bmp"
+    "Remap2_000_000_255.bmp"
+    "Remap3_000_000_255.bmp"
+    "Remap5_128_191_000.bmp"
+    "Side_of_Head1.bmp"
+    "TopSuit1.bmp"
+    "Back_of_Head1.bmp"
+    "Foot_btm1.bmp"
+    "Glove_Btm1.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000

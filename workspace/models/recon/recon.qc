@@ -46,6 +46,17 @@ studio "..\common\jeep"
 studio "..\common\toilet"
 }
 
+$texturegroup ice
+{
+  {
+    "dm_face.bmp"
+    "dm_base.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000

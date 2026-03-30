@@ -46,6 +46,17 @@ studio "..\common\jeep"
 studio "..\common\toilet"
 }
 
+$texturegroup ice
+{
+  {
+    "snow_man_pm.bmp"
+    "punisherchrome.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000

@@ -59,6 +59,64 @@ $controller 1 "Bip01 Spine1" XR -30.000000 30.000000
 $controller 2 "Bip01 Spine2" XR -30.000000 30.000000
 $controller 3 "Bip01 Spine3" XR -30.000000 30.000000
 
+$texturegroup ice
+{
+  {
+    "nghtstck1.bmp"
+    "Remap6_128_191_255.bmp"
+    "Side_Armour1.bmp"
+    "X_Face1.bmp"
+    "Helmet_Bttm.bmp"
+    "Helmet_MP.bmp"
+    "Hnd-Bsd1.bmp"
+    "Hnd-Knc1.bmp"
+    "Hnd-Plm1.bmp"
+    "Hnd-Top1.bmp"
+    "Hnd-Tsd1.bmp"
+    "Holster1.bmp"
+    "Neck_Bck1.bmp"
+    "Neck_Fnt1.bmp"
+    "Remap1_000_000_255.bmp"
+    "Remap2_000_000_255.bmp"
+    "Remap3_000_000_255.bmp"
+    "Remap4_000_000_255.bmp"
+    "Remap5_128_191_255.bmp"
+    "Boot_Side1.bmp"
+    "Card1.bmp"
+    "Foot_btm1.bmp"
+    "Hd_Lft1.bmp"
+    "Hd_Lft2.bmp"
+    "Helmet1.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
+
 // hit box(es)
 $hbox 3 "Bip01 Pelvis" -4.690000 -4.440000 -6.750000 4.000000 5.560000 6.750000
 $hbox 6 "Bip01 L Leg" 2.660000 -3.690000 -3.090000 18.160000 4.880000 3.310000
