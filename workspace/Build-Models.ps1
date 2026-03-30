@@ -502,6 +502,7 @@ try {
     Compile-Model $binDir "coldspot" $modelsdir $redistdir\models
     Compile-Model $binDir "w_crate" $modelsdir $redistdir\models
     Compile-Model $binDir "w_isotopebox" $modelsdir $redistdir\models
+    Compile-Model $binDir "goldenplayer" $modelsdir $redistdir\models
     }
 }
 catch

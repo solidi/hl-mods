@@ -96,6 +96,7 @@ v1.1 Features:
         - Add assists to the scoreboard
         - Show team color hud and radar indicators
 - Mutator Changes
+    - Goldenguns turns players into gold statues
     - Mirror mutator fully inverses the screenplay
     - Improve mutator voting menu with scrolling panel
     - In chaos mode, each mutator rotates in a random reducing pool so all are experienced
@@ -106,6 +107,7 @@ v1.1 Features:
     - Add fvox countdown when a chaos mutator is about to rotate
     - Weapons are hidden on Ricochet mutator
     - Weapons fire faster on the sildenafil mutator
+    - Add snowball launcher and instagib hornets during snowballs and instagib mutators
 - Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's predictable

@@ -32,6 +32,48 @@ $body "body" "HEV_male_torso_frosted_ref"
 $body "head" "HEV_male_head_frosted_ref"
 
 
+$texturegroup ice
+{
+  {
+    "wp_grenade.bmp"
+    "scientist_mouth.bmp"
+    "visor_chrome.bmp"
+    "rubbergloveCHROME.bmp"
+    "scientist_head_Slick.bmp"
+    "barney_belt.bmp"
+    "barney_holster.bmp"
+    "cir_logo.bmp"
+    "PLAYER_Chrome1.bmp"
+    "HEV_neck.bmp"
+    "HEV_helmet_top.bmp"
+    "HEV_glove.bmp"
+    "HEV_torso.bmp"
+    "HEV_leg_&_glove.bmp"
+    "HEV_helmet.bmp"
+    "Chrome_50Gry1.bmp"
+    "HEV_arm.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
+
+
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
 $attachment 1 "Bip01 R Hand" 15.000000 1.500000 3.750000

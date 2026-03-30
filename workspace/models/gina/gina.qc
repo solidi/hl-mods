@@ -46,6 +46,58 @@ studio "..\common\jeep"
 studio "..\common\toilet"
 }
 
+$texturegroup ice
+{
+  {
+    "olderface.bmp"
+    "olderside.bmp"
+    "headside.bmp"
+    "PLAYER_LegBck1.bmp"
+    "PLAYER_Chrome1.bmp"
+    "PLAYER_Deltoid1.bmp"
+    "PLAYER_Back1.bmp"
+    "PLAYER_Legs1.bmp"
+    "PLAYER_Chest1.bmp"
+    "PLAYER_Bicep1.bmp"
+    "PLAYER_ForeArm1.bmp"
+    "PLAYER_Calf1.bmp"
+    "PLAYER_Hand-Btm1.bmp"
+    "PLAYER_Hand-Top1.bmp"
+    "PLAYER_Shldr-Joint.bmp"
+    "PLAYER_Shoulders1.bmp"
+    "PLAYER_Teeth1.bmp"
+    "PLAYER_Boots.bmp"
+    "PLAYER_Chrome1.bmp"
+    "PLAYER_Cuff1.bmp"
+    "PLAYER_FootBtm1.bmp"
+    "PLAYER_FootTop1.bmp"
+    "PLAYER_Knee-Bck1.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+}
 
 // attachment(s)
 $attachment 0 "Bip01 R Hand" 20.000000 2.000000 5.000000
