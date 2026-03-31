@@ -99,7 +99,7 @@ v1.1 Features:
     - Added support for time declaration
         - Example: sv_addmutator "longjump" sets to whatever sv_mutatortime is in seconds
         - Example: sv_addmutator "longjump 120" for 120 seconds
-        - Example: sv_addmutator "longjump 0" for perm until map change or is cleared
+        - Example: sv_addmutator "longjump 0" for a permanent mutator duration until map change or until it is cleared
     - Goldenguns turns players into gold statues
     - Mirror mutator fully inverses the screenplay
     - Improve mutator voting menu with scrolling panel
@@ -419,8 +419,8 @@ Server:
 - "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
 - "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
 - "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds (approx)
-- "sv_addmutator" - Add mutators to gameplay. 
-    - Add seconds after mutator in quotes for timing
+- "sv_addmutator" - Add mutators to gameplay.
+    - Specify the duration in seconds inside the quotes after the mutator name
         - Example: sv_addmutator "longjump" sets to whatever sv_mutatortime is in seconds
         - Example: sv_addmutator "longjump 120" for 120 seconds
         - Example: sv_addmutator "longjump 0" for perm until map change or is cleared
