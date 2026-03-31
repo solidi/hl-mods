@@ -249,7 +249,7 @@ grenades	640 gameicons	0	192	64	64
 rockets 	640 gameicons	64	192	64	64
 speedup 	640 gameicons	128	192	64	64
 chumxplode	640 gameicons	192	192	64	64
-longjump	640 640hud2	    176	96	44	44
+longjump	640 640hud2	    166	86	64	64
 slowbullets	640 gameicons2	0	0	64	64
 paintball	640 gameicons2	64	0	64	64
 explosiveai	640 gameicons2	128	0	64	64

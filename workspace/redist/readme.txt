@@ -96,6 +96,10 @@ v1.1 Features:
         - Add assists to the scoreboard
         - Show team color hud and radar indicators
 - Mutator Changes
+    - Added support for time declaration
+        - Example: sv_addmutator "longjump" sets to whatever sv_mutatortime is in seconds
+        - Example: sv_addmutator "longjump 120" for 120 seconds
+        - Example: sv_addmutator "longjump 0" for perm until map change or is cleared
     - Goldenguns turns players into gold statues
     - Mirror mutator fully inverses the screenplay
     - Improve mutator voting menu with scrolling panel
@@ -223,6 +227,8 @@ v1.1 Features:
         - Fixed ejection shell after respawn
         - Don't show healthbar of player while in-view spectator
         - Forcegrab ignores teammates
+        - Fix player weapon animation after taunting
+        - Fixed menu title selection, give brief pause for mutator menu vote
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
@@ -413,7 +419,11 @@ Server:
 - "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
 - "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
 - "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds (approx)
-- "sv_addmutator" - Add mutators to gameplay
+- "sv_addmutator" - Add mutators to gameplay. 
+    - Add seconds after mutator in quotes for timing
+        - Example: sv_addmutator "longjump" sets to whatever sv_mutatortime is in seconds
+        - Example: sv_addmutator "longjump 120" for 120 seconds
+        - Example: sv_addmutator "longjump 0" for perm until map change or is cleared
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "unchaos" - to shut off chaos mode
     - "999" - start with 999 health and battery.
