@@ -1263,6 +1263,9 @@ sound\hev\fingergun_selected.wav
 sound\hev\dual_chaingun_selected.wav
 sound\hev\dual_hivehand_selected.wav
 sound\hev\zapgun_selected.wav
+sound\templevoices
+sound\templevoices\dogcall.wav
+sound\templevoices\harryisgone.wav
 sound\sentences.txt
 sound\materials.txt
 sound\vest_selected.wav

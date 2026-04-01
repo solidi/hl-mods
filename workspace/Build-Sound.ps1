@@ -53,6 +53,7 @@ if ($clean -eq $true) {
     [void](New-Item -ItemType directory -Path $redistDir\sound\comet)
     [void](New-Item -ItemType directory -Path $redistDir\sound\panthereye)
     [void](New-Item -ItemType directory -Path $redistDir\sound\ambience)
+    [void](New-Item -ItemType directory -Path $redistDir\sound\templevoices)
 }
 
 try {
@@ -395,5 +396,6 @@ Write-Output "Copying monster sounds..."
 Copy-Item -Recurse -Force -Path $soundDir\panthereye\* -Destination $redistdir\sound\panthereye
 Write-Output "Copying map sounds..."
 Copy-Item -Recurse -Force -Path $soundDir\comet\* -Destination $redistdir\sound\comet
+Copy-Item -Recurse -Force -Path $soundDir\templevoices\* -Destination $redistdir\sound\templevoices
 
 Set-Location -Path ${PSScriptRoot}
