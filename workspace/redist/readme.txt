@@ -147,6 +147,7 @@ v1.1 Features:
             - Initial map load value is respected
             - When sv_defaultbots is set to less value, overage of bots are kicked
             - Added sv_defaultbots -1 where operator can manually add or remove bots
+        - Reduce chance of a message destination crash
     - Gamemodes
         - Skip disconnected players in spectator player list
         - Don't show respawn bar on HUD if your round is over
@@ -230,6 +231,7 @@ v1.1 Features:
         - Forcegrab ignores teammates
         - Fix player weapon animation after taunting
         - Fixed menu title selection, give brief pause for mutator menu vote
+        - Additional row added for the old scoreboard to accommodate server name
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
