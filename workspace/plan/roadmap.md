@@ -251,7 +251,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Taser
     1. [ ] Counter-Strike penguin
 1. Weapons Mechanics
-    1. [ ] [Three burst shot](https://www.youtube.com/watch?v=klvKykzzMo4&t=50s)
+    1. [ ] [Three-burst shot](https://www.youtube.com/watch?v=klvKykzzMo4&t=50s)
     1. [ ] [Drop a forklift](https://www.youtube.com/watch?v=6MTjdllk1_E&t=450s) on players (third function, gravity gun)
     1. [ ] [Dio's Zawarudo](https://www.youtube.com/watch?v=6MTjdllk1_E&t=470s) on players
     1. [ ] [Sideways weapons?](https://www.reddit.com/r/AskGames/comments/6ktkki/what_was_the_first_shooter_game_where_the_player/)

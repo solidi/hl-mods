@@ -231,7 +231,7 @@ v1.1 Features:
         - Forcegrab ignores teammates
         - Fix player weapon animation after taunting
         - Fixed menu title selection, give brief pause for mutator menu vote
-        - Additional row added for the old scoreboard to accomodate server name
+        - Additional row added for the old scoreboard to accommodate server name
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
