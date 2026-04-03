@@ -204,6 +204,8 @@ v1.1 Features:
             - Prevent props from picking up weapons
         - Shidden
             - Fix missing messages when dealters defeated
+        - Snowball Fight
+            - Fix numerous crashes due to incomplete weapons management
         - Teamplay
             - Reset default teamlist if a previous gamemode changed it
         - Fix numerous gamemodes where "trigger_hurt" does not register
