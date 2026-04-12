@@ -34,11 +34,12 @@ DESCRIPTION SERVER_OPTIONS
 			"Horde" "10"
 			"Instagib" "11"
 			"Jesus vs. Santa" "12"
-			"Loot" "13"
-			"Prop Hunt" "14"
-			"Shidden" "15"
-			"Snowball Fight" "16"
-			"Teamplay" "17"
+			"Kick the Snowball" "13"
+			"Loot" "14"
+			"Prop Hunt" "15"
+			"Shidden" "16"
+			"Snowball Fight" "17"
+			"Teamplay" "18"
 		}
 		{ "0" }
 	}
@@ -384,7 +385,7 @@ DESCRIPTION SERVER_OPTIONS
 	{
 		"#Ice_Interactive_Items"
 		{ STRING }
-		{ "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel" }
+		{ "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib;kts_snowball" }
 	}
 
 	"mp_spawnweapons"

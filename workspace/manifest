@@ -1030,6 +1030,7 @@ modes\prophunt.txt
 modes\busters.txt
 modes\coldspot.txt
 modes\loot.txt
+modes\kts.txt
 overviews
 overviews\bounce2.bmp
 overviews\bounce2.txt
@@ -1590,6 +1591,11 @@ sound\horse_neigh.wav
 sound\level_up.wav
 sound\nope.wav
 sound\tinnitus_buzz.wav
+sound\gol.wav
+sound\soccer.wav
+sound\airhorn.wav
+sound\ball_bounce.wav
+sound\dribble.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

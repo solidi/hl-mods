@@ -1,4 +1,4 @@
-327
+328
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -327,6 +327,7 @@ cam_virus	640 gameicons3	64	192	64	64
 cam_winner	640 gameicons6	64	0	64	64
 cam_zone	640 gameicons3	128	128	64	64
 cam_danger	640 gameicons2	192	0	64	64
+cam_dribble	640 gameicons6	128	0	64	64
 
 // Runes
 rune_frag	640 640hudrunes	0	0	64	64

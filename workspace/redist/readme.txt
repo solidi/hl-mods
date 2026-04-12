@@ -12,7 +12,8 @@ This mod features works from the community. Without their dedication and hard wo
 v1.1 Features:
 
 - New Game Modes
-    - "Loot" - teamed based battle to find hidden loot in a crate and bring it back to score
+    - "Kick the Snowball" - teamed based battle to score a large snowball in the enemy's goal
+    - "Loot" - team-based battle to find hidden loot in a crate and bring it back to score
         - All maps are supported
         - A re-creation of what was described by Dario Casali, author of boot_camp
         - Introduces thirdperson camera support when running with loot
@@ -23,6 +24,8 @@ v1.1 Features:
     - "skyhook" - if a player touches a sky texture, they are gibbed
     - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "upsidedown" - reverses up and down views
+- New Command Menu
+    -  "+commandmenu" (;) is now available in-game to toggle many options provided
 - New Player Mechanics
     - Forcegrab and punch enabled for single-handed weapons
     - Taunt now supports offhand use
@@ -140,6 +143,8 @@ v1.1 Features:
     - Added two new music tracks by Napoleon
         - snowcross, themill, latenightxmas, and glupshitto tracks were updated
 - Fixes
+    - Combat
+        - Players bleed only when damaged, not in godmode or if damage is disabled
     - Bots
         - Patch traceline crashes
         - Fix BotFindItem crash, including linux server crash
@@ -235,6 +240,7 @@ v1.1 Features:
         - Fixed menu title selection, give brief pause for mutator menu vote
         - Additional row added for the old scoreboard to accommodate server name
         - Patch server crash the rune_ammo
+        - Fixed cutoff scoreboard voice column
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
@@ -272,6 +278,7 @@ Client:
     - See installation above for Xash3d for support of HD models
 - "help" - Displays specific client Cold Ice Remastered options
 - "help_more" - Displays more client Cold Ice Remastered options
+- "+commandmenu" - All client options menu
 - "+hook" - Deploy hook
 - "+ironsight" - Use ironsights
 - "cl_achievements [0|1|2|3]" - displays fast fragging achievements
@@ -376,6 +383,7 @@ Server:
     - "horde" - fight npc's, survive waves.
     - "instagib" - grab a zapper and get to work.
     - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
+    - "kts" - teamplay footie with a large snowball
     - "loot" - teamplay with hidden loot, get it to the goal
     - "prophunt" - spawn as a item, hide from thehunters
     - "shidden" - some are hidden, equipped with deadly farts.

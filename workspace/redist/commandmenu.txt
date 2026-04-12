@@ -40,44 +40,46 @@
 //--------------------------------------------------------
 // Everything below here is editable
 
-"0" "Spectating"
+"0" "Teams"
 {
-    "1" "Join Menu" "menu"
-    "2" "Spectate" "spectate"
+    "0" "Spectator Menu" "menu"
+    "1" "Join Team Blue" "join_blue"
+    "2" "Join Team Red" "join_red"
+    "3" "Spectate" "spectate"
 }
 "1" "Combat"
 {
-    "1" "Throw Weapon" "impulse 216"
-    "2" "Force Grab" "impulse 215"
-    "3" "Drop Rune" "drop_rune"
-    "4" "Auto Options"
+    "0" "Throw Weapon" "impulse 216"
+    "1" "Force Grab" "impulse 215"
+    "2" "Drop Rune" "drop_rune"
+    "3" "Auto Options"
     {
-        "1" "Auto Melee"
+        "0" "Auto Melee"
         {
             "1" "On" "cl_am 1"
             "2" "Off" "cl_am 0"
         }
-        "2" "Auto Weapon Throw"
+        "1" "Auto Weapon Throw"
         {
             "1" "On" "cl_awt 1"
             "2" "Off" "cl_awt 0"
         }
-        "3" "Auto Taunt"
+        "2" "Auto Taunt"
         {
             "1" "On" "cl_at 1"
             "2" "Off" "cl_at 0"
         }
-        "4" "Auto Weapon Switch"
+        "3" "Auto Weapon Switch"
         {
             "1" "On" "cl_aws 1"
             "2" "Off" "cl_aws 0"
         }
-        "5" "Keyboard Acrobatics"
+        "4" "Keyboard Acrobatics"
         {
             "1" "On" "cl_kacro 1"
             "2" "Off" "cl_kacro 0"
         }
-        "6" "Anti-Vomit"
+        "5" "Anti-Vomit"
         {
             "1" "On" "cl_antivomit 1"
             "2" "Off" "cl_antivomit 0"
@@ -90,184 +92,184 @@
     {
         "0" "Objectives"
         {
-            "1" "On" "cl_objectives 1"
-            "2" "Off" "cl_objectives 0"
+            "0" "On" "cl_objectives 1"
+            "1" "Off" "cl_objectives 0"
         }
         "1" "Sprees"
         {
-            "1" "Screen Print" "cl_achievements 1"
-            "2" "Small Timed Bar" "cl_achievements 2"
-            "3" "Centered Circles" "cl_achievements 2"
-            "0" "Off" "cl_achievements 0"
+            "0" "Screen Print" "cl_achievements 1"
+            "1" "Small Timed Bar" "cl_achievements 2"
+            "2" "Centered Circles" "cl_achievements 3"
+            "3" "Off" "cl_achievements 0"
         }
         "2" "Radar"
         {
-            "1" "On" "cl_radar 1"
-            "2" "Off" "cl_radar 0"
+            "0" "On" "cl_radar 1"
+            "1" "Off" "cl_radar 0"
         }
         "3" "Show Tips"
         {
-            "1" "On" "cl_showtips 1"
-            "2" "Off" "cl_showtips 0"
+            "0" "On" "cl_showtips 1"
+            "1" "Off" "cl_showtips 0"
         }
         "4" "Rune and Weapon Info"
         {
-            "1" "On" "cl_minfo 1"
-            "2" "Off" "cl_minfo 0"
+            "0" "On" "cl_minfo 1"
+            "1" "Off" "cl_minfo 0"
         }
     }
     "1" "Leaderboards"
     {
         "0" "Old Scoreboard"
         {
-            "1" "On" "cl_oldscoreboard 1"
-            "2" "Off" "cl_oldscoreboard 0"
+            "0" "On" "cl_oldscoreboard 1"
+            "1" "Off" "cl_oldscoreboard 0"
         }
         "1" "Old MOTD"
         {
-            "1" "On" "cl_oldmotd 1"
-            "2" "Off" "cl_oldmotd 0"
+            "0" "On" "cl_oldmotd 1"
+            "1" "Off" "cl_oldmotd 0"
         }
         "2" "Show Position"
         {
-            "1" "On" "cl_showposition 1"
-            "2" "Off" "cl_showposition 0"
+            "0" "On" "cl_showposition 1"
+            "1" "Off" "cl_showposition 0"
         }
     }
     "2" "Respawn Bar"
     {
-        "1" "On" "cl_respawnbar 1"
-        "2" "Off" "cl_respawnbar 0"
+        "0" "On" "cl_respawnbar 1"
+        "1" "Off" "cl_respawnbar 0"
     }
     "3" "Flash on Pickup"
     {
-        "1" "On" "cl_flashonpickup 1"
-        "2" "Off" "cl_flashonpickup 0"
+        "0" "On" "cl_flashonpickup 1"
+        "1" "Off" "cl_flashonpickup 0"
     }
 }
 "3" "Environment"
 {
-    "1" "Show Life Meters"
+    "0" "Show Life Meters"
     {
-        "1" "Bar" "cl_lifemeters 1"
-        "2" "Bar + Damage Numbers" "cl_lifemeters 2"
-        "3" "Bar + Health Left" "cl_lifemeters 3"
-        "4" "Off" "cl_lifemeters 0"
+        "0" "Bar" "cl_lifemeters 1"
+        "1" "Bar + Damage Numbers" "cl_lifemeters 2"
+        "2" "Bar + Health Left" "cl_lifemeters 3"
+        "3" "Off" "cl_lifemeters 0"
     }
-    "2" "Thirdperson Camera"
+    "1" "Thirdperson Camera"
     {
-        "1" "On" "cl_thirdcamera 1"
-        "2" "Off" "cl_thirdcamera 0"
+        "0" "On" "cl_thirdcamera 1"
+        "1" "Off" "cl_thirdcamera 0"
     }
-    "3" "Weather"
+    "2" "Weather"
     {
-        "1" "On" "cl_weather 3"
-        "2" "Off" "cl_weather 3"
+        "0" "On" "cl_weather 3"
+        "1" "Off" "cl_weather 0"
     }
 }
 "4" "Weapons"
 {
-    "1" "Models"
+    "0" "Models"
     {
-        "1" "Original" "cl_icemodels 0"
-        "2" "Inverted" "cl_icemodels 1"
-        "3" "Iced" "cl_icemodels 2"
-        "4" "Special Edition" "cl_icemodels 3"
-        "5" "Original + Blue HEV" "cl_icemodels 4"
-        "6" "Silver" "cl_icemodels 5"
-        "7" "Gold" "cl_icemodels 6"
+        "0" "Original" "cl_icemodels 0"
+        "1" "Inverted" "cl_icemodels 1"
+        "2" "Iced" "cl_icemodels 2"
+        "3" "Special Edition" "cl_icemodels 3"
+        "4" "Original + Blue HEV" "cl_icemodels 4"
+        "5" "Silver" "cl_icemodels 5"
+        "6" "Gold" "cl_icemodels 6"
     }
-    "2" "Gun Smoke"
+    "1" "Gun Smoke"
     {
-        "1" "On" "cl_gunsmoke 1"
-        "2" "Off" "cl_gunsmoke 0"
+        "0" "On" "cl_gunsmoke 1"
+        "1" "Off" "cl_gunsmoke 0"
     }
-    "3" "Voice Overs"
+    "2" "Voice Overs"
     {
         "0" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
         "1" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
         "2" "Off" "cl_announcehumor 0"
     }
-    "4" "Crosshair Ammo"
+    "3" "Crosshair Ammo"
     {
-        "1" "On" "cl_crosshairammo 1"
-        "2" "Off" "cl_crosshairammo 0"
+        "0" "On" "cl_crosshairammo 1"
+        "1" "Off" "cl_crosshairammo 0"
     }
-    "5" "Arm Position"
+    "4" "Arm Position"
     {
-        "1" "Right Hand" "cl_righthand 1"
-        "2" "Left Hand" "cl_righthand 0"
-        "3" "Left Knife" "cl_righthand -1"
+        "0" "Right Hand" "cl_righthand 1"
+        "1" "Left Hand" "cl_righthand 0"
+        "2" "Left Knife" "cl_righthand -1"
     }
-    "6" "Dynamics"
+    "5" "Dynamics"
     {
         "0" "Weapon Sway"
         {
-            "1" "On" "cl_weaponsway 1"
-            "0" "Off" "cl_weaponsway 0"
+            "0" "On" "cl_weaponsway 1"
+            "1" "Off" "cl_weaponsway 0"
         }
         "1" "Weapon Fidget"
         {
-            "1" "On" "cl_weaponfidget 1"
-            "2" "Off" "cl_weaponfidget 0"
+            "0" "On" "cl_weaponfidget 1"
+            "1" "Off" "cl_weaponfidget 0"
         }
         "2" "Weapon Retract"
         {
-            "1" "On" "cl_weaponretract 1"
-            "2" "Off" "cl_weaponretract 0"
+            "0" "On" "cl_weaponretract 1"
+            "1" "Off" "cl_weaponretract 0"
         }
         "3" "Bob Tilt"
         {
-            "1" "On" "cl_bobtilt 1"
-            "2" "Off" "cl_bobtilt 0"
+            "0" "On" "cl_bobtilt 1"
+            "1" "Off" "cl_bobtilt 0"
         }
         "4" "Viewroll"
         {
-            "1" "On" "cl_viewroll 1"
-            "2" "Off" "cl_viewroll 0"
+            "0" "On" "cl_viewroll 1"
+            "1" "Off" "cl_viewroll 0"
         }
     }
 }
 "5" "Sound"
 {
-    "1" "Play Music"
+    "0" "Play Music"
     {
-        "1" "On" "cl_music 1"
-        "2" "Off" "cl_music 0"
+        "0" "On" "cl_music 1"
+        "1" "Off" "cl_music 0"
     }
-    "2" "Play Point Sound"
+    "1" "Play Point Sound"
     {
-        "1" "On" "cl_playpoint 1"
-        "2" "Off" "cl_playpoint 0"
+        "0" "On" "cl_playpoint 1"
+        "1" "Off" "cl_playpoint 0"
     }
 }
 "6" "Keyboard" "keyboard"
 "7" "Experimental"
 {
-    "1" "HUD Bend"
+    "0" "HUD Bend"
     {
-        "1" "On" "cl_hudbend 0.05"
-        "2" "Off" "cl_hudbend 0"
+        "0" "On" "cl_hudbend 0.05"
+        "1" "Off" "cl_hudbend 0"
     }
-    "2" "HUD Scale"
+    "1" "HUD Scale"
     {
-        "1" "Big" "cl_hudscale 0.5"
-        "2" "Bigger" "cl_hudscale 1"
-        "3" "Off" "cl_hudscale 0"
+        "0" "Big" "cl_hudscale 0.5"
+        "1" "Bigger" "cl_hudscale 1"
+        "2" "Off" "cl_hudscale 0"
     }
-    "3" "Particle System"
+    "2" "Particle System"
     {
-        "1" "On" "cl_particlesystem 1"
-        "2" "Off" "cl_particlesystem 0"
+        "0" "On" "cl_particlesystem 1"
+        "1" "Off" "cl_particlesystem 0"
     }
-    "4" "Shadows"
+    "3" "Shadows"
     {
-        "1" "On" "r_shadows 1"
-        "2" "Off" "r_shadows 0"
+        "0" "On" "r_shadows 1"
+        "1" "Off" "r_shadows 0"
     }
-    "5" "Glowmodels"
+    "4" "Glowmodels"
     {
-        "1" "On" "cl_glowmodels 1"
-        "2" "Off" "cl_glowmodels 0"
+        "0" "On" "cl_glowmodels 1"
+        "1" "Off" "cl_glowmodels 0"
     }
 }
