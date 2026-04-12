@@ -99,7 +99,7 @@
         {
             "0" "Screen Print" "cl_achievements 1"
             "1" "Small Timed Bar" "cl_achievements 2"
-            "2" "Centered Circles" "cl_achievements 2"
+            "2" "Centered Circles" "cl_achievements 3"
             "3" "Off" "cl_achievements 0"
         }
         "2" "Radar"
@@ -164,7 +164,7 @@
     "2" "Weather"
     {
         "0" "On" "cl_weather 3"
-        "1" "Off" "cl_weather 3"
+        "1" "Off" "cl_weather 0"
     }
 }
 "4" "Weapons"

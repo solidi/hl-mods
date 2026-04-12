@@ -13,7 +13,7 @@ v1.1 Features:
 
 - New Game Modes
     - "Kick the Snowball" - teamed based battle to score a large snowball in the enemy's goal
-    - "Loot" - teamed based battle to find hidden loot in a crate and bring it back to score
+    - "Loot" - team-based battle to find hidden loot in a crate and bring it back to score
         - All maps are supported
         - A re-creation of what was described by Dario Casali, author of boot_camp
         - Introduces thirdperson camera support when running with loot
@@ -25,7 +25,7 @@ v1.1 Features:
     - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "upsidedown" - reverses up and down views
 - New Command Menu
-    -  "+commandmenu" (;) is now available ingame to toggle many options provided
+    -  "+commandmenu" (;) is now available in-game to toggle many options provided
 - New Player Mechanics
     - Forcegrab and punch enabled for single-handed weapons
     - Taunt now supports offhand use
