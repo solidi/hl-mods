@@ -184,6 +184,11 @@ Compile-Sound $binDir $redistDir $soundDir "chicken_1.mp3" 1.0 "sound\chicken.wa
 Compile-Sound $binDir $redistDir $soundDir "rhodesmas_level-up.mp3" 2.0 "sound\level_up.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "engineer_no01_1.mp3" 3.0 "sound\nope.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "tinnitus_buzz_ext.mp3" 2.0 "sound\tinnitus_buzz.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "super-soccer-bumper.mp3" 1.0 "sound\soccer.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "mariano-closs-ahi-estaaaaa-gooool.mp3" 2.0 "sound\gol.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "airhorn.mp3" 1.0 "sound\airhorn.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "big-ball-bounce.mp3" 3.0 "sound\ball_bounce.wav" "wav" 0 0.6
+Compile-Sound $binDir $redistDir $soundDir "dribble.mp3" 4.0 "sound\dribble.wav" "wav" 6 12
 }
 catch
 {

@@ -89,12 +89,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. Game Modes
     1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
+    1. [x] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
 1. Gamemode Changes
+    1. [ ] bot behaviro improvement in all gamemodes
     1. [x] Shidden, Stomp on head
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
     1. [x] Provide side icons for flag, ctc toad, and lj when obtained
     1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
 1. Game Mutators
+    1. [ ] Stomp on head
     1. [x] Instagib
         1. [x] Golden gun / golden metal corpse fall
         1. [x] Add hornetgun(s) to instagib as powerup
@@ -105,6 +108,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] rats around map
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
+1. Mechanics
+    1. [ ] Support forcegrab for all force grab items that are stationary
 1. Fixes
     1. [x] sildenafil - make weapons fast
     1. [x] Change solid type of barrel after throw
@@ -129,7 +134,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Dog tag - on being killed everyone drops a dog tag, that lasts for 10 seconds. On pickup the dogdag gives a buff let's say random one from movement speed, to ammo regen, or health and battery. The goal of the gamemode is to pickup a number of those, let's say 50 and after that the game ends. (Napoleon)
     1. [ ] Frosted gamemode - you fight like normal, but you have a freeze timer. Like 10 seconds on one place you're frozen; additionally 30 seconds with no kill and you die. On kill the timer is reset. (Napoleon)
     1. [ ] Brawler mode - like River City Ransom. Weapons removed. Provide menu for weapons at a cost. Drop money as coins when killed. Use Barf, and other sayings in game as taunts.
-    1. [ ] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly chose two spawn points as goals? (AudioCraZ)
     1. [ ] What about "Hot Potato". Grenade is on a count down to explode,  and you have to throw and hit someone with it. If it lands on the ground, after 2 seconds it goes back to the last player. When it goes off... gib fountain! (AudioCraZ)
     1. [ ] [Arcade mode](https://wiki.sourceruns.org/wiki/Adrenaline_Gamer) but with points
         1. [ ] HUD that pops points [underneath crosshair](https://twitter.com/VRGgameofficial/status/1626341887534829568)

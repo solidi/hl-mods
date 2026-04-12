@@ -1096,7 +1096,7 @@ BATTLE ROYAL
 
 snowball
 {
-SNOWBALLS
+SNOWBALL FIGHT
 }
 
 random
@@ -1187,4 +1187,9 @@ SELECT MODE
 loot
 {
 LOOT
+}
+
+kts
+{
+KICK THE SNOWBALL
 }
