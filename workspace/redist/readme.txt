@@ -145,7 +145,7 @@ v1.1 Features:
 - Fixes
     - Combat
         - Players bleed only when damaged, not in godmode or if damage is disabled
-        - Players no longer able to pogo flip in the air
+        - Players can no longer pogo flip in the air
         - Fixed player animations of flips based on velocity and direction
     - Bots
         - Patch traceline crashes
