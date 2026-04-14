@@ -4,7 +4,7 @@
 - **Game Mode**: `GAME_COLDSKULL = 5` (defined in `common/const.h`)
 - **String ID**: `"coldskull"` (mp_gamemode cvar)
 - **Description**: `"Cold Ice Cold Skulls"` — FFA collection mode
-- **Source**: `src/dlls/coldskull_gamerules.cpp`, `src/dlls/coldskull_gamerules.h`
+- **Source**: `workspace/src/dlls/coldskull_gamerules.cpp`, `workspace/src/dlls/coldskull_gamerules.h`
 - **Class**: `CHalfLifeColdSkull : public CHalfLifeMultiplay`
 
 ## Win Condition

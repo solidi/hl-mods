@@ -15,10 +15,7 @@ A customizable banner system that displays team information and round start mess
 
 The banner is sent from server game rules code to clients via a registered user message.
 
-### Registration (already done in `player.cpp`):
-```cpp
-extern int gmsgBanner;
-// Registered in LinkUserMessages():
+### Registration (in the server code under `workspace/src`, e.g. that submodule's `player.cpp`):
 gmsgBanner = REG_USER_MSG("Banner", -1);
 ```
 
