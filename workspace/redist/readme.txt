@@ -64,6 +64,7 @@ v1.1 Features:
         - Virus players no longer can pick up ammo and weapons
     - Cold Skulls
         - Improved play, better chance to hit collection limit
+        - Bot behaviors are now optimized to seek skulls
         - Some skulls will be "magnetized" to the awarded player
         - Flash screen when picking up skulls
     - Cold Spot
