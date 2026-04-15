@@ -43,9 +43,10 @@
 "0" "Teams"
 {
     "0" "Spectator Menu" "menu"
-    "1" "Join Team Blue" "join_blue"
-    "2" "Join Team Red" "join_red"
-    "3" "Spectate" "spectate"
+    "1" "Auto Join" "auto_join"
+    "2" "Join Team Blue" "join_blue"
+    "3" "Join Team Red" "join_red"
+    "4" "Spectate" "spectate"
 }
 "1" "Combat"
 {

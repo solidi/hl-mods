@@ -55,9 +55,11 @@ v1.1 Features:
         - Buster cannot pickup weapons or ammo
         - Disconnected buster is announced, choose new player
     - Capture the Chumtoad
+        - Improved bot play, more attacks and strategy of holding the chumtoad
         - Place the player's view in thirdperson when having the chumtoad
         - Changed HUD to green when holding the chumtoad
         - Chumtoad holder cannot pickup weapons or ammo
+        - Moved points and timer to the objective read out
     - Capture the Flag
         - Place the player's view in thirdperson when having the flag
     - Chilldemic
