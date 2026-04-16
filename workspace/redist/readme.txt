@@ -61,6 +61,7 @@ v1.1 Features:
         - Chumtoad holder cannot pickup weapons or ammo
         - Moved points and timer to the objective read out
     - Capture the Flag
+        - Highly improved bots, play ctf amoung team-members
         - Place the player's view in thirdperson when having the flag
     - Chilldemic
         - Virus players no longer can pick up ammo and weapons
@@ -118,6 +119,9 @@ v1.1 Features:
     - Weapons are hidden on Ricochet mutator
     - Weapons fire faster on the sildenafil mutator
     - Add snowball launcher and instagib hornets during snowballs and instagib mutators
+- Bot Changes
+    - Tuned and improved bot behavior on all gcustom game modes
+    - Bots no longer attempt wallclimbing
 - Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's predictable
@@ -185,6 +189,7 @@ v1.1 Features:
         - Capture the Flag
             - Fixed double return flag bug
             - Fixed numerous incorrect readouts
+            - Fixed spectator status
         - Chilldemic
             - Rename skeleton to skeletons
         - Cold Spot
