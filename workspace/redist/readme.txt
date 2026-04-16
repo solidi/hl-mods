@@ -229,6 +229,7 @@ v1.1 Features:
         - Fixed spawnpoints in snowtransit, depot, focus
         - Fixed inverted textures on blue crates in snowyard
         - Added missing sounds for thetemple
+        - Fixed overview bmp of frostfire
     - Mutators
         - Ricochet discs no longer apply a double death, fixed team colors
         - Made ricochet disc easier to decap
