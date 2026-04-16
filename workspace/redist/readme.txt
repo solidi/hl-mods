@@ -61,7 +61,7 @@ v1.1 Features:
         - Chumtoad holder cannot pickup weapons or ammo
         - Moved points and timer to the objective read out
     - Capture the Flag
-        - Highly improved bots, play ctf amoung team-members
+        - Highly improved bots, play ctf among team-members
         - Place the player's view in thirdperson when having the flag
     - Chilldemic
         - Virus players no longer can pick up ammo and weapons
@@ -74,7 +74,7 @@ v1.1 Features:
         - Place the player's view in thirdperson when in the spot
         - The spot is contested if both teams are in the zone
         - Added world to screen visual indicator of the spot
-        - Player scores only if the they see the center of the spot
+        - Player scores only if they see the center of the spot
         - Slowly add health to safezone players
     - Horde
         - Advance wave only when players are successful in previous wave
@@ -87,7 +87,7 @@ v1.1 Features:
         - More props spawn than hunters
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
-        - Props not longer play footsteps
+        - Props no longer play footsteps
         - Play "pause-beat" music during initial hiding
         - Disable automelee in this gamemode to avoid automatic finding
     - Shidden
@@ -120,7 +120,7 @@ v1.1 Features:
     - Weapons fire faster on the sildenafil mutator
     - Add snowball launcher and instagib hornets during snowballs and instagib mutators
 - Bot Changes
-    - Tuned and improved bot behavior on all gcustom game modes
+    - Tuned and improved bot behavior on all custom game modes
     - Bots no longer attempt wallclimbing
 - Weapons Additions
     - Snowball
@@ -372,7 +372,7 @@ Server:
 - "mp_allowrunes [0|1]" - Allow powerup runes on server
 - "mp_allowvoiceovers [0|1]" - Allow public voiceovers
 - "mp_coldspotspawn" - name of entity where the spot will spawn
-- "mp_coldspottime" - time in seconds of when spot move 
+- "mp_coldspottime" - time in seconds of when spot moves
 - "mp_ctcsecondsforpoint" - amount of second holding chumtoad for a point
 - "mp_ctfspawn1" - name of entity where blue base will spawn in map
 - "mp_ctfspawn2" - name of entity where red base will spawn in map
@@ -385,7 +385,7 @@ Server:
     - "lms" - battle royale, protect your lives in a shrinking safe zone
     - "busters" - one player has the egon and busts ghosts
     - "coldskull" - be the first to collect all the skulls!
-    - "coldspot" - stay in a rotating zon to score points.
+    - "coldspot" - stay in a rotating zone to score points.
     - "chilldemic" - be the survivor from the virus
     - "ctc" - capture the chumtoad, hold on to it to receive points!
     - "ctf" - capture the flag, grab the flag and run it back to base!
@@ -395,7 +395,7 @@ Server:
     - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
     - "kts" - teamplay footie with a large snowball
     - "loot" - teamplay with hidden loot, get it to the goal
-    - "prophunt" - spawn as a item, hide from thehunters
+    - "prophunt" - spawn as an item, hide from the hunters
     - "shidden" - some are hidden, equipped with deadly farts.
     - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
     - "teamplay" - frag with teams
@@ -410,7 +410,7 @@ Server:
 - "mp_iceblood [0|1]" - Enable blue blood
 - "mp_icesprites [0|1]" - Switch between select ice or real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib"" - A semicolon separated list of items that are "interactive" (kickable, pickupable)
-- "mp_meleedrop "[0|1]"" - allow kick or punch attcks to drop weapons out of hands
+- "mp_meleedrop "[0|1]"" - allow kick or punch attacks to drop weapons out of hands
 - "mp_moreblood [0-5]" - Increase blood up to 0-5 times
 - "mp_nukemode "[0|1|2]"" - 2 - nuke kills all, 1 - radius damage, 0 - sharts nothing but bubbles
 - "mp_prophunttime [time]" to set time hunters are frozen
@@ -482,7 +482,7 @@ Server:
     - "jack" - we don't make it 'til you order it.
     - "jeepathon" - everyone is a jeep.
     - "jope" - it's all a jope!
-    - "lightsout" - all the lights are turned out, but your flashight has unlimited battery
+    - "lightsout" - all the lights are turned out, but your flashlight has unlimited battery
     - "longjump" - everyone receives a long jump module
     - "loopback" - teleport to the place of your last frag
     - "marshmellow" - come back 1999 to you.
@@ -505,7 +505,7 @@ Server:
     - "pumpkin" - on Halloween, he appears.
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "randomweapon" - spawn with a randomly selected weapon
-    - "rats" - spawns numerous explosive rats omn the map
+    - "rats" - spawns numerous explosive rats on the map
     - "ricochet" - the best mod ever made
     - "rocketbees" - hornets are explosive
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
