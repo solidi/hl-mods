@@ -6,7 +6,7 @@
 - **Description**: `"Cold Ice Remastered Arena"` — 1v1 champion-defense duel
 - **Source**: `src/dlls/arena_gamerules.cpp`, `src/dlls/arena_gamerules.h`
 - **Class**: `CHalfLifeArena : public CHalfLifeMultiplay`
-- **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (BotArenaPreUpdate, BotArenaThink, BotCheckTeamplay registration, BotFindEnemy arena enhancements), `grave-bot-src/dlls/bot.cpp` (4-hook dispatch, BotSpawnInit, BotFindItem bypass, arenaChase direct-steer, post-synthesis speed variation), `grave-bot-src/dlls/bot_navigate.cpp` (fast recalc, dead-end escape), `grave-bot-src/dlls/bot.h` (arena struct fields), `grave-bot-src/dlls/bot_func.h` (declarations)
+- **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (BotArenaPreUpdate, BotArenaThink, BotCheckTeamplay registration, BotFindEnemy arena enhancements), `grave-bot-src/dlls/bot.cpp` (4-hook dispatch, death state cleanup, BotSpawnInit, BotFindItem bypass, arenaChase direct-steer, post-synthesis speed variation), `grave-bot-src/dlls/bot_navigate.cpp` (fast recalc, opponent-dead fallthrough, dead-end escape), `grave-bot-src/dlls/bot.h` (arena struct fields), `grave-bot-src/dlls/bot_func.h` (declarations)
 
 ## Win Condition
 - First player to reach `roundfraglimit` frags wins the round
@@ -21,12 +21,20 @@
 - `PlayerKilled` updates both players' HUD objectives with frags-to-go and progress bar (0–100%)
 
 ## Teams
-- **Blue**: Player 1 (champion or first selected), `m_szTeamName = "blue"`, `pev->fuser4 = RADAR_ARENA_BLUE`
-- **Red**: Player 2 (challenger), `m_szTeamName = "red"`, `pev->fuser4 = RADAR_ARENA_RED`
+- **Blue**: Player 1 (champion or first selected), `m_szTeamName = "blue"`, `pev->fuser4 = RADAR_ARENA_BLUE` (15)
+- **Red**: Player 2 (challenger), `m_szTeamName = "red"`, `pev->fuser4 = RADAR_ARENA_RED` (14)
+- Constants defined in `src/common/const.h` (lines 990–991)
 - Two team names registered via `gmsgTeamNames`: `"blue"` and `"red"`
 - `IsTeamplay()` returns `TRUE` (for scoreboard display)
 - `GetTeamIndex`: `"red"` → 1, anything else → 0
-- Bot team detection: `UTIL_GetTeam` returns `1 = blue`, `2 = red` (1-indexed)
+- Bot team detection: `UTIL_GetTeam` in `grave-bot-src/dlls/util.cpp` checks `pEntity->v.fuser4 == 14` → return 2 (red), else return 1 (blue). 1-indexed.
+
+### `fuser4` Lifecycle
+- **Set once at match start**: `arena_gamerules.cpp` ~line 488/491 assigns `RADAR_ARENA_BLUE` / `RADAR_ARENA_RED`
+- **NOT reset on mid-round respawn**: `PlayerSpawn` in `multiplay_gamerules.cpp` does not touch `fuser4`
+- **Cleared between rounds**: `CountPlayersInArena()` in `multiplay_gamerules.cpp` ~line 976 sets `pev->fuser4 = 0` for all players
+- **Cleared on bot disconnect**: `multiplay_gamerules.cpp` ~line 1625 sets `pev->fuser4 = 0`
+- This means `UTIL_GetTeam` works correctly for the entire duration of a round, including after respawns
 
 ## Match Flow
 
@@ -131,21 +139,67 @@ MATCH IN PROGRESS (g_GameInProgress = TRUE)
 
 ## Bot AI Implementation (grave-bot-src)
 
+### Build
+```powershell
+cd c:\hl-mods\workspace\grave-bot-src\dlls
+& "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe" grave_bot.sln /v:normal
+```
+Solution file: `grave-bot-src/dlls/grave_bot.sln` (VS 2022, MSBuild)
+
+### Key Globals
+Defined in `grave-bot-src/dlls/dll.cpp` (NOT per-bot — shared across all bots):
+- `float is_team_play` — set by `BotCheckTeamplay()`; nonzero means team game
+- `int is_gameplay` — set by `BotCheckTeamplay()`; `GAME_ARENA = 1`, default 0 (FFA)
+
 ### Files Modified
 | File | What was added |
 |------|---------------|
 | `bot.h` | `i_arena_opponent`, `f_arena_seek_time`, `f_arena_vary_time`, `i_arena_approach_style`, `f_arena_approach_switch_time`, `f_arena_speed_factor` fields in `bot_t` struct |
 | `bot_combat.cpp` | `BotArenaPreUpdate()`, `BotArenaThink()`, `BotCheckTeamplay` arena registration, `BotFindEnemy` arena edge-case fixes |
-| `bot.cpp` | 4-hook dispatch in `BotThink`, `BotSpawnInit` field init, `BotFindItem` early return, `arenaChase` direct-steer, post-synthesis speed variation, `v_goal` wipe exclusion |
-| `bot_navigate.cpp` | `GAME_ARENA` in fast 0.5s recalc, snap-to-nearest on goal change, dead-end waypoint escape |
+| `bot.cpp` | 4-hook dispatch in `BotThink`, death state cleanup in dead block, early `BotArenaPreUpdate` call, `BotSpawnInit` field init, `BotFindItem` early return, `arenaChase` direct-steer, post-synthesis speed variation, `v_goal` wipe exclusion |
+| `bot_navigate.cpp` | `GAME_ARENA` in `BotFindWaypointGoal` (opponent-dead fallthrough to FFA), fast 0.5s recalc, snap-to-nearest on goal change, dead-end waypoint escape |
+| `util.cpp` | `GAME_ARENA` case in `UTIL_GetTeam` — checks `pev->fuser4 == 14` for red team |
 | `bot_func.h` | `BotArenaThink`, `BotArenaPreUpdate` declarations |
 
 ### Architecture
-1. **Detection** (`BotCheckTeamplay`): Runs once per-frame before bot think. Pre-sets `v_goal` toward opponent so movement works even on combat frames.
-2. **Pre-update** (`BotArenaPreUpdate`): Finds the one alive opponent on the other team, caches entity index, sets `v_goal`, routes `waypoint_goal` every 0.5s, clears pickup items.
-3. **Think** (`BotArenaThink`): Rotates approach styles (direct/flank/wander), overrides waypoint goal for non-direct styles, sets `v_goal` to opponent position. Returns `true` to prevent fallthrough to generic nav.
-4. **Post-synthesis speed variation** (bot.cpp): After the movement synthesis block, applies speed variation via `f_arena_speed_factor` — 40% full speed, 25% 0.8×, 20% 0.6×, 15% jump burst. Tactical jumps 12% chance. Rotates every 0.5–2s.
-5. **Direct-steer** (`arenaChase` in bot.cpp): Within 500u of opponent or when visible, bot steers directly via `bGoGoal = true`, bypassing waypoint routing for final approach.
+
+Execution pipeline in `BotThink()` — order matters:
+
+```
+1. Dead check (health < 1 || deadflag != DEAD_NO)
+   └─ Arena: clear pBotEnemy/v_goal/i_arena_opponent (every frame)
+   └─ BotSpawnInit (once via need_to_initialize)
+   └─ early-return (skip everything below)
+
+2. need_to_initialize = TRUE (arm for next death)
+
+3. Early PreUpdate
+   └─ CTF:   BotCtfPreUpdate()
+   └─ Arena: BotArenaPreUpdate()       ← sets v_goal before waypoint routing
+
+4. BotHeadTowardWaypoint()
+   └─ calls BotFindWaypointGoal()      ← arena section finds nearest wpt to opponent
+
+5. Game-mode PreUpdate calls (before BotFindEnemy)
+   └─ KTS / ColdSkulls / CtC / CTF / Arena PreUpdate
+
+6. BotFindEnemy()
+
+7. if enemy: BotShootAtEnemy()
+   else:
+     a. Engagement reset (waypoint_goal = -1, force recalc)
+     b. Pickup clearing (pBotPickupItem = NULL)
+     c. BotArenaThink()                ← refreshes v_goal to opponent
+
+8. Movement / direction synthesis
+   └─ arenaChase direct-steer          ← <300u or <500u+visible
+
+9. Post-synthesis speed variation       ← f_arena_speed_factor applied
+
+10. v_goal wipe (arena excluded)
+
+11. pfnRunPlayerMove()
+```
 
 ### Detection (`bot_combat.cpp` — `BotCheckTeamplay`)
 - Reads `mp_gamemode` cvar, matches `"arena"` via `strstr` or `atoi == GAME_ARENA`
@@ -153,22 +207,36 @@ MATCH IN PROGRESS (g_GameInProgress = TRUE)
 - Sets `is_gameplay = GAME_ARENA`
 - **CRITICAL**: Without this entry, `is_gameplay` stays at 0 (default FFA), and ALL `GAME_ARENA` checks in bot code are dead. This was the root cause of the original "bots behave identically to FFA" bug.
 
+### Death State Cleanup (`bot.cpp` — dead block)
+- Runs every frame while the bot is dead (`deadflag != DEAD_NO`), BEFORE `BotSpawnInit`
+- Immediately clears: `pBotEnemy = NULL`, `b_engaging_enemy = FALSE`, `v_goal = g_vecZero`, `i_arena_opponent = -1`
+- Fires unconditionally (not gated by `need_to_initialize`), so state is wiped starting from `DEAD_DYING` — not just `DEAD_DEAD`
+- Prevents the bot from visually tracking its dead opponent during its own death animation
+- `BotSpawnInit` still fires once via `need_to_initialize` to clear all remaining fields
+
+### `need_to_initialize` Flow
+- `bot_t::need_to_initialize` (`bool`, declared in `bot.h`)
+- Set to `FALSE` at bot creation (line 850)
+- Set to `TRUE` on the first alive frame after death (line 1756) — arms the initializer for the next death
+- When dead and `need_to_initialize == TRUE`: fires `BotSpawnInit()` once, then sets `FALSE` (line 1705–1710)
+- After that single fire, the dead block early-returns every frame without re-initializing
+- This means arena death-state cleanup MUST be placed BEFORE the `need_to_initialize` check to run every dead frame
+
 ### Pre-Update (`bot_combat.cpp` — `BotArenaPreUpdate`)
-- Runs every frame before `BotFindEnemy`
+- Runs in **two call sites**:
+  1. **Early** (bot.cpp): Before `BotHeadTowardWaypoint`, matching the CTF `BotCtfPreUpdate` pattern. Ensures `v_goal` is set on the first frame after spawn so `BotFindWaypointGoal` has a valid target immediately.
+  2. **Main** (bot.cpp): Before `BotFindEnemy`, refreshing `v_goal` each frame.
 - Scans all players for the one alive opponent on a different team (`UTIL_GetTeam`)
 - Caches opponent entity index in `i_arena_opponent`
-- Sets `v_goal` to opponent's `pev->origin`
-- Every 0.5s: routes `waypoint_goal` via `WaypointRouteFromTo` using `team = -1` (unfiltered)
+- Sets `v_goal` to opponent's `pev->origin`, `f_goal_proximity = 0.0`
 - Clears `pBotPickupItem` and `item_waypoint` every frame
 
 ### Think Function (`bot_combat.cpp` — `BotArenaThink`)
 - Called from `BotThink`'s no-enemy else branch
-- Rotates approach style every 5–8s: direct (60%), flank (25%), random wander (15%)
-- Direct: waypoint goal already set by PreUpdate
-- Flank: picks waypoint near but not closest to opponent
-- Wander: random waypoint for 3–4s, then reverts to direct
-- Sets `v_goal` to opponent, `f_move_speed = max`, `f_goal_proximity = 20`
-- Returns `true` when movement intent is set
+- Validates cached opponent (`i_arena_opponent`); returns `false` if opponent is dead/disconnected
+- Refreshes `v_goal` to opponent's `pev->origin`, `f_goal_proximity = 0.0`
+- Waypoint goal selection delegated entirely to `BotFindWaypointGoal` (arena section in `bot_navigate.cpp`)
+- Returns `true` when valid opponent exists to prevent fallthrough to generic nav
 
 ### BotFindEnemy Arena Enhancements (`bot_combat.cpp`)
 - **5-second memory**: Enemy retained for 5s out of sight (vs default 2s) — `is_gameplay == GAME_ARENA` adds 3s to visibility timeout
@@ -190,10 +258,21 @@ MATCH IN PROGRESS (g_GameInProgress = TRUE)
 - Factor stored in `f_arena_speed_factor`, rotated every 0.5–2s via `f_arena_vary_time`
 - Breaks "both bots loop at same speed" anti-pattern
 
+### Waypoint Goal (`bot_navigate.cpp` — `BotFindWaypointGoal` arena section)
+- Finds the one alive opponent on the other team (same scan as PreUpdate)
+- Finds the nearest waypoint to opponent's position by pure distance (no LOS requirement)
+- Sets `wpt_goal_type = WPT_GOAL_LOCATION` and returns the waypoint index
+- **Opponent-dead fallthrough**: When no alive opponent is found (opponent is respawning), the `if (pOpponent)` guard is not entered and the entire `GAME_ARENA` block is skipped — code falls through to normal FFA waypoint logic (health/weapon/random) so the bot keeps navigating instead of standing still
+
 ### Waypoint Routing (`bot_navigate.cpp`)
 - `GAME_ARENA` added to 0.5s frequent recalculation condition (alongside KTS/CTF/CtC/ColdSkulls)
 - Snap-to-nearest-reachable on goal change: prevents backtracking to stale waypoints
 - Dead-end escape: when bot reaches a pathless waypoint, scans for nearby connected waypoint to jump to
+
+### Floyd Routing & `from_to[]` (`waypoint.cpp`)
+- `unsigned short *from_to[4]` — Floyd-Warshall routing tables, indexed by team (0–3)
+- `WaypointRouteFromTo(src, dest, team)`: `team = -1` is normalized to 0. If `from_to[team] == NULL`, falls back to `from_to[0]`.
+- Arena bots with `UTIL_GetTeam` returning 2 (red) use `from_to[2]`; since most maps have no team-specific waypoints, `from_to[2]` is NULL and falls back to `from_to[0]` — this is correct behavior, not a bug.
 
 ### State Cleared on Spawn (`BotSpawnInit`)
 All arena fields reset on every spawn:
@@ -208,6 +287,14 @@ All arena fields reset on every spawn:
 - `bot.cpp` has a generic `pBot->v_goal = g_vecZero` ("always forget goal") line that runs after think functions
 - Arena is in the exclusion list (same pattern as KTS/CtC/CTF/ColdSkulls) since `BotArenaPreUpdate` refreshes `v_goal` every frame
 
+### Direct-Steer (`arenaChase` in `bot.cpp`)
+- Local bool `arenaChase` in the movement/direction block (~line 2896)
+- Activates when `is_gameplay == GAME_ARENA && v_goal != g_vecZero`
+- **< 300u**: unconditional direct-steer (always `arenaChase = true`)
+- **300–500u**: only if `FVisible(v_goal, pEdict)` passes — prevents wall-walking through windows/gaps the bot can't physically traverse
+- **> 500u**: waypoint routing only (no direct-steer)
+- When `arenaChase` is true, sets `bGoGoal = true` which bypasses waypoint-following and steers directly toward `v_goal`
+
 ### Post-Combat Reset (`bot.cpp` — `b_engaging_enemy` branch)
 - Clears `waypoint_goal = -1`, forces `f_waypoint_goal_time = 0` to trigger immediate recalc toward opponent
 - Resets `old_waypoint_goal = -1` (don't return to stale item goal)
@@ -217,5 +304,7 @@ All arena fields reset on every spawn:
 2. **Team 0 is valid**: `UTIL_GetTeam` returns 1 (blue) or 2 (red), but team index 0 exists. An early bug had `otherTeam != 0` which excluded blue (team 0 in some contexts), so red bots never found their opponent. Fix: removed team 0 exclusion.
 3. **Waypoint routing needs `team = -1`**: Team-filtered waypoint searches (`WaypointFindNearest` with team param) can fail on maps with no team-specific waypoints. Arena uses `team = -1` for unfiltered searches.
 4. **Speed variation must be post-synthesis**: Setting `f_move_speed` in `BotArenaThink` gets overwritten by the movement synthesis block. The arena speed factor (`f_arena_speed_factor`) is applied AFTER synthesis to ensure it takes effect.
-5. **`v_goal` must be set before `BotHeadTowardWaypoint`**: PreUpdate runs before `BotFindEnemy` to ensure `v_goal` is fresh for the movement block.
+5. **`v_goal` must be set before `BotHeadTowardWaypoint`**: PreUpdate must run *early* (before `BotHeadTowardWaypoint`) — not just before `BotFindEnemy` — so that `v_goal` is valid on the very first frame after spawn. Without the early call, `BotFindWaypointGoal` fires with `v_goal == g_vecZero`, returns -1, and the 0.5s cooldown leaves the bot wandering aimlessly. This is the same pattern CTF uses with `BotCtfPreUpdate`.
 6. **Dead-end waypoints cause infinite spin**: Waypoints without outgoing paths trap the bot in a spin loop. The dead-end escape logic scans for nearby connected waypoints to break out.
+7. **Death animation keeps enemy state alive**: The dead block (`deadflag != DEAD_NO`) fires `BotSpawnInit` only once (via `need_to_initialize`), then early-returns every subsequent frame. Without explicit clearing, `pBotEnemy`, `v_goal`, and `i_arena_opponent` persist through the entire death animation — the bot keeps tracking its dead opponent. Fix: clear arena combat state unconditionally (every frame) at the top of the dead block, before the `need_to_initialize` check.
+8. **Opponent temporarily dead breaks waypoint goal**: When the opponent is respawning, `BotFindWaypointGoal`'s arena section can't find an alive opponent. If this sets `waypoint_goal = -1` and returns, the bot loses all navigation. Fix: guard the waypoint-setting code with `if (pOpponent)` and let the `!pOpponent` case fall through to normal FFA waypoint logic (health/weapon/random) so the bot keeps moving during the brief respawn window.
