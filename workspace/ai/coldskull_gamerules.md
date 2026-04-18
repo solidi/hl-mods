@@ -101,6 +101,7 @@ Two-tier priority, runs every 0.15–0.25s (randomized to spread network load):
 ### Detection (`bot_combat.cpp` — `BotCheckTeamplay`)
 - Reads `mp_gamemode` cvar, matches `"coldskull"` via `strstr` or `atoi == GAME_COLDSKULL`
 - Sets `is_gameplay = GAME_COLDSKULL`
+- **CRITICAL**: Without this entry, `is_gameplay` stays at 0 (default FFA), and ALL `GAME_COLDSKULL` checks in bot code are dead. Every game mode MUST have a corresponding entry in `BotCheckTeamplay()` (`bot_combat.cpp`).
 
 ### Think Function (`bot_combat.cpp` — `BotColdskullThink`)
 - Called from `BotThink`'s no-enemy else branch

@@ -40,6 +40,7 @@ v1.1 Features:
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Added teammate radar indicators above each player's head
     - 1 vs. 1
+        - Improved bot performance and seeking during gameplay
         - Player who wins battle continues to next battle until defeated
         - Player with most frags, even if negative, win if time runs out
     - Battle Royale
@@ -162,6 +163,7 @@ v1.1 Features:
             - When sv_defaultbots is set to less value, overage of bots are kicked
             - Added sv_defaultbots -1 where operator can manually add or remove bots
         - Reduce chance of a message destination crash
+        - Bots will advance to a visible waypoint if no paths exists
     - Gamemodes
         - Skip disconnected players in spectator player list
         - Don't show respawn bar on HUD if your round is over

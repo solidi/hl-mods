@@ -198,7 +198,8 @@ if (pPlayer->IsAlive() && pPlayer->m_iHoldingChumtoad)
 ### Detection (`bot_combat.cpp` — `BotCheckTeamplay`)
 - Reads `mp_gamemode` cvar, matches `"ctc"` via `strstr` or `atoi == GAME_CTC`
 - Sets `is_gameplay = GAME_CTC`
-- **Note**: Unlike KTS/CTF/Coldskull, does NOT force `is_team_play = TRUE` — but the server-side `IsTeamplay()` returns TRUE, so the engine passes team info. Team filtering in `BotFindEnemy` uses `UTIL_GetTeam` checks which already skip same-team players.
+- **Note**: Unlike KTS/CTF/Arena, does NOT force `is_team_play = TRUE` — but the server-side `IsTeamplay()` returns TRUE, so the engine passes team info. Team filtering in `BotFindEnemy` uses `UTIL_GetTeam` checks which already skip same-team players.
+- **CRITICAL**: Without this entry, `is_gameplay` stays at 0 (default FFA), and ALL `GAME_CTC` checks in bot code are dead. Every game mode MUST have a corresponding entry in `BotCheckTeamplay()` (`bot_combat.cpp`).
 
 ### Enemy Filtering (`bot_combat.cpp` — `BotFindEnemy`)
 

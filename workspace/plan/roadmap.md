@@ -114,6 +114,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] sildenafil - make weapons fast
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
+    1. [ ] one waypoint in snowyard by backyard ladder has no paths
+    1. [ ] one waypoint in frosty on top platform has no paths
+1. Use AI to
+    1. [ ] Develop Goldeneye award system at end of 1 v 1 round
+    1. [ ] Move railgun system to client sided
+    1. Mouse P.I. for Hire
+        1. [ ] Last hit is bullet + Headshot, remove head
+        1. [ ] Pick up barrel and throw
+        1. [ ] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
 
 ### Unscheduled
 

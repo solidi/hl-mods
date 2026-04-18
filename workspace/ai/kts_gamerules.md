@@ -191,6 +191,12 @@
 
 ## Bot Behavior (grave-bot-src)
 
+### Detection (`bot_combat.cpp` — `BotCheckTeamplay`)
+- Reads `mp_gamemode` cvar, matches `"kts"` via `strstr` or `atoi == GAME_KTS`
+- Sets `is_team_play = TRUE`
+- Sets `is_gameplay = GAME_KTS`
+- **CRITICAL**: Without this entry, `is_gameplay` stays at 0 (default FFA), and ALL `GAME_KTS` checks in bot code are dead. Every game mode MUST have a corresponding entry in `BotCheckTeamplay()` (`bot_combat.cpp`).
+
 ### Dribbler Identification
 - `pev->euser1` on the snowball entity is the authoritative dribbler check
 - `b_kts_has_ball` (per-bot bool) is set once per tick in the pre-update block: `pBall->v.euser1 == pEdict`

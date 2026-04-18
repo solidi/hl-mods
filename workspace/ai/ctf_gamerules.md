@@ -227,6 +227,12 @@ If condition 3 fails, player sees: `"Cannot score while flag is missing!"`
 
 ## Bot AI Implementation (grave-bot-src)
 
+### Detection (`bot_combat.cpp` — `BotCheckTeamplay`)
+- Reads `mp_gamemode` cvar, matches `"ctf"` via `strstr` or `atoi == GAME_CTF`
+- Sets `is_team_play = TRUE`
+- Sets `is_gameplay = GAME_CTF`
+- **CRITICAL**: Without this entry, `is_gameplay` stays at 0 (default FFA), and ALL `GAME_CTF` checks in bot code are dead. Every game mode MUST have a corresponding entry in `BotCheckTeamplay()` (`bot_combat.cpp`).
+
 ### Files Modified
 | File | What was added |
 |------|---------------|
