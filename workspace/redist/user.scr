@@ -306,6 +306,13 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
+	"cl_compass"
+	{
+		"#Ice_Compass"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"cl_customtempents"
 	{
 		"#Ice_TempEnts"
