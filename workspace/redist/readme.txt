@@ -26,6 +26,9 @@ v1.1 Features:
     - "upsidedown" - reverses up and down views
 - New Command Menu
     -  "+commandmenu" (;) is now available in-game to toggle many options provided
+- New Radar indicators
+    - Added new compass readout in the upper-middle HUD using cl_compass "1"
+    - Added HUD world indicators of many important targets including teammates and objectives
 - New Player Mechanics
     - Forcegrab and punch enabled for single-handed weapons
     - Taunt now supports offhand use
@@ -335,6 +338,7 @@ Client:
 - "cl_music [0|1]" - Play soundtrack set by map
 - "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
 - "cl_radar [0|1]" enables or disables player radar
+- "cl_compass [0|1]" enables or disables compass in top middle of the HUD
 - "cl_righthand [0|1|-1]" - Right/Left Handed Models, or left knife
 - "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
 - "cl_showtips [0|1]" - Show random text tips during play

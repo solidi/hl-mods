@@ -108,12 +108,17 @@
             "0" "On" "cl_radar 1"
             "1" "Off" "cl_radar 0"
         }
-        "3" "Show Tips"
+        "3" "Compass"
+        {
+            "0" "On" "cl_compass 1"
+            "1" "Off" "cl_compass 0"
+        }
+        "4" "Show Tips"
         {
             "0" "On" "cl_showtips 1"
             "1" "Off" "cl_showtips 0"
         }
-        "4" "Rune and Weapon Info"
+        "5" "Rune and Weapon Info"
         {
             "0" "On" "cl_minfo 1"
             "1" "Off" "cl_minfo 0"
