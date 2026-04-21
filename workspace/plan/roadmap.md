@@ -122,7 +122,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Move railgun system to client sided
     1. [ ] add red, yellow, and green hev viewmodels
     1. Mouse P.I. for Hire
-        1. [ ] Last hit is bullet + Headshot, remove head
+        1. [x] Last hit is bullet + Headshot, remove head
         1. [ ] Pick up barrel and throw
         1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
 

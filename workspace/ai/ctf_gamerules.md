@@ -73,8 +73,10 @@ If condition 3 fails, player sees: `"Cannot score while flag is missing!"`
   5. `m_fReturnTime = 0` — cancel auto-return
   6. `pMyBase->pev->iuser4 = FALSE` — mark that team's flag as NOT at home
   7. `CaptureCharm(pPlayer)` — shows `cam_flag` status icon
-  8. Play `CLIENT_SOUND_CTF_TAKEN`
-  9. HUD/objective broadcasts to all players
+  8. Carrier-specific messages (objective, center print) — gated on `!FL_FAKECLIENT`
+  9. `UpdateHud()` — updates all human clients' CtfInfo HUD (runs unconditionally, NOT gated on picker being human)
+  10. Objective broadcasts to all non-carrier human players
+  11. Play `CLIENT_SOUND_CTF_TAKEN`
 - **Same-team flag return** (flag team == player team, flag NOT at base):
   1. `pev->aiment = 0` — clear carrier
   2. `pev->movetype = MOVETYPE_TOSS`
@@ -158,9 +160,9 @@ If condition 3 fails, player sees: `"Cannot score while flag is missing!"`
 2. `pFlag->pev->aiment = 0` — clear carrier reference
 3. `pFlag->pev->sequence = ON_GROUND`
 4. Drop at `origin.z -= 32` (below player)
-5. `pPlayer->pFlag = NULL` — clear from player
-6. `pPlayer->m_fFlagTime = gpGlobals->time + 0.25` — brief cooldown
-7. Updates HUD mode to `2` (dropped) for the flag's team
+5. `pPlayer->m_fFlagTime = gpGlobals->time + 0.25` — brief cooldown
+6. `pPlayer->pFlag = NULL` — clear from player (**BEFORE** UpdateHud, so carrier mode=3 is not sent to dropper)
+7. Updates HUD mode to `2` (dropped) for the flag's team via `UpdateHud`
 8. Broadcasts objective update to all players
 
 ### PlayerKilled
@@ -171,9 +173,11 @@ If condition 3 fails, player sees: `"Cannot score while flag is missing!"`
 - If disconnecting player has flag: calls `DropCharm` at player's current origin
 
 ### UpdateHud
+- **Signature**: `UpdateHud(int bluemode, int redmode, CBasePlayer *pPlayer = NULL)` — `pPlayer` param is legacy/unused; mode=3 is now determined per-player
+- **Mode values**: `-1` = no update (keep cached), `0` = idle (at base), `1` = taken, `2` = dropped, `3` = carrying (per-player override)
 - Aggregates all players' `m_iRoundWins` by team to compute `m_iBlueScore` / `m_iRedScore`
-- Broadcasts `gmsgCtfInfo` to all non-bot players
-- HUD modes: `0` = idle (flag at base), `1` = taken (enemy has flag), `2` = dropped (flag on ground), `3` = carrying (sent to the carrier)
+- Updates cached `m_iBlueMode` / `m_iRedMode` from args (skipping `-1` values)
+- **Per-player CtfInfo broadcast**: For each non-bot player, starts with cached `m_iBlueMode`/`m_iRedMode`, then checks `plr->pFlag` — if that player is carrying a flag, overrides the corresponding team's mode to `3`. This ensures mode=3 is always correct for ALL carriers simultaneously, not just the one that triggered the update.
 - Checks if either team's score >= `scorelimit` — `GoToIntermission()`
 
 ### Spawn Point Selection (`EntSelectSpawnPoint`)
@@ -311,7 +315,10 @@ Base entities:  classname "base",  pev->fuser4 = RADAR_BASE_BLUE (12) or RADAR_B
 19. **`f_waypoint_goal_time` 1-second spawn delay killed CTF routing**: `BotSpawnInit` set `f_waypoint_goal_time = gpGlobals->time + 1.0` — a 1-second delay before any waypoint goal could be selected. Without a goal, the bot wandered via random `BotFindWaypoint` hops. After engaging an enemy, the disengage reset set it to `0.0f`, which unlocked goal selection and made the bot appear to "wake up" after combat. Fix: changed to `f_waypoint_goal_time = 0.0` so goal selection fires immediately on the first frame.
 20. **`BotGoalElevatedJump` height check reset mid-jump sequence**: The initial implementation checked `heightDiff < 20.0f` every frame, including during active jump phases. After the Phase 0 ground jump raised the bot's Z, `heightDiff` dropped below 20u, triggering a full state reset before Phase 1 (double-jump) could fire. Fix: the height/distance guard now only applies when `i_goal_jump_phase == 0` (starting a new sequence). Once in-progress (phases 1-2), the check is skipped and the sequence runs to completion.
 21. **Proximity-based DEFENDER role caused bots to idle at spawn**: Priority 4 in role evaluation assigned `CTF_ROLE_DEFENDER` to any bot within 800u of its own base. Since spawns are typically near the base, the only bot would immediately become a defender (with `f_goal_proximity = 256.0f`), walk to the base, and idle there — never seeking the enemy flag. Fix: removed the proximity-based auto-defend; DEFENDER is now only assigned under Priority 3 (when a teammate carries the enemy flag, half escort and half defend).
-22. **Multi-jump physics — dual systems**: The game has TWO parallel jump implementations. `CBasePlayer::Jump()` in the game DLL handles `m_iJumpCount` (1=ground, 2=double, 3=flip) using `m_afButtonPressed` rising-edge detection. `PM_Jump()` in `pm_shared.c` handles the shared physics with `pmove->iuser4` and `pmove->oldbuttons`. The bot must produce a button RELEASE between jump presses — the engine computes `m_afButtonPressed = (m_afButtonLast ^ pev->button) & pev->button`, so IN_JUMP must be absent for at least one frame between presses. The bot's `pEdict->v.button = 0` at the start of each frame naturally provides this release, so the 0.15s timer between phases is sufficient.
+22. **UpdateHud mode=3 was single-carrier only**: The old `UpdateHud` used `plr == pPlayer` to decide mode=3, relying on a single `pPlayer` parameter. When flag B's status changed, the carrier of flag A lost their mode=3 because they weren't `pPlayer`. Fix: `UpdateHud` now checks each player's `plr->pFlag` to determine mode=3 independently. The `pPlayer` parameter is no longer used for mode selection.
+23. **Bot flag pickup never sent HUD update to humans**: `UpdateHud()` and the objective broadcast loop were inside `if (!FL_FAKECLIENT)`, gating on whether the *picker* was human. When a bot picked up a flag, no human client received the CtfInfo update. Fix: moved `UpdateHud()` call and objective broadcasts outside the `FL_FAKECLIENT` check. Only carrier-specific messages (objective text, center print) remain gated.
+24. **`DropCharm` called `UpdateHud` before clearing `pPlayer->pFlag`**: With the fix to #22, `UpdateHud` now reads `plr->pFlag` per-player. If the dropper's flag wasn't cleared first, they'd still show mode=3 (carrying) instead of seeing the drop. Fix: reordered so `pPlayer->pFlag = NULL` happens before `UpdateHud`.
+25. **Multi-jump physics — dual systems**: The game has TWO parallel jump implementations. `CBasePlayer::Jump()` in the game DLL handles `m_iJumpCount` (1=ground, 2=double, 3=flip) using `m_afButtonPressed` rising-edge detection. `PM_Jump()` in `pm_shared.c` handles the shared physics with `pmove->iuser4` and `pmove->oldbuttons`. The bot must produce a button RELEASE between jump presses — the engine computes `m_afButtonPressed = (m_afButtonLast ^ pev->button) & pev->button`, so IN_JUMP must be absent for at least one frame between presses. The bot's `pEdict->v.button = 0` at the start of each frame naturally provides this release, so the 0.15s timer between phases is sufficient.
 
 ## Mutators Blocked
 - `MUTATOR_THIRDPERSON` — blocked by `MutatorAllowed`
