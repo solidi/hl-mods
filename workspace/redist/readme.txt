@@ -76,8 +76,8 @@ v1.1 Features:
         - Some skulls will be "magnetized" to the awarded player
         - Flash screen when picking up skulls
     - Cold Spot
-        - Improved bot behavior to seek and hold the coldspot
-        - Score points added after 10 seconds in the spot
+        - Improved bot behavior to seek and hold the cold spot
+        - Points are awarded after 10 seconds in the spot
         - Updated HUD and added sound effects when holding the spot
         - Place the player's view in thirdperson when in the spot
         - The spot is contested if both teams are in the zone
