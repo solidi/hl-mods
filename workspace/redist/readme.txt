@@ -64,6 +64,7 @@ v1.1 Features:
         - Changed HUD to green when holding the chumtoad
         - Chumtoad holder cannot pickup weapons or ammo
         - Moved points and timer to the objective read out
+        - Sound bell when the chumtoad is teleported
     - Capture the Flag
         - Highly improved bots, play ctf among team-members
         - Place the player's view in thirdperson when having the flag
@@ -195,6 +196,7 @@ v1.1 Features:
             - Fixed double return flag bug
             - Fixed numerous incorrect readouts
             - Fixed spectator status
+            - Fixed flag status issues with bots
         - Chilldemic
             - Rename skeleton to skeletons
         - Cold Spot
