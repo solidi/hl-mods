@@ -105,8 +105,9 @@
         }
         "2" "Radar"
         {
-            "0" "On" "cl_radar 1"
-            "1" "Off" "cl_radar 0"
+            "0" "Radar + Indicators" "cl_radar 2"
+            "1" "Radar" "cl_radar 1"
+            "2" "Off" "cl_radar 0"
         }
         "3" "Compass"
         {
@@ -152,6 +153,16 @@
         "0" "On" "cl_flashonpickup 1"
         "1" "Off" "cl_flashonpickup 0"
     }
+    "4" "Sway Effect"
+    {
+        "0" "On" "cl_glasshud 1"
+        "1" "Off" "cl_glasshud 0"
+    }
+    "5" "Wallclimb Indicator"
+    {
+        "0" "On" "cl_wallclimbindicator 1"
+        "1" "Off" "cl_wallclimbindicator 0"
+    }
 }
 "3" "Environment"
 {
@@ -185,10 +196,18 @@
         "5" "Silver" "cl_icemodels 5"
         "6" "Gold" "cl_icemodels 6"
     }
-    "1" "Gun Smoke"
+    "1" "Effects"
     {
-        "0" "On" "cl_gunsmoke 1"
-        "1" "Off" "cl_gunsmoke 0"
+        "0" "Gun Smoke"
+        {
+            "0" "On" "cl_gunsmoke 1"
+            "1" "Off" "cl_gunsmoke 0"
+        }
+        "2" "Bullet Smoke"
+        {
+            "0" "On" "cl_bulletsmoke 1"
+            "1" "Off" "cl_bulletsmoke 0"
+        }
     }
     "2" "Voice Overs"
     {
@@ -201,35 +220,35 @@
         "0" "On" "cl_crosshairammo 1"
         "1" "Off" "cl_crosshairammo 0"
     }
-    "4" "Arm Position"
+    "4" "View Model"
     {
-        "0" "Right Hand" "cl_righthand 1"
-        "1" "Left Hand" "cl_righthand 0"
-        "2" "Left Knife" "cl_righthand -1"
-    }
-    "5" "Dynamics"
-    {
-        "0" "Weapon Sway"
+        "0" "Arm Position"
+        {
+            "0" "Right Hand" "cl_righthand 1"
+            "1" "Left Hand" "cl_righthand 0"
+            "2" "Left Knife" "cl_righthand -1"
+        }
+        "1" "Weapon Sway"
         {
             "0" "On" "cl_weaponsway 1"
             "1" "Off" "cl_weaponsway 0"
         }
-        "1" "Weapon Fidget"
+        "2" "Weapon Fidget"
         {
             "0" "On" "cl_weaponfidget 1"
             "1" "Off" "cl_weaponfidget 0"
         }
-        "2" "Weapon Retract"
+        "3" "Weapon Retract"
         {
             "0" "On" "cl_weaponretract 1"
             "1" "Off" "cl_weaponretract 0"
         }
-        "3" "Bob Tilt"
+        "4" "Bob Tilt"
         {
             "0" "On" "cl_bobtilt 1"
             "1" "Off" "cl_bobtilt 0"
         }
-        "4" "Viewroll"
+        "5" "Viewroll"
         {
             "0" "On" "cl_viewroll 1"
             "1" "Off" "cl_viewroll 0"
@@ -277,5 +296,10 @@
     {
         "0" "On" "cl_glowmodels 1"
         "1" "Off" "cl_glowmodels 0"
+    }
+    "5" "Custom Tempents"
+    {
+        "0" "On" "cl_customtempents 1"
+        "1" "Off" "cl_customtempents 0"
     }
 }

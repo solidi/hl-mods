@@ -302,8 +302,13 @@ DESCRIPTION INFO_OPTIONS
 	"cl_radar"
 	{
 		"#Ice_Radar"
-		{ BOOL }
-		{ "1" }
+		{
+			LIST
+			"Hide" "0"
+			"Radar" "1"
+			"Radar + Indicators" "2"
+		}
+		{ "2" }
 	}
 
 	"cl_compass"

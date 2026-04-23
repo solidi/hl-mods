@@ -27,8 +27,8 @@ v1.1 Features:
 - New Command Menu
     -  "+commandmenu" (;) is now available in-game to toggle many options provided
 - New Radar indicators
-    - Added new compass readout in the upper-middle HUD using cl_compass "1"
-    - Added HUD world indicators of many important targets including teammates and objectives
+    - Added new compass readout in the upper-middle HUD using cl_compass 1
+    - Added HUD world indicators of many targets including teammates and objectives using cl_radar 2
 - New Player Mechanics
     - Forcegrab and punch enabled for single-handed weapons
     - Taunt now supports offhand use
@@ -128,6 +128,8 @@ v1.1 Features:
     - Weapons fire faster on the sildenafil mutator
     - Add snowball launcher and instagib hornets during snowballs and instagib mutators
 - Bot Changes
+    - Tuned bots to act more human-like when in combat
+    - Added bot_aim_difficulty [0-2] where zero is perfect and 2 is sloppy
     - Tuned and improved bot behavior on all custom game modes
     - Bots no longer attempt wallclimbing
 - Weapons Additions
@@ -342,7 +344,7 @@ Client:
 - "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag
 - "cl_music [0|1]" - Play soundtrack set by map
 - "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
-- "cl_radar [0|1]" enables or disables player radar
+- "cl_radar [0|1|2]" enables or disables player radar, indicators
 - "cl_compass [0|1]" enables or disables compass in top middle of the HUD
 - "cl_righthand [0|1|-1]" - Right/Left Handed Models, or left knife
 - "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
