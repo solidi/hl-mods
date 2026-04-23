@@ -128,7 +128,7 @@ v1.1 Features:
     - Weapons fire faster on the sildenafil mutator
     - Add snowball launcher and instagib hornets during snowballs and instagib mutators
 - Bot Changes
-    - Tuned bots to act more human-like when in combat
+    - Tuned bots to act more human-like when in combat, and adjusted aim
     - Added bot_aim_difficulty [0-2] where zero is perfect and 2 is sloppy
     - Tuned and improved bot behavior on all custom game modes
     - Bots no longer attempt wallclimbing
