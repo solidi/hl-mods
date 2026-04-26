@@ -29,7 +29,7 @@
 - **Respawn**: Blocked via `WeaponShouldRespawn` returning `GR_WEAPON_RESPAWN_NO`.
 - **Randomization**: Blocked via `CanRandomizeWeapon` returning FALSE.
 - **Auto-switch**: `FShouldSwitchWeapon` always returns TRUE for the egon — picking one up forces selection.
-- **Ammo**: Buster starts with 100 egon cells (`m_iDefaultAmmo = 100`). Ghosts cannot pick up ammo at all (`CanHavePlayerAmmo` returns FALSE for anyone with `fuser4 == RADAR_BUSTER`).
+- **Ammo**: Buster starts with 100 egon cells (`m_iDefaultAmmo = 100`). The Buster cannot pick up ammo at all (`CanHavePlayerAmmo` returns FALSE for anyone with `fuser4 == RADAR_BUSTER`).
 
 ## Gamerules Class (`CMultiplayBusters`)
 
