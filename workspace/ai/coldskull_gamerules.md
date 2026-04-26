@@ -7,6 +7,8 @@
 - **Source**: `workspace/src/dlls/coldskull_gamerules.cpp`, `workspace/src/dlls/coldskull_gamerules.h`
 - **Class**: `CHalfLifeColdSkull : public CHalfLifeMultiplay`
 
+> **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including Cold Skulls) must satisfy.
+
 ## Win Condition
 - First player to reach `fraglimit` skulls wins (default 100 if fraglimit == 0)
 - Calls `g_pGameRules->EndMultiplayerGame()` when threshold is reached

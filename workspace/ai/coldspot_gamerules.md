@@ -8,6 +8,8 @@
 - **Class**: `CHalfLifeColdSpot : public CHalfLifeMultiplay`
 - **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (Cold Spot bot logic is implemented, including `BotColdSpotPreUpdate` and `BotColdSpotThink`)
 
+> **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including Cold Spot) must satisfy.
+
 ## Concept
 A single "cold spot" entity spawns on the map. Any player standing within 256 units of the spot, alive, not spectating, and with clear line-of-sight to the spot center contributes to their team's **hold counter** on each 1-second think tick. When a team's counter reaches **10 consecutive uncontested ticks** (~10 seconds of sole possession), every eligible teammate in the zone is awarded 1 `m_iRoundWins` point and the counter resets. If players from **both** teams are present in the zone simultaneously the spot is **contested** and neither counter advances that tick (counters are retained, not cleared). The spot periodically relocates (driven by the `coldspottime` cvar) to force map movement; relocation resets both counters to 0.
 

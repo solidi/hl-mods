@@ -54,6 +54,8 @@ v1.1 Features:
         - Improve timeup team win calculation
         - Safe spot moves to random info_player_deathmatch entities per round
     - Busters
+        - Improved bot behaviors, including targeting the egon and the buster when available
+        - Added explosion when picking up the egon so it clears enemies to avoid clustering
         - Place the player's view in thirdperson when having the egon
         - The player will always switch to the egon if they pick it up
         - Buster cannot pickup weapons or ammo
