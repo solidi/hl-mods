@@ -8,6 +8,8 @@
 - **Class**: `CHalfLifeCaptureTheChumtoad : public CHalfLifeMultiplay`
 - **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (`BotCtcThink`, `BotFindEnemy` CtC filters), `grave-bot-src/dlls/bot.cpp` (pre-update detection, `BotFindItem` bypass, think dispatch, direct-steer), `grave-bot-src/dlls/bot_navigate.cpp` (frequent re-routing, waypoint goal, snap)
 
+> **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including CtC) must satisfy.
+
 ## Win Condition
 - First player to reach `scorelimit` value in `m_iRoundWins` wins
 - Score tracked per-player via `pPlayer->m_iRoundWins` (not `pev->frags`)

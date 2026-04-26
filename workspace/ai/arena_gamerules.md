@@ -8,6 +8,8 @@
 - **Class**: `CHalfLifeArena : public CHalfLifeMultiplay`
 - **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (BotArenaPreUpdate, BotArenaThink, BotCheckTeamplay registration, BotFindEnemy arena enhancements), `grave-bot-src/dlls/bot.cpp` (4-hook dispatch, death state cleanup, BotSpawnInit, BotFindItem bypass, arenaChase direct-steer, post-synthesis speed variation), `grave-bot-src/dlls/bot_navigate.cpp` (fast recalc, opponent-dead fallthrough, dead-end escape), `grave-bot-src/dlls/bot.h` (arena struct fields), `grave-bot-src/dlls/bot_func.h` (declarations)
 
+> **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including Arena) must satisfy.
+
 ## Win Condition
 - First player to reach `roundfraglimit` frags wins the round
 - If `roundtimelimit` expires, highest frag count wins; tied frags = draw (no champion)

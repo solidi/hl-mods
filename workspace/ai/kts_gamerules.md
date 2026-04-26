@@ -8,6 +8,8 @@
 - **Class**: `CHalfLifeKickTheSnowball : public CHalfLifeMultiplay`
 - **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (BotKtsThink), `grave-bot-src/dlls/bot.cpp` (pre-update block, movement), `grave-bot-src/dlls/bot_navigate.cpp` (BotFindWaypointGoal KTS paths)
 
+> **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including KTS) must satisfy.
+
 ## Win Condition
 - First team to reach `scorelimit` combined `m_iRoundWins` wins
 - Score tracked as sum of all team members' `m_iRoundWins`
