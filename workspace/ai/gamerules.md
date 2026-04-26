@@ -54,7 +54,7 @@ CGameRules                     (src/dlls/gamerules.h, .cpp)
 
 ## CGameRules — The Common Contract
 
-Every mode inherits the virtual methods below. The default behaviour lives in `CGameRules` / `CHalfLifeMultiplay`; a mode overrides only what it needs to change.
+Every mode inherits the virtual methods below. The default behavior lives in `CGameRules` / `CHalfLifeMultiplay`; a mode overrides only what it needs to change.
 
 ### Lifecycle / Think
 - `Think()` — runs every server frame. Mutator updates, voice-mgr update, intermission timer, score / fraglimit / timelimit checks, `GoToIntermission()` trigger.
