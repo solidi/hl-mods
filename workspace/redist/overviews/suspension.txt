@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	2.70
+	ORIGIN	768 	800	704
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/suspension.bmp"
+	HEIGHT	-1153
+}
