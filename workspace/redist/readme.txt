@@ -24,6 +24,8 @@ v1.1 Features:
     - "skyhook" - if a player touches a sky texture, they are gibbed
     - "tinnitus" - lowers sfx volume and introduces that buzzing sound
     - "upsidedown" - reverses up and down views
+- New Maps
+    - suspension, a rebuild of Lazerus's 1999 map by b1rd
 - New Command Menu
     -  "+commandmenu" (;) is now available in-game to toggle many options provided
 - New Radar indicators
