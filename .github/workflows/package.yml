@@ -479,6 +479,7 @@ jobs:
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\glacialcore\glacialcore.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\latenightxmas\latenightxmas.zip -DestinationPath $env:TEMP
         Expand-Archive -Path .\${{env.FOLDER_NAME}}\storm\storm.zip -DestinationPath $env:TEMP
+        Expand-Archive -Path .\${{env.FOLDER_NAME}}\suspension\suspension.zip -DestinationPath $env:TEMP
         Compress-Archive -LiteralPath $env:TEMP\maps -DestinationPath .\${{env.FOLDER_NAME}}\maps.zip -Force
 
     - name: Upload Maps
