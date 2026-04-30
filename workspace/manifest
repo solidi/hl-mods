@@ -646,6 +646,7 @@ maps\snowtransit_detail.txt
 maps\snowyard_detail.txt
 maps\stalkyard2_detail.txt
 maps\storm_detail.txt
+maps\suspension_detail.txt
 maps\thechill_detail.txt
 maps\themill_detail.txt
 maps\thetemple_detail.txt
@@ -799,6 +800,10 @@ maps\storm.bsp
 maps\storm.res
 maps\storm.gbw
 maps\storm.txt
+maps\suspension.bsp
+maps\suspension.res
+maps\suspension.gbw
+maps\suspension.txt
 media
 media\01-snowflakes.mp3
 media\02-snowfall.mp3
@@ -1096,6 +1101,8 @@ overviews\snowyard.bmp
 overviews\snowyard.txt
 overviews\stalkyard2.bmp
 overviews\stalkyard2.txt
+overviews\suspension.bmp
+overviews\suspension.txt
 overviews\thechill.bmp
 overviews\thechill.txt
 overviews\themill.bmp
