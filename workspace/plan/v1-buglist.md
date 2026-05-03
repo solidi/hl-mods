@@ -82,7 +82,7 @@ New Stuff
 [x] distance read out for edge detection under arrow
 [x] blinking red health under 20
 voting
-[ ] dynamic map voting based on maps in folder?
+[x] dynamic map voting based on maps in folder?
 [x] ask AI to place elements into a scrollable window?
 Bugs
 [ ] Host_Error: UserMsg: Not Present on Client 134

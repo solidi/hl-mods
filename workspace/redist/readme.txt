@@ -37,6 +37,12 @@ v1.1 Features:
     - Auto-taunt triggers only when using the offhand
     - Using taunt no longer prevents attacking
     - Expand lj so that the player can longjump in any direction
+- Voting Improvements
+    - Dynamic map voting menu supports up to 128 maps sent from the server's mapcycle.txt
+    - Vote tallies on buttons are now on the are right side, and font size increased for readability
+    - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
+    - Send current menu to a connecting player during a vote
+    - Fixed menu title selection, give brief pause for mutator menu vote
 - Game Modes Changes
     - New celebration sequences switch to thirdperson
     - Added banner system so that it is clear of team objective on entering arena
@@ -148,10 +154,8 @@ v1.1 Features:
     - Added "cl_thirdcamera" so player can ability to deny the view
     - Added damage numbers applied to the enemy rendered on the HUD
     - Improved voting menus for mutators and maps, made panels scrollable
-    - Vote tallies on buttons are now on the are right side, and font size increased for readability
     - Sort certain game mode (like CTC) by lowest team member count for objective visibility
     - Remove unuseful team score and ping total counts from scoreboards
-    - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
     - Dead hands now lock when on ground
     - HUD blinks red on low health
     - Removed unneeded rune title and messages
@@ -258,13 +262,11 @@ v1.1 Features:
         - Center the protips across the screen correctly
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
-        - Send current menu to a connecting player during a vote
         - Fixed fire loop sound if on fire and placed in observer
         - Fixed ejection shell after respawn
         - Don't show healthbar of player while in-view spectator
         - Forcegrab ignores teammates
         - Fix player weapon animation after taunting
-        - Fixed menu title selection, give brief pause for mutator menu vote
         - Additional row added for the old scoreboard to accommodate server name
         - Patch server crash the rune_ammo
         - Fixed cutoff scoreboard voice column
