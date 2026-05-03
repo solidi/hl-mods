@@ -199,10 +199,11 @@ A horizontal compass bar centered near the top of the screen, showing cardinal d
   - Horizontal line (1 px thick, alpha 140)
   - Tick marks every 15° above the line (small ticks YRES(4), cardinal ticks YRES(6))
   - Cardinal letters (N/E/S/W) drawn above their ticks at alpha 180
-  - Target markers (XRES(6) × YRES(6)) drawn below the line for each PVS entity within FOV, colored by type, at alpha 200. Marker shape encodes relative height of the target vs. the local player:
+  - Target markers (XRES(6) × YRES(6)) drawn below the line for each PVS entity within FOV, colored by type, at alpha 200. Marker shape encodes relative height of the target vs. the local player and is applied **uniformly to every entity in `m_RadarInfo[]`** — players, horde monsters (`RADAR_HORDE`), flags, bases, NPCs, etc. There is no per-type branch; the only input is the `height` field populated by `ProcessPlayerState` for all entries:
     - **64+ units above** local player: upward-pointing triangle (tip at top, widens downward)
     - **Within ±63 units** of local player's height: filled square (same footprint as the triangles)
     - **64+ units below** local player: downward-pointing triangle (wide at top, tip at bottom)
+  - The threshold compares against `m_RadarInfo[index].height * 72.0f` (since `height` is stored as Z-delta scaled by `1/72`); use `>= 64.0f` and `<= -64.0f`.
   - Distance text in feet below each target marker (shown when > 12 ft)
 - **Angle mapping:** Uses `m_RadarInfo[].angle` (already view-relative) normalized to [-180, 180], mapped to pixel offset via `pixelsPerDegree = barWidth / COMPASS_FOV`
 - **Note:** Currently shows ALL PVS entities on the compass (the special-only filter is commented out)
@@ -338,6 +339,7 @@ Both cvars are declared as `extern cvar_t*` in `radar.cpp` and defined/created i
 - **Self-index assumption:** The local player self-detection `(gEngfuncs.GetLocalPlayer()->index - 1) == index` assumes the entity index maps directly to the `m_RadarInfo` array index. This holds because entities are scanned sequentially from index 1, but skipped entities do shift the mapping — the `index` variable is the m_RadarInfo slot, not the entity index.
 - **Compass shows all entities:** The special-only filter in `DrawCompass` is currently commented out, so all PVS entities appear on the compass bar (including regular players and team members).
 - **SpecEnt stale data:** Server-sent entity data never expires on the client. If the server stops sending updates, stale entries persist indefinitely. The `last_update` field is tracked but unused.
+- **Compass marker shape lives in one place — `DrawCompass`, not per-type.** When changing how compass markers render (shape, size, alpha…), the change must be made in the single drawing block inside the `DrawCompass` PVS loop. Every entity (players, horde monsters, flags, bases, NPCs) shares that block; there is no separate code path for horde or special types. Conversely, do not assume that adding logic only to "player" entries will affect horde monsters — `RADAR_HORDE` entities go through the exact same compass loop via PVS scanning. The `m_RadarInfo[index].height` field is populated for every entity regardless of type, so height-based rendering decisions work uniformly.
 
 ## Testing
 
