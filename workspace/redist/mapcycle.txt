@@ -1,38 +1,38 @@
-bounce2
-canyon
-catacombs
-chillworks
-cold_base
-coldice
-comet
-datafloe
-defroster
-depot
-doublefrost
-drift
-fences
-focus
-frostfire
-frostmill
-frosty
-frozen_bunker
-frozenwarehouse
-furrow
-glacialcore
-glupshitto
-ice_pit
-latenightxmas
-overflow
-quadfrost
-snow_camp
-snowcross
-snowtransit
-snowyard
-stalkyard2
-storm
-suspension
-thechill
-themill
-thetemple
-training
-training2
+bounce2 \size\large
+canyon \size\mega
+catacombs \size\large
+chillworks \size\large
+cold_base \size\medium
+coldice \size\medium
+comet \size\medium
+defroster \size\large
+datafloe \size\medium
+depot \size\small
+doublefrost \size\medium
+drift \size\mega
+fences \size\medium
+focus \size\large
+frostfire \size\mega
+frostmill \size\medium
+frosty \size\small
+frozen_bunker \size\small
+frozenwarehouse \size\medium
+furrow \size\small
+glacialcore \size\small
+glupshitto \size\small
+ice_pit \size\medium
+latenightxmas \size\medium
+overflow \size\medium
+quadfrost \size\large
+snow_camp \size\mega
+snowcross \size\medium
+snowtransit \size\medium
+snowyard \size\small
+stalkyard2 \size\small
+storm \size\medium
+suspension \size\small
+thechill \size\medium
+themill \size\medium
+thetemple \size\large
+training \size\small
+training2 \size\medium
