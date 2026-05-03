@@ -14,6 +14,52 @@ This is the top-level entry point for any work in this repository. Every other c
   - `workspace/grave-bot-src/` — the bot DLL (`grave_bot.dll`).
 - **Asset pipelines**: `Build-Models.ps1`, `Build-Maps.ps1`, `Build-Wads.ps1`, `Build-Sound.ps1`, `Build-Sprites.ps1`, `Copy-Distribution.ps1`. Source assets live alongside their pipeline scripts under `workspace/`.
 
+## Building (Read This Before Compiling)
+
+Use this section as the source of truth for builds. Do not guess paths or invent solution files.
+
+### Canonical wrapper
+- Preferred: run `workspace/Build-Windows.ps1 -ConfigFile steam` from `C:\hl-mods\workspace`. It builds everything (server + client + bot) into the matching `redist*` folder for the chosen config.
+- For a quick, targeted rebuild of just one DLL during iteration, drive MSBuild directly using the exact paths below.
+
+### Visual Studio project locations (Windows)
+The MSVC project files live under `workspace/src/projects/vs2019/` — **not** under `workspace/src/dlls/` or `workspace/src/cl_dll/`.
+
+| Target | Project file | Output |
+|--------|--------------|--------|
+| Server DLL (`hl.dll`) | `workspace/src/projects/vs2019/hl.vcxproj` | `workspace/src/projects/vs2019/Release/hl/hl.dll` |
+| Client DLL (`client.dll`) | `workspace/src/projects/vs2019/hl_cdll.vcxproj` | `workspace/src/projects/vs2019/Release/hl_cdll/client.dll` |
+| Grave bot (`grave_bot.dll`) | `workspace/grave-bot-src/dlls/grave_bot.sln` | `workspace/grave-bot-src/dlls/.../grave_bot.dll` |
+
+Always build with `Configuration=Release` and `Platform=Win32`. The engine is 32-bit; do **not** try `x64`.
+
+### MSBuild invocation (verified)
+MSBuild is **not** on PATH by default. Use the full path to the VS2022 Community MSBuild — it can build the vs2019 toolset projects fine:
+
+```powershell
+$env:PATH = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin;' + $env:PATH
+& 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe' `
+    'C:\hl-mods\workspace\src\projects\vs2019\hl_cdll.vcxproj' `
+    /p:Configuration=Release /p:Platform=Win32 /m /nologo /v:minimal
+```
+
+Swap `hl_cdll.vcxproj` → `hl.vcxproj` for the server DLL. For the bot, point at `workspace/grave-bot-src/dlls/grave_bot.sln` (no `Platform` override needed — the solution sets it).
+
+To trim noise when piping output back into the agent, append `2>&1 | Select-Object -Last 30`.
+
+### Common pitfalls (don't repeat these)
+- **Do not pass `workspace/src/cl_dll/hl_cdll.vcxproj`** — that path does not exist. The vcxproj is under `src/projects/vs2019/`. Same for `hl.vcxproj`.
+- **Do not use `cl.exe` directly** or hand-rolled compile commands. The vcxproj defines includes, defines (`CLIENT_DLL`, `CLIENT_WEAPONS`, etc.), and link order that you will not reproduce correctly by hand.
+- **Rebuild both DLLs when changing shared headers** (`src/common/`, `src/pm_shared/`, anything touching `CLIENT_WEAPONS`). Mismatched builds fail silently — see Cross-cutting Lessons.
+- **Do not bypass `Build-Windows.ps1` for full release output.** Direct MSBuild produces the DLL in the project's `Release/` folder, but `Build-Windows.ps1` is what copies the artifacts into `redist/` (and `redist_hd/`, `redist_sp/`) where `Start-Windows.ps1` will actually pick them up.
+- **Linux builds** go through `workspace/build-linux.sh` and the images in `workspace/docker/`. Don't try `make` directly from `src/`.
+
+### Quick recipes
+- Iterating on client HUD/VGUI only → MSBuild `hl_cdll.vcxproj`, then re-run with `Start-Windows.ps1`.
+- Iterating on gamerules / weapons / entities → MSBuild `hl.vcxproj`. If you also touched a shared header used by prediction, build `hl_cdll.vcxproj` too.
+- Iterating on bot AI → MSBuild `grave-bot-src/dlls/grave_bot.sln`.
+- Touching assets (models/maps/wads/sounds/sprites) → use the matching `Build-*.ps1` script under `workspace/`; do not edit the binary outputs by hand.
+
 ## The Two Halves
 
 ```

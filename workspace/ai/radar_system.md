@@ -199,8 +199,11 @@ A horizontal compass bar centered near the top of the screen, showing cardinal d
   - Horizontal line (1 px thick, alpha 140)
   - Tick marks every 15° above the line (small ticks YRES(4), cardinal ticks YRES(6))
   - Cardinal letters (N/E/S/W) drawn above their ticks at alpha 180
-  - Target triangles (XRES(6) × YRES(6)) drawn below the line for each PVS entity within FOV, colored by type, at alpha 200
-  - Distance text in feet below each target triangle (shown when > 12 ft)
+  - Target markers (XRES(6) × YRES(6)) drawn below the line for each PVS entity within FOV, colored by type, at alpha 200. Marker shape encodes relative height of the target vs. the local player:
+    - **64+ units above** local player: upward-pointing triangle (tip at top, widens downward)
+    - **Within ±63 units** of local player's height: filled square (same footprint as the triangles)
+    - **64+ units below** local player: downward-pointing triangle (wide at top, tip at bottom)
+  - Distance text in feet below each target marker (shown when > 12 ft)
 - **Angle mapping:** Uses `m_RadarInfo[].angle` (already view-relative) normalized to [-180, 180], mapped to pixel offset via `pixelsPerDegree = barWidth / COMPASS_FOV`
 - **Note:** Currently shows ALL PVS entities on the compass (the special-only filter is commented out)
 

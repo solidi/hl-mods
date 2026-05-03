@@ -256,6 +256,7 @@ v1.1 Features:
         - Fixed snowballs mutator icon
         - Patched 999 mutator creating dead walking players
         - Patched fog mutator to correctly pass alpha
+        - Patched waypoints for fences.bsp
     - Client
         - Fixed team scoreboard team color, usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
