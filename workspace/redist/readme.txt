@@ -39,10 +39,10 @@ v1.1 Features:
     - Expand lj so that the player can longjump in any direction
 - Voting Improvements
     - Dynamic map voting menu supports up to 128 maps sent from the server's mapcycle.txt
-    - Vote tallies on buttons are now on the are right side, and font size increased for readability
+    - Vote tallies on buttons are now on the right side, and font size increased for readability
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
     - Send current menu to a connecting player during a vote
-    - Fixed menu title selection, give brief pause for mutator menu vote
+    - Fixed menu title selection and added a brief pause for mutator menu voting
 - Game Modes Changes
     - New celebration sequences switch to thirdperson
     - Added banner system so that it is clear of team objective on entering arena
