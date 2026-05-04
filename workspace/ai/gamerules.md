@@ -18,7 +18,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 7  | `GAME_CTC`        | `"ctc"`            | `CHalfLifeCaptureTheChumtoad`      | [ctc_gamerules.md](ctc_gamerules.md) |
 | 8  | `GAME_CTF`        | `"ctf"`            | `CHalfLifeCaptureTheFlag`          | [ctf_gamerules.md](ctf_gamerules.md) |
 | 9  | `GAME_GUNGAME`    | `"gungame"`        | `CHalfLifeGunGame`                 | TBD |
-| 10 | `GAME_HORDE`      | `"horde"`          | `CHalfLifeHorde`                   | TBD |
+| 10 | `GAME_HORDE`      | `"horde"`          | `CHalfLifeHorde`                   | [horde_gamerules.md](horde_gamerules.md) |
 | 11 | `GAME_INSTAGIB`   | `"instagib"`       | `CHalfLifeInstagib`                | TBD |
 | 12 | `GAME_ICEMAN`     | `"jvs"`            | `CHalfLifeJVS` (Jesus vs. Santa)   | TBD |
 | 13 | `GAME_KTS`        | `"kts"`            | `CHalfLifeKickTheSnowball`         | [kts_gamerules.md](kts_gamerules.md) |
@@ -237,9 +237,10 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [coldspot_gamerules.md](coldspot_gamerules.md) — Team zone-hold with relocating spot
 - [ctc_gamerules.md](ctc_gamerules.md) — FFA keep-away with the chumtoad
 - [ctf_gamerules.md](ctf_gamerules.md) — Team capture-the-flag
+- [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_HORDE`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_LOOT`, `GAME_PROPHUNT`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_LOOT`, `GAME_PROPHUNT`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 
