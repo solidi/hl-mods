@@ -95,6 +95,8 @@ v1.1 Features:
         - Player scores only if they see the center of the spot
         - Slowly add health to safezone players
     - Horde
+        - Idling monsters are teleported around the map every thirty seconds
+        - Bot monster attack and team protection behaviors are improved
         - Advance wave only when players are successful in previous wave
         - Added headcrab, zombie, houndeye to the monster rounds
         - Improved aggressiveness of all monsters to directly attack players
