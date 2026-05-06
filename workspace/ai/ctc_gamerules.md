@@ -166,8 +166,9 @@ CtC is FFA with a single shared objective (the chumtoad), so it uses the **simpl
 
 ### Connection
 - `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE`. The simple menu opens.
-- Player issues `auto_join` (or `spectate`) → `m_iObserverWeapon = 2` → `ExitObserver()` → mode-side `PlayerSpawn` runs and the `iuser3 == 0` branch sets the team string to `"chaser"` and `iuser3 = -1` (committed sentinel).
-- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path.
+- Player issues `auto_join` → observer/menu state is committed to play, `ExitObserver()` is used, mode-side `PlayerSpawn` runs, and the `iuser3 == 0` branch sets the team string to `"chaser"` and `iuser3 = -1` (committed sentinel).
+- Player issues `spectate` → remains in observer via `StartObserver()`. This does **not** imply `m_iObserverWeapon = 2`, does **not** call `ExitObserver()`, and does **not** run the spawn/commit path.
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path into the same play/join path as `auto_join`, not the `spectate` observer path.
 
 ### Mid-Match
 - Holder death (chumtoad-carrying player killed): drops the chumtoad (it becomes a `weaponbox` containing the chumtoad weapon). The dying player goes through standard FFA respawn — no force-to-spectator. `m_iHoldingChumtoad` is reset on respawn via the `PlayerSpawn` override.
