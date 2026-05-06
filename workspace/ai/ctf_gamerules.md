@@ -35,6 +35,28 @@ If condition 3 fails, player sees: `"Cannot score while flag is missing!"`
 - `FPlayerCanTakeDamage`: blocked between teammates when `friendlyfire == 0`
 - `ShouldAutoAim`: disabled against teammates
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. CTF is **non-round-based** (`IsRoundBased()` not overridden → `FALSE`).
+
+CTF is **team-based + non-round-based**, identical pattern to Cold Spot and KTS.
+
+### Connection
+- `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE`.
+- Player issues `menu` → `iuser3 = OBS_UNDECIDED_BOTH` (team-aware menu opens with Iceman/Santa pick).
+- `auto_join` / `join_blue` / `join_red` set `m_iObserverWeapon` to the chosen `OBS_MENU_*` value, then `ExitObserver()`. The base `PlayerSpawn` runs and team is assigned (auto-balance vs. forced).
+- `spectate` parks the player in `OBS_ROAMING` with `iuser3 = 0` and `m_bWantsToPlay = FALSE`. Available in any state — round-based gating doesn't apply, and the `allow_spectators` cvar is bypassed for Limbo->Spectate transitions.
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path; auto-balance places them on the smaller team.
+
+### Mid-Match
+- Carrier death drops the flag. The dying player respawns at their team's spawn pool — standard FFA-style respawn semantics, just gated by team.
+- Team change kills the player and respawns on the new team. If they were carrying the enemy flag, the flag drops at the death position and `m_fReturnTime = gpGlobals->time + 30.0` starts the auto-return timer.
+- `spectate` mid-match: if carrier, the flag drops first (kill path or `RemoveAllItems` triggers `FlagDrop`). The player ends up in `OBS_ROAMING` with `iuser3 = 0` and out of scoring eligibility.
+
+### Pitfalls Specific to CTF
+- **Carrier `pev->iuser1 != 0` check** — CTF code that handles flag-carrier state should always require `pev->iuser1 == 0` (alive and playing) before honoring `pPlayer->pFlag`. A spectator with a stale `pFlag` pointer (race during `spectate` command) would block the flag from being touchable until cleanup.
+- **`join_blue` / `join_red` only work because `IsCtF()` is in the team-aware whitelist** in `client.cpp`. Removing CTF from that list (or for a fork) would break team-pick.
+
 ## Flag Entity (`CFlagCharm`, classname `"flag"`)
 - **Model**: `models/flag.mdl`
 - **Sound**: `rune_pickup.wav`

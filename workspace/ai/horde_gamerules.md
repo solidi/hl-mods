@@ -63,6 +63,53 @@ The two tags (`pev->message == "horde"` and `pev->fuser4 == RADAR_HORDE`) are fu
 | `m_iAssists` | int | Reset to 0 on every wave end |
 | `m_iShowGameModeMessage` | float | Time to show the "Find the monsters. Kill them!" banner |
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. Horde is **round-based** (`IsRoundBased() == TRUE` at `horde_gamerules.cpp:1071`).
+
+Horde uses the **canonical round-based pattern**: `InsertClientsIntoArena(0)` admits every connected player at wave start, `m_flForceToObserverTime` kicks dead players to spectator after a 3-second death-cam window, and `SuckAllToSpectator()` resets at game-end and countdown-abort edges.
+
+### Connection
+- New connects in any mode (round-based included) land in **Limbo**: `iuser3 = OBS_UNDECIDED_SIMPLE`, `m_bWantsToPlay = FALSE`. `PlayerSpawn` gate branch 3 returns and the player parks in `OBS_ROAMING` with the join menu rendered.
+- After `auto_join`, `m_bWantsToPlay = TRUE`. The next wave's `InsertClientsIntoArena(0)` admits them (gated on `IsCommittedToPlay()`).
+- After `spectate`, `m_bWantsToPlay` stays `FALSE` and they remain observers indefinitely. The `survivors_left` and round-eligibility loops never count them.
+- Bots are auto-committed at connect (`m_bWantsToPlay = TRUE` for any `FL_FAKECLIENT`) and the auto-promotion fast path in `multiplay_gamerules.cpp ~1792` calls `ExitObserver()` next tick.
+
+### Wave Start (`horde_gamerules.cpp:749`)
+```cpp
+g_GameInProgress = TRUE;
+InsertClientsIntoArena(0);  // every committed-to-play player → IsInArena = TRUE, ExitObserver()
+```
+Limbo + Chose-Spectate players are skipped by the `IsCommittedToPlay()` gate. They remain observers across the wave boundary.
+
+The wave-restart branch (`m_fBeginWaveTime` expired) also gates on `IsCommittedToPlay()` when picking observers up off the bench — a Limbo player will not be auto-admitted into a wave they didn't opt into.
+
+### Mid-Wave Death
+- `FPlayerCanRespawn` returns `FALSE` (no mid-wave respawn). Dying players get `m_flForceToObserverTime = gpGlobals->time + 3.0` for the death-cam.
+- After 3s, `Think()` sucks them to spectator and clears the timer. They watch the rest of the wave.
+- `survivors_left < 1` mid-wave → game ends, `g_GameInProgress = FALSE`, `SuckAllToSpectator()`.
+
+### Wave End → Wave Start
+- Wave end (all horde monsters dead): `g_GameInProgress` stays `TRUE`. After a 3-second pause, the next wave begins via the same `InsertClientsIntoArena` path. Dead players re-enter; alive players are *not* sent through `ExitObserver` (they were never in observer).
+- The 3-second grace at wave start prevents monster-collision telefrags when respawning observers land on a deathmatch start that's near a fresh spawn.
+- The score-reset / `m_iRoundPlays++` loop at wave end is gated on `IsCommittedToPlay()` — Limbo and Chose-Spectate players are not credited a wave they didn't play.
+
+### Game End
+- `m_iSuccessfulRounds >= roundlimit` or `m_iRoundWins >= scorelimit` → `GoToIntermission()`. `SuckAllToSpectator()` is called from the wave-end path at line 774.
+- Countdown abort (player drops below minimum): `SuckAllToSpectator()` at line 707, full reset.
+
+### Bot-Side Implications
+Bots in spectator have `EF_NODRAW` and won't be acted on by horde monster AI (they aren't valid `m_hEnemy` targets). The `BotHordeThink` dispatch is gated on `IsAlive()` so observer-state bots don't try to run combat logic.
+
+### Spectator-targeting filter (monsters.cpp / mpstubb.cpp)
+
+Added 2026-05 after a report that horde monsters were tracking and attacking spectators:
+
+- **`CBaseMonster::Look()`** ([mpstubb.cpp](../src/dlls/mpstubb.cpp)) — when scanning visible entities for potential enemies, clients with `EF_NODRAW`, `IsObserver()`, or `IsSpectator()` are skipped. A spectator never enters the candidate list and so cannot become `m_hEnemy`.
+- **`CBaseMonster::CheckEnemy()`** ([monsters.cpp](../src/dlls/monsters.cpp)) — releases an already-locked `m_hEnemy` (sets `bits_COND_ENEMY_DEAD`) if it transitions to spectator state mid-engagement (e.g. the player issued `spectate` before the monster could finish them). Without this, a monster could keep firing at an invisible target.
+
+Both files now `#include "player.h"` for the `CBasePlayer::IsObserver/IsSpectator` accessors. The filter is mode-agnostic but in practice only fires in horde (the only multiplayer mode with active monster AI vs. clients).
+
 ## Key Constants
 ```cpp
 #define GAME_HORDE   10
@@ -282,18 +329,25 @@ Once the bot reaches the platform's level, line-of-sight clears and the existing
 
 **Implementation**: `CHalfLifeHorde::Think` (`horde_gamerules.cpp`). Piggybacks on the existing per-tick `FIND_ENTITY_BY_STRING(NULL, "message", "horde")` pass — no separate timer field, no new entity scan.
 
-Per-monster idle state stored on free pev fields:
-- `pev->vuser1` — last-sampled origin
-- `pev->fuser1` — timestamp when monster was first observed stationary (0 = unobserved or just moved)
+Per-monster idle state stored on free pev fields. **Two parallel tracks** are needed because some monsters (patrolling grunts, hopping headcrabs) move enough to keep the tight stationary track perpetually reset but never actually leave a small region:
+
+- **Stationary track** (24u / 30s tight window):
+  - `pev->vuser1` — last-sampled origin
+  - `pev->fuser1` — timestamp when monster was first observed stationary (0 = unobserved or just moved)
+- **Wander track** (320u / 30s loose anchor — added 2026-05):
+  - `pev->vuser2` — anchor origin (set when wander track is seeded or when monster strays beyond 320u from anchor)
+  - `pev->fuser2` — anchor reset deadline
 
 Each tick, for every horde monster:
-- `(vecCur - vuser1).Length() >= 24u` → moved meaningfully → reset `vuser1 = origin`, `fuser1 = now`
-- `now - fuser1 >= 30s` AND **not in a fight** (`m_hEnemy` is null or its target is dead) → add to a stack-allocated `pTeleport[64]` batch
+- Stationary: `(vecCur - vuser1).Length() >= 24u` → moved meaningfully → reset `vuser1 = origin`, `fuser1 = now`
+- Wander: `(vecCur - vuser2).Length() >= 320u` → wandered out of anchor radius → reset `vuser2 = origin`, `fuser2 = now + 30s`
+- **Either** track at deadline AND **not in a fight** (`m_hEnemy` null or its target dead) → add to a stack-allocated `pTeleport[64]` batch
+- Both tracks reset on combat (live `m_hEnemy`) so a monster actively fighting is never flagged
 
 After the loop:
 - For each flagged monster: try up to 8 candidate spawn points via `EntSelectSpawnPoint("info_player_deathmatch")`. For each candidate, scan a 64u sphere; reject if it contains a live player or another live horde monster (the monster being moved is ignored — the spawn picker may hand back the spot it currently occupies). The first clear candidate wins. If none of the 8 are clear, **skip this monster** for this tick — it gets re-flagged next tick and retried.
 - **No telefrag on teleport.** The wave-spawn path gibs anything in the 64u sphere because the round hasn't started yet, but a stuck-monster shuffle is a quality-of-life action and must not punish a nearby survivor. Reject-and-retry is the correct behavior.
-- For chosen monsters: `UTIL_SetOrigin` to the new position, copy spawn `angles`, zero `velocity`, re-seed `vuser1`/`fuser1` so the new origin doesn't immediately re-flag as stuck.
+- For chosen monsters: `UTIL_SetOrigin` to the new position, **then `DROP_TO_FLOOR(pTeleport[i])`** so the monster doesn't float in mid-air (added 2026-05 — `info_player_deathmatch` spawns sit at player eye height, well above floor for short-bbox monsters like headcrabs). Copy spawn `angles`, zero `velocity`, re-seed both **`vuser1`/`fuser1` and `vuser2`/`fuser2`** using the **post-drop** `pTeleport[i]->v.origin` (not the spawn-spot origin) so neither track immediately re-flags.
 - Single consolidated chat: `[Horde] Teleported N monster(s)` (singular/plural handled, count is `iMoved` — only successful relocations).
 - One `CLIENT_SOUND_EBELL` broadcast for the whole batch (same chime CtC uses for chumtoad teleports).
 
@@ -301,7 +355,9 @@ After the loop:
 - **Reuse spare pev fields for per-entity state on entities the gamerules controls.** No new class member, no map lookup, no edict-index array. `vuser1`/`fuser1` were already free for monsters in this mode.
 - **"In a fight" test must be on the monster's AI**, not the player's enemy: check `MyMonsterPointer()->m_hEnemy` and verify the target is alive. Don't try to walk `gpGlobals->maxClients` looking for who's shooting at it — the monster already knows.
 - **Batch player-facing notifications.** N teleports in one tick produce one chat line and one sound, not N. The 1.5s `flUpdateTime` cadence makes batch-per-tick natural.
-- **Re-seed the idle samples after teleport.** The just-teleported origin would otherwise be ≠ the previous `vuser1`, causing an immediate re-sample-and-reset that's harmless but noisy in debug. Setting `vuser1 = new origin, fuser1 = now` keeps the timeline clean.
+- **Re-seed the idle samples after teleport.** The just-teleported origin would otherwise be ≠ the previous `vuser1`, causing an immediate re-sample-and-reset that's harmless but noisy in debug. Setting `vuser1 = new origin, fuser1 = now` (and `vuser2`/`fuser2` for the wander track) keeps the timeline clean. **Use the post-`DROP_TO_FLOOR` origin**, not the spawn-spot origin — they differ by the floor-drop distance.
+- **A single tight stationary check is not enough.** Some monster classes (patrolling grunts, hopping headcrabs) move enough every second to keep a 24u/1.5s stationary check perpetually reset, but never actually leave a small region. A parallel loose **wander track** (320u radius / 30s window, anchored on first observation) catches them. The two tracks share the *not-in-fight* gate and the same teleport batch — either can flag.
+- **`DROP_TO_FLOOR` after teleport.** `EntSelectSpawnPoint("info_player_deathmatch")` returns spots calibrated for player eye height, which is well above the floor for short-bbox monsters. Without `DROP_TO_FLOOR`, headcrabs / barnacles end up floating in mid-air and look broken. Always drop after `UTIL_SetOrigin` for entity moves that target a player spawn.
 - **Don't telefrag on quality-of-life entity moves.** The wave-spawn path can gib whatever's at the spawn point because the round hasn't started — players are still in spectator. Mid-round teleports of existing monsters must validate the destination (64u sphere scan for live players + other horde monsters) and **skip-and-retry** rather than gib. Reusing the wave-spawn telefrag pattern blindly here would damage survivors and turn a QoL feature into a hostile mechanic.
 
 ## Conventions for Future Horde Work

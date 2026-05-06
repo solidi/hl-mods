@@ -89,11 +89,13 @@ Pipeline:
 1. **Target point** — `BotBodyTarget` picks head (skill 0–1) or torso (skill 2+). Mindray always torso vs scientists.
 2. **Lead** — `BotGetLead` adds `velocity * distance / projectile_speed` for projectile weapons; hitscan skips lead.
 3. **Step error** — every `RANDOM_FLOAT(0.25, 1.25)` seconds, `f_aim_x_angle_delta` / `f_aim_y_angle_delta` are regenerated from `±aim_tracking_*_scale[skill] * bot_aim_difficulty`.
-4. **Step error application** — applied every frame (all skill tiers, including 0). Scaled by `max(enemy_velocity * 0.01, 1.0)` so fast strafers are harder to track.
-5. **Per-frame jitter** — `±aim_jitter_scale[skill] * bot_aim_difficulty` added each frame on top of step error, so aim is never pixel-perfect between refreshes.
+4. **Step error application** — applied every frame **only when `has_recent_los` (LOS within 0.3s)**. Scaled by `max(enemy_velocity * 0.01, 1.0)` so fast strafers are harder to track.
+5. **Per-frame jitter** — `±aim_jitter_scale[skill] * bot_aim_difficulty` added each frame **only when `has_recent_los`**, on top of step error, so aim is never pixel-perfect between refreshes.
 6. **Ideal yaw/pitch** written; `BotChangeYaw` / `BotChangePitch` rotate the bot toward it at `yaw_speed`/`pitch_speed` per frame.
 
-The pre-2026-04 model had (a) skill-0 bots bypassing error entirely, (b) a 0.5–3.0s refresh window causing aim to "lock" for seconds, and (c) no per-frame jitter. All three were flagged as the cause of the "exacting" feel.
+**LOS-gated wobble (added 2026-05).** Both step-error (3+4) and per-frame jitter (5) are now gated together on `has_recent_los`. While the bot is locked-on but the enemy is occluded (e.g. behind cover, around a corner), the aim is held steady at the last-known angle instead of continuing to wander on the velocity-scaled tracking error. When LOS breaks, `f_aim_jitter_x/y` and `f_aim_jitter_refresh_time` are zeroed so the jitter doesn't snap back on LOS reacquire. This eliminates the visible pitch wobble that observers reported when watching a bot "hold aim" through cover.
+
+The pre-2026-04 model had (a) skill-0 bots bypassing error entirely, (b) a 0.5–3.0s refresh window causing aim to "lock" for seconds, and (c) no per-frame jitter. All three were flagged as the cause of the "exacting" feel. The pre-2026-05 model had (d) tracking error and jitter both running unconditionally even when the enemy was not visible, producing a visible pitch wobble during occluded hold-aim.
 
 ---
 
@@ -268,6 +270,15 @@ No external config file drives combat — all tuning is through these commands o
 - Removed a redundant `{ ... }` scope block inside `BotFindEnemy`'s "enemy still visible" branch so the control flow no longer looks like a removed conditional.
 - Hardened `bot_aim_difficulty` console parsing: swapped `atof` for `strtof` with an end-pointer check and `std::isfinite` validation. Non-numeric input, `"nan"`, and `"inf"` are now rejected with an "invalid" message instead of silently storing 0 / NaN / Inf and corrupting downstream aim math. Required `<cstdlib>` and `<cmath>` includes in [dll.cpp](workspace/grave-bot-src/dlls/dll.cpp).
 - Captured `pPrevEnemy = pBot->pBotEnemy` at the very top of `BotFindEnemy` (before any LOS-loss nulling) and keyed the re-acquire penalty off `pNewEnemy == pPrevEnemy` instead of `pBot->pBotEnemy`. The common "enemy nulled on LOS loss → re-discovered via remember/search" path now actually fires the penalty — which is the scenario the feature was designed for.
+
+### 2026-05 — Aim wobble during occluded hold-aim
+- Reported: "the bot jitters his weapon up and down (pitch) somewhat if the monster is locked on but is not visible." Diagnosis: the velocity-scaled tracking-error layer (`f_aim_x_angle_delta * f_velocity`) was refreshing every 0.25–1.25s regardless of LOS, so even with a frozen target angle the per-frame applied error continued to wander.
+- Fix in [bot_combat.cpp](../grave-bot-src/dlls/bot_combat.cpp): restructured `BotShootAtEnemy` so **both** the step-error application and the per-frame jitter are gated together on `has_recent_los` (LOS within 0.3s — already tracked via `f_last_enemy_los_time`).
+- When occluded, `f_aim_jitter_x/y` and `f_aim_jitter_refresh_time` are zeroed so the jitter doesn't snap back on LOS reacquire.
+- Lesson: **every per-frame aim-error layer must be gated on a visibility/LOS predicate.** Adding new layers (recoil, suppression sway, etc.) must follow the same gate or they will reproduce the same wobble symptom. The 0.3s LOS window is the canonical predicate; reuse it rather than introducing per-layer windows.
+
+### 2026-05 — Server-side spectator filter (cross-DLL)
+- The bot DLL's `BotHordeThink` dispatch was already gated on `IsAlive()`, but server-side **monster** AI (`CBaseMonster::Look` / `CheckEnemy` in [mpstubb.cpp](../src/dlls/mpstubb.cpp) / [monsters.cpp](../src/dlls/monsters.cpp)) had no spectator filter. Horde monsters could lock onto observer-state players (including bots in limbo). Filter added: clients with `EF_NODRAW`, `IsObserver()`, or `IsSpectator()` are skipped during scans, and a locked `m_hEnemy` that transitions to spectator is released. See [horde_gamerules.md](horde_gamerules.md#spectator-targeting-filter-monsterscpp--mpstubbcpp).
 
 ---
 

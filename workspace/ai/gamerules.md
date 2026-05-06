@@ -214,6 +214,209 @@ The bot DLL cannot include `cbase.h` or read `CBasePlayer` members. Authoritativ
 ### Intermission + cleanup
 `GoToIntermission()` does **not** automatically clear loose pickup entities (dropped flags, dropped weaponboxes, etc.). Bot logic must guard its think dispatch against `g_fGameOver` to avoid chasing stale objectives during the intermission display.
 
+## Spectator System
+
+The spectator pipeline is shared across all multiplayer modes. Every connecting human in any multiplayer mode lands in **Limbo** (observer + join menu) and only enters gameplay after committing via `auto_join` (or a team-pick command). Bots are auto-committed at connect.
+
+### The Three Join States
+
+All multiplayer modes (round-based and non-round-based) use the same 3-state model:
+
+| State | `pev->iuser3` | `m_bWantsToPlay` | `IsCommittedToPlay()` | Counted by gameplay loops? |
+|-------|---------------|------------------|------------------------|-----------------------------|
+| **Limbo** (menu open, undecided) | `OBS_UNDECIDED_*` (≥7) | `FALSE` | `FALSE` | NO |
+| **Chose-Spectate** (issued `spectate`) | `0` | `FALSE` | `FALSE` | NO |
+| **Committed-to-Play** (issued `auto_join` / bot / round ingress) | `0` | `TRUE` | `TRUE` | YES |
+
+`IsCommittedToPlay()` is the **canonical predicate** for any iteration that decides round eligibility, score reset, ingress, or wave admission. Use it in preference to `!HasDisconnected` whenever a Limbo or chose-spectate player must be excluded.
+
+### Round-Based vs. Non-Round-Based
+
+`CGameRules::IsRoundBased()` returns `FALSE` by default. A mode opts in by overriding it to `TRUE`:
+
+| Round-based (returns TRUE) | Non-round-based (default FALSE) |
+|----------------------------|----------------------------------|
+| Arena, Chilldemic, Horde, JVS (Iceman), LMS, PropHunt, Shidden, Loot | FFA, Busters, Cold Skull, Cold Spot, CtC, CTF, GunGame, Instagib, KTS, Snowball, Teamplay |
+
+The difference is **only**: when a Committed-to-Play player actually drops in.
+- **Non-round-based**: `auto_join` calls `ExitObserver()` immediately — player spawns next tick.
+- **Round-based**: `auto_join` sets `m_bWantsToPlay = TRUE` only; the next `CheckClients` / `InsertClientsIntoArena` round-boundary admits them via the standard ingress.
+
+Limbo + Chose-Spectate are **always available** (even in round-based modes) and **ignore the `allow_spectators` cvar**. This is required so non-committed players don't artificially count toward round participation.
+
+### Per-Player State Fields
+
+| Field | Owner | Meaning |
+|-------|-------|---------|
+| `pev->iuser1` | engine | Active observer mode (`OBS_NONE` / `OBS_CHASE_LOCKED` / `OBS_CHASE_FREE` / `OBS_ROAMING` / `OBS_IN_EYE` / `OBS_MAP_FREE` / `OBS_MAP_CHASE`). Set by `StartObserver`; consulted by `pm_shared` and HUD. |
+| `pev->iuser2` | engine | Currently-tracked target entity index for chase-cam modes. |
+| `pev->iuser3` | gamerules | **Menu state.** `0` = either committed-to-play OR chose-spectate (disambiguate via `m_bWantsToPlay`). `OBS_UNDECIDED_SIMPLE` (7) = simple join menu open. `OBS_UNDECIDED_BLUE/RED/BOTH` (8/9/10) = team-aware join menu. `-1` = chose to play (set by `PlayerSpawn` for snowball; reset by `ExitObserver`). |
+| `m_bWantsToPlay` | gamerules | `BOOL`. `TRUE` after the player issued `auto_join` (or for any `FL_FAKECLIENT`). `FALSE` for Limbo (menu open) and Chose-Spectate. Used together with `!HasDisconnected` via the `IsCommittedToPlay()` accessor. **Never reset by `StartObserver`** — must survive round transitions and suck-to-spectator. Initialized in `ClientPutInServer`. |
+| `m_iObserverLastMode` | gamerules | Cached `iuser1` so we can restore the chase-cam style after a target dies. Defaults to `OBS_ROAMING`. |
+| `m_iObserverWeapon` | gamerules | Dual-purpose: in observer-cam it stores the spectated player's weapon icon; **as a menu commit value** it stores the chosen `OBS_MENU_1..3` (0..2) before `ExitObserver` consumes it. Bots set `2` (auto-join) directly. |
+| `m_flForceToObserverTime` | gamerules | Future `gpGlobals->time` at which a dead non-combatant gets `SuckToSpectator()`. Typically set to `gpGlobals->time + 3.0` in `FPlayerCanRespawn` for round-based modes. `0` = inactive. |
+| `IsInArena` | gamerules | `BOOL`. `TRUE` = participating in the current round. `FALSE` = sitting out (spectator). Round-based modes gate `PlayerSpawn` and `FPlayerCanRespawn` on this. |
+
+`OBS_*` mode constants and `OBS_UNDECIDED_*` / `OBS_MENU_*` codes live in `src/pm_shared/pm_shared.h`.
+
+### The Universal `PlayerSpawn` Gate
+
+Every multiplayer mode inherits this early-return at the top of `CHalfLifeMultiplay::PlayerSpawn` (`multiplay_gamerules.cpp` ~line 1885):
+
+```cpp
+// Place player in spectator mode if joining during a game
+// Or if the game begins that requires spectators
+if ((g_GameInProgress && !pPlayer->IsInArena) ||
+    (!g_GameInProgress && IsRoundBased()) ||
+    pPlayer->pev->iuser3 > 0)
+{
+    return;
+}
+```
+
+Three branches, each with a distinct trigger:
+
+1. **`g_GameInProgress && !IsInArena`** — round in flight, this player isn't in it. Fires for late connects to round-based modes and for losers in non-elimination round modes (Arena losers via `m_flForceToObserverTime`, etc.). Returns without spawning the player.
+2. **`!g_GameInProgress && IsRoundBased()`** — between rounds. Returns without spawning so the next `Think` tick's `InsertClientsIntoArena()` can move every committed-to-play player in atomically (Limbo + Chose-Spectate are skipped by the `IsCommittedToPlay()` gate).
+3. **`iuser3 > 0`** — Limbo (join menu open). Fires in **every** multiplayer mode now (round-based and non-round-based) because `ClientPutInServer` puts every connecting human into Limbo. Returns without spawning until `auto_join` / `join_blue` / `join_red` / `spectate` is issued.
+
+If all three branches fall through, the player spawns normally.
+
+### Connection-Time Setup (`ClientPutInServer` in `src/dlls/client.cpp` ~line 260)
+
+```cpp
+pPlayer->pev->iuser1 = 0;
+pPlayer->pev->iuser2 = 0;
+pPlayer->pev->iuser3 = 0;  // menu status
+
+// Limbo: connecting humans see the join menu in ALL multiplayer modes.
+if (g_pGameRules->IsMultiplayer())
+    pPlayer->pev->iuser3 = OBS_UNDECIDED_SIMPLE;
+
+pPlayer->m_bWantsToPlay = FALSE;
+if (FBitSet(pPlayer->pev->flags, FL_FAKECLIENT))
+    pPlayer->m_bWantsToPlay = TRUE;  // bots always commit
+```
+
+So every connecting human starts in **Limbo**: `iuser3 = OBS_UNDECIDED_SIMPLE`, `m_bWantsToPlay = FALSE`. `PlayerSpawn` fires branch 3 (`iuser3 > 0`) and parks them in `OBS_ROAMING` with the menu rendered. Bots additionally have `m_bWantsToPlay = TRUE` so they're auto-committed; the `FL_FAKECLIENT + iuser3 > 0` fast path in `multiplay_gamerules.cpp` (~line 1792) calls `ExitObserver()` for them next tick.
+
+### Client Commands
+
+Handled in `client.cpp` `ClientCommand`. **Available in all multiplayer modes**:
+
+| Command | Effect |
+|---------|--------|
+| `menu` | Re-opens the join menu (only while spectating). Sets `iuser3 = OBS_UNDECIDED_SIMPLE` (FFA) or `OBS_UNDECIDED_BOTH` (CTF / KTS) and `m_bWantsToPlay = FALSE`. Blocked mid-round for active players. |
+| `auto_join` | Sets `m_bWantsToPlay = TRUE`, `m_iObserverWeapon = OBS_MENU_3`. In **non-round-based** modes immediately calls `ExitObserver()`; in **round-based** modes the next round transition admits them via `InsertClientsIntoArena`. |
+| `join_blue` | (CTF / Cold Spot / KTS) Sets `m_iObserverWeapon = OBS_MENU_1` then `ExitObserver()`. In FFA modes falls through to `model iceman`. |
+| `join_red` | (CTF / Cold Spot / KTS) Sets `m_iObserverWeapon = OBS_MENU_2` then `ExitObserver()`. In FFA modes falls through to `model santa`. |
+| `spectate` | Sets `iuser3 = 0`, `m_bWantsToPlay = FALSE`, calls `StartObserver` at a spawn point. In non-round-based modes requires `allow_spectators` cvar OR a Limbo->Spectate transition. **In round-based modes the command is BLOCKED for active in-arena combatants** (`!IsObserver() && IsInArena && iuser3 == 0`) — see [Mid-round spectate guard](#mid-round-spectate-guard) below. Limbo (menu open) and current observers may always issue it. Proxies (HLTV) always allowed. |
+
+`ExitObserver` (`player.cpp`) clears `iuser1/iuser2/iuser3`, sets `m_iHideHUD = 0`, sets `m_iExitObserver = TRUE`, and calls `Spawn()`. The next `Spawn()` reaches the `PlayerSpawn` gate with `iuser3 == 0`, so all three branches fall through and the player actually spawns.
+
+### Round-Based Transition APIs (`CHalfLifeMultiplay`)
+
+Three functions form the contract every round-based mode uses. **Do not reimplement them per-mode** — call them.
+
+#### `SuckToSpectator(CBasePlayer *pPlayer)` (~line 1135)
+Forces a single player into spectator without telling them why:
+- Clears `m_szTeamName`, broadcasts `gmsgTeamInfo` with empty team.
+- Zeroes `pev->frags`, `m_iDeaths`; broadcasts `gmsgScoreInfo` so the scoreboard updates.
+- Sets `IsInArena = FALSE`.
+- Sets `m_iObserverLastMode = OBS_ROAMING` (chase-cams default to free roaming).
+- Calls `StartObserver(spawnSpot.origin, spawnSpot.angles)` — picks a deathmatch spawn point, sets up the observer view, broadcasts kill-attachments TE.
+
+#### `SuckAllToSpectator()` (~line 1164)
+Loops every connected client and calls `SuckToSpectator`. Plays `CLIENT_SOUND_ROUND_OVER` to all players. Round-based modes call this on round end and on round-end edge cases (countdown abort, late join during countdown).
+
+#### `InsertClientsIntoArena(float fragcount)` (~line 958)
+The **canonical round-start ingress** for round-based modes. Iterates every connected player and gates on **`IsCommittedToPlay()`** (so Limbo + Chose-Spectate are skipped). For each committed player:
+- `pPlayer->pev->frags = fragcount` (LMS uses `startwithlives`; everyone else passes `0`).
+- `IsInArena = TRUE`.
+- Broadcasts `gmsgScoreInfo`.
+- Calls `pPlayer->ExitObserver()` — which clears `iuser*`, runs `Spawn()`, the `PlayerSpawn` gate falls through (because `IsInArena` is now `TRUE` and `g_GameInProgress` is `TRUE`), and the player spawns at a deathmatch start.
+- Increments `m_iRoundPlays`.
+
+`CheckClients()` (~line 932) similarly gates on `IsCommittedToPlay()` to count active participants and populate `m_iPlayersInArena[]`. **These two are the keystone admission/counting APIs** — changing the predicate here cascades to every round-based mode automatically.
+
+Arena is the only outlier — it manually sets `IsInArena = TRUE` + `ExitObserver()` for the **two selected** combatants and `SuckToSpectator()` for everyone else committed-to-play, so that the rest of the pool stays in spectator. Every other round-based mode (Horde, Chilldemic, JVS, LMS, PropHunt, Shidden, Loot) calls `InsertClientsIntoArena(0)` to admit *all* committed-to-play players together. Mode-specific pool-builders and team-balance shuffles (Arena's `m_iOpponentPool[]`, JVS's `m_iJesusPool[]`, Shidden + PropHunt Fisher-Yates passes, Loot's pre-spawn `SOLID_NOT` set) all also gate on `IsCommittedToPlay()` so a Limbo player who joins between `CheckClients()` and the pool build cannot accidentally be assigned a role.
+
+#### Cached pool draw-time prune
+
+Arena (`m_iOpponentPool[]`) and JvS (`m_iJesusPool[]`) **cache** their player-index pool across rounds and refresh only on rare events (champion change, pool exhaustion, connect/disconnect). A player who was committed at pool-build time but issued `spectate` afterward will linger in the cache; if randomly drawn, `InsertClientsIntoArena` (or Arena's manual ingress) silently skips them and the round starts with a missing combatant or no Jesus.
+
+**The fix is a stateless in-place compaction pass** that runs every wait-for-players `Think()` tick **before** any random draw from the pool:
+
+```cpp
+int iWrite = 0;
+for (int iRead = 0; iRead < m_iPoolSize; iRead++) {
+    int idx = m_iPool[iRead];
+    CBasePlayer *plr = (CBasePlayer*)UTIL_PlayerByIndex(idx);
+    if (plr && plr->IsPlayer() && !plr->HasDisconnected && plr->IsCommittedToPlay())
+        m_iPool[iWrite++] = idx;
+    else
+        ALERT(at_console, "[<mode>] Pruning stale pool entry %d (not committed)\n", idx);
+}
+m_iPoolSize = iWrite;
+```
+
+Applied in [arena_gamerules.cpp](../src/dlls/arena_gamerules.cpp) (before "Build or refresh the opponent pool if needed") and [jvs_gamerules.cpp](../src/dlls/jvs_gamerules.cpp) (after `SetRoundLimits()`, before the `m_bJesusPoolNeedsRefresh` branch). **Any future round-based gamerules that caches a player-index pool across ticks must follow this pattern** — connect/disconnect-only refresh is insufficient because Limbo / Chose-Spectate transitions have no callback hook.
+
+#### Mid-round spectate guard
+
+The `spectate` console command is handled in `client.cpp` `ClientCommand`. In round-based modes (Arena / Shidden / JvS / Horde / Chilldemic / LMS / PropHunt / Loot) an active in-arena combatant must NOT be able to issue `spectate` mid-round — that would let them dodge a kill, flip the win condition, or strand a 1v1 / Jesus role:
+
+```cpp
+if (g_pGameRules->IsRoundBased()
+    && !(pev->flags & FL_PROXY)
+    && pev->iuser3 == 0          // not in limbo menu
+    && !pPlayer->IsObserver()    // not already observing
+    && pPlayer->IsInArena)       // active combatant
+{
+    ClientPrint(pev, HUD_PRINTCENTER,
+        "Cannot spectate mid-round.\nYou will be able to choose after this round.\n");
+    return;
+}
+```
+
+Limbo menu users (`iuser3 > 0`) and current observers can still use `spectate` — that's the correct path for new joiners and Limbo-decision flow. After the round ends, the natural death/round-flip path puts active players back into observer/limbo where they can use `spectate` to commit to Chose-Spectate.
+
+### Dead-Player Force-To-Spectator
+
+Round-based modes that allow respawn-while-round-active (or want to delay the kick by a death-cam window) use `m_flForceToObserverTime`:
+
+```cpp
+// FPlayerCanRespawn (Arena, Horde, etc.)
+if ( !pPlayer->IsAlive() && !pPlayer->m_flForceToObserverTime )
+    pPlayer->m_flForceToObserverTime = gpGlobals->time + 3.0;
+```
+
+The mode's `Think()` then polls every player and, for any that have crossed `m_flForceToObserverTime`, calls `SuckToSpectator(plr)` and clears the timer. The 3-second window lets the death animation play and the death-cam fade complete before the screen snaps to spectator.
+
+### Reverse Path — `ExitObserver` (Player Wants Back In)
+
+`CBasePlayer::ExitObserver()` (`player.cpp:7861`) is the **only** way a player can leave the observer state. It is called from:
+
+- `client.cpp` — the `auto_join` / `join_blue` / `join_red` commands (non-round-based). After the player picks a team via the menu.
+- `client.cpp` — `FL_FAKECLIENT + iuser3 > 0` auto-promotion path for bots (multiplay_gamerules.cpp ~1792).
+- `multiplay_gamerules.cpp` — `InsertClientsIntoArena` (round-based round-start).
+- `arena_gamerules.cpp` — manual call inside the arena round-start that promotes the two selected combatants (the rest get `SuckToSpectator`).
+
+It clears `iuser1/iuser2/iuser3` to `0`, sets `m_iExitObserver = TRUE`, and calls `Spawn()`. The flag is consumed by `PlayerSpawn` to skip a couple of one-time spawn effects.
+
+### Bot-Side Implications
+
+Bots **never** open a join menu. `ClientPutInServer` sets `m_bWantsToPlay = TRUE` for any `FL_FAKECLIENT`, and the auto-promotion fast path (`multiplay_gamerules.cpp ~1792`) detects `FL_FAKECLIENT + iuser3 > 0`, sets `m_iObserverWeapon = 2`, and calls `ExitObserver()` next tick. While briefly mid-spectate (waiting for a round), bot AI must guard combat/movement on `IsAlive()` or `IsSpectator()` to avoid acting on observer-state bots.
+
+### Common Pitfalls
+
+1. **Adding a round-based mode and forgetting `IsRoundBased()` override** — players see the FFA join menu and `auto_join` "works" (because `iuser3 > 0` lets `PlayerSpawn` succeed branch 3), but the next `Think` immediately re-spectates them via the `g_GameInProgress + !IsInArena` branch. Symptom: connect, briefly spawn, snap back to spectator.
+2. **Calling `ExitObserver()` without `IsInArena = TRUE` first in a round-based mode** — `PlayerSpawn` branch 1 returns immediately (because `g_GameInProgress` is `TRUE` and `IsInArena` is still `FALSE`). The player ends up in a half-state: not in observer (`iuser*` cleared) but not spawned either. Always go through `InsertClientsIntoArena` or set `IsInArena = TRUE` first.
+3. **Forgetting the bot fast path** — if a new mode has its own `PlayerSpawn` that returns before the FL_FAKECLIENT branch at `multiplay_gamerules.cpp ~1792`, bots get stuck on the join menu and never enter the round. Either chain to the base `CHalfLifeMultiplay::PlayerSpawn` or replicate the FL_FAKECLIENT auto-join.
+4. **`m_flForceToObserverTime` not cleared after `SuckToSpectator`** — the timer must be zeroed once consumed, otherwise the mode's `Think` repeatedly calls `SuckToSpectator` on an already-spectating player and the broadcast spam saturates the scoreboard.
+5. **Using `!HasDisconnected` instead of `IsCommittedToPlay()` for round eligibility** — Limbo and Chose-Spectate players have `!HasDisconnected == TRUE` but should NOT be counted as round participants. New round-eligibility iterations must use `IsCommittedToPlay()`. The keystone APIs (`CheckClients`, `InsertClientsIntoArena`) already do this correctly.
+6. **Resetting `m_bWantsToPlay` in `StartObserver`** — do not. The field must survive round transitions and suck-to-spectator events; otherwise a committed player who dies and gets sucked to spectator would silently revert to Limbo and not be re-admitted next round. Only `ClientPutInServer` (per-connect init), the `spectate` command, and the `menu` command should clear it.
+
 ## Common Pitfalls Across Modes
 
 1. **`v_goal` wiped between `*PreUpdate` and direct-steer** — see the CRITICAL section above. The single most common bug when wiring a new mode.

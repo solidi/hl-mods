@@ -46,7 +46,7 @@ v1.1 Features:
 - Game Modes Changes
     - New celebration sequences switch to thirdperson
     - Added banner system so that it is clear of team objective on entering arena
-    - Added initial spectator mode and menu selection on certain game modes
+    - Added initial spectator menu selection on all game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
     - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Added teammate radar indicators above each player's head
@@ -225,6 +225,7 @@ v1.1 Features:
             - End horde when scorelimit reached
             - Improved panthereye leaping, made damage easier
             - Improve winner determination when there is a tie
+            - Monsters no longer engage spectators
         - Instagib
             - Fixed spread calculations
             - Zapgun gibs monsters

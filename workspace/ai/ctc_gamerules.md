@@ -158,6 +158,27 @@ if (pPlayer->IsAlive() && pPlayer->m_iHoldingChumtoad)
 - `pev->iuser3 == 0`: Spectator joining — set team to `"chaser"`, `iuser3 = -1`, schedule game mode message
 - Always resets `m_iHoldingChumtoad = FALSE` (safety for weapon drop logic)
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. CtC is **non-round-based** (`IsRoundBased()` not overridden → `FALSE`).
+
+CtC is FFA with a single shared objective (the chumtoad), so it uses the **simple join menu** (`OBS_UNDECIDED_SIMPLE`) — there is no team selection.
+
+### Connection
+- `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE`. The simple menu opens.
+- Player issues `auto_join` (or `spectate`) → `m_iObserverWeapon = 2` → `ExitObserver()` → mode-side `PlayerSpawn` runs and the `iuser3 == 0` branch sets the team string to `"chaser"` and `iuser3 = -1` (committed sentinel).
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path.
+
+### Mid-Match
+- Holder death (chumtoad-carrying player killed): drops the chumtoad (it becomes a `weaponbox` containing the chumtoad weapon). The dying player goes through standard FFA respawn — no force-to-spectator. `m_iHoldingChumtoad` is reset on respawn via the `PlayerSpawn` override.
+- Player count drops below 2: `Think()` forces the holder to drop and removes all toads (line 4 in the Think list). The mode is *only viable* with ≥2 players; the chumtoad is rebuilt automatically when a 2nd player connects and joins.
+- `spectate` mid-match: if the spectator was holding the chumtoad, they would have already dropped it in the kill / disconnect path that preceded the spectate command. Either way, the chumtoad enters the loose-toad teleport cycle.
+
+### Pitfalls Specific to CtC
+- **Mode-side `PlayerSpawn` must call the parent first** — otherwise the `iuser3 > 0` early-return in `CHalfLifeMultiplay::PlayerSpawn` is bypassed and players get equipped on every observer-state tick.
+- **`"chaser"` team assignment is cosmetic** in this FFA mode — `IsTeamplay()` returns `FALSE` for CtC. The team name exists for HUD coloring of the holder banner only.
+- **`iuser3 == -1` is the same committed sentinel as Cold Skull** — cross-mode convention for non-round-based modes. Treat it as "this player picked play, not spectate".
+
 ### ClientDisconnected
 - If disconnecting player was holding: `m_iHoldingChumtoad = FALSE`, calls `DropCharm`
 

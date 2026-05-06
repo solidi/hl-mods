@@ -76,6 +76,25 @@ Two-tier priority, runs every 0.15–0.25s (randomized to spread network load):
 - `pev->iuser3 == 0`: Spectator now joining — set `iuser3 = -1`, schedule game mode message
 - Game mode banner: "Collect The Skulls" / "Frag your opponents and their heads will come to you."
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. Cold Skull is **non-round-based** (`IsRoundBased()` not overridden → `FALSE`).
+
+Cold Skull is the textbook FFA spectator flow:
+
+### Connection
+- `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE`. The `PlayerSpawn` gate branch 3 returns; player parks in `OBS_ROAMING` with the simple join menu.
+- The mode-side `PlayerSpawn` overrides on top of the base. The `iuser3 == 0` branch above is the *post-commit* path: after `ExitObserver()` clears `iuser3`, the next `Spawn()` reaches the override, which then sets `iuser3 = -1` to mark "this player has chosen to play" and schedules the welcome banner. The `iuser3 > 0` branch covers the case where the menu is still open — equipment-grant logic skips that frame.
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path.
+
+### Mid-Match Death
+- Standard FFA respawn. The 33% skull penalty (`m_iRoundWins = m_iRoundWins * 2 / 3`) is applied at death; respawn timer ticks; new spawn at deathmatch start. No force-to-spectator.
+- The `iuser3 = -1` value persists across deaths — the player has committed and won't see the menu again unless they explicitly `menu`-command back to the join screen.
+
+### Pitfalls Specific to Cold Skull
+- **`iuser3 == -1` is a sentinel, not an observer mode.** It is a Cold Skull / CtC convention meaning "player has committed to playing in this FFA mode". Don't confuse it with the OBS_* observer modes (which live in `iuser1`).
+- **`spectate` command works mid-match.** Players who `spectate` mid-game keep their `m_iRoundWins` but stop dropping skulls on death (because skull-drop is gated on `IsAlive()`). The skull collection in flight is unaffected — they were always world entities, not player-attached.
+
 ## Key Constants
 ```cpp
 #define SKULL_MAGNET_THRESHOLD 2      // Min skulls a player needs to attract loose skulls
