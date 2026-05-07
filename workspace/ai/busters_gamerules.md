@@ -107,6 +107,29 @@ If the weapon is the egon:
 ### ClientDisconnected
 - If the disconnecting player was the Buster, reset `m_flEgonBustingCheckTime = -1` and broadcast "The Buster disconnected!!" so `CheckForEgons` re-grants immediately on next tick.
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. Busters is **non-round-based** (`IsRoundBased()` not overridden → `FALSE`).
+
+Busters uses the **standard FFA-style join flow**: connecting players land on the simple join menu, and `auto_join` is the action that commits them into play. Because Busters is FFA from the menu's perspective, only the simple menu (`OBS_UNDECIDED_SIMPLE`) is shown — there is no team-pick because the Buster role is assigned dynamically by lowest-frags scoring, not by player choice. Choosing `spectate` follows the hub spectator flow instead: the player remains an observer and does not commit/spawn until they later choose to join.
+
+### Connection
+- `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE` (Limbo — same for all multiplayer modes). `PlayerSpawn` gate branch 3 returns; player parks in `OBS_ROAMING` with the simple menu.
+- Player issues `auto_join` → `m_iObserverWeapon = 2` → `ExitObserver()` → next `Spawn()` succeeds and `SetPlayerModel()` assigns them to `"ghosts"` team initially.
+- Player issues `spectate` → remains in observer via the standard spectator system; no `ExitObserver()` commit and no spawn until they later choose `auto_join`.
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path.
+
+### Mid-Match Death
+- Standard FFA respawn: `FPlayerCanRespawn` returns `TRUE`. No force-to-spectator. Dead players just respawn at the next deathmatch start after the respawn timer.
+- A new connection mid-match is treated identically to a connect at game-start: simple menu, then auto-join into ghost role.
+
+### Buster Role Transitions Are Independent of Spectator State
+Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (lowest fragger after a 10-second window). It does **not** call `ExitObserver` or touch `IsInArena` — those fields are not used in non-round-based modes. The role swap is just a `RemoveAllItems` + `GiveNamedItem("weapon_egon")` + `SetPlayerModel`.
+
+### Pitfalls Specific to Busters
+- **Don't gate Buster assignment on `IsInArena`** — it stays `FALSE` for the entire match in non-round-based modes. Use `IsAlive()` and `IsSpectator()` checks instead.
+- **`spectate` console command is allowed.** Limbo + Chose-Spectate are always available regardless of `allow_spectators` cvar in any mode; for Busters specifically, mid-match a player who `spectate`s drops to `iuser3 = 0` and `OBS_ROAMING` — they're invisible to `CheckForEgons` because of the `IsAlive()` filter, so the Buster pool isn't disturbed.
+
 ## Key Constants
 ```cpp
 #define EGON_BUSTING_TIME 10                // seconds the dropped egon stays up for grabs

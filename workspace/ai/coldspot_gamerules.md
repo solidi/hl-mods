@@ -148,6 +148,36 @@ Called every 1s from `ColdSpotThink` and on every spot relocation. Responsibilit
 - Locks models to `iceman`/`santa`; any other model is corrected and the player is killed+respawned
 - `pev->fuser4` is updated to match the new team's ID (`TEAM_BLUE`/`TEAM_RED`)
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. Cold Spot is **non-round-based** (`IsRoundBased()` not overridden → `FALSE`).
+
+Cold Spot is **team-based + non-round-based**, so it uses the *team-aware* join menu via `OBS_UNDECIDED_BOTH` (set by the `menu` client command).
+
+### Connection
+- `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE`. The simple menu opens.
+- If the player issues `menu`, the team-aware menu (`OBS_UNDECIDED_BOTH`) is shown — the spectator panel renders Iceman/Santa pick options.
+- Available client commands: `auto_join` (auto-balance picks team), `join_blue` (forces Iceman), `join_red` (forces Santa), `spectate` (parks in observer with `iuser3 = 0`).
+- Each commit sets `m_iObserverWeapon` to the appropriate `OBS_MENU_*` value, then calls `ExitObserver()`. The base `CHalfLifeMultiplay::PlayerSpawn` then runs and `SetPlayerModel` (in `coldspot_gamerules.cpp:571` after the parent call) assigns the model based on the team selection.
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path; auto-balance places them on the smaller team.
+
+### Scoring Eligibility — `pev->iuser1 == 0` Check
+The scoring tick (`ColdSpotThink`) explicitly excludes players with `pev->iuser1 != 0`:
+```cpp
+// Gather every living, non-spectator player with clear LoS
+if (pPlayer->IsAlive() && pPlayer->pev->iuser1 == 0 && ...)
+```
+`pev->iuser1 == 0` means "not in any observer mode" — i.e., actively playing. This is the most reliable cross-DLL spectator-state check; bot code uses the same idiom.
+
+### Mid-Match
+- Team change (model swap via `ClientUserInfoChanged`) kills the player and respawns them on the new team.
+- Death: standard FFA-style respawn; no force-to-spectator timer.
+- `spectate` mid-match drops the player out of scoring eligibility (their `iuser1` becomes non-zero) but does not affect their accumulated `m_iRoundWins`.
+
+### Pitfalls Specific to Cold Spot
+- **The `pev->iuser1 == 0` filter is load-bearing.** Removing it would let spectators contribute to the team counter (via the LoS check passing on phantom positions), instantly breaking the contest semantics.
+- **Team-aware menu requires `IsCtF() || IsKickTheSnowball() || IsColdSpot()`** — the `join_blue` / `join_red` handlers in `client.cpp` check this triple. New team-based modes must be added to that list or their menu picks fall through to FFA-style `model` commands.
+
 ## Key Constants
 ```cpp
 #define TEAM_BLUE 0

@@ -22,6 +22,29 @@
 - Auto-join balances team sizes; team change kills the player and respawns
 - Only `iceman` and `santa` models allowed; enforced in `ClientUserInfoChanged`
 
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. KTS is **non-round-based** (`IsRoundBased()` not overridden → `FALSE`).
+
+KTS is **team-based + non-round-based**, same pattern as CTF and Cold Spot.
+
+### Connection
+- `ClientPutInServer` sets `iuser3 = OBS_UNDECIDED_SIMPLE`.
+- Player issues `menu` → `iuser3 = OBS_UNDECIDED_BOTH` (team-aware menu).
+- `auto_join` / `join_blue` / `join_red` commit through `ExitObserver()` and the base `PlayerSpawn` assigns model + team.
+- `spectate` parks in `OBS_ROAMING`.
+- Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path.
+
+### Mid-Match — Dribbler Cleanup
+The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pev->euser1` (raw edict pointer for cross-DLL bot reads). Both are cleared when:
+- The dribbler dies (`PlayerKilled` → `DropCharm`).
+- The dribbler disconnects (`ClientDisconnected` → `DropCharm` if they were the active dribbler).
+- The dribbler issues `spectate` mid-match — `DropCharm` should be called from the spectate handler path; check `m_hDribbler == pPlayer` before letting `iuser3 = 0`.
+
+### Pitfalls Specific to KTS
+- **`pev->euser1` on the snowball must match `m_hDribbler`** — the dual storage is the cross-DLL bridge (bots read `euser1`, server reads `m_hDribbler`). Forgetting to clear `euser1` on dribbler-spectate leaves a stale pointer that bot code will read as "this player is still dribbling".
+- **Goal-AABB check ignores spectators implicitly** because `m_hDribbler` is cleared when the dribbler enters spectator. But a `spectate` command path that *doesn't* go through `DropCharm` (custom handler regression) would let a dribbling spectator score by phasing through the goal AABB.
+
 ## Snowball Entity (`CKtsSnowball`, classname `"kts_snowball"`)
 - **Model**: `models/w_weapons.mdl` (body = `WEAPON_SNOWBALL - 1`), scale 4.0
 - **Sounds**: `ball_bounce.wav` (wall/floor impact), `dribble.wav` (looped while dribbling)

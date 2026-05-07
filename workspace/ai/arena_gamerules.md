@@ -95,6 +95,7 @@ MATCH IN PROGRESS (g_GameInProgress = TRUE)
 3. **Pool exhausted** (`m_iOpponentPoolSize == 0`): Rebuilt with all eligible players excluding the champion.
 4. **Champion disconnect**: Pool and champion reset to 0, restarts from first-round logic.
 5. **Stale pool entry**: If selected opponent has disconnected, retry on next tick without disturbing champion.
+6. **Draw-time prune** (every wait-for-players tick, before any draw): in-place compaction of `m_iOpponentPool[]` keeps only entries where `plr && plr->IsPlayer() && !plr->HasDisconnected && plr->IsCommittedToPlay()`. Pruned entries are logged via `ALERT(at_console, "[Arena] Pruning stale pool entry %d (not committed)\n", idx)`. This catches players who issued `spectate` *after* the pool was built — without it, `m_iPlayer2` could be selected from a non-committed entry that arena's manual ingress would silently skip. See [Cached pool draw-time prune](gamerules.md#cached-pool-draw-time-prune) in the hub doc.
 
 ## Player States
 
@@ -122,6 +123,46 @@ MATCH IN PROGRESS (g_GameInProgress = TRUE)
 - **Tie**: If frags equal → draw, no champion set, both lose
 - **Winner**: Becomes `m_iReigningChampion`, `DisplayWinnersGoods()` called
 - Resets: `g_GameInProgress = FALSE`, `PauseMutators()`, `m_iSuccessfulRounds++`
+
+## Spectator Behavior
+
+> Foundation: see the [Spectator System](gamerules.md#spectator-system) section in the hub document. Arena is **round-based** (`IsRoundBased() == TRUE` at `arena_gamerules.cpp:787`).
+
+Arena is the **outlier** among round-based modes — it never calls `InsertClientsIntoArena()`. The 1v1 selection demands that only two specific players enter the round, so Arena drives the spectator transitions manually:
+
+### Connection / Between Rounds
+- New connects in any mode (round-based included) land in **Limbo**: `iuser3 = OBS_UNDECIDED_SIMPLE`, `m_bWantsToPlay = FALSE`. `PlayerSpawn` gate branch 3 returns; the player parks in `OBS_ROAMING` with the join menu rendered.
+- After `auto_join`, `m_bWantsToPlay = TRUE`. They become eligible for the opponent pool on the next `CheckClients()` pass.
+- After `spectate`, `m_bWantsToPlay` stays `FALSE` and they are excluded from the pool entirely.
+
+### Round Start (`arena_gamerules.cpp` ~510-540)
+After `CheckClients()` selects `pPlayer1` and `pPlayer2` from the opponent pool (which only contains committed-to-play players because `CheckClients` itself gates on `IsCommittedToPlay()`):
+- Both selected players: `IsInArena = TRUE`, frags/deaths zeroed, `ExitObserver()` called → spawns them via the `PlayerSpawn` gate falling through.
+- Every other **committed** connected player: `SuckToSpectator(plr)` — kicked into `OBS_ROAMING` with cleared team / score broadcasts. They stay in the opponent pool waiting for their turn.
+- Limbo + Chose-Spectate players are skipped entirely by the `IsCommittedToPlay()` gate (they're already observers).
+
+The source comment at line 511 (`//Should really be using InsertClientsIntoArena...`) acknowledges this is a manual replica — the helper would admit *all* clients, which is wrong for 1v1.
+
+### Mid-Round Death
+- `FPlayerCanRespawn` (line 705): if the dying player is **not** in the active 1v1 (i.e., spectator who somehow got hit, or a disconnect race) and `m_flForceToObserverTime == 0`, set `m_flForceToObserverTime = gpGlobals->time + 3.0`.
+- `Think()` (line 195) polls all players each tick. For any with `m_flForceToObserverTime` expired, call `SuckToSpectator(plr)` and clear the timer. This is the standard 3-second death-cam window.
+- Active combatants (`IsInArena == TRUE`) never have `FPlayerCanRespawn` set their timer — they wait until round end.
+- Dead Arena combatants are also force-spectated via `m_flForceToObserverTime = gpGlobals->time` (immediate, no 3-second delay) at line 261, but only after the killer reaches `roundfraglimit`.
+
+### Round End
+- Frag-limit win or timer expiration → `g_GameInProgress = FALSE`, `m_iReigningChampion` updated, `flUpdateTime = gpGlobals->time + 3.0` (3-second post-match break).
+- Loser stays in spectator (`IsInArena` still `TRUE` momentarily; they just lost, no `SuckToSpectator` called yet).
+- Match-end edge cases (`countdown abort`, `disconnect during countdown` at lines 295/320/580): `SuckAllToSpectator()` — full reset.
+
+### Spectator-Side HUD (during active match)
+Lines 234-256: every observer (`plr->IsSpectator() && !FL_FAKECLIENT`) gets a `gmsgObjective` broadcast each tick showing `"1 vs. 1: Round N | Player1 (HP/Armor) vs. Player2 (HP/Armor)"`. This is what spectators see while waiting for their turn in the pool.
+
+### Spectator Pitfalls Specific to Arena
+- **The opponent pool only contains committed-to-play players.** Both `CheckClients()` and Arena's own pool builders (initial-build at ~line 339 and exhaustion-rebuild at ~line 429) gate on `IsCommittedToPlay()`. A spectator can be `IsSpectator() == TRUE` AND committed (sitting out the current 1v1) and still be in `m_iOpponentPool[]`; Limbo + Chose-Spectate are excluded entirely.
+- **Don't call `InsertClientsIntoArena()`** — it would spawn every committed player and break the 1v1 contract.
+- **`m_iReigningChampion` survives `SuckAllToSpectator`** — the champion index is just an integer, not a player flag. Resetting the spectator pool does not reset the champion. Champion-disconnect handling clears it explicitly.
+- **A reigning champion who toggles to Chose-Spectate** continues to read as `championValid == FALSE` next tick (because the pool-rebuild gates on `IsCommittedToPlay()` and the champion-validity check uses `!HasDisconnected`, but the champion is still pulled from the index list). The pool will be rebuilt and a fresh 1v1 selected.
+
 
 ## PlayerKilled
 - Calls `CHalfLifeMultiplay::PlayerKilled()` first (standard frag accounting)
