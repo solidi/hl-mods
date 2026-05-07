@@ -226,9 +226,9 @@ All multiplayer modes (round-based and non-round-based) use the same 3-state mod
 |-------|---------------|------------------|------------------------|-----------------------------|
 | **Limbo** (menu open, undecided) | `OBS_UNDECIDED_*` (≥7) | `FALSE` | `FALSE` | NO |
 | **Chose-Spectate** (issued `spectate`) | `0` | `FALSE` | `FALSE` | NO |
-| **Committed-to-Play** (issued `auto_join` / bot / round ingress) | `0` | `TRUE` | `TRUE` | YES |
+| **Committed-to-Play** (issued `auto_join` / bot / round ingress) | `0` or `-1` (mode-dependent committed sentinel) | `TRUE` | `TRUE` | YES |
 
-`IsCommittedToPlay()` is the **canonical predicate** for any iteration that decides round eligibility, score reset, ingress, or wave admission. Use it in preference to `!HasDisconnected` whenever a Limbo or chose-spectate player must be excluded.
+`IsCommittedToPlay()` is the **canonical predicate** for any iteration that decides round eligibility, score reset, ingress, or wave admission, and `m_bWantsToPlay` is the underlying committed-state flag. Do not treat `pev->iuser3 == 0` as the sole committed test; depending on mode, committed players may carry `0` or `-1`.
 
 ### Round-Based vs. Non-Round-Based
 
