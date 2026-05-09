@@ -60,7 +60,11 @@ $Config = @{ }
         $singlePlayer = "_sp"
         Write-Output "single player..."
     } elseif ($_.Split(' ')[0].ToUpper() -eq "GameMode") {
-        $gamemode = $_.Split(' ')[1]
+        $gameModeParts = $_.Split(' ', 2)
+        if ($gameModeParts.Length -lt 2 -or [string]::IsNullOrWhiteSpace($gameModeParts[1])) {
+            throw "The -GameMode argument requires a value."
+        }
+        $gamemode = $gameModeParts[1].Trim()
         Write-Output "gamemode is ${gamemode}..."
     } else {
         $cmd = $_.Split(' ')[0]
@@ -106,7 +110,7 @@ if ($spawnweaponlist) {
 }
 
 if ($timelimit) {
-    "mp_timelimit `"$timelimt`"" | Add-Content $iceDir\game.cfg
+    "mp_timelimit `"$timelimit`"" | Add-Content $iceDir\game.cfg
 }
 
 if ($gamemode) {
