@@ -21,6 +21,7 @@ $Config = @{ }
 [bool]$copyDistro = 1
 [bool]$detailedTextures = $false
 [string]$singlePlayer = ""
+[string]$gamemode = ""
 
 # https://stackoverflow.com/questions/27794898/powershell-pass-named-parameters-to-argumentlist
 ([string]$args).split('-') | %{
@@ -58,6 +59,9 @@ $Config = @{ }
     } elseif ($_.Split(' ')[0].ToUpper() -eq "SinglePlayer") {
         $singlePlayer = "_sp"
         Write-Output "single player..."
+    } elseif ($_.Split(' ')[0].ToUpper() -eq "GameMode") {
+        $gamemode = $_.Split(' ')[1]
+        Write-Output "gamemode is ${gamemode}..."
     } else {
         $cmd = $_.Split(' ')[0]
         if ($cmd) {
@@ -103,6 +107,10 @@ if ($spawnweaponlist) {
 
 if ($timelimit) {
     "mp_timelimit `"$timelimt`"" | Add-Content $iceDir\game.cfg
+}
+
+if ($gamemode) {
+    "mp_gamemode `"$gamemode`"" | Add-Content $iceDir\game.cfg
 }
 
 if ($botCount -gt 0) {

@@ -22,7 +22,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 11 | `GAME_INSTAGIB`   | `"instagib"`       | `CHalfLifeInstagib`                | TBD |
 | 12 | `GAME_ICEMAN`     | `"jvs"`            | `CHalfLifeJVS` (Jesus vs. Santa)   | TBD |
 | 13 | `GAME_KTS`        | `"kts"`            | `CHalfLifeKickTheSnowball`         | [kts_gamerules.md](kts_gamerules.md) |
-| 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | TBD |
+| 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | [loot_gamerules.md](loot_gamerules.md) |
 | 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | TBD |
 | 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | TBD |
 | 17 | `GAME_SNOWBALL`   | `"snowball"`       | `CHalfLifeSnowballFight`           | TBD |
@@ -163,6 +163,7 @@ Used as `pev->fuser4` values so the radar HUD and the bot DLL can identify speci
 > 6. **`bot.cpp` `BotSpawnInit`** — initialize all per-bot mode fields, otherwise stale state from a prior map/round leaks into the new one.
 > 7. **`bot_func.h`** — declare `BotMyModeThink` / `BotMyModePreUpdate` extern.
 > 8. **`bot.h`** — add per-bot fields and any role enums.
+> 9. **`bot_navigate.cpp` `BotFindWaypointGoal`** — add a `GAME_<MODE>` block that picks the waypoint nearest to `v_goal` (mirroring the HORDE / LOOT blocks).  Without this, even though `*PreUpdate` sets `v_goal` correctly, the bot's `waypoint_goal` falls through to the generic tour/health picker and the bot routes to a waypoint unrelated to the objective — producing the classic "two bots pacing between two waypoints far from the action" stuck-game.
 
 ## Common Bot-Layer Patterns
 
@@ -443,7 +444,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_LOOT`, `GAME_PROPHUNT`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_PROPHUNT`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 
