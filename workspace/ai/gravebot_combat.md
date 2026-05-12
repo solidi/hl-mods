@@ -1,3 +1,5 @@
+Parent: [gravebot.md](gravebot.md)
+
 # Grave Bot Combat System — Reference
 
 Source of truth for how the Grave bot fights. Covers target selection, reaction time, aim error, firing, melee, and the `bot_aim_difficulty` softening layer added in 2026-04. Use this as the starting point for future combat tuning or behavior work.

@@ -144,6 +144,7 @@ v1.1 Features:
     - Added bot_aim_difficulty [0-2] where zero is perfect and 2 is sloppy
     - Tuned and improved bot behavior on all custom game modes
     - Bots no longer attempt wallclimbing
+    - Bots intelligently select runes during gameplay
 - Weapons Additions
     - Snowball
         - Improve throw performance of the weapon so it's predictable
