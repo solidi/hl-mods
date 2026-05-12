@@ -10,7 +10,7 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 |--------|-------------|-------|
 | Game rules / mode dispatch | `gamerules.cpp::InstallGameRules()`, `multiplay_gamerules.{h,cpp}` | [gamerules.md](gamerules.md) |
 | Mutators / pause | `MutatorPause()`, `g_szMutators[]` | [mutator_pause_system.md](mutator_pause_system.md) |
-| Bot AI | `grave-bot-src/dlls/` | [gravebot_combat.md](gravebot_combat.md) |
+| Bot AI | `grave-bot-src/dlls/` | [gravebot.md](gravebot.md) (sub-spoke: [gravebot_combat.md](gravebot_combat.md)) |
 | Map cycle / map vote | `multiplay_gamerules.cpp::ReloadMapCycleFile`, `BuildServerMapList`, `SendMapListToClient` | this file (below); cross-cutting flow: [voting_system.md](voting_system.md) |
 | Gameplay / mutator / map vote sequencer | `CHalfLifeMultiplay::Think` (`VOTE_*` branches) | [voting_system.md](voting_system.md) |
 | User-message registry | `player.cpp::LinkUserMessages()` | this file (below) |
