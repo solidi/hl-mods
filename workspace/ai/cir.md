@@ -74,12 +74,13 @@ Most features cut across both halves via a registered user-message; if you are t
 
 ### Cross-cutting (server + client together)
 - [voting_system.md](voting_system.md) — gameplay / mutator / map vote sequence; conventions every vote panel must follow.
+- [runes.md](runes.md) — rune entities, effects, spawn cycle, `drop_rune` mechanic. Server-side reference for the bot rune logic in `gravebot.md`.
 
 ### Server-side (loaded from [server.md](server.md))
 - [gamerules.md](gamerules.md) — `CGameRules` hierarchy and per-mode dispatch (the Mode Roster lives here).
 - [arena_gamerules.md](arena_gamerules.md), [busters_gamerules.md](busters_gamerules.md), [coldskull_gamerules.md](coldskull_gamerules.md), [coldspot_gamerules.md](coldspot_gamerules.md), [ctc_gamerules.md](ctc_gamerules.md), [ctf_gamerules.md](ctf_gamerules.md), [kts_gamerules.md](kts_gamerules.md) — per-mode spokes.
 - [mutator_pause_system.md](mutator_pause_system.md) — mutator lifecycle and pause semantics.
-- [gravebot_combat.md](gravebot_combat.md) — bot AI combat behaviors (memory: `/memories/repo/gravebot_combat_mechanics.md`).
+- [gravebot.md](gravebot.md) — bot AI overview (lifecycle, navigation, item & rune handling, CVars). Sub-spoke: [gravebot_combat.md](gravebot_combat.md) for deep combat detail (memory: `/memories/repo/gravebot_combat_mechanics.md`).
 
 ### Client-side (loaded from [client.md](client.md))
 - [vgui_system.md](vgui_system.md) — VGUI viewport, menu panels, vote menus, and the dynamic map list.
