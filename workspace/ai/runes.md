@@ -5,7 +5,7 @@ effect stays active until they die or run `drop_rune`. There are 9 primary rune
 types, defined as `RUNE_*` integers in [src/dlls/items.h](../src/dlls/items.h#L30-L42).
 
 This doc is the source of truth for everything rune-related. For how the bot
-picks them up, see [gravebot.md → Rune handling](gravebot.md#rune-handling).
+picks them up, see [gravebot.md → Rune handling](gravebot.md#4-rune-handling).
 
 ---
 
@@ -45,7 +45,7 @@ All rune entities share a base class `CRune` ([items.cpp `CRune::Spawn`](../src/
 - Touch handler is `CRune::RuneTouch` — validates the toucher is a player,
   defers to subclass `MyTouch(pPlayer)`, plays `rune_pickup.wav`, sends a HUD
   message, removes the entity.
-- Visual: `models/w_runes.mdl` with `pev->body = RUNE_* − 1` (mesh variant 0–8)
+- Visual: `models/w_runes.mdl` with `pev->body = RUNE_* - 1` (mesh variant 0–8)
   + per-rune glow shell (`renderfx = kRenderFxGlowShell`, `renderamt = 5`,
   custom RGB).
 
