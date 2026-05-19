@@ -13,11 +13,11 @@ and [`workspace/grave-bot-src/dlls/bot_prophunt.cpp`](../grave-bot-src/dlls/bot_
 
 ## Win condition
 
-| Trigger                                 | Winner   |
-| --------------------------------------- | -------- |
-| Round timer (`mp_prophunttime`) expires | Props    |
-| All props converted before timer        | Hunters  |
-| Last prop killed but timer still alive  | Hunters  |
+| Trigger                                    | Winner   |
+| ------------------------------------------ | -------- |
+| Round timer (`mp_prophunttime`) expires    | Props    |
+| All props converted before timer           | Hunters  |
+| Last prop converted but timer still alive  | Hunters  |
 
 `CHalfLifePropHunt::Think()` checks `m_iPropsRemain` every tick and triggers
 end-of-round when it reaches zero.
@@ -26,7 +26,7 @@ end-of-round when it reaches zero.
 
 | Team        | `fuser4` | Loadout                                  |
 | ----------- | -------- | ---------------------------------------- |
-| Props       | 1..30    | `weapon_fists` only, no ammo, `haste=1`  |
+| Props       | 1..70    | `weapon_fists` only, no ammo, `haste=1`  |
 | Hunters     | 0        | `weapon_flamethrower` + uranium ammo     |
 
 The `fuser4` value on a prop doubles as its **decoy body index** — pressing

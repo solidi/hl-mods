@@ -104,7 +104,7 @@ v1.1 Features:
     - Jesus vs Santa
         - Each player has a chance to become Jesus in a random pool so all are cycled
     - Prophunt
-        - Bots behavior intelligently in this gamemode now
+        - Bots behave intelligently in this gamemode now
         - Hunters lose health when shooting, controlled by mp_hunterselfcost
         - Props now have some health, controlled by mp_prophealth
         - More props spawn than hunters
