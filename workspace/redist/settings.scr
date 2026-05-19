@@ -603,6 +603,20 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
+	"mp_hunterselfcost"
+	{
+		"#Ice_HunterSelfCost"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "1" }
+	}
+
+	"mp_prophealth"
+	{
+		"#Ice_PropHealth"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "20" }
+	}
+
 	"mp_prophunttime"
 	{
 		"#Ice_PropHuntTime"

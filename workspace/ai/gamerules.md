@@ -23,7 +23,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 12 | `GAME_ICEMAN`     | `"jvs"`            | `CHalfLifeJVS` (Jesus vs. Santa)   | TBD |
 | 13 | `GAME_KTS`        | `"kts"`            | `CHalfLifeKickTheSnowball`         | [kts_gamerules.md](kts_gamerules.md) |
 | 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | [loot_gamerules.md](loot_gamerules.md) |
-| 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | TBD |
+| 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | [prophunt_gamerules.md](prophunt_gamerules.md) |
 | 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | TBD |
 | 17 | `GAME_SNOWBALL`   | `"snowball"`       | `CHalfLifeSnowballFight`           | TBD |
 | 18 | `GAME_TEAMPLAY`   | `"teamplay"`       | `CHalfLifeTeamplay`                | TBD |
@@ -363,9 +363,26 @@ m_iPoolSize = iWrite;
 
 Applied in [arena_gamerules.cpp](../src/dlls/arena_gamerules.cpp) (before "Build or refresh the opponent pool if needed") and [jvs_gamerules.cpp](../src/dlls/jvs_gamerules.cpp) (after `SetRoundLimits()`, before the `m_bJesusPoolNeedsRefresh` branch). **Any future round-based gamerules that caches a player-index pool across ticks must follow this pattern** — connect/disconnect-only refresh is insufficient because Limbo / Chose-Spectate transitions have no callback hook.
 
-#### Mid-round spectate guard
+#### Late-joiner immediate-spectator suck
 
-The `spectate` console command is handled in `client.cpp` `ClientCommand`. In round-based modes (Arena / Shidden / JvS / Horde / Chilldemic / LMS / PropHunt / Loot) an active in-arena combatant must NOT be able to issue `spectate` mid-round — that would let them dodge a kill, flip the win condition, or strand a 1v1 / Jesus role:
+`CHalfLifeMultiplay::PlayerSpawn` (~line 1887 of [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp)) is the central late-joiner gate. The historical implementation merely `return`ed when `(g_GameInProgress && !pPlayer->IsInArena) || (!g_GameInProgress && IsRoundBased()) || iuser3 > 0` — but `CBasePlayer::Spawn` has already placed the edict in the world by that point, so the late-joiner was visible (and walkable) until the next gamerules `Think()` tick set `m_flForceToObserverTime` and the *following* tick called `SuckToSpectator`. That's up to ~3 s of "ghost spawning" — reported in PropHunt with connecting bots flashing into the playfield for half a second.
+
+**Fix (in the base)**: inside the early-return branch, call `SuckToSpectator(pPlayer)` immediately when `IsRoundBased()` is true:
+
+```cpp
+if ((g_GameInProgress && !pPlayer->IsInArena) ||
+    (!g_GameInProgress && IsRoundBased()) ||
+    pPlayer->pev->iuser3 > 0)
+{
+    if (IsRoundBased() && !pPlayer->IsSpectator() && !pPlayer->HasDisconnected)
+        SuckToSpectator(pPlayer);
+    return;
+}
+```
+
+This eliminates the visible spawn for every round-based mode (Arena, Horde, Chilldemic, JVS, LMS, PropHunt, Shidden, Loot) without changing behavior for FFA / Teamplay / Coldspot / etc. The `IsRoundBased()` gate is essential — non-round-based modes that use `iuser3 > 0` (snowball fight opt-in spectator) handle their own observer placement elsewhere and must not be double-sucked here.
+
+#### Mid-round spectate guard
 
 ```cpp
 if (g_pGameRules->IsRoundBased()
@@ -444,7 +461,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_PROPHUNT`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 

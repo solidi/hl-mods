@@ -44,7 +44,7 @@ v1.1 Features:
     - Send current menu to a connecting player during a vote
     - Fixed menu title selection and added a brief pause for mutator menu voting
 - Game Modes Changes
-    - New celebration sequences switch to thirdperson
+    - New celebration sequences switch to thirdperson, play sounds
     - Added banner system so that it is clear of team objective on entering arena
     - Added initial spectator menu selection on all game modes
     - Added directional indicators w/ distance on HUD to direct player to objectives
@@ -104,12 +104,18 @@ v1.1 Features:
     - Jesus vs Santa
         - Each player has a chance to become Jesus in a random pool so all are cycled
     - Prophunt
+        - Bots behave intelligently in this gamemode now
+        - Hunters lose health when shooting, controlled by mp_hunterselfcost
+        - Props now have some health, controlled by mp_prophealth
         - More props spawn than hunters
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props no longer play footsteps
         - Play "pause-beat" music during initial hiding
         - Disable automelee in this gamemode to avoid automatic finding
+        - Hunters regain health if converting a prop to a hunter
+        - Last prop notice, and prop has double health and extra grenades
+        - Props run faster
     - Shidden
         - Fart no longer instantly kills, now freezes player
         - Provided knife to dealters to frag player with knife when frozen
@@ -241,6 +247,7 @@ v1.1 Features:
             - Fixed spinning animation of numerous props
             - Fixed repeating wading sound on props
             - Prevent props from picking up weapons
+            - Fixed ammo decoy model drops
         - Shidden
             - Fix missing messages when dealters defeated
         - Snowball Fight
@@ -433,12 +440,14 @@ Server:
 - "mp_grapplinghook [0|1]" - Allow grappling hook on server
 - "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
 - "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay
+- "mp_hunterselfcost" - amount of damage taken by hunter when firing his weapon
 - "mp_iceblood [0|1]" - Enable blue blood
 - "mp_icesprites [0|1]" - Switch between select ice or real environment sprites
 - "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib"" - A semicolon separated list of items that are "interactive" (kickable, pickupable)
 - "mp_meleedrop "[0|1]"" - allow kick or punch attacks to drop weapons out of hands
 - "mp_moreblood [0-5]" - Increase blood up to 0-5 times
 - "mp_nukemode "[0|1|2]"" - 2 - nuke kills all, 1 - radius damage, 0 - sharts nothing but bubbles
+- "mp_prophealth" - Sets the amount of starting health for prop
 - "mp_prophunttime [time]" to set time hunters are frozen
 - "mp_randomgamemodes "[0|1]"" - selects a random gamemode on map change
 - "mp_randomweapon [0|1]" - To spawn with a random weapon
