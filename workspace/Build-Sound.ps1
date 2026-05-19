@@ -386,6 +386,7 @@ Copy-Item $soundDir\thunder_clap.wav $redistdir\sound\ambience
 Copy-Item $soundDir\mechwine.wav $redistdir\sound\ambience
 Copy-Item $soundDir\wind5_loop1.wav $redistdir\sound\ambience
 Copy-Item $soundDir\wind6_loop1.wav $redistdir\sound\ambience
+Copy-Item $soundDir\goal_1.wav $redistdir\sound
 
 Copy-Item $soundDir\valve_sound.wav $redistdir\sound\ui\
 

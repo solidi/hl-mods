@@ -1603,6 +1603,7 @@ sound\soccer.wav
 sound\airhorn.wav
 sound\ball_bounce.wav
 sound\dribble.wav
+sound\goal_1.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
