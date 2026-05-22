@@ -105,12 +105,14 @@ v1.1 Features:
         - Each player has a chance to become Jesus in a random pool so all are cycled
     - Prophunt
         - Bots behave intelligently in this gamemode now
+        - Props now have ability to replace items as themselves with +use
         - Hunters lose health when shooting, controlled by mp_hunterselfcost
         - Props now have some health, controlled by mp_prophealth
         - More props spawn than hunters
         - Added "mp_prophunttime" to set time hunters are frozen
         - Props no longer register fall damage
         - Props no longer play footsteps
+        - Props can now pick up health and batteries
         - Play "pause-beat" music during initial hiding
         - Disable automelee in this gamemode to avoid automatic finding
         - Hunters regain health if converting a prop to a hunter
@@ -248,6 +250,7 @@ v1.1 Features:
             - Fixed repeating wading sound on props
             - Prevent props from picking up weapons
             - Fixed ammo decoy model drops
+            - Props no longer deduced points if they destroy decoys
         - Shidden
             - Fix missing messages when dealters defeated
         - Snowball Fight
