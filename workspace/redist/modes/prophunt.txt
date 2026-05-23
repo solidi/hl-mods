@@ -2,4 +2,6 @@ Some people are props, others hunters.
 
 Hide in the map as a prop, and then the hunters come.
 
-Either surivive the time or hunt the props.
+Props can morph into nearby items by pressing +use.
+
+Either survive the time or hunt the props.

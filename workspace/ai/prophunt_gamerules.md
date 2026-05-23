@@ -40,6 +40,48 @@ duplicated `m_afButtonPressed` / `pev->button` read advances the body
 twice per press and produces "skipped" bodies and racing cooldowns.
 The decoy spawned via `monster_propdecoy` reads the same `fuser4`.
 
+### +use morph (snap-onto-item)
+
+Props can also morph by **walking up to a live world item and pressing
+`+use`** (default key `e`).  This is implemented in
+`CHalfLifePropHunt::TryPropMorphToItem` and is hunters-disabled.
+
+* Eligible items: any entity whose `pev->model` contains
+  `models/w_weapons.mdl` (body 0..50, target body 1..51) or
+  `models/w_ammo.mdl` (body 0..18, target body 52..70).  Body slots
+  **32** and **34** are unused render gaps and are rejected.
+* Unsupported pickups (`item_battery`, `item_healthkit`, `rune_*`, any
+  non-weapon/ammo model) fail silently — the prop hears no feedback and
+  the bot moves on to the next candidate.
+* `PlayerUse` runs a supplemental `UTIL_FindEntityInSphere` scan of
+  radius `PROP_ANCHOR_USE_RADIUS` (80u) ahead of the standard FCAP scan
+  because world weapons/ammo are `SOLID_TRIGGER` with no `FCAP_*_USE`
+  flag and would never be picked by the normal `+use` loop.  The view
+  cone is the standard `VIEW_FIELD_NARROW` dot.
+* On success the item is hidden (`EF_NODRAW` + saved-`solid` → `SOLID_NOT`),
+  the prop's `fuser4` is snapped to the derived body, the morph
+  cooldown is bumped 0.3 s (so a fists scroll won't immediately step
+  off), and `IN_USE` is consumed for that tick.
+* The anchor is held via `m_hPropAnchor` (EHANDLE) on the player.  Each
+  frame, `PlayerThink` measures distance:
+  * inside `PROP_ANCHOR_HOLD_RADIUS` (128u) → `m_fPropAnchorLeaveTime`
+    is cleared,
+  * outside → if the timer is unset, it is armed to
+    `gpGlobals->time + PROP_ANCHOR_GRACE` (2 s); when the deadline
+    passes, `ReleasePropAnchor` restores the item.
+* `ReleasePropAnchor` is also called on prop→hunter conversion, on
+  `PlayerSpawn`, and on `ClientDisconnected`, so an item never stays
+  invisible if its owner team-swaps or quits.
+
+Bots use the same path: `BotProphuntPreUpdate` checks each frame whether
+its chosen `p_pp_target_item` is morphable (`PP_AnchorMorphBody`); if so
+and within `PROP_ANCHOR_USE_RADIUS`, the bot yaws toward the anchor and
+presses `IN_USE` for one tick.  Success is detected by `EF_NODRAW` plus
+`fuser4 == expected body`.  Failure (no `EF_NODRAW` after ~0.6 s)
+blacklists the anchor and forces a fresh pick.  Non-morphable anchors
+(`item_*`, breakables, cycler, etc.) fall through to the legacy
+`IN_ATTACK`/`IN_ATTACK2` step-morph driver.
+
 ## Cvars
 
 | Cvar                  | Default | Effect                                                                 |
