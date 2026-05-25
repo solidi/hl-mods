@@ -92,6 +92,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly choose two spawn points as goals? (AudioCraZ)
 1. Gamemode Changes
     1. [ ] bot behavior improvement in all gamemodes
+    1. [ ] Skeleton appears the moment fragged from suvivor
+    1. [ ] CtC, more than one chumtoad?
     1. [x] Shidden, Stomp on head
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
     1. [x] Provide side icons for flag, ctc toad, and lj when obtained
@@ -106,25 +108,35 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] "firestarter" Flame Wars/Arena- every attack set the target on fire. The attack itself does no damage the fire however does [Napoleon]
     1. [x] am i dead?
     1. [x] rats around map
+1. Weapons
+    1. [x] Snowball Machine / Snowball Generator in place of Egon gun
+    1. Chaingun
+        1. [x] Secondary chaingun idea?
+        1. [x] Tracers on all bullets?
+    1. [x] Hide viewmodel when ricochet is enabled
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
     1. [ ] Support forcegrab for all force grab items that are stationary
 1. Fixes
+    1. [ ] one waypoint in frosty on top platform has no paths
     1. [x] sildenafil - make weapons fast
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
-    1. [ ] one waypoint in snowyard by backyard ladder has no paths
-    1. [ ] one waypoint in frosty on top platform has no paths
+    1. [x] one waypoint in snowyard by backyard ladder has no paths
 1. Use AI to
     1. [ ] Develop Goldeneye award system at end of 1 v 1 round
-    1. [ ] Add support for menu on round based games, commit to gamemode
     1. [ ] Move railgun system to client sided
     1. [ ] add red, yellow, and green hev viewmodels
+    1. [x] Add support for menu on round based games, commit to gamemode
     1. Mouse P.I. for Hire
-        1. [x] Last hit is bullet + Headshot, remove head
         1. [ ] Pick up barrel and throw
+        1. [x] Last hit is bullet + Headshot, remove head
         1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
+1. HUD
+    1. [x] Add map name to the scoreboard
+1. Game Dev Tools
+    1. [x] Add support for detailed textures
 
 ### Unscheduled
 
@@ -166,8 +178,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Chilldemic improvements
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
-      1. [ ] Skeleton appears the moment fragged from suvivor
-    1. [ ] CtC, more than one chumtoad?
 1. Game Mutators
     1. [ ] Deadly water, like skyhook, but with water textures
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
@@ -260,7 +270,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19) [model](https://gamebanana.com/mods/308268)
     1. [ ] [Light saber weapon](https://www.youtube.com/watch?v=-CjaytQLWFY). [Closet model](https://gamebanana.com/mods/180200)? [Beam sword](https://cso.fandom.com/wiki/Beam_Sword)
         1. [ ] Customizable color
-    1. [x] Snowball Machine / Snowball Generator in place of Egon gun
     1. [ ] Pulse Rifle
     1. [ ] Pulse Pistol
     1. [ ] Taser
@@ -310,9 +319,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Correct all brass shell ejection points
     1. [ ] Use attachment point for each model
     1. Chaingun
-        1. [x] Secondary chaingun idea?
         1. [ ] Faster spin?
-        1. [x] Tracers on all bullets?
     1. [ ] [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
     1. [ ] Grenades that randomly teleport when they bounce? (AudioCraZ)
     1. [ ] Grenades that never stop bouncing and have a random timer to detonate. (Flubber bomb) (AudioCraZ)
@@ -397,7 +404,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
     1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
-    1. [ ] Add map name to the scoreboard
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
     1. [ ] UT Phobos like map, but around an ice planet or moon like Europa
@@ -419,7 +425,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
-    1. [ ] Hide viewmodel when ricochet is enabled
     1. [ ] black blood of hornets?
     1. [ ] Player projectiles follow aiment while flipping
     1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
@@ -438,7 +443,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Railgun effect client side to reduce server messages?
 1. Game Dev Tools
     1. [ ] Add support for map brief text file
-    1. [ ] Add support for detailed textures
     1. [ ] Update studiomdl to [funnky's toolset](https://github.com/fnky/studiomdl)
     1. [ ] [Cache modeling check](https://github.com/bacontsu/spirit-op4/commit/2adf21717c39628b6629c83c5cc34dc03b3790b5)
     1. [ ] Include pdb files, debug libraries on builds off master.
