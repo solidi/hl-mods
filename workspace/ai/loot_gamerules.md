@@ -199,5 +199,253 @@ The Loot AI is sensitive to call order in `BotThink`:
 
 Reordering any of these breaks at least one defect fix.
 
+### 14. Bot Weapon Drop/Swap (One-Weapon Cap)
+
+**Rule (server-side, `CHalfLifeLoot::CanHavePlayerItem`)**: a player may carry at most **1 non-fists weapon** (or **3** while their team has the "loot advantage" — i.e. someone on the team holds the loot or is the carrier).  Pickup of an additional weapon is refused.  Humans swap by either typing `drop` in the console or pressing `+use` near a pickupable weapon while at the cap (handled in `player.cpp` `+use` block, which calls `DropPlayerItem(activeName)`).
+
+**Bot equivalent** (mirrors the rune-drop pattern `BotMaybeDropRuneForSwap`):
+
+- New per-bot state (`bot.h`, init in `BotSpawnInit`):
+  - `i_loot_weapon_target_index` — entindex of the queued upgrade weapon, 0 = none
+  - `f_loot_weapon_eval_time` — cadence gate for the radius rescan
+  - `f_loot_weapon_drop_cooldown` — anti-spam after issuing `drop`
+
+- Helpers in `bot_combat.cpp`:
+  - `BotLootWeaponClassToId(classname)` → bot weapon iId via `WeaponGetSelectPointer()` linear scan on `weapon_name`.
+  - `BotLootWeaponPriority(iId)` → `pSelect[idx].priority` (lower value = stronger weapon in this bot framework).
+  - `BotLootWorstHeldPriority(pBot)` → highest-priority-value (= weakest) non-fists weapon currently held — this is what we'd drop.
+  - `BotLootCountNonFistsHeld(pBot)` → cap check input.
+  - `BotLootHasTeamAdvantage(pBot)` → mirrors server check: own `b_loot_has_loot` OR any living teammate has `fuser4 == RADAR_LOOT_VAL`.
+  - `BotLootIsPickupableWeapon(pE, &iId, &prio)` → entity passes if `classname` starts with `weapon_`, isn't fists, has no owner edict, isn't `EF_NODRAW`, and is recognized by the bot weapon table.
+  - `BotLootFindUpgradeWeapon(pBot)` → 768 u sphere scan, returns the lowest-priority-value candidate. **Worthwhile gate**:
+    - 0 weapons held → take anything (don't fight with fists).
+    - Under cap → take any non-duplicate.
+    - At cap → **strict** improvement only (`candidate.priority < worst_held.priority`) to prevent thrashing on ties.
+  - `BotLootMaybeDropForSwap(pBot, pTarget)` → when held count ≥ cap AND within `LOOT_WEAPON_SWAP_RANGE = 80 u`, identify the weakest eligible held weapon and issue `drop <classname>` for that specific weapon (rather than dropping the active weapon), avoiding fists / `ITEM_FLAG_NODROP`.  Sets `f_loot_weapon_drop_cooldown = +1.5 s`.
+
+- Dispatcher `BotLootHandleWeaponSwap(pBot, &outGoal)`:
+  - Suppressed entirely when `b_loot_has_loot` (getting the loot home outweighs any gun on the floor).
+  - Validates cached target each frame (free, still pickupable, not already owned); rescans on `LOOT_WEAPON_EVAL_CADENCE = 1.0 s`.
+  - When a target exists: calls the drop-helper and returns the target origin as a goal override.
+
+- Wiring (same hooks as the rune pattern):
+  - `BotLootPreUpdate` — after the carrier early-return, before the role switch.  Overrides `v_goal` and clears `pBotPickupItem`/`item_waypoint` so combat-frame movement still tracks the upgrade.
+  - `BotLootThink` — after the holder lookup, before role evaluation.  Sets `v_goal` + `f_move_speed = f_max_speed` and returns `true` to short-circuit the role dispatch for this tick.
+
+- **Pickup mechanism after drop**: the bot does not need to press `+use`.  After `drop` succeeds, the held count drops below the cap; the bot's continued walk onto the target weapon triggers standard `CBasePlayerWeapon::Touch` → `CanHavePlayerItem` → pickup.  The 1.5 s cooldown covers the drop animation + touch frame.
+
+- **Why "priority" is the weight**: the bot framework already ranks every weapon via `bot_weapon_select_t::priority` (lower = better; used by `WeaponGetBest`, `WeaponGetNextBest`).  Reusing this avoids inventing a parallel scoring table.  The Loot cap turns it into a continuous swap decision: bot always converges on the best-priority gun reachable within 768 u.
+
+- **Tuning constants**:
+  | Constant | Default | Purpose |
+  |---|---|---|
+  | `LOOT_WEAPON_SCAN_RADIUS` | `768 u` | Sphere scan radius for pickupable weapons |
+  | `LOOT_WEAPON_EVAL_CADENCE` | `1.0 s` | Throttle for the radius rescan |
+  | `LOOT_WEAPON_SWAP_RANGE` | `80 u` | Touch distance — drop fires inside this radius |
+  | `LOOT_WEAPON_DROP_COOLDOWN` | `1.5 s` | Anti-spam after a `drop` command |
+
+### 15. Crate Engagement Generalized to All Loot Roles
+
+Original `BotLootHandleOnTopOfCrate` and the walk-by visible-crate engagement
+were both `BREAKER`-only.  Two real-game defects ensued:
+
+- A `RECOVERER`/`ESCORT`/`GRABBER` traveling between waypoints would bump onto
+  a crate parked in a chokepoint and idle on top of it forever (the dismount
+  helper only ran for BREAKER).
+- Bots ran past visible crates without firing because the synthetic-enemy
+  injection was gated on `i_loot_role == LOOT_ROLE_BREAKER`.
+
+**Fix (bot.cpp `BotThink`)**:
+- The synthetic-enemy injection block (`pBotEnemy = pVisCrate` when no real
+  enemy) now runs for **every** loot role except `CARRIER` (gated only by
+  `is_gameplay == GAME_LOOT && !pBot->b_loot_has_loot`).  The LoS-priority
+  swap (player enemy occluded → prefer visible crate) remains BREAKER-only
+  because other roles have stronger reasons to track an occluded human
+  enemy.
+- `BotLootHandleOnTopOfCrate(pBot)` is called every frame for all loot
+  roles.  When the cached BREAKER crate is null, it falls back to scanning
+  `s_loot_crates[]` to find any crate the bot might be standing on.
+
+### 16. Crate-Engagement Detour (Stop-and-Shoot)
+
+After §15 made every loot role *see* the crate, bots still sprinted past
+because they only set `pBotEnemy` for a frame or two before LoS broke.  The
+shoot block fired but the bot kept moving along the waypoint.
+
+**Fix (bot.cpp, immediately after the synthetic-enemy block)**: when we
+just bound `pVisCrate` as the enemy, commit to breaking it:
+
+```cpp
+if (pVisCrate && pBot->pBotEnemy == pVisCrate)
+{
+    float crateDist = (pVisCrate->v.origin - pEdict->v.origin).Length();
+    pBot->pBotPickupItem    = NULL;
+    pBot->item_waypoint     = -1;
+    pBot->v_goal            = pVisCrate->v.origin;
+    pBot->f_goal_proximity  = 80.0f;
+    pBot->f_ignore_wpt_time = gpGlobals->time + 0.5f;
+    // Plant and shoot inside fire range; sprint to close outside it.
+    pBot->f_move_speed = (crateDist < 600.0f) ? 0.0f : pBot->f_max_speed;
+}
+```
+
+The override is re-asserted every frame the crate stays visible.  When the
+crate dies or LoS breaks, `BotLootFindBestVisibleCrate` returns NULL, the
+override stops, `f_ignore_wpt_time` lapses, and waypointing resumes
+automatically.  No new state field required.
+
+### 17. Loose-Loot Force-GRABBER (Bypass Eval Cadence)
+
+Bots witnessed walking past an exposed `loot_entity` because they were
+cached as `BREAKER`/`ESCORT`/etc. and the 0.75 s `LOOT_ROLE_EVAL_CADENCE`
+hadn't elapsed yet.
+
+**Fix (bot_combat.cpp `BotLootThink` and `BotLootPreUpdate`)**: when
+`s_pLootEntity != NULL` and the bot is not carrying, force
+`i_loot_role = LOOT_ROLE_GRABBER` and set `v_goal = s_pLootEntity->v.origin`
+*before* the cadence-gated eval block.  Mirrors the carrier early-return
+pattern.
+
+### 18. Weapon-Fists Avoidance + Active-Weapon Switching
+
+Bots were observed running around punching with `weapon_fists` while
+holding a real weapon, and walking past stronger weapons on the floor
+without picking them up.  Two root causes:
+
+1. The active weapon stayed on `weapon_fists` after spawn even when the
+   bot picked up a real gun — the bot framework never auto-switched.
+2. The drop-for-swap helper (§14) called `FakeClientCommand("drop", NULL, NULL)`
+   which drops the **active** weapon.  When active was fists,
+   `DropPlayerItem` refused (fists carry `ITEM_FLAG_NODROP`) and the swap
+   silently failed.
+
+**Fix**:
+- `BotLootMaybeWieldNonFists(pBot)` — scans inventory; if any non-fists
+  weapon is held but the active weapon is fists, issues
+  `FakeClientCommand(pEdict, "use", classname, NULL)` to switch.  Called
+  every frame from `BotLootPreUpdate`.
+- `BotLootGetWorstHeldName(pBot)` / `BotLootGetBestHeldName(pBot)` — return
+  classnames so the drop helper can issue `FakeClientCommand("drop", classname, NULL)`
+  to drop a *specific* weapon regardless of which is currently active.
+- `BotLootMaybeDropForSwap` updated to use the by-name drop path.
+
+### 19. Dropped Weapons (`weaponbox`) Pickup
+
+When a player or bot drops a weapon it becomes a `weaponbox` entity
+(`weapons.cpp:2154`, `CWeaponBox`) containing one or more weapons.  The
+contents are not introspectable from the bot DLL.
+
+**Fix**:
+- `BotLootIsPickupableWeapon` accepts a `weaponbox` classname with
+  sentinel values `iId = 0`, `priority = LOOT_WEAPONBOX_PRIORITY = 50`.
+- `BotLootFindUpgradeWeapon` treats `iId == 0` as worthwhile only when
+  the held count is under cap (no upgrade comparison possible — the
+  weaponbox could contain anything).  Duplicate-check is skipped for
+  `iId == 0`.
+- The bot pathfinds to the weaponbox; on touch, the engine awards
+  whichever weapon is inside (server's `CWeaponBox::Touch` handles the
+  transfer).
+
+### 20. Out-of-Ammo Weapon Abandonment
+
+A bot that exhausted its primary weapon would fall back to fists and
+keep carrying the empty gun, blocking new pickups against the 1-weapon
+cap (§14).
+
+**Fix (bot_combat.cpp)**:
+
+- `BotLootIsHeldOutOfAmmo(pBot, iId)` — true when `iId` is a real
+  weapon (`iAmmo1 >= 0` in `weapon_defs[]`), reserve is zero
+  (`m_rgAmmo[iAmmo1] == 0`), and either the weapon isn't active or the
+  clip is empty (`current_weapon.iClip <= 0`).  Melee/exhaustible
+  weapons with no ammo type are never reported empty.
+- `BotLootDropEmptyWeapons(pBot)` — cooldowned per-frame helper called
+  from `BotLootPreUpdate` immediately after `BotLootMaybeWieldNonFists`.
+  Scans all weapons; if any non-fists weapon is out of ammo, issues
+  `FakeClientCommand(pEdict, "drop", classname, NULL)` and pushes
+  `f_loot_weapon_drop_cooldown += LOOT_WEAPON_DROP_COOLDOWN`.  Bot falls
+  back to fists rather than carrying dead weight.
+- `BotLootWorstHeldPriority` modified — out-of-ammo weapons rank as
+  priority `999` (worst possible).  This makes the at-cap swap gate
+  (`candidate.priority < held_worst`) pass for *any* loaded candidate
+  when an empty weapon is in inventory, so the bot will detour to grab
+  a new weapon when its current is dry.
+- `BotLootGetWorstHeldName` — two-pass: returns the first out-of-ammo
+  non-fists classname found; falls back to highest-table-priority name
+  only if everything held still has ammo.  Ensures the empty weapon
+  (not the loaded one) is what the swap drop fires.
+
+Net behavior: a bot that exhausts its MAC-10 will (a) drop the empty
+gun on the next pre-update tick, returning to fists; or (b) if a fresh
+weapon is in range, the swap detour triggers (at-cap gate passes via
+the priority-999 ranking) and the empty weapon is what gets dropped.
+
+### 21. Loot Drop-Helper Constants
+
+| Constant | Default | Purpose |
+|---|---|---|
+| `LOOT_WEAPONBOX_PRIORITY` | `50` | Sentinel priority for unknown weaponbox contents (§19) |
+
+## Server-Side Game Rule Updates (loot_gamerules.cpp)
+
+### Expose at 60 s and Auto-Assign at 30 s
+
+The round-end safety net has two stages.  The 60-second stage is
+pre-existing; the 30-second stage is new.
+
+**Stage 1 — Expose at 60 s remaining** (existing).  In the RoundThink
+block: when `!m_bLootExposed && m_hLootHolder == NULL`, two triggers
+fire `ExposeLoot()`:
+
+- `timeout5min`: no `loot_entity` exists AND `gpGlobals->time - m_flRoundStartTime >= 300.0f`.
+- `last60sec`: `(m_flRoundTimeLimit - gpGlobals->time) <= 60.0f`.
+
+`ExposeLoot()` shatters all `loot_crate` entities and places
+`loot_entity` at a deathmatch spawn point so anyone can pick it up.
+
+**Stage 2 — Auto-assign at 30 s remaining** (new).  Immediately after
+the expose check, a second guard handles the case where the loot is
+exposed but still loose on the floor with the round almost over:
+
+```cpp
+if ( m_bLootExposed
+     && (CBaseEntity *)m_hLootHolder == NULL
+     && (CBaseEntity *)m_hLootEntity != NULL
+     && m_flRoundTimeLimit > 0
+     && (m_flRoundTimeLimit - gpGlobals->time) <= 30.0f )
+{
+    CBasePlayer *candidates[32];
+    int nCand = 0;
+    for ( int i = 1; i <= gpGlobals->maxClients && nCand < 32; i++ )
+    {
+        CBasePlayer *plr = (CBasePlayer *)UTIL_PlayerByIndex( i );
+        if ( !plr || !plr->IsPlayer() || plr->HasDisconnected ) continue;
+        if ( !plr->IsAlive() || plr->IsSpectator() ) continue;
+        if ( plr->m_iLootTeam < 0 || plr->m_iLootTeam > 3 ) continue;
+        candidates[nCand++] = plr;
+    }
+    if ( nCand > 0 )
+    {
+        CBasePlayer *pLucky = candidates[ RANDOM_LONG(0, nCand - 1) ];
+        UTIL_ClientPrintAll( HUD_PRINTCENTER,
+            "Time's almost out -- the loot has chosen a bearer!\n" );
+        CaptureCharm( pLucky );
+    }
+}
+```
+
+**Design notes**:
+
+- Routes through the canonical `CaptureCharm()` (NOT a custom
+  assignment) so all the side effects fire: status icon, beam trail,
+  team weapon grants, `RADAR_LOOT` fuser4, hold-time accounting.
+- Bots see the new carrier via the normal `pev->fuser4 == RADAR_LOOT_VAL`
+  scan in `BotLootGetHolder`.  No bot-side change required — they
+  immediately flip into `CARRIER`/`ESCORT`/`RECOVERER` roles per §5.
+- Self-disarming: once `CaptureCharm` runs, `m_hLootHolder` is non-null
+  and the guard skips on subsequent ticks.
+- Candidate cap of 32 covers `MAX_PLAYERS` plus a safety margin and
+  avoids dynamic allocation.
+
 ## Mutators Allowed
 Inherits `MutatorAllowed` from `CHalfLifeLoot::MutatorAllowed` — see `loot_gamerules.cpp` for the explicit allow/block matrix.
