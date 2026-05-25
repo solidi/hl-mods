@@ -221,7 +221,7 @@ Reordering any of these breaks at least one defect fix.
     - 0 weapons held → take anything (don't fight with fists).
     - Under cap → take any non-duplicate.
     - At cap → **strict** improvement only (`candidate.priority < worst_held.priority`) to prevent thrashing on ties.
-  - `BotLootMaybeDropForSwap(pBot, pTarget)` → when held count ≥ cap AND within `LOOT_WEAPON_SWAP_RANGE = 80 u`, issue `FakeClientCommand(pEdict, "drop", NULL, NULL)` (empty arg → server drops active weapon).  Sets `f_loot_weapon_drop_cooldown = +1.5 s`.
+  - `BotLootMaybeDropForSwap(pBot, pTarget)` → when held count ≥ cap AND within `LOOT_WEAPON_SWAP_RANGE = 80 u`, identify the weakest eligible held weapon and issue `drop <classname>` for that specific weapon (rather than dropping the active weapon), avoiding fists / `ITEM_FLAG_NODROP`.  Sets `f_loot_weapon_drop_cooldown = +1.5 s`.
 
 - Dispatcher `BotLootHandleWeaponSwap(pBot, &outGoal)`:
   - Suppressed entirely when `b_loot_has_loot` (getting the loot home outweighs any gun on the floor).
