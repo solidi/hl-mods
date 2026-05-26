@@ -33,6 +33,7 @@ v1.1 Features:
     - Added HUD world indicators of many targets including teammates and objectives using cl_radar 2
 - New Player Mechanics
     - Forcegrab and punch enabled for single-handed weapons
+    - Forcegrab now works with all stationary items on the map
     - Taunt now supports offhand use
     - Auto-taunt triggers only when using the offhand
     - Using taunt no longer prevents attacking

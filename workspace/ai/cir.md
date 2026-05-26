@@ -81,6 +81,7 @@ Most features cut across both halves via a registered user-message; if you are t
 - [arena_gamerules.md](arena_gamerules.md), [busters_gamerules.md](busters_gamerules.md), [coldskull_gamerules.md](coldskull_gamerules.md), [coldspot_gamerules.md](coldspot_gamerules.md), [ctc_gamerules.md](ctc_gamerules.md), [ctf_gamerules.md](ctf_gamerules.md), [kts_gamerules.md](kts_gamerules.md) — per-mode spokes.
 - [mutator_pause_system.md](mutator_pause_system.md) — mutator lifecycle and pause semantics.
 - [gravebot.md](gravebot.md) — bot AI overview (lifecycle, navigation, item & rune handling, CVars). Sub-spoke: [gravebot_combat.md](gravebot_combat.md) for deep combat detail (memory: `/memories/repo/gravebot_combat_mechanics.md`).
+- [player.md](player.md) — Cold Ice player abilities (impulses 206-218): punch, kick, hurricane kick, flips, double/triple jump, force grab (incl. world-item tractor), grapple, throw weapon, off-hand grenade, slide, taunt, iron sights.
 
 ### Client-side (loaded from [client.md](client.md))
 - [vgui_system.md](vgui_system.md) — VGUI viewport, menu panels, vote menus, and the dynamic map list.
