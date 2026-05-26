@@ -117,7 +117,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
-    1. [ ] Support forcegrab for all force grab items that are stationary
+    1. [x] Support forcegrab for all force grab items that are stationary
 1. Fixes
     1. [ ] one waypoint in frosty on top platform has no paths
     1. [x] sildenafil - make weapons fast
@@ -125,7 +125,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     1. [x] one waypoint in snowyard by backyard ladder has no paths
 1. Use AI to
-    1. [ ] Develop Goldeneye award system at end of 1 v 1 round
+    1. [ ] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
     1. [ ] Move railgun system to client sided
     1. [ ] add red, yellow, and green hev viewmodels
     1. [x] Add support for menu on round based games, commit to gamemode
