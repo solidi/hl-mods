@@ -4,6 +4,7 @@
 - **Game Mode**: `GAME_CTC = 7` (defined in `common/const.h`)
 - **String ID**: `"ctc"` (mp_gamemode cvar)
 - **Description**: `"Cold Ice Remastered Capture The Chumtoad"` — FFA keep-away with a chumtoad
+- **Toad Count Cvar**: `mp_ctctoadcount` (default 1, min 1, max 5; runtime-capped by players)
 - **Source**: `src/dlls/ctc_gamerules.cpp`, `src/dlls/ctc_gamerules.h`
 - **Class**: `CHalfLifeCaptureTheChumtoad : public CHalfLifeMultiplay`
 - **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (`BotCtcThink`, `BotFindEnemy` CtC filters), `grave-bot-src/dlls/bot.cpp` (pre-update detection, `BotFindItem` bypass, think dispatch, direct-steer), `grave-bot-src/dlls/bot_navigate.cpp` (frequent re-routing, waypoint goal, snap)
@@ -18,6 +19,7 @@
 
 ## Teams
 - **Holder**: Team name `"holder"`, team index 3 (green in scoreboard). Player currently carrying the chumtoad.
+- Multiple holders are possible when multiple toads are in play.
 - **Chaser**: Team name `"chaser"`, team index 0. All other players.
 - Not true team play — FFA with holder vs. everyone. `IsTeamplay()` returns TRUE for scoreboard display only.
 - `PlayerRelationship`: returns `GR_NOTTEAMMATE` if either player is holding the chumtoad, `GR_TEAMMATE` between two chasers (chasers cannot hurt each other).
@@ -48,9 +50,10 @@
 
 ### Hunt Behavior (`HuntThink`, runs every 0.1s)
 1. **Water handling**: Switches to `MOVETYPE_FLY` in water; velocity dampened, floats upward
-2. **Hunt cycle** (every 2s): `Look(512)` → `BestVisibleEnemy()` → steers velocity toward target
+2. **Hunt cycle** (every 2s): CtC uses a holder-aware target scan first (nearest visible alive player without chumtoad possession), then falls back to `Look(512)` / `BestVisibleEnemy()` if needed
 3. **Movement**: Adjusts velocity toward `m_vecTarget` at 150 u/s blend rate; random jitter if stuck
 4. **Lifetime**: Detonation timer is commented out — chumtoad lives indefinitely while loose
+5. **Holder ignore rule**: If current target becomes a chumtoad holder (`m_iHoldingChumtoad` or has `weapon_chumtoad`), target is cleared and re-acquired so loose toads do not chase players already carrying one
 
 ### Pickup Mechanism (`SuperBounceTouch`)
 - Triggered when a player physically overlaps the entity (SOLID_TRIGGER touch)
@@ -69,9 +72,11 @@
 |-------|------|---------|
 | `m_fChumtoadInPlay` | BOOL | TRUE when a player is holding the chumtoad |
 | `m_fChumtoadPlayTimer` | float | Next Think cycle time (1s interval) |
-| `m_fCreateChumtoadTimer` | float | Scheduled toad spawn time (0 = not pending, -1 = disabled) |
+| `m_fCreateChumtoadTimer` | float | Next staggered add-spawn time |
+| `m_fRemoveChumtoadTimer` | float | Next staggered forced-removal time |
 | `m_fMoveChumtoadTimer` | float | Next teleport time for loose toad (every 30s) |
-| `m_pHolder` | EHANDLE | Current holder entity (NULL when loose) |
+| `m_pHolder` | EHANDLE | First current holder (legacy single-holder HUD path) |
+| `m_flCtCNextPickDropSoundTime` | float | Shared cooldown gate for capture (`BULLSEYE`) and drop (`MANIAC`) client sounds; prevents audio spam when multiple toads churn |
 
 ### CaptureCharm (player picks up chumtoad)
 1. Early exit if `UTIL_GetPlayerCount() < 2`
@@ -81,20 +86,20 @@
 5. `m_pHolder = pPlayer`
 6. `TE_BEAMFOLLOW` trail (green beam following player)
 7. Chat broadcast: `"[CtC] %s has captured the chumtoad!"`
-8. `CLIENT_SOUND_BULLSEYE` sound
+8. `CLIENT_SOUND_BULLSEYE` sound — gated by shared `m_flCtCNextPickDropSoundTime` cooldown (3s)
 9. `cam_chumtoad` status icon shown to holder
 10. Team change: `m_szTeamName = "holder"`, broadcast `gmsgTeamInfo` + `gmsgScoreInfo`
 11. Reset counters: `m_iChumtoadCounter = 0`, `m_iCaptureTime = 0`
-12. Disable create timer (`-1`), clear move timer (`0`)
+12. Leaves add/remove management enabled; updates move timer if needed
 
 ### DropCharm (chumtoad released)
-1. `m_fChumtoadInPlay = FALSE`
+1. Clears dropping player's holder state and recomputes holder globals
 2. Clear rendering: `kRenderNormal`, `renderamt = 0`, `renderfx = kRenderFxNone`
 3. `pPlayer->pev->fuser4 = 0` (removes radar flag — **key bot detection signal**)
-4. `m_pHolder = NULL`
+4. Recomputes `m_pHolder` based on remaining holders
 5. `TE_KILLBEAM` — remove trail
 6. Chat broadcast: `"[CtC] %s has dropped the chumtoad!"`
-7. `CLIENT_SOUND_MANIAC` sound
+7. `CLIENT_SOUND_MANIAC` sound — gated by shared `m_flCtCNextPickDropSoundTime` cooldown (3s)
 8. Team change: `m_szTeamName = "chaser"`, broadcast `gmsgTeamInfo` + `gmsgScoreInfo`
 9. Spawn new `monster_ctctoad` entity at given origin with `iuser1 = 1`
 10. Set `m_fMoveChumtoadTimer = gpGlobals->time + SPAWN_TIME` (30s until teleport)
@@ -102,13 +107,21 @@
 
 ### Think (runs every 1s via `m_fChumtoadPlayTimer`)
 1. **Intermission cleanup**: Remove all `monster_ctctoad` entities during intermission
-2. **HUD objective**: Broadcasts "Get the chumtoad" with holder name or "free" status
-3. **Duplicate cleanup**: Walks entity list, keeps first valid toad (`iuser1 == 1`), removes extras
-4. **Player count < 2**: Forces holder to drop, removes all toads, resets create timer
-5. **No toad + not held**: Schedule creation after 3s delay via `m_fCreateChumtoadTimer`
-6. **Toad creation**: Calls `CreateChumtoad()` → spawns at random `info_player_deathmatch`
-7. **Loose toad teleport**: Every `SPAWN_TIME` (30s), teleports to a random spawn point
-   - Chat broadcast: `"[CtC] The chumtoad has teleported!"`
+2. **Target count evaluation**:
+  - `configured = clamp(mp_ctctoadcount, 1..5)`
+  - `target = min(configured, playerCount - 1)`
+  - If `playerCount < 2`, target is `0`
+3. **Hard player-balance enforcement**: never allow total toads (holders + loose) to exceed `playerCount - 1`
+4. **Realtime add (staggered)**: if total < target, spawn one toad at `m_fCreateChumtoadTimer`, then schedule next add in `SPAWN_TIME/2` (15s) if still below target
+5. **Realtime remove (staggered)**: if total > target (cvar reduction), remove one toad at `m_fRemoveChumtoadTimer`, then schedule next remove in `SPAWN_TIME/2` (15s) if still above target
+  - Removal prefers loose toads first
+  - If none are loose, randomly selects a holder, forces drop, and removes that dropped toad
+6. **Player-count collapse** (`target == 0`): force-remove holder toads and remove all loose toads
+7. **Loose-toad teleport**: every `SPAWN_TIME` (30s), teleports all loose toads to random spawns
+8. **Objective HUD messaging**:
+  - If effective target is 1: legacy single-toad messaging remains (`"<name> has it!"`, `"The chumtoad is free"`)
+  - If effective target > 1 and holders exist: `"N of M toad holders."`
+  - If effective target > 1 and no holders but loose toads exist: `"N of M chumtoads are free."`
 
 ### CreateChumtoad
 - Picks a random `info_player_deathmatch` spawn point (random 1–8 iterations)
@@ -171,13 +184,13 @@ CtC is FFA with a single shared objective (the chumtoad), so it uses the **simpl
 - Bots auto-promote via the `FL_FAKECLIENT + iuser3 > 0` fast path into the same play/join path as `auto_join`, not the `spectate` observer path.
 
 ### Mid-Match
-- Holder death (chumtoad-carrying player killed): drops the chumtoad (it becomes a `weaponbox` containing the chumtoad weapon). The dying player goes through standard FFA respawn — no force-to-spectator. `m_iHoldingChumtoad` is reset on respawn via the `PlayerSpawn` override.
+- Holder death (chumtoad-carrying player killed): drops/spawns a loose `monster_ctctoad` near the victim. The dying player goes through standard FFA respawn — no force-to-spectator. `m_iHoldingChumtoad` is reset on respawn via the `PlayerSpawn` override.
 - Player count drops below 2: `Think()` forces the holder to drop and removes all toads (line 4 in the Think list). The mode is *only viable* with ≥2 players; the chumtoad is rebuilt automatically when a 2nd player connects and joins.
 - `spectate` mid-match: if the spectator was holding the chumtoad, they would have already dropped it in the kill / disconnect path that preceded the spectate command. Either way, the chumtoad enters the loose-toad teleport cycle.
 
 ### Pitfalls Specific to CtC
 - **Mode-side `PlayerSpawn` must call the parent first** — otherwise the `iuser3 > 0` early-return in `CHalfLifeMultiplay::PlayerSpawn` is bypassed and players get equipped on every observer-state tick.
-- **`"chaser"` team assignment is cosmetic** in this FFA mode — `IsTeamplay()` returns `FALSE` for CtC. The team name exists for HUD coloring of the holder banner only.
+- **`"chaser"` team assignment is cosmetic** in this FFA mode — `IsTeamplay()` returns `TRUE` only for scoreboard/team-HUD plumbing. Gameplay still behaves as holder-vs-everyone FFA.
 - **`iuser3 == -1` is the same committed sentinel as Cold Skull** — cross-mode convention for non-round-based modes. Treat it as "this player picked play, not spectate".
 
 ### ClientDisconnected
@@ -202,8 +215,11 @@ CtC is FFA with a single shared objective (the chumtoad), so it uses the **simpl
 ## Key Constants
 ```cpp
 #define SPAWN_TIME 30.0                    // seconds between loose-toad teleports
+#define Toad_STAGGER_TIME (SPAWN_TIME * 0.5) // 15s stagger for add/remove pacing
 #define SQUEEK_DETONATE_DELAY 15.0         // entity lifetime (detonation commented out in CtC)
+#define CtC_PICKDROP_SOUND_COOLDOWN 3.0f   // shared cooldown for capture/drop client sound broadcasts
 // cvar: ctcsecondsforpoint (default 10)   // seconds of running to score 1 point
+// cvar: mp_ctctoadcount (default 1)       // desired toad count, clamped 1..5, capped by players-1
 // cvar: scorelimit                        // round wins to win the match
 ```
 
@@ -338,6 +354,7 @@ When bot already has an enemy, the following CtC-specific checks run:
 - **MAKE_VECTORS vs UTIL_MakeVectors**: Bot DLL must use `MAKE_VECTORS` (engine callback macro from `enginecallback.h`) NOT `UTIL_MakeVectors` (game DLL utility). Using the latter causes LNK2019 unresolved external.
 - **All CtC fields initialized in BotSpawnInit** (`bot.cpp` ~line 321): `b_ctc_has_chumtoad=false`, all timers to `0.0f`
 - **Detection relies on `pev->fuser4`**: This is the only cross-DLL signal for chumtoad possession. `m_iHoldingChumtoad` is not accessible from the bot DLL.
+- **New cvar checklist (important)**: when adding CtC/server cvars exposed in `redist/settings.scr`, always add the corresponding `#Ice_*` token to the active localization file (currently `redist/resource/ice_v1.1_english.txt`, or the newer version file in future). Missing token entries will show raw token IDs in the UI.
 
 ## Key Pitfalls (Expected)
 1. **Velocity requirement**: Bots MUST maintain > 50 u/s while holding the toad to score. Any pause (charger use, weapon switch, combat engagement) risks an auto-drop. The `f_pause_time = 0` enforcement in Case 1 is critical.
@@ -346,5 +363,8 @@ When bot already has an enemy, the following CtC-specific checks run:
 4. **Weapon restriction while holding**: Holder can ONLY have `weapon_chumtoad`. `CanHavePlayerItem` and `CanHaveNamedItem` enforce this server-side. Bots should not try to pick up weapons while carrying.
 5. **`v_goal` wipe**: `bot.cpp` has a `pBot->v_goal = g_vecZero` reset ("always forget goal") that runs after think functions but before the movement block. Must skip this for CtC (same pattern as KTS/Coldskull).
 6. **Toad teleports every 30s**: A loose toad moves to a random spawn point every 30 seconds. `v_goal` must be refreshed frequently (0.5s timer) to track the toad's current position.
+  - With multi-toad enabled, all loose toads can be teleported in that cycle.
 7. **Chasers can't hurt each other**: `FPlayerCanTakeDamage` returns FALSE for non-holders. Bots already handle this via `BotFindEnemy` filters (skip non-holders), but combat-engaged bots chasing the holder should not waste ammo on other chasers encountered along the way.
 8. **Drop mechanism**: `PrimaryAttack()` on the chumtoad weapon triggers the drop. The idle-drop in `PlayerThink` also fires `PrimaryAttack()`. Bot can trigger this via `IN_ATTACK` button while holding chumtoad weapon. This is the intended strategic drop path.
+9. **Player-count cap is strict**: CtC now enforces total toads `< playerCount` at all times by forcing removals when needed.
+10. **Death order pitfall (weaponbox ghost drop)**: `PlayerKilled()` CtC drop logic can clear `m_iHoldingChumtoad` before `CBasePlayer::PackDeadPlayerItems()` runs. If `DeadPlayerWeapons()` only checks `m_iHoldingChumtoad`, an empty chumtoad/snark `weaponbox` can still spawn. CtC `DeadPlayerWeapons()` must also block drops when the victim still has/has-active `weapon_chumtoad`.

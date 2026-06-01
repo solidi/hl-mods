@@ -623,4 +623,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 0.000000 -1.000000 }
 		{ "30" }
 	}
+
+	"mp_ctctoadcount"
+	{
+		"#Ice_CtcToadCount"
+		{ NUMBER 1.000000 5.000000 }
+		{ "1" }
+	}
 }
