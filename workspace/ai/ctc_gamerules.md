@@ -185,7 +185,7 @@ CtC is FFA with a single shared objective (the chumtoad), so it uses the **simpl
 
 ### Mid-Match
 - Holder death (chumtoad-carrying player killed): drops/spawns a loose `monster_ctctoad` near the victim. The dying player goes through standard FFA respawn — no force-to-spectator. `m_iHoldingChumtoad` is reset on respawn via the `PlayerSpawn` override.
-- Player count drops below 2: `Think()` forces the holder to drop and removes all toads (line 4 in the Think list). The mode is *only viable* with ≥2 players; the chumtoad is rebuilt automatically when a 2nd player connects and joins.
+- Player count drops below 2: `Think()` forces the holder to drop and removes all toads. The mode is *only viable* with ≥2 players; the chumtoad is rebuilt automatically when a 2nd player connects and joins.
 - `spectate` mid-match: if the spectator was holding the chumtoad, they would have already dropped it in the kill / disconnect path that preceded the spectate command. Either way, the chumtoad enters the loose-toad teleport cycle.
 
 ### Pitfalls Specific to CtC
