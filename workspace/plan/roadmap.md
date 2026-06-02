@@ -114,6 +114,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Secondary chaingun idea?
         1. [x] Tracers on all bullets?
     1. [x] Hide viewmodel when ricochet is enabled
+    1. [ ] prox mine / tripmine on satchel using reload
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
