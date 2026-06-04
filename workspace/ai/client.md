@@ -64,6 +64,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Banner / pickup overlays | [banner_system.md](banner_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Weapon firing prediction | `ev_hldm.cpp` |
+| Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |
 
 ## Lessons Worth Repeating
 
