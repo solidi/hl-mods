@@ -12,7 +12,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 1  | `GAME_ARENA`      | `"arena"`          | `CHalfLifeArena`                   | [arena_gamerules.md](arena_gamerules.md) |
 | 2  | `GAME_LMS`        | `"lms"`            | `CHalfLifeLastManStanding`         | TBD |
 | 3  | `GAME_BUSTERS`    | `"busters"`        | `CMultiplayBusters`                | [busters_gamerules.md](busters_gamerules.md) |
-| 4  | `GAME_CHILLDEMIC` | `"chilldemic"`     | `CHalfLifeChilldemic`              | TBD |
+| 4  | `GAME_CHILLDEMIC` | `"chilldemic"`     | `CHalfLifeChilldemic`              | [chilldemic_gamerules.md](chilldemic_gamerules.md) |
 | 5  | `GAME_COLDSKULL`  | `"coldskull"`      | `CHalfLifeColdSkull`               | [coldskull_gamerules.md](coldskull_gamerules.md) |
 | 6  | `GAME_COLDSPOT`   | `"coldspot"`       | `CHalfLifeColdSpot`                | [coldspot_gamerules.md](coldspot_gamerules.md) |
 | 7  | `GAME_CTC`        | `"ctc"`            | `CHalfLifeCaptureTheChumtoad`      | [ctc_gamerules.md](ctc_gamerules.md) |
@@ -454,6 +454,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 
 - [arena_gamerules.md](arena_gamerules.md) — 1v1 champion-defense duel
 - [busters_gamerules.md](busters_gamerules.md) — Reverse-DM, lowest-fragger gets the egon
+- [chilldemic_gamerules.md](chilldemic_gamerules.md) — round-based survivor-vs-infection mode
 - [coldskull_gamerules.md](coldskull_gamerules.md) — FFA skull collection
 - [coldspot_gamerules.md](coldspot_gamerules.md) — Team zone-hold with relocating spot
 - [ctc_gamerules.md](ctc_gamerules.md) — FFA keep-away with the chumtoad
@@ -461,7 +462,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_LMS`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 
