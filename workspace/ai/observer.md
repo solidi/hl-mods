@@ -8,7 +8,7 @@ It also explains how this codebase treats "observer" versus "spectator".
 
 ## 1. Server-side observer flow (player entity)
 
-Primary implementation lives in `src/dlls/observer.cpp` on `CBasePlayer`.
+Primary implementation lives in the Cold Ice Remastered code submodule (`workspace/src/`) in `src/dlls/observer.cpp` on `CBasePlayer`.
 
 ### `Observer_FindNextPlayer(bool bReverse)`
 - Cycles through clients in either direction.

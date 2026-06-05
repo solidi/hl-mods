@@ -40,7 +40,7 @@ These instructions guide Copilot when reviewing code and repository artifacts in
 
 ## Scope Guidance
 - Review both source and non-source artifacts when present in a change:
-  - code under `src/`,
+  - code under `workspace/src/` (Cold Ice Remastered submodule) and other top-level mod roots (e.g. `cir/`, `hla/`) when present,
   - scripts/manifests under `workspace/`,
   - distributable assets under `redist/`, `maps/`, `models/`, `sound/`, `sprites/`, and related folders.
 - Do not request large refactors unless they are required to fix correctness or stability risks.

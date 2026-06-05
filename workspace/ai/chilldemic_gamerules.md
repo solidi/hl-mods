@@ -4,9 +4,9 @@
 - **Game Mode**: `GAME_CHILLDEMIC = 4` (defined in `src/common/const.h`)
 - **String ID**: `"chilldemic"` (mp_gamemode cvar)
 - **Description**: `"Cold Ice Remastered Chilldemic"` — survivors-vs-infected elimination/infection round mode
-- **Source**: `src/dlls/chilldemic_gamerules.cpp`, `src/dlls/chilldemic_gamerules.h`
+- **Source** (Cold Ice Remastered code submodule under `workspace/src/`): `src/dlls/chilldemic_gamerules.cpp`, `src/dlls/chilldemic_gamerules.h`
 - **Class**: `CHalfLifeChilldemic : public CHalfLifeMultiplay`
-- **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (`BotCheckTeamplay` registration), `grave-bot-src/dlls/util.cpp` (`UTIL_GetTeam` chilldemic branch)
+- **Bot Source** (bot submodule under `workspace/grave-bot-src/`): `grave-bot-src/dlls/bot_combat.cpp` (`BotCheckTeamplay` registration), `grave-bot-src/dlls/util.cpp` (`UTIL_GetTeam` chilldemic branch)
 
 > **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, shared spectator/round APIs, cross-DLL conventions, and common pitfalls.
 
