@@ -155,6 +155,8 @@ v1.1 Features:
     - Bots no longer attempt wallclimbing
     - Bots intelligently select runes during gameplay
 - Weapons Additions
+    - Proximity Mine
+        - Use "reload" on either tripmine or satchel to place a proximity mine
     - Snowball
         - Improve throw performance of the weapon so it's predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
@@ -298,6 +300,7 @@ v1.1 Features:
         - Fixed scale of knife world models
         - Fixed missing portalgun on HUD
         - Disabled weapon throw of cigarettes
+        - Fixed floating animations of satchels and tripmines
 
 Highly-Valued Upcoming Features:
 

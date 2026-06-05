@@ -44,6 +44,7 @@ Runs every think frame. Two passes: monsters first, then players.
 - **Transparency:** enemy skipped if `rendermode == kRenderTransTexture && renderamt < renderamt_threshold[skill]`. Hard-skip at `renderamt < 60` (regardless of skill) or `EF_NODRAW`.
 - **Teamplay:** teammates are always skipped (with S&I scientist exception when bot holds mindray).
 - **Live grenades** within 192 units and >2s from detonation pre-empt player targeting (`VALVE_DLL` only).
+  - The grenade scanner (`BotAssessGrenades`, bot_combat.cpp ~5310) walks all entities and applies a **hardcoded classname allowlist** — anything not in the list is ignored. Current entries (default branch): `monster_tripmine`, `monster_proxmine`, `monster_snark`, `grenade`, `monster_chumtoad`, `monster_propdecoy`, `kts_snowball`. The `CRABBED_DLL` branch additionally includes `monster_satchel`, `rpg_rocket`. **When you add a new player-placed projectile, append its classname to both branches** or bots will walk straight into it.
 
 **Gamemode overrides at the top of the function:**
 - `GAME_PROPHUNT` while paused → no enemy

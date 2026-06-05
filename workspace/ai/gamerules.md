@@ -17,7 +17,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 6  | `GAME_COLDSPOT`   | `"coldspot"`       | `CHalfLifeColdSpot`                | [coldspot_gamerules.md](coldspot_gamerules.md) |
 | 7  | `GAME_CTC`        | `"ctc"`            | `CHalfLifeCaptureTheChumtoad`      | [ctc_gamerules.md](ctc_gamerules.md) |
 | 8  | `GAME_CTF`        | `"ctf"`            | `CHalfLifeCaptureTheFlag`          | [ctf_gamerules.md](ctf_gamerules.md) |
-| 9  | `GAME_GUNGAME`    | `"gungame"`        | `CHalfLifeGunGame`                 | TBD |
+| 9  | `GAME_GUNGAME`    | `"gungame"`        | `CHalfLifeGunGame`                 | [gungame_gamerules.md](gungame_gamerules.md) |
 | 10 | `GAME_HORDE`      | `"horde"`          | `CHalfLifeHorde`                   | [horde_gamerules.md](horde_gamerules.md) |
 | 11 | `GAME_INSTAGIB`   | `"instagib"`       | `CHalfLifeInstagib`                | TBD |
 | 12 | `GAME_ICEMAN`     | `"jvs"`            | `CHalfLifeJVS` (Jesus vs. Santa)   | TBD |
@@ -91,7 +91,7 @@ Every mode inherits the virtual methods below. The default behavior lives in `CG
 ### Match flow helpers (`CHalfLifeMultiplay`)
 - `CheckClients`, `InsertClientsIntoArena`, `HasGameTimerExpired`, `CheckRounds`, `SetRoundLimits`.
 - `SuckToSpectator`, `SuckAllToSpectator` — force a player into the OBS pool (used between rounds, on disconnect, and when player count drops below the mode minimum).
-- `RemoveAndFillItems` — wipe + respawn world items for a fresh round.
+- `RemoveAndFillItems` — wipe + respawn world items for a fresh round. Iterates `pRemoveThese[]` (classname list in multiplay_gamerules.cpp:1063) and `UTIL_Remove`s each match. Special-case for `monster_tripmine` calls `KillBeam()` then defers removal. **When adding a new player-placed `monster_*` projectile, add its classname here** or it survives round restarts.
 - `GoToIntermission` — score finalisation, scoreboard freeze, map cycle / vote.
 - `ChangeLevel` — applies the next map from `mapcycle.txt` / vote result.
 
