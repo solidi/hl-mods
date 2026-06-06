@@ -92,7 +92,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly choose two spawn points as goals? (AudioCraZ)
 1. Gamemode Changes
     1. [ ] bot behavior improvement in all gamemodes
-    1. [ ] Skeleton appears the moment fragged from survivor
+    1. [x] Skeleton appears the moment fragged from survivor
     1. [x] CtC, more than one chumtoad?
     1. [x] Shidden, Stomp on head
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot

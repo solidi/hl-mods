@@ -80,6 +80,7 @@ v1.1 Features:
         - Highly improved bots, play ctf among team-members
         - Place the player's view in thirdperson when having the flag
     - Chilldemic
+        - When a survivor dies, they immediately respawn as a skeleton in their place
         - Virus players no longer can pick up ammo and weapons
     - Cold Skulls
         - Improved play, better chance to hit collection limit
@@ -226,6 +227,7 @@ v1.1 Features:
             - Fixed flag status issues with bots
         - Chilldemic
             - Rename skeleton to skeletons
+            - Fixed round start when no skeletons were selected
         - Cold Spot
             - Prevent scoring after rounds ends
         - Cold Skulls
@@ -282,6 +284,7 @@ v1.1 Features:
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
         - Fixed fire loop sound if on fire and placed in observer
+        - Fixed follow-next targeting when the current target becomes a spectator
         - Fixed ejection shell after respawn
         - Don't show healthbar of player while in-view spectator
         - Forcegrab ignores teammates
