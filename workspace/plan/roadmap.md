@@ -98,6 +98,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
     1. [x] Provide side icons for flag, ctc toad, and lj when obtained
     1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
+1. Voting
+    1. [ ] Game Option Menu, specific to each game mode
+        1. [ ] Basic options, On/Off/More/Less toggles.
+        1. [ ] Come up with a list per gamemode, and then instruct AI
 1. Game Mutators
     1. [ ] Stomp on head
     1. [x] Instagib
