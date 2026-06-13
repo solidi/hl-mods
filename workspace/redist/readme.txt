@@ -12,7 +12,7 @@ This mod features works from the community. Without their dedication and hard wo
 v1.1 Features:
 
 - New Game Modes
-    - "Kick the Snowball" - teamed based battle to score a large snowball in the enemy's goal
+    - "Kick the Snowball" - team-based battle to score a large snowball in the enemy's goal
     - "Loot" - team-based battle to find hidden loot in a crate and bring it back to score
         - All maps are supported
         - A re-creation of what was described by Dario Casali, author of boot_camp
@@ -478,7 +478,7 @@ Server:
 - "mp_spawnweaponlist "weapon_9mmhandgun"" A semicolon separated list of the player's spawn weapons
 - "mp_spawnweapons" - Spawn weapons or not
 - "mp_startwithall [0|1]" - Start with all weapons
-- "mp_startwithlives" - Sets the starting lifes during last man standing
+- "mp_startwithlives" - Sets the starting lives during last man standing
 - "mp_voting [time]" - enable or disable end of the map voting with timer
 - "sv_acrobatics [0|1]" allow or disallow wall climbing, slides, and flips
 - "sv_botsmelee [0|1]" to toggle bots close combat on or off
