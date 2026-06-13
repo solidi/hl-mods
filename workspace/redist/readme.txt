@@ -12,7 +12,7 @@ This mod features works from the community. Without their dedication and hard wo
 v1.1 Features:
 
 - New Game Modes
-    - "Kick the Snowball" - teamed based battle to score a large snowball in the enemy's goal
+    - "Kick the Snowball" - team-based battle to score a large snowball in the enemy's goal
     - "Loot" - team-based battle to find hidden loot in a crate and bring it back to score
         - All maps are supported
         - A re-creation of what was described by Dario Casali, author of boot_camp
@@ -56,6 +56,7 @@ v1.1 Features:
         - Player who wins battle continues to next battle until defeated
         - Player with most frags, even if negative, win if time runs out
     - Battle Royale
+        - Improved bot performance and safe spot behavior during gameplay
         - Play siren sound when the safespot shrinks
         - Added screen warning and reduced timed damage outside safe area
         - Added world to screen visual indicator of the safe spot
@@ -80,7 +81,8 @@ v1.1 Features:
         - Highly improved bots, play ctf among team-members
         - Place the player's view in thirdperson when having the flag
     - Chilldemic
-        - When a survivor dies, they immediately respawn as a skeleton in their place
+        - When a survivor dies, they immediately respawn as a skeleton in their place
+
         - Virus players no longer can pick up ammo and weapons
     - Cold Skulls
         - Improved play, better chance to hit collection limit
@@ -210,6 +212,7 @@ v1.1 Features:
         - Battle Royale
             - Randomly select buster for a pool of least scorers
             - Fixed safe spot hurt after round ends
+            - Fixed green safe zone texture
         - Busters
             - Fixed support for forced weapon grab of buster's egon
             - Fix bug where disconnected clients may become the busters
@@ -227,7 +230,8 @@ v1.1 Features:
             - Fixed flag status issues with bots
         - Chilldemic
             - Rename skeleton to skeletons
-            - Fixed round start when no skeletons were selected
+            - Fixed round start when no skeletons were selected
+
         - Cold Spot
             - Prevent scoring after rounds ends
         - Cold Skulls
@@ -284,7 +288,8 @@ v1.1 Features:
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
         - Fixed fire loop sound if on fire and placed in observer
-        - Fixed follow-next targeting when the current target becomes a spectator
+        - Fixed follow-next targeting when the current target becomes a spectator
+
         - Fixed ejection shell after respawn
         - Don't show healthbar of player while in-view spectator
         - Forcegrab ignores teammates
@@ -473,7 +478,7 @@ Server:
 - "mp_spawnweaponlist "weapon_9mmhandgun"" A semicolon separated list of the player's spawn weapons
 - "mp_spawnweapons" - Spawn weapons or not
 - "mp_startwithall [0|1]" - Start with all weapons
-- "mp_startwithlives" - Sets the starting lifes during last man standing
+- "mp_startwithlives" - Sets the starting lives during last man standing
 - "mp_voting [time]" - enable or disable end of the map voting with timer
 - "sv_acrobatics [0|1]" allow or disallow wall climbing, slides, and flips
 - "sv_botsmelee [0|1]" to toggle bots close combat on or off
