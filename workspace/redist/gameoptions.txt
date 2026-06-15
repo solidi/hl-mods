@@ -1,0 +1,347 @@
+// =============================================================================
+// gameoptions.txt -- server-defined dynamic vote items for game-options voting.
+//
+// This file is parsed by the server on map start and after the file mtime
+// changes. Each block defines ONE row in the vote panel that appears between
+// the gameplay-vote and mutator-vote phases (and is also accessible mid-game
+// via the "gameoptions" chat RTV command).
+//
+// Format (standard Source key/value, one block per item):
+//
+//   "Title For HUD"
+//   {
+//       "game"     "*"            // mode short-name OR "*" for all modes.
+//                                  // Valid short-names (see szGameModeList):
+//                                  //   ffa, arena, lms, busters, chilldemic,
+//                                  //   coldskull, coldspot, ctc, ctf, gungame,
+//                                  //   horde, instagib, jvs, kts, loot,
+//                                  //   prophunt, shidden, snowball, teamplay
+//       "cvar"     "mp_friendlyfire"   // must be [A-Za-z0-9_]+
+//       "restart"  "0"                  // 0 = take effect at next map (default);
+//                                       // 1 = if voted via mid-game RTV, force
+//                                       //     a changelevel after the tally.
+//       "Off"      "0"            // label -> value pairs. 2 to 5 pairs.
+//       "On"       "1"            // value is set via CVAR_SET_STRING --
+//                                 // NEVER through the engine command parser,
+//                                 // so quotes, semicolons, $, \, \n, \r are
+//                                 // forbidden in values (parser rejects).
+//   }
+//
+// Limits (enforced):
+//   - 32 items max per file (extras are dropped with a warning).
+//   - 5 options per item max.
+//   - Title length 63.
+//   - Cvar-name length 31.
+//   - Label length 23.
+//   - Value length 31.
+//
+// Hot-reload: edit and save -- the next vote cycle picks up the new file
+// (mtime is rechecked in EnsureGameOptionsList(); revision byte bumps so
+// connected clients automatically re-receive the manifest).
+//
+// On parse error: bad items are skipped, errors land in console plus the
+// "gameoptions_status" output (listenserver host / sv_cheats 1 gated).
+// =============================================================================
+
+// arena
+"Round Limit"
+{
+	"game"     "arena"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+"Round Timelimit"
+{
+	"game"     "arena"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"2 min"    "2"
+	"3 min"    "3"
+	"5 min"    "5"
+}
+
+"Round Fraglimit"
+{
+	"game"     "arena"
+	"cvar"     "mp_roundfraglimit"
+	"No Limit"  "0"
+	"1 frag"  "1"
+	"3 frags"   "3"
+	"10 frags"    "10"
+}
+
+// chilldemic
+"Round Limit"
+{
+	"game"     "chilldemic"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+// coldspot
+"Cold Spot Time"
+{
+	"game"     "coldspot"
+	"cvar"     "mp_coldspottime"
+	"restart"  "0"
+	"10 secs"  "10"
+	"30 secs"  "30"
+	"60 secs"  "60"
+}
+
+// ctc
+"Toad count"
+{
+	"game"     "ctc"
+	"cvar"     "mp_ctctoadcount"
+	"restart"  "0"
+	"1 toad"   "1"
+	"2 toads"  "2"
+	"3 toads"  "3"
+}
+
+"Seconds per point"
+{
+	"game"     "ctc"
+	"cvar"     "mp_ctcsecondsforpoint"
+	"restart"  "0"
+	"5 secs"   "5"
+	"10 secs"  "10"
+	"20 caps"  "20"
+}
+
+// ffa
+"Frag Limit"
+{
+	"game"     "ffa"
+	"cvar"     "mp_fraglimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"15 frags" "15"
+	"25 frags" "25"
+	"50 frags" "50"
+}
+
+"Time Limit"
+{
+	"game"     "ffa"
+	"cvar"     "mp_timelimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"10 min"   "10"
+	"30 min"   "30"
+	"45 min"   "45"
+}
+
+// gungame
+"Start level"
+{
+	"game"     "gungame"
+	"cvar"     "mp_ggstartlevel"
+	"restart"  "0"
+	"Level One"   "0"
+	"Level Ten"  "9"
+	"Level Thirty"  "29"
+	"Level Forty"  "39"
+}
+
+"Steal level"
+{
+	"game"     "gungame"
+	"cvar"     "mp_ggsteallevel"
+	"restart"  "0"
+	"Off"      "0"
+	"On"       "1"
+}
+
+"Frag Upgrade"
+{
+	"game"     "gungame"
+	"cvar"     "mp_ggfrags"
+	"restart"  "0"
+	"1 Frag"   "1"
+	"3 Frags"  "3"
+	"5 Frags"  "5"
+}
+
+"Suicide Loss"
+{
+	"game"     "gungame"
+	"cvar"     "mp_ggsuicide"
+	"restart"  "0"
+	"Off"      "0"
+	"On"       "1"
+}
+
+// horde
+"Round Limit"
+{
+	"game"     "horde"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+//jvs
+"Round Limit"
+{
+	"game"     "jvs"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+// loot
+"Round Limit"
+{
+	"game"     "loot"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+"Round Timelimit"
+{
+	"game"     "loot"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"2 min"    "2"
+	"3 min"    "3"
+	"5 min"    "5"
+}
+
+// lms
+"Start With Lives"
+{
+	"game"     "lms"
+	"cvar"     "mp_startwithlives"
+	"restart"  "1"
+	"1 Life"   "1"
+	"5 Lives"  "5"
+	"10 Lives" "10"
+}
+
+"Royale Teamplay"
+{
+	"game"     "lms"
+	"cvar"     "mp_royaleteam"
+	"restart"  "1"
+	"Off"      "0"
+	"On"       "1"
+}
+
+"Outside Safe Damage"
+{
+	"game"     "lms"
+	"cvar"     "mp_royaledamage"
+	"restart"  "0"
+	"Off"      "0"
+	"On"       "1"
+}
+
+// prophunt
+"Round Limit"
+{
+	"game"     "prophunt"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+"Round Timelimit"
+{
+	"game"     "prophunt"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"3 min"    "3"
+	"5 min"    "5"
+	"7 min"    "7"
+}
+
+"Hunter Life Damage"
+{
+	"game"     "prophunt"
+	"cvar"     "mp_hunterselfcost"
+	"restart"  "0"
+	"1 Health"   "1"
+	"5 Health"  "5"
+	"10 Health" "10"
+}
+
+"Prop Hide Time"
+{
+	"game"     "prophunt"
+	"cvar"     "mp_prophunttime"
+	"restart"  "0"
+	"10 secs"   "10"
+	"30 secs"   "30"
+	"60 secs"   "60"
+}
+
+"Prop Starting Health"
+{
+	"game"     "prophunt"
+	"cvar"     "mp_prophealth"
+	"restart"  "0"
+	"10 Health"   "10"
+	"20 Health"   "20"
+	"60 Health"   "60"
+}
+
+// shidden
+"Round Limit"
+{
+	"game"     "shidden"
+	"cvar"     "mp_roundlimit"
+	"restart"  "0"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+// Teamplay
+"Friendly Fire"
+{
+	"game"     "teamplay"
+	"cvar"     "mp_friendlyfire"
+	"restart"  "0"
+	"Off"      "0"
+	"On"       "1"
+}
+
+// General
+"Instant Mutators"
+{
+	"game"     "*"
+	"cvar"     "sv_instantmutators"
+	"restart"  "0"
+	"Off"      "0"
+	"On"       "1"
+}
+
+"Spawn Protect Time"
+{
+	"game"     "*"
+	"cvar"     "mp_spawnprotectiontime"
+	"restart"  "0"
+	"None"    "0"
+	"3 secs"    "3"
+	"5 secs"    "5"
+	"10 secs"    "10"
+}

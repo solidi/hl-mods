@@ -16,49 +16,107 @@ This is the top-level entry point for any work in this repository. Every other c
 
 ## Building (Read This Before Compiling)
 
-Use this section as the source of truth for builds. Do not guess paths or invent solution files.
+Use this section as the source of truth for builds. Do not guess paths or invent solution files. Every fact below has been verified by running it.
 
-### Canonical wrapper
-- Preferred: run `workspace/Build-Windows.ps1 -ConfigFile steam` from `C:\hl-mods\workspace`. It builds everything (server + client + bot) into the matching `redist*` folder for the chosen config.
-- For a quick, targeted rebuild of just one DLL during iteration, drive MSBuild directly using the exact paths below.
-
-### Visual Studio project locations (Windows)
-The MSVC project files live under `workspace/src/projects/vs2019/` — **not** under `workspace/src/dlls/` or `workspace/src/cl_dll/`.
-
-| Target | Project file | Output |
-|--------|--------------|--------|
-| Server DLL (`hl.dll`) | `workspace/src/projects/vs2019/hl.vcxproj` | `workspace/src/projects/vs2019/Release/hl/hl.dll` |
-| Client DLL (`client.dll`) | `workspace/src/projects/vs2019/hl_cdll.vcxproj` | `workspace/src/projects/vs2019/Release/hl_cdll/client.dll` |
-| Grave bot (`grave_bot.dll`) | `workspace/grave-bot-src/dlls/grave_bot.sln` | `workspace/grave-bot-src/dlls/.../grave_bot.dll` |
-
-Always build with `Configuration=Release` and `Platform=Win32`. The engine is 32-bit; do **not** try `x64`.
-
-### MSBuild invocation (verified)
-MSBuild is **not** on PATH by default. Use the full path to the VS2022 Community MSBuild — it can build the vs2019 toolset projects fine:
+### TL;DR — one command that works
 
 ```powershell
-$env:PATH = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin;' + $env:PATH
-& 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe' `
-    'C:\hl-mods\workspace\src\projects\vs2019\hl_cdll.vcxproj' `
+# from C:\hl-mods\workspace
+pwsh -File .\Build-Windows.ps1 -ConfigFile steam
+```
+
+That's it. This builds all three DLLs (bot + server + client) and copies them into `redist/`, `redist_hd/`, `redist_sp/` for `Start-Windows.ps1`. **Always pass `-ConfigFile steam`** — without it, the script defaults `$Config['msBuild']` to the literal string `"msbuild"`, fails immediately because MSBuild is not on PATH, and you waste a turn debugging it.
+
+`steam.ps1` is what supplies the verified MSBuild path (`C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild`) plus the full `$Config['defintions']` preprocessor set (`VEST;SILENCER;…;NUKE`) that the project must compile with. Do not invent your own config; edit `steam.ps1` if a definition really must change.
+
+### Visual Studio project locations (Windows)
+
+MSVC project files live under `workspace/src/projects/vs2019/` — **not** under `workspace/src/dlls/` or `workspace/src/cl_dll/`. The DLL filename comes from `<TargetName>` in each vcxproj and does **not** match the project base name.
+
+| Target | Solution | Project file | Output (under `src/projects/vs2019/Release/`) |
+|--------|----------|--------------|------------------------------------------------|
+| Server DLL  | `hldll.sln`   | `hldll.vcxproj`   | `hldll/ice.dll`     (TargetName = `ice`) |
+| Client DLL  | `hl_cdll.sln` | `hl_cdll.vcxproj` | `hl_cdll/client.dll`                     |
+| Grave bot   | `workspace/grave-bot-src/dlls/grave_bot.sln` | (in that sln) | `workspace/grave-bot-src/dlls/.../grave_bot.dll` |
+
+There is **no** `hl.vcxproj` and **no** `hl.dll` in this repo. The server library is named `ice.dll` (per `<TargetName>ice</TargetName>` in `hldll.vcxproj`). The first place the wrapper drops it is `workspace/libs/dlls/ice.dll` (see the `<Copy>` task at the bottom of `hldll.vcxproj`), then `Build-Windows.ps1` redistributes it.
+
+Engine is 32-bit. **Do not try `x64`.**
+
+### Direct MSBuild invocation (when the wrapper is overkill)
+
+For a fast targeted rebuild during iteration, drive MSBuild directly. The platform-name string is **not** the same for `.sln` and `.vcxproj` — get this wrong and you get `MSB4126: invalid solution configuration`.
+
+| Target you pass | `/p:Platform=` value |
+|-----------------|----------------------|
+| `*.sln`         | `x86`                |
+| `*.vcxproj`     | `Win32`              |
+
+Verified recipe (use the full MSBuild path; do not rely on PATH):
+
+```powershell
+$msbuild = 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe'
+
+# Server DLL (ice.dll) — via solution:
+& $msbuild C:\hl-mods\workspace\src\projects\vs2019\hldll.sln `
+    /t:Build /p:Configuration=Release /p:Platform=x86 /m /nologo /v:minimal
+
+# Client DLL (client.dll) — via solution:
+& $msbuild C:\hl-mods\workspace\src\projects\vs2019\hl_cdll.sln `
+    /t:Build /p:Configuration=Release /p:Platform=x86 /m /nologo /v:minimal
+
+# Either DLL via vcxproj directly — note Win32, not x86:
+& $msbuild C:\hl-mods\workspace\src\projects\vs2019\hl_cdll.vcxproj `
     /p:Configuration=Release /p:Platform=Win32 /m /nologo /v:minimal
 ```
 
-Swap `hl_cdll.vcxproj` → `hl.vcxproj` for the server DLL. For the bot, point at `workspace/grave-bot-src/dlls/grave_bot.sln` (no `Platform` override needed — the solution sets it).
+To find MSBuild on a machine where the path above is wrong:
 
-To trim noise when piping output back into the agent, append `2>&1 | Select-Object -Last 30`.
+```powershell
+Get-ChildItem 'C:\Program Files\Microsoft Visual Studio','C:\Program Files (x86)\Microsoft Visual Studio' `
+    -Recurse -Filter MSBuild.exe -ErrorAction SilentlyContinue |
+    Where-Object FullName -notmatch 'amd64' | Select-Object -First 1 -ExpandProperty FullName
+```
+
+### Inspecting build output cleanly
+
+MSBuild emits hundreds of C4996 (`stricmp`, `strcpy`, etc.) warnings that drown real errors. Capture to a file and filter:
+
+```powershell
+& $msbuild ...args... 2>&1 | Out-File C:\Temp\build.log -Encoding utf8
+"exit=$LASTEXITCODE"
+Get-Content C:\Temp\build.log | Where-Object { $_ -match ' error ' } | Select-Object -First 20
+```
+
+`exit=0` does **not** mean the DLL was produced if you targeted the wrong configuration — also `Test-Path` the expected output:
+
+```powershell
+Test-Path 'C:\hl-mods\workspace\src\projects\vs2019\Release\hldll\ice.dll'
+Test-Path 'C:\hl-mods\workspace\src\projects\vs2019\Release\hl_cdll\client.dll'
+```
 
 ### Common pitfalls (don't repeat these)
-- **Do not pass `workspace/src/cl_dll/hl_cdll.vcxproj`** — that path does not exist. The vcxproj is under `src/projects/vs2019/`. Same for `hl.vcxproj`.
-- **Do not use `cl.exe` directly** or hand-rolled compile commands. The vcxproj defines includes, defines (`CLIENT_DLL`, `CLIENT_WEAPONS`, etc.), and link order that you will not reproduce correctly by hand.
-- **Rebuild both DLLs when changing shared headers** (`src/common/`, `src/pm_shared/`, anything touching `CLIENT_WEAPONS`). Mismatched builds fail silently — see Cross-cutting Lessons.
-- **Do not bypass `Build-Windows.ps1` for full release output.** Direct MSBuild produces the DLL in the project's `Release/` folder, but `Build-Windows.ps1` is what copies the artifacts into `redist/` (and `redist_hd/`, `redist_sp/`) where `Start-Windows.ps1` will actually pick them up.
-- **Linux builds** go through `workspace/build-linux.sh` and the images in `workspace/docker/`. Don't try `make` directly from `src/`.
+
+- **Don't run `Build-Windows.ps1` without `-ConfigFile steam`.** The bare script can't find msbuild.
+- **Don't pass `Platform=Win32` to a `.sln`** — solutions use `x86`. Don't pass `Platform=x86` to a `.vcxproj` — vcxprojs use `Win32`. Mixing them yields `MSB4126`.
+- **Don't look for `hl.dll`.** The server library is `ice.dll`. Building "hl" succeeds but produces `ice.dll` under `Release/hldll/`.
+- **Don't pass `workspace/src/cl_dll/hl_cdll.vcxproj`** — that path doesn't exist. The vcxprojs live under `src/projects/vs2019/`.
+- **Don't use `cl.exe` directly** or hand-rolled compile commands. The vcxproj carries the include paths, the steam.ps1 `defintions` list (`CLIENT_DLL`, `CLIENT_WEAPONS`, all weapon defs), and the correct link order. You will not reproduce them by hand.
+- **Rebuild both DLLs when changing shared headers** (`src/common/`, `src/pm_shared/`, anything gated on `CLIENT_WEAPONS`). Mismatched builds fail silently — see Cross-cutting Lessons.
+- **Don't bypass `Build-Windows.ps1` for a *release*.** Direct MSBuild leaves the DLL in `Release/`; only the wrapper copies into `redist/`, `redist_hd/`, `redist_sp/` where `Start-Windows.ps1` actually reads from.
+- **Linux builds** go through `workspace/build-linux.sh` and the images in `workspace/docker/`. Don't run `make` directly from `src/`.
+- **`Start-Sleep` / polling is forbidden in agent loops** — MSBuild here generally finishes in under a minute even cold; use a single sync run with `timeout` ~600000 ms.
 
 ### Quick recipes
-- Iterating on client HUD/VGUI only → MSBuild `hl_cdll.vcxproj`, then re-run with `Start-Windows.ps1`.
-- Iterating on gamerules / weapons / entities → MSBuild `hl.vcxproj`. If you also touched a shared header used by prediction, build `hl_cdll.vcxproj` too.
-- Iterating on bot AI → MSBuild `grave-bot-src/dlls/grave_bot.sln`.
-- Touching assets (models/maps/wads/sounds/sprites) → use the matching `Build-*.ps1` script under `workspace/`; do not edit the binary outputs by hand.
+
+| You changed | Build this | Then |
+|-------------|------------|------|
+| Client HUD / VGUI only                       | `hl_cdll.sln` (Platform=x86) | `Start-Windows.ps1 -ConfigFile steam -map <name>` |
+| Gamerules / weapons / entities (server only) | `hldll.sln`   (Platform=x86) | same |
+| Shared header touched by prediction          | both DLLs                    | same |
+| Bot AI                                        | `grave-bot-src/dlls/grave_bot.sln` (no platform override) | same |
+| Assets (models/maps/wads/sounds/sprites)     | matching `Build-*.ps1`        | re-run `Copy-Distribution.ps1` if needed |
+| Full release ready to ship                   | `Build-Windows.ps1 -ConfigFile steam` | — |
 
 ## The Two Halves
 
@@ -74,6 +132,7 @@ Most features cut across both halves via a registered user-message; if you are t
 
 ### Cross-cutting (server + client together)
 - [voting_system.md](voting_system.md) — gameplay / mutator / map vote sequence; conventions every vote panel must follow.
+- [game_options_system.md](game_options_system.md) — fourth vote phase; server-defined dynamic cvar items from `gameoptions.txt`.
 - [runes.md](runes.md) — rune entities, effects, spawn cycle, `drop_rune` mechanic. Server-side reference for the bot rune logic in `gravebot.md`.
 
 ### Server-side (loaded from [server.md](server.md))

@@ -189,6 +189,7 @@ Compile-Sound $binDir $redistDir $soundDir "mariano-closs-ahi-estaaaaa-gooool.mp
 Compile-Sound $binDir $redistDir $soundDir "airhorn.mp3" 1.0 "sound\airhorn.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "big-ball-bounce.mp3" 3.0 "sound\ball_bounce.wav" "wav" 0 0.6
 Compile-Sound $binDir $redistDir $soundDir "dribble.mp3" 4.0 "sound\dribble.wav" "wav" 6 12
+Compile-Sound $binDir $redistDir $soundDir "gameoptions.mp3" 1.0 "sound\gameoptions.wav" "wav"
 }
 catch
 {

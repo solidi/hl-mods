@@ -2,7 +2,7 @@
 
 > Parents: [cir.md](cir.md) · related to both [server.md](server.md) and [client.md](client.md) · sibling: [vgui_system.md](vgui_system.md)
 
-The voting system spans both DLLs: the server runs the timer / tally / decision logic, the client renders the panels and forwards `vote N` console commands. There are **three** votes that fire in sequence at intermission — gameplay, mutator, map — and they all follow the same conventions.
+The voting system spans both DLLs: the server runs the timer / tally / decision logic, the client renders the panels and forwards `vote N` console commands. There are **four** votes that fire in sequence at intermission — gameplay, **game-options**, mutator, map — and they all follow the same conventions.
 
 ## Vote Flow (one intermission)
 
@@ -15,6 +15,13 @@ m_iVoteUnderway = VOTE_GAMEPLAY_TRANSITION
     ▼
 VOTE_GAMEPLAY_OPEN   ──▶ gmsgVoteGameplay(timer)  ─────▶ CVoteGameplayPanel
     │ wait voting*1 seconds; tally; broadcast result
+    ▼
+VOTE_GAMEOPTIONS_TRANSITION
+    │ wait voting*1 seconds; build active set for new g_GameMode
+    │   (skip phase if 0 items match current mode)
+    ▼
+VOTE_GAMEOPTIONS_OPEN ─▶ gmsgVoteOpts(rev,timer,N,idx…) ▶ CVoteGameOptionsPanel
+    │ wait voting*1 seconds; tally per row; CVAR_SET_STRING winners
     ▼
 VOTE_MUTATOR_OPEN    ──▶ gmsgVoteMutator(timer)   ─────▶ CVoteMutatorPanel
     │ wait voting*1 seconds; tally; broadcast result
@@ -30,13 +37,14 @@ VOTE_MAPS_OPEN       ──▶ gmsgVoteMap(timer)       ─────▶ CVote
 m_iDecidedMapIndex set; ChangeLevel() honors it
 ```
 
-`VOTE_*` constants live in `gamerules.h`; the timer cvar is `voting` (seconds per phase, ×3 phases, ≥10 to trigger).
+`VOTE_*` constants live in `gamerules.h`; the timer cvar is `voting` (seconds per phase, ×4 phases, ≥10 to trigger). Total intermission scales to `voting*4 + 12` seconds.
 
 ## What Each Vote Decides
 
 | Vote | Decides | Authoritative array | RANDOM behavior |
 |------|---------|---------------------|-----------------|
 | Gameplay | `g_GameMode` for next map | `gamePlayModes[]` in `multiplay_gamerules.cpp` | Wins → server picks any mode |
+| Game-options | Per-row `CVAR_SET_STRING` of each item in `gameoptions.txt` whose `game` matches new `g_GameMode` or is `*` | `g_GameOptions[]` parsed at boot/mtime change | Each row picks the most-voted option; ties resolved with `RANDOM_LONG` |
 | Mutator  | `sv_mutatorlist` to apply on next map | `g_szMutators[]` in gamerules | Wins → server picks one (or two) via `RandomizeMutator()` |
 | Map      | `m_iDecidedMapIndex` overriding the cycle's next-up | `g_szServerMaps[]` (dynamic; see [vgui_system.md](vgui_system.md#dynamic-map-list)) | Wins → server re-rolls into a real index |
 
@@ -82,6 +90,9 @@ If the highest tally is `<= 0`, the server prints `[VOTE] Not enough votes recei
 | `VoteMap` | `1` | S→C broadcast | `BYTE timer` |
 | `VoteFor` | `3` | S→C broadcast | `BYTE clientIndex; SHORT vote` (so every panel can show every player's running tally) |
 | `MapList` | `-1` | S→C unicast | chunked map manifest; see [vgui_system.md](vgui_system.md#wire-format--maplist-user-message) |
+| `GameOpts` | `-1` | S→C unicast | chunked game-options manifest (see [game_options_system.md](game_options_system.md)) |
+| `VoteOpts` | `-1` | S→C broadcast | `BYTE rev; BYTE timer; BYTE activeCount; BYTE[] activeIndices` (timer=0 closes panel) |
+| `VOptFor`  | `3`  | S→C broadcast | `BYTE clientIndex; BYTE item; BYTE option` (1-based) |
 
 All registered in `player.cpp::LinkUserMessages()`. **Names ≤10 chars** (≤8 is the safe target; see [server.md → User-Message Registry](server.md#user-message-registry)).
 
