@@ -38,12 +38,18 @@ v1.1 Features:
     - Auto-taunt triggers only when using the offhand
     - Using taunt no longer prevents attacking
     - Expand lj so that the player can longjump in any direction
+- Game Options Voting
+    - Added dynamic game-options voting (see gameoptions.txt); per-item rows
+    - Options vote panel sits between gameplay and mutator phases at end of round
+    - Trigger RTV mid-game with "gameoptions"
 - Voting Improvements
     - Dynamic map voting menu supports up to 128 maps sent from the server's mapcycle.txt
     - Vote tallies on buttons are now on the right side, and font size increased for readability
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
     - Send current menu to a connecting player during a vote
     - Fixed menu title selection and added a brief pause for mutator menu voting
+    - Spectators cannot start a rtv of mutators or gameoptions
+    - Self voting selection is now clear with white highlights
 - Game Modes Changes
     - New celebration sequences switch to thirdperson, play sounds
     - Added banner system so that it is clear of team objective on entering arena
@@ -82,7 +88,6 @@ v1.1 Features:
         - Place the player's view in thirdperson when having the flag
     - Chilldemic
         - When a survivor dies, they immediately respawn as a skeleton in their place
-
         - Virus players no longer can pick up ammo and weapons
     - Cold Skulls
         - Improved play, better chance to hit collection limit
@@ -393,6 +398,9 @@ Client:
 - "cl_weather [0|1]" - allow or disallow weather effects on client
 - "feign" - Fake your death
 - "drop_rune" - Drop rune
+- "gameoptions" - type in the chat to start a game-options vote
+- "gameoptions_resend" - re-request the current game-options manifest
+- "gameoptions_status" - print game-options parser state
 - "impulse 205" - Swap between single and dual weapon, if available
 - "impulse 206" - Kick
 - "impulse 207" - Punch

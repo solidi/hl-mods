@@ -48,7 +48,84 @@
     "3" "Join Team Red" "join_red"
     "4" "Spectate" "spectate"
 }
-"1" "Combat"
+"1" "Voting"
+{
+    "0" "End of Game Vote" "say vote"
+    "1" "RTV Mutators" "say mutator"
+    "2" "RTV Game Options" "say gameoptions"
+}
+"2" "Weapons"
+{
+    "0" "Models"
+    {
+        "0" "Original" "cl_icemodels 0"
+        "1" "Inverted" "cl_icemodels 1"
+        "2" "Iced" "cl_icemodels 2"
+        "3" "Special Edition" "cl_icemodels 3"
+        "4" "Original + Blue HEV" "cl_icemodels 4"
+        "5" "Silver" "cl_icemodels 5"
+        "6" "Gold" "cl_icemodels 6"
+    }
+    "1" "Effects"
+    {
+        "0" "Gun Smoke"
+        {
+            "0" "On" "cl_gunsmoke 1"
+            "1" "Off" "cl_gunsmoke 0"
+        }
+        "2" "Bullet Smoke"
+        {
+            "0" "On" "cl_bulletsmoke 1"
+            "1" "Off" "cl_bulletsmoke 0"
+        }
+    }
+    "2" "Voice Overs"
+    {
+        "0" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
+        "1" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
+        "2" "Off" "cl_announcehumor 0"
+    }
+    "3" "Crosshair Ammo"
+    {
+        "0" "On" "cl_crosshairammo 1"
+        "1" "Off" "cl_crosshairammo 0"
+    }
+    "4" "View Model"
+    {
+        "0" "Arm Position"
+        {
+            "0" "Right Hand" "cl_righthand 1"
+            "1" "Left Hand" "cl_righthand 0"
+            "2" "Left Knife" "cl_righthand -1"
+        }
+        "1" "Weapon Sway"
+        {
+            "0" "On" "cl_weaponsway 1"
+            "1" "Off" "cl_weaponsway 0"
+        }
+        "2" "Weapon Fidget"
+        {
+            "0" "On" "cl_weaponfidget 1"
+            "1" "Off" "cl_weaponfidget 0"
+        }
+        "3" "Weapon Retract"
+        {
+            "0" "On" "cl_weaponretract 1"
+            "1" "Off" "cl_weaponretract 0"
+        }
+        "4" "Bob Tilt"
+        {
+            "0" "On" "cl_bobtilt 1"
+            "1" "Off" "cl_bobtilt 0"
+        }
+        "5" "Viewroll"
+        {
+            "0" "On" "cl_viewroll 1"
+            "1" "Off" "cl_viewroll 0"
+        }
+    }
+}
+"3" "Combat"
 {
     "0" "Throw Weapon" "impulse 216"
     "1" "Force Grab" "impulse 215"
@@ -87,7 +164,7 @@
         }
     }
 }
-"2" "HUD"
+"4" "HUD"
 {
     "0" "Gameplay Info"
     {
@@ -164,7 +241,7 @@
         "1" "Off" "cl_wallclimbindicator 0"
     }
 }
-"3" "Environment"
+"5" "Environment"
 {
     "0" "Show Life Meters"
     {
@@ -184,78 +261,7 @@
         "1" "Off" "cl_weather 0"
     }
 }
-"4" "Weapons"
-{
-    "0" "Models"
-    {
-        "0" "Original" "cl_icemodels 0"
-        "1" "Inverted" "cl_icemodels 1"
-        "2" "Iced" "cl_icemodels 2"
-        "3" "Special Edition" "cl_icemodels 3"
-        "4" "Original + Blue HEV" "cl_icemodels 4"
-        "5" "Silver" "cl_icemodels 5"
-        "6" "Gold" "cl_icemodels 6"
-    }
-    "1" "Effects"
-    {
-        "0" "Gun Smoke"
-        {
-            "0" "On" "cl_gunsmoke 1"
-            "1" "Off" "cl_gunsmoke 0"
-        }
-        "2" "Bullet Smoke"
-        {
-            "0" "On" "cl_bulletsmoke 1"
-            "1" "Off" "cl_bulletsmoke 0"
-        }
-    }
-    "2" "Voice Overs"
-    {
-        "0" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
-        "1" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
-        "2" "Off" "cl_announcehumor 0"
-    }
-    "3" "Crosshair Ammo"
-    {
-        "0" "On" "cl_crosshairammo 1"
-        "1" "Off" "cl_crosshairammo 0"
-    }
-    "4" "View Model"
-    {
-        "0" "Arm Position"
-        {
-            "0" "Right Hand" "cl_righthand 1"
-            "1" "Left Hand" "cl_righthand 0"
-            "2" "Left Knife" "cl_righthand -1"
-        }
-        "1" "Weapon Sway"
-        {
-            "0" "On" "cl_weaponsway 1"
-            "1" "Off" "cl_weaponsway 0"
-        }
-        "2" "Weapon Fidget"
-        {
-            "0" "On" "cl_weaponfidget 1"
-            "1" "Off" "cl_weaponfidget 0"
-        }
-        "3" "Weapon Retract"
-        {
-            "0" "On" "cl_weaponretract 1"
-            "1" "Off" "cl_weaponretract 0"
-        }
-        "4" "Bob Tilt"
-        {
-            "0" "On" "cl_bobtilt 1"
-            "1" "Off" "cl_bobtilt 0"
-        }
-        "5" "Viewroll"
-        {
-            "0" "On" "cl_viewroll 1"
-            "1" "Off" "cl_viewroll 0"
-        }
-    }
-}
-"5" "Sound"
+"6" "Sound"
 {
     "0" "Play Music"
     {
@@ -268,8 +274,8 @@
         "1" "Off" "cl_playpoint 0"
     }
 }
-"6" "Keyboard" "keyboard"
-"7" "Experimental"
+"7" "Keyboard" "keyboard"
+"8" "Experimental"
 {
     "0" "HUD Bend"
     {

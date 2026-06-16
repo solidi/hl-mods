@@ -1604,6 +1604,7 @@ sound\airhorn.wav
 sound\ball_bounce.wav
 sound\dribble.wav
 sound\goal_1.wav
+sound\gameoptions.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
@@ -1763,6 +1764,7 @@ userconfig.cfg
 readme.txt
 listenserver.cfg
 mapcycle.txt
+gameoptions.txt
 coldice.wad
 fonts.wad
 gfx.wad
