@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - 'workspace/plan/**'
+      - 'workspace/ai/**'
       - '*.md'
       - 'LICENSE'
 
