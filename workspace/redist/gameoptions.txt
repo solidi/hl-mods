@@ -114,7 +114,7 @@
 	"restart"  "0"
 	"5 secs"   "5"
 	"10 secs"  "10"
-	"20 caps"  "20"
+	"20 secs"  "20"
 }
 
 // ffa
