@@ -11,7 +11,7 @@
 > **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including LMS) must satisfy. The bot integration here is a direct sibling of [coldspot_gamerules.md](coldspot_gamerules.md) and reuses the same role-evaluator / waypoint-snap pattern.
 
 ## Concept
-Each round, every committed player is inserted into the "arena" with a fixed number of lives (`mp_startwithlives`, default 5). A `safespot` entity spawns somewhere on the map and **shrinks 15 times** over the round's duration. Any player outside `256 * pev->body` units of the safe spot takes 2 `DMG_SHOCK` every 2 seconds; any player inside heals +2 HP per tick (capped at `max_health`). When a player runs out of lives (`pev->frags <= 0`), they are eliminated for the round (forced to observer after 3s). The round ends when only one player / one team remains, or the round time limit expires (frag totals are then aggregated to pick a winner / draw).
+Each round, every committed player is inserted into the "arena" with a fixed number of lives (`mp_startwithlives`, default 5). A `safespot` entity spawns somewhere on the map and shrinks over the round's duration. Any player outside `256 * pev->body` units of the safe spot takes 2 `DMG_SHOCK` every 2 seconds; any player inside heals +2 HP per tick (capped at `max_health`). When a player runs out of lives (`pev->frags <= 0`), they are eliminated for the round (forced to observer after 3s). The round ends when only one player / one team remains, or the round time limit expires (frag totals are then aggregated to pick a winner / draw).
 
 Mode is **team-based** when `mp_royaleteam = 1` (default), **FFA** when `0`. Team mode locks models to `iceman` (blue) / `santa` (red) and resolves the round when either team is wiped out.
 
@@ -82,7 +82,7 @@ Gated by `royaledamage.value` — when 0, the tick is a no-op (no damage, no hea
 Zone radius is "spherical" in the sense that `UTIL_FindEntityInSphere` uses true 3D distance — vertical offset matters. Bots can be in 2D range but vertically out-of-zone.
 
 ## Shrink Cycle (Gamerules `Think`)
-- Cadence: `m_fNextShrinkTime = gpGlobals->time + ((roundtimelimit.value * 60) / 15)` → **15 shrinks per round**.
+- Cadence: `m_fNextShrinkTime = gpGlobals->time + ((roundtimelimit.value * 60) / 15)`. 
 - On each shrink tick:
   - `pSpot->pev->body -= 1` (effective radius drops by 256u)
   - Broadcast `gmsgSafeSpot` with the new body value (radar UI tracks the size)
