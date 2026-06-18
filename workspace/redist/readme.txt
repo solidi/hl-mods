@@ -128,6 +128,7 @@ v1.1 Features:
         - Last prop notice, and prop has double health and extra grenades
         - Props run faster
     - Shidden
+        - Improved bot behavior for dealter and smelter roles
         - Fart no longer instantly kills, now freezes player
         - Provided knife to dealters to frag player with knife when frozen
         - Dealters no longer has access to other weapons or items
@@ -195,6 +196,7 @@ v1.1 Features:
         - Players can no longer pogo flip in the air
         - Fixed player animations of flips based on velocity and direction
     - Bots
+        - Bots no longer melee-attack frozen players
         - Patch traceline crashes
         - Fix BotFindItem crash, including linux server crash
         - Fixed issues with sv_defaultbots
@@ -267,6 +269,7 @@ v1.1 Features:
             - Props no longer deducted points if they destroy decoys
         - Shidden
             - Fix missing messages when dealters defeated
+            - Fix HUD scoreboard for remaining players
         - Snowball Fight
             - Fix numerous crashes due to incomplete weapons management
         - Teamplay
