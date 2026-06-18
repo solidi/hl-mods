@@ -10,7 +10,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 |---:|----------|-------------|-------|-------|
 | 0  | `GAME_FFA`        | `"ffa"` (default)  | `CHalfLifeMultiplay`              | — (base) |
 | 1  | `GAME_ARENA`      | `"arena"`          | `CHalfLifeArena`                   | [arena_gamerules.md](arena_gamerules.md) |
-| 2  | `GAME_LMS`        | `"lms"`            | `CHalfLifeLastManStanding`         | TBD |
+| 2  | `GAME_LMS`        | `"lms"`            | `CHalfLifeLastManStanding`         | [lms_gamerules.md](lms_gamerules.md)  |
 | 3  | `GAME_BUSTERS`    | `"busters"`        | `CMultiplayBusters`                | [busters_gamerules.md](busters_gamerules.md) |
 | 4  | `GAME_CHILLDEMIC` | `"chilldemic"`     | `CHalfLifeChilldemic`              | [chilldemic_gamerules.md](chilldemic_gamerules.md) |
 | 5  | `GAME_COLDSKULL`  | `"coldskull"`      | `CHalfLifeColdSkull`               | [coldskull_gamerules.md](coldskull_gamerules.md) |
@@ -24,7 +24,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 13 | `GAME_KTS`        | `"kts"`            | `CHalfLifeKickTheSnowball`         | [kts_gamerules.md](kts_gamerules.md) |
 | 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | [loot_gamerules.md](loot_gamerules.md) |
 | 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | [prophunt_gamerules.md](prophunt_gamerules.md) |
-| 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | TBD |
+| 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | [shidden_gamerules.md](shidden_gamerules.md) |
 | 17 | `GAME_SNOWBALL`   | `"snowball"`       | `CHalfLifeSnowballFight`           | TBD |
 | 18 | `GAME_TEAMPLAY`   | `"teamplay"`       | `CHalfLifeTeamplay`                | TBD |
 
@@ -462,7 +462,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_LMS`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_LMS`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 
