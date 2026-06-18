@@ -91,7 +91,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
     1. [x] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly choose two spawn points as goals? (AudioCraZ)
 1. Gamemode Changes
-    1. [ ] bot behavior improvement in all gamemodes
+    1. [x] bot behavior improvement in all gamemodes
     1. [x] Skeleton appears the moment fragged from survivor
     1. [x] CtC, more than one chumtoad?
     1. [x] Shidden, Stomp on head
