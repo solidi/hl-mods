@@ -462,7 +462,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_LMS`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 
