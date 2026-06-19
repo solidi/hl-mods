@@ -119,6 +119,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Tracers on all bullets?
     1. [x] Hide viewmodel when ricochet is enabled
     1. [x] prox mine / tripmine on satchel using reload
+    1. [x] C4 mine placement with satchels
+    1. [x] Convert throw-hold effect to all other weapons for control
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
@@ -309,8 +311,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
         1. [ ] Hand grenade blows up on contact with enemy
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
-    1. [ ] C4 mine placement with satchels
-    1. [ ] Convert throw-hold effect to all other weapons for control
     1. Knife
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
         1. [ ] Cold Ice 2.5 model?
