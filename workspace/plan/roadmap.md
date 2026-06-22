@@ -125,6 +125,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
     1. [x] Support forcegrab for all force grab items that are stationary
+    1. [x] Grapple hook support for bots
 1. Fixes
     1. [ ] one waypoint in frosty on top platform has no paths
     1. [x] sildenafil - make weapons fast
@@ -371,7 +372,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Visual indicator for punch or kick like batman, [POW!](https://pixabay.com/images/search/pow/)
     1. [ ] [Leaning](https://github.com/bacontsu/codename-borea/commit/68ca10f31aa74c50f9e58e6b756b151657fd00ab)
     1. [ ] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
-    1. [ ] Grapple hook support for bots
     1. [ ] [Elbow smash](https://discord.com/channels/790549024373604353/1010386771168722954/1070360359124336720)
     1. [ ] Back slide [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=1007s)
     1. [ ] Choke / throw [like trepang2](https://www.youtube.com/watch?v=CnXyAzi6tOg&t=740s)
