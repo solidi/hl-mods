@@ -547,6 +547,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
+	"sv_bots_hook"
+	{
+		"#Ice_BotsHook"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"mp_coldspotspawn"
 	{
 		"#Ice_ColdSpotSpawn"

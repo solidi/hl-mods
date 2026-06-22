@@ -86,6 +86,16 @@
 }
 
 // coldspot
+"Score Limit"
+{
+	"game"    "coldspot"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"25 Points"    "25"
+	"50 Points"   "50"
+	"75 Points"    "75"
+}
+
 "Cold Spot Time"
 {
 	"game"     "coldspot"
@@ -115,6 +125,17 @@
 	"5 secs"   "5"
 	"10 secs"  "10"
 	"20 secs"  "20"
+}
+
+// ctf
+"Score Limit"
+{
+	"game"    "ctf"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"3 Points"    "3"
+	"10 Points"   "10"
+	"15 Points"    "15"
 }
 
 // ffa
@@ -200,6 +221,17 @@
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
+}
+
+// kts
+"Score Limit"
+{
+	"game"    "kts"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"3 Points"    "3"
+	"10 Points"   "10"
+	"15 Points"    "15"
 }
 
 // loot
