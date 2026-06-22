@@ -1,7 +1,7 @@
 # Grappling Hook — Cold Ice Remastered Reference
 
 A swing/zip-line projectile gated behind the `GRAPPLING_HOOK` preprocessor
-define. **Currently shipped enabled** in both Windows and Linux builds:
+define. Build wiring in this repository:
 - Windows: `workspace/powershell/Compile-DLL.psm1` always passes
   `/p:GrapplingHook=GRAPPLING_HOOK` to MSBuild (used by `hldll.vcxproj` and
   `hl_cdll.vcxproj`).
@@ -22,7 +22,7 @@ For bot integration, see §7 below.
 | [src/dlls/grapplinghook.cpp](../src/dlls/grapplinghook.cpp) | All server logic for `CHook` / `grapple_hook` entity. |
 | [src/dlls/player.h](../src/dlls/player.h) (`pGrapplingHook`, `m_flNextHook`) | Per-player handle and re-fire gate. |
 | [src/dlls/client.cpp](../src/dlls/client.cpp) (`+hook` / `-hook`) | Console binds that drive Fire/Kill from the client. |
-| [src/dlls/player.cpp](../src/dlls/player.cpp) L4661-4663, L5492-5519 | Player-side cleanup on respawn and the impulse 217/218 dispatch (now live; gated by `#if defined(GRAPPLING_HOOK)`). |
+| [src/dlls/player.cpp](../src/dlls/player.cpp) L4661-4663, L5492-5519 | Player-side cleanup on respawn and the impulse 217/218 dispatch (gated by `#if defined(GRAPPLING_HOOK)`). |
 | [src/dlls/weapons.cpp](../src/dlls/weapons.cpp) L387 | `UTIL_PrecacheOther("grapple_hook")` — registers sounds/model at server activation. |
 | [src/dlls/game.cpp](../src/dlls/game.cpp) L44, L47 | `mp_grapplinghookdeploytime`, `mp_grabsky` cvars. |
 | [src/dlls/skill.h](../src/dlls/skill.h), `gamerules.cpp` L461 | `gSkillData.plrSpeedHook` / `sk_plr_hookspeed`, `plrDmgHook` / `sk_plr_dmg_hook`. |
