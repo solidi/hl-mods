@@ -145,7 +145,7 @@ Within the same `use_primary` branch, the bot sets `pEdict->v.impulse` to the mo
 - ≤450u: 209 (grenade toss)
 - >450u: 10% chance of 215 (force grab) / 216 (drop explosive)
 
-Gated by `sv_botsmelee.value > 0 && is_gameplay != GAME_GUNGAME`.
+Gated by `sv_botsmelee.value > 0 && is_gameplay != GAME_GUNGAME && !pBot->b_hook_active`.
 
 **Difficulty-scaled frequency (added 2026-04):** the entire impulse block is wrapped in a probability roll:
 ```c
@@ -158,6 +158,23 @@ melee_chance = clamp(1.0 - 0.45 * bot_aim_difficulty, 0.10, 1.0)
 | 2.0 | 10% (floor) |
 
 Weapon still fires on fail — only the flashy impulse is skipped. This was added because softened aim made bots easier at range but close-quarters CQC was still murderous.
+
+### Grappling-Hook Combat Intents (added 2026-06)
+Three hook intents short-circuit the melee block (priority highest first):
+
+| Intent | When | Trigger condition |
+|---|---|---|
+| `HOOK_INTENT_ESCAPE`  | After `BotFindEnemy`, before `BotShootAtEnemy` | enemy != NULL, HP ≤ 25, anchor LOS to back/up/lateral surface |
+| `HOOK_INTENT_PURSUIT` | Top of melee block in `BotFireWeapon` | dist ≥ 600u, enemy speed ≥ 200, away-dot ≥ 0.3, HP ≥ 35 |
+| `HOOK_INTENT_DAMAGE`  | Same site, after pursuit fails | recent LOS within 1.5s, reuses pursuit anchor |
+
+If any hook intent fires, the rest of the melee block (impulses 206-216) is
+skipped that tick. While `b_hook_active`, the whole block is gated off — a
+per-tick `BotMaybeReleaseHook` in `BotThink` handles the hard 2.0s timeout
+plus anti-stuck (release on 2 consecutive velocity samples < 32 u/s).
+
+Full reference: [grappling_hook.md §7](grappling_hook.md#7-bot-usage-grave_bot)
+and `/memories/repo/gravebot_hook_usage.md`.
 
 ---
 
@@ -243,6 +260,7 @@ Registered in [dll.cpp](workspace/grave-bot-src/dlls/dll.cpp):
 - `sv_bot` / `gravebot` — placeholder cvar
 - `sv_defaultbots` — number of bots at map start
 - `sv_botsmelee` — 0/1 toggle for martial-arts impulses
+- `sv_bots_hook` — 0/1 master toggle for bot grappling-hook intents (default 1)
 
 Globals exposed via `ProcessCommand`:
 - `bot_reaction_time <value>` — reaction-delay scalar (default 2.0)

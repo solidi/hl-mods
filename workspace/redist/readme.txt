@@ -158,6 +158,7 @@ v1.1 Features:
     - Weapons fire faster on the sildenafil mutator
     - Add snowball launcher and instagib hornets during snowballs and instagib mutators
 - Bot Changes
+    - Bots use the grappling hook in combat with sv_bots_hook "1"
     - Tuned bots to act more human-like when in combat, and adjusted aim
     - Added bot_aim_difficulty [0-2] where zero is perfect and 2 is sloppy
     - Tuned and improved bot behavior on all custom game modes
@@ -238,7 +239,6 @@ v1.1 Features:
         - Chilldemic
             - Rename skeleton to skeletons
             - Fixed round start when no skeletons were selected
-
         - Cold Spot
             - Prevent scoring after rounds ends
         - Cold Skulls
@@ -297,7 +297,6 @@ v1.1 Features:
         - Fixed observer moveleft and moveright so they remain straight
         - Fixed fire loop sound if on fire and placed in observer
         - Fixed follow-next targeting when the current target becomes a spectator
-
         - Fixed ejection shell after respawn
         - Don't show healthbar of player while in-view spectator
         - Forcegrab ignores teammates
@@ -491,8 +490,9 @@ Server:
 - "mp_startwithall [0|1]" - Start with all weapons
 - "mp_startwithlives" - Sets the starting lives during last man standing
 - "mp_voting [time]" - enable or disable end of the map voting with timer
-- "sv_acrobatics [0|1]" allow or disallow wall climbing, slides, and flips
-- "sv_botsmelee [0|1]" to toggle bots close combat on or off
+- "sv_acrobatics [0|1]" - allow or disallow wall climbing, slides, and flips
+- "sv_bots_hook [0|1]" - bots use the grappling hook in combat
+- "sv_botsmelee [0|1]" - to toggle bots close combat on or off
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns
 - "sv_chaosfilter" - a list of mutators inwhich are ignored during chaos mode
 - "sv_disallowlist" a list of entities that will not spawn

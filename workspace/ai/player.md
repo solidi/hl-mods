@@ -242,6 +242,7 @@ walls — both fixed.)
 - Currently commented out in `CheatImpulseCommands`
   ([player.cpp L5392-5410](../src/dlls/player.cpp#L5392-L5410)) — the
   rest of the support code is built under `#if defined( GRAPPLING_HOOK )`.
+- Full lifecycle, cvar, and hardening reference in [grappling_hook.md](grappling_hook.md).
 
 ### 4.8 Throw Weapon (impulse 216)
 

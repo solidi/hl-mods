@@ -74,6 +74,14 @@ Key behaviors:
   [bot.cpp 1051–1120](../grave-bot-src/dlls/bot.cpp#L1051-L1120).
 - Pickups happen by collision: the bot navigates onto the entity and the
   server-side `Touch` handler fires.
+- **Grappling-hook detour** (added 2026-06): after `pBotPickupItem` is
+  assigned, `BotConsiderHookForItem` is called. If the bot has no enemy,
+  the item is > 96u above the bot, there's a hookable ceiling above the
+  item, and the bot has LOS to that anchor (all gates inside
+  `BotComputeHookAimForItem`), the bot fires impulse 217 toward the
+  anchor. The hook is released on any pickup notification via
+  `BotClient_Valve_ItemPickup`. Master cvar: `sv_bots_hook`. Full reference
+  in [grappling_hook.md §7](grappling_hook.md#7-bot-usage-grave_bot).
 - Several item branches are simple boolean gates (e.g.
   `if (!pBot->b_longjump)`); the rune branch used to be the same but is
   now context-aware (see next section).
