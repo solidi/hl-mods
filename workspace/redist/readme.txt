@@ -282,6 +282,7 @@ v1.1 Features:
         - Added missing sounds for thetemple
         - Fixed overview bmp of frostfire
         - Fixed missing comet sound effects
+        - Improved numerous map waypoints for bots
     - Mutators
         - Ricochet discs no longer apply a double death, fixed team colors
         - Made ricochet disc easier to decap

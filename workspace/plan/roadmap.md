@@ -127,7 +127,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Support forcegrab for all force grab items that are stationary
     1. [x] Grapple hook support for bots
 1. Fixes
-    1. [ ] one waypoint in frosty on top platform has no paths
+    1. [x] one waypoint in frosty on top platform has no paths
     1. [x] sildenafil - make weapons fast
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
