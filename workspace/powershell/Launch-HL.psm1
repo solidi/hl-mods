@@ -83,6 +83,12 @@ function Launch-HL {
     )
 
     $players = $botcount + 2
+
+    # Dedicated servers need a larger hunk for CI's asset footprint.
+    if ($hlExe -ieq 'hlds.exe' -and $gameParameters -notmatch '(^|\s)-heapsize(\s|$)') {
+        $gameParameters = "$gameParameters -heapsize 524288"
+    }
+
     $hlexe = ".\$hlExe"
     $startProgram = "$hlexe $gameParameters -game $gameFolder +developer 2 " `
                     + " +log on +sv_lan 1 +map $map +deathmatch 1 " `

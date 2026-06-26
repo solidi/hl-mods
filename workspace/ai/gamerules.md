@@ -10,21 +10,21 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 |---:|----------|-------------|-------|-------|
 | 0  | `GAME_FFA`        | `"ffa"` (default)  | `CHalfLifeMultiplay`              | — (base) |
 | 1  | `GAME_ARENA`      | `"arena"`          | `CHalfLifeArena`                   | [arena_gamerules.md](arena_gamerules.md) |
-| 2  | `GAME_LMS`        | `"lms"`            | `CHalfLifeLastManStanding`         | [lms_gamerules.md](lms_gamerules.md)  |
+| 2  | `GAME_LMS`        | `"lms"`            | `CHalfLifeLastManStanding`         | TBD |
 | 3  | `GAME_BUSTERS`    | `"busters"`        | `CMultiplayBusters`                | [busters_gamerules.md](busters_gamerules.md) |
-| 4  | `GAME_CHILLDEMIC` | `"chilldemic"`     | `CHalfLifeChilldemic`              | [chilldemic_gamerules.md](chilldemic_gamerules.md) |
+| 4  | `GAME_CHILLDEMIC` | `"chilldemic"`     | `CHalfLifeChilldemic`              | TBD |
 | 5  | `GAME_COLDSKULL`  | `"coldskull"`      | `CHalfLifeColdSkull`               | [coldskull_gamerules.md](coldskull_gamerules.md) |
 | 6  | `GAME_COLDSPOT`   | `"coldspot"`       | `CHalfLifeColdSpot`                | [coldspot_gamerules.md](coldspot_gamerules.md) |
 | 7  | `GAME_CTC`        | `"ctc"`            | `CHalfLifeCaptureTheChumtoad`      | [ctc_gamerules.md](ctc_gamerules.md) |
 | 8  | `GAME_CTF`        | `"ctf"`            | `CHalfLifeCaptureTheFlag`          | [ctf_gamerules.md](ctf_gamerules.md) |
-| 9  | `GAME_GUNGAME`    | `"gungame"`        | `CHalfLifeGunGame`                 | [gungame_gamerules.md](gungame_gamerules.md) |
+| 9  | `GAME_GUNGAME`    | `"gungame"`        | `CHalfLifeGunGame`                 | TBD |
 | 10 | `GAME_HORDE`      | `"horde"`          | `CHalfLifeHorde`                   | [horde_gamerules.md](horde_gamerules.md) |
 | 11 | `GAME_INSTAGIB`   | `"instagib"`       | `CHalfLifeInstagib`                | TBD |
 | 12 | `GAME_ICEMAN`     | `"jvs"`            | `CHalfLifeJVS` (Jesus vs. Santa)   | TBD |
 | 13 | `GAME_KTS`        | `"kts"`            | `CHalfLifeKickTheSnowball`         | [kts_gamerules.md](kts_gamerules.md) |
-| 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | [loot_gamerules.md](loot_gamerules.md) |
-| 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | [prophunt_gamerules.md](prophunt_gamerules.md) |
-| 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | [shidden_gamerules.md](shidden_gamerules.md) |
+| 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | TBD |
+| 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | TBD |
+| 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | TBD |
 | 17 | `GAME_SNOWBALL`   | `"snowball"`       | `CHalfLifeSnowballFight`           | TBD |
 | 18 | `GAME_TEAMPLAY`   | `"teamplay"`       | `CHalfLifeTeamplay`                | TBD |
 
@@ -91,7 +91,7 @@ Every mode inherits the virtual methods below. The default behavior lives in `CG
 ### Match flow helpers (`CHalfLifeMultiplay`)
 - `CheckClients`, `InsertClientsIntoArena`, `HasGameTimerExpired`, `CheckRounds`, `SetRoundLimits`.
 - `SuckToSpectator`, `SuckAllToSpectator` — force a player into the OBS pool (used between rounds, on disconnect, and when player count drops below the mode minimum).
-- `RemoveAndFillItems` — wipe + respawn world items for a fresh round. Iterates `pRemoveThese[]` (classname list in multiplay_gamerules.cpp:1063) and `UTIL_Remove`s each match. Special-case for `monster_tripmine` calls `KillBeam()` then defers removal. **When adding a new player-placed `monster_*` projectile, add its classname here** or it survives round restarts.
+- `RemoveAndFillItems` — wipe + respawn world items for a fresh round.
 - `GoToIntermission` — score finalisation, scoreboard freeze, map cycle / vote.
 - `ChangeLevel` — applies the next map from `mapcycle.txt` / vote result.
 
@@ -163,7 +163,6 @@ Used as `pev->fuser4` values so the radar HUD and the bot DLL can identify speci
 > 6. **`bot.cpp` `BotSpawnInit`** — initialize all per-bot mode fields, otherwise stale state from a prior map/round leaks into the new one.
 > 7. **`bot_func.h`** — declare `BotMyModeThink` / `BotMyModePreUpdate` extern.
 > 8. **`bot.h`** — add per-bot fields and any role enums.
-> 9. **`bot_navigate.cpp` `BotFindWaypointGoal`** — add a `GAME_<MODE>` block that picks the waypoint nearest to `v_goal` (mirroring the HORDE / LOOT blocks).  Without this, even though `*PreUpdate` sets `v_goal` correctly, the bot's `waypoint_goal` falls through to the generic tour/health picker and the bot routes to a waypoint unrelated to the objective — producing the classic "two bots pacing between two waypoints far from the action" stuck-game.
 
 ## Common Bot-Layer Patterns
 
@@ -363,26 +362,9 @@ m_iPoolSize = iWrite;
 
 Applied in [arena_gamerules.cpp](../src/dlls/arena_gamerules.cpp) (before "Build or refresh the opponent pool if needed") and [jvs_gamerules.cpp](../src/dlls/jvs_gamerules.cpp) (after `SetRoundLimits()`, before the `m_bJesusPoolNeedsRefresh` branch). **Any future round-based gamerules that caches a player-index pool across ticks must follow this pattern** — connect/disconnect-only refresh is insufficient because Limbo / Chose-Spectate transitions have no callback hook.
 
-#### Late-joiner immediate-spectator suck
-
-`CHalfLifeMultiplay::PlayerSpawn` (~line 1887 of [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp)) is the central late-joiner gate. The historical implementation merely `return`ed when `(g_GameInProgress && !pPlayer->IsInArena) || (!g_GameInProgress && IsRoundBased()) || iuser3 > 0` — but `CBasePlayer::Spawn` has already placed the edict in the world by that point, so the late-joiner was visible (and walkable) until the next gamerules `Think()` tick set `m_flForceToObserverTime` and the *following* tick called `SuckToSpectator`. That's up to ~3 s of "ghost spawning" — reported in PropHunt with connecting bots flashing into the playfield for half a second.
-
-**Fix (in the base)**: inside the early-return branch, call `SuckToSpectator(pPlayer)` immediately when `IsRoundBased()` is true:
-
-```cpp
-if ((g_GameInProgress && !pPlayer->IsInArena) ||
-    (!g_GameInProgress && IsRoundBased()) ||
-    pPlayer->pev->iuser3 > 0)
-{
-    if (IsRoundBased() && !pPlayer->IsSpectator() && !pPlayer->HasDisconnected)
-        SuckToSpectator(pPlayer);
-    return;
-}
-```
-
-This eliminates the visible spawn for every round-based mode (Arena, Horde, Chilldemic, JVS, LMS, PropHunt, Shidden, Loot) without changing behavior for FFA / Teamplay / Coldspot / etc. The `IsRoundBased()` gate is essential — non-round-based modes that use `iuser3 > 0` (snowball fight opt-in spectator) handle their own observer placement elsewhere and must not be double-sucked here.
-
 #### Mid-round spectate guard
+
+The `spectate` console command is handled in `client.cpp` `ClientCommand`. In round-based modes (Arena / Shidden / JvS / Horde / Chilldemic / LMS / PropHunt / Loot) an active in-arena combatant must NOT be able to issue `spectate` mid-round — that would let them dodge a kill, flip the win condition, or strand a 1v1 / Jesus role:
 
 ```cpp
 if (g_pGameRules->IsRoundBased()
@@ -454,7 +436,6 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 
 - [arena_gamerules.md](arena_gamerules.md) — 1v1 champion-defense duel
 - [busters_gamerules.md](busters_gamerules.md) — Reverse-DM, lowest-fragger gets the egon
-- [chilldemic_gamerules.md](chilldemic_gamerules.md) — round-based survivor-vs-infection mode
 - [coldskull_gamerules.md](coldskull_gamerules.md) — FFA skull collection
 - [coldspot_gamerules.md](coldspot_gamerules.md) — Team zone-hold with relocating spot
 - [ctc_gamerules.md](ctc_gamerules.md) — FFA keep-away with the chumtoad
@@ -462,7 +443,7 @@ Each spoke contains: Overview · Win Condition · Scoring · Teams · State Mach
 - [horde_gamerules.md](horde_gamerules.md) — Survivors-vs-monsters wave-based co-op
 - [kts_gamerules.md](kts_gamerules.md) — Team soccer with a snowball
 
-Modes without a spoke yet (`GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
+Modes without a spoke yet (`GAME_LMS`, `GAME_CHILLDEMIC`, `GAME_GUNGAME`, `GAME_INSTAGIB`, `GAME_ICEMAN`, `GAME_LOOT`, `GAME_PROPHUNT`, `GAME_SHIDDEN`, `GAME_SNOWBALL`, `GAME_TEAMPLAY`) inherit `CHalfLifeMultiplay` defaults; spokes will be added as their bot integrations are built.
 
 ## Source File Map
 

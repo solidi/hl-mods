@@ -175,6 +175,9 @@ CTF is **team-based + non-round-based**, identical pattern to Cold Spot and KTS.
 - Both spawn at picked entity position; spawn entity is hidden (`SOLID_NOT`, `EF_NODRAW`)
 - Bases must be `ctfdistance` (default 512) units apart from each other
 - Retries every 2.0s if spawn point not found
+- **Failure fallback (server-side safety):** each team tracks consecutive hardware spawn failures. After 3 failed attempts from the configured classname (missing class, typo, or all candidates rejected as too close), CTF falls back to a random `info_player_deathmatch` and places base+flag there.
+- Fallback intentionally ignores `ctfdistance` validation to guarantee startup when map declarations are invalid or absent.
+- Console logs are emitted when fallback is used (or when fallback itself fails due to no `info_player_deathmatch`).
 
 ### CaptureCharm (player picks up flag)
 - Shows `cam_flag` status icon to the carrier
@@ -343,6 +346,7 @@ Base entities:  classname "base",  pev->fuser4 = RADAR_BASE_BLUE (12) or RADAR_B
 23. **Bot flag pickup never sent HUD update to humans**: `UpdateHud()` and the objective broadcast loop were inside `if (!FL_FAKECLIENT)`, gating on whether the *picker* was human. When a bot picked up a flag, no human client received the CtfInfo update. Fix: moved `UpdateHud()` call and objective broadcasts outside the `FL_FAKECLIENT` check. Only carrier-specific messages (objective text, center print) remain gated.
 24. **`DropCharm` called `UpdateHud` before clearing `pPlayer->pFlag`**: With the fix to #22, `UpdateHud` now reads `plr->pFlag` per-player. If the dropper's flag wasn't cleared first, they'd still show mode=3 (carrying) instead of seeing the drop. Fix: reordered so `pPlayer->pFlag = NULL` happens before `UpdateHud`.
 25. **Multi-jump physics — dual systems**: The game has TWO parallel jump implementations. `CBasePlayer::Jump()` in the game DLL handles `m_iJumpCount` (1=ground, 2=double, 3=flip) using `m_afButtonPressed` rising-edge detection. `PM_Jump()` in `pm_shared.c` handles the shared physics with `pmove->iuser4` and `pmove->oldbuttons`. The bot must produce a button RELEASE between jump presses — the engine computes `m_afButtonPressed = (m_afButtonLast ^ pev->button) & pev->button`, so IN_JUMP must be absent for at least one frame between presses. The bot's `pEdict->v.button = 0` at the start of each frame naturally provides this release, so the 0.15s timer between phases is sufficient.
+26. **CTF hardware spawn can deadlock on invalid map declarations**: If `ctfspawn1`/`ctfspawn2` points to a missing classname (typo, absent entity on map), or all candidates fail `ctfdistance` checks, flags/bases never spawn and the mode never starts. Fix: after 3 consecutive failures, fallback to random `info_player_deathmatch` placement (distance-agnostic) and log it to console.
 
 ## Mutators Blocked
 - `MUTATOR_THIRDPERSON` — blocked by `MutatorAllowed`
