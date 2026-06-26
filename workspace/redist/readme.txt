@@ -338,7 +338,7 @@ How to Play:
 
 Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dictate gameplay. Then, have fun.
 
-If you dislike the "blue" theme, this mod has the option to switch to real skins! Use cl_icemodels, (See below)
+If you dislike the "blue" theme, this mod has the option to switch to real skins! Use cl_icemodels (see below).
 
 Dedicated Server:
 

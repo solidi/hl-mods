@@ -84,7 +84,7 @@ function Launch-HL {
 
     $players = $botcount + 2
 
-    # Dedicated servers need a larger hunk for CI's asset footprint.
+    # Dedicated servers need a larger heap for CI's asset footprint.
     if ($hlExe -ieq 'hlds.exe' -and $gameParameters -notmatch '(^|\s)-heapsize(\s|$)') {
         $gameParameters = "$gameParameters -heapsize 524288"
     }
