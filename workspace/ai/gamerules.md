@@ -384,6 +384,8 @@ This eliminates the visible spawn for every round-based mode (Arena, Horde, Chil
 
 #### Mid-round spectate guard
 
+The `spectate` console command is handled in `client.cpp` `ClientCommand`. In round-based modes (Arena / Shidden / JvS / Horde / Chilldemic / LMS / PropHunt / Loot) an active in-arena combatant must NOT be able to issue `spectate` mid-round — that would let them dodge a kill, flip the win condition, or strand a 1v1 / Jesus role:
+
 ```cpp
 if (g_pGameRules->IsRoundBased()
     && !(pev->flags & FL_PROXY)

@@ -103,6 +103,8 @@ v1.1 Features:
         - Added world to screen visual indicator of the spot
         - Player scores only if they see the center of the spot
         - Slowly add health to safezone players
+    - Gungame
+        - Slow down weapon upgrade, wait a half second after frag for level upgrade
     - Horde
         - Idling monsters are teleported around the map every thirty seconds
         - Bot monster attack and team protection behaviors are improved
@@ -157,6 +159,7 @@ v1.1 Features:
     - Weapons are hidden on Ricochet mutator
     - Weapons fire faster on the sildenafil mutator
     - Add snowball launcher and instagib hornets during snowballs and instagib mutators
+    - Instant mutator health/armor swap no longer frags the player, drops health to 1
 - Bot Changes
     - Bots use the grappling hook in combat with sv_bots_hook "1"
     - Tuned bots to act more human-like when in combat, and adjusted aim
@@ -185,6 +188,7 @@ v1.1 Features:
     - Removed unneeded rune title and messages
     - Added longjump icon to hud when the item is acquired
     - Removed "cl_shadows," as "r_shadows" was fixed by Valve
+    - Show total position in individual game modes
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
@@ -232,6 +236,7 @@ v1.1 Features:
             - Chumtoad is removed when held during client disconnected
             - Do not allow instant chumtoad mutator
         - Capture the Flag
+            - Added fallback support if flg/base cannot be placed
             - Fixed double return flag bug
             - Fixed numerous incorrect readouts
             - Fixed spectator status
@@ -282,6 +287,7 @@ v1.1 Features:
         - Added missing sounds for thetemple
         - Fixed overview bmp of frostfire
         - Fixed missing comet sound effects
+        - Improved numerous map waypoints for bots
     - Mutators
         - Ricochet discs no longer apply a double death, fixed team colors
         - Made ricochet disc easier to decap
@@ -316,6 +322,7 @@ v1.1 Features:
         - Fixed missing portalgun on HUD
         - Disabled weapon throw of cigarettes
         - Fixed floating animations of satchels and tripmines
+        - Hornet damage now linked to sk_hornet_damage
 
 Highly-Valued Upcoming Features:
 
@@ -331,7 +338,11 @@ How to Play:
 
 Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dictate gameplay. Then, have fun.
 
-If you dislike the "blue" theme, this mod has the option to switch to real skins! (See below)
+If you dislike the "blue" theme, this mod has the option to switch to real skins! Use cl_icemodels (see below).
+
+Dedicated Server:
+
+Cold Ice Remastered can be launched as a dedicated server, following the normal commands. We suggest a "-heapsize" of at least 524288.
 
 Commands:
 

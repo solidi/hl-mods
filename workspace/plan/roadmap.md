@@ -127,7 +127,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Support forcegrab for all force grab items that are stationary
     1. [x] Grapple hook support for bots
 1. Fixes
-    1. [ ] one waypoint in frosty on top platform has no paths
+    1. [x] one waypoint in frosty on top platform has no paths
     1. [x] sildenafil - make weapons fast
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
@@ -174,6 +174,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Source other GMod ideas](https://steamcommunity.com/sharedfiles/filedetails/?id=2792185122) from this thread - 300+ game modes
     1. [ ] [Plant survival](https://www.youtube.com/watch?v=qJJysztdLNY)?
 1. Gamemode Improvements
+    1. [ ] Cycle through key interest items in certain gameplay modes, like loot, monsters, chumtoad, etc.
     1. [ ] 1 vs. 1 mode
         1. [ ] visualize leadership ladder board so there is an ulimate fight before mode ends
     1. [ ] Instagib

@@ -56,6 +56,142 @@ pieces a feature dev should know:
   [bot_combat.cpp](../grave-bot-src/dlls/bot_combat.cpp) as `BotCtfThink` /
   `BotLootThink` / `BotKtsThink` / `BotColdskullThink` / `BotCtcThink`.
 
+### 2a. Ladders, lifts, and other special-traversal waypoints
+
+Ladder/lift/jump waypoints (`W_FL_LADDER`, `W_FL_LIFT`, `W_FL_JUMP`,
+`W_FL_DUCKJUMP`, `W_FL_DOUBLEJUMP`) are **path-shape dependencies**: the
+bot must touch a very specific brush (ladder face, lift platform, jump
+launch spot) for the engine to do the work (`MOVETYPE_FLY` on ladders,
+trigger_multiple on lifts, the jump itself). A direct line from the bot
+to any other point in the world bypasses that brush and the traversal
+silently fails.
+
+That means **every code path that synthesises a movement vector must
+defer to waypoint routing when the current waypoint has a traversal
+flag**. There are five such paths today — leave the guards in place
+when adding new behavior:
+
+1. **Goal-snap guard** in `BotHeadTowardWaypoint`
+   ([bot_navigate.cpp ~L612–L620](../grave-bot-src/dlls/bot_navigate.cpp#L612-L620)).
+   The per-gamemode "snap `curr_waypoint_index` to nearest reachable"
+   blocks (KTS / Cold Skulls / CTC / CTF / Arena / Cold Spot / LMS /
+   Busters / Horde / Loot) all gate on `bSafeToSnap`, which is forced
+   false when `pEdict->v.movetype == MOVETYPE_FLY` or the current
+   waypoint has any traversal flag. Snapping mid-climb (or at the foot
+   of a ladder where "nearest reachable" is the foot waypoint itself)
+   undoes the routing promotion to the next ladder waypoint and freezes
+   the bot in place.
+2. **Direct-steer guard** in `BotThink`'s movement-direction block
+   ([bot.cpp ~L3371–L3389](../grave-bot-src/dlls/bot.cpp#L3371-L3389)).
+   When `bGoGoal == true` the bot's forward+strafe vector is synthesised
+   from `pBot->v_goal - origin` regardless of yaw, so the *actual*
+   velocity goes toward `v_goal`. The guard forces `bGoGoal = false`
+   when `curr_waypoint_index` has a traversal flag. Without this, a
+   bot at the foot of a ladder with the zone/flag/ball visible above
+   walks toward `v_goal` (i.e. into the wall beside the ladder), never
+   touches the ladder brush, and `MOVETYPE_FLY` never engages.
+3. **Elevated-jump guard** in `BotGoalElevatedJump`
+   ([bot_combat.cpp ~L491–L520](../grave-bot-src/dlls/bot_combat.cpp#L491-L520)).
+   This helper fires a 3-phase multi-jump combo whenever the goal is
+   within 300u horizontally and > 20u above the bot. It is called
+   every frame by Cold Spot (HUNTER/SEEKER/HOLDER and the PreUpdate),
+   CTF carrier/retriever, Loot RECOVERER/COLLECTOR, Arena, LMS, and
+   the combat stall force-trigger. At the foot of a ladder under the
+   goal, both gate conditions are true — so without the guard the
+   bot would jump in place (forcing `ideal_yaw` toward the goal and
+   pressing `IN_JUMP`) instead of walking horizontally into the
+   ladder brush. The guard returns false and resets
+   `f_goal_jump_stall_time = 0.0f` so the 0.5s stall timer cleanly
+   re-arms after the bot exits the traversal waypoint. **This was
+   the second-pass fix after the FFA-vs-Cold-Spot regression** —
+   FFA bots had no `BotGoalElevatedJump` caller so they climbed
+   fine; Cold Spot bots had `BotColdSpotThink` triggering the combo
+   under any elevated spot.
+4. **Proximity-stop guard** in `BotThink`
+   ([bot.cpp ~L3468–L3495](../grave-bot-src/dlls/bot.cpp#L3468-L3495)).
+   Right after the forward+strafe synthesis there is a state modifier
+   that zeroes `f_move_speed`/`f_strafe_speed` when the 3-D distance
+   from the bot to `v_goal` drops below `f_goal_proximity`. With a
+   goal directly *above* the bot (cold-spot zone at the top of a
+   ladder shaft, dribbler on a catwalk, LMS shrink-zone elevation)
+   the 3-D distance is small while the actual path is the climb
+   height. Without this guard, HOLDER-classified Cold Spot bots
+   (any bot within 256u 3-D of the spot — `f_goal_proximity = 128`
+   inside `CSPOT_HOLDER_RADIUS`) freeze at the foot of the ladder
+   the instant they enter the zone. LMS HOLDER (`LMS_ZONE_SLACK =
+   96`) and KTS dribble-chase (proximity = 48) have the same trap.
+   FFA / Gungame never set `f_goal_proximity > 0`, which is why the
+   bug was custom-gamemode-only. The guard sets `bNearTraversal`
+   from the same flag set and skips the stop when true.
+5. **Gamemode yaw-skip guard** in `BotHeadTowardWaypoint`
+   ([bot_navigate.cpp ~L1141–L1180](../grave-bot-src/dlls/bot_navigate.cpp#L1141-L1180)).
+   The waypoint-facing override block (`idealpitch = -v_angles.x`,
+   `ideal_yaw = v_angles.y` toward `curr_waypoint_index`) is
+   intentionally skipped in KTS when the bot doesn't carry the ball,
+   so the bot can face the ball instead of the next waypoint. That
+   skip *also* skips the `idealpitch` assignment, so at the foot of
+   a ladder with the upper waypoint directly above, `idealpitch`
+   stays at 0 and the bot stares at the floor. Symptom matches the
+   user-observed "will not look up and follow the next up the
+   ladder." The guard re-enables the override (overriding the skip)
+   when the curr waypoint carries a traversal flag, so the bot tilts
+   toward the upper ladder waypoint and `MOVETYPE_FLY` can engage.
+   Any future gamemode-specific yaw/pitch skip added to this block
+   must apply the same flag exception.
+
+Lifecycle of a successful climb (mental model — keep this in mind when
+adding new movement-tweaking code):
+- Bot reaches the foot ladder waypoint (`distance < 20`).
+- Touching block in `BotEvaluateGoal` advances `curr_waypoint_index` to
+  the upper ladder waypoint via `WaypointRouteFromTo`.
+- The 1141-area yaw block sets `ideal_yaw`/`idealpitch` toward the
+  upper waypoint. Pitch is then reset to 0 at
+  [bot.cpp ~L2516](../grave-bot-src/dlls/bot.cpp#L2516) for any
+  non-water non-FLY frame — that is **intentional**; the ladder
+  trigger doesn't care about pitch and `BotOnLadder` re-sets pitch
+  once `MOVETYPE_FLY` engages.
+- Bot walks horizontally into the ladder brush → engine flips
+  `movetype` to `MOVETYPE_FLY`.
+- `BotOnLadder` ([bot_navigate.cpp ~L2793](../grave-bot-src/dlls/bot_navigate.cpp#L2793))
+  takes over: sets `v_angle.x = -60` for `LADDER_UP` (or `+60` for
+  `LADDER_DOWN`), holds `IN_FORWARD`, and watches `moved_distance` to
+  flip direction if stuck against another player on the ladder.
+- `ladder_dir` was pre-set in [bot.cpp ~L3029–L3045](../grave-bot-src/dlls/bot.cpp#L3029-L3045)
+  by comparing the upper waypoint's z to the bot's z when the W_FL_LADDER
+  flag was first noticed.
+
+Things to **avoid** when working near this code:
+- Never compute `f_move_speed`/`f_strafe_speed` from a world position
+  (`v_goal`, item origin, enemy origin, defend spot, etc.) without
+  honouring the same traversal-flag gate that `bGoGoal` does. If you
+  add a new mode that pushes the bot toward an arbitrary point, copy
+  the guard at [bot.cpp ~L3371–L3389](../grave-bot-src/dlls/bot.cpp#L3371-L3389)
+  into the new code path.
+- Don't add new "snap to nearest reachable" calls outside the
+  `bSafeToSnap`-gated section. If you need a fresh snap, route it
+  through the same gate.
+- Don't gate ladder behavior on `pEdict->v.movetype == MOVETYPE_FLY`
+  alone — the failure mode is **pre-engagement** (bot near the brush,
+  still `MOVETYPE_WALK`). Use `waypoints[curr_waypoint_index].flags &
+  W_FL_LADDER` for the "about to climb" predicate.
+- The item-pickup direct-steer branch at
+  [bot.cpp ~L3392–L3396](../grave-bot-src/dlls/bot.cpp#L3392-L3396)
+  is safe **only because** `pBot->item_waypoint` is set when an item
+  has been routed through waypoints (including ladders). If you ever
+  zero `item_waypoint` while keeping `pBotPickupItem`, this branch
+  will reproduce the same ladder-stall bug.
+- Don't add a new helper that presses `IN_JUMP` / `IN_USE` /
+  `IN_DUCK` based on a world-position trigger (height-diff,
+  proximity, line-of-sight, etc.) without copying the traversal
+  guard from `BotGoalElevatedJump`. Pressing `IN_JUMP` at the foot
+  of a ladder leaves the ground and stops the bot from touching the
+  ladder brush. `BotGoalElevatedJump` callers (Cold Spot, CTF,
+  Loot, Arena, LMS, combat stall) all funnel through that single
+  guard — keep it that way rather than duplicating jump logic per
+  gamemode.
+
+Deep-dive log: `/memories/repo/gravebot_traversal_guard.md`.
+
 ---
 
 ## 3. Item handling — `BotFindItem`

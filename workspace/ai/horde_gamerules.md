@@ -242,11 +242,13 @@ else if (is_gameplay == GAME_HORDE && BotHordeThink(pBot))
 - `RESUPPLY` / `RETREAT`: return `false` so the default nav/pickup logic runs — the existing `BotFindItem` heuristics already prefer healthkits when low and armor/ammo otherwise.
 
 #### Enemy Acquisition (`BotFindEnemy`)
-Two horde-specific branches at the top of the function:
+Horde now has **four** explicit protection layers in `BotFindEnemy`:
 1. **Retreat short-circuit**: when `i_horde_role == HORDE_ROLE_RETREAT`, immediately return `NULL`. This prevents the bot from being yanked back into combat by the generic "monster within 2500u" scan while it's trying to grab a healthkit.
 2. **Sticky-target promotion**: when `p_horde_target` is alive and within the sticky window, and the bot has line-of-sight + view-cone hit on it, return it directly as `pBotEnemy`. This bypasses the score-by-distance generic scan so the bot stays committed to the picked threat instead of flipping to whichever monster wandered closest.
+3. **Player-target strip at entry/fallback**: if Horde sees a carried-over player enemy (`pBotEnemy`), remembered target (`pRemember`), or post-selection enemy (`pNewEnemy`) with `FL_CLIENT`/`FL_FAKECLIENT`, it is nulled immediately.
+4. **Player-scan bypass**: the generic "search world for players" loop is skipped entirely in Horde.
 
-Outside those two branches, the generic monster scan in `BotFindEnemy` (which already filters on `FL_MONSTER` + `IsAlive` + LoS + view-cone) handles everything correctly — horde monsters are distinguished from teammates by `FL_MONSTER`/`FL_CLIENT`, and there are no NPC scientists or hostile NPCs in horde maps.
+Outside those guards, the generic monster scan in `BotFindEnemy` (which filters on `FL_MONSTER` + `IsAlive` + LoS + view-cone) remains the acquisition path for Horde targets.
 
 #### Direct-Steer Condition (`bot.cpp` movement block)
 - `hordeChase` joins the existing family. When `is_gameplay == GAME_HORDE` and `v_goal` is non-zero: direct-steer is enabled if the bot is within `128u` of `v_goal` unconditionally, or within `500u` with `FVisible(v_goal, pEdict)`. Final approach to a monster goes straight rather than bouncing off the last waypoint.
@@ -260,7 +262,39 @@ Outside those two branches, the generic monster scan in `BotFindEnemy` (which al
 ### Team mapping (bot perspective)
 - `UTIL_GetTeam(pEdict)` returns `1` for any survivor (`pev->fuser3 > 0`) and `2` for monsters/other.
 - The bot DLL's two-team return values are inverted relative to other modes' "blue=1 / red=2" meaning here — the only thing that matters is that all survivors return the same value and all monsters return a different value.
-- There is no second player team to worry about; bots will never see a survivor as an enemy because `FPlayerCanTakeDamage` blocks PvP and `BotFindEnemy` skips own-team players.
+- There is no second player team to worry about. Survivor-vs-survivor targeting is now blocked by **both** layers: (a) team checks in generic bot logic and (b) Horde-specific hard guard in `BotFindEnemy` that strips player targets and bypasses the player-scan loop entirely.
+
+## Rapid Debug Playbook
+
+Use this when Horde bots appear to target players or stop prioritizing monsters.
+
+1. **Confirm mode detection first** (`BotCheckTeamplay`):
+  - `is_gameplay` must resolve to `GAME_HORDE` and `is_team_play` must be true.
+  - If mode detection is wrong, every Horde guard in `BotFindEnemy` is bypassed.
+
+2. **Confirm monster cache is populated** (`BotHordeFindEntities`):
+  - `s_horde_count` should be > 0 during active waves.
+  - Empty cache with live monsters means the wave tags are wrong (`message != "horde"`, missing `FL_MONSTER`, or `EF_NODRAW`).
+
+3. **Trace enemy acquisition in this order** (`BotFindEnemy`):
+  - RETREAT short-circuit returns `NULL`.
+  - Sticky target returns monster directly when visible.
+  - Player enemy strip clears `pBotEnemy`/`pRemember`/`pNewEnemy` if any are clients.
+  - Player scan loop is skipped in Horde.
+  - Final enemy should be either `NULL` or `FL_MONSTER`.
+
+4. **If bot still attacks players, inspect caller state transitions**:
+  - Verify no non-Horde branch overwrites `is_gameplay` mid-session.
+  - Verify no later logic in `BotThink` writes a player edict back to `pBotEnemy` after `BotFindEnemy`.
+
+5. **Validate role + movement coupling**:
+  - `HORDE_ROLE_HUNTER` + non-zero `v_goal` should produce chase behavior.
+  - `HORDE_ROLE_RETREAT` should force `pBotEnemy = NULL` and allow item-nav fallback.
+
+6. **Fast in-game reproduction recipe**:
+  - Start Horde with many bots and at least one human observer.
+  - Force repeated line-of-sight breaks (corners, platforms) and watch for target churn.
+  - A correct build should never keep or reacquire a client as `pBotEnemy` in Horde.
 
 ### Tunables
 | Constant | Value | Purpose |
@@ -282,6 +316,20 @@ Outside those two branches, the generic monster scan in `BotFindEnemy` (which al
 - **No coordination between bots in code**: There is no shared "this monster is taken" registry. Soft focus-fire emerges from the threat-score formula: bots converge on whichever monster scores highest from each bot's individual position. When one teammate kills the picked target, the survivors naturally re-pick the next-highest threat on their next role tick.
 
 ## Lessons Learned (post-Phase 7 polish)
+
+### Bug #3 — Horde player-target leakage through generic enemy paths
+**Symptom**: In Horde, bots occasionally target/attack teammate players instead of monsters.
+
+**Root cause**: The generic player-search and remember/fallback paths in `BotFindEnemy` were still reachable in Horde. Under stale/misordered state, a client target could survive into `pNewEnemy`.
+
+**Fix** (`bot_combat.cpp`):
+1. Clear `pBotEnemy` at Horde entry if it is `FL_CLIENT`/`FL_FAKECLIENT`.
+2. Clear `pRemember` in Horde if it points to a client.
+3. Skip the player-scan loop entirely in Horde.
+4. Final safety guard: clear `pNewEnemy` if it is a client.
+5. Exclude Horde from the generic `b_engaging_enemy` carry-forward branch.
+
+**Lesson**: For PvE modes, do not rely only on team checks. Add **mode-local target-type invariants** ("enemy must be monster") at multiple choke points so fallback paths cannot reintroduce invalid target classes.
 
 ### Bug #1 — `BotShouldEngageEnemy` rejected non-player classnames
 **Symptom**: Bot acquires a monster as enemy, aim-locks on it, but doesn't move toward it and doesn't fire. Retreats correctly at HP ≤ 25.

@@ -7,7 +7,7 @@
 - **Toad Count Cvar**: `mp_ctctoadcount` (default 1, min 1, max 5; runtime-capped by players)
 - **Source**: `src/dlls/ctc_gamerules.cpp`, `src/dlls/ctc_gamerules.h`
 - **Class**: `CHalfLifeCaptureTheChumtoad : public CHalfLifeMultiplay`
-- **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (`BotCtcThink`, `BotFindEnemy` CtC filters), `grave-bot-src/dlls/bot.cpp` (pre-update detection, `BotFindItem` bypass, think dispatch, direct-steer), `grave-bot-src/dlls/bot_navigate.cpp` (frequent re-routing, waypoint goal, snap)
+- **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (`BotCtcThink`, `BotCtcTryVerticalRecovery`, `BotFindEnemy` CtC filters), `grave-bot-src/dlls/bot.cpp` (pre-update detection, `BotFindItem` bypass, think dispatch, direct-steer, spawn-init), `grave-bot-src/dlls/bot_navigate.cpp` (frequent re-routing, waypoint goal, snap)
 
 > **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including CtC) must satisfy.
 
@@ -298,6 +298,9 @@ When bot already has an enemy, the following CtC-specific checks run:
 | `f_ctc_drop_consider_time` | float | Cooldown for strategic drop evaluation |
 | `f_ctc_next_juke_time` | float | Next time to jump or duck evasively |
 | `f_ctc_next_move_time` | float | Next time to do a special move (slide/flip/kick) |
+| `i_ctc_pending_jumps` | int | Remaining `IN_JUMP` edges to fire in the chase triple-jump sequence |
+| `f_ctc_next_jump_press` | float | Time of next scheduled jump press in the sequence |
+| `f_ctc_jump_seq_until` | float | Cooldown until the next jump sequence may start |
 
 ## Bot Behavior — Implementation Details
 
@@ -305,9 +308,11 @@ When bot already has an enemy, the following CtC-specific checks run:
 | Case | Condition | Behavior |
 |------|-----------|----------|
 | 1 | `b_ctc_has_chumtoad` | Evade: run AWAY from nearest enemy at max speed; re-evaluate escape direction every ~2s. Strategic drop if health ≤ 30. Evasive juking and special moves. Never pause. |
-| 2 | Opponent holding toad | Pursue: `v_goal = holder origin`; face and engage carrier aggressively |
-| 3 | Toad loose on map | Seek: `v_goal = monster_ctctoad origin`; `f_goal_proximity = 20.0`; run at max speed |
+| 2 | Opponent holding toad | Pursue: `v_goal = holder origin`; face and engage carrier aggressively. If holder is on a ledge above, invokes `BotCtcTryVerticalRecovery` (hook / triple-jump). |
+| 3 | Toad loose on map | Seek: `v_goal = monster_ctctoad origin`; `f_goal_proximity = 20.0`; run at max speed. If toad is on a ledge above, invokes `BotCtcTryVerticalRecovery` (hook / triple-jump). |
 | 4 | No toad in play | Return false — fall through to normal wander/deathmatch |
+
+**Per-tick service** (top of `BotCtcThink`, before Case 1): drains the queued triple-jump sequence — if `i_ctc_pending_jumps > 0` and `f_ctc_next_jump_press` is due, presses `IN_JUMP`, decrements the counter, and schedules the next press 0.20s later.
 
 ### Strategic Drop (Case 1, health ≤ 30)
 - Bot fires chumtoad weapon (`IN_ATTACK`) to trigger `PrimaryAttack()` → `DropCharm()` server-side
@@ -347,13 +352,35 @@ When bot already has an enemy, the following CtC-specific checks run:
 - Added `ctcChase` bool: when chasing and within 300u with line of sight, bot steers directly toward `v_goal`
 - Follows same pattern as KTS/Coldskull `bGoGoal` logic
 
+### Vertical Recovery (Case 2 & Case 3 — `BotCtcTryVerticalRecovery`)
+Stops chasers from running face-first into walls when the holder / loose toad is on a ledge above them. Called after `v_goal` is set in both Case 2 (opponent holder) and Case 3 (loose toad).
+
+**Trigger window** (bot is wall-stuck under the target):
+- Target Z-delta ≥ 48u above bot
+- Horizontal XY distance ≤ 384u
+
+**Tier 1 — Grappling hook** (Z-delta ≥ 96u):
+- Calls `BotConsiderHookForItem(pBot, pTarget)` — reuses the existing hook subsystem (intent = `HOOK_INTENT_ITEM`)
+- All hook gates apply: `sv_bots_hook` / `mp_grapplinghook` cvars, `b_hook_active`, per-skill cooldown, water level, spectator state, 1024u anchor range, LOS trace to ceiling above target
+- The `pTarget` edict is passed as the item; works for both the holder player edict (Case 2) and the `monster_ctctoad` edict (Case 3)
+- See [gravebot hook usage memory](../../../memories/repo/gravebot_hook_usage.md) for the full subsystem contract
+
+**Tier 2 — Triple-jump fallback** (any qualifying Z-delta):
+- Activates only when on the ground (`FL_ONGROUND`) and outside the sequence cooldown
+- Queues `i_ctc_pending_jumps = 3` with `f_ctc_jump_seq_until = now + 1.5s`
+- Serviced at the top of every `BotCtcThink` tick: edge-presses `IN_JUMP` with a ~0.20s gap so the engine's per-jump trigger fires multiple times (necessary for double/triple-jump activation — holding `IN_JUMP` would only count as one jump)
+
+**Why the hook reuse works**: `BotConsiderHookForItem` traces from the bot up/around the supplied edict's origin and grabs a ceiling anchor. The function does not inspect classname — it only uses origin, Z-delta, and visibility. This makes it safe to pass a player edict (holder) or a monster edict (toad).
+
 ### v_goal Preservation (`bot.cpp`)
 - `GAME_CTC` added to the exclusion list that prevents `v_goal` being wiped to `(0,0,0)` — same as KTS/Coldskull
 
 ## Technical Notes
 - **MAKE_VECTORS vs UTIL_MakeVectors**: Bot DLL must use `MAKE_VECTORS` (engine callback macro from `enginecallback.h`) NOT `UTIL_MakeVectors` (game DLL utility). Using the latter causes LNK2019 unresolved external.
-- **All CtC fields initialized in BotSpawnInit** (`bot.cpp` ~line 321): `b_ctc_has_chumtoad=false`, all timers to `0.0f`
+- **All CtC fields initialized in BotSpawnInit** (`bot.cpp` ~line 340): `b_ctc_has_chumtoad=false`, all timers to `0.0f`, `i_ctc_pending_jumps=0`.
 - **Detection relies on `pev->fuser4`**: This is the only cross-DLL signal for chumtoad possession. `m_iHoldingChumtoad` is not accessible from the bot DLL.
+- **Hook subsystem reuse**: `BotConsiderHookForItem` is generic over edicts — the CtC vertical recovery passes the holder edict (Case 2) or the toad edict (Case 3) directly. No new hook intent was needed.
+- **Triple-jump must be edge-pressed**: Holding `IN_JUMP` for multiple ticks only counts as one jump in the engine; the sequence must release and re-press the button between attempts. The `0.20s` gap is tuned to land between successive ground contacts on a triple-jump.
 - **New cvar checklist (important)**: when adding CtC/server cvars exposed in `redist/settings.scr`, always add the corresponding `#Ice_*` token to the active localization file (currently `redist/resource/ice_v1.1_english.txt`, or the newer version file in future). Missing token entries will show raw token IDs in the UI.
 
 ## Key Pitfalls (Expected)
@@ -368,3 +395,5 @@ When bot already has an enemy, the following CtC-specific checks run:
 8. **Drop mechanism**: `PrimaryAttack()` on the chumtoad weapon triggers the drop. The idle-drop in `PlayerThink` also fires `PrimaryAttack()`. Bot can trigger this via `IN_ATTACK` button while holding chumtoad weapon. This is the intended strategic drop path.
 9. **Player-count cap is strict**: CtC now enforces total toads `< playerCount` at all times by forcing removals when needed.
 10. **Death order pitfall (weaponbox ghost drop)**: `PlayerKilled()` CtC drop logic can clear `m_iHoldingChumtoad` before `CBasePlayer::PackDeadPlayerItems()` runs. If `DeadPlayerWeapons()` only checks `m_iHoldingChumtoad`, an empty chumtoad/snark `weaponbox` can still spawn. CtC `DeadPlayerWeapons()` must also block drops when the victim still has/has-active `weapon_chumtoad`.
+11. **Wall-stuck under ledges (vertical pursuit)**: A chaser whose target sits on a ledge will pin itself against the wall below the ledge — horizontal navigation alone cannot make progress. `BotCtcTryVerticalRecovery` is wired into both Case 2 (holder pursuit) and Case 3 (loose toad). When the target is ≥ 48u above and within 384u horizontally, it first attempts a grappling hook (Z ≥ 96u, full hook subsystem gating) and falls back to a queued triple-jump press sequence. The hook subsystem reuses `BotConsiderHookForItem` — do not invent a parallel CtC-specific hook path.
+12. **Hook gating cvars**: Vertical recovery is silently disabled when `sv_bots_hook == 0` (bot master) or `mp_grapplinghook == 0` (server). In that case only the triple-jump fallback runs. If maps consistently fail to traverse vertically with bots, verify both cvars before tuning the recovery thresholds.
