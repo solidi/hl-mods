@@ -289,6 +289,7 @@ When bot already has an enemy, the following CtC-specific checks run:
 - Added `GAME_CTC` to 0.5s frequent recalculation condition (alongside KTS/Coldskull)
 - Carrier routes toward health waypoints; chaser finds nearest waypoint to holder/toad by pure distance
 - Waypoint snap on goal change (identical to KTS/Coldskull pattern)
+- **Chaser stickiness for unseen objectives**: when holder/toad is not visible and the bot already has a valid route goal, it keeps following that goal until near it; this prevents 0.5s route ping-pong in corridors/corners
 
 ### Bot Struct Fields (`bot.h` — `bot_t`)
 | Field | Type | Purpose |
@@ -301,6 +302,7 @@ When bot already has an enemy, the following CtC-specific checks run:
 | `i_ctc_pending_jumps` | int | Remaining `IN_JUMP` edges to fire in the chase triple-jump sequence |
 | `f_ctc_next_jump_press` | float | Time of next scheduled jump press in the sequence |
 | `f_ctc_jump_seq_until` | float | Cooldown until the next jump sequence may start |
+| `f_ctc_direct_chase_until` | float | Short hysteresis window that smooths CtC direct-steer transitions and avoids waypoint/direct-steer flapping |
 
 ## Bot Behavior — Implementation Details
 
@@ -349,8 +351,11 @@ When bot already has an enemy, the following CtC-specific checks run:
 - Prevents generic item scan from interfering with objective navigation
 
 ### Direct-Steer (`bot.cpp` — movement direction block)
-- Added `ctcChase` bool: when chasing and within 300u with line of sight, bot steers directly toward `v_goal`
-- Follows same pattern as KTS/Coldskull `bGoGoal` logic
+- Added `ctcChase` bool with **two-tier gating + hysteresis**:
+  - Holder: always direct-steers along BotCtcThink escape vector
+  - Chaser: direct-steers only when very close (`< 128u`, LoS not required) or in organic mid-range (`< 450u` with LoS)
+  - Hysteresis: `f_ctc_direct_chase_until` keeps direct-steer briefly active near target (`< 224u`) to prevent frame-to-frame LoS jitter
+- Long-distance/unseen pursuit now stays graph-driven (waypoints), reducing wall-hugging and back/forth oscillation
 
 ### Vertical Recovery (Case 2 & Case 3 — `BotCtcTryVerticalRecovery`)
 Stops chasers from running face-first into walls when the holder / loose toad is on a ledge above them. Called after `v_goal` is set in both Case 2 (opponent holder) and Case 3 (loose toad).
@@ -377,9 +382,10 @@ Stops chasers from running face-first into walls when the holder / loose toad is
 
 ## Technical Notes
 - **MAKE_VECTORS vs UTIL_MakeVectors**: Bot DLL must use `MAKE_VECTORS` (engine callback macro from `enginecallback.h`) NOT `UTIL_MakeVectors` (game DLL utility). Using the latter causes LNK2019 unresolved external.
-- **All CtC fields initialized in BotSpawnInit** (`bot.cpp` ~line 340): `b_ctc_has_chumtoad=false`, all timers to `0.0f`, `i_ctc_pending_jumps=0`.
+- **All CtC fields initialized in BotSpawnInit** (`bot.cpp` ~line 340): `b_ctc_has_chumtoad=false`, all timers to `0.0f`, `i_ctc_pending_jumps=0`, `f_ctc_direct_chase_until=0.0f`.
 - **Detection relies on `pev->fuser4`**: This is the only cross-DLL signal for chumtoad possession. `m_iHoldingChumtoad` is not accessible from the bot DLL.
 - **Hook subsystem reuse**: `BotConsiderHookForItem` is generic over edicts — the CtC vertical recovery passes the holder edict (Case 2) or the toad edict (Case 3) directly. No new hook intent was needed.
+- **Hook-state robustness for CtC transitions**: `BotMaybeReleaseHook` now force-releases when a bot becomes a holder mid-hook, and bot hook teardown includes short 218 re-send and desync recovery safeguards.
 - **Triple-jump must be edge-pressed**: Holding `IN_JUMP` for multiple ticks only counts as one jump in the engine; the sequence must release and re-press the button between attempts. The `0.20s` gap is tuned to land between successive ground contacts on a triple-jump.
 - **New cvar checklist (important)**: when adding CtC/server cvars exposed in `redist/settings.scr`, always add the corresponding `#Ice_*` token to the active localization file (currently `redist/resource/ice_v1.1_english.txt`, or the newer version file in future). Missing token entries will show raw token IDs in the UI.
 
@@ -397,3 +403,4 @@ Stops chasers from running face-first into walls when the holder / loose toad is
 10. **Death order pitfall (weaponbox ghost drop)**: `PlayerKilled()` CtC drop logic can clear `m_iHoldingChumtoad` before `CBasePlayer::PackDeadPlayerItems()` runs. If `DeadPlayerWeapons()` only checks `m_iHoldingChumtoad`, an empty chumtoad/snark `weaponbox` can still spawn. CtC `DeadPlayerWeapons()` must also block drops when the victim still has/has-active `weapon_chumtoad`.
 11. **Wall-stuck under ledges (vertical pursuit)**: A chaser whose target sits on a ledge will pin itself against the wall below the ledge — horizontal navigation alone cannot make progress. `BotCtcTryVerticalRecovery` is wired into both Case 2 (holder pursuit) and Case 3 (loose toad). When the target is ≥ 48u above and within 384u horizontally, it first attempts a grappling hook (Z ≥ 96u, full hook subsystem gating) and falls back to a queued triple-jump press sequence. The hook subsystem reuses `BotConsiderHookForItem` — do not invent a parallel CtC-specific hook path.
 12. **Hook gating cvars**: Vertical recovery is silently disabled when `sv_bots_hook == 0` (bot master) or `mp_grapplinghook == 0` (server). In that case only the triple-jump fallback runs. If maps consistently fail to traverse vertically with bots, verify both cvars before tuning the recovery thresholds.
+13. **Chaser route ping-pong (resolved pattern)**: If direct-steer is allowed too aggressively, bots can oscillate between `v_goal` steering and waypoint routing, causing visible back/forth movement with low net progress. Keep direct-steer local/organic (close or LoS mid-range), preserve short hysteresis, and keep unseen long-distance pursuit waypoint-driven.

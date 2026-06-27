@@ -250,11 +250,12 @@ Only one intent is ever active per hook.
 | `pHookItem`                   | ITEM intent: the world item we're swinging toward. Cleared on pickup. |
 | `v_hook_target_point`         | Anchor world point we aimed at. |
 | `f_hook_release_at`           | Hard timeout — forced impulse 218 if not released sooner (`BOT_HOOK_MAX_DURATION = 2.0s`). |
+| `f_hook_release_retry_until`  | Short post-release retry window that re-sends impulse 218 (`BOT_HOOK_RELEASE_RETRY = 0.35s`) to survive one-frame command loss. |
 | `f_hook_cooldown_until`       | Next time the bot may refire. Base `BOT_HOOK_COOLDOWN = 3.0s` × per-skill mult `{1.0, 1.2, 1.5, 2.0, 3.0}` (index = `bot_skill`, 0=hardest). |
 | `f_hook_velocity_check_time`  | Next time to sample horizontal speed for anti-stuck. |
 | `i_hook_low_velocity_samples` | Consecutive low-velocity (<32 u/s) samples; release at 2. |
 
-All seven fields are zero-initialized in `BotSpawnInit`.
+All eight fields are zero-initialized in `BotSpawnInit`.
 
 ### 7.3 Helper functions
 
@@ -264,9 +265,9 @@ All defined in
 
 | Function | Role |
 |----------|------|
-| `BotFireHook(pBot, intent, pItem, vAimPoint)` | Sets impulse 217, populates the seven fields, applies water/observer guards. |
-| `BotReleaseHook(pBot)`                        | Sets impulse 218, clears state. |
-| `BotMaybeReleaseHook(pBot)`                   | Per-tick safety: timeout, target-invalid, pursuit-close-enough, anti-stuck, water/observer. |
+| `BotFireHook(pBot, intent, pItem, vAimPoint)` | Sets impulse 217, populates the eight fields, applies water/observer guards, clears stale release-retry state. |
+| `BotReleaseHook(pBot)`                        | Sets impulse 218 unconditionally, opens release-retry window, clears active hook state. |
+| `BotMaybeReleaseHook(pBot)`                   | Per-tick safety: timeout, target-invalid, pursuit-close-enough, anti-stuck, water/observer, CtC holder-transition release, and zombie-hook desync recovery. |
 | `BotComputeHookAimForItem`                    | Returns anchor + LOS check for an item-detour hook. |
 | `BotConsiderHookForItem(pBot, pItem)`         | Item-detour gate + aim + fire. |
 | `BotComputeEscapeAnchor`                      | Best-of-three traces (back-up / straight-up / lateral-up); scored. |
@@ -291,6 +292,7 @@ All defined in
 |----------|-------|--------|
 | `BOT_HOOK_COOLDOWN`         | `3.0f`  | Base cooldown between refires. |
 | `BOT_HOOK_MAX_DURATION`     | `2.0f`  | Hard timeout (forced release). |
+| `BOT_HOOK_RELEASE_RETRY`    | `0.35f` | Brief release resend window after 218 to ensure hook teardown is observed. |
 | `BOT_HOOK_ITEM_Z_THRESHOLD` | `96.0f` | Min item-above-bot height to detour-hook. |
 | `BOT_HOOK_ITEM_MAX_RANGE`   | `1024.0f` | Max hook range for any intent. |
 | `BOT_HOOK_ESCAPE_HP`        | `25`    | HP ≤ this triggers escape consideration. |
@@ -308,3 +310,10 @@ All defined in
 
 The bot still respects `mp_grapplinghook` — `BotHookEnabled` returns false
 if either cvar is zero.
+
+### 7.7 CtC-specific hook hardening (session update)
+
+- **Holder transition guard**: in CtC, if a bot becomes a chumtoad holder while a hook is active, `BotMaybeReleaseHook` force-releases immediately.
+- **Release reliability**: hook release now re-sends impulse 218 for a short burst (`f_hook_release_retry_until`) to avoid one-frame command loss leaving a latched hook.
+- **Desync failsafe**: if local bot state says hook is inactive but player movement still looks hook-latched (`MOVETYPE_FLY` + negative gravity), the bot reissues 218 and refreshes the retry window.
+- **Net effect**: prevents "forgotten deployed hook" stalls, including the CtC pickup-in-flight case.

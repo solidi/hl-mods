@@ -6,7 +6,7 @@
 - **Description**: `"Cold Ice Cold Busters"` — Reverse-deathmatch where the lowest-scoring player becomes "the Buster" with the egon and hunts everyone else.
 - **Source**: `src/dlls/busters_gamerules.cpp`, `src/dlls/busters_gamerules.h`
 - **Class**: `CMultiplayBusters : public CHalfLifeMultiplay`
-- **Bot Source** (planned): `grave-bot-src/dlls/bot_combat.cpp` (`BotBustersThink`, `BotBustersPreUpdate`, `BotBustersFindEntities`, `BotFindEnemy` Busters filters), `grave-bot-src/dlls/bot.cpp` (spawn init, `BotFindItem` bypass, think dispatch, direct-steer), `grave-bot-src/dlls/bot_navigate.cpp` (frequent re-routing, waypoint goal, snap, random-waypoint variance)
+- **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (`BotBustersThink`, `BotBustersPreUpdate`, `BotBustersFindEntities`, `BotFindEnemy` Busters interactions), `grave-bot-src/dlls/bot.cpp` (spawn init, `BotFindItem` bypass for Buster role, think dispatch, direct-steer), `grave-bot-src/dlls/bot_navigate.cpp` (frequent re-routing, waypoint goal, snap, random-waypoint variance)
 - **Summary line** (from `redist/modes/busters.txt`): *"A player with the least frags is granted the egon. Bust the skeletons. If the buster dies, the egon is up for grabs. If time passes without a new owner, it begins again."*
 
 > **Foundation reading**: load [gamerules.md](gamerules.md) first — it covers the class hierarchy, the cross-DLL `fuser4` / `RADAR_*` conventions, the [`v_goal` Preservation Contract](gamerules.md#critical--v_goal-preservation-contract), and the bot integration checklist that every mode (including Busters) must satisfy.
@@ -150,7 +150,7 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
 
 ## Bot Behavior (grave-bot-src) — Current State
 
-> Most items below labeled "Planned" have shipped. Where a section remains aspirational the label is preserved; everything else describes the working implementation as of the latest build.
+> Sections below describe current behavior as implemented. Aspirational ideas are explicitly called out as optional follow-ups.
 
 
 ### Detection (`bot_combat.cpp` — `BotCheckTeamplay`)
@@ -162,49 +162,39 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
 - For `GAME_BUSTERS`, returns `2` when `pEntity->v.fuser4 > 0` (Buster), else `1` (ghost). Bot team-filtering in `BotFindEnemy` already respects this split.
 
 ### Enemy Filtering (`bot_combat.cpp` — `BotFindEnemy`)
-**Current**: No Busters-specific filters. Bots treat teammates (same `UTIL_GetTeam`) as non-targets but otherwise engage anyone visible like standard deathmatch.
-
-**Planned filters**:
-- Ghost bots should prioritize the Buster; other ghosts are filtered out as teammates (already works via `UTIL_GetTeam`).
-- Buster bot should treat every visible ghost as a valid target and never disengage at long range while it has the egon.
+- Bots use the shared team filter path (`UTIL_GetTeam`) so ghosts skip ghosts and Buster-vs-ghost targeting works through normal enemy selection.
+- There is no separate Busters-only `BotFindEnemy` fork; objective priority is driven by `BotBustersPreUpdate` + `BotBustersThink` via `v_goal` and role-specific movement intent.
 
 ### Combat Engagement (`bot_combat.cpp` — `BotShouldEngageEnemy`)
-**Current**: Standard ammo/visibility checks.
-
-**Planned**:
-- Buster: always engage ghosts (no backing off). Optionally tighten the random-aggressiveness gate.
-- Ghost Hunter: force `i_engage_aggressiveness` up to ≥85 while the Buster is the target to discourage timid bot wandering.
+- Shared engagement checks still apply (ammo/visibility), but Busters role logic biases behavior:
+- Buster role sets `i_engage_aggressiveness = 100`.
+- Ghost hunter role clamps `i_engage_aggressiveness` to at least 85.
 
 ### Weapon Switching (`bot_combat.cpp` — `BotFireWeapon`)
 - Buster inventory only contains the egon (gamerules-enforced), so `FShouldSwitchWeapon` has nothing to pick from. No changes needed beyond verifying `BotChangeWeapon` doesn't attempt to swap.
 
 ### Item Finding (`bot.cpp` — `BotFindItem`)
-**Current**: Generic weapon/ammo scan. In Busters this is counterproductive for the Buster (who can't pick anything up) and misleading for ghosts (they should not detour to random ammo when they could be hunting).
-
-**Planned**: Early gate on `is_gameplay == GAME_BUSTERS`:
-- Buster role: always clear `pBotPickupItem` / `item_waypoint`.
-- Ghost role: allow `item_health*` and `item_battery*` pickups only; skip all `weapon_*`/`ammo_*` unless the object is the dropped-egon weaponbox — which is surfaced through `BotBustersThink`, not `BotFindItem`.
+- Buster role: `BotFindItem` clears `pBotPickupItem` / `item_waypoint` immediately (cannot pick up non-egon items).
+- Ghost role: still uses normal item scanning.
+- During loose-egon windows (`s_pBusterWeaponbox` exists), `BotBustersThink` clears generic pickup detours so ghosts sprint objective-first to the dropped weaponbox.
 
 ### Pre-Update Block (`bot.cpp` — `BotThink`)
-**Planned `BotBustersPreUpdate`** (mirrors `BotCtfPreUpdate`):
-- Runs `BotBustersFindEntities` to refresh cached pointers: dropped-egon weaponbox, current Buster.
-- Computes the bot's role every ~0.75s:
-  - Has egon (`current_weapon.iId == VALVE_WEAPON_EGON`) → `BUSTERS_ROLE_BUSTER`.
-  - Egon is loose AND bot is one of the two closest ghosts → `BUSTERS_ROLE_GHOST_GRABBER`.
-  - Buster alive → `BUSTERS_ROLE_GHOST_HUNTER`.
-  - None of the above (intermission, lull) → no role, fall through.
-- Pre-sets `v_goal` so the movement block always has a target even when `BotFindEnemy` claims the frame.
+`BotBustersPreUpdate` runs every frame before enemy selection:
+- Refreshes cached pointers for live Buster and dropped weaponbox.
+- Pre-sets `v_goal`/`f_goal_proximity` for both Buster and ghost roles so movement has objective context even if the enemy branch claims the frame.
+- Ghost hunter tracking now uses direct-track gating: refreshes immediate Buster position only when the Buster is visible or within close proximity; otherwise retains last-seen goal briefly.
+- Resets egon-grab stuck sampling when no dropped weaponbox is active.
 
 ### Think Dispatch (`bot.cpp` — no-enemy branch)
-**Planned**: Insert `BotBustersThink(pBot)` in the else-if chain after the `GAME_COLDSPOT` branch and before the `pBotPickupItem` fallback (~`bot.cpp` L2257). Returns `true` when movement intent is set, `false` to fall through to normal waypoint nav.
+`BotBustersThink(pBot)` is active in the no-enemy think chain (after `GAME_COLDSPOT`, before generic pickup fallback). It returns `true` when it has set movement intent, otherwise falls through to normal waypoint navigation.
 
 ### Navigation (`bot_navigate.cpp` — `BotFindWaypoint`)
-**Planned anti-stalemate tweak**: when `is_gameplay == GAME_BUSTERS`, raise the random-waypoint chance from 20% to ~40% and shorten the cooldown from 10s to ~4s. Prevents the common "two bots run the same loop forever" scenario on small maps.
+Anti-stalemate tweak is active: for `GAME_BUSTERS`, random-waypoint chance is increased (40%) and cooldown is shortened (4s), reducing mirrored loop behavior.
 
 ### Waypoint Goal (`bot_navigate.cpp` — `BotFindWaypointGoal`)
-**Planned**: Add `GAME_BUSTERS` to the 0.5s recalculation set (alongside KTS/Coldskull/CTC). Buster hunts toward enemy-clustered waypoints; ghost grabber routes toward the weaponbox waypoint; ghost hunter routes toward the Buster's last-known location.
+`GAME_BUSTERS` is included in frequent goal recalculation. Routing follows `v_goal`: Buster hunts ghost-side objectives, ghost grabber routes to the loose weaponbox, and ghost hunter routes to direct-track or last-seen Buster targets.
 
-### Bot Struct Fields (`bot.h` — `bot_t`) — Planned Additions
+### Bot Struct Fields (`bot.h` — `bot_t`) — State Fields
 | Field | Type | Purpose |
 |-------|------|---------|
 | `i_busters_role` | int | `BUSTERS_ROLE_NONE / _BUSTER / _GHOST_GRABBER / _GHOST_HUNTER` |
@@ -217,14 +207,14 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
 | `f_busters_pace_time` | float | Next time to re-roll pace scale |
 | `f_busters_pace_scale` | float | 0.65–1.0 multiplier on `f_move_speed` for per-bot desync |
 
-## Bot Behavior — Implementation Details (Planned)
+## Bot Behavior — Implementation Details (Current)
 
 ### BotBustersThink Priority (`bot_combat.cpp`)
 | Case | Condition | Behavior |
 |------|-----------|----------|
-| 1 | `i_busters_role == BUSTERS_ROLE_BUSTER` | Hunt: pick nearest visible ghost; set `v_goal = enemy.origin`, `f_goal_proximity = 64`, full speed. Force `pBotEnemy` when visible. Fall back to `BotFindWaypointGoal(WPT_GOAL_ENEMY)` when blind. Force `i_engage_aggressiveness = 100`. Skip pause. |
-| 2 | `i_busters_role == BUSTERS_ROLE_GHOST_GRABBER` | Sprint to the egon weaponbox: `v_goal = box.origin`, `f_goal_proximity = 20`, full speed. Apply `BotGoalElevatedJump` when the box is on a ledge. Suppress combat inside 400u of the box. |
-| 3 | `i_busters_role == BUSTERS_ROLE_GHOST_HUNTER` | Pursue Buster: `v_goal = buster.origin`, proximity 96. If Buster not visible, route via waypoints to `v_busters_last_seen`. Keep normal item pickup enabled (ghosts need guns). Aggressiveness clamped ≥ 85. |
+| 1 | `i_busters_role == BUSTERS_ROLE_BUSTER` | Hunt nearest ghost; set `v_goal` to that target, `f_goal_proximity = 64`, full speed, and force strong aggression (`i_engage_aggressiveness = 100`). Yaw is driven toward the active target during pursuit. |
+| 2 | `i_busters_role == BUSTERS_ROLE_GHOST_GRABBER` | Sprint to the egon weaponbox: `v_goal = box.origin`, `f_goal_proximity = 20`, full speed, and apply `BotGoalElevatedJump` for ledge/pedestal grabs. |
+| 3 | `i_busters_role == BUSTERS_ROLE_GHOST_HUNTER` | Pursue Buster with contextual tracking: direct-track when visible or close (<=300u); otherwise keep waypoint routing toward `v_busters_last_seen` for a short window (6s). Yaw is only hard-overridden during direct-track so unseen Busters do not stall waypoint movement. Aggressiveness clamped >= 85. |
 | 4 | No role resolved | Return false — fall through to wander/deathmatch nav. |
 
 ### Pace & Juke (all roles, triggered in `BotBustersThink`)
@@ -233,19 +223,19 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
   - 25% chance `IN_JUMP` for one frame.
   - 20% chance `IN_DUCK` for 0.3s (slide via `impulse 208` if `sv_botsmelee` is set and speed is high).
   - 15% chance short strafe burst (`IN_MOVELEFT` / `IN_MOVERIGHT`) for 0.25s.
-- **Look-scan**: while steering toward `v_goal`, every 1–2s rotate `ideal_yaw` by ±15–30° for 0.3s so enemies approaching off-path get spotted.
+- **Yaw discipline**: ghost hunters keep waypoint-driven yaw unless direct-track is active (visible or <=300u), preventing hidden-target face-lock stalls.
 
 ### Role Evaluation (`BotBustersPreUpdate`)
-- Cadence: `f_busters_role_eval_time = gpGlobals->time + 0.75` after each pass.
-- Two-closest-ghosts rule for `GHOST_GRABBER`: iterate all ghost players, rank by distance to the cached egon weaponbox, pick top 2. Keeps the rest of the team from abandoning map control.
-- If the dropped egon moves (unlikely but possible when physics nudge the box), the 0.5s `f_busters_egon_scan_time` re-scoring keeps `v_goal` fresh.
+- Cadence: each frame (called from `BotThink` pre-update path).
+- Direct-track helper (`BotBustersGhostHasDirectTrack`) gates immediate Buster tracking to `FVisible(...)` or <=300u proximity.
+- Last-seen pursuit window is 6s (`BUSTERS_GHOST_LAST_SEEN_AGE`) so ghosts stay context-aware without pinning yaw to occluded/far Busters.
 
 ### Direct-Steer & v_goal Preservation (`bot.cpp`)
-- Add `GAME_BUSTERS` to the exclusion list that currently protects KTS/Coldskull/CtC `v_goal` from the "always forget goal" reset.
-- Add `bustersChase` style bool: when within 300u of `v_goal` with line of sight, steer directly (same pattern as CtC chasers, KTS seekers).
+- `GAME_BUSTERS` is in the `v_goal` preservation exclusion list, so the always-forget-goal reset does not wipe objective targets each frame.
+- `bustersChase` style direct-steer is active: when the goal is close or visible, movement can commit directly to `v_goal` instead of waypoint-only steering.
 
 ### Combat Tuning
-- Buster: scale the new-enemy reaction delay by 0.75 so the egon beam locks on faster (`react_time_min/max` still apply, just shortened for this role).
+- Buster: scale first-sight reaction delay by 0.4 and clamp to 0.5s max so egon reactions stay snappy.
 - Ghost Hunter: forcibly raise `i_engage_aggressiveness` to max(85, current) for the duration of the role.
 - All: leave existing `aim_tracking_*`, `pitch_speed`, `yaw_speed` arrays untouched — global skill remains the floor.
 
@@ -285,6 +275,13 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
 - `GAME_BUSTERS`-only: when the bot has an enemy + a current waypoint + `!FHullClear(enemy, self)`, restore `ideal_yaw` from `v_curr_direction` so the bot keeps routing around the wall instead of grinding into it (the `cos(yaw - waypoint_dir)` factor in the movement code would otherwise collapse forward speed).
 - **Gated on `pBot->i_goal_jump_phase == 0`** so an active combat stuck-jump combo can keep the enemy-facing velocity required for the phase-3 flip.
 
+### Ghost hunter direct-track yaw guard (`bot_combat.cpp::BotBustersPreUpdate/BotBustersThink`)
+- Added helper constants and gate:
+  - `BUSTERS_GHOST_DIRECT_TRACK_DIST = 300.0f`
+  - `BUSTERS_GHOST_LAST_SEEN_AGE = 6.0f`
+- `BotBustersPreUpdate` and `BotBustersThink` now refresh live Buster goaling only when direct-track is true (visible or close); otherwise they preserve/use `v_busters_last_seen`.
+- `ideal_yaw` override in ghost-hunter mode is now conditional on direct-track, which fixes the hidden-target face-lock that caused pauses and waypoint under-following.
+
 ### Bot-struct fields used by the above (`bot.h::bot_t`, all initialized to `0.0f` in `BotSpawnInit`)
 ```cpp
 float f_busters_stuck_check_time;   // egon weaponbox stall sampler
@@ -309,7 +306,7 @@ float f_combat_stuck_since;
 
 ## Key Pitfalls (Expected)
 1. **10-second auto-regrant window.** If no ghost touches the dropped egon within `EGON_BUSTING_TIME`, it's removed and the current lowest-fragger becomes the new Buster. Ghost Grabber bots must be fast — `f_move_speed = f_max_speed`, no pause, elevated-jump helper for pedestals. Missing the window flips the role assignment unexpectedly.
-2. **Lowest-fragger Buster rotation.** Because the Buster is the player with fewest frags, and ghost-on-Buster kills award +2 frags, a skilled ghost quickly becomes ineligible and the target rotates. Role re-evaluation must run every tick that possession changes, not just on the 0.75s timer, or the Buster bot could briefly try to hunt after losing the egon.
+2. **Lowest-fragger Buster rotation.** Because the Buster is the player with fewest frags, and ghost-on-Buster kills award +2 frags, a skilled ghost quickly becomes ineligible and the target rotates. Role/goal state must be refreshed every tick that possession changes so bots do not continue stale hunt behavior.
 3. **Dropped-egon detection asymmetry.** `weapon_egon` classname never appears loose on the ground — the engine always wraps it in a `weaponbox`. Writing bot detection against the weapon classname silently fails. Always scan `weaponbox`.
 4. **`fuser4` identity check for friendly fire.** Ghosts share `fuser4 == 0`, so `FPlayerCanTakeDamage` blocks their splash/projectile hits against each other when `friendlyfire` is off. Bot engagement must skip same-team players (already handled by `UTIL_GetTeam`), but explosive weapons (MP5 grenade, RPG) can still waste ammo via area effects — consider filtering secondary-fire usage for ghost hunters when teammates are in the blast radius.
 5. **Buster inventory is locked.** `CanHavePlayerItem` returns FALSE for anything other than the egon. A Buster bot that tries to detour to a weapon/ammo pickup is wasting time — hence the `BotFindItem` early-out.

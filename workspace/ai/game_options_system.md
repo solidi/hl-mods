@@ -1,12 +1,17 @@
 # Game-Options Voting System — Spoke
 
-> Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · server entry [server.md](server.md)
+> Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · sibling: [server_options_system.md](server_options_system.md) · server entry [server.md](server.md)
+
+Note: mutator voting now includes a synthetic `INSTANT MUTATORS` slot
+(separate from `g_szMutators[]`) that toggles `sv_instantmutators` based on
+top-3 placement; full indexing contract is documented in
+[voting_system.md](voting_system.md#mutator-vote-synthetic-slot).
 
 A fourth, **dynamic** vote in the intermission sequence. Server-defined items are loaded from `redist/gameoptions.txt`, filtered against the just-decided `g_GameMode`, sent to all clients, voted per-row, and applied via `CVAR_SET_STRING`.
 
 ## File Format (`redist/gameoptions.txt`)
 
-Source KV style. One block per item, ≤32 items per file. Each block defines one row in the vote panel.
+Source KV style. One block per item, ≤64 items per file. Each block defines one row in the vote panel.
 
 ```
 "Friendly Fire"
@@ -39,7 +44,7 @@ VOTE_GAMEOPTIONS_TRANSITION → BuildActiveGameOptions() (filter for new g_GameM
    │   if 0 items: G8 path -- skip phase, advance to mutator
    │
    ▼
-VOTE_GAMEOPTIONS_OPEN  → gmsgVoteOpts(rev,timer,N,idx…)  → CVoteGameOptionsPanel
+VOTE_GAMEOPTIONS_OPEN  → gmsgVoteOpts(rev,timer,N,idx…,flags)  → CVoteGameOptionsPanel
    │   bots cast RANDOM_LONG per row; humans click buttons → "voteopt R O" cmd
    │   each vote echoes via gmsgVOptFor for live tally
    │
@@ -58,7 +63,15 @@ VOTE_MUTATOR_TRANSITION ...
 
 Chat `gameoptions` → `Host_Say` → `GameOptionsVote()` accumulates substring matches (same threshold logic as mutator RTV). On success: `VoteForGameOptions(TRUE)` opens the panel immediately. Tally runs on a small standalone timer (`CheckGameOptionsRTV()` checked every Think frame). If any winning row had `restart=1`, the server issues a `changelevel <current>` so the new cvars take effect on a fresh round.
 
+RTV gating: this path shares a cross-type lock with `mutator` and `serveroptions` RTV. While another RTV is collecting/open, `gameoptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
+
 G9 path: if `BuildActiveGameOptions()` finds 0 matches at RTV time, the initiator gets a direct chat reply ("No game options available for the current mode") rather than spamming everyone.
+
+Missing/empty/malformed behavior:
+- Missing `gameoptions.txt` is non-fatal; the parser logs a notice and leaves zero loaded rows.
+- Empty file is non-fatal and treated as no valid rows.
+- Malformed blocks are skipped while valid blocks in the same file still load.
+- If loaded/active rows are zero, the game-options vote is skipped (intermission transition) or RTV is ignored with direct feedback.
 
 ## Wire Protocol Details
 
@@ -70,7 +83,7 @@ BYTE   revision         // bumps on every BuildGameOptionsList() run; clients us
 BYTE   seq              // 0 = first chunk
 BYTE   isLast
 BYTE   total            // total items being sent
-BYTE   numInChunk       // items in THIS chunk (GAME_OPTIONS_PER_CHUNK = 2)
+BYTE   numInChunk       // items in THIS chunk (dynamic, byte-budgeted)
 For each item in chunk:
   STRING game           // 1-15 chars
   STRING title          // 1-63 chars
@@ -87,9 +100,15 @@ G6: revision is included on every chunk. If a client sees a mismatch mid-stream,
 ```
 BYTE revision
 BYTE timer              // 0 closes (clear votes + hide)
-BYTE activeCount        // 0..32
+BYTE activeCount        // 0..64
 BYTE[] activeIndices    // each indexes into g_GameOptionsClient[]
+BYTE flags              // optional; bit0=1 allows client auto-close when all rows voted (RTV only)
 ```
+
+Intermission/end-of-round flow sends `flags=0`, so the panel remains visible
+after local selection and is dismissed only when the server closes it (at
+transition to the next vote panel). RTV flow sends `flags=1`, preserving the
+existing "all rows selected → short grace auto-dismiss" behavior.
 
 If client revision mismatches and panel opened, render a "waiting" placeholder row (G4) and auto-fire `gameoptions_resend`.
 
@@ -133,14 +152,16 @@ Server stores into `m_iGameOptionsVotes[player-1][item-1]`. Clients also mirror 
 
 | Constant | Value | Where |
 |----------|-------|-------|
-| `MAX_GAME_OPTIONS` | 32 | `gamerules.h` |
+| `MAX_GAME_OPTIONS` | 64 | `gamerules.h` |
 | `MAX_GAME_OPTION_VALUES` | 5 | `gamerules.h` |
 | `MAX_GAME_OPTION_TITLE` | 64 | `gamerules.h` |
 | `MAX_GAME_OPTION_CVAR` | 32 | `gamerules.h` |
 | `MAX_GAME_OPTION_LABEL` | 24 | `gamerules.h` |
 | `MAX_GAME_OPTION_GAME` | 16 | `gamerules.h` |
 | `MAX_GAME_OPTION_VALUE` | 32 | `gamerules.h` |
-| `GAME_OPTIONS_PER_CHUNK` | 2 | (compile-time in `SendGameOptionsToClient`; keeps each user-message ≤192 bytes) |
+| `GAME_OPTIONS_MAX_MSG_BYTES` | 192 | `multiplay_gamerules.cpp` (user-message cap target) |
+| `GAME_OPTIONS_CHUNK_HEADER_BYTES` | 5 | `multiplay_gamerules.cpp` (revision, seq, isLast, total, numInChunk) |
+| `GAME_OPTIONS_CHUNK_BUDGET_BYTES` | 188 | `multiplay_gamerules.cpp` (effective payload budget with safety cushion) |
 
 ## Safety / Validation Rules (G-series)
 

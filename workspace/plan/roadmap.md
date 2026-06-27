@@ -103,7 +103,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Basic options, On/Off/More/Less toggles.
         1. [x] Come up with a list per gamemode, and then instruct AI
 1. Game Mutators
-    1. [ ] Stomp on head
     1. [x] Instagib
         1. [x] Golden gun / golden metal corpse fall
         1. [x] Add hornetgun(s) to instagib as powerup
@@ -133,12 +132,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     1. [x] one waypoint in snowyard by backyard ladder has no paths
 1. Use AI to
-    1. [ ] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
     1. [ ] Move railgun system to client sided
-    1. [ ] add red, yellow, and green hev viewmodels
     1. [x] Add support for menu on round based games, commit to gamemode
     1. Mouse P.I. for Hire
-        1. [ ] Pick up barrel and throw
         1. [x] Last hit is bullet + Headshot, remove head
         1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
 1. HUD
@@ -148,6 +144,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ### Unscheduled
 
+1. Use AI to
+    1. [ ] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
+    1. [ ] add red, yellow, and green hev viewmodels
+    1. [ ] Pick up barrel and throw
 1. Supported Systems
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
     1. [ ] Convert game code to [halflife-updated](https://github.com/SamVanheer/halflife-updated)
@@ -188,6 +188,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
 1. Game Mutators
+    1. [ ] Stomp on head
     1. [ ] Deadly water, like skyhook, but with water textures
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
     1. [ ] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)

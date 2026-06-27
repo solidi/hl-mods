@@ -28,7 +28,7 @@
 //   }
 //
 // Limits (enforced):
-//   - 32 items max per file (extras are dropped with a warning).
+//   - 64 items max per file (extras are dropped with a warning).
 //   - 5 options per item max.
 //   - Title length 63.
 //   - Cvar-name length 31.
@@ -74,6 +74,25 @@
 	"10 frags"    "10"
 }
 
+// busters
+"Score Limit"
+{
+	"game"    "busters"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"25 Points"    "25"
+	"50 Points"   "50"
+	"75 Points"    "75"
+}
+
+"Friendly Fire"
+{
+	"game"    "busters"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
+}
+
 // chilldemic
 "Round Limit"
 {
@@ -83,6 +102,25 @@
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
+}
+
+"Friendly Fire"
+{
+	"game"    "chilldemic"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
+}
+
+// coldskull
+"Round Limit"
+{
+	"game"     "coldskull"
+	"cvar"     "mp_fraglimit"
+	"No Limit"  "0"
+	"25 Skulls"    "25"
+	"50 Skulls"   "50"
+	"75 Skulls"    "75"
 }
 
 // coldspot
@@ -106,6 +144,14 @@
 	"60 secs"  "60"
 }
 
+"Friendly Fire"
+{
+	"game"    "coldspot"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
+}
+
 // ctc
 "Toad count"
 {
@@ -127,6 +173,16 @@
 	"20 secs"  "20"
 }
 
+"Score Limit"
+{
+	"game"    "ctc"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"10 Points"    "10"
+	"25 Points"   "25"
+	"50 Points"    "50"
+}
+
 // ctf
 "Score Limit"
 {
@@ -136,6 +192,14 @@
 	"3 Points"    "3"
 	"10 Points"   "10"
 	"15 Points"    "15"
+}
+
+"Friendly Fire"
+{
+	"game"    "ctf"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
 }
 
 // ffa
@@ -182,7 +246,7 @@
 	"On"       "1"
 }
 
-"Frag Upgrade"
+"Frags per Weapon"
 {
 	"game"     "gungame"
 	"cvar"     "mp_ggfrags"
@@ -201,6 +265,17 @@
 	"On"       "1"
 }
 
+"Time Limit"
+{
+	"game"     "gungame"
+	"cvar"     "mp_timelimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"10 min"   "10"
+	"30 min"   "30"
+	"45 min"   "45"
+}
+
 // horde
 "Round Limit"
 {
@@ -212,7 +287,58 @@
 	"15 Rounds"    "15"
 }
 
-//jvs
+"Score Limit"
+{
+	"game"    "horde"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"25 Points"    "25"
+	"50 Points"   "50"
+	"75 Points"    "75"
+}
+
+"Round Timelimit"
+{
+	"game"     "horde"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"3 min"    "3"
+	"5 min"    "5"
+	"7 min"    "7"
+}
+
+"Friendly Fire"
+{
+	"game"    "horde"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
+}
+
+// instagib
+"Frag Limit"
+{
+	"game"     "instagib"
+	"cvar"     "mp_fraglimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"15 frags" "15"
+	"25 frags" "25"
+	"50 frags" "50"
+}
+
+"Time Limit"
+{
+	"game"     "instagib"
+	"cvar"     "mp_timelimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"10 min"   "10"
+	"30 min"   "30"
+	"45 min"   "45"
+}
+
+// jvs
 "Round Limit"
 {
 	"game"     "jvs"
@@ -221,6 +347,24 @@
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
+}
+
+"Round Timelimit"
+{
+	"game"     "jvs"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"3 min"    "3"
+	"5 min"    "5"
+	"7 min"    "7"
+}
+
+"Friendly Fire"
+{
+	"game"    "jvs"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
 }
 
 // kts
@@ -232,6 +376,17 @@
 	"3 Points"    "3"
 	"10 Points"   "10"
 	"15 Points"    "15"
+}
+
+"Time Limit"
+{
+	"game"     "kts"
+	"cvar"     "mp_timelimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"10 min"   "10"
+	"30 min"   "30"
+	"45 min"   "45"
 }
 
 // loot
@@ -255,7 +410,37 @@
 	"5 min"    "5"
 }
 
+"Score Limit"
+{
+	"game"    "loot"
+	"cvar"    "mp_scorelimit"
+	"No Limit"  "0"
+	"3 Points"    "3"
+	"10 Points"   "10"
+	"15 Points"    "15"
+}
+
 // lms
+"Round Limit"
+{
+	"game"     "lms"
+	"cvar"     "mp_roundlimit"
+	"No Limit"  "0"
+	"3 Rounds"  "3"
+	"10 Rounds"   "10"
+	"15 Rounds"    "15"
+}
+
+"Round Timelimit"
+{
+	"game"     "lms"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"2 min"    "2"
+	"3 min"    "3"
+	"5 min"    "5"
+}
+
 "Start With Lives"
 {
 	"game"     "lms"
@@ -280,6 +465,14 @@
 	"game"     "lms"
 	"cvar"     "mp_royaledamage"
 	"restart"  "0"
+	"Off"      "0"
+	"On"       "1"
+}
+
+"Friendly Fire"
+{
+	"game"    "lms"
+	"cvar"    "mp_friendlyfire"
 	"Off"      "0"
 	"On"       "1"
 }
@@ -335,6 +528,14 @@
 	"60 Health"   "60"
 }
 
+"Friendly Fire"
+{
+	"game"    "prophunt"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
+}
+
 // shidden
 "Round Limit"
 {
@@ -347,7 +548,70 @@
 	"15 Rounds"    "15"
 }
 
+"Round Timelimit"
+{
+	"game"     "shidden"
+	"cvar"     "mp_roundtimelimit"
+	"restart"  "0"
+	"3 min"    "3"
+	"5 min"    "5"
+	"7 min"    "7"
+}
+
+"Friendly Fire"
+{
+	"game"    "shidden"
+	"cvar"    "mp_friendlyfire"
+	"Off"      "0"
+	"On"       "1"
+}
+
+// snowball
+"Frag Limit"
+{
+	"game"     "snowball"
+	"cvar"     "mp_fraglimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"5 frags" "5"
+	"10 frags" "10"
+	"25 frags" "25"
+}
+
+"Time Limit"
+{
+	"game"     "snowball"
+	"cvar"     "mp_timelimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"5 min"   "5"
+	"10 min"   "10"
+	"15 min"   "15"
+}
+
 // Teamplay
+"Frag Limit"
+{
+	"game"     "teamplay"
+	"cvar"     "mp_fraglimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"15 frags" "15"
+	"25 frags" "25"
+	"50 frags" "50"
+}
+
+"Time Limit"
+{
+	"game"     "teamplay"
+	"cvar"     "mp_timelimit"
+	"restart"  "0"
+	"No Limit" "0"
+	"10 min"   "10"
+	"30 min"   "30"
+	"45 min"   "45"
+}
+
 "Friendly Fire"
 {
 	"game"     "teamplay"
@@ -355,25 +619,4 @@
 	"restart"  "0"
 	"Off"      "0"
 	"On"       "1"
-}
-
-// General
-"Instant Mutators"
-{
-	"game"     "*"
-	"cvar"     "sv_instantmutators"
-	"restart"  "0"
-	"Off"      "0"
-	"On"       "1"
-}
-
-"Spawn Protect Time"
-{
-	"game"     "*"
-	"cvar"     "mp_spawnprotectiontime"
-	"restart"  "0"
-	"None"    "0"
-	"3 secs"    "3"
-	"5 secs"    "5"
-	"10 secs"    "10"
 }
