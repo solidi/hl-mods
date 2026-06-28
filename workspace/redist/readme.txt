@@ -54,7 +54,7 @@ v1.1 Features:
     - Fixed menu title selection and added a brief pause for mutator menu voting
     - Spectators cannot start a rtv of mutators, gameoptions, or serveroptions
     - Self voting selection is now clear with white highlights
-    - Added gamemode to all vote panels so its clear
+    - Added gamemode to all vote panels so it's clear
 - Game Modes Changes
     - New celebration sequences switch to thirdperson, play sounds
     - Added banner system so that it is clear of team objective on entering arena

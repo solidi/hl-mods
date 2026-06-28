@@ -51,7 +51,7 @@
 "1" "Voting"
 {
     "0" "End of Game Vote" "say vote"
-    "1" "RTV Game Mode" "say gameoptions"
+    "1" "RTV Game Mode" "say gamemodes"
     "2" "RTV Map" "say maps"
     "3" "RTV Mutators" "say mutators"
     "4" "RTV Game Options" "say gameoptions"
