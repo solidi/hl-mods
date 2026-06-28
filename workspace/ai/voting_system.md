@@ -56,7 +56,7 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 | Mutator  | `sv_mutatorlist` to apply on next map, plus `sv_instantmutators` toggle | `g_szMutators[]` in gamerules (+ synthetic "INSTANT MUTATORS" vote slot) | RANDOM wins → server picks one (or two) via `RandomizeMutator()` |
 | Map      | `m_iDecidedMapIndex` overriding the cycle's next-up | `g_szServerMaps[]` (dynamic; see [vgui_system.md](vgui_system.md#dynamic-map-list)) | Wins → server re-rolls into a real index |
 
-## Common Conventions (all vote panels)
+## Common Conventions (RANDOM-slot convention: gameplay/mutator/map)
 
 ### RTV gate and cooldown (mutator/gameoptions/serveroptions)
 

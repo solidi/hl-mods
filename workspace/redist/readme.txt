@@ -43,7 +43,7 @@ v1.1 Features:
     - Options vote panel sits between gameplay and mutator phases at end of round
     - Trigger RTV mid-game with "gameoptions"
 - Server Options Voting
-    - Added dynamic server-options voting (see server.txt); per-item rows
+    - Added dynamic server-options voting (see serveroptions.txt); per-item rows
     - Options vote panel sits between gameoptions and mutator phases at end of round
     - Trigger RTV mid-game with "serveroptions"
 - Voting Improvements
