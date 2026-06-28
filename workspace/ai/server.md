@@ -75,11 +75,18 @@ mapname [\key\value\key\value...]
 
 `Vote()` in `client.cpp` dispatches the player's `vote N` console command. Vote IDs are 1-based; `1..g_iServerMapCount` are real maps, `g_iServerMapCount + 1` is the synthetic RANDOM. Tally lives in `CHalfLifeMultiplay::Think` (the `VOTE_MAPS_OPEN` branch) and writes the winner into `m_iDecidedMapIndex`, which `ChangeLevel()` then reads to override `szNextMap`.
 
+Mid-game map/gameplay RTV path:
+- Chat `maps` and `gamemodes` are handled in `client.cpp` RTV helpers (`MapVoteRTV`, `GameModeVoteRTV`) with majority collection (`rtvtime`) and shared RTV lock/cooldown (`mp_rtvcooldown`).
+- On majority success they call `CHalfLifeMultiplay::VoteForMapRTV()` / `VoteForGameplayRTV()`.
+- The vote window closes via `CheckMapRTV()` / `CheckGameplayRTV()`, which tallies votes, prints the selected result, and calls `EndMultiplayerGame()` on success.
+
 The map vote is the final phase of a five-vote sequence (gameplay → game-options → server-options → mutator → map). The full state machine, conventions (RANDOM-first display / last-index, 50/50 tie-breaking, bot vote randomization), and message contract are documented in [voting_system.md](voting_system.md).
 
 ## Level Transitions
 
-`CHalfLifeMultiplay::GoToIntermission()` schedules an intermission and (if `voting >= 10`) opens the gameplay/mutator/map vote sequence. `ChangeLevel()` resolves the next map by:
+`CHalfLifeMultiplay::GoToIntermission()` schedules an intermission and (if `voting >= 10`) opens the gameplay/mutator/map vote sequence. When a map/gameplay RTV already produced a winner, `m_bSkipIntermissionVoting` keeps intermission short (`mp_chattime` only) and skips the full intermission vote chain.
+
+`ChangeLevel()` resolves the next map by:
 
 1. Mapcycle linked-list iteration (the default rotation, with `\minplayers\` filtering).
 2. If `m_iDecidedMapIndex > -1` and within range, override with `g_szServerMaps[m_iDecidedMapIndex]`.
@@ -96,7 +103,7 @@ These user messages are the contract between server and client:
 | `MapList` | `SendMapListToClient` | `MsgFunc_MapList` | dynamic map manifest with size annotations, chunked |
 | `GameOpts` / `VoteOpts` / `VOptFor` | game-options parser + vote branches | `MsgFunc_GameOpts` / `MsgFunc_VoteOpts` / `MsgFunc_VOptFor` | mode-filtered per-row game-options voting |
 | `SrvOpts` / `VoteSrvOp` / `SOptFor` | server-options parser + vote branches | `MsgFunc_SrvOpts` / `MsgFunc_VoteSrvOp` / `MsgFunc_SOptFor` | global per-row server-options voting |
-| `VoteMap` / `VoteGame` / `VoteMutator` | `Think()` vote branches | `MsgFunc_Vote*` | open/close vote panels |
+| `VoteMap` / `VoteGame` / `VoteMutator` | `Think()` + RTV vote-open branches | `MsgFunc_Vote*` | open/close vote panels (`VoteMap`/`VoteMutator` may include optional mode byte) |
 | `VoteFor` | `Vote()` in `client.cpp` | `MsgFunc_VoteFor` | broadcast a player's vote so everyone's tally updates |
 | `Acrobatics`, `Banner`, `Particle`, `FlameMsg`, `RoundTime`, `Objective`, … | various | various HUD/HUD2 hooks | gameplay overlays |
 

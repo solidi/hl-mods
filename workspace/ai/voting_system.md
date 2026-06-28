@@ -58,12 +58,25 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 
 ## Common Conventions (RANDOM-slot convention: gameplay/mutator/map)
 
-### RTV gate and cooldown (mutator/gameoptions/serveroptions)
+### RTV gate and cooldown (gamemodes/maps/mutator/gameoptions/serveroptions)
 
-- Chat RTV paths for `mutator`, `gameoptions`, and `serveroptions` now share one lock.
+- Chat RTV paths for `gamemodes`, `maps`, `mutator`, `gameoptions`, and `serveroptions` share one lock.
 - While one of these RTVs is collecting votes or has its vote panel open, the other RTV commands are blocked.
 - Blocked callers receive explicit feedback naming which RTV currently owns the lock and how many seconds remain.
-- After an RTV ends (or its collection window expires), `mp_rtvcooldown` seconds must pass before any of the three RTV types can be started again.
+- After an RTV ends (or its collection window expires), `mp_rtvcooldown` seconds must pass before another RTV type can be started.
+- RTV static collection windows are epoch-synced to server/map lifetime in `client.cpp`, so stale collect/vote state does not survive a map restart.
+- Startup cooldown is anchored to map-start time (not first chat attempt), so fresh map loads cannot trigger immediate RTV.
+
+### Mid-game RTV chat commands
+
+- `gamemodes` in chat starts/joins a majority RTV collection window (`rtvtime`), then opens the gameplay vote panel (`VoteForGameplayRTV`).
+- `maps` in chat starts/joins a majority RTV collection window (`rtvtime`), then opens the map vote panel (`VoteForMapRTV`).
+- On successful gameplay/map RTV tally, the server prints an explicit success line naming the selected mode/map, then calls `EndMultiplayerGame()`.
+- Successful gameplay/map RTV sets `m_bSkipIntermissionVoting = TRUE`, so intermission is short (`mp_chattime` only) and does not run the full five-phase intermission vote sequence again.
+- Mid-game RTV panel close UX uses a grace delay instead of immediate hide:
+    - gameplay/maps: panel hides about 2.0s after local vote selection.
+    - game-options/server-options (RTV flags bit0 path): panel hides about 2.0s after local player has voted every active row.
+    - intermission/end-of-round flow remains server-driven (`timer=0` close), so panels stay up through the phase.
 
 ### 1. RANDOM is always **displayed first** but **indexed last**
 
@@ -84,6 +97,14 @@ When adding a new vote panel, copy this pattern. Do **not** simply iterate left-
 
 The console command is literally `vote N`. `client.cpp::Vote()` is the server-side dispatcher; it stores `N` in `g_pGameRules->m_iVoteCount[entindex - 1]`. Tally code reads `mapIndex - 1` to find the array slot.
 
+### 2.1 Vote confirmation text must follow active vote context
+
+- `client.cpp::Vote()` is shared by gameplay, map, and mutator vote panels, so display-name formatting must infer which vote is currently open.
+- Intermission path uses `m_iVoteUnderway` (`VOTE_GAMEPLAY_OPEN`, `VOTE_MAPS_OPEN`).
+- Mid-game RTV path also checks active RTV vote windows (`RTV_GATE_STATE_VOTING` + gate kind) and RTV timers (`m_fGameplayVoteTime`, `m_fMapVoteTime`).
+- Map context is resolved before gameplay/mutator fallback so map selections cannot print mutator labels.
+- Mutator name lookup is fallback-only when no gameplay/map context is active.
+
 ### 3. Tie-breaking is 50/50 RNG
 
 In each tally loop, when the highest count is matched, `RANDOM_LONG(0, 1)` decides whether to switch the leader. This is intentional — multi-way ties pick uniformly across all tied entries.
@@ -101,8 +122,8 @@ If the highest tally is `<= 0`, the server prints `[VOTE] Not enough votes recei
 | Message | Size | Direction | Body |
 |---------|------|-----------|------|
 | `VoteGame` | `1` | S→C broadcast | `BYTE timer` (0 closes the panel) |
-| `VoteMutator` | `1` | S→C broadcast | `BYTE timer` |
-| `VoteMap` | `1` | S→C broadcast | `BYTE timer` |
+| `VoteMutator` | `-1` | S→C broadcast | `BYTE timer` + optional `BYTE mode` (mode-aware title/context) |
+| `VoteMap` | `-1` | S→C broadcast | `BYTE timer` + optional `BYTE mode` (mode-aware title/context) |
 | `VoteFor` | `3` | S→C broadcast | `BYTE clientIndex; SHORT vote` (so every panel can show every player's running tally) |
 | `MapList` | `-1` | S→C unicast | chunked map manifest; see [vgui_system.md](vgui_system.md#wire-format--maplist-user-message) |
 | `GameOpts` | `-1` | S→C unicast | chunked game-options manifest (see [game_options_system.md](game_options_system.md)) |
@@ -146,8 +167,8 @@ Selection/apply semantics:
 ## Key Files (everything voting touches)
 
 ### Server
-- `src/dlls/multiplay_gamerules.cpp` — vote phase machine in `Think()`, `RandomizeMutator()`, `BuildServerMapList()`, `SendMapListToClient()`, `ChangeLevel()` map override.
-- `src/dlls/client.cpp::Vote()` — handles the `vote N` console command, dispatches `VoteFor`.
+- `src/dlls/multiplay_gamerules.cpp` — vote phase machine in `Think()`, mid-game RTV tallies (`CheckGameplayRTV`, `CheckMapRTV`, `CheckMutatorRTV`, `CheckGameOptionsRTV`, `CheckServerOptionsRTV`), vote openers (`VoteForGameplayRTV`, `VoteForMapRTV`, `VoteForMutator`, `VoteForGameOptions`, `VoteForServerOptions`), `RandomizeMutator()`, `BuildServerMapList()`, `SendMapListToClient()`, `ChangeLevel()` map override.
+- `src/dlls/client.cpp::Vote()` — handles the `vote N` console command, dispatches `VoteFor`, and resolves user-facing vote confirmation text from intermission or mid-game RTV vote context.
 - `src/dlls/player.cpp::LinkUserMessages()` — vote and manifest user-message registration (`Vote*`, `MapList`, `GameOpts/VoteOpts/VOptFor`, `SrvOpts/VoteSrvOp/SOptFor`).
 - `src/dlls/gamerules.h` — `VOTE_*` constants, `m_iVoteCount[MAX_PLAYERS]`, `m_iVoteUnderway`, `m_iDecidedMapIndex`, dynamic-map-list externs.
 
