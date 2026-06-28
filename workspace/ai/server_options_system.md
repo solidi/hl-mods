@@ -59,10 +59,10 @@ VOTE_MUTATOR_TRANSITION ...
 
 Chat `serveroptions` in `Host_Say` accumulates RTV threshold votes using existing logic. On threshold hit, `VoteForServerOptions(TRUE)` opens the panel immediately.
 
-RTV gating: this path shares a cross-type lock with `mutator` and `gameoptions` RTV. While another RTV is collecting/open, `serveroptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
+RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutator`, and `gameoptions` RTV. While another RTV is collecting/open, `serveroptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
 
 RTV-specific behavior:
-- Sends `flags bit0=1` so clients may auto-close once local player has voted all rows.
+- Sends `flags bit0=1` so clients auto-close about 2.0s after local player has voted all rows.
 - Uses `m_fServerOptionsVoteTime` for countdown separate from intermission sequence.
 - If any winning row has `restart=1`, server issues `changelevel <current>` after apply.
 - If there are zero active rows, initiator gets direct feedback and no global spam.

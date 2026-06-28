@@ -63,7 +63,7 @@ VOTE_MUTATOR_TRANSITION ...
 
 Chat `gameoptions` → `Host_Say` → `GameOptionsVote()` accumulates substring matches (same threshold logic as mutator RTV). On success: `VoteForGameOptions(TRUE)` opens the panel immediately. Tally runs on a small standalone timer (`CheckGameOptionsRTV()` checked every Think frame). If any winning row had `restart=1`, the server issues a `changelevel <current>` so the new cvars take effect on a fresh round.
 
-RTV gating: this path shares a cross-type lock with `mutator` and `serveroptions` RTV. While another RTV is collecting/open, `gameoptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
+RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutator`, and `serveroptions` RTV. While another RTV is collecting/open, `gameoptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
 
 G9 path: if `BuildActiveGameOptions()` finds 0 matches at RTV time, the initiator gets a direct chat reply ("No game options available for the current mode") rather than spamming everyone.
 
@@ -107,8 +107,8 @@ BYTE flags              // optional; bit0=1 allows client auto-close when all ro
 
 Intermission/end-of-round flow sends `flags=0`, so the panel remains visible
 after local selection and is dismissed only when the server closes it (at
-transition to the next vote panel). RTV flow sends `flags=1`, preserving the
-existing "all rows selected → short grace auto-dismiss" behavior.
+transition to the next vote panel). RTV flow sends `flags=1`; once the local
+player has voted every active row, the panel waits about 2.0s and auto-dismisses.
 
 If client revision mismatches and panel opened, render a "waiting" placeholder row (G4) and auto-fire `gameoptions_resend`.
 

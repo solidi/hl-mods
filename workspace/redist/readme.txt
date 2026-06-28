@@ -38,14 +38,14 @@ v1.1 Features:
     - Auto-taunt triggers only when using the offhand
     - Using taunt no longer prevents attacking
     - Expand lj so that the player can longjump in any direction
-- Game Options Voting
-    - Added dynamic game-options voting (see gameoptions.txt); per-item rows
+- Expanded Real Time In-Game Voting
+    - Added rtv of gamemodes, type "gamemodes" in chat to start rtv
+    - Added rtv of maps, type "maps" in chat to start rtv
+    - Added rtv of mutators, type "mutators" in chat to start rtv
+    - Added rtv dynamic game-options, type "gameoptions", (see gameoptions.txt)
     - Options vote panel sits between gameplay and mutator phases at end of round
-    - Trigger RTV mid-game with "gameoptions"
-- Server Options Voting
-    - Added dynamic server-options voting (see serveroptions.txt); per-item rows
+    - Added dynamic server-options, type "serveroptions", (see serveroptions.txt)
     - Options vote panel sits between gameoptions and mutator phases at end of round
-    - Trigger RTV mid-game with "serveroptions"
 - Voting Improvements
     - Dynamic map voting menu supports up to 128 maps sent from the server's mapcycle.txt
     - Vote tallies on buttons are now on the right side, and font size increased for readability
@@ -54,6 +54,7 @@ v1.1 Features:
     - Fixed menu title selection and added a brief pause for mutator menu voting
     - Spectators cannot start a rtv of mutators, gameoptions, or serveroptions
     - Self voting selection is now clear with white highlights
+    - Added gamemode to all vote panels so its clear
 - Game Modes Changes
     - New celebration sequences switch to thirdperson, play sounds
     - Added banner system so that it is clear of team objective on entering arena
@@ -416,6 +417,7 @@ Client:
 - "cl_weather [0|1]" - allow or disallow weather effects on client
 - "feign" - Fake your death
 - "drop_rune" - Drop rune
+- "gamemodes" - type in the chat to start a game mode vote
 - "gameoptions" - type in the chat to start a game-options vote
 - "gameoptions_resend" - re-request the current game-options manifest
 - "gameoptions_status" - print game-options parser state
@@ -433,9 +435,12 @@ Client:
 - "impulse 216" - Throw Explosive Weapon
 - "keyboard" - show default key binds on the HUD
 - "serveroptions" - type in the chat to start a server-options vote
+- "serveroptions_resend" - re-request the current server-options manifest
+- "serveroptions_status" - print server-options parser state
 - "snowman" - God mode (when sv_cheats 1)
 - "vote" - type in the chat to start a vote
-- "mutator" - type in the chat to start a rtv of mutators
+- "maps" - type in the chat to start a rtv of maps
+- "mutators" - type in the chat to start a rtv of mutators
 
 Server:
 

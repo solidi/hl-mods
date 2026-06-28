@@ -17,14 +17,12 @@
 //   rows are logged and skipped (see "serveroptions_status").
 // =============================================================================
 
-"Default Bots"
+"Bots"
 {
 	"cvar"     "sv_defaultbots"
 	"restart"  "0"
-	"None"    "0"
-	"3 bots"    "3"
-	"5 bots"    "5"
-	"10 bots"    "10"
+    "No" "0"
+    "Yes" "31"
 }
 
 "Bots Melee"
@@ -57,38 +55,6 @@
     "restart"  "0"
     "Normal" "0"
     "Realistic" "1"
-}
-
-"Weapons Stay"
-{
-    "cvar"     "mp_weaponstay"
-    "restart"  "1"
-    "No" "0"
-    "Yes" "1"
-}
-
-"Force Respawn"
-{
-    "cvar"     "mp_forcerespawn"
-    "restart"  "0"
-    "Off" "0"
-    "On" "1"
-}
-
-"Footsteps"
-{
-    "cvar"     "mp_footsteps"
-    "restart"  "0"
-    "Off" "0"
-    "On" "1"
-}
-
-"Flashlight"
-{
-    "cvar"     "mp_flashlight"
-    "restart"  "0"
-    "Off" "0"
-    "On" "1"
 }
 
 "Random Weapon"

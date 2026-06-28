@@ -316,4 +316,5 @@ if either cvar is zero.
 - **Holder transition guard**: in CtC, if a bot becomes a chumtoad holder while a hook is active, `BotMaybeReleaseHook` force-releases immediately.
 - **Release reliability**: hook release now re-sends impulse 218 for a short burst (`f_hook_release_retry_until`) to avoid one-frame command loss leaving a latched hook.
 - **Desync failsafe**: if local bot state says hook is inactive but player movement still looks hook-latched (`MOVETYPE_FLY` + negative gravity), the bot reissues 218 and refreshes the retry window.
+- **Frozen-state guard**: hook deploy is blocked whenever `FL_FROZEN` is set, and active hooks are force-released if the bot becomes frozen mid-hook.
 - **Net effect**: prevents "forgotten deployed hook" stalls, including the CtC pickup-in-flight case.

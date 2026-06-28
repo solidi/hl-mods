@@ -35,6 +35,12 @@ All of them implement at minimum:
 - `SlotInput(int iSlot)` — keyboard slot selection (1–9 keys).
 - `Initialize()` — called on each new level start.
 
+## RTV Vote Panel Dismiss Rules
+
+- `CVoteGameplayPanel::Update()` and `CVoteMapPanel::Update()` auto-dismiss only for mid-game RTV (`!gHUD.m_iIntermission`) and now wait about 2.0 seconds after local vote selection before hiding.
+- `CVoteGameOptionsPanel::Update()` and `CVoteServerOptionsPanel::Update()` RTV path (`flags bit0`) auto-dismiss about 2.0 seconds after the local player has voted all active rows.
+- End-of-game intermission votes remain server-driven: panels stay visible until the server closes the phase (`timer=0`), so players can continue to watch tallies.
+
 ## RANDOM Goes First (Display) / Last (Index)
 
 Gameplay/mutator/map vote panels follow this convention. The full rationale lives in [voting_system.md → conventions](voting_system.md#1-random-is-always-displayed-first-but-indexed-last); the short version:
