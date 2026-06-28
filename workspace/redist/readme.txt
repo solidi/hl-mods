@@ -327,6 +327,7 @@ v1.1 Features:
         - Disabled weapon throw of cigarettes
         - Fixed floating animations of satchels and tripmines
         - Hornet damage now linked to sk_hornet_damage
+        - Improved railgun firing sound
 
 Highly-Valued Upcoming Features:
 

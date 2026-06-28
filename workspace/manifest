@@ -87,6 +87,8 @@ events\zapgun.sc
 events\vehicle.sc
 events\dual_glock.sc
 events\vice.sc
+events\dual_railgun.sc
+events\railgun.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
@@ -1605,6 +1607,7 @@ sound\ball_bounce.wav
 sound\dribble.wav
 sound\goal_1.wav
 sound\gameoptions.wav
+sound\railgun_fire2.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr
