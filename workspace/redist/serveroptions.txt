@@ -1,0 +1,126 @@
+// =============================================================================
+// serveroptions.txt -- server-defined dynamic vote items for SERVER-OPTIONS.
+//
+// This file is parsed by the server on map start and after file mtime changes.
+// Each block defines one row in the server-options vote panel (global scope).
+//
+// IMPORTANT:
+//   - Do NOT use a "game" key in this file. Server-options are global.
+//   - 2 to 5 option pairs per item.
+//   - Cvar names must be [A-Za-z0-9_]+ and already registered.
+//   - Value strings reject: ; \n \r " \ $
+//   - Current caps: 64 items, title 63 chars, cvar 31 chars, label 23 chars,
+//     value 31 chars.
+//
+// Wire-budget safety:
+//   Each item must fit the per-chunk user-message payload budget. Oversized
+//   rows are logged and skipped (see "serveroptions_status").
+// =============================================================================
+
+"Default Bots"
+{
+	"cvar"     "sv_defaultbots"
+	"restart"  "0"
+	"None"    "0"
+	"3 bots"    "3"
+	"5 bots"    "5"
+	"10 bots"    "10"
+}
+
+"Bots Melee"
+{
+	"cvar"     "sv_botsmelee"
+	"restart"  "0"
+    "No" "0"
+    "Yes" "1"
+}
+
+"Grappling Hook"
+{
+    "cvar"     "mp_grapplinghook"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Runes"
+{
+    "cvar"     "mp_allowrunes"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Fall Damage"
+{
+    "cvar"     "mp_falldamage"
+    "restart"  "0"
+    "Normal" "0"
+    "Realistic" "1"
+}
+
+"Weapons Stay"
+{
+    "cvar"     "mp_weaponstay"
+    "restart"  "1"
+    "No" "0"
+    "Yes" "1"
+}
+
+"Force Respawn"
+{
+    "cvar"     "mp_forcerespawn"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Footsteps"
+{
+    "cvar"     "mp_footsteps"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Flashlight"
+{
+    "cvar"     "mp_flashlight"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Random Weapon"
+{
+    "cvar"     "mp_randomweapon"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Flips"
+{
+    "cvar"     "sv_acrobatics"
+    "restart"  "0"
+    "Off" "0"
+    "On" "1"
+}
+
+"Spawn Protect Time"
+{
+	"cvar"     "mp_spawnprotectiontime"
+	"restart"  "0"
+	"None"    "0"
+	"3 secs"    "3"
+	"5 secs"    "5"
+	"10 secs"    "10"
+}
+
+"Melee Drops Weapon"
+{
+	"cvar"     "mp_meleedrop"
+	"restart"  "0"
+    "Off" "0"
+    "On" "1"
+}

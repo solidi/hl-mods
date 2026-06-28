@@ -42,13 +42,17 @@ v1.1 Features:
     - Added dynamic game-options voting (see gameoptions.txt); per-item rows
     - Options vote panel sits between gameplay and mutator phases at end of round
     - Trigger RTV mid-game with "gameoptions"
+- Server Options Voting
+    - Added dynamic server-options voting (see serveroptions.txt); per-item rows
+    - Options vote panel sits between gameoptions and mutator phases at end of round
+    - Trigger RTV mid-game with "serveroptions"
 - Voting Improvements
     - Dynamic map voting menu supports up to 128 maps sent from the server's mapcycle.txt
     - Vote tallies on buttons are now on the right side, and font size increased for readability
     - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
     - Send current menu to a connecting player during a vote
     - Fixed menu title selection and added a brief pause for mutator menu voting
-    - Spectators cannot start a rtv of mutators or gameoptions
+    - Spectators cannot start a rtv of mutators, gameoptions, or serveroptions
     - Self voting selection is now clear with white highlights
 - Game Modes Changes
     - New celebration sequences switch to thirdperson, play sounds
@@ -427,6 +431,7 @@ Client:
 - "impulse 215" - Force Grab
 - "impulse 216" - Throw Explosive Weapon
 - "keyboard" - show default key binds on the HUD
+- "serveroptions" - type in the chat to start a server-options vote
 - "snowman" - God mode (when sv_cheats 1)
 - "vote" - type in the chat to start a vote
 - "mutator" - type in the chat to start a rtv of mutators

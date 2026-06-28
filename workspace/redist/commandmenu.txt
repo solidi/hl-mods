@@ -53,6 +53,7 @@
     "0" "End of Game Vote" "say vote"
     "1" "RTV Mutators" "say mutator"
     "2" "RTV Game Options" "say gameoptions"
+    "3" "RTV Server Options" "say serveroptions"
 }
 "2" "Weapons"
 {

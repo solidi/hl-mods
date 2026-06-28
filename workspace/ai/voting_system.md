@@ -2,7 +2,7 @@
 
 > Parents: [cir.md](cir.md) · related to both [server.md](server.md) and [client.md](client.md) · sibling: [vgui_system.md](vgui_system.md)
 
-The voting system spans both DLLs: the server runs the timer / tally / decision logic, the client renders the panels and forwards `vote N` console commands. There are **four** votes that fire in sequence at intermission — gameplay, **game-options**, mutator, map — and they all follow the same conventions.
+The voting system spans both DLLs: the server runs the timer / tally / decision logic, the client renders the panels and forwards `vote N` console commands. There are **five** votes that fire in sequence at intermission — gameplay, **game-options**, **server-options**, mutator, map — and they all follow the same conventions.
 
 ## Vote Flow (one intermission)
 
@@ -23,7 +23,14 @@ VOTE_GAMEOPTIONS_TRANSITION
 VOTE_GAMEOPTIONS_OPEN ─▶ gmsgVoteOpts(rev,timer,N,idx…) ▶ CVoteGameOptionsPanel
     │ wait voting*1 seconds; tally per row; CVAR_SET_STRING winners
     ▼
-VOTE_MUTATOR_OPEN    ──▶ gmsgVoteMutator(timer)   ─────▶ CVoteMutatorPanel
+VOTE_SERVEROPTIONS_TRANSITION
+    │ wait voting*1 seconds; build active global server-options set
+    │   (skip phase if 0 rows loaded from serveroptions.txt)
+    ▼
+VOTE_SERVEROPTIONS_OPEN ─▶ gmsgVoteSrvOp(rev,timer,N,idx…) ▶ CVoteServerOptionsPanel
+    │ wait voting*1 seconds; tally per row; CVAR_SET_STRING winners
+    ▼
+VOTE_MUTATOR_OPEN    ──▶ gmsgVoteMutator(timer)   ─────▶ CVoteMutatorPanel (plus synthetic INSTANT MUTATORS slot)
     │ wait voting*1 seconds; tally; broadcast result
     ▼
 VOTE_MAPS_TRANSITION
@@ -37,7 +44,7 @@ VOTE_MAPS_OPEN       ──▶ gmsgVoteMap(timer)       ─────▶ CVote
 m_iDecidedMapIndex set; ChangeLevel() honors it
 ```
 
-`VOTE_*` constants live in `gamerules.h`; the timer cvar is `voting` (seconds per phase, ×4 phases, ≥10 to trigger). Total intermission scales to `voting*4 + 12` seconds.
+`VOTE_*` constants live in `gamerules.h`; the timer cvar is `voting` (seconds per phase, ×5 phases, ≥10 to trigger). Total intermission scales to `voting*5 + 15` seconds.
 
 ## What Each Vote Decides
 
@@ -45,10 +52,18 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 |------|---------|---------------------|-----------------|
 | Gameplay | `g_GameMode` for next map | `gamePlayModes[]` in `multiplay_gamerules.cpp` | Wins → server picks any mode |
 | Game-options | Per-row `CVAR_SET_STRING` of each item in `gameoptions.txt` whose `game` matches new `g_GameMode` or is `*` | `g_GameOptions[]` parsed at boot/mtime change | Each row picks the most-voted option; ties resolved with `RANDOM_LONG` |
-| Mutator  | `sv_mutatorlist` to apply on next map | `g_szMutators[]` in gamerules | Wins → server picks one (or two) via `RandomizeMutator()` |
+| Server-options | Per-row `CVAR_SET_STRING` of each item in `serveroptions.txt` (global, no mode filtering) | `g_ServerOptions[]` parsed at boot/mtime change | Each row picks the most-voted option; ties resolved with `RANDOM_LONG` |
+| Mutator  | `sv_mutatorlist` to apply on next map, plus `sv_instantmutators` toggle | `g_szMutators[]` in gamerules (+ synthetic "INSTANT MUTATORS" vote slot) | RANDOM wins → server picks one (or two) via `RandomizeMutator()` |
 | Map      | `m_iDecidedMapIndex` overriding the cycle's next-up | `g_szServerMaps[]` (dynamic; see [vgui_system.md](vgui_system.md#dynamic-map-list)) | Wins → server re-rolls into a real index |
 
-## Common Conventions (all three votes)
+## Common Conventions (RANDOM-slot convention: gameplay/mutator/map)
+
+### RTV gate and cooldown (mutator/gameoptions/serveroptions)
+
+- Chat RTV paths for `mutator`, `gameoptions`, and `serveroptions` now share one lock.
+- While one of these RTVs is collecting votes or has its vote panel open, the other RTV commands are blocked.
+- Blocked callers receive explicit feedback naming which RTV currently owns the lock and how many seconds remain.
+- After an RTV ends (or its collection window expires), `mp_rtvcooldown` seconds must pass before any of the three RTV types can be started again.
 
 ### 1. RANDOM is always **displayed first** but **indexed last**
 
@@ -93,15 +108,47 @@ If the highest tally is `<= 0`, the server prints `[VOTE] Not enough votes recei
 | `GameOpts` | `-1` | S→C unicast | chunked game-options manifest (see [game_options_system.md](game_options_system.md)) |
 | `VoteOpts` | `-1` | S→C broadcast | `BYTE rev; BYTE timer; BYTE activeCount; BYTE[] activeIndices` (timer=0 closes panel) |
 | `VOptFor`  | `3`  | S→C broadcast | `BYTE clientIndex; BYTE item; BYTE option` (1-based) |
+| `SrvOpts` | `-1` | S→C unicast | chunked server-options manifest (global scope; no `game` token) |
+| `VoteSrvOp` | `-1` | S→C broadcast | `BYTE rev; BYTE timer; BYTE activeCount; BYTE[] activeIndices` (timer=0 closes panel) |
+| `SOptFor`  | `3`  | S→C broadcast | `BYTE clientIndex; BYTE item; BYTE option` (1-based) |
 
 All registered in `player.cpp::LinkUserMessages()`. **Names ≤10 chars** (≤8 is the safe target; see [server.md → User-Message Registry](server.md#user-message-registry)).
+
+Missing/empty/malformed manifest behavior:
+- `gameoptions.txt` and `serveroptions.txt` are optional. Missing/empty files do not crash and result in zero loaded rows.
+- Parser drops malformed rows and keeps valid rows from the same file.
+- If a manifest finishes with zero valid rows, that vote phase is skipped/ignored (RTV path reports no options; intermission path transitions to next phase).
+
+## Mutator Vote Synthetic Slot
+
+Mutator voting now includes one synthetic option that is **not** part of
+`g_szMutators[]`:
+
+- Display label: `INSTANT MUTATORS`
+- Display position: injected immediately after `CHAOS` in the mutator panel grid
+- Vote ID on wire: `MAX_MUTATORS + 2` (1-based)
+- Tally index server-side: `MAX_MUTATORS + 1` (0-based)
+
+Server mutator tally arrays are sized `MAX_MUTATORS + 2` and interpreted as:
+
+- `0 .. MAX_MUTATORS-1`: real mutators from `g_szMutators[]`
+- `MAX_MUTATORS`: RANDOM
+- `MAX_MUTATORS + 1`: INSTANT MUTATORS (synthetic)
+
+Selection/apply semantics:
+
+- If INSTANT MUTATORS appears in the **top 3** mutator vote winners,
+    server queues `sv_instantmutators 1` for next map.
+- Otherwise, server queues `sv_instantmutators 0`.
+- INSTANT MUTATORS does not consume a `sv_mutatorlist` slot; the mutator
+    list is built from top winners filtered to real mutator indices only.
 
 ## Key Files (everything voting touches)
 
 ### Server
 - `src/dlls/multiplay_gamerules.cpp` — vote phase machine in `Think()`, `RandomizeMutator()`, `BuildServerMapList()`, `SendMapListToClient()`, `ChangeLevel()` map override.
 - `src/dlls/client.cpp::Vote()` — handles the `vote N` console command, dispatches `VoteFor`.
-- `src/dlls/player.cpp::LinkUserMessages()` — `gmsgVoteGameplay`, `gmsgVoteMutator`, `gmsgVoteMap`, `gmsgVoteFor`, `gmsgMapList` registration.
+- `src/dlls/player.cpp::LinkUserMessages()` — vote and manifest user-message registration (`Vote*`, `MapList`, `GameOpts/VoteOpts/VOptFor`, `SrvOpts/VoteSrvOp/SOptFor`).
 - `src/dlls/gamerules.h` — `VOTE_*` constants, `m_iVoteCount[MAX_PLAYERS]`, `m_iVoteUnderway`, `m_iDecidedMapIndex`, dynamic-map-list externs.
 
 ### Client
@@ -109,6 +156,8 @@ All registered in `player.cpp::LinkUserMessages()`. **Names ≤10 chars** (≤8 
 - `src/cl_dll/vgui_VoteGameplayWindow.cpp` — `CVoteGameplayPanel`.
 - `src/cl_dll/vgui_VoteMutatorWindow.cpp` — `CVoteMutatorPanel`.
 - `src/cl_dll/vgui_VoteMapWindow.cpp` — `CVoteMapPanel` (dynamic; rebuilds buttons in `Open()`).
+- `src/cl_dll/vgui_VoteGameOptionsWindow.cpp` — `CVoteGameOptionsPanel` (dynamic rows from active filtered game-options).
+- `src/cl_dll/vgui_VoteServerOptionsWindow.cpp` — `CVoteServerOptionsPanel` (dynamic rows from active global server-options).
 - `src/cl_dll/hud.cpp` — `HOOK_MESSAGE` registrations.
 
 ## Adding a New Vote — Cheatsheet

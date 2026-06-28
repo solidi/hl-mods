@@ -16396,7 +16396,7 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 45 0"
-"origin" "312 154 324"
+"origin" "352 144 336"
 }
 {
 "classname" "info_player_deathmatch"
@@ -16406,7 +16406,7 @@
 {
 "classname" "info_player_deathmatch"
 "angles" "0 180 0"
-"origin" "1373 253 50"
+"origin" "1344 256 80"
 }
 {
 "classname" "info_player_deathmatch"

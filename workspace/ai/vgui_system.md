@@ -11,7 +11,7 @@ Covers the retained-mode VGUI viewport, every menu panel mounted under it, and t
 - Owns: `CSchemeManager` (font/color schemes), `ScorePanel`, the active `CMenuPanel*`, all VGUI message handlers.
 - Display switching: `ShowVGUIMenu(MENU_*, timer)` sets the active panel; `HideVGUIMenu()` clears it.
 
-`MENU_*` IDs are defined as enum entries near the top of `vgui_TeamFortressViewport.h`. The vote panels are `MENU_VOTEGAMEPLAY`, `MENU_VOTEMUTATOR`, `MENU_VOTEMAP`.
+`MENU_*` IDs are defined as enum entries near the top of `vgui_TeamFortressViewport.h`. The vote panels are `MENU_VOTEGAMEPLAY`, `MENU_VOTEMAP`, `MENU_VOTEMUTATOR`, `MENU_VOTEGAMEOPTIONS`, `MENU_VOTESERVEROPTIONS`.
 
 ## Menu Panel Family
 
@@ -20,7 +20,9 @@ CMenuPanel (base; src/cl_dll/vgui_MenuPanel.cpp)
 ├── CClassMenuPanel
 ├── CTeamMenuPanel
 ├── CVoteGameplayPanel    — vote on next game mode
-├── CVoteMutatorPanel     — vote on next mutator
+├── CVoteGameOptionsPanel — vote per-row mode-filtered game options (`gameoptions.txt`)
+├── CVoteServerOptionsPanel — vote per-row global server options (`serveroptions.txt`)
+├── CVoteMutatorPanel     — vote on next mutator (+ synthetic INSTANT MUTATORS toggle)
 ├── CVoteMapPanel         — vote on next map (dynamic; see below)
 ├── CMOTDPanel
 └── …
@@ -35,7 +37,7 @@ All of them implement at minimum:
 
 ## RANDOM Goes First (Display) / Last (Index)
 
-All three vote panels follow the same convention. The full rationale lives in [voting_system.md → conventions](voting_system.md#1-random-is-always-displayed-first-but-indexed-last); the short version:
+Gameplay/mutator/map vote panels follow this convention. The full rationale lives in [voting_system.md → conventions](voting_system.md#1-random-is-always-displayed-first-but-indexed-last); the short version:
 
 | | Display position | Array index / vote ID |
 |---|---|---|
@@ -43,6 +45,17 @@ All three vote panels follow the same convention. The full rationale lives in [v
 | Real entries | grid cells 1..N filled left-to-right, top-to-bottom | 0..count-1 / vote IDs 1..count |
 
 `CVoteMapPanel::BuildButtons()` is the canonical (dynamic-count) implementation; `CVoteGameplayPanel` and `CVoteMutatorPanel` constructors do the equivalent with their fixed-size arrays.
+
+## Mutator Panel Synthetic Entry
+
+`CVoteMutatorPanel` injects a synthetic button immediately after `CHAOS`:
+
+- Label: `INSTANT MUTATORS`
+- Vote command: `vote MAX_MUTATORS_CL+1` (which maps to server vote ID `MAX_MUTATORS + 2`)
+- Not backed by `sMutators[]` / `g_szMutators[]`
+
+UI tally/highlight treats it as an extra slot beyond the mutator array,
+while still rendering regular mutators exactly as before.
 
 ## Dynamic Map List
 

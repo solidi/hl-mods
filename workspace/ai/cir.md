@@ -133,6 +133,7 @@ Most features cut across both halves via a registered user-message; if you are t
 ### Cross-cutting (server + client together)
 - [voting_system.md](voting_system.md) — gameplay / mutator / map vote sequence; conventions every vote panel must follow.
 - [game_options_system.md](game_options_system.md) — fourth vote phase; server-defined dynamic cvar items from `gameoptions.txt`.
+- [server_options_system.md](server_options_system.md) — fifth vote phase; server-defined global cvar items from `serveroptions.txt` (no `game` token).
 - [runes.md](runes.md) — rune entities, effects, spawn cycle, `drop_rune` mechanic. Server-side reference for the bot rune logic in `gravebot.md`.
 - [grappling_hook.md](grappling_hook.md) — `CHook` / `grapple_hook` projectile, lifecycle, cvars, and post-scan hardening notes. See that doc for build wiring notes.
 
