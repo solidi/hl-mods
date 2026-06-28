@@ -31,6 +31,7 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `vgui_TeamFortressViewport.{h,cpp}` — the client viewport, all VGUI menus, all VGUI message handlers. See [vgui_system.md](vgui_system.md).
 - `vgui_VoteMapWindow.cpp`, `vgui_VoteGameplayWindow.cpp`, `vgui_VoteMutatorWindow.cpp` — the three vote panels.
 - `ev_hldm.cpp` — client-side weapon firing/prediction events. New server weapons that fire visibly need an entry here, otherwise the local player sees lag.
+- `hl/hl_events.cpp` — binds `events/*.sc` scripts to `EV_Fire*` callbacks.
 - `parsemsg.{h,cpp}` — `BEGIN_READ` / `READ_BYTE` / `READ_STRING` helpers used by every `MsgFunc_*`.
 
 ## Hooking a New User Message
@@ -71,3 +72,4 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 - **Construct furniture in the panel ctor; build dynamic content in `Open()`.** Anything sourced from a server user message (vote rosters, dynamic map list, MOTD) may not have arrived when the panel is constructed at level load. `CVoteMapPanel` is the reference pattern: empty arrays in the ctor, `BuildButtons()` from `Open()`, teardown of any prior buttons before rebuild.
 - **Reset chunked accumulators on `seq == 0`, commit on `isLast`.** Don't trust intermediate state — a reconnect or restart can interleave a fresh stream with a partial one.
 - **HUD vs VGUI is a hard line.** Buttons / focus / scrollbars belong in VGUI panels; per-frame immediate-mode draws (radar, banner, ammo) belong in `CHudBase` subclasses. The schemes (fonts/colors) are independent.
+- **Weapon effect responsiveness comes from event callbacks, not server temp entities.** Pattern: server `PLAYBACK_EVENT_FULL` in weapon fire code, client `EV_FireXxx` in `ev_hldm.cpp`, hook in `hl_events.cpp`, plus an `events/<name>.sc` stub in `workspace/redist/events/`. See the railgun/dual-railgun implementation for a complete example.

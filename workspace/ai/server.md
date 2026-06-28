@@ -28,6 +28,15 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 - `cbase.cpp` — engine function table (`gFunctionTable`) wiring the SDK callbacks to our exports.
 - `weapons.{h,cpp}` and `wpn_*.cpp` — server-side weapon implementations. Pair each with a client-side prediction event in `cl_dll/ev_hldm.cpp` if the firing code needs to feel snappy.
 
+## Weapon Effects: Server vs Client
+
+- Keep **damage, authoritative traces, and game-state mutations** in `src/dlls/<weapon>.cpp` under server code paths.
+- Move **visual-only beam/trail/impact effects** to client events (`ev_hldm.cpp`) driven by `PLAYBACK_EVENT_FULL` from the weapon fire path.
+- Register each new event in both places: server `PRECACHE_EVENT("events/<name>.sc")` and client `hl_events.cpp::Game_HookEvents()`.
+- Ensure the corresponding script exists in `workspace/redist/events/<name>.sc` (stub content is fine).
+
+Reference implementation: `weapon_railgun` / `weapon_dual_railgun` now use this split so lagging clients still see immediate local firing effects.
+
 ## User-Message Registry
 
 The one place to register a `gmsg<Name>` user message is `player.cpp::LinkUserMessages()`. Two things to know:
