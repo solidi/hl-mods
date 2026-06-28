@@ -132,7 +132,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     1. [x] one waypoint in snowyard by backyard ladder has no paths
 1. Use AI to
-    1. [x] Move railgun system to client sided
+    1. [x] Move railgun system to client-side
     1. [x] Add support for menu on round based games, commit to gamemode
     1. Mouse P.I. for Hire
         1. [x] Last hit is bullet + Headshot, remove head
