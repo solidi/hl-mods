@@ -75,6 +75,16 @@
 }
 
 // busters
+"Buster count"
+{
+	"game"     "busters"
+	"cvar"     "mp_busterscount"
+	"restart"  "0"
+	"1 buster"   "1"
+	"2 busters"  "2"
+	"3 busters"  "3"
+}
+
 "Score Limit"
 {
 	"game"    "busters"

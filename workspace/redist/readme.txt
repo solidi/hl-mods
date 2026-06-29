@@ -75,6 +75,7 @@ v1.1 Features:
         - Improve timeup team win calculation
         - Safe spot moves to random info_player_deathmatch entities per round
     - Busters
+        - Added mp_busterscount, expanding from 1 to 3 busters at a time
         - Improved bot behaviors, including targeting the egon and the buster when available
         - Added explosion when picking up the egon so it clears enemies to avoid clustering
         - Place the player's view in thirdperson when having the egon
@@ -451,6 +452,7 @@ Server:
 - "botpause [0|1]" - Bots stay in place
 - "mp_allowrunes [0|1]" - Allow powerup runes on server
 - "mp_allowvoiceovers [0|1]" - Allow public voiceovers
+- "mp_busterscount [1-3]" - Max buster count during gameplay
 - "mp_coldspotspawn" - name of entity where the spot will spawn
 - "mp_coldspottime" - time in seconds of when spot moves
 - "mp_ctcsecondsforpoint" - amount of second holding chumtoad for a point

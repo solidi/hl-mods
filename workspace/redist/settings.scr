@@ -637,4 +637,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ NUMBER 1.000000 5.000000 }
 		{ "1" }
 	}
+
+	"mp_busterscount"
+	{
+		"#Ice_BustersCount"
+		{ NUMBER 1.000000 3.000000 }
+		{ "1" }
+	}
 }

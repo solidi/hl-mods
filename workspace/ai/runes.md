@@ -73,8 +73,8 @@ gamemode role tags (Busters / CTC / Arena / CTF / Loot).
 
 | Method | Purpose |
 |---|---|
-| `Spawn()` | Precaches all 9 rune classes, schedules `SpawnRunes` at +5 s. |
-| `Precache()` | `UTIL_PrecacheOther` for each `rune_*` class. |
+| `Spawn()` | Calls `Precache()`, then schedules `SpawnRunes` at +5 s. |
+| `Precache()` | Delegates to shared `PrecacheRunes()` (all 9 `rune_*` classes). |
 | `SpawnRunes()` | Spawn cycle — runs every 30 s. Spawn count = `min(ceil(playerCount/2) + 1, 9)`. |
 | `CreateRune(class)` | Picks a random `info_player_deathmatch` via `SelectSpawnPoint`, creates the entity with random velocity, applies mutator side-effects (turrets / barrels / rats may also spawn). |
 | `SelectSpawnPoint(spot)` | Random `info_player_deathmatch`. |
@@ -82,6 +82,31 @@ gamemode role tags (Busters / CTC / Arena / CTF / Loot).
 
 Spawn cadence: first batch +5 s after map load, rebuild every 30 s. Up to
 nine runes can be alive at once.
+
+### 3.1 Precache safety patch (2026-06)
+
+This was patched after a map-cycle crash:
+
+- Crash symptom: `Host_Error: PF_precache_model_I: 'models/w_runes.mdl' Precache can only be done in spawn functions`.
+- Root cause: world rune spawning was gated by `mp_allowrunes` in
+   [src/dlls/world.cpp](../src/dlls/world.cpp#L548-L549), but runes can still
+   be created later by gameplay code (for example JvS grants `rune_cloak` in
+   [src/dlls/jvs_gamerules.cpp](../src/dlls/jvs_gamerules.cpp#L626), and
+   Snowball paths can create `rune_ammo` in
+   [src/dlls/weapons.cpp](../src/dlls/weapons.cpp#L951) and
+   [src/dlls/multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp#L3485)).
+- Fix: add a shared `PrecacheRunes()` declaration in
+   [src/dlls/items.h](../src/dlls/items.h#L44), implement it in
+   [src/dlls/items.cpp](../src/dlls/items.cpp#L1120), call it from
+   `CWorldRunes::Precache`, and also call it unconditionally in
+   `CWorld::Precache` at [src/dlls/world.cpp](../src/dlls/world.cpp#L602).
+
+Resulting behavior:
+
+- `mp_allowrunes` now controls only whether the periodic world rune spawner is
+   created.
+- Rune assets/classes are always precached during map spawn, so later
+   `Create("rune_*")` / `GiveNamedItem("rune_*")` calls are safe.
 
 ---
 

@@ -3,6 +3,7 @@
 ## Overview
 - **Game Mode**: `GAME_BUSTERS = 3` (defined in `common/const.h`)
 - **String ID**: `"busters"` (mp_gamemode cvar)
+- **Buster Count Cvar**: `mp_busterscount` (default 1, min 1, max 3; runtime-capped by active players)
 - **Description**: `"Cold Ice Cold Busters"` — Reverse-deathmatch where the lowest-scoring player becomes "the Buster" with the egon and hunts everyone else.
 - **Source**: `src/dlls/busters_gamerules.cpp`, `src/dlls/busters_gamerules.h`
 - **Class**: `CMultiplayBusters : public CHalfLifeMultiplay`
@@ -16,10 +17,10 @@
 - Score tracked per-player via `m_iRoundWins` (NOT `pev->frags`; frags are used to pick the next Buster).
 
 ## Teams
-- **Busters**: Team name `"busters"`, team index 1. Exactly one live player at a time (the current Buster). Model forced to `frost` (blue HEV suit). `pev->fuser4 = RADAR_BUSTER`.
+- **Busters**: Team name `"busters"`, team index 1. Supports multiple live busters up to the dynamic target count (`mp_busterscount`, capped by the 2:1 ghost-to-buster ratio). Model forced to `frost` (blue HEV suit). `pev->fuser4 = RADAR_BUSTER`.
 - **Ghosts**: Team name `"ghosts"`, team index 0. All other players. Model forced to `skeleton`. `pev->fuser4 = 0`.
 - `IsTeamplay()` returns **TRUE**. The scoreboard and friendly-fire handling treat ghosts as a team, so ghosts cannot hurt each other when `friendlyfire` cvar is 0.
-- `PlayerRelationship`: returns `GR_TEAMMATE` when both entities share the same non-empty `TeamID()` string, else `GR_NOTTEAMMATE`. Since the Buster is the only member of "busters", buster-vs-ghost is always `GR_NOTTEAMMATE`.
+- `PlayerRelationship`: returns `GR_TEAMMATE` when both entities share the same non-empty `TeamID()` string, else `GR_NOTTEAMMATE`. With multi-buster enabled, buster-vs-buster counts as teammates (friendly-fire gated by `friendlyfire`).
 - `FPlayerCanTakeDamage`: blocks damage when `pev->fuser4` matches between attacker and victim (i.e., both are ghosts), unless `friendlyfire` is enabled or it's self-damage. Buster (`fuser4 = RADAR_BUSTER`) vs any ghost (`fuser4 = 0`) always passes through.
 - Team selection is automatic; no team menu. Teams are rewritten every frame via `SetPlayerModel` based on egon possession.
 
@@ -36,46 +37,72 @@
 ### Key Members
 | Field | Type | Purpose |
 |-------|------|---------|
-| `m_flEgonBustingCheckTime` | float | Countdown before re-granting the egon when no Buster exists. `-1` = reset; else `gpGlobals->time + EGON_BUSTING_TIME` (10s) |
+| `m_flEgonBustingCheckTime` | float | Countdown before granting the next replacement egon when total egons (held + loose) are below target. `-1` = idle; else `gpGlobals->time + EGON_BUSTING_TIME` (10s) |
 | `m_flCheckForWeapons` | float | Next tick (1s) to re-sync model/render for any player on the `"busters"` team who no longer holds the egon (handles stolen-weapon edge cases) |
+| `m_flObjectiveUpdateTime` | float | Next per-mode objective HUD refresh (`gmsgObjective`). Runs at 1s cadence in `Think`; set to `0` to force immediate recompute next tick |
 
 ### Think (runs every server tick, not gated)
 1. Early-out while `g_fGameOver`.
 2. Calls `CheckForEgons()` (see below).
-3. Walks all live clients:
+3. Runs objective HUD refresh when `m_flObjectiveUpdateTime <= gpGlobals->time`:
+   - Calls `SendObjectiveUpdate()` (per-client `gmsgObjective` with role-aware heading and count-aware status line).
+   - Re-arms timer to `now + 1.0f`.
+4. Walks all live clients:
    - Resets `cam_buster` status icon after `m_fCameraDelay` expires.
    - Triggers intermission if any player's `m_iRoundWins >= scorelimit.value`.
    - Shows `gmsgBanner` "You are a Ghost / Defeat the buster..." to newly spawned non-bot players via `m_iShowGameModeMessage`.
-4. Delegates to `CHalfLifeMultiplay::Think()`.
+5. Delegates to `CHalfLifeMultiplay::Think()`.
+
+### Objective HUD (`SendObjectiveUpdate`, `BustersObjectiveStatusText`)
+- Busters now mirrors CtC-style status reporting: objective text is recomputed from aggregate mode state (`playerCount`, `targetBusters`, `holderCount`, `looseCount`) instead of only one-off pickup/death broadcasts.
+- Heading line is role-aware:
+  - Spectator: `Watching Busters`
+  - Buster: `You Are Busting!` (or `You Are The Buster!` when target is single)
+  - Ghost: `Defeat the busters` (or `Defeat the buster` when target is single)
+- Status line is count/plural aware:
+  - Single-target mode: `<name> is busting!`, `The egon is free`, or `Selecting a buster...`
+  - Multi-target mode: `%d of %d busters are busting.`, `%d of %d egons are free.`, or `Selecting busters...`
+- Waiting state when insufficient players: `Busters waiting for players`.
+- Broadcast style: per-client `MSG_ONE_UNRELIABLE` sends once per second (or sooner when forced), not a static global line.
 
 ### CheckForEgons (the core state machine)
 1. **Every 1s** (`m_flCheckForWeapons`): for every player whose team is `"busters"` but who is NOT currently busting (lost the egon to a pickup by someone else), re-run `SetPlayerModel` to restore them to ghosts.
-2. **First call** after a Buster dies/disconnects: set `m_flEgonBustingCheckTime = gpGlobals->time + EGON_BUSTING_TIME` (10s) and return.
-3. **When timer expires**:
-   - If any player is already busting, return (timer stays cleared).
-   - Walk all `weaponbox` entities; if any contain a `WEAPON_EGON`, return (the dropped egon is still up for grabs — don't create another).
-   - Otherwise find all live players tied at the lowest `pev->frags`, random-pick one, `RemoveAllItems(false)`, set `fuser4 = RADAR_BUSTER`, `GiveNamedItem("weapon_egon")`.
-   - Finally, walk `weaponbox` entities again and `Kill()` any containing the now-redundant egon.
+2. **Compute dynamic target** every tick:
+  - `configured = clamp(mp_busterscount, 1..3)`
+  - `target = min(configured, floor(playerCount / 3))` to enforce at least **2 ghosts per buster**.
+  - If `playerCount < 3`, target is `0`.
+3. **Count environment state**: `holderCount = players holding egon`, `looseCount = weaponboxes containing egon`, `totalEgons = holderCount + looseCount`.
+4. **Trim overflow immediately** when `totalEgons > target`:
+  - Remove loose egon weaponboxes first.
+  - If still over, demote random holder(s) by removing `weapon_egon` and restoring ghost model/render state.
+5. **Staggered refill** when `totalEgons < target`:
+  - Arm `m_flEgonBustingCheckTime = now + EGON_BUSTING_TIME` (10s) if idle.
+  - On expiry, grant one egon to a random lowest-frag eligible live player (`RemoveAllItems(false)` + `GiveNamedItem("weapon_egon")`).
+  - If still below target, re-arm another 10s timer; otherwise clear timer (`-1`).
 
 ### PlayerGotWeapon (fired when any weapon is picked up)
 If the weapon is the egon:
-1. If another player is already busting (double-grant race), remove the weapon and `Kill()` it.
+1. If holder cap is already reached (`holders >= target`), remove the weapon and `Kill()` it.
 2. Reset `m_flEgonBustingCheckTime = -1`.
 3. Broadcast "Long live the new Buster!", play `CLIENT_SOUND_PICKUPYOURWEAPON`, show `cam_buster` icon.
-4. **Promote `pev->fuser4 = RADAR_BUSTER` immediately**, then fire a radial purge blast (TE_EXPLOSION sprite + TE_BEAMCYLINDER halo) and `::RadiusDamage(origin, pPlayer->pev, pPlayer->pev, 500, 256, CLASS_NONE, DMG_BLAST | DMG_ALWAYSGIB, TRUE)` — clears any nearby ghosts crowding the new Buster on pickup.
-5. Call `SetPlayerModel(pPlayer)` — changes team to `"busters"`, sets model to `frost`, re-asserts `fuser4 = RADAR_BUSTER`.
-6. Fully heal to `max_health`, armor to 100, blue glow shell (`kRenderFxGlowShell`, (0, 75, 250), renderamt 25).
-7. Force `m_iDefaultAmmo = 100` and refill the primary egon ammo slot.
+4. Set `m_flObjectiveUpdateTime = 0.0f` to force objective recompute on the next `Think` tick (important because this callback runs before egon ownership is fully committed in inventory).
+5. **Promote `pev->fuser4 = RADAR_BUSTER` immediately**, then fire a radial purge blast (TE_EXPLOSION sprite + TE_BEAMCYLINDER halo) and `::RadiusDamage(origin, pPlayer->pev, pPlayer->pev, 500, 256, CLASS_NONE, DMG_BLAST | DMG_ALWAYSGIB, TRUE)` — clears any nearby ghosts crowding the new Buster on pickup.
+6. Call `SetPlayerModel(pPlayer)` — changes team to `"busters"`, sets model to `frost`, re-asserts `fuser4 = RADAR_BUSTER`.
+7. Fully heal to `max_health`, armor to 100, blue glow shell (`kRenderFxGlowShell`, (0, 75, 250), renderamt 25).
+8. Force `m_iDefaultAmmo = 100` and refill the primary egon ammo slot.
 
 > ⚠️ **Ordering is load-bearing.** `PlayerGotWeapon` is invoked from `CBasePlayer::AddPlayerItem` *before* the egon is inserted into `m_rgpPlayerItems`. That means `IsPlayerBusting()` returns FALSE for the duration of this callback, and `SetPlayerModel` will overwrite `fuser4` back to `0` if it runs before the radius damage. The blast block must (a) write `fuser4 = RADAR_BUSTER` itself, and (b) execute *before* `SetPlayerModel`, otherwise `FPlayerCanTakeDamage` rejects every hit as same-team friendly fire and the explosion does zero damage.
 
 ### PlayerKilled (Buster died)
-1. Broadcasts "The Buster is dead!!" center-screen + `gmsgObjective` panel.
+1. Broadcasts center text with singular/plural awareness:
+  - single-target: `The Buster is dead!!`
+  - multi-target: `A Buster is dead!!`
 2. Plays `CLIENT_SOUND_MASSACRE`.
 3. Resets `m_flEgonBustingCheckTime = -1` (the timer will be re-armed on the next `CheckForEgons` call, giving ghosts a ~10s window to pick up the dropped egon).
 4. Credits killer with `m_iRoundWins++` (suicide does not award a point).
 5. Clears the victim's glow shell render state.
 6. Delegates to `CHalfLifeMultiplay::PlayerKilled` which drops the Buster's inventory — producing the `weaponbox` containing `WEAPON_EGON` on the ground.
+7. Immediately forces objective refresh (`m_flObjectiveUpdateTime = 0.0f; SendObjectiveUpdate();`) **after** base kill processing so holder/loose counts are accurate.
 
 ### Scoring (`IPointsForKill`)
 - Attacker is busting → returns **1** per ghost kill.
@@ -97,7 +124,7 @@ If the weapon is the egon:
 
 ### Weapon/Item/Mutator Restrictions
 - `BustingCanHaveItem(pPlayer, pItem)`: returns FALSE when the player is busting AND the item classname begins with `weapon_` or `ammo_`. Wired through `CanHavePlayerItem` and `CanHaveItem`.
-- `CanHaveNamedItem("weapon_egon")`: returns FALSE if anyone is already busting (prevents server-code-triggered double grants).
+- `CanHaveNamedItem("weapon_egon")`: returns FALSE when dynamic target is `0` OR when total egons in environment (holders + loose) already meets/exceeds target.
 - `CanHavePlayerAmmo`: Busters cannot pick up ammo.
 - `IsAllowedToDropWeapon`: Busters cannot manually drop (the egon only leaves them on death).
 - `WeaponShouldRespawn`: egon never respawns via the normal weapon recycler.
@@ -105,7 +132,7 @@ If the weapon is the egon:
 - `MutatorAllowed` blocks: `MUTATOR_RANDOMWEAPON`, `MUTATOR_INVISIBLE`, `MUTATOR_BUSTERS` (self), `MUTATOR_THIRDPERSON`.
 
 ### ClientDisconnected
-- If the disconnecting player was the Buster, reset `m_flEgonBustingCheckTime = -1` and broadcast "The Buster disconnected!!" so `CheckForEgons` re-grants immediately on next tick.
+- If a disconnecting player was busting, reset `m_flEgonBustingCheckTime = -1` and broadcast "The Buster disconnected!!" so `CheckForEgons` can refill any missing slot(s).
 
 ## Spectator Behavior
 
@@ -133,6 +160,9 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
 ## Key Constants
 ```cpp
 #define EGON_BUSTING_TIME 10                // seconds the dropped egon stays up for grabs
+// objective refresh cadence: 1.0s            // via m_flObjectiveUpdateTime / SendObjectiveUpdate
+// cvar: mp_busterscount                     // desired buster count, clamped 1..3
+// runtime cap: floor(playerCount / 3)       // enforces 2 ghosts per buster
 // cvar: scorelimit                         // m_iRoundWins needed to win
 // cvar: friendlyfire                       // if 0, ghosts cannot hurt each other
 // RADAR_BUSTER                             // value written to Buster's pev->fuser4
@@ -141,7 +171,7 @@ Become-the-Buster is driven entirely by `CheckForEgons()` polling `pev->frags` (
 ## Key Detection Flags
 | Check | Value | Meaning |
 |-------|-------|---------|
-| `pev->fuser4 == RADAR_BUSTER` | non-zero | Player is the current Buster |
+| `pev->fuser4 == RADAR_BUSTER` | non-zero | Player is currently a Buster |
 | `pev->fuser4 == 0` | 0 | Player is a ghost |
 | `current_weapon.iId == VALVE_WEAPON_EGON` (bot-side) | int | Bot is holding the egon — authoritative self-check |
 | `m_szTeamName == "busters"` vs `"ghosts"` | string | Team identity (also mirrored by `TeamID()`) |
@@ -241,6 +271,12 @@ Anti-stalemate tweak is active: for `GAME_BUSTERS`, random-waypoint chance is in
 
 ## Recent Implementation Notes & Lessons Learned
 
+### Objective HUD refresh + plural state (`busters_gamerules.cpp::SendObjectiveUpdate`)
+- Busters now updates `gmsgObjective` once per second from aggregate state (`targetBusters`, `holderCount`, `looseCount`) instead of relying on singular one-off broadcasts.
+- Multi-buster reads mirror CtC's count-forward style: `X of Y busters are busting.` / `X of Y egons are free.`.
+- `PlayerGotWeapon` sets `m_flObjectiveUpdateTime = 0.0f` (defer to next `Think`) because egon ownership has not fully committed yet in `AddPlayerItem`.
+- `PlayerKilled` forces `SendObjectiveUpdate()` after `CHalfLifeMultiplay::PlayerKilled` so dropped-egon / holder counts are accurate in the same frame.
+
 ### Egon-pickup radial purge (`busters_gamerules.cpp::PlayerGotWeapon`)
 - TE_EXPLOSION (`MSG_PAS`, `g_sModelIndexFireball` / `sprites/zerogxplode.spr`, scale 30, framerate 15, `TE_EXPLFLAG_NONE`) + TE_BEAMCYLINDER halo (`MSG_PVS`, `g_sModelLightning` / `sprites/lgtning.spr`, life 12, width 16, RGB 100/180/255, brightness 200, height z+256).
 - `::RadiusDamage(vecBlast, pPlayer->pev, pPlayer->pev, 500.0f, 256.0f, CLASS_NONE, DMG_BLAST | DMG_ALWAYSGIB, TRUE)` — `inflictor == attacker == new Buster`, so self-damage is filtered by `FPlayerCanTakeDamage`.
@@ -305,13 +341,13 @@ float f_combat_stuck_since;
 - **`MAKE_VECTORS` vs `UTIL_MakeVectors`** — same pitfall as CtC: bot DLL must use the engine callback macro.
 
 ## Key Pitfalls (Expected)
-1. **10-second auto-regrant window.** If no ghost touches the dropped egon within `EGON_BUSTING_TIME`, it's removed and the current lowest-fragger becomes the new Buster. Ghost Grabber bots must be fast — `f_move_speed = f_max_speed`, no pause, elevated-jump helper for pedestals. Missing the window flips the role assignment unexpectedly.
+1. **10-second staggered refill window.** Missing buster slots are replenished one-at-a-time every `EGON_BUSTING_TIME` (10s), but only while `totalEgons < target`. Ghost Grabber bots must be fast during loose-egon windows so the refill loop does not keep creating new holders.
 2. **Lowest-fragger Buster rotation.** Because the Buster is the player with fewest frags, and ghost-on-Buster kills award +2 frags, a skilled ghost quickly becomes ineligible and the target rotates. Role/goal state must be refreshed every tick that possession changes so bots do not continue stale hunt behavior.
 3. **Dropped-egon detection asymmetry.** `weapon_egon` classname never appears loose on the ground — the engine always wraps it in a `weaponbox`. Writing bot detection against the weapon classname silently fails. Always scan `weaponbox`.
 4. **`fuser4` identity check for friendly fire.** Ghosts share `fuser4 == 0`, so `FPlayerCanTakeDamage` blocks their splash/projectile hits against each other when `friendlyfire` is off. Bot engagement must skip same-team players (already handled by `UTIL_GetTeam`), but explosive weapons (MP5 grenade, RPG) can still waste ammo via area effects — consider filtering secondary-fire usage for ghost hunters when teammates are in the blast radius.
 5. **Buster inventory is locked.** `CanHavePlayerItem` returns FALSE for anything other than the egon. A Buster bot that tries to detour to a weapon/ammo pickup is wasting time — hence the `BotFindItem` early-out.
 6. **Auto-switch on pickup.** `FShouldSwitchWeapon` always selects the egon on pickup, so the new-Buster bot will have the egon equipped before `BotBustersPreUpdate` next runs. The role eval must use `current_weapon.iId` for same-frame correctness.
-7. **No `weapon_egon` respawn and no random-weapon spawn.** There is only ever *one* egon in play. The Buster-is-dead state is the only time it's loose. Caching stale pointers beyond a death/pickup event is safe for a few ticks but must be re-validated before use.
+7. **No `weapon_egon` respawn and no random-weapon spawn.** Egons only exist via holder drops and staggered refill grants, and can now exist in multiple copies up to the dynamic cap. Caching stale pointers beyond death/pickup/trim events is safe for a few ticks but must be re-validated before use.
 8. **Team rewrite every frame.** `CheckForEgons` re-runs `SetPlayerModel` once per second for anyone stuck on the `"busters"` team without the egon. Bot logic keying off `m_szTeamName` may see stale values for up to one second after a drop — `pev->fuser4` and `current_weapon.iId` are more immediate.
 9. **Intermission cleanup.** At `GoToIntermission`, gamerules do not explicitly clear the dropped weaponbox. Bots should not chase an egon once `g_fGameOver` (or the Busters-side equivalent) is signaled; guard the think dispatch against this.
 10. **Two-bot stalemate.** Without per-bot pace variance and jukes, two bots running waypoint loops at `f_max_speed` never catch each other. The pace/juke/random-waypoint-boost triple is essential — single changes in isolation are insufficient.
