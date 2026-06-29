@@ -1,3 +1,6 @@
+This file is a changelog of previous releases.
+See readme.txt for the latest changes.
+
 v1 Features:
 
 - Gamemode Changes
