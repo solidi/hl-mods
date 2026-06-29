@@ -103,7 +103,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple]
+        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot]
 
     steps:
     - uses: actions/checkout@v4
