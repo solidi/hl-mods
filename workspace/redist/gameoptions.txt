@@ -75,7 +75,7 @@
 }
 
 // busters
-"Busters count"
+"Buster count"
 {
 	"game"     "busters"
 	"cvar"     "mp_busterscount"
