@@ -5,6 +5,7 @@
 - **String ID**: `"kts"` (mp_gamemode cvar)
 - **Description**: `"Cold Ice Remastered Kick the Snowball"` — team-based soccer with a snowball
 - **Source**: `src/dlls/kts_gamerules.cpp`, `src/dlls/kts_gamerules.h`
+- **Weapon Integration**: `src/dlls/gravitygun.cpp`
 - **Class**: `CHalfLifeKickTheSnowball : public CHalfLifeMultiplay`
 - **Bot Source**: `grave-bot-src/dlls/bot_combat.cpp` (BotKtsThink), `grave-bot-src/dlls/bot.cpp` (pre-update block, movement), `grave-bot-src/dlls/bot_navigate.cpp` (BotFindWaypointGoal KTS paths)
 
@@ -63,9 +64,14 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 | `m_fStuckTime` | float | Time ball became motionless (-1 = not stuck) |
 | `m_fBounceTime` | float | Debounce for bounce sound |
 | `m_vLastContactVelocity` | Vector | Previous-tick velocity for ΔV bounce sound gating |
+| `m_fNoAutoCaptureUntil` | float | Global no-auto-capture window after strip/release |
+| `m_iNoRecaptureEntIndex` | int | Controller entity index blocked from immediate recapture |
+| `m_fNoRecaptureUntil` | float | Expiry time for same-controller recapture block |
+| `m_bWasGravityHeld` | BOOL | Transition flag: gravity-held in previous think tick |
 | `pev->euser1` | edict_t* | Points to dribbler's edict (authoritative; used by bot code) |
 | `pev->iuser1` | int | Forcegrab state: 0 = attract, 1 = repel |
 | `pev->iuser2` | int | Gravity gun operator entity index (syncs last-toucher) |
+| `pev->iuser3` | int | Gravity gun hold latch on the ball (1 = held, 0 = released) |
 | `pev->owner` | edict_t* | Forcegrab owner (engine collision semantics — NOT used for dribble) |
 
 ### Ball States
@@ -73,11 +79,26 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 2. **Dribbling** (`MOVETYPE_NOCLIP`, `SOLID_NOT`, `m_hDribbler != NULL`): Ball tracks ahead of dribbler via spring-damper system. `pev->euser1` set to dribbler's edict.
 3. **Forcegrabbed** (`pev->owner != NULL`): Ball is pulled toward the grabbing player at 350 u/s. Auto-releases at 60u and slams in view direction at 1500 u/s.
 
+### Gravity Gun Handoff (KTS-specific)
+- If the player is dribbling (foot possession via `pev->euser1`) and taps **primary** or **secondary** with `weapon_gravitygun` while not already holding an entity, the ball is auto-promoted into gravity-gun hold even if not in trace/range checks.
+- The handoff path explicitly calls `DropCharm` first, then marks the ball held by gravity gun (`pev->iuser3 = 1`) and stamps `pev->iuser2` with the holder entity index.
+- While holding the KTS ball, **primary** behavior is unchanged: launch/fire away.
+- While holding the KTS ball, tapping **secondary** returns the ball to foot possession by clearing hold state and calling `CaptureCharm` for the same player.
+- While gravity-held (`pev->iuser3 != 0`), dribble/touch possession paths are suppressed entirely.
+- On gravity-held -> loose transitions, anti-huddle repossession gates are applied before any auto-acquire can run (same parity as dribble release).
+- This gives a deterministic flow: dribble -> tap (primary/secondary) -> gun-hold -> secondary -> back to dribble.
+
+### Anti-Huddle Repossession Gates
+- `KTS_STRIP_NEUTRAL_TIME` (0.35s): no player may auto-capture immediately after strip/release.
+- `KTS_REACQUIRE_COOLDOWN_SAME_PLAYER` (0.60s): previous controller is blocked from instant recapture.
+- Gates are enforced in both auto-acquire code paths (`BallThink` scan and `BallTouch` slow-ball capture).
+- Gates are stamped by `DropCharm` and by gravity-held -> loose transitions to keep repossession parity.
+
 ### BallThink (runs every 0.1s)
 1. Cache `m_fLastThinkSpeed` before collision modifies velocity
-2. **Auto-acquire**: If no dribbler and no forcegrab, find nearest player within `KTS_DRIBBLE_ACQUIRE_DIST` (72u) → `CaptureCharm`
+2. **Auto-acquire**: If no dribbler and no forcegrab, and speed < `KTS_DRIBBLE_ACQUIRE_SPEED`, find nearest eligible player within `KTS_DRIBBLE_ACQUIRE_DIST` (72u) and pass repossession gates → `CaptureCharm`
 3. **Dribble maintain**: Track ball ahead of dribbler via spring-damper (`springSpeed = tdist * 18.0f`, capped at `KTS_DRIBBLE_TRACK_SPEED` 600 u/s), 50% player velocity feed-forward
-4. **Tackle check**: Scan all non-dribbling players within 72u → `DropCharm` + push ball away
+4. **Anti-huddle dribble rule**: passive overlap no longer strips dribble; release is explicit
 5. **Kick detection**: If `m_fKickEndTime > gpGlobals->time` or player is sliding → fire ball in clamped view direction at `KTS_FORCE_TOUCH` (600) or `KTS_FORCE_SLIDE` (900)
 6. **Dribble-to-goal AABB check**: Manually checks ball origin against red/blue goal `absmin/absmax` (since `MOVETYPE_NOCLIP` skips trigger touches) → `OnGoalScored`
 7. **Dribble distance break**: If ball > 128u from target position → `DropCharm`
@@ -86,8 +107,8 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 
 ### BallTouch (player contact)
 - **Non-player**: Bounce sound if ΔV > 120 (debounced 0.2s)
-- **Player while dribbled**: Tackle → `DropCharm` current dribbler
-- **Slow ball** (`m_fLastThinkSpeed < KTS_DRIBBLE_ACQUIRE_SPEED` 250 u/s): Auto-acquire dribble via `CaptureCharm`
+- **Player while dribbled**: ignored for possession transfer (anti-huddle); dribbler release is explicit
+- **Slow ball** (`m_fLastThinkSpeed < KTS_DRIBBLE_ACQUIRE_SPEED` 350 u/s): Auto-acquire only if repossession gates allow it
 - **Fast ball**: Kick — direction = normalized(ball-player) blended with 75% player movement direction + upward tilt. Force = `KTS_FORCE_SLIDE` (900) if sliding, else `KTS_FORCE_TOUCH` (600)
 
 ### TakeDamage (weapon/explosion hits)
@@ -169,11 +190,14 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 - Otherwise delegates to `CHalfLifeMultiplay::PlayerKilled`
 
 ### FPlayerCanTakeDamage
-- Always returns `FALSE` (players can't be damaged by weapons directly)
-- Side-effect: if the victim is dribbling, calls `DropCharm` (releases ball on any damage)
+- Returns `TRUE` for `trigger_hurt` (void/pit/kill-brush map hazards)
+- Returns `FALSE` for all other attackers (players can't be damaged by weapons directly)
+- Side-effect on blocked non-`trigger_hurt` damage attempts: if the victim is dribbling, calls `DropCharm` only for valid strip attackers
+- Same-team strip attempts are blocked (teammates cannot break dribble possession by damage path)
 
 ### FPlayerTookDamage
 - If victim is dribbling → `DropCharm` + push ball away from attacker
+- Same-team strip attempts are blocked here as well (enemy-only explicit strip rule)
 
 ### Spawn/Weapons
 - Players spawn with `weapon_fists` and `weapon_gravitygun` only
@@ -207,11 +231,15 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 #define KTS_BALL_RESPAWN_DELAY 6.0f     // seconds after goal before new ball
 
 // Dribble system
-#define KTS_DRIBBLE_ACQUIRE_SPEED  250.0f  // max ball speed to auto-acquire
+#define KTS_DRIBBLE_ACQUIRE_SPEED  350.0f  // max ball speed to auto-acquire
 #define KTS_DRIBBLE_ACQUIRE_DIST   72.0f   // proximity for auto-acquire / tackle
 #define KTS_DRIBBLE_BALL_OFFSET    64.0f   // distance ahead of player
 #define KTS_DRIBBLE_TRACK_SPEED    600.0f  // spring-damper velocity cap
 #define KTS_DRIBBLE_LOSE_DV        200.0f  // geometry ΔV that breaks dribble
+
+// Anti-huddle repossession
+#define KTS_STRIP_NEUTRAL_TIME             0.35f  // global no-auto-capture after strip/release
+#define KTS_REACQUIRE_COOLDOWN_SAME_PLAYER 0.60f  // previous controller cannot instantly recapture
 ```
 
 ## Bot Behavior (grave-bot-src)
@@ -231,13 +259,32 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 | Case | Condition | Behavior |
 |------|-----------|----------|
 | 1 | `b_kts_has_ball` | Navigate to enemy goal; `v_goal = goal origin`; yaw override + direct-steer when close (< 300u) OR visible (`FVisible`); follow waypoints otherwise. Elevated-goal jump+kick and same-level stall+kick sequences when stuck near goal (see below) |
-| 2 | Opponent dribbling | `v_goal = carrier`; tackle via melee contact |
-| 3 | Ball loose, < 120u | Face enemy goal, run into ball |
-| 4 | Ball loose, > 120u | `v_goal = ball`; face ball; waypoint routing via BotFindWaypointGoal |
+| 2 | Teammate dribbling | Escort/support instead of contesting ball: `v_goal` becomes a flank/lead support point around the carrier to reduce pile-ups and open the lane |
+| 3 | Opponent dribbling | `v_goal = carrier`; if carrier is elevated and near in XY, try hook first then multi-jump recovery; deliberate close-range kick attempts (`impulse 206`) on cooldown for strip parity |
+| 4 | Ball loose, < 120u | Face enemy goal and run into ball; if the loose ball is elevated and nearby, try hook/multi-jump recovery first |
+| 5 | Ball loose, > 120u | `v_goal = ball`; face ball; waypoint routing via BotFindWaypointGoal; applies the same elevated-ball hook/multi-jump recovery |
+
+### KTS Teammate Support (bot_combat.cpp)
+- When `kts_snowball` is dribbled by an allied player (`movetype == MOVETYPE_NOCLIP`, `euser1` same team), non-carrier bots do not chase the ball.
+- Support goal is computed from carrier-to-enemy-goal direction with lane splitting by bot entindex:
+  - one lane leads slightly ahead,
+  - two lanes flank left/right with slight trailing offset.
+- If a supporter is crowding the carrier (<72u), it forces lateral separation to break body-block pile-ups.
+- If the carrier is elevated, supporters may still use vertical recovery (hook/jump) to maintain support.
+
+### KTS Vertical Recovery (bot_combat.cpp)
+- Trigger window: objective is above the bot (`zDelta >= 48`) and horizontally near (`xyDist <= 384`).
+- Order of actions: hook first on tall ledges (`zDelta >= 96`, via `BotConsiderHookForItem`), then fallback to `BotGoalElevatedJump` (double/triple jump phases).
+- Traversal safety: recovery is skipped while standing on traversal waypoints (`W_FL_LADDER`, `W_FL_LIFT`, `W_FL_JUMP`, `W_FL_DUCKJUMP`, `W_FL_DOUBLEJUMP`) so ladder/lift/jump routing is not disrupted.
+- Applied to both elevated carrier chase and elevated loose-ball chase.
+
+### Bot Strip Parity Field (bot.h)
+- `f_kts_tackle_attempt_time` throttles deliberate strip attempts while chasing enemy carrier.
 
 ### BotFindWaypointGoal KTS Paths (bot_navigate.cpp)
 - **Dribbling**: Pure-distance search for nearest waypoint to enemy goal (no LOS requirement — goal entities often in recessed trigger volumes)
-- **Ball-chasing**: Pure-distance search for nearest waypoint to ball position (no LOS, no range cap)
+- **Teammate dribbling**: Pure-distance search for nearest waypoint to computed support/flank target around the allied carrier
+- **Ball-chasing**: Pure-distance search for nearest waypoint to ball position (no LOS, no range cap) when ball is loose
 - Both paths return explicitly — never fall through to tour/health waypoints
 - Health waypoints only used if bot health < 25
 

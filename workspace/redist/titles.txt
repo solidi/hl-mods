@@ -1041,17 +1041,17 @@ Show Scores
 
 Title_VoteGameplay
 {
-Vote for gameplay mode!
+VOTE GAMEMODE
 }
 
 Title_VoteMap
 {
-VOTE FOR MAP
+VOTE MAP
 }
 
 Title_VoteMutator
 {
-VOTE FOR MUTATOR
+VOTE MUTATOR
 }
 
 ffa
