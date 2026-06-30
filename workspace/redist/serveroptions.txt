@@ -17,22 +17,6 @@
 //   rows are logged and skipped (see "serveroptions_status").
 // =============================================================================
 
-"Bots"
-{
-	"cvar"     "sv_defaultbots"
-	"restart"  "0"
-    "No" "0"
-    "Yes" "31"
-}
-
-"Bots Melee"
-{
-	"cvar"     "sv_botsmelee"
-	"restart"  "0"
-    "No" "0"
-    "Yes" "1"
-}
-
 "Grappling Hook"
 {
     "cvar"     "mp_grapplinghook"
@@ -83,10 +67,10 @@
 	"10 secs"    "10"
 }
 
-"Melee Drops Weapon"
+"Bots Melee"
 {
-	"cvar"     "mp_meleedrop"
+	"cvar"     "sv_botsmelee"
 	"restart"  "0"
-    "Off" "0"
-    "On" "1"
+    "No" "0"
+    "Yes" "1"
 }
