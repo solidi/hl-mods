@@ -196,6 +196,7 @@ v1.1 Features:
     - Added longjump icon to hud when the item is acquired
     - Removed "cl_shadows," as "r_shadows" was fixed by Valve
     - Show total position in individual game modes
+    - Spawn protection ends early if the player attacks
 - Maps
     - Includes high-res textures for all new deathmatch maps
         - Use r_detailtextures 1 to enable
