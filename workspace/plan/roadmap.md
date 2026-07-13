@@ -131,6 +131,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     1. [x] one waypoint in snowyard by backyard ladder has no paths
+    1. [x] Bots will use snarks to defeat snarks if equipped
 1. Use AI to
     1. [x] Move railgun system to client-side
     1. [x] Add support for menu on round based games, commit to gamemode
@@ -441,7 +442,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
-    1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
