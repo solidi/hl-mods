@@ -6,7 +6,7 @@
 ## Suggestions
 
 [ ] Add "your shiting yourself" voice over
-[ ] Add infinity snowbals, and remove the fists
+[ ] Add infinity snowballs, and remove the fists
 [ ] Train AI to make new map?
 [ ] Add support paper to v_ models
 [ ] Ice tean ps3 brown filter mutator - name it iced tea
@@ -127,7 +127,7 @@ Bugs
 
 ## Beta 5
 
-## Janurary 2025 GSS Test
+## January 2025 GSS Test
 
 [x] waypoint for defroster
 [x] waypoint for quadfrost

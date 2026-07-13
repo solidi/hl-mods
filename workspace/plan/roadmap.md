@@ -132,7 +132,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     1. [x] one waypoint in snowyard by backyard ladder has no paths
-    1. [x] Bots will use snarks to defeat snarks if equipped
+    1. [x] Bots will not deploy snarks/chumtoads against snark/chumtoad threats (use ranged or evade)
 1. Use AI to
     1. [x] Move railgun system to client-side
     1. [x] Add support for menu on round based games, commit to gamemode
