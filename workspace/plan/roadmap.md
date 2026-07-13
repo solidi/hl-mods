@@ -98,6 +98,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
     1. [x] Provide side icons for flag, ctc toad, and lj when obtained
     1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
+    1. [x] random map select
 1. Voting
     1. [x] Game Option Menu, specific to each game mode
         1. [x] Basic options, On/Off/More/Less toggles.
@@ -131,6 +132,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Change solid type of barrel after throw
     1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
     1. [x] one waypoint in snowyard by backyard ladder has no paths
+    1. [x] Bots will not deploy snarks/chumtoads against snark/chumtoad threats (use ranged or evade)
 1. Use AI to
     1. [x] Move railgun system to client-side
     1. [x] Add support for menu on round based games, commit to gamemode
@@ -139,6 +141,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
 1. HUD
     1. [x] Add map name to the scoreboard
+    1. [x] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
 1. Game Dev Tools
     1. [x] Add support for detailed textures
 
@@ -386,7 +389,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).
     1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
-    1. [ ] random map select
     1. [ ] Stream VOs from UT (when you dont die)
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
@@ -409,7 +411,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. HUD
     1. [ ] Frag [spree counter](https://www.youtube.com/watch?v=6MTjdllk1_E&t=350) with large number (combine with place?)
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
-    1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
@@ -441,7 +442,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Improve Crowbar animation from another v_ model
     1. [ ] [Fix animations](https://github.com/ValveSoftware/halflife/issues/2495) on weapons where possible.
     1. [ ] RPG clip / shotgun box / snark nest / 357 box missing bottom face
-    1. [ ] Bots will use snarks to defeat snarks if equipped
 1. Clean up
     1. [ ] Compat mirror single v_ models to use v_dual models with body index for left / right
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization

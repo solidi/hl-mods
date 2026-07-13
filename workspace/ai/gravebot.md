@@ -336,6 +336,11 @@ Bots reach combat via:
 - `BotShouldEngageEnemy` — gates engagement on ammo state and gamemode role.
 - `BotShootAtEnemy` — body-target selection, lead, step error, per-frame
   jitter, all gated on recent line-of-sight.
+- Bio-weapon safety gate (2026-07): versus `monster_snark` /
+  `monster_chumtoad`, bots never deploy `weapon_snark` or
+  `weapon_chumtoad` as a counter. If a non-melee weapon is usable at the
+  current range, they use it; if only melee options remain, they evade
+  until the threat is gone.
 
 Tuning arrays (`yaw_speed`, `pitch_speed`, `aim_tracking_*_scale`,
 `aim_jitter_scale`, `react_time_min/max`, `renderamt_threshold`,

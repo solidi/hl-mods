@@ -173,6 +173,7 @@ v1.1 Features:
     - Tuned and improved bot behavior on all custom game modes
     - Bots no longer attempt wallclimbing
     - Bots intelligently select runes during gameplay
+    - Bots no longer counter snarks/chumtoads by deploying snarks/chumtoads when equipped
 - Weapons Additions
     - Proximity Mine
         - Use "reload" on either tripmine or satchel to place a proximity mine
@@ -247,6 +248,7 @@ v1.1 Features:
             - Fixed numerous incorrect readouts
             - Fixed spectator status
             - Fixed flag status issues with bots
+            - Fixed spectator objective readouts
         - Chilldemic
             - Rename skeleton to skeletons
             - Fixed round start when no skeletons were selected

@@ -128,6 +128,13 @@ Weapon flags that matter:
 - Normal fire — `f_shoot_time = time + base_delay + RANDOM_FLOAT(min_delay[skill], max_delay[skill])`.
 - Weapon switch penalty: +0.5s before first shot.
 
+### Snark/Chumtoad Counter Safety (added 2026-07)
+When the current enemy classname is `monster_snark` or `monster_chumtoad`:
+- `BotFireWeapon` hard-skips `VALVE_WEAPON_SNARK` and `VALVE_WEAPON_CHUMTOAD` so bots never answer those threats by spawning more bio-weapons.
+- The auto-pick path also skips melee weapons for this threat class, so if a ranged option exists it is preferred.
+- `BotShootAtEnemy` checks whether any non-melee counter weapon is usable at the current distance. If none is usable, the bot enters an evade branch (`BotEvadeBioThreat`) and runs away instead of attacking.
+- Both melee impulse paths are disabled for this threat class (the primary-fire melee block and the independent close-range kick/punch block), so the fallback is strictly ranged fire or disengage.
+
 ### Burst Discipline (added 2026-04)
 For automatic weapons (`primary_fire_hold && !primary_fire_charge`) at distance > 350 units:
 - After `RANDOM_LONG(3, 6)` shots, enter a pause of `RANDOM_FLOAT(0.25, 0.60) * bot_aim_difficulty * (1 + skill*0.1)` seconds.
@@ -145,7 +152,8 @@ Within the same `use_primary` branch, the bot sets `pEdict->v.impulse` to the mo
 - ≤450u: 209 (grenade toss)
 - >450u: 10% chance of 215 (force grab) / 216 (drop explosive)
 
-Gated by `sv_botsmelee.value > 0 && is_gameplay != GAME_GUNGAME && !pBot->b_hook_active`.
+Gated by `sv_botsmelee.value > 0 && is_gameplay != GAME_GUNGAME && !pBot->b_hook_active`
+and further suppressed for `monster_snark` / `monster_chumtoad` targets.
 
 **Difficulty-scaled frequency (added 2026-04):** the entire impulse block is wrapped in a probability roll:
 ```c
@@ -301,6 +309,13 @@ No external config file drives combat — all tuning is through these commands o
 ### 2026-05 — Server-side spectator filter (cross-DLL)
 - The bot DLL's `BotHordeThink` dispatch was already gated on `IsAlive()`, but server-side **monster** AI (`CBaseMonster::Look` / `CheckEnemy` in [mpstubb.cpp](../src/dlls/mpstubb.cpp) / [monsters.cpp](../src/dlls/monsters.cpp)) had no spectator filter. Horde monsters could lock onto observer-state players (including bots in limbo). Filter added: clients with `EF_NODRAW`, `IsObserver()`, or `IsSpectator()` are skipped during scans, and a locked `m_hEnemy` that transitions to spectator is released. See [horde_gamerules.md](horde_gamerules.md#spectator-targeting-filter-monsterscpp--mpstubbcpp).
 
+### 2026-07 — Anti-self-damage bio-weapon policy
+- Added a threat gate in `BotFireWeapon` for `monster_snark` / `monster_chumtoad` enemies that hard-skips `VALVE_WEAPON_SNARK` and `VALVE_WEAPON_CHUMTOAD`.
+- Added non-melee preference for the same threat class in auto weapon selection; bots do not choose melee while a ranged counter is available.
+- Added `BotShootAtEnemy` fallback: if no non-melee counter is usable at current distance/ammo, bot evades (runs away) instead of engaging.
+- Disabled both melee impulse emitters against this threat class to keep behavior strictly "ranged counter or disengage".
+- Hardened selection with a `found_weapon` guard so filtered weapon sets return FALSE cleanly instead of relying on default index fallback.
+
 ---
 
 ## 12. Lessons Learned (for future combat work)
@@ -316,6 +331,7 @@ Mistakes / gotchas caught during the softening pass + code review. Read these be
 - **Comment bare scope blocks or delete them.** The `FInViewCone && FVisible` branch had a bare `{ ... }` inside that looked like a removed `if`. Leaving cosmetic brace nesting behind makes reviewers think they missed a condition. Either remove it or keep the original conditional for intent.
 - **Skill 0 = hardest.** All per-skill arrays are indexed with `pBot->bot_skill = skill - 1`, and skill 0 is the top tier. Don't write `if (bot_skill > 0)` as a "skip for low-skill bots" gate — it's actually a "skip for the HARDEST tier". This was the bug that gave skill-0 bots perfect aim for years.
 - **Gamemode branches must be considered for every combat tweak.** Arena / CTF / Cold Spot / CTC / KTS / Cold Skulls / Prop Hunt / Gun Game all have their own short-circuits at the top of `BotFindEnemy`, `BotShootAtEnemy`, or `BotFireWeapon`. Any softening / hardening change must be explicitly evaluated against these — e.g. the re-acquire penalty is skipped in Arena, and the melee gate is already gated by `is_gameplay != GAME_GUNGAME`.
+- **Any new weapon filter must handle "no candidate" explicitly.** If a threat policy skips entire weapon classes (e.g. no snark/chumtoad deployables, no melee), the selector must return FALSE when nothing is left. Do not fall through to index 0 defaults.
 - **Build is x86 Release via MSBuild, not CMake.** `grave_bot.sln` builds with `MSBuild ... -p:Configuration=Release -p:Platform=x86`; the output DLL is auto-copied to `workspace/libs/dlls/grave_bot.dll`. Expect ~340 pre-existing C4996 (unsafe-CRT) and C4477 (format-string) warnings in `dll.cpp`; filter for new warnings only when validating changes. Intellisense reports `GAME_*` / `MUTATOR_*` identifiers as undefined in some files — they are pre-existing include-path quirks, the real compiler resolves them.
 - **Metamod + non-metamod both live in the same source.** Changes that touch CVARs, command handlers, or globals need to compile under both `#ifdef METAMOD_BUILD` and the non-metamod branch. For the `bot_aim_difficulty` scalar we defined it as a plain `float` global (not a `cvar_t`) which sidesteps the dual-registration dance — prefer this pattern for new internal tuning knobs.
 
