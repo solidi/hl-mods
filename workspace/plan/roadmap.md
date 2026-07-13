@@ -98,6 +98,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
     1. [x] Provide side icons for flag, ctc toad, and lj when obtained
     1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
+    1. [x] random map select
 1. Voting
     1. [x] Game Option Menu, specific to each game mode
         1. [x] Basic options, On/Off/More/Less toggles.
@@ -140,6 +141,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
 1. HUD
     1. [x] Add map name to the scoreboard
+    1. [x] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
 1. Game Dev Tools
     1. [x] Add support for detailed textures
 
@@ -387,7 +389,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [See own legs](https://www.youtube.com/watch?v=mpKld-jZF7c&t=9s), code [found here](https://github.com/BlueNightHawk/halflife-newlight/commit/c1d189bd67e0f18e219f4fe71a24dccb04307eb6).
     1. [ ] Improved player kick animation from grunt player model
 1. Gameplay
-    1. [ ] random map select
     1. [ ] Stream VOs from UT (when you dont die)
     1. [ ] Snowball fight mutator - all weapons fire / throw snowballs - see [Snow-War](https://www.moddb.com/mods/snow-war)
     1. [ ] Ultra deathmatch mutator, unlimited ammo / no reloads. See [Oz Mod video](https://www.youtube.com/watch?v=1L62nPKGlAY), Duke Nukem style.
@@ -410,7 +411,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. HUD
     1. [ ] Frag [spree counter](https://www.youtube.com/watch?v=6MTjdllk1_E&t=350) with large number (combine with place?)
     1. [ ] [Grease effect](https://www.youtube.com/watch?v=t0vXf6jVLU8&t=36s)
-    1. [ ] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
     1. [ ] Re-enable suit voice updates?
     1. [ ] Slanted health and armor sprites like [Operation: Black Mesa Blue Shift](https://gamerant.com/half-life-black-mesa-blue-shift-opposing-force-campaigns-screenshots/)
 1. Maps
