@@ -76,6 +76,9 @@ Every mode inherits the virtual methods below. The default behavior lives in `CG
 
 ### Damage & teams
 - `FPlayerCanTakeDamage` — friendly-fire / immunity gate. Modes use this to protect carriers, ghosts, downed players, etc.
+    - In `CHalfLifeMultiplay`, spawn protection is enforced here via
+        `pPlayer->m_fLastSpawnTime > gpGlobals->time` (driven by
+        `mp_spawnprotectiontime`).
 - `FlPlayerFallDamage` — fall-damage rule per `mp_falldamage`.
 - `PlayerRelationship` — used by autoaim and friendly-AI; returns `GR_TEAMMATE` / `GR_ENEMY` / `GR_ALLY` / `GR_NEUTRAL`.
 - `IsTeamplay`, `GetTeamID`, `GetTeamIndex`, `GetIndexedTeamName`, `IsValidTeam`, `ChangePlayerTeam`, `SetDefaultPlayerTeam` — team-rules surface used by HUD, voice mgr, and bot side.
@@ -101,6 +104,16 @@ Every mode inherits the virtual methods below. The default behavior lives in `CG
 - `m_iRoundWins` (per-player int) — cumulative wins across the match. Most team modes sum this across teammates and compare against `mp_scorelimit`.
 - `pev->frags` (per-player int) — per-life kill count. **Frags reset on round end in round-based modes**, `m_iRoundWins` does not.
 - `mp_fraglimit`, `mp_scorelimit`, `mp_timelimit`, `mp_roundtimelimit`, `mp_roundlimit` — the four win-condition cvars used across modes.
+
+### Spawn protection (`mp_spawnprotectiontime`)
+- `mp_spawnprotectiontime` (declared in `game.cpp`) sets the initial protection window in seconds.
+- `CBasePlayer::Spawn` sets `m_fLastSpawnTime = gpGlobals->time + mp_spawnprotectiontime` and applies spawn visuals/godmode setup through the multiplayer spawn pipeline.
+- `CHalfLifeMultiplay::FPlayerCanTakeDamage` blocks all incoming damage while `m_fLastSpawnTime` is still in the future.
+- The timer is force-expired early by offensive actions through `CBasePlayer::ExpireSpawnProtection`:
+    - successful weapon fire from `CBasePlayerWeapon::ItemPostFrame` (`PrimaryAttack` / `SecondaryAttack` paths),
+    - off-hand melee starts (`StartPunch`, `StartKick`, `StartHurricaneKick`),
+    - successful grappling hook throw (`CHook::FireHook`, when the hook is actually launched).
+- If no action force-expires it first, normal timeout cleanup still runs in `CHalfLifeMultiplay::PlayerThink` when the timer elapses.
 
 ### Cross-DLL signal flags (`pev->fuser*`)
 The bot DLL is loaded in-process but **cannot read CBasePlayer members** directly. The convention across modes is to publish authoritative state on the entity's `pev` `fuser*` floats so the bot side can scan with `INDEXENT()` / `UTIL_FindEntityByClassname`.

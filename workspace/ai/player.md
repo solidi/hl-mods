@@ -292,6 +292,16 @@ walls — both fixed.)
 - `MUTATOR_RICOCHET` — disables force grab (target gets too far).
 - `m_fOffhandTime` — shared cooldown across punch / kick / grenade /
   hurricane kick / forcegrab error paths.
+- `mp_spawnprotectiontime` / `m_fLastSpawnTime` — timed spawn invulnerability
+  gate. While active, `CHalfLifeMultiplay::FPlayerCanTakeDamage` rejects
+  incoming damage.
+  - Set at spawn (`CBasePlayer::Spawn`) and consumed by
+    `CBasePlayer::ExpireSpawnProtection`.
+  - Expires immediately when the player successfully performs an offensive
+    action: weapon fire (`PrimaryAttack` / `SecondaryAttack` dispatch in
+    `CBasePlayerWeapon::ItemPostFrame`), off-hand melee (`StartPunch`,
+    `StartKick`, `StartHurricaneKick`), or a successful grappling-hook throw
+    (`CHook::FireHook`).
 - `pev->waterlevel == 3` — most acrobatics refuse while fully submerged.
 - `g_pGameRules->IsMultiplayer()` — force-grab world-item sweep is MP-only.
 
