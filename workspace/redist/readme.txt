@@ -177,6 +177,8 @@ v1.1 Features:
 - Weapons Additions and Changes
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
+    - Freeze Gun
+        - (Planned) Add a laser to +attack2 so ice plasma can be detonated midair
     - Proximity Mine
         - Use "reload" on either tripmine or satchel to place a proximity mine
     - Snowball
