@@ -189,7 +189,7 @@ v1.1 Features:
         - Added a triple zap secondary attack
         - Added a stun gun laser attack when pressing the reload button
 - Runes
-    - Added support for unique runes, one of each type. For more runes, use mp_allowrunes 2
+    - Added support for unique runes, one of each type. For abundant/duplicate rune spawning, use mp_allowrunes 2 (or higher)
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
     - Added "mp_rtvtime [sec]" for real time voting time
@@ -463,7 +463,7 @@ Server:
 - "addbot" - Add a bot
 - "botdontshoot [0|1]" - Enable or disable bots attacking others
 - "botpause [0|1]" - Bots stay in place
-- "mp_allowrunes [0|1|2]" - Allow powerup runes on server; values > 1 spawn more runes
+- "mp_allowrunes [0|1|2+]" - Allow powerup runes on server; values > 1 allow duplicate rune types (skip unique-rune limiting)
 - "mp_allowvoiceovers [0|1]" - Allow public voiceovers
 - "mp_busterscount [1-3]" - Max buster count during gameplay
 - "mp_coldspotspawn" - name of entity where the spot will spawn
