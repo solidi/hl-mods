@@ -84,6 +84,7 @@ events\dual_chaingun.sc
 events\dual_hornetgun.sc
 events\fingergun.sc
 events\zapgun.sc
+events\zapgun_laser.sc
 events\vehicle.sc
 events\dual_glock.sc
 events\vice.sc

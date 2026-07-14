@@ -18,7 +18,6 @@
 [ ] accept all cookies mutator
 [ ] blue screen mutator
 [ ] Broken mouse mutator
-[ ] ASMR weapon from UT?
 [ ] Recoil mutator?
 [ ] double vote influence on steamids (for $$$)
 [ ] 69 mutator, change as many numbers to 69
@@ -35,6 +34,7 @@
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
 [ ] pirate sounds when hat mutator on
+[x] ASMR weapon from UT?
 
 ## v1 Buglist
 
