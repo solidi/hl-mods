@@ -124,6 +124,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
     1. [x] Freeze grenades ([AudioCraZ](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [x] Hand grenade blows up on contact with enemy
+    1. [x] Freezegun secondary fire beam to explode primary plasma
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
@@ -294,7 +295,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Drop a forklift](https://www.youtube.com/watch?v=6MTjdllk1_E&t=450s) on players (third function, gravity gun)
     1. [ ] [Dio's Zawarudo](https://www.youtube.com/watch?v=6MTjdllk1_E&t=470s) on players
     1. [ ] [Sideways weapons?](https://www.reddit.com/r/AskGames/comments/6ktkki/what_was_the_first_shooter_game_where_the_player/)
-    1. [ ] Freezegun secondary fire beam to explode primary plasma
     1. [ ] [Reload / No Ammo indicator](https://www.youtube.com/watch?v=r5dXK9f2DGE&t=380s) from Halo Combar Evolved
     1. [ ] Akimbo's (select weapons)
         1. [ ] Gauss (Order of _billy recommendations)
@@ -468,7 +468,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
-    1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
+    1. [ ] Ice grenade or big ice blast as reload attack for freezegun (Napoleon)
     1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
     1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
     1. [ ] Multiple rune equip (Napoleon)
