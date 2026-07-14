@@ -89,6 +89,7 @@ events\dual_glock.sc
 events\vice.sc
 events\dual_railgun.sc
 events\railgun.sc
+events\freezegun_laser.sc
 gfx
 gfx\env
 gfx\env\cirdaymont1bk.tga
