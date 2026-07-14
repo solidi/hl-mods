@@ -124,7 +124,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
     1. [x] Freeze grenades ([AudioCraZ](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [x] Hand grenade blows up on contact with enemy
-    1. [x] Freezegun secondary fire beam to explode primary plasma
+    1. [ ] Freezegun secondary fire beam to explode primary plasma
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
