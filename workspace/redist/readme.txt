@@ -174,12 +174,15 @@ v1.1 Features:
     - Bots no longer attempt wallclimbing
     - Bots intelligently select runes during gameplay
     - Bots no longer counter snarks/chumtoads by deploying snarks/chumtoads when equipped
-- Weapons Additions
+- Weapons Additions and Changes
+    - Freeze Grenade
+        - Use "reload" on hand grenades to throw a freeze grenade
     - Proximity Mine
         - Use "reload" on either tripmine or satchel to place a proximity mine
     - Snowball
         - Improve throw performance of the weapon so it's predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
+    - Hand grenades explode on contact with living targets (players/monsters)
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
     - Added "mp_rtvtime [sec]" for real time voting time

@@ -121,6 +121,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] prox mine / tripmine on satchel using reload
     1. [x] C4 mine placement with satchels
     1. [x] Convert throw-hold effect to all other weapons for control
+    1. [x] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
+    1. [x] Freeze grenades ([AudioCraZ](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
+    1. [x] Hand grenade blows up on contact with enemy
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
 1. Mechanics
@@ -277,7 +280,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] OP4 model from OP4n for deagle
         1. [ ] [Laser sight](https://twhl.info/wiki/page/Weapons_Programming_-_Standard_Weapons) for deagle
     1. [ ] Improved [full bright implementation](https://github.com/BlueNightHawk/halflife_fullbright/commits/master) without second models
-    1. [ ] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
         1. Grenades and explosions ring the ears. See [this commit](https://github.com/edgarbarney/halflife-planckepoch/commit/0086a3d940b30397cd436aa8df083520fb2d7437) and the [improved version here](https://github.com/edgarbarney/halflife-planckepoch/commit/fc2d0ba440f49b41045964accca10dbf6bdf1fc8).
     1. [ ] Bio weapon (pigcop)
     1. [ ] [Boomerang (AudoCraZ)](https://twitter.com/JoinDeepRock/status/1568229337647685633?t=8vCgTQm8vuHP2T9rQnZ5Jw&s=19) [model](https://gamebanana.com/mods/308268)
@@ -315,7 +317,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] [Dual wield grenades](https://twitter.com/kirkhamilton/status/1244786371253788673) - second fire?
         1. [ ] Roll animation from (Half-Life Restored)(https://gamebanana.com/mods/download/36047)
         1. [ ] Grenade toss option as secondary fire. See [this video](https://www.youtube.com/watch?v=e59bvmvXPk0) for more information. This [other video](https://www.youtube.com/watch?v=5-fNv9g_JLI) covers egon narrow animations.
-        1. [ ] Hand grenade blows up on contact with enemy
     1. [ ] Weapon/pistol whip like WastelandHL (most weapons) / Gun slap / punch all weapons
     1. Knife
         1. [ ] Alt model on [this forum](https://forums.alliedmods.net/showthread.php?p=1701941)
@@ -466,7 +467,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Community ideas
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
-    1. [ ] Freeze grenades ([Audiocraz](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
     1. [ ] Ice grenade or big ice blast as secondary attack for freezegun (Napoleon)
     1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)

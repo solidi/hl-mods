@@ -163,6 +163,7 @@ These come from `workspace/plan/learnings.md` and from in-repo discoveries; they
 - **`globalvars_t` is "stomped" every frame.** When working with angles, capture state with macros like `UTIL_MakeVectors(anglesAim)` immediately. See `CRpg`.
 - **`SetThink` value changes don't propagate to the client** for client-side weapons. Use a user message or `pev->iuser*` if the client needs to see it.
 - **Client-side weapon prediction lives in `src/cl_dll/ev_hldm.cpp`.** Any new server weapon that fires while the local player is shooting needs a matching event there or it will feel laggy.
+- **Every new linked entity must be mirrored in the bot DLL link table.** When you add a new `LINK_ENTITY_TO_CLASS(name, ...)` on the server side, also add `LINK_ENTITY_TO_FUNC(name);` in `workspace/grave-bot-src/dlls/linkfunc.cpp` (for example `freezegrenade`). Missing this causes bot-side `CreateNamedEntity` lookups to fail silently.
 - **Localizable strings prefixed with `#`** are looked up in `resource/valve_english.txt` (and friends). Use `BufferedLocaliseTextString` to resolve them in VGUI.
 - **VGUI fonts ≠ engine fonts ≠ HUD fonts.** They live in different schemes; do not mix. `fonts.wad` is no longer used by the modern engine.
 - **Sort case-insensitively for player-facing lists.** Use `qsort` + `stricmp` (Windows) / `strcasecmp` (POSIX). The dynamic map list is alphabetized this way before transmission so the menu order matches what players expect.

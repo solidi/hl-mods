@@ -25,7 +25,7 @@ This is the **root context document** for every gamemode in Cold Ice Remastered.
 | 14 | `GAME_LOOT`       | `"loot"`           | `CHalfLifeLoot`                    | [loot_gamerules.md](loot_gamerules.md) |
 | 15 | `GAME_PROPHUNT`   | `"prophunt"`       | `CHalfLifePropHunt`                | [prophunt_gamerules.md](prophunt_gamerules.md) |
 | 16 | `GAME_SHIDDEN`    | `"shidden"`        | `CHalfLifeShidden`                 | [shidden_gamerules.md](shidden_gamerules.md) |
-| 17 | `GAME_SNOWBALL`   | `"snowball"`       | `CHalfLifeSnowballFight`           | TBD |
+| 17 | `GAME_SNOWBALL`   | `"snowball"`       | `CHalfLifeSnowballFight`           | [snowballfight_gamerules.md](snowballfight_gamerules.md) |
 | 18 | `GAME_TEAMPLAY`   | `"teamplay"`       | `CHalfLifeTeamplay`                | TBD |
 
 Authoritative table: `gamePlayModes[]` in `src/dlls/multiplay_gamerules.cpp` (~line 240). Numeric IDs from `src/common/const.h`.
