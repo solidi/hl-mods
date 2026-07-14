@@ -182,7 +182,7 @@ v1.1 Features:
     - Snowball
         - Improve throw performance of the weapon so it's predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
-    - Hand grenades explode if they hit a player
+    - Hand grenades explode on contact with living targets (players/monsters)
 - Server
     - Added "botfinditem [0-1]" to turn on/off search logic
     - Added "mp_rtvtime [sec]" for real time voting time
