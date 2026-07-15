@@ -33,6 +33,7 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `ev_hldm.cpp` — client-side weapon firing/prediction events. New server weapons that fire visibly need an entry here, otherwise the local player sees lag.
 - `hl/hl_events.cpp` — binds `events/*.sc` scripts to `EV_Fire*` callbacks.
 - `parsemsg.{h,cpp}` — `BEGIN_READ` / `READ_BYTE` / `READ_STRING` helpers used by every `MsgFunc_*`.
+- `particlemgr.cpp`, `particlesys.cpp`, `FlameSystem.cpp`, `particlemsg.cpp` — client particle/flame ownership, lifecycle, and toggles. See [particle_system.md](particle_system.md).
 
 ## Hooking a New User Message
 
@@ -63,6 +64,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Vote panels (gameplay/mutator/map sequence) | [voting_system.md](voting_system.md) |
 | Radar overlay | [radar_system.md](radar_system.md) |
 | Banner / pickup overlays | [banner_system.md](banner_system.md) |
+| Particle and flame effects (message -> manager -> render lifecycle) | [particle_system.md](particle_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |
