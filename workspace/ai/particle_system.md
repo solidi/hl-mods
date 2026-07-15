@@ -102,7 +102,7 @@ No entry is created from passive `Process()` calls anymore.
 1. Parsing-buffer free mismatch in `ParticleSystem` constructor.
 2. Entity delete path only removing first matching system.
 3. Orphaned entity-bound systems retained when entity pointer becomes null.
-4. Flame-state map growth due implicit insertion on `Data[i]` reads.
+4. Flame-state map growth due to implicit insertion on `Data[i]` reads.
 5. Server sender gap: `flameball` now flags `m_burnParticleEnabled = 1`, ensuring remove paths emit `DelPart`.
 6. Related server heap fix in particle-adjacent path: `CGib::SpawnRandomGibs` now frees temporary `gibsIndex` array.
 

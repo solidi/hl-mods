@@ -504,8 +504,7 @@ There are two distinct entry points into the mutator vote:
    `gmsgVoteMutator(voting.value, gameMode)`, sets `m_iVoteUnderway` to
    `VOTE_MUTATORS_OPEN`, and plays `CLIENT_SOUND_VOTEMUTATOR`. Timing budget:
    `(voting.value * 4) + 12` seconds from the start of intermission (the game-
-   options phase now takes the earlier slot; see
-   `memories/repo/game_options_voting.md`).
+   options phase now takes the earlier slot; see [game_options_system.md](game_options_system.md)).
 
 2. **Rock-The-Vote.** `rtv mutator` (chat) or the RTV console command sets
    `m_fMutatorVoteTime = time + voting.value` and opens a client panel via
