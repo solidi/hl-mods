@@ -9,7 +9,7 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 | System | Entry points | Spoke |
 |--------|-------------|-------|
 | Game rules / mode dispatch | `gamerules.cpp::InstallGameRules()`, `multiplay_gamerules.{h,cpp}` | [gamerules.md](gamerules.md) |
-| Mutators / pause | `MutatorPause()`, `g_szMutators[]` | [mutator_pause_system.md](mutator_pause_system.md) |
+| Mutators / pause | `MutatorsThink()`, `g_szMutators[]`, `PauseMutators()`/`RestoreMutators()` | [mutator_system.md](mutator_system.md) |
 | Bot AI | `grave-bot-src/dlls/` | [gravebot.md](gravebot.md) (sub-spoke: [gravebot_combat.md](gravebot_combat.md)) |
 | Weapons / `weapon_*` entities | `weapons.{h,cpp}`, `<weapon>.cpp`, `wpn_shared/` | [weapons.md](weapons.md) |
 | Map cycle / map vote | `multiplay_gamerules.cpp::ReloadMapCycleFile`, `BuildServerMapList`, `SendMapListToClient` | this file (below); cross-cutting flow: [voting_system.md](voting_system.md) |

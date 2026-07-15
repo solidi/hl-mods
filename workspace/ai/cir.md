@@ -140,7 +140,7 @@ Most features cut across both halves via a registered user-message; if you are t
 ### Server-side (loaded from [server.md](server.md))
 - [gamerules.md](gamerules.md) — `CGameRules` hierarchy and per-mode dispatch (the Mode Roster lives here).
 - [arena_gamerules.md](arena_gamerules.md), [busters_gamerules.md](busters_gamerules.md), [coldskull_gamerules.md](coldskull_gamerules.md), [coldspot_gamerules.md](coldspot_gamerules.md), [ctc_gamerules.md](ctc_gamerules.md), [ctf_gamerules.md](ctf_gamerules.md), [kts_gamerules.md](kts_gamerules.md), [shidden_gamerules.md](shidden_gamerules.md) — per-mode spokes.
-- [mutator_pause_system.md](mutator_pause_system.md) — mutator lifecycle and pause semantics.
+- [mutator_system.md](mutator_system.md) — mutator IDs, wire protocol, per-mode filters, catalogue, pause/restore, add-a-mutator checklist.
 - [gravebot.md](gravebot.md) — bot AI overview (lifecycle, navigation, item & rune handling, CVars). Sub-spoke: [gravebot_combat.md](gravebot_combat.md) for deep combat detail (memory: `/memories/repo/gravebot_combat_mechanics.md`).
 - [player.md](player.md) — Cold Ice player abilities (impulses 206-218): punch, kick, hurricane kick, flips, double/triple jump, force grab (incl. world-item tractor), grapple, throw weapon, off-hand grenade, slide, taunt, iron sights.
 - [weapons.md](weapons.md) — `weapon_*` entity inventory, `CBasePlayerWeapon` mechanics, proximity-mine deploy on satchel & tripmine. (Also linked from [client.md](client.md).)
