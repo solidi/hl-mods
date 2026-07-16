@@ -30,6 +30,7 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `hud_msg.cpp` — message handlers that live on `CHud` itself (e.g. `MsgFunc_InitHUD`).
 - `vgui_TeamFortressViewport.{h,cpp}` — the client viewport, all VGUI menus, all VGUI message handlers. See [vgui_system.md](vgui_system.md).
 - `vgui_VoteMapWindow.cpp`, `vgui_VoteGameplayWindow.cpp`, `vgui_VoteMutatorWindow.cpp` — the three vote panels.
+- `lifebar.{h,cpp}` — player overhead lifebar sprites and floating damage numbers (attacker ownership emphasis). See [lifebar.md](lifebar.md).
 - `ev_hldm.cpp` — client-side weapon firing/prediction events. New server weapons that fire visibly need an entry here, otherwise the local player sees lag.
 - `hl/hl_events.cpp` — binds `events/*.sc` scripts to `EV_Fire*` callbacks.
 - `parsemsg.{h,cpp}` — `BEGIN_READ` / `READ_BYTE` / `READ_STRING` helpers used by every `MsgFunc_*`.
@@ -64,6 +65,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Vote panels (gameplay/mutator/map sequence) | [voting_system.md](voting_system.md) |
 | Radar overlay | [radar_system.md](radar_system.md) |
 | Banner / pickup overlays | [banner_system.md](banner_system.md) |
+| Life bars + floating damage numbers | [lifebar.md](lifebar.md) |
 | Particle and flame effects (message -> manager -> render lifecycle) | [particle_system.md](particle_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Weapon firing prediction | `ev_hldm.cpp` |
