@@ -344,6 +344,7 @@ v1.1 Features:
         - Fixed floating animations of satchels and tripmines
         - Hornet damage now linked to sk_hornet_damage
         - Improved railgun firing sound
+        - Fixed weapon sprite flashes
 
 Highly-Valued Upcoming Features:
 
