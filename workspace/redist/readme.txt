@@ -182,6 +182,7 @@ v1.1 Features:
     - Proximity Mine
         - Use "reload" on either tripmine or satchel to place a proximity mine
     - Snowball
+        - Make new snowballs with the reload button
         - Improve throw performance of the weapon so it's predictable
         - Primary attack is medium throw, secondary is hold/charge for longer throw
     - Hand grenades explode on contact with living targets (players/monsters)

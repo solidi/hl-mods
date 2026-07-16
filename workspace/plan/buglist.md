@@ -6,7 +6,6 @@
 ## Suggestions
 
 [ ] Add "your shiting yourself" voice over
-[ ] Add infinity snowballs, and remove the fists
 [ ] Train AI to make new map?
 [ ] Add support paper to v_ models
 [ ] Ice tean ps3 brown filter mutator - name it iced tea
@@ -35,6 +34,7 @@
 [ ] show winning vote on map and gamemode before vote ends?
 [ ] pirate sounds when hat mutator on
 [x] ASMR weapon from UT?
+[x] Add infinity snowballs, and remove the fists
 
 ## v1 Buglist
 
