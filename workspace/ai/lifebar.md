@@ -1,6 +1,6 @@
 # LifeBar and Floating Damage Numbers
 
-Everything related to player life bar sprites and floating damage numbers in the client HUD lives in `workspace/src/cl_dll/lifebar.cpp` and `workspace/src/cl_dll/lifebar.h`.
+Everything related to player life bar sprites and floating damage numbers in the client HUD lives in `workspace/src/cl_dll/lifebar.cpp` and `workspace/src/cl_dll/lifebar.h` (in the `workspace/src` submodule).
 
 Use this page when working on:
 - player overhead life bar icons
