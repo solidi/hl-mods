@@ -56,6 +56,27 @@ if [[ $clientOnly -eq 0 ]]; then
         make distclean CFG=$cfg
         make clean CFG=$cfg
     fi
-    output=`make CFG=$cfg 2>&1` || (echo $output && false)
-    mv $cfg/gravebot.so ../../libs/dlls
+    output=`make -f makefile CFG=$cfg 2>&1` || (echo $output && false)
+
+    graveOut="$cfg/gravebot.so"
+    if [[ ! -f "$graveOut" ]]; then
+        if [[ -f "Release/gravebot.so" ]]; then
+            graveOut="Release/gravebot.so"
+        elif [[ -f "release/gravebot.so" ]]; then
+            graveOut="release/gravebot.so"
+        else
+            echo "gravebot.so not found in expected output directories (CFG=$cfg)."
+            exit 1
+        fi
+    fi
+
+    echo "Validating ${graveOut} for unresolved symbols..."
+    ldd_out="$(ldd -r "$graveOut" 2>&1)" || { echo "$ldd_out"; echo "ldd failed; refusing to copy."; exit 1; }
+    if echo "$ldd_out" | grep -Eq "undefined symbol|not found"; then
+        echo "$ldd_out"
+        echo "gravebot.so contains unresolved symbols or missing dependencies; refusing to copy."
+        exit 1
+    fi
+
+    mv "$graveOut" ../../libs/dlls/gravebot.so
 fi

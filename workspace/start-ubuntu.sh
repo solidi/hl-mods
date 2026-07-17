@@ -30,6 +30,19 @@ echo "skip distro is $skipDistro...";
 echo "map is $mapName...";
 
 function doCopy() {
+    if [[ ! -f libs/dlls/gravebot.so ]]; then
+        echo 'Missing libs/dlls/gravebot.so; run ./build-linux.sh first.'
+        exit 1
+    fi
+
+    echo 'Validating libs/dlls/gravebot.so before copy...'
+    ldd_out="$(ldd -r libs/dlls/gravebot.so 2>&1)" || { echo "$ldd_out"; echo 'ldd failed; refusing to install.'; exit 1; }
+    if echo "$ldd_out" | grep -Eq "undefined symbol|not found"; then
+        echo "$ldd_out"
+        echo 'gravebot.so has unresolved symbols or missing dependencies; refusing to install.'
+        exit 1
+    fi
+
     echo 'Copying so libs to redist...'
     sudo cp libs/dlls/ice.so redist/dlls/
     sudo cp libs/dlls/gravebot.so redist/dlls/
@@ -45,6 +58,10 @@ function doCopy() {
     cp -a redist/. ${installFolder}/${icefolder}/
     cp -a redist_hd/. ${installFolder}/${icefolder}_hd/
     cp -a redist_sp/. ${installFolder}/${icefolder}_sp/
+
+    echo 'gravebot.so hashes (source and installed):'
+    sha256sum libs/dlls/gravebot.so
+    sha256sum "${installFolder}/${icefolder}/dlls/gravebot.so"
 
     if [[ $detailTextures -eq 1 ]]; then
         echo 'Including detailed textures...'
