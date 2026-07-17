@@ -36,9 +36,10 @@ function doCopy() {
     fi
 
     echo 'Validating libs/dlls/gravebot.so before copy...'
-    if ldd -r libs/dlls/gravebot.so 2>&1 | grep -q "undefined symbol"; then
-        ldd -r libs/dlls/gravebot.so || true
-        echo 'gravebot.so has unresolved symbols; refusing to install.'
+    ldd_out="$(ldd -r libs/dlls/gravebot.so 2>&1)" || { echo "$ldd_out"; echo 'ldd failed; refusing to install.'; exit 1; }
+    if echo "$ldd_out" | grep -Eq "undefined symbol|not found"; then
+        echo "$ldd_out"
+        echo 'gravebot.so has unresolved symbols or missing dependencies; refusing to install.'
         exit 1
     fi
 
@@ -60,7 +61,7 @@ function doCopy() {
 
     echo 'gravebot.so hashes (source and installed):'
     sha256sum libs/dlls/gravebot.so
-    sha256sum ${installFolder}/${icefolder}/dlls/gravebot.so
+    sha256sum "${installFolder}/${icefolder}/dlls/gravebot.so"
 
     if [[ $detailTextures -eq 1 ]]; then
         echo 'Including detailed textures...'

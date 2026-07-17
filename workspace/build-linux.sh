@@ -71,9 +71,10 @@ if [[ $clientOnly -eq 0 ]]; then
     fi
 
     echo "Validating ${graveOut} for unresolved symbols..."
-    if ldd -r "$graveOut" 2>&1 | grep -q "undefined symbol"; then
-        ldd -r "$graveOut" || true
-        echo "gravebot.so contains unresolved symbols; refusing to copy."
+    ldd_out="$(ldd -r "$graveOut" 2>&1)" || { echo "$ldd_out"; echo "ldd failed; refusing to copy."; exit 1; }
+    if echo "$ldd_out" | grep -Eq "undefined symbol|not found"; then
+        echo "$ldd_out"
+        echo "gravebot.so contains unresolved symbols or missing dependencies; refusing to copy."
         exit 1
     fi
 
