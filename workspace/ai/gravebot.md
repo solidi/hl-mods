@@ -35,6 +35,32 @@ if a human typed them. This is how bots issue `spectate`, `setteam`,
 `setmodel` (see [bot_start.cpp 53–114](../grave-bot-src/dlls/bot_start.cpp#L53-L114))
 and how they will issue `drop_rune` — see Rune handling below.
 
+### 1a. Lifecycle Safety Hardening (2026-07)
+
+Map-change and reconnect crashes tend to come from this path, so treat these
+as invariants when editing:
+
+- `ClientConnect` now treats null `pszAddress` safely and excludes `loopback`
+  from bot-kick pressure logic. This avoids accidental listen-client churn
+  during local map transitions.
+- Bot kick command emission in both `ClientConnect` and `pfnChangeLevel`
+  skips empty bot names to avoid malformed kick commands.
+- `ClientDisconnect` now guards bot-edict health writes so stale/null bot
+  pointers do not get dereferenced during teardown.
+- `FakeClientCommand` now bounds all writes into `g_argv` and does not leave
+  `isFakeClientCommand` stuck on when called with invalid args.
+- `ProcessBotCfgFile` and dedicated-server `gravebot` command parsing now
+  bound incoming command lines to fixed buffers (truncate safely instead of
+  overflowing).
+
+If a listenserver dies around `changelevel` with networking errors, first
+inspect this lifecycle chain:
+
+1. `pfnChangeLevel` bot-kick burst in [engine.cpp](../grave-bot-src/dlls/engine.cpp).
+2. Connection/reconnect handling in [dll.cpp](../grave-bot-src/dlls/dll.cpp#L537-L740).
+3. Fake client command marshaling in [dll.cpp](../grave-bot-src/dlls/dll.cpp#L1269-L1322).
+4. Bot cfg / cvar command parsing in [dll.cpp](../grave-bot-src/dlls/dll.cpp#L986-L1455).
+
 ---
 
 ## 2. Navigation
