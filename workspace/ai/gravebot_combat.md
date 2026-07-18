@@ -316,6 +316,11 @@ No external config file drives combat — all tuning is through these commands o
 - Disabled both melee impulse emitters against this threat class to keep behavior strictly "ranged counter or disengage".
 - Hardened selection with a `found_weapon` guard so filtered weapon sets return FALSE cleanly instead of relying on default index fallback.
 
+### 2026-07 — Runtime safety guards (combat core)
+- Added explicit null/stale-entry guards to `BotFindEnemy`, `BotShouldEngageEnemy`, `BotBodyTarget`, `BotFireWeapon`, and `BotShootAtEnemy`.
+- `BotFireWeapon` now hard-fails closed (`FALSE`) when weapon select/delay tables are unavailable instead of assuming global tables are valid.
+- Purpose: map-change / disconnect windows can leave transiently invalid bot/enemy pointers; these guards keep combat ticks from dereferencing torn-down edicts.
+
 ---
 
 ## 12. Lessons Learned (for future combat work)
@@ -332,6 +337,7 @@ Mistakes / gotchas caught during the softening pass + code review. Read these be
 - **Skill 0 = hardest.** All per-skill arrays are indexed with `pBot->bot_skill = skill - 1`, and skill 0 is the top tier. Don't write `if (bot_skill > 0)` as a "skip for low-skill bots" gate — it's actually a "skip for the HARDEST tier". This was the bug that gave skill-0 bots perfect aim for years.
 - **Gamemode branches must be considered for every combat tweak.** Arena / CTF / Cold Spot / CTC / KTS / Cold Skulls / Prop Hunt / Gun Game all have their own short-circuits at the top of `BotFindEnemy`, `BotShootAtEnemy`, or `BotFireWeapon`. Any softening / hardening change must be explicitly evaluated against these — e.g. the re-acquire penalty is skipped in Arena, and the melee gate is already gated by `is_gameplay != GAME_GUNGAME`.
 - **Any new weapon filter must handle "no candidate" explicitly.** If a threat policy skips entire weapon classes (e.g. no snark/chumtoad deployables, no melee), the selector must return FALSE when nothing is left. Do not fall through to index 0 defaults.
+- **Combat entry points must fail closed on bad pointers.** `BotFindEnemy`, `BotShouldEngageEnemy`, `BotBodyTarget`, `BotFireWeapon`, and `BotShootAtEnemy` should return early when `pBot`, `pEdict`, or enemy pointers are null/stale. Do not rely solely on callers to enforce this during map-change/disconnect transitions.
 - **Build is x86 Release via MSBuild, not CMake.** `grave_bot.sln` builds with `MSBuild ... -p:Configuration=Release -p:Platform=x86`; the output DLL is auto-copied to `workspace/libs/dlls/grave_bot.dll`. Expect ~340 pre-existing C4996 (unsafe-CRT) and C4477 (format-string) warnings in `dll.cpp`; filter for new warnings only when validating changes. Intellisense reports `GAME_*` / `MUTATOR_*` identifiers as undefined in some files — they are pre-existing include-path quirks, the real compiler resolves them.
 - **Metamod + non-metamod both live in the same source.** Changes that touch CVARs, command handlers, or globals need to compile under both `#ifdef METAMOD_BUILD` and the non-metamod branch. For the `bot_aim_difficulty` scalar we defined it as a plain `float` global (not a `cvar_t`) which sidesteps the dual-registration dance — prefer this pattern for new internal tuning knobs.
 
