@@ -18,7 +18,7 @@ v1.1 Features:
         - A re-creation of what was described by Dario Casali, author of boot_camp
         - Introduces thirdperson camera support when running with loot
 - New Mutators
-    - "amidead" - tilts view by eight degrees
+    - "amidead" - tilts view by eighty degrees
     - "mcclane" - reverse the up and down weapon view model
     - "rats" - spawns numerous explosive rats on the map
     - "skyhook" - if a player touches a sky texture, they are gibbed
@@ -83,6 +83,7 @@ v1.1 Features:
         - Buster cannot pickup weapons or ammo
         - Disconnected buster is announced, choose new player
     - Capture the Chumtoad
+        - Added mp_ctctoadcount, expanding from 1 to 5 toads at a time
         - Improved bot play, more attacks and strategy of holding the chumtoad
         - Place the player's view in thirdperson when having the chumtoad
         - Changed HUD to green when holding the chumtoad
@@ -178,7 +179,7 @@ v1.1 Features:
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun
-        - (Planned) Add a laser to +attack2 so ice plasma can be detonated midair
+        - Added a laser to +attack2 so ice plasma can be detonated midair
     - Proximity Mine
         - Use "reload" on either tripmine or satchel to place a proximity mine
     - Snowball
