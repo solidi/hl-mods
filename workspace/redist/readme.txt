@@ -217,7 +217,7 @@ v1.1 Features:
     - Added "mp_ktsspawn1" and "mp_ktsspawn2" for the blue and red KTS goal spawn entities
     - Added server timestamps to chat messaging
 - Client
-    - Added "cl_thirdcamera" so the player can deny the thirdperson view
+    - Added "cl_thirdcamera" so the player can enable or disable the third-person camera in supported scenarios
     - Added damage numbers rendered on the HUD when hitting an enemy
     - Damage numbers are colored blue or orange based on team
     - Improved voting menus for mutators and maps; panels are now scrollable
@@ -348,7 +348,7 @@ v1.1 Features:
         - Fixed fire loop sound if on fire and placed in observer
         - Fixed follow-next targeting when the current target becomes a spectator
         - Fixed ejection shell after respawn
-        - Don't show the healthbar of a player while in in-view spectator
+        - Don't show the health bar of a player while in in-view spectator mode
         - Forcegrab now ignores teammates
         - Fixed player weapon animation after taunting
         - Additional row added to the old scoreboard to accommodate the server name
