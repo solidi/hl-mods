@@ -394,7 +394,7 @@ Cold Ice Remastered can be launched as a dedicated server, following the normal 
 
 Commands:
 
-For a list of client commands see client_commands.txt and for a list of server command see server_commands.txt.
+For a list of client commands, see client_commands.txt; for a list of server commands, see server_commands.txt.
 
 Report Bugs:
 
