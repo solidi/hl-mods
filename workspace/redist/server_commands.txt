@@ -1,0 +1,178 @@
+Server commands:
+
+- "help_server" - Displays specific server Cold Ice Remastered options
+- "help_server_more" - Displays more server Cold Ice Remastered options
+- "addbot" - Add a bot
+- "botdontshoot [0|1]" - Enable or disable bots attacking others
+- "botpause [0|1]" - Bots stay in place
+- "mp_allowrunes [0|1|2+]" - Allow powerup runes on server; values > 1 allow duplicate rune types (skip unique-rune limiting)
+- "mp_allowvoiceovers [0|1]" - Allow public voiceovers
+- "mp_busterscount [1-3]" - Max buster count during gameplay
+- "mp_coldspotspawn" - name of entity where the spot will spawn
+- "mp_coldspottime" - time in seconds of when spot moves
+- "mp_ctcsecondsforpoint" - amount of seconds holding chumtoad for a point
+- "mp_ctfspawn1" - name of entity where blue base will spawn in map
+- "mp_ctfspawn2" - name of entity where red base will spawn in map
+- "mp_ctfdistance" - minimum units between flags
+- "mp_dualsonly [0|1]" - Replace all weapons with duals only
+- "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
+- "mp_ktsspawn1" - name of entity where the blue goal will spawn in KTS
+- "mp_ktsspawn2" - name of entity where the red goal will spawn in KTS
+- "mp_gamemode" - select game mode
+    - "ffa" - traditional free-for-all deathmatch
+    - "arena" - 1 on 1 arena, two potential victors are selected to battle to a frag limit
+    - "lms" - battle royale, protect your lives in a shrinking safe zone
+    - "busters" - one player has the egon and busts ghosts
+    - "coldskull" - be the first to collect all the skulls!
+    - "coldspot" - stay in a rotating zone to score points.
+    - "chilldemic" - be the survivor from the virus
+    - "ctc" - capture the chumtoad, hold on to it to receive points!
+    - "ctf" - capture the flag, grab the flag and run it back to base!
+    - "gungame" - get specific weapons for frags and level up!
+    - "horde" - fight npc's, survive waves.
+    - "instagib" - grab a zapper and get to work.
+    - "jvs" - Jesus vs Santa - it is the sole duty of Jesus to dispatch all Santas
+    - "kts" - teamplay footie with a large snowball
+    - "loot" - teamplay with hidden loot, get it to the goal
+    - "prophunt" - spawn as an item, hide from the hunters
+    - "shidden" - some are hidden, equipped with deadly farts.
+    - "snowball" - Snowball Arena - battle with snowballs, melees, and trade in snowballs for offhand grenades!
+    - "teamplay" - frag with teams
+- "mp_ggstartlevel" - Sets default start level of gun game
+- "mp_ggsteallevel [0|1]" - Enable level stealing if fragged with punch
+- "mp_ggfrags" - Amount of frags to upgrade each weapon
+- "mp_ggsuicide [0|1]" - Lose a level on self frag if enabled
+- "mp_grabsky [0|1]" - Allow player to grapple or portal the sky
+- "mp_grapplinghook [0|1]" - Allow grappling hook on server
+- "mp_grapplinghookdeploytime 1.0" - Time (seconds) when next grappling hook can deploy
+- "mp_holsterweapons [0|1]" - Holstering weapons for more realistic gameplay
+- "mp_hunterselfcost" - amount of damage taken by hunter when firing his weapon
+- "mp_iceblood [0|1]" - Enable blue blood
+- "mp_icesprites [0|1]" - Switch between select ice or real environment sprites
+- "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib"" - A semicolon separated list of items that are "interactive" (kickable, pickupable)
+- "mp_meleedrop "[0|1]"" - allow kick or punch attacks to drop weapons out of hands
+- "mp_moreblood [0-5]" - Increase blood up to 0-5 times
+- "mp_nukemode "[0|1|2]"" - 2 - nuke kills all, 1 - radius damage, 0 - sharts nothing but bubbles
+- "mp_prophealth" - Sets the amount of starting health for prop
+- "mp_prophunttime [time]" - sets the time hunters are frozen
+- "mp_randomgamemodes "[0|1]"" - selects a random gamemode on map change
+- "mp_randomweapon [0|1]" - To spawn with a random weapon
+- "mp_roundfraglimit" - Sets the max frags in a round during an 1 on 1 arena
+- "mp_roundlimit" - Sets the maximum amount of game rounds before a map change
+- "mp_roundtimelimit" - Sets the maximum amount of time a round will run
+- "mp_royaleteam [0|1]" - Sets teamplay option for battle royale
+- "mp_royaledamage [0|1]" - Enable damage outside of safe zone
+- "mp_rtvtime [sec]" - sets real time voting time
+- "mp_rtvcooldown [sec]" - sets the delay between successful rtv votes
+- "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
+- "mp_spawnitems" - Spawn items or not
+- "mp_spawnprotectiontime" - amount of time in seconds a player is protected from damage
+- "mp_spawnweaponlist "weapon_9mmhandgun"" - A semicolon separated list of the player's spawn weapons
+- "mp_spawnweapons" - Spawn weapons or not
+- "mp_startwithall [0|1]" - Start with all weapons
+- "mp_startwithlives" - Sets the starting lives during last man standing
+- "mp_voting [time]" - enable or disable end of the map voting with timer
+- "sv_acrobatics [0|1]" - allow or disallow wall climbing, slides, and flips
+- "sv_bots_hook [0|1]" - bots use the grappling hook in combat
+- "sv_botsmelee [0|1]" - to toggle bots close combat on or off
+- "sv_breakabletime" - amount of seconds before a breakable entity respawns
+- "sv_chaosfilter" - a list of mutators that are ignored during chaos mode
+- "sv_disallowlist" - a list of entities that will not spawn
+- "sv_defaultbots [0-31|-1]" - amount of bots added to server, -1 for manual mode
+- "sv_infiniteammo [0|1|2]" - Infinite ammo ala CS 1.6
+    - "1" - makes the weapon clip infinite
+    - "2" - makes the weapon have infinite ammo for reloading
+- "sv_jumpheight 45" - Adjust the player's jump height
+- "sv_mutatoramount [3 (0-7)]" - how many mutators are rotated during chaos mode
+- "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence
+- "sv_mutatortime [30 (10-120)]" - how long mutator lasts in seconds (approx)
+- "sv_addmutator" - Add mutators to gameplay.
+    - Specify the duration in seconds inside the quotes after the mutator name
+        - Example: sv_addmutator "longjump" sets the duration to whatever sv_mutatortime is (in seconds)
+        - Example: sv_addmutator "longjump 120" for 120 seconds
+        - Example: sv_addmutator "longjump 0" for a permanent duration until map change or until it is cleared
+    - "chaos" - randomly selects three mutators every 30 seconds!
+    - "unchaos" - to shut off chaos mode
+    - "999" - start with 999 health and battery.
+    - "amidead" - tilts view by eighty degrees
+    - "astronaut" - gravity is turned down
+    - "autoaim" - all weapons have extreme autoaim.
+    - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
+    - "berserker" - go crazy with chainsaws and fists.
+    - "bigfoot" - step size is crazy big
+    - "bighead" - players heads are very large
+    - "chumxplode" - a killer chumtoad appears directly after an explosion
+    - "coolflesh" - gibs stay longer, pick up gibs to eat and gain a healthkit worth of repair
+    - "cowboy" - cowboy hats with dual cannons!
+    - "crate" - boxwars in the 2020's.
+    - "credits" - show all contributors in an endless loop.
+    - "dealter" - dealing with farts, of course
+    - "dontshoot" - firing any weapon will explode the player.
+    - "explosiveai" - AI blows up when it cannot find its next task
+    - "fastweapons" - all weapons are faster.
+    - "firebullets" - all tracers are hot
+    - "firestarter" - start with a flamethrower
+    - "fog" - heavy fog moves into the gameplay
+    - "godmode" - everyone is invincible
+    - "goldenguns" - guns provide one shot frags
+    - "grenades" - a random chance of a grenade throw on attack
+    - "ice" - all the ground is covered in ice
+    - "infiniteammo" - all weapons have infinite ammo
+    - "instagib" - spawn with a zapgun that dole one hit kills
+    - "inverse" - colors are inverted
+    - "invisible" - everyone is partially invisible!
+    - "itemsexplode" - weapons and items react to explosions
+    - "jack" - we don't make it 'til you order it.
+    - "jeepathon" - everyone is a jeep.
+    - "jope" - it's all a jope!
+    - "lightsout" - all the lights are turned out, but your flashlight has unlimited battery
+    - "longjump" - everyone receives a long jump module
+    - "loopback" - teleport to the place of your last frag
+    - "marshmellow" - come back 1999 to you.
+    - "maxpack" - drop all weapons and ammo in play (mp only!)
+    - "mcclane" - reverse the up and down weapon view model
+    - "megarun" - run faster than normal
+    - "minime" - players are half the size
+    - "mirror" - mirror, mirror on the wall
+    - "napkinstory" - the legend reduced to two words
+    - "noclip" - fly through walls
+    - "noradar" - hides the radar, compass, and world indicators from the HUD
+    - "noreload" - no one can reload
+    - "notify" - interrupt players with annoying chat notifications
+    - "notthebees" - hornets spawn from a player or monster who was killed
+    - "oldtime" - gameplay becomes desaturated
+    - "paintball" - weapons and explosions leave paint decals
+    - "paper" - players are flat
+    - "piratehat" - argh, matey.
+    - "plumber" - spawn with dual pipe wrenches
+    - "portal" - now you're thinking with portals
+    - "pumpkin" - on Halloween, he appears.
+    - "pushy" - all weapon attacks push you back like a gauss attack
+    - "randomweapon" - spawn with a randomly selected weapon
+    - "rats" - spawns numerous explosive rats on the map
+    - "ricochet" - the best mod ever made
+    - "rocketbees" - hornets are explosive
+    - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+    - "rockets" - a random chance of rockets throw on attack!
+    - "sanic" - evil santa and sanic with a santa hat team up against you
+    - "santahat" - everyone wears a santa hat and says hohoho randomly
+    - "sildenafil" - screen goes blue
+    - "skyhook" - if a player touches a sky texture, they are gibbed
+    - "slowbullets" - bullets travel slowly to target
+    - "slowmo" - everything is slowed down by half! (sp only!)
+    - "slowweapons" - all weapons are slower.
+    - "snowballs" - a random chance of snowballs throw on attack
+    - "speedup" - everything is sped up by half! (sp only!)
+    - "stahp" - some sounds replaced with stahp!
+    - "superjump" - jump three times the height, disables fall damage.
+    - "thirdperson" - an out of body experience
+    - "tinnitus" - lowers sfx volume and introduces a buzzing sound
+    - "three" - three random mutators at once
+    - "topsyturvy" - everything is turned upside down (sp only!)
+    - "toilet" - game is in the toilet, we ain't hurt nobody.
+    - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
+    - "upsidedown" - reverses up and down views
+    - "vested" - everyone starts with a vest
+    - "volatile" - where players blow up when fragged
+- "sv_instantmutators [0|1]" - Enable or disable instant mutators
+- "sv_weather [0|1]" - allow or disallow weather effects on server
