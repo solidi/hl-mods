@@ -2,6 +2,13 @@ VERSION 1.0
 
 DESCRIPTION SERVER_OPTIONS
 {
+	"_ice_hdr_server"
+	{
+		"==  Server  =="
+		{ STRING }
+		{ "" }
+	}
+
 	"hostname"
 	{
 		"#Valve_Hostname"
@@ -9,11 +16,32 @@ DESCRIPTION SERVER_OPTIONS
 		{ "Cold Ice Remastered" }
 	}
 
-	"sv_defaultbots"
+	"sv_password"
 	{
-		"#Ice_DefaultBots"
-		{ NUMBER 0.000000 31.000000 }
-		{ "4.000000" }
+		"#Valve_Server_Password"
+		{ STRING }
+		{ "" }
+	}
+
+	"maxplayers"
+	{
+		"#Valve_Max_Players"
+		{ NUMBER 1.000000 32.000000 }
+		{ "32.000000" }
+	}
+
+	"mp_teamlist"
+	{
+		"#Valve_Valid_Teams"
+		{ STRING }
+		{ "iceman;commando" }
+	}
+
+	"_ice_hdr_mode"
+	{
+		"==  Game Mode  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_gamemode"
@@ -49,6 +77,115 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_RandomGamemodes"
 		{ BOOL }
 		{ "0" }
+	}
+
+	"_ice_hdr_match"
+	{
+		"==  Match Rules  =="
+		{ STRING }
+		{ "" }
+	}
+
+	"mp_fraglimit"
+	{
+		"#Valve_Frag_Limit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "30.000000" }
+	}
+
+	"mp_timelimit"
+	{
+		"#Valve_Time_Limit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "20.000000" }
+	}
+
+	"mp_roundlimit"
+	{
+		"#Ice_RoundLimit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "10" }
+	}
+
+	"mp_roundtimelimit"
+	{
+		"#Ice_RoundTimeLimit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "5" }
+	}
+
+	"mp_roundfraglimit"
+	{
+		"#Ice_RoundFragLimit"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "5" }
+	}
+
+	"mp_roundwaittime"
+	{
+		"#Ice_RoundWaitTime"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "15" }
+	}
+
+	"mp_forcerespawn"
+	{
+		"#Valve_Force_Respawn"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_friendlyfire"
+	{
+		"#Valve_Friendly_Fire"
+		{ BOOL }
+		{ "0" }
+	}
+
+	"mp_falldamage"
+	{
+		"#Valve_Falling_Damage"
+		{
+			LIST
+			"#Valve_Normal" "0"
+			"#Valve_Realistic" "1"
+		}
+		{ "0" }
+	}
+
+	"_ice_hdr_bots"
+	{
+		"==  Bots  =="
+		{ STRING }
+		{ "" }
+	}
+
+	"sv_defaultbots"
+	{
+		"#Ice_DefaultBots"
+		{ NUMBER 0.000000 31.000000 }
+		{ "4.000000" }
+	}
+
+	"sv_botsmelee"
+	{
+		"#Ice_BotsMelee"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"sv_bots_hook"
+	{
+		"#Ice_BotsHook"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"_ice_hdr_mutators"
+	{
+		"==  Mutators  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"sv_addmutator"
@@ -154,7 +291,7 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"sv_mutatoramount"
+	"sv_mutatorcount"
 	{
 		"#Ice_MutatorAmount"
 		{ NUMBER 0.000000 7.000000 }
@@ -175,57 +312,163 @@ DESCRIPTION SERVER_OPTIONS
 		{ "itemsexplode;" }
 	}
 
-	"maxplayers"
+	"_ice_hdr_voting"
 	{
-		"#Valve_Max_Players"
-		{ NUMBER 1.000000 32.000000 }
-		{ "32.000000" }
-	}
-
-	"sv_password"
-	{
-		"#Valve_Server_Password"
+		"==  Voting / RTV  =="
 		{ STRING }
 		{ "" }
 	}
 
-	"mp_teamlist"
+	"mp_voting"
 	{
-		"#Valve_Valid_Teams"
+		"#Ice_Voting"
+		{ NUMBER 10.000000 120.000000 }
+		{ "30" }
+	}
+
+	"mp_rtvtime"
+	{
+		"#Ice_RTVTime"
+		{ NUMBER 10.000000 120.000000 }
+		{ "60" }
+	}
+
+	"mp_rtvcooldown"
+	{
+		"#Ice_RTVCooldown"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "10" }
+	}
+
+	"_ice_hdr_player"
+	{
+		"==  Player / Combat  =="
 		{ STRING }
-		{ "iceman;commando" }
+		{ "" }
 	}
 
-	"mp_fraglimit"
+	"mp_spawnprotectiontime"
 	{
-		"#Valve_Frag_Limit"
+		"#Ice_SpawnProtection"
 		{ NUMBER 0.000000 -1.000000 }
-		{ "30.000000" }
+		{ "3" }
 	}
 
-	"mp_timelimit"
+	"mp_spawnweapons"
 	{
-		"#Valve_Time_Limit"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "20.000000" }
+		"#Ice_SpawnWeapons"
+		{ BOOL }
+		{ "1" }
 	}
 
-	"mp_falldamage"
+	"mp_spawnweaponlist"
 	{
-		"#Valve_Falling_Damage"
-		{
-			LIST
-			"#Valve_Normal" "0"
-			"#Valve_Realistic" "1"
-		}
-		{ "0.000000" }
+		"#Ice_Spawn_Weapon_List"
+		{ STRING }
+		{ "weapon_9mmhandgun" }
 	}
 
-	"mp_friendlyfire"
+	"mp_startwithall"
 	{
-		"#Valve_Friendly_Fire"
+		"#Ice_StartWithAll"
 		{ BOOL }
 		{ "0" }
+	}
+
+	"mp_randomweapon"
+	{
+		"#Ice_RandomWeapon"
+		{ BOOL }
+		{ "0" }
+	}
+
+	"mp_dualsonly"
+	{
+		"#Ice_DualsOnly"
+		{ BOOL }
+		{ "0" }
+	}
+
+	"mp_holsterweapons"
+	{
+		"#Ice_HolsterWeapons"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_meleedrop"
+	{
+		"#Ice_MeleeDrop"
+		{ BOOL }
+		{ "0" }
+	}
+
+	"sv_acrobatics"
+	{
+		"#Ice_Acrobatics"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"sv_jumpheight"
+	{
+		"#Ice_JumpHeight"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "45" }
+	}
+
+	"sv_infiniteammo"
+	{
+		"#Ice_InfiniteAmmo"
+		{
+			LIST
+			"Off" "0"
+			"All" "1"
+			"Reload Clips" "2"
+		}
+		{ "0" }
+	}
+
+	"sv_slowbullets"
+	{
+		"#Ice_SlowBullets"
+		{ BOOL }
+		{ "0" }
+	}
+
+	"mp_allowrunes"
+	{
+		"#Ice_Runes"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_grapplinghook"
+	{
+		"#Ice_Grappling_Hook"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"mp_grapplinghookdeploytime"
+	{
+		"#Ice_Grappling_Hook_Deploy_Time"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "1.000000" }
+	}
+
+	"mp_grabsky"
+	{
+		"#Ice_GrabSky"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"_ice_hdr_world"
+	{
+		"==  World / Environment  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_weaponstay"
@@ -233,13 +476,6 @@ DESCRIPTION SERVER_OPTIONS
 		"#Valve_Weapons_Stay"
 		{ BOOL }
 		{ "0" }
-	}
-
-	"mp_forcerespawn"
-	{
-		"#Valve_Force_Respawn"
-		{ BOOL }
-		{ "1" }
 	}
 
 	"mp_footsteps"
@@ -263,44 +499,16 @@ DESCRIPTION SERVER_OPTIONS
 		{ "0" }
 	}
 
-	"mp_grapplinghook"
+	"mp_allowmonsters"
 	{
-		"#Ice_Grappling_Hook"
+		"#Ice_AllowMonsters"
 		{ BOOL }
 		{ "1" }
 	}
 
-	"mp_grapplinghookdeploytime"
+	"mp_allowvoiceovers"
 	{
-		"#Ice_Grappling_Hook_Deploy_Time"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "1.000000" }
-	}
-
-	"mp_spawnweaponlist"
-	{
-		"#Ice_Spawn_Weapon_List"
-		{ STRING }
-		{ "weapon_9mmhandgun" }
-	}
-
-	"mp_allowrunes"
-	{
-		"#Ice_Runes"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"mp_holsterweapons"
-	{
-		"#Ice_HolsterWeapons"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"mp_floatingweapons"
-	{
-		"#Ice_FloatingWeapons"
+		"#Ice_AllowVoiceovers"
 		{ BOOL }
 		{ "1" }
 	}
@@ -312,16 +520,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"sv_infiniteammo"
+	"mp_icesprites"
 	{
-		"#Ice_InfiniteAmmo"
-		{
-			LIST
-			"Off" "0"
-			"All" "1"
-			"Reload Clips" "2"
-		}
-		{ "0" }
+		"#Ice_IceSprites"
+		{ BOOL }
+		{ "1" }
 	}
 
 	"mp_moreblood"
@@ -339,46 +542,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ "2" }
 	}
 
-	"mp_startwithall"
+	"mp_floatingweapons"
 	{
-		"#Ice_StartWithAll"
-		{ BOOL }
-		{ "0" }
-	}
-
-	"mp_allowvoiceovers"
-	{
-		"#Ice_AllowVoiceovers"
+		"#Ice_FloatingWeapons"
 		{ BOOL }
 		{ "1" }
-	}
-
-	"mp_dualsonly"
-	{
-		"#Ice_DualsOnly"
-		{ BOOL }
-		{ "0" }
-	}
-
-	"sv_jumpheight"
-	{
-		"#Ice_JumpHeight"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "45" }
-	}
-
-	"mp_icesprites"
-	{
-		"#Ice_IceSprites"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"mp_randomweapon"
-	{
-		"#Ice_RandomWeapon"
-		{ BOOL }
-		{ "0" }
 	}
 
 	"mp_interactiveitems"
@@ -386,27 +554,6 @@ DESCRIPTION SERVER_OPTIONS
 		"#Ice_Interactive_Items"
 		{ STRING }
 		{ "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib;kts_snowball" }
-	}
-
-	"mp_spawnweapons"
-	{
-		"#Ice_SpawnWeapons"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"mp_grabsky"
-	{
-		"#Ice_GrabSky"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"sv_disallowlist"
-	{
-		"#Ice_DisallowList"
-		{ STRING }
-		{ "" }
 	}
 
 	"mp_nukemode"
@@ -421,67 +568,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ "2" }
 	}
 
-	"sv_acrobatics"
-	{
-		"#Ice_Acrobatics"
-		{ BOOL }
-		{ "1" }
-	}
-
 	"sv_weather"
 	{
 		"#Ice_Weather"
 		{ BOOL }
 		{ "1" }
-	}
-
-	"mp_roundlimit"
-	{
-		"#Ice_RoundLimit"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "10" }
-	}
-
-	"mp_roundtimelimit"
-	{
-		"#Ice_RoundTimeLimit"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "5" }
-	}
-
-	"mp_roundwaittime"
-	{
-		"#Ice_RoundWaitTime"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "15" }
-	}
-
-	"mp_roundfraglimit"
-	{
-		"#Ice_RoundFragLimit"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "5" }
-	}
-
-	"mp_startwithlives"
-	{
-		"#Ice_StartLives"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "5" }
-	}
-
-	"mp_allowmonsters"
-	{
-		"#Ice_AllowMonsters"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"sv_slowbullets"
-	{
-		"#Ice_SlowBullets"
-		{ BOOL }
-		{ "0" }
 	}
 
 	"sv_breakabletime"
@@ -491,32 +582,81 @@ DESCRIPTION SERVER_OPTIONS
 		{ "20" }
 	}
 
-	"mp_voting"
+	"sv_disallowlist"
 	{
-		"#Ice_Voting"
-		{ NUMBER 10.000000 120.000000 }
-		{ "30" }
+		"#Ice_DisallowList"
+		{ STRING }
+		{ "" }
 	}
 
-	"mp_rtvtime"
+	"_ice_hdr_royale"
 	{
-		"#Ice_RTVTime"
-		{ NUMBER 10.000000 120.000000 }
-		{ "60" }
+		"==  Battle Royale (LMS)  =="
+		{ STRING }
+		{ "" }
 	}
 
-	"mp_spawnprotectiontime"
+	"mp_startwithlives"
 	{
-		"#Ice_SpawnProtection"
+		"#Ice_StartLives"
 		{ NUMBER 0.000000 -1.000000 }
-		{ "3" }
+		{ "5" }
 	}
 
-	"mp_meleedrop"
+	"mp_royaleteam"
 	{
-		"#Ice_MeleeDrop"
+		"#Ice_RoyaleTeam"
 		{ BOOL }
-		{ "0" }
+		{ "1" }
+	}
+
+	"mp_royaledamage"
+	{
+		"#Ice_RoyaleDamage"
+		{ BOOL }
+		{ "1" }
+	}
+
+	"_ice_hdr_busters"
+	{
+		"==  Busters  =="
+		{ STRING }
+		{ "" }
+	}
+
+	"mp_busterscount"
+	{
+		"#Ice_BustersCount"
+		{ NUMBER 1.000000 3.000000 }
+		{ "1" }
+	}
+
+	"_ice_hdr_ctc"
+	{
+		"==  Capture the Chumtoad  =="
+		{ STRING }
+		{ "" }
+	}
+
+	"mp_ctctoadcount"
+	{
+		"#Ice_CtcToadCount"
+		{ NUMBER 1.000000 5.000000 }
+		{ "1" }
+	}
+
+	"mp_ctcsecondsforpoint"
+	{
+		"#Ice_CtcSecondsForPoint"
+		{ NUMBER 0.000000 -1.000000 }
+		{ "10" }
+	}
+
+	"_ice_hdr_ctf"
+	{
+		"==  Capture the Flag  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_ctfspawn1"
@@ -540,18 +680,11 @@ DESCRIPTION SERVER_OPTIONS
 		{ "512" }
 	}
 
-	"sv_botsmelee"
+	"_ice_hdr_coldspot"
 	{
-		"#Ice_BotsMelee"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"sv_bots_hook"
-	{
-		"#Ice_BotsHook"
-		{ BOOL }
-		{ "1" }
+		"==  Cold Spot  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_coldspotspawn"
@@ -561,25 +694,18 @@ DESCRIPTION SERVER_OPTIONS
 		{ "info_player_deathmatch" }
 	}
 
-	"mp_ctfspawn2"
+	"mp_coldspottime"
 	{
 		"#Ice_ColdSpotTime"
 		{ NUMBER 0.000000 -1.000000 }
 		{ "30" }
 	}
 
-	"mp_royaleteam"
+	"_ice_hdr_gungame"
 	{
-		"#Ice_RoyaleTeam"
-		{ BOOL }
-		{ "1" }
-	}
-
-	"mp_royaledamage"
-	{
-		"#Ice_RoyaleDamage"
-		{ BOOL }
-		{ "1" }
+		"==  Gun Game  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_ggstartlevel"
@@ -610,11 +736,32 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
-	"mp_hunterselfcost"
+	"_ice_hdr_kts"
 	{
-		"#Ice_HunterSelfCost"
-		{ NUMBER 0.000000 -1.000000 }
-		{ "1" }
+		"==  Kick the Snowball  =="
+		{ STRING }
+		{ "" }
+	}
+
+	"mp_ktsspawn1"
+	{
+		"#Ice_KtsSpawn1"
+		{ STRING }
+		{ "info_player_deathmatch" }
+	}
+
+	"mp_ktsspawn2"
+	{
+		"#Ice_KtsSpawn2"
+		{ STRING }
+		{ "info_player_deathmatch" }
+	}
+
+	"_ice_hdr_prophunt"
+	{
+		"==  Prop Hunt  =="
+		{ STRING }
+		{ "" }
 	}
 
 	"mp_prophealth"
@@ -631,17 +778,10 @@ DESCRIPTION SERVER_OPTIONS
 		{ "30" }
 	}
 
-	"mp_ctctoadcount"
+	"mp_hunterselfcost"
 	{
-		"#Ice_CtcToadCount"
-		{ NUMBER 1.000000 5.000000 }
-		{ "1" }
-	}
-
-	"mp_busterscount"
-	{
-		"#Ice_BustersCount"
-		{ NUMBER 1.000000 3.000000 }
+		"#Ice_HunterSelfCost"
+		{ NUMBER 0.000000 -1.000000 }
 		{ "1" }
 	}
 }

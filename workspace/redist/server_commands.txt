@@ -75,7 +75,6 @@ Server commands:
 - "mp_royaleteam [0|1]" - Sets teamplay option for battle royale
 - "mp_rtvcooldown [sec]" - sets the delay between successful rtv votes
 - "mp_rtvtime [sec]" - sets real time voting time
-- "mp_snowballfight [0|1]" - Replace all weapons with deadly snowballs!
 - "mp_spawnitems" - Spawn items or not
 - "mp_spawnprotectiontime" - amount of time in seconds a player is protected from damage
 - "mp_spawnweaponlist "weapon_9mmhandgun"" - A semicolon separated list of the player's spawn weapons
