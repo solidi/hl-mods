@@ -18,11 +18,12 @@ v1.1 Features:
         - A re-creation of what was described by Dario Casali, author of boot_camp
         - Introduces thirdperson camera support when running with loot
 - New Mutators
-    - "amidead" - tilts view by eighty degrees
-    - "mcclane" - reverse the up and down weapon view model
+    - "amidead" - tilts the view by eighty degrees
+    - "mcclane" - reverses the up and down weapon view model
+    - "noradar" - hides the radar, compass, and world indicators from the HUD
     - "rats" - spawns numerous explosive rats on the map
     - "skyhook" - if a player touches a sky texture, they are gibbed
-    - "tinnitus" - lowers sfx volume and introduces that buzzing sound
+    - "tinnitus" - lowers sfx volume and introduces a buzzing sound
     - "upsidedown" - reverses up and down views
 - New Maps
     - suspension, a rebuild of Laserus's 1999 map by b1rd
@@ -37,88 +38,99 @@ v1.1 Features:
     - Taunt now supports offhand use
     - Auto-taunt triggers only when using the offhand
     - Using taunt no longer prevents attacking
-    - Expand lj so that the player can longjump in any direction
+    - Expanded longjump so that the player can longjump in any direction
+    - Players holding a single-handed weapon raise the off-hand to shield against blast damage
+    - Headshots now decapitate the victim
 - Expanded Real Time In-Game Voting
-    - Added rtv of gamemodes, type "gamemodes" in chat to start rtv
-    - Added rtv of maps, type "maps" in chat to start rtv
-    - Added rtv of mutators, type "mutators" in chat to start rtv
-    - Added rtv dynamic game-options, type "gameoptions", (see gameoptions.txt)
-    - Options vote panel sits between gameplay and mutator phases at end of round
-    - Added dynamic server-options, type "serveroptions", (see serveroptions.txt)
-    - Options vote panel sits between gameoptions and mutator phases at end of round
+    - Added rtv of gamemodes; type "gamemodes" in chat to start rtv
+    - Added rtv of maps; type "maps" in chat to start rtv
+    - Added rtv of mutators; type "mutators" in chat to start rtv
+    - Added rtv dynamic game-options; type "gameoptions" in chat (see gameoptions.txt)
+    - Options vote panel sits between the gameplay and mutator phases at the end of the round
+    - Added dynamic server-options; type "serveroptions" in chat (see serveroptions.txt)
+    - Options vote panel sits between the gameoptions and mutator phases at the end of the round
+    - Added "mp_rtvcooldown" to control the delay between successful rtv votes
 - Voting Improvements
     - Dynamic map voting menu supports up to 128 maps sent from the server's mapcycle.txt
     - Vote tallies on buttons are now on the right side, and font size increased for readability
-    - Added support for "rtv" in the chat, as confirmation of a "vote" challenge
-    - Send current menu to a connecting player during a vote
+    - Added support for "rtv" in the chat as confirmation of a "vote" challenge
+    - Send the current menu to a connecting player during a vote
     - Fixed menu title selection and added a brief pause for mutator menu voting
-    - Spectators cannot start a rtv of mutators, gameoptions, or serveroptions
-    - Self voting selection is now clear with white highlights
-    - Added gamemode to all vote panels so it's clear
+    - Spectators cannot start an rtv of mutators, gameoptions, or serveroptions
+    - Self-voting selection is now clear with white highlights
+    - Added gamemode to all vote panels so the current mode is clear
+    - Added a "Surprise Me" button to the vote menu for a randomized selection
+    - Instant mutators can now be selected from the mutator vote panel
 - Game Modes Changes
-    - New celebration sequences switch to thirdperson, play sounds
-    - Added banner system so that it is clear of team objective on entering arena
+    - New celebration sequences switch to thirdperson and play sounds
+    - Added a banner system so that the team objective is clear when entering the arena
     - Added initial spectator menu selection on all game modes
-    - Added directional indicators w/ distance on HUD to direct player to objectives
-    - Added level up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
+    - Added directional indicators with distance on the HUD to direct the player to objectives
+    - Added level-up sfx and messaging in ColdSpot, ColdSkulls, Battle Royale, GunGame, and CTC
     - Added teammate radar indicators above each player's head
     - 1 vs. 1
         - Improved bot performance and seeking during gameplay
-        - Player who wins battle continues to next battle until defeated
-        - Player with most frags, even if negative, win if time runs out
+        - Player who wins a battle continues to the next battle until defeated
+        - Player with the most frags, even if negative, wins if time runs out
     - Battle Royale
         - Improved bot performance and safe spot behavior during gameplay
-        - Play siren sound when the safespot shrinks
-        - Added screen warning and reduced timed damage outside safe area
-        - Added world to screen visual indicator of the safe spot
-        - Slowly add health to safezone players
-        - Improve timeup team win calculation
+        - Play a siren sound when the safespot shrinks
+        - Added screen warning and reduced timed damage outside the safe area
+        - Added a world-to-screen visual indicator of the safe spot
+        - Slowly add health to players inside the safe zone
+        - Improved time-up team win calculation
         - Safe spot moves to random info_player_deathmatch entities per round
+        - Players outside the zone are placed into thirdperson to show their surroundings
     - Busters
         - Added mp_busterscount, expanding from 1 to 3 busters at a time
         - Improved bot behaviors, including targeting the egon and the buster when available
-        - Added explosion when picking up the egon so it clears enemies to avoid clustering
-        - Place the player's view in thirdperson when having the egon
-        - The player will always switch to the egon if they pick it up
-        - Buster cannot pickup weapons or ammo
-        - Disconnected buster is announced, choose new player
+        - Added an explosion when picking up the egon so it clears enemies and avoids clustering
+        - Places the player's view in thirdperson when holding the egon
+        - The player will always switch to the egon when they pick it up
+        - Busters cannot pick up weapons or ammo
+        - Disconnected busters are announced, and a new player is chosen
     - Capture the Chumtoad
         - Added mp_ctctoadcount, expanding from 1 to 5 toads at a time
-        - Improved bot play, more attacks and strategy of holding the chumtoad
-        - Place the player's view in thirdperson when having the chumtoad
-        - Changed HUD to green when holding the chumtoad
-        - Chumtoad holder cannot pickup weapons or ammo
-        - Moved points and timer to the objective read out
-        - Sound bell when the chumtoad is teleported
+        - Improved bot play with more attacks and better strategy while holding the chumtoad
+        - Places the player's view in thirdperson when holding the chumtoad
+        - Changed the HUD to green when holding the chumtoad
+        - The chumtoad holder cannot pick up weapons or ammo
+        - Moved points and timer to the objective read-out
+        - Sound a bell when the chumtoad is teleported
     - Capture the Flag
-        - Highly improved bots, play ctf among team-members
-        - Place the player's view in thirdperson when having the flag
+        - Highly improved bots that play CTF alongside team members
+        - Places the player's view in thirdperson when holding the flag
+        - CTF base entities now render as permanent edge indicators on the radar
     - Chilldemic
         - When a survivor dies, they immediately respawn as a skeleton in their place
-        - Virus players no longer can pick up ammo and weapons
+        - Virus players can no longer pick up ammo and weapons
+        - Places the player's view in thirdperson when transformed into a skeleton
     - Cold Skulls
-        - Improved play, better chance to hit collection limit
+        - Improved play with a better chance of hitting the collection limit
         - Bot behaviors are now optimized to seek skulls
         - Some skulls will be "magnetized" to the awarded player
-        - Flash screen when picking up skulls
+        - Skulls flash the screen when picked up
+        - Dropped skulls despawn after 25 seconds
     - Cold Spot
         - Improved bot behavior to seek and hold the cold spot
         - Points are awarded after 10 seconds in the spot
         - Updated HUD and added sound effects when holding the spot
-        - Place the player's view in thirdperson when in the spot
+        - Places the player's view in thirdperson while inside the spot
         - The spot is contested if both teams are in the zone
-        - Added world to screen visual indicator of the spot
-        - Player scores only if they see the center of the spot
-        - Slowly add health to safezone players
+        - Added a world-to-screen visual indicator of the spot
+        - Player scores only if they can see the center of the spot
+        - Slowly adds health to players inside the spot
     - Gungame
-        - Slow down weapon upgrade, wait a half second after frag for level upgrade
+        - Slowed weapon upgrades; waits a half second after a frag before advancing a level
+        - Spectate is disabled during the round
     - Horde
         - Idling monsters are teleported around the map every thirty seconds
-        - Bot monster attack and team protection behaviors are improved
-        - Advance wave only when players are successful in previous wave
-        - Added headcrab, zombie, houndeye to the monster rounds
+        - Improved bot monster-attack and team-protection behaviors
+        - Waves advance only when players are successful in the previous wave
+        - Added headcrab, zombie, and houndeye to the monster rounds
         - Improved aggressiveness of all monsters to directly attack players
-        - Improved HUD health bar of enemies, show red on low health
+        - Improved HUD health bar for enemies; turns red on low health
+        - Wave number is now shown on the round banner
     - Jesus vs Santa
         - Each player has a chance to become Jesus in a random pool so all are cycled
     - Prophunt
@@ -138,106 +150,117 @@ v1.1 Features:
         - Props run faster
     - Shidden
         - Improved bot behavior for dealter and smelter roles
-        - Fart no longer instantly kills, now freezes player
-        - Provided knife to dealters to frag player with knife when frozen
-        - Dealters no longer has access to other weapons or items
-        - Removed cloak rune from gameplay
-        - Adjust scoring and tie score handling
+        - The fart no longer instantly kills; it now freezes the player
+        - Provided a knife to dealters so a frozen player can be finished with the knife
+        - Dealters no longer have access to other weapons or items
+        - Removed the cloak rune from gameplay
+        - Adjusted scoring and tie-score handling
+        - Dealters gain a head-stomp attack to finish frozen players
+        - Added 2:1 player balance for smelters versus dealters
     - Snowball Fight
         - Added snowball launcher power up (ammo rune), added 12% chance of spawning
         - Snowball launcher secondary attack fires a larger snowball bomb
     - Teamplay
-        - Add assists to the scoreboard
-        - Show team color hud and radar indicators
+        - Added assists to the scoreboard
+        - Show team-color HUD and radar indicators
 - Mutator Changes
-    - Added support for time declaration
-        - Example: sv_addmutator "longjump" sets to whatever sv_mutatortime is in seconds
+    - Added support for per-mutator duration declaration
+        - Example: sv_addmutator "longjump" sets the duration to whatever sv_mutatortime is (in seconds)
         - Example: sv_addmutator "longjump 120" for 120 seconds
-        - Example: sv_addmutator "longjump 0" for a permanent mutator duration until map change or until it is cleared
-    - Goldenguns turns players into gold statues
-    - Mirror mutator fully inverses the screenplay
-    - Improve mutator voting menu with scrolling panel
-    - In chaos mode, each mutator rotates in a random reducing pool so all are experienced
-    - Now pausing mutators inbetween rounds and during intermission
-    - Re-enabled screeneffects mutators oldtime, inverse, and sildenafil
-    - Improved player rendering of the minime mutator
-    - Improve loopback so that the player copies the viewangles of their victim
-    - Add fvox countdown when a chaos mutator is about to rotate
-    - Weapons are hidden on Ricochet mutator
-    - Weapons fire faster on the sildenafil mutator
-    - Add snowball launcher and instagib hornets during snowballs and instagib mutators
-    - Instant mutator health/armor swap no longer frags the player, drops health to 1
+        - Example: sv_addmutator "longjump 0" for a permanent duration until map change or until it is cleared
+    - Goldenguns now turns players into gold statues
+    - The mirror mutator now fully inverses the on-screen play
+    - Improved the mutator voting menu with a scrolling panel
+    - In chaos mode, each mutator rotates in a shrinking random pool so every mutator is experienced
+    - Mutators are now paused in between rounds and during intermission
+    - Re-enabled screeneffect mutators oldtime, inverse, and sildenafil
+    - Improved player rendering under the minime mutator
+    - Improved loopback so that the player copies the viewangles of their victim
+    - Added an fvox countdown when a chaos mutator is about to rotate
+    - Weapons are hidden while the ricochet mutator is active
+    - Weapons fire faster under the sildenafil mutator
+    - Added the snowball launcher and instagib hornets during the snowballs and instagib mutators
+    - The instant health/armor swap no longer frags the player; it drops health to 1
 - Bot Changes
     - Bots use the grappling hook in combat with sv_bots_hook "1"
-    - Tuned bots to act more human-like when in combat, and adjusted aim
+    - Tuned bots to act more human-like in combat, and adjusted aim
     - Added bot_aim_difficulty [0-2] where zero is perfect and 2 is sloppy
-    - Tuned and improved bot behavior on all custom game modes
+    - Tuned and improved bot behavior across all custom game modes
     - Bots no longer attempt wallclimbing
     - Bots intelligently select runes during gameplay
-    - Bots no longer counter snarks/chumtoads by deploying snarks/chumtoads when equipped
+    - Bots no longer counter snarks/chumtoads by deploying snarks/chumtoads while being attacked by the same
+    - Bots now use freeze grenades when available
+    - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun
         - Added a laser to +attack2 so ice plasma can be detonated midair
     - Proximity Mine
-        - Use "reload" on either tripmine or satchel to place a proximity mine
+        - Use "reload" on either the tripmine or the satchel to place a proximity mine
     - Snowball
         - Make new snowballs with the reload button
-        - Improve throw performance of the weapon so it's predictable
-        - Primary attack is medium throw, secondary is hold/charge for longer throw
+        - Improved throw performance so it is more predictable
+        - Primary attack is a medium throw; secondary is hold/charge for a longer throw
     - Hand grenades explode on contact with living targets (players/monsters)
     - Zapgun
         - Added a triple zap secondary attack
         - Added a stun gun laser attack when pressing the reload button
+    - Railgun
+        - Firing is now client-side predicted for smoother play
 - Runes
     - Added support for unique runes, one of each type. For abundant/duplicate rune spawning, use mp_allowrunes 2 (or higher)
 - Server
-    - Added "botfinditem [0-1]" to turn on/off search logic
-    - Added "mp_rtvtime [sec]" for real time voting time
+    - Added "botfinditem [0-1]" to turn the bot item search logic on or off
+    - Added "mp_rtvtime [sec]" for real-time voting duration
+    - Added "mp_rtvcooldown [sec]" to gate the delay between successful rtv votes
+    - Added "mp_ktsspawn1" and "mp_ktsspawn2" for the blue and red KTS goal spawn entities
     - Added server timestamps to chat messaging
 - Client
-    - Added "cl_thirdcamera" so player can ability to deny the view
-    - Added damage numbers applied to the enemy rendered on the HUD
-    - Improved voting menus for mutators and maps, made panels scrollable
-    - Sort certain game mode (like CTC) by lowest team member count for objective visibility
-    - Remove unuseful team score and ping total counts from scoreboards
-    - Dead hands now lock when on ground
+    - Added "cl_thirdcamera" so the player can deny the thirdperson view
+    - Added damage numbers rendered on the HUD when hitting an enemy
+    - Damage numbers are colored blue or orange based on team
+    - Improved voting menus for mutators and maps; panels are now scrollable
+    - Sort certain team-based game modes (like CTC) by lowest team member count for objective visibility
+    - Removed the useless team score and ping total columns from scoreboards
+    - Dead hands now lock when on the ground
     - HUD blinks red on low health
     - Removed unneeded rune title and messages
-    - Added longjump icon to hud when the item is acquired
-    - Removed "cl_shadows," as "r_shadows" was fixed by Valve
+    - Added a longjump icon to the HUD when the item is acquired
+    - Added a godmode icon to the HUD when using "snowman"
+    - Removed "cl_shadows" ("r_shadows" was fixed by Valve)
     - Show total position in individual game modes
-    - Spawn protection ends early if the player attacks
+    - Spawn protection ends early when the player attacks
 - Maps
-    - Includes high-res textures for all new deathmatch maps
-        - Use r_detailtextures 1 to enable
+    - Includes high-res detailed textures for all new deathmatch maps
+        - Detailed textures are now enabled by default (use r_detailtextures 1 to force on)
 - Media
     - Added two new music tracks by Napoleon
         - snowcross, themill, latenightxmas, and glupshitto tracks were updated
 - Fixes
     - Combat
-        - Players bleed only when damaged, not in godmode or if damage is disabled
+        - Players bleed only when damaged, not in godmode or when damage is disabled
         - Players can no longer pogo flip in the air
-        - Fixed player animations of flips based on velocity and direction
+        - Fixed player flip animations based on velocity and direction
+        - Fixed backflip animation when moving backward
     - Bots
         - Bots no longer melee-attack frozen players
-        - Patch traceline crashes
-        - Fix BotFindItem crash, including linux server crash
+        - Patched traceline crashes
+        - Fixed BotFindItem crash, including a Linux server crash
         - Fixed issues with sv_defaultbots
             - Initial map load value is respected
-            - When sv_defaultbots is set to less value, overage of bots are kicked
-            - Added sv_defaultbots -1 where operator can manually add or remove bots
-        - Reduce chance of a message destination crash
-        - Bots will advance to a visible waypoint if no paths exists
+            - When sv_defaultbots is lowered, excess bots are kicked
+            - Added sv_defaultbots -1 where the operator can manually add or remove bots
+        - Reduced the chance of a message-destination crash
+        - Bots will advance to a visible waypoint if no paths exist
     - Gamemodes
-        - Skip disconnected players in spectator player list
-        - Don't show respawn bar on HUD if your round is over
-        - Fixed a bug in the auto balance of team players
-        - Frag assists removed from individual play and corrected for teamplay modes
-        - Fixed view model invisible render properties
-        - Fixed issue related to clean up the area before gameplay
-        - Changed default observer mode to free roaming
+        - Skip disconnected players in the spectator player list
+        - Don't show the respawn bar on the HUD when your round is over
+        - Fixed auto-balance bug for team players
+        - Frag assists are removed from individual play and corrected for teamplay modes
+        - Fixed invisible view model render properties
+        - Fixed issue related to cleaning up the area before gameplay
+        - Changed the default observer mode to free roaming
         - 1 vs. 1
             - Fixed bug related to disconnected player
             - Refresh scoreboard when round ends to reflect scores
@@ -246,61 +269,61 @@ v1.1 Features:
             - Fixed safe spot hurt after round ends
             - Fixed green safe zone texture
         - Busters
-            - Fixed support for forced weapon grab of buster's egon
-            - Fix bug where disconnected clients may become the busters
-            - Fixed gamemode, only one person can be a buster
-            - Disable "busters" mutator to prevent more than one buster
-            - Disabled throwing the egon in this gamemode
+            - Fixed support for force-grabbing the buster's egon
+            - Fixed bug where disconnected clients could become busters
+            - Fixed the mode so only one person can be a buster at a time
+            - Disable the "busters" mutator to prevent more than one buster
+            - Disabled throwing the egon in this game mode
             - Disabled random change of egon spawning
         - Capture the Chumtoad
-            - Chumtoad is removed when held during client disconnected
-            - Do not allow instant chumtoad mutator
+            - Chumtoad is removed when the holder disconnects
+            - Do not allow the instant chumtoad mutator
         - Capture the Flag
-            - Added fallback support if flg/base cannot be placed
-            - Fixed double return flag bug
+            - Added fallback support if a flag/base cannot be placed
+            - Fixed double-return flag bug
             - Fixed numerous incorrect readouts
             - Fixed spectator status
             - Fixed flag status issues with bots
             - Fixed spectator objective readouts
         - Chilldemic
-            - Rename skeleton to skeletons
+            - Renamed skeleton team to skeletons
             - Fixed round start when no skeletons were selected
         - Cold Spot
-            - Prevent scoring after rounds ends
+            - Prevent scoring after the round ends
         - Cold Skulls
             - Fixed skull limit ending game
             - Fixed skull shell colors
         - Gun Game
-            - Fixed bug when level does not advance
+            - Fixed bug where the level did not advance
         - Horde
-            - End horde when scorelimit reached
-            - Improved panthereye leaping, made damage easier
-            - Improve winner determination when there is a tie
+            - End horde when the scorelimit is reached
+            - Improved panthereye leaping and made it easier to land damage
+            - Improved winner determination when there is a tie
             - Monsters no longer engage spectators
         - Instagib
             - Fixed spread calculations
             - Zapgun gibs monsters
             - Removed useless runes like strength
-            - Tombstones now face killer without tilt
-            - Fix game loop and respect intermission
+            - Tombstones now face the killer without tilt
+            - Fixed the game loop to respect intermission
         - Jesus vs Santa
             - Fixed new scoreboard team names
             - Fixed shutdown caused by a "not a client" network message when a player was missing
             - Fixed Jesus extra health and armor
         - Prophunt
-            - Fixed spinning animation of numerous props
+            - Fixed spinning animations on numerous props
             - Fixed repeating wading sound on props
             - Prevent props from picking up weapons
             - Fixed ammo decoy model drops
-            - Props no longer deducted points if they destroy decoys
+            - Props are no longer deducted points if they destroy decoys
         - Shidden
-            - Fix missing messages when dealters defeated
-            - Fix HUD scoreboard for remaining players
+            - Fixed missing messages when dealters are defeated
+            - Fixed HUD scoreboard for remaining players
         - Snowball Fight
-            - Fix numerous crashes due to incomplete weapons management
+            - Fixed numerous crashes due to incomplete weapon management
         - Teamplay
-            - Reset default teamlist if a previous gamemode changed it
-        - Fix numerous gamemodes where "trigger_hurt" does not register
+            - Reset the default teamlist if a previous gamemode changed it
+        - Fixed numerous gamemodes where "trigger_hurt" did not register
         - Removed runes and mutator entities in between rounds
     - Maps
         - Fixed spawnpoints in snowtransit, depot, focus
@@ -317,25 +340,27 @@ v1.1 Features:
         - Patched fog mutator to correctly pass alpha
         - Patched waypoints for fences.bsp
     - Client
-        - Fixed team scoreboard team color, usernames in spectator are neutral
+        - Fixed team scoreboard team color; usernames in spectator are neutral
         - Reduced the chaos HUD bar by one unit
-        - Center the protips across the screen correctly
+        - Center protips across the screen correctly
         - Fixed in-eye spectator secondary weapon models not appearing
         - Fixed observer moveleft and moveright so they remain straight
         - Fixed fire loop sound if on fire and placed in observer
         - Fixed follow-next targeting when the current target becomes a spectator
         - Fixed ejection shell after respawn
-        - Don't show healthbar of player while in-view spectator
-        - Forcegrab ignores teammates
-        - Fix player weapon animation after taunting
-        - Additional row added for the old scoreboard to accommodate server name
-        - Patch server crash the rune_ammo
+        - Don't show the healthbar of a player while in in-view spectator
+        - Forcegrab now ignores teammates
+        - Fixed player weapon animation after taunting
+        - Additional row added to the old scoreboard to accommodate the server name
+        - Patched server crash in rune_ammo
         - Fixed cutoff scoreboard voice column
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
         - Added missing wav file, ambience/thunder_clap.wav
-        - Fixed possible ammo pack crash
+        - Fixed a possible ammo pack crash
+        - Fixed memory leaks accumulated across map changes
+        - Prevented voting crash on 32 players
     - Weapons
         - Improved chainsaw climb when looking up
         - Fixed ghost walking caused by the vest weapon
@@ -387,16 +412,16 @@ Client:
 - "cl_announcehumor [0|1]" - Play announcement/humor on weapons
 - "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
 - "cl_am [0|1]" - auto kick or punch an enemy if they are close
-- "cl_at [0|1]" - auto taunt on frag when its safe to do so
+- "cl_at [0|1]" - auto taunt on frag when it's safe to do so
 - "cl_aws [0|1]" - auto switches weapon on pickup
 - "cl_awt [0|1]" - auto throws weapon on empty
 - "cl_bobtilt [0|1]" - Old Bob Tilt
 - "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
 - "cl_crosshairammo [0|1]" - show ammo status in crosshairs
-- "cl_customtempents [0|1]" - allow or disallow increased temporary entites
+- "cl_customtempents [0|1]" - allow or disallow increased temporary entities
 - "cl_flashonpickup [0|1]" - Flash HUD when picking up weapon or item
 - "cl_glasshud [0|1]" - switch elements of the hud bouncing/bobbing on or off
-- "cl_glowmodels [0|1]" - Show glow models is available
+- "cl_glowmodels [0|1]" - Show glow models if available
 - "cl_gunsmoke [0|1]" - turn on or off gun smoke effects when fired
 - "cl_hudbend" - experimental bending factor of HUD elements
 - "cl_hudscale" - experimental scaling factor of HUD elements
@@ -410,17 +435,17 @@ Client:
     - "6" - gold skin
 - "cl_minfo [0|1]" - display weapon and rune pick up messages
 - "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
-- "cl_lifemeters [0|1|2|3]" - show or hide lifemeters, damage numbers above players head
+- "cl_lifemeters [0|1|2|3]" - show or hide lifemeters and damage numbers above the player's head
 - "cl_objectives [0|1]" - show objective read out on HUD
 - "cl_showposition [0|1]" - show or hide leaderboard position on HUD
 - "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
 - "cl_oldscoreboard [0|1]" - Old Scoreboard
-- "cl_particlesystem [0|1]" enables or disables special effects like the flamethrower
+- "cl_particlesystem [0|1]" - enables or disables special effects like the flamethrower
 - "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag
 - "cl_music [0|1]" - Play soundtrack set by map
 - "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
-- "cl_radar [0|1|2]" enables or disables player radar, indicators
-- "cl_compass [0|1]" enables or disables compass in top middle of the HUD
+- "cl_radar [0|1|2]" - enables or disables player radar and world indicators
+- "cl_compass [0|1]" - enables or disables compass in top middle of the HUD
 - "cl_righthand [0|1|-1]" - Right/Left Handed Models, or left knife
 - "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
 - "cl_showtips [0|1]" - Show random text tips during play
@@ -471,13 +496,15 @@ Server:
 - "mp_busterscount [1-3]" - Max buster count during gameplay
 - "mp_coldspotspawn" - name of entity where the spot will spawn
 - "mp_coldspottime" - time in seconds of when spot moves
-- "mp_ctcsecondsforpoint" - amount of second holding chumtoad for a point
+- "mp_ctcsecondsforpoint" - amount of seconds holding chumtoad for a point
 - "mp_ctfspawn1" - name of entity where blue base will spawn in map
 - "mp_ctfspawn2" - name of entity where red base will spawn in map
 - "mp_ctfdistance" - minimum units between flags
 - "mp_dualsonly [0|1]" - Replace all weapons with duals only
 - "mp_floatingweapons [0|1]" - Floating world weapons ala Quake
-- "mp_gamemode" to select game mode
+- "mp_ktsspawn1" - name of entity where the blue goal will spawn in KTS
+- "mp_ktsspawn2" - name of entity where the red goal will spawn in KTS
+- "mp_gamemode" - select game mode
     - "ffa" - traditional free-for-all deathmatch
     - "arena" - 1 on 1 arena, two potential victors are selected to battle to a frag limit
     - "lms" - battle royale, protect your lives in a shrinking safe zone
