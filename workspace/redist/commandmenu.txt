@@ -52,7 +52,6 @@
 {
     "0" "End of Game Vote" "say vote"
     "1" "RTV Game Mode" "say gamemodes"
-
     "2" "RTV Map" "say maps"
     "3" "RTV Mutators" "say mutators"
     "4" "RTV Game Options" "say gameoptions"
@@ -77,7 +76,7 @@
             "0" "On" "cl_gunsmoke 1"
             "1" "Off" "cl_gunsmoke 0"
         }
-        "2" "Bullet Smoke"
+        "1" "Bullet Smoke"
         {
             "0" "On" "cl_bulletsmoke 1"
             "1" "Off" "cl_bulletsmoke 0"
