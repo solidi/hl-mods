@@ -1,0 +1,94 @@
+Client commands:
+
+- Steam only: Switch between original and HD models using the "Enable HD models if available" in Video options
+    - Or use "+_sethdmodels" in-game startup parameters
+    - See installation above for Xash3d for support of HD models
+- "+commandmenu" - All client options menu
+- "+hook" - Deploy hook
+- "+ironsight" - Use ironsights
+- "cl_achievements [0|1|2|3]" - displays fast fragging achievements
+    - "0" - off
+    - "1" - voice / screen print
+    - "2" - voice / screen print / small timed bar
+    - "3" - voice / screen print / large centered circles
+- "cl_am [0|1]" - auto kick or punch an enemy if they are close
+- "cl_announcehumor [0|1]" - Play announcement/humor on weapons
+- "cl_antivomit [0|1]" - stop or enable rolling view angle while flipping
+- "cl_at [0|1]" - auto taunt on frag when it's safe to do so
+- "cl_aws [0|1]" - auto switches weapon on pickup
+- "cl_awt [0|1]" - auto throws weapon on empty
+- "cl_bobtilt [0|1]" - Old Bob Tilt
+- "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
+- "cl_compass [0|1]" - enables or disables compass in top middle of the HUD
+- "cl_crosshairammo [0|1]" - show ammo status in crosshairs
+- "cl_customtempents [0|1]" - allow or disallow increased temporary entities
+- "cl_flashonpickup [0|1]" - Flash HUD when picking up weapon or item
+- "cl_glasshud [0|1]" - switch elements of the hud bouncing/bobbing on or off
+- "cl_glowmodels [0|1]" - Show glow models if available
+- "cl_gunsmoke [0|1]" - turn on or off gun smoke effects when fired
+- "cl_hudbend" - experimental bending factor of HUD elements
+- "cl_hudscale" - experimental scaling factor of HUD elements
+- "cl_icemodels [0-6]" - changes models with specific ice skins
+    - "0" - real skin
+    - "1" - original inverted skin
+    - "2" - 1.75 blue ice skin
+    - "3" - Cold Ice Remastered edition skin
+    - "4" - real skin + blue hev
+    - "5" - silver skin
+    - "6" - gold skin
+- "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
+- "cl_lifemeters [0|1|2|3]" - show or hide lifemeters and damage numbers above the player's head
+- "cl_minfo [0|1]" - display weapon and rune pick up messages
+- "cl_music [0|1]" - Play soundtrack set by map
+- "cl_objectives [0|1]" - show objective read out on HUD
+- "cl_oldmotd [0|1]" - Old MOTD (Message of the Day)
+- "cl_oldscoreboard [0|1]" - Old Scoreboard
+- "cl_particlesystem [0|1]" - enables or disables special effects like the flamethrower
+- "cl_playpoint [0|1]" - Play ding when inflicting damage, dong for frag
+- "cl_portalmirror [0|1]" - turn on/off experimental mirror for portals
+- "cl_radar [0|1|2]" - enables or disables player radar and world indicators
+- "cl_respawnbar [0|1]" - show or hide the respawn timer bar on the HUD
+- "cl_righthand [0|1|-1]" - Right/Left Handed Models, or left knife
+- "cl_screeneffects [0|1]" - turn on/off screen effects of certain mutators
+- "cl_showposition [0|1]" - show or hide leaderboard position on HUD
+- "cl_showtips [0|1]" - Show random text tips during play
+- "cl_thirdcamera [0|1]" - Allow third person camera in game modes
+- "cl_viewroll [0|1]" - Old View Roll
+- "cl_voiceoverpath [string]" - folder path to custom voiceovers
+- "cl_wallclimbindicator [0|1]" - shows when wallclimb is available
+- "cl_weaponfidget [0|1]" - Weapon Fidget
+- "cl_weaponretract [0|1]" - Weapon Retract
+- "cl_weaponsway [0|1]" - Weapon Sway
+- "cl_weather [0|1]" - allow or disallow weather effects on client
+- "drop_rune" - Drop rune
+- "feign" - Fake your death
+- "fog_off" - turn off env_fog entities on the map
+- "fog_on" - turn on env_fog entities on the map
+- "gamemodes" - type in the chat to start a game mode vote
+- "gameoptions" - type in the chat to start a game-options vote
+- "gameoptions_resend" - re-request the current game-options manifest
+- "gameoptions_status" - print game-options parser state
+- "help" - Displays specific client Cold Ice Remastered options
+- "help_more" - Displays more client Cold Ice Remastered options
+- "impulse 205" - Swap between single and dual weapon, if available
+- "impulse 206" - Kick
+- "impulse 207" - Punch
+- "impulse 208" - Slide
+- "impulse 209" - Grenade
+- "impulse 210" - Roll Right
+- "impulse 211" - Roll Left
+- "impulse 212" - Back Flip
+- "impulse 213" - Front Flip
+- "impulse 214" - Hurricane Kick
+- "impulse 215" - Force Grab
+- "impulse 216" - Throw Explosive Weapon
+- "keyboard" - show default key binds on the HUD
+- "maps" - type in the chat to start a rtv of maps
+- "menu" - open the team-selection menu while spectating
+- "mutators" - type in the chat to start a rtv of mutators
+- "serveroptions" - type in the chat to start a server-options vote
+- "serveroptions_resend" - re-request the current server-options manifest
+- "serveroptions_status" - print server-options parser state
+- "snowman" - God mode (when sv_cheats 1)
+- "taunt" - perform a taunt
+- "vote" - type in the chat to start a vote

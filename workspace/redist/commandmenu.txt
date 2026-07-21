@@ -51,7 +51,7 @@
 "1" "Voting"
 {
     "0" "End of Game Vote" "say vote"
-    "1" "RTV Game Mode" "say gamemodes"
+    "1" "RTV Game Mode" "say gamemodes"
     "2" "RTV Map" "say maps"
     "3" "RTV Mutators" "say mutators"
     "4" "RTV Game Options" "say gameoptions"
@@ -76,7 +76,7 @@
             "0" "On" "cl_gunsmoke 1"
             "1" "Off" "cl_gunsmoke 0"
         }
-        "2" "Bullet Smoke"
+        "1" "Bullet Smoke"
         {
             "0" "On" "cl_bulletsmoke 1"
             "1" "Off" "cl_bulletsmoke 0"
@@ -133,7 +133,25 @@
     "0" "Throw Weapon" "impulse 216"
     "1" "Force Grab" "impulse 215"
     "2" "Drop Rune" "drop_rune"
-    "3" "Auto Options"
+    "3" "Moves"
+    {
+        "0" "Kick" "impulse 206"
+        "1" "Punch" "impulse 207"
+        "2" "Hurricane Kick" "impulse 214"
+        "3" "Slide" "impulse 208"
+        "4" "Throw Grenade" "impulse 209"
+        "5" "Front Flip" "impulse 213"
+        "6" "Back Flip" "impulse 212"
+        "7" "Roll Right" "impulse 210"
+        "8" "Roll Left" "impulse 211"
+        "9" "Swap Dual Weapon" "impulse 205"
+    }
+    "4" "Actions"
+    {
+        "0" "Taunt" "taunt"
+        "1" "Feign Death" "feign"
+    }
+    "5" "Auto Options"
     {
         "0" "Auto Melee"
         {
@@ -263,6 +281,16 @@
         "0" "On" "cl_weather 3"
         "1" "Off" "cl_weather 0"
     }
+    "3" "Mutator Screen Effects"
+    {
+        "0" "On" "cl_screeneffects 1"
+        "1" "Off" "cl_screeneffects 0"
+    }
+    "4" "Map Fog"
+    {
+        "0" "On" "fog_on"
+        "1" "Off" "fog_off"
+    }
 }
 "6" "Sound"
 {
@@ -310,5 +338,10 @@
     {
         "0" "On" "cl_customtempents 1"
         "1" "Off" "cl_customtempents 0"
+    }
+    "6" "Portal Mirror"
+    {
+        "0" "On" "cl_portalmirror 1"
+        "1" "Off" "cl_portalmirror 0"
     }
 }
