@@ -199,6 +199,7 @@ v1.1 Features:
     - Proximity Mine
         - Use "reload" on either the tripmine or the satchel to place a proximity mine
     - Snowball
+        - Snowballs now slightly bend to the player its aimed at for greater chance of hit
         - Make new snowballs with the reload button
         - Improved throw performance so it is more predictable
         - Primary attack is a medium throw; secondary is hold/charge for a longer throw
@@ -208,6 +209,9 @@ v1.1 Features:
         - Added a stun gun laser attack when pressing the reload button
     - Railgun
         - Firing is now client-side predicted for smoother play
+    - Vest
+        - Switches to thirdperson on button push
+        - Use "reload" to switch to proximity mode
 - Runes
     - Added support for unique runes, one of each type. For abundant/duplicate rune spawning, use mp_allowrunes 2 (or higher)
 - Server
