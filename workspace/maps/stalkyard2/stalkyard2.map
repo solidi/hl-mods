@@ -6,7 +6,7 @@
 "skyname" "cirnightmont1"
 "message" "Stalkyard 2"
 "mapversion" "220"
-"wad" "/Program Files (x86)/Steam/steamapps/common/Half-Life/valve/halflife.wad;/Program Files (x86)/Steam/steamapps/common/Half-Life/valve/liquids.wad;/Program Files (x86)/Steam/steamapps/common/Half-Life/valve/xeno.wad;/Program Files (x86)/Steam/steamapps/common/Half-Life/valve/decals.wad;/Program Files (x86)/Steam/steamapps/common/Half-Life/valve/zhlt.wad;/workspace/wads/coldice.WAD;/workspace/wads/rustmill.wad;/workspace/maps/ts_frigid/ts_frigid.wad;/workspace/wads/datafloe.WAD"
+"wad" "..\wads\halflife.wad;..\wads\liquids.wad;..\wads\gfx.wad;..\wads\spraypaint.wad;..\wads\xeno.wad;..\wads\decals.wad"
 "_generator" "J.A.C.K. 1.1.3773 (vpHalfLife)"
 {
 ( 1583 827 -103 ) ( 1583 1030 -103 ) ( 1583 827 -247 ) OUT_WALL6B [ 0 1 0 64 ] [ 0 0 -1 44 ] -0 1 1
