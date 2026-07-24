@@ -192,26 +192,32 @@ v1.1 Features:
     - Bots now use freeze grenades when available
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
+    - Chumtoads
+        - Use "reload" to detonate loose chumtoads with a larger blast radius
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun
         - Added a laser to +attack2 so ice plasma can be detonated midair
+    - Hand grenades explode on contact with living targets (players/monsters)
     - Proximity Mine
         - Use "reload" on either the tripmine or the satchel to place a proximity mine
+    - Snarks
+        - Use "reload" to detonate loose snarks at a higher blast radius
     - Snowball
         - Snowballs now slightly bend to the player its aimed at for greater chance of hit
         - Make new snowballs with the reload button
         - Improved throw performance so it is more predictable
         - Primary attack is a medium throw; secondary is hold/charge for a longer throw
-    - Hand grenades explode on contact with living targets (players/monsters)
-    - Zapgun
-        - Added a triple zap secondary attack
-        - Added a stun gun laser attack when pressing the reload button
     - Railgun
         - Firing is now client-side predicted for smoother play
+    - Rocketcrowbar
+        - Use "reload" to detonate rockets on command
     - Vest
         - Switches to thirdperson on button push
         - Use "reload" to switch to proximity mode
+    - Zapgun
+        - Added a triple zap secondary attack
+        - Added a stun gun laser attack when pressing the reload button
 - Runes
     - Added support for unique runes, one of each type. For abundant/duplicate rune spawning, use mp_allowrunes 2 (or higher)
 - Server
