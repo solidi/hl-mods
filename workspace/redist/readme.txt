@@ -193,7 +193,7 @@ v1.1 Features:
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
     - Chumtoads
-        - Use "reload" to detonate loose chumtoadas at a higher blast radius
+        - Use "reload" to detonate loose chumtoads with a larger blast radius
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun
