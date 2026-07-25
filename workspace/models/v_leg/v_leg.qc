@@ -29,7 +29,6 @@ $bodygroup "leg"
 {
 studio "hevleg_left"
 }
-
 $texturegroup ice
 {
   {
@@ -49,12 +48,36 @@ $texturegroup ice
     "blue_PLAYER_Legs1.bmp"
   }
   {
-    "blue_PLAYER_Boots.bmp"
-    "blue_PLAYER_Calf1.bmp"
-    "blue_PLAYER_FootTop1.bmp"
-    "blue_PLAYER_Knee-Bck1.bmp"
-    "blue_PLAYER_LegBck1.bmp"
-    "blue_PLAYER_Legs1.bmp"
+    "red_PLAYER_Boots.bmp"
+    "red_PLAYER_Calf1.bmp"
+    "red_PLAYER_FootTop1.bmp"
+    "red_PLAYER_Knee-Bck1.bmp"
+    "red_PLAYER_LegBck1.bmp"
+    "red_PLAYER_Legs1.bmp"
+  }
+  {
+    "yellow_PLAYER_Boots.bmp"
+    "yellow_PLAYER_Calf1.bmp"
+    "yellow_PLAYER_FootTop1.bmp"
+    "yellow_PLAYER_Knee-Bck1.bmp"
+    "yellow_PLAYER_LegBck1.bmp"
+    "yellow_PLAYER_Legs1.bmp"
+  }
+  {
+    "green_PLAYER_Boots.bmp"
+    "green_PLAYER_Calf1.bmp"
+    "green_PLAYER_FootTop1.bmp"
+    "green_PLAYER_Knee-Bck1.bmp"
+    "green_PLAYER_LegBck1.bmp"
+    "green_PLAYER_Legs1.bmp"
+  }
+  {
+    "PLAYER_Boots.bmp"
+    "PLAYER_Calf1.bmp"
+    "PLAYER_FootTop1.bmp"
+    "PLAYER_Knee-Bck1.bmp"
+    "PLAYER_LegBck1.bmp"
+    "PLAYER_Legs1.bmp"
   }
   {
     "blue_PLAYER_Boots.bmp"
@@ -65,12 +88,36 @@ $texturegroup ice
     "blue_PLAYER_Legs1.bmp"
   }
   {
-    "blue_PLAYER_Boots.bmp"
-    "blue_PLAYER_Calf1.bmp"
-    "blue_PLAYER_FootTop1.bmp"
-    "blue_PLAYER_Knee-Bck1.bmp"
-    "blue_PLAYER_LegBck1.bmp"
-    "blue_PLAYER_Legs1.bmp"
+    "red_PLAYER_Boots.bmp"
+    "red_PLAYER_Calf1.bmp"
+    "red_PLAYER_FootTop1.bmp"
+    "red_PLAYER_Knee-Bck1.bmp"
+    "red_PLAYER_LegBck1.bmp"
+    "red_PLAYER_Legs1.bmp"
+  }
+  {
+    "yellow_PLAYER_Boots.bmp"
+    "yellow_PLAYER_Calf1.bmp"
+    "yellow_PLAYER_FootTop1.bmp"
+    "yellow_PLAYER_Knee-Bck1.bmp"
+    "yellow_PLAYER_LegBck1.bmp"
+    "yellow_PLAYER_Legs1.bmp"
+  }
+  {
+    "green_PLAYER_Boots.bmp"
+    "green_PLAYER_Calf1.bmp"
+    "green_PLAYER_FootTop1.bmp"
+    "green_PLAYER_Knee-Bck1.bmp"
+    "green_PLAYER_LegBck1.bmp"
+    "green_PLAYER_Legs1.bmp"
+  }
+  {
+    "PLAYER_Boots.bmp"
+    "PLAYER_Calf1.bmp"
+    "PLAYER_FootTop1.bmp"
+    "PLAYER_Knee-Bck1.bmp"
+    "PLAYER_LegBck1.bmp"
+    "PLAYER_Legs1.bmp"
   }
   {
     "blue_PLAYER_Boots.bmp"
@@ -81,12 +128,148 @@ $texturegroup ice
     "blue_PLAYER_Legs1.bmp"
   }
   {
+    "red_PLAYER_Boots.bmp"
+    "red_PLAYER_Calf1.bmp"
+    "red_PLAYER_FootTop1.bmp"
+    "red_PLAYER_Knee-Bck1.bmp"
+    "red_PLAYER_LegBck1.bmp"
+    "red_PLAYER_Legs1.bmp"
+  }
+  {
+    "yellow_PLAYER_Boots.bmp"
+    "yellow_PLAYER_Calf1.bmp"
+    "yellow_PLAYER_FootTop1.bmp"
+    "yellow_PLAYER_Knee-Bck1.bmp"
+    "yellow_PLAYER_LegBck1.bmp"
+    "yellow_PLAYER_Legs1.bmp"
+  }
+  {
+    "green_PLAYER_Boots.bmp"
+    "green_PLAYER_Calf1.bmp"
+    "green_PLAYER_FootTop1.bmp"
+    "green_PLAYER_Knee-Bck1.bmp"
+    "green_PLAYER_LegBck1.bmp"
+    "green_PLAYER_Legs1.bmp"
+  }
+  {
+    "PLAYER_Boots.bmp"
+    "PLAYER_Calf1.bmp"
+    "PLAYER_FootTop1.bmp"
+    "PLAYER_Knee-Bck1.bmp"
+    "PLAYER_LegBck1.bmp"
+    "PLAYER_Legs1.bmp"
+  }
+  {
     "blue_PLAYER_Boots.bmp"
     "blue_PLAYER_Calf1.bmp"
     "blue_PLAYER_FootTop1.bmp"
     "blue_PLAYER_Knee-Bck1.bmp"
     "blue_PLAYER_LegBck1.bmp"
     "blue_PLAYER_Legs1.bmp"
+  }
+  {
+    "red_PLAYER_Boots.bmp"
+    "red_PLAYER_Calf1.bmp"
+    "red_PLAYER_FootTop1.bmp"
+    "red_PLAYER_Knee-Bck1.bmp"
+    "red_PLAYER_LegBck1.bmp"
+    "red_PLAYER_Legs1.bmp"
+  }
+  {
+    "yellow_PLAYER_Boots.bmp"
+    "yellow_PLAYER_Calf1.bmp"
+    "yellow_PLAYER_FootTop1.bmp"
+    "yellow_PLAYER_Knee-Bck1.bmp"
+    "yellow_PLAYER_LegBck1.bmp"
+    "yellow_PLAYER_Legs1.bmp"
+  }
+  {
+    "green_PLAYER_Boots.bmp"
+    "green_PLAYER_Calf1.bmp"
+    "green_PLAYER_FootTop1.bmp"
+    "green_PLAYER_Knee-Bck1.bmp"
+    "green_PLAYER_LegBck1.bmp"
+    "green_PLAYER_Legs1.bmp"
+  }
+  {
+    "PLAYER_Boots.bmp"
+    "PLAYER_Calf1.bmp"
+    "PLAYER_FootTop1.bmp"
+    "PLAYER_Knee-Bck1.bmp"
+    "PLAYER_LegBck1.bmp"
+    "PLAYER_Legs1.bmp"
+  }
+  {
+    "blue_PLAYER_Boots.bmp"
+    "blue_PLAYER_Calf1.bmp"
+    "blue_PLAYER_FootTop1.bmp"
+    "blue_PLAYER_Knee-Bck1.bmp"
+    "blue_PLAYER_LegBck1.bmp"
+    "blue_PLAYER_Legs1.bmp"
+  }
+  {
+    "red_PLAYER_Boots.bmp"
+    "red_PLAYER_Calf1.bmp"
+    "red_PLAYER_FootTop1.bmp"
+    "red_PLAYER_Knee-Bck1.bmp"
+    "red_PLAYER_LegBck1.bmp"
+    "red_PLAYER_Legs1.bmp"
+  }
+  {
+    "yellow_PLAYER_Boots.bmp"
+    "yellow_PLAYER_Calf1.bmp"
+    "yellow_PLAYER_FootTop1.bmp"
+    "yellow_PLAYER_Knee-Bck1.bmp"
+    "yellow_PLAYER_LegBck1.bmp"
+    "yellow_PLAYER_Legs1.bmp"
+  }
+  {
+    "green_PLAYER_Boots.bmp"
+    "green_PLAYER_Calf1.bmp"
+    "green_PLAYER_FootTop1.bmp"
+    "green_PLAYER_Knee-Bck1.bmp"
+    "green_PLAYER_LegBck1.bmp"
+    "green_PLAYER_Legs1.bmp"
+  }
+  {
+    "PLAYER_Boots.bmp"
+    "PLAYER_Calf1.bmp"
+    "PLAYER_FootTop1.bmp"
+    "PLAYER_Knee-Bck1.bmp"
+    "PLAYER_LegBck1.bmp"
+    "PLAYER_Legs1.bmp"
+  }
+  {
+    "blue_PLAYER_Boots.bmp"
+    "blue_PLAYER_Calf1.bmp"
+    "blue_PLAYER_FootTop1.bmp"
+    "blue_PLAYER_Knee-Bck1.bmp"
+    "blue_PLAYER_LegBck1.bmp"
+    "blue_PLAYER_Legs1.bmp"
+  }
+  {
+    "red_PLAYER_Boots.bmp"
+    "red_PLAYER_Calf1.bmp"
+    "red_PLAYER_FootTop1.bmp"
+    "red_PLAYER_Knee-Bck1.bmp"
+    "red_PLAYER_LegBck1.bmp"
+    "red_PLAYER_Legs1.bmp"
+  }
+  {
+    "yellow_PLAYER_Boots.bmp"
+    "yellow_PLAYER_Calf1.bmp"
+    "yellow_PLAYER_FootTop1.bmp"
+    "yellow_PLAYER_Knee-Bck1.bmp"
+    "yellow_PLAYER_LegBck1.bmp"
+    "yellow_PLAYER_Legs1.bmp"
+  }
+  {
+    "green_PLAYER_Boots.bmp"
+    "green_PLAYER_Calf1.bmp"
+    "green_PLAYER_FootTop1.bmp"
+    "green_PLAYER_Knee-Bck1.bmp"
+    "green_PLAYER_LegBck1.bmp"
+    "green_PLAYER_Legs1.bmp"
   }
 }
 
@@ -110,3 +293,6 @@ $sequence "KICK_4" "KICK_4" fps 22
 $sequence "KICK_HOLD" "KICK_HOLD" fps 22 
 
 // End of QC script.
+
+
+

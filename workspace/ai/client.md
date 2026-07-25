@@ -36,6 +36,43 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `parsemsg.{h,cpp}` — `BEGIN_READ` / `READ_BYTE` / `READ_STRING` helpers used by every `MsgFunc_*`.
 - `particlemgr.cpp`, `particlesys.cpp`, `FlameSystem.cpp`, `particlemsg.cpp` — client particle/flame ownership, lifecycle, and toggles. See [particle_system.md](particle_system.md).
 
+## Weapon/Sleeve Visual Resolution
+
+Client visuals now resolve weapon skin and HEV sleeve skin separately:
+
+- User cvars:
+    - `cl_weaponmodel` (`0..5`) controls the weapon finish.
+    - `cl_sleevemodel` (`0..4`) controls the sleeve color.
+- Runtime HUD fields in `CHud`:
+    - `m_WeaponModelIndex`
+    - `m_SleeveModelIndex`
+
+Resolution helpers live in `util.cpp` / `cl_util.h`:
+
+- `GetEffectiveWeaponModelIndex(modelName, forViewModel)`
+- `GetEffectiveSleeveModelIndex()`
+- `GetCombinedViewModelSkinIndex(modelName)`
+- `UseIceVisualStyle()`
+
+Effective precedence is:
+
+1. `HALFLIFE` mutator (`HIDEHUD_ICE`) forces vanilla visuals:
+     - weapon `SKIN_NORMAL`
+     - sleeve `SLEEVE_ORANGE`
+2. Team/game-mode sleeve forcing (red/blue/yellow/green contexts) overrides user sleeve cvar.
+3. `GOLDENGUNS` (and GunGame knife special-case) force the **viewmodel weapon** to gold.
+4. Otherwise user cvars apply directly.
+
+Viewmodels use a combined skin row index:
+
+- `combined = weaponIndex * 5 + sleeveIndex`
+- This yields 30 texturegroup rows per `v_*.mdl` (6 weapon finishes x 5 sleeves).
+- Compatibility fallback: if a viewmodel has fewer skin families than `combined`, client code falls back to weapon-only skin index until that model's QC is upgraded.
+
+Non-viewmodel entities continue using weapon-only skin selection.
+
+`UseIceVisualStyle()` is the central guard for ice-blue client effects (particles, muzzle flash variants, beam tint), so FX now respect mutator overrides without mutating user cvars.
+
 ## Hooking a New User Message
 
 Three places to touch (see the existing `MapList` plumbing for the full pattern):

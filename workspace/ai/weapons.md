@@ -16,6 +16,21 @@ Cross-cutting reference for everything that registers a `weapon_*` classname. Mo
 - `workspace/redist/events/*.sc` — event script stubs loaded by both server `PRECACHE_EVENT` and client `HookEvent`.
 - `workspace/src/cl_dll/wpn_shared/` — client mirrors of select weapons (used by Half-Life predicted weapons).
 
+## Viewmodel Skin Matrix (Client)
+
+Weapon finish and HEV sleeve color are now resolved as separate client dimensions.
+
+- Weapon finish cvar: `cl_weaponmodel` (`0..5`)
+- Sleeve cvar: `cl_sleevemodel` (`0..4`)
+- Runtime composition for first-person `v_*.mdl` uses:
+	- `combinedSkin = weaponIndex * 5 + sleeveIndex`
+- Compatibility fallback exists: if a model has fewer skin families than `combinedSkin`, client falls back to weapon-only skin until that QC/model is migrated.
+
+Implications for weapon assets:
+
+- Each `v_*.qc` texturegroup must expose 30 rows (6 weapon finishes x 5 sleeve colors) in the same deterministic row order used by the formula above.
+- Client event visuals that previously keyed off raw skin indexes should use the shared helper `UseIceVisualStyle()` so mutator overrides (`HALFLIFE`) and forced viewmodel finishes (`GOLDENGUNS`) remain consistent.
+
 ## CBasePlayerWeapon Mechanics
 
 All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base provides:

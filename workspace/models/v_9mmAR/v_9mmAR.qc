@@ -26,7 +26,6 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "mp5sd"
-
 $texturegroup ice
 {
   {
@@ -37,32 +36,147 @@ $texturegroup ice
   {
     "m16base1.bmp"
     "m16base2.bmp"
-    "..\PLAYER_ForeArm1.bmp"
-  }
-  {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\PLAYER_ForeArm1.bmp"
-  }
-  {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
     "m16base1.bmp"
     "m16base2.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "m16base1.bmp"
+    "m16base2.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "m16base1.bmp"
+    "m16base2.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "invert_m16base1.bmp"
+    "invert_m16base2.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "invert_m16base1.bmp"
+    "invert_m16base2.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "invert_m16base1.bmp"
+    "invert_m16base2.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "invert_m16base1.bmp"
+    "invert_m16base2.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "invert_m16base1.bmp"
+    "invert_m16base2.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
 }
 
@@ -100,3 +214,5 @@ $sequence "shoot_3" "shoot_3" fps 10 { event 5001 0 "20" }
 $sequence "holster" "holster" fps 36 
 
 // End of QC script.
+
+

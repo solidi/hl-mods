@@ -28,7 +28,6 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "studio" "shotgun"
 
 $body "studio" "shell"
-
 $texturegroup ice
 {
   {
@@ -41,6 +40,94 @@ $texturegroup ice
     "shell.bmp"
     "sidemap.bmp"
     "sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "barrel_chrome.bmp"
+    "barrelltop.bmp"
+    "bodyback.bmp"
+    "grip.bmp"
+    "handle.bmp"
+    "shell.bmp"
+    "sidemap.bmp"
+    "sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "barrel_chrome.bmp"
+    "barrelltop.bmp"
+    "bodyback.bmp"
+    "grip.bmp"
+    "handle.bmp"
+    "shell.bmp"
+    "sidemap.bmp"
+    "sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "barrel_chrome.bmp"
+    "barrelltop.bmp"
+    "bodyback.bmp"
+    "grip.bmp"
+    "handle.bmp"
+    "shell.bmp"
+    "sidemap.bmp"
+    "sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "barrel_chrome.bmp"
+    "barrelltop.bmp"
+    "bodyback.bmp"
+    "grip.bmp"
+    "handle.bmp"
+    "shell.bmp"
+    "sidemap.bmp"
+    "sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "invert_barrel_chrome.bmp"
+    "invert_barrelltop.bmp"
+    "invert_bodyback.bmp"
+    "invert_grip.bmp"
+    "invert_handle.bmp"
+    "invert_shell.bmp"
+    "invert_sidemap.bmp"
+    "invert_sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "invert_barrel_chrome.bmp"
+    "invert_barrelltop.bmp"
+    "invert_bodyback.bmp"
+    "invert_grip.bmp"
+    "invert_handle.bmp"
+    "invert_shell.bmp"
+    "invert_sidemap.bmp"
+    "invert_sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "invert_barrel_chrome.bmp"
+    "invert_barrelltop.bmp"
+    "invert_bodyback.bmp"
+    "invert_grip.bmp"
+    "invert_handle.bmp"
+    "invert_shell.bmp"
+    "invert_sidemap.bmp"
+    "invert_sight.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "invert_barrel_chrome.bmp"
+    "invert_barrelltop.bmp"
+    "invert_bodyback.bmp"
+    "invert_grip.bmp"
+    "invert_handle.bmp"
+    "invert_shell.bmp"
+    "invert_sidemap.bmp"
+    "invert_sight.bmp"
   }
   {
     "..\HAND_ForeArm1.bmp"
@@ -66,6 +153,50 @@ $texturegroup ice
   }
   {
     "..\HAND_ForeArm1.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -77,14 +208,47 @@ $texturegroup ice
   }
   {
     "..\HAND_ForeArm1.bmp"
-    "barrel_chrome.bmp"
-    "barrelltop.bmp"
-    "bodyback.bmp"
-    "grip.bmp"
-    "handle.bmp"
-    "shell.bmp"
-    "sidemap.bmp"
-    "sight.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
   {
     "..\HAND_ForeArm1.bmp"
@@ -96,6 +260,94 @@ $texturegroup ice
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\HAND_ForeArm1.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
   {
     "..\HAND_ForeArm1.bmp"
@@ -140,3 +392,5 @@ $sequence "idle4" "idle4" fps 9 loop
 $sequence "deepidle" "deepidle" fps 12 loop 
 
 // End of QC script.
+
+

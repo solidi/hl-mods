@@ -26,7 +26,6 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "fists"
-
 $texturegroup ice
 {
   {
@@ -34,28 +33,120 @@ $texturegroup ice
     "HEV_leg_&_glove.bmp"
   }
   {
-    "ice_HEV_arm.bmp"
-    "ice_HEV_leg_&_glove.bmp"
+    "ice_HEV_arm_blue.bmp"
+    "ice_HEV_leg_&_glove_blue.bmp"
   }
   {
-    "ice_HEV_arm.bmp"
-    "ice_HEV_leg_&_glove.bmp"
+    "ice_HEV_arm_red.bmp"
+    "ice_HEV_leg_&_glove_red.bmp"
   }
   {
-    "ice_HEV_arm.bmp"
-    "ice_HEV_leg_&_glove.bmp"
+    "ice_HEV_arm_yellow.bmp"
+    "ice_HEV_leg_&_glove_yellow.bmp"
   }
   {
-    "ice_HEV_arm.bmp"
-    "ice_HEV_leg_&_glove.bmp"
+    "ice_HEV_arm_green.bmp"
+    "ice_HEV_leg_&_glove_green.bmp"
   }
   {
-    "ice_HEV_arm.bmp"
-    "ice_HEV_leg_&_glove.bmp"
+    "ice_HEV_arm_orange.bmp"
+    "ice_HEV_leg_&_glove_orange.bmp"
   }
   {
-    "ice_HEV_arm.bmp"
-    "ice_HEV_leg_&_glove.bmp"
+    "ice_HEV_arm_blue.bmp"
+    "ice_HEV_leg_&_glove_blue.bmp"
+  }
+  {
+    "ice_HEV_arm_red.bmp"
+    "ice_HEV_leg_&_glove_red.bmp"
+  }
+  {
+    "ice_HEV_arm_yellow.bmp"
+    "ice_HEV_leg_&_glove_yellow.bmp"
+  }
+  {
+    "ice_HEV_arm_green.bmp"
+    "ice_HEV_leg_&_glove_green.bmp"
+  }
+  {
+    "ice_HEV_arm_orange.bmp"
+    "ice_HEV_leg_&_glove_orange.bmp"
+  }
+  {
+    "ice_HEV_arm_blue.bmp"
+    "ice_HEV_leg_&_glove_blue.bmp"
+  }
+  {
+    "ice_HEV_arm_red.bmp"
+    "ice_HEV_leg_&_glove_red.bmp"
+  }
+  {
+    "ice_HEV_arm_yellow.bmp"
+    "ice_HEV_leg_&_glove_yellow.bmp"
+  }
+  {
+    "ice_HEV_arm_green.bmp"
+    "ice_HEV_leg_&_glove_green.bmp"
+  }
+  {
+    "ice_HEV_arm_orange.bmp"
+    "ice_HEV_leg_&_glove_orange.bmp"
+  }
+  {
+    "ice_HEV_arm_blue.bmp"
+    "ice_HEV_leg_&_glove_blue.bmp"
+  }
+  {
+    "ice_HEV_arm_red.bmp"
+    "ice_HEV_leg_&_glove_red.bmp"
+  }
+  {
+    "ice_HEV_arm_yellow.bmp"
+    "ice_HEV_leg_&_glove_yellow.bmp"
+  }
+  {
+    "ice_HEV_arm_green.bmp"
+    "ice_HEV_leg_&_glove_green.bmp"
+  }
+  {
+    "ice_HEV_arm_orange.bmp"
+    "ice_HEV_leg_&_glove_orange.bmp"
+  }
+  {
+    "ice_HEV_arm_blue.bmp"
+    "ice_HEV_leg_&_glove_blue.bmp"
+  }
+  {
+    "ice_HEV_arm_red.bmp"
+    "ice_HEV_leg_&_glove_red.bmp"
+  }
+  {
+    "ice_HEV_arm_yellow.bmp"
+    "ice_HEV_leg_&_glove_yellow.bmp"
+  }
+  {
+    "ice_HEV_arm_green.bmp"
+    "ice_HEV_leg_&_glove_green.bmp"
+  }
+  {
+    "ice_HEV_arm_orange.bmp"
+    "ice_HEV_leg_&_glove_orange.bmp"
+  }
+  {
+    "ice_HEV_arm_blue.bmp"
+    "ice_HEV_leg_&_glove_blue.bmp"
+  }
+  {
+    "ice_HEV_arm_red.bmp"
+    "ice_HEV_leg_&_glove_red.bmp"
+  }
+  {
+    "ice_HEV_arm_yellow.bmp"
+    "ice_HEV_leg_&_glove_yellow.bmp"
+  }
+  {
+    "ice_HEV_arm_green.bmp"
+    "ice_HEV_leg_&_glove_green.bmp"
   }
 }
 
@@ -82,3 +173,7 @@ $sequence "die" "die" fps 20
 $sequence "offhand_left" "offhand_left" fps 25 
 
 // End of QC script.
+
+
+
+

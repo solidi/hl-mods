@@ -28,7 +28,6 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "body" "snowball"
 
 $body "body" "v_gordon_hands_Reference"
-
 $texturegroup ice
 {
   {
@@ -37,33 +36,148 @@ $texturegroup ice
     "pallo.bmp"
   }
   {
-    "..\iceGlove.bmp"
-    "..\iceSleeve.bmp"
-    "invert_pallo.bmp"
-  }
-  {
-    "..\iceGlove.bmp"
-    "..\iceSleeve.bmp"
-    "..\..\ringchrome.bmp"
-  }
-  {
-    "..\iceGlove.bmp"
-    "..\iceSleeve.bmp"
-    "..\iceCHROME.bmp"
-  }
-  {
-    "..\iceGlove.bmp"
-    "..\iceSleeve.bmp"
+    "..\iceGlove_blue.bmp"
+    "..\iceSleeve_blue.bmp"
     "pallo.bmp"
   }
   {
-    "..\iceGlove.bmp"
-    "..\iceSleeve.bmp"
+    "..\iceGlove_red.bmp"
+    "..\iceSleeve_red.bmp"
+    "pallo.bmp"
+  }
+  {
+    "..\iceGlove_yellow.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "pallo.bmp"
+  }
+  {
+    "..\iceGlove_green.bmp"
+    "..\iceSleeve_green.bmp"
+    "pallo.bmp"
+  }
+  {
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
+    "invert_pallo.bmp"
+  }
+  {
+    "..\iceGlove_blue.bmp"
+    "..\iceSleeve_blue.bmp"
+    "invert_pallo.bmp"
+  }
+  {
+    "..\iceGlove_red.bmp"
+    "..\iceSleeve_red.bmp"
+    "invert_pallo.bmp"
+  }
+  {
+    "..\iceGlove_yellow.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "invert_pallo.bmp"
+  }
+  {
+    "..\iceGlove_green.bmp"
+    "..\iceSleeve_green.bmp"
+    "invert_pallo.bmp"
+  }
+  {
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceGlove_blue.bmp"
+    "..\iceSleeve_blue.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceGlove_red.bmp"
+    "..\iceSleeve_red.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceGlove_yellow.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceGlove_green.bmp"
+    "..\iceSleeve_green.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove_blue.bmp"
+    "..\iceSleeve_blue.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove_red.bmp"
+    "..\iceSleeve_red.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove_yellow.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove_green.bmp"
+    "..\iceSleeve_green.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "..\..\silverCHROME.bmp"
   }
   {
-    "..\iceGlove.bmp"
-    "..\iceSleeve.bmp"
+    "..\iceGlove_blue.bmp"
+    "..\iceSleeve_blue.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove_red.bmp"
+    "..\iceSleeve_red.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove_yellow.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove_green.bmp"
+    "..\iceSleeve_green.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\iceGlove_blue.bmp"
+    "..\iceSleeve_blue.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\iceGlove_red.bmp"
+    "..\iceSleeve_red.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\iceGlove_yellow.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\iceGlove_green.bmp"
+    "..\iceSleeve_green.bmp"
     "..\..\goldCHROME.bmp"
   }
 }
@@ -95,3 +209,5 @@ $sequence "draw_lowkey" "draw" fps 60 { event 5004 0 "default_draw.wav" }
 $sequence "draw" "draw" fps 60 { event 5004 0 "default_draw.wav" } { event 5005 0 "snowball_selected.wav" } 
 
 // End of QC script.
+
+

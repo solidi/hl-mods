@@ -38,8 +38,6 @@ $bodygroup "scope"
 blank
 studio "python_lasersight"
 }
-
-
 $texturegroup ice
 {
   {
@@ -53,39 +51,9 @@ $texturegroup ice
     "Pythonhandle.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "invert_bluesteelchrome.bmp"
-    "invert_bulletCHROME.bmp"
-    "invert_lasersight.bmp"
-    "invert_pythoncylrear2.bmp"
-    "invert_Pythonhandle.bmp"
-  }
-  {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-  }
-  {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-  }
-  {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "bluesteelchrome.bmp"
     "bulletCHROME.bmp"
     "lasersight.bmp"
@@ -93,9 +61,189 @@ $texturegroup ice
     "Pythonhandle.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "bluesteelchrome.bmp"
+    "bulletCHROME.bmp"
+    "lasersight.bmp"
+    "pythoncylrear2.bmp"
+    "Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "bluesteelchrome.bmp"
+    "bulletCHROME.bmp"
+    "lasersight.bmp"
+    "pythoncylrear2.bmp"
+    "Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "bluesteelchrome.bmp"
+    "bulletCHROME.bmp"
+    "lasersight.bmp"
+    "pythoncylrear2.bmp"
+    "Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "invert_bluesteelchrome.bmp"
+    "invert_bulletCHROME.bmp"
+    "invert_lasersight.bmp"
+    "invert_pythoncylrear2.bmp"
+    "invert_Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "invert_bluesteelchrome.bmp"
+    "invert_bulletCHROME.bmp"
+    "invert_lasersight.bmp"
+    "invert_pythoncylrear2.bmp"
+    "invert_Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "invert_bluesteelchrome.bmp"
+    "invert_bulletCHROME.bmp"
+    "invert_lasersight.bmp"
+    "invert_pythoncylrear2.bmp"
+    "invert_Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "invert_bluesteelchrome.bmp"
+    "invert_bulletCHROME.bmp"
+    "invert_lasersight.bmp"
+    "invert_pythoncylrear2.bmp"
+    "invert_Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "invert_bluesteelchrome.bmp"
+    "invert_bulletCHROME.bmp"
+    "invert_lasersight.bmp"
+    "invert_pythoncylrear2.bmp"
+    "invert_Pythonhandle.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
@@ -103,9 +251,89 @@ $texturegroup ice
     "..\silverCHROME.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
@@ -143,3 +371,5 @@ $sequence "idle2" "idle2" fps 30 loop
 $sequence "idle3" "idle3" fps 30 loop 
 
 // End of QC script.
+
+

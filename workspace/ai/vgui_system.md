@@ -136,3 +136,17 @@ Unknown / missing values silently default to `medium`.
 3. Wire it up in `TeamFortressViewport::ShowVGUIMenu` (the giant switch).
 4. Server side: register the `Vote<X>` message in `player.cpp` (≤10 chars), broadcast it from the relevant `Think()` branch, and have `Vote()` in `client.cpp` understand the new vote-mode constant.
 5. **Always** put RANDOM at display position (0,0) and array index `count`.
+
+## Client Option Surface (Weapon/Sleeves)
+
+Player-facing model customization is now split into two cvars:
+
+- `cl_weaponmodel` (`0..5`) for weapon finish.
+- `cl_sleevemodel` (`0..4`) for HEV sleeve color.
+
+The command menu exposes both under Weapons:
+
+- Models (weapon finish)
+- HEV Sleeves (arm color)
+
+When working on VGUI/menu-adjacent option UX, keep this split intact; do not reintroduce mixed options where a single value controls both weapon and sleeve appearance.

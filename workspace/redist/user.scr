@@ -41,7 +41,7 @@ VERSION 1.0
 
 DESCRIPTION INFO_OPTIONS
 {
-	"cl_icemodels"
+	"cl_weaponmodel"
 	{
 		"#Ice_Models"
 		{
@@ -50,11 +50,24 @@ DESCRIPTION INFO_OPTIONS
 			"Inverted" "1"
 			"Classic" "2"
 			"Special Edition" "3"
-			"Real Life + Blue HEV" "4"
-			"Silver" "5"
-			"Gold" "6"
+			"Silver" "4"
+			"Gold" "5"
 		}
-		{ "4" }
+		{ "0" }
+	}
+
+	"cl_sleevemodel"
+	{
+		"HEV Sleeves"
+		{
+			LIST
+			"Orange" "0"
+			"Blue" "1"
+			"Red" "2"
+			"Yellow" "3"
+			"Green" "4"
+		}
+		{ "1" }
 	}
 
 	"cl_oldscoreboard"

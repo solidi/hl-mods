@@ -729,7 +729,7 @@ Beta 3 Features:
     - Remove unused leg in v_fists
     - Patched weapon animation and weapon data crashes
     - Fix crash in autowaypoint support for bots
-    - Restore skin support when cl_icemodels is 0
+    - Restore skin support when cl_weaponmodel is 0
     - Patch grapplehok crash on player death
 
 Beta 2 Features:
@@ -781,8 +781,8 @@ Beta 2 Features:
 - Weapon Updates
     - Crowbar/Throw decals
     - Bullet decals and ricochet sparks
-    - Thicker crosshairs/crosshairs on melees/change colors with cl_icemodels
-    - Support for real muzzle flash using cl_icemodels 0
+    - Thicker crosshairs/crosshairs on melees/change colors with cl_weaponmodel
+    - Support for real muzzle flash using cl_weaponmodel 0
     - Randomized fire sprites at the end of explosions
     - Increase grappling hook deploy speed, provide damage and speed cvars
     - Mortar turrets support ice explosions

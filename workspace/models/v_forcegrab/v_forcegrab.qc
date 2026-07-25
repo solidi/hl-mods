@@ -26,8 +26,6 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "v_forcegrab"
-
-
 $texturegroup ice
 {
   {
@@ -36,34 +34,149 @@ $texturegroup ice
     "..\gordon_GLOVED_sleeve.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
 }
 
@@ -82,3 +195,5 @@ $sequence "grab" "grab" fps 15
 $sequence "protect" "protect" fps 15 
 
 // End of QC script.
+
+

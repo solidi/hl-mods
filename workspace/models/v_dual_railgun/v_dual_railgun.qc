@@ -27,11 +27,34 @@ $eyeposition 0.000000 0.000000 0.000000
 //reference mesh(es)
 $body "body" "railgun_right"
 $body "body" "railgun_left"
-
 $texturegroup ice
 {
   {
     "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "invert_Skin.bmp"
+  }
+  {
+    "invert_Skin.bmp"
+  }
+  {
+    "invert_Skin.bmp"
+  }
+  {
+    "invert_Skin.bmp"
   }
   {
     "invert_Skin.bmp"
@@ -40,13 +63,58 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+  }
+  {
     "..\hd\iceCHROME.bmp"
   }
   {
-    "Skin.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
   }
   {
     "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
   }
   {
     "..\goldCHROME.bmp"
@@ -72,3 +140,4 @@ $sequence "draw_lowkey" "draw_shift3" fps 108 { event 5004 0 "default_draw.wav" 
 $sequence "draw" "draw_shift3" fps 108 { event 5004 0 "default_draw.wav" } { event 5005 2 "dual_railgun_selected.wav" } { event 5004 5 "default_draw.wav" }
 
 // End of QC script.
+

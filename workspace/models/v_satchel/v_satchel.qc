@@ -28,7 +28,6 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "body" "satchel_hand_fix"
 
 $body "body" "satchel_charge"
-
 $texturegroup ice
 {
   {
@@ -42,34 +41,14 @@ $texturegroup ice
     "..\gordon_GLOVED_sleeve.bmp"
   }
   {
-    "invert_buckleCHROME.bmp"
-    "invert_expl.bmp"
-    "invert_radioside.bmp"
-    "invert_satchel_body.bmp"
-    "invert_strap.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
-  }
-  {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
-  }
-  {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "buckleCHROME.bmp"
+    "expl.bmp"
+    "radioside.bmp"
+    "satchel_body.bmp"
+    "strap.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
     "buckleCHROME.bmp"
@@ -77,9 +56,179 @@ $texturegroup ice
     "radioside.bmp"
     "satchel_body.bmp"
     "strap.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "buckleCHROME.bmp"
+    "expl.bmp"
+    "radioside.bmp"
+    "satchel_body.bmp"
+    "strap.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "buckleCHROME.bmp"
+    "expl.bmp"
+    "radioside.bmp"
+    "satchel_body.bmp"
+    "strap.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "invert_buckleCHROME.bmp"
+    "invert_expl.bmp"
+    "invert_radioside.bmp"
+    "invert_satchel_body.bmp"
+    "invert_strap.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "invert_buckleCHROME.bmp"
+    "invert_expl.bmp"
+    "invert_radioside.bmp"
+    "invert_satchel_body.bmp"
+    "invert_strap.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "invert_buckleCHROME.bmp"
+    "invert_expl.bmp"
+    "invert_radioside.bmp"
+    "invert_satchel_body.bmp"
+    "invert_strap.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "invert_buckleCHROME.bmp"
+    "invert_expl.bmp"
+    "invert_radioside.bmp"
+    "invert_satchel_body.bmp"
+    "invert_strap.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "invert_buckleCHROME.bmp"
+    "invert_expl.bmp"
+    "invert_radioside.bmp"
+    "invert_satchel_body.bmp"
+    "invert_strap.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\silverCHROME.bmp"
@@ -87,9 +236,49 @@ $texturegroup ice
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\goldCHROME.bmp"
@@ -97,9 +286,49 @@ $texturegroup ice
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
 }
 
@@ -119,3 +348,5 @@ $sequence "draw" "draw" fps 120 { event 5004 0 "default_draw.wav" } { event 5005
 $sequence "drop" "drop" fps 45 
 
 // End of QC script.
+
+

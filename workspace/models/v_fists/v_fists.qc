@@ -26,7 +26,6 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "fists"
-
 $texturegroup ice
 {
   {
@@ -35,34 +34,149 @@ $texturegroup ice
     "..\gordon_xbow_sleeve.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\xbow_sleeve_blue.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\xbow_sleeve_red.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\xbow_sleeve_yellow.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\xbow_sleeve_green.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
   }
   {
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\xbow_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\xbow_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\xbow_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\xbow_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\xbow_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\xbow_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\xbow_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\xbow_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\xbow_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\xbow_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\xbow_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\xbow_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\xbow_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\xbow_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\xbow_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\xbow_sleeve_green.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\xbow_sleeve_blue.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\xbow_sleeve_red.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\xbow_sleeve_yellow.bmp"
+  }
+  {
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\xbow_sleeve_green.bmp"
   }
 }
 
@@ -89,3 +203,5 @@ $sequence "die" "die" fps 20
 $sequence "offhand_left" "offhand_left" fps 25 
 
 // End of QC script.
+
+

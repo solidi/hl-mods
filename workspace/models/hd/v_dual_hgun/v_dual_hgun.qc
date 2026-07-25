@@ -30,13 +30,52 @@ $bodygroup "body"
 studio "hgun_right"
 studio "dual_hgun"
 }
-
 $texturegroup ice
 {
   {
     "hive body.bmp"
     "hive pincers.bmp"
     "hive_chrome.bmp"
+  }
+  {
+    "hive body.bmp"
+    "hive pincers.bmp"
+    "hive_chrome.bmp"
+  }
+  {
+    "hive body.bmp"
+    "hive pincers.bmp"
+    "hive_chrome.bmp"
+  }
+  {
+    "hive body.bmp"
+    "hive pincers.bmp"
+    "hive_chrome.bmp"
+  }
+  {
+    "hive body.bmp"
+    "hive pincers.bmp"
+    "hive_chrome.bmp"
+  }
+  {
+    "invert_hive body.bmp"
+    "invert_hive pincers.bmp"
+    "invert_hive_chrome.bmp"
+  }
+  {
+    "invert_hive body.bmp"
+    "invert_hive pincers.bmp"
+    "invert_hive_chrome.bmp"
+  }
+  {
+    "invert_hive body.bmp"
+    "invert_hive pincers.bmp"
+    "invert_hive_chrome.bmp"
+  }
+  {
+    "invert_hive body.bmp"
+    "invert_hive pincers.bmp"
+    "invert_hive_chrome.bmp"
   }
   {
     "invert_hive body.bmp"
@@ -49,19 +88,94 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
   }
   {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
   {
-    "hive body.bmp"
-    "hive pincers.bmp"
-    "hive_chrome.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
   {
     "..\..\silverCHROME.bmp"
     "..\..\silverCHROME.bmp"
     "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
   }
   {
     "..\..\goldCHROME.bmp"
@@ -97,3 +211,4 @@ $sequence "draw" "up_shift3" fps 120 { event 5004 0 "default_draw.wav" } { event
 $sequence "Shoot" "Shoot" fps 24 
 
 // End of QC script.
+

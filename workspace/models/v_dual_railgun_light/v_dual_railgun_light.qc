@@ -28,23 +28,91 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "body" "railgun"
 
 $texrendermode "Skin.bmp" "additive"
-
 $texturegroup ice
 {
   {
     "Skin_Red.bmp"
   }
   {
-    "Skin.bmp"
-  }
-  {
-    "Skin.bmp"
-  }
-  {
-    "Skin.bmp"
+    "Skin_Red.bmp"
   }
   {
     "Skin_Red.bmp"
+  }
+  {
+    "Skin_Red.bmp"
+  }
+  {
+    "Skin_Red.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
+  }
+  {
+    "Skin.bmp"
   }
   {
     "Skin.bmp"
@@ -64,3 +132,4 @@ $hbox 0 "Gauss Master" -7.870000 -5.000000 -5.450000 16.980000 3.700000 2.680000
 $sequence "idle" "idle" fps 15 loop 
 
 // End of QC script.
+
