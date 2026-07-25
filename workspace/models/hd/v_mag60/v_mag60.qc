@@ -32,8 +32,8 @@ $texturegroup ice
     "body.bmp"
     "body2.bmp"
     "clip.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "body.bmp"

@@ -32,8 +32,8 @@ $texturegroup ice
 {
   {
     "v_egon_reference.BMP"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "v_egon_reference.BMP"

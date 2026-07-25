@@ -31,8 +31,8 @@ $body "studio" "v_gordon_hands_reference"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "Spas12_Reference.bmp"
   }
   {

@@ -29,7 +29,7 @@ $body "body" "cannon"
 $texturegroup ice
 {
   {
-    "..\gordon_sleeve.bmp"
+    "..\iceSleeve_orange.bmp"
     "flak_cannon.bmp"
     "flak_coolant.bmp"
   }

@@ -45,8 +45,8 @@ $texturegroup ice
     "handguard.bmp"
     "m203.bmp"
     "magazine.bmp"
-    "..\gordon_sleeve.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
   }
   {
     "40mmHE.bmp"

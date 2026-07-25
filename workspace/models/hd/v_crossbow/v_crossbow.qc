@@ -34,8 +34,8 @@ $texturegroup ice
     "bowCHROME.bmp"
     "lensCHROME.bmp"
     "v_crossbow_Reference.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "bowCHROME.bmp"

@@ -29,8 +29,8 @@ $body "studio" "python"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "barrel.bmp"
     "barrelb.bmp"
     "body.bmp"

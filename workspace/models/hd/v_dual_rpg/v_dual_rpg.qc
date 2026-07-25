@@ -37,8 +37,8 @@ studio "rpg_left"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "v_rpg_monitor_reference.BMP"
     "v_rpg_primer.BMP"
     "v_rpg_reference.BMP"

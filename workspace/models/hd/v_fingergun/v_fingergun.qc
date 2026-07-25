@@ -40,8 +40,8 @@ $origin 0 3 0 0
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "..\iceGlove_blue.bmp"

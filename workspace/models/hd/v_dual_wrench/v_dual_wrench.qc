@@ -33,8 +33,8 @@ $texturegroup ice
 {
   {
     "pipewrench.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "pipewrench.bmp"

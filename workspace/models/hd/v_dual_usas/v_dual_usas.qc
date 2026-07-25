@@ -44,8 +44,8 @@ $texturegroup ice
     "USAS-1.bmp"
     "USAS-2.bmp"
     "USAS-3.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "USAS-1.bmp"

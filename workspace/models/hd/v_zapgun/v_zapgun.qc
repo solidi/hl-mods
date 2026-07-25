@@ -38,8 +38,8 @@ $texturegroup ice
     "zapper_skin.bmp"
     "main.bmp"
     "meter.bmp"
-    "..\gordon_sleeve.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
   }
   {
     "zapper_skin.bmp"

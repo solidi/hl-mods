@@ -44,8 +44,8 @@ $texturegroup ice
     "foregrip.bmp"
     "mag.bmp"
     "rearsight.bmp"
-    "..\gordon_glove.BMP"
-    "..\gordon_sleeve.BMP"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "barrel.bmp"

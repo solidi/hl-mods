@@ -49,7 +49,7 @@ $texturegroup ice
     "sighttop.bmp"
     "Silencerback.bmp"
     "..\gordon_GLOVED_sleeve.bmp"
-    "..\hd\gordon_glove.BMP"
+    "..\hd\iceSleeve_orange.bmp"
   }
   {
     "buttstockrear.bmp"

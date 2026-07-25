@@ -31,8 +31,8 @@ $body "body" "snark"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "Snark_Eye_01.BMP"
     "Snark_reference.BMP"
   }

@@ -31,8 +31,8 @@ $body "body" "chumtoad"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "CHB_Side1.BMP"
     "CHB_Tounge1.BMP"
     "eye.bmp"

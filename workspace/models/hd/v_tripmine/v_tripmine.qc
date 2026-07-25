@@ -39,8 +39,8 @@ studio "w_tripmine_Reference"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "lensCHROME.bmp"
     "tripmine_reference.BMP"
   }

@@ -30,8 +30,8 @@ $body "studio" "v_forcegrab"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "..\iceGlove_blue.bmp"

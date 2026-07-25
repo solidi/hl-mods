@@ -37,8 +37,8 @@ $texturegroup ice
     "de_magazine.bmp"
     "de_muzzle.bmp"
     "de_slide.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "de_body.bmp"

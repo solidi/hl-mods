@@ -31,8 +31,8 @@ $body "body" "satchel_radio_detonator"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "det_chrome.bmp"
     "detonata'  bod.bmp"
   }

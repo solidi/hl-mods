@@ -33,8 +33,8 @@ $body "weapon" "chainsaw"
 $texturegroup ice
 {
   {
-    "..\gordon_sleeve_ext.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeveExt_orange.bmp"
+    "..\iceGlove_orange.bmp"
     "chainsaw_v.BMP"
   }
   {

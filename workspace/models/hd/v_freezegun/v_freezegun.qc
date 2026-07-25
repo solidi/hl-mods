@@ -35,8 +35,8 @@ $body "studio" "v_ref_partb"
 $texturegroup ice
 {
   {
-    "..\gordon_sleeve_ext.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeveExt_orange.bmp"
+    "..\iceGlove_orange.bmp"
     "plasma_v_alpha.bmp"
     "plasma_v.bmp"
   }

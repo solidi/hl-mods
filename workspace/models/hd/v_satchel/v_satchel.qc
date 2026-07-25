@@ -31,8 +31,8 @@ $body "body" "gordon_hands"
 $texturegroup ice
 {
   {
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
     "brass_chrome.BMP"
     "psx_v_satchel.BMP"
     "psx_v_satchel2.BMP"

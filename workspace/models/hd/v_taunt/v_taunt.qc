@@ -29,8 +29,8 @@ $body "studio" "v_taunt"
 $texturegroup ice
 {
   {
-    "..\gordon_sleeve.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
   }
   {
     "..\iceSleeve_blue.bmp"

@@ -39,8 +39,8 @@ $texturegroup ice
     "scope_clamp.BMP"
     "scope.BMP"
     "scopelens.BMP"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "barrel.BMP"

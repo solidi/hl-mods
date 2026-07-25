@@ -39,8 +39,8 @@ $texturegroup ice
     "gclipinside.bmp"
     "v_beretta_bottom.BMP"
     "v_beretta_main.BMP"
-    "..\gordon_sleeve.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
   }
   {
     "bulletCHROME.BMP"

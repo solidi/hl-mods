@@ -35,8 +35,8 @@ $texturegroup ice
     "chrome.bmp"
     "rocket.bmp"
     "rocketmotor.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "crowbar_01.bmp"

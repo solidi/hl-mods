@@ -34,8 +34,8 @@ $texturegroup ice
     "flashlig.bmp"
     "SRRAILM4.bmp"
     "w_clip_bfg.bmp"
-    "..\gordon_glove.bmp"
-    "..\gordon_sleeve.bmp"
+    "..\iceGlove_orange.bmp"
+    "..\iceSleeve_orange.bmp"
   }
   {
     "1.bmp"
