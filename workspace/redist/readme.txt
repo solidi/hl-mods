@@ -227,6 +227,7 @@ v1.1 Features:
     - Added "mp_ktsspawn1" and "mp_ktsspawn2" for the blue and red KTS goal spawn entities
     - Added server timestamps to chat messaging
 - Client
+    - Added support for cl_weaponmodel and cl_sleevemodel, removed cl_icemodels
     - Added "cl_thirdcamera" so the player can enable or disable the third-person camera in supported scenarios
     - Added damage numbers rendered on the HUD when hitting an enemy
     - Damage numbers are colored blue or orange based on team
