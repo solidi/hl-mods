@@ -32,9 +32,9 @@ $texturegroup ice
     "blade_chrome.bmp"
     "guard_chrome.bmp"
     "handle.bmp"
-    "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "blade_chrome.bmp"

@@ -29,7 +29,7 @@ $body "body" "sniperrifle"
 $texturegroup ice
 {
   {
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "barrelchrome.bmp"
     "bodyside.bmp"
     "clip.bmp"

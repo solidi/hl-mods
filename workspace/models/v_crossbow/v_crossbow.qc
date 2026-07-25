@@ -31,9 +31,9 @@ $body "body" "crossbow_hand"
 $texturegroup ice
 {
   {
-    "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
     "bowCHROME.bmp"
     "bowtip.bmp"
     "cliprear.bmp"

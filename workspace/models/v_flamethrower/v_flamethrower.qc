@@ -29,9 +29,9 @@ $body "body" "flamethrower"
 $texturegroup ice
 {
   {
-    "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "Chrome1.bmp"
     "Chrome2(Brass).bmp"
     "FlameThrwr_Base1.bmp"

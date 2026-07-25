@@ -36,7 +36,7 @@ $texturegroup ice
     "12gauge_receiver.bmp"
     "12gauge_stock.bmp"
     "shell.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "12gauge_chrome.bmp"

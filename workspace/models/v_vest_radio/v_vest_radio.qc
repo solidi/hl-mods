@@ -31,9 +31,9 @@ $body "body" "satchel_radio_detonator"
 $texturegroup ice
 {
   {
-    "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_xbow_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\xbow_sleeve_orange.bmp"
     "det_front.bmp"
     "det_side.bmp"
     "detbutn_bright.bmp"

@@ -48,7 +48,7 @@ $texturegroup ice
     "HK_chrome.bmp"
     "sighttop.bmp"
     "Silencerback.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\hd\iceSleeve_orange.bmp"
   }
   {

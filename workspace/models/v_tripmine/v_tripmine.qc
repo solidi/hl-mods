@@ -39,9 +39,9 @@ studio "tripmine_boned_world"
 $texturegroup ice
 {
   {
-    "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "box.bmp"
     "face.bmp"
     "lensCHROME.bmp"

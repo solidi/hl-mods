@@ -31,9 +31,9 @@ $texturegroup ice
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
-    "..\gordon_GLOVE_handpak.bmp.BMP"
-    "..\gordon_GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
   }
   {
     "spanner_text.bmp"
