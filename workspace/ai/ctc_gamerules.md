@@ -387,7 +387,7 @@ Stops chasers from running face-first into walls when the holder / loose toad is
 - **Hook subsystem reuse**: `BotConsiderHookForItem` is generic over edicts — the CtC vertical recovery passes the holder edict (Case 2) or the toad edict (Case 3) directly. No new hook intent was needed.
 - **Hook-state robustness for CtC transitions**: `BotMaybeReleaseHook` now force-releases when a bot becomes a holder mid-hook, and bot hook teardown includes short 218 re-send and desync recovery safeguards.
 - **Triple-jump must be edge-pressed**: Holding `IN_JUMP` for multiple ticks only counts as one jump in the engine; the sequence must release and re-press the button between attempts. The `0.20s` gap is tuned to land between successive ground contacts on a triple-jump.
-- **New cvar checklist (important)**: when adding CtC/server cvars exposed in `redist/settings.scr`, always add the corresponding `#Ice_*` token to the active localization file (currently `redist/resource/ice_v1.1_english.txt`, or the newer version file in future). Missing token entries will show raw token IDs in the UI.
+- **New cvar checklist (important)**: when adding CtC/server cvars exposed in `redist/settings.scr`, always add the corresponding `#Ice_*` token to the active localization file (currently `redist/resource/ice_v1_1_english.txt`, or the newer version file in future). Missing token entries will show raw token IDs in the UI.
 
 ## Key Pitfalls (Expected)
 1. **Velocity requirement**: Bots MUST maintain > 50 u/s while holding the toad to score. Any pause (charger use, weapon switch, combat engagement) risks an auto-drop. The `f_pause_time = 0` enforcement in Case 1 is critical.
