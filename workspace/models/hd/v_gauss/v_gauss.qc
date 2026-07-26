@@ -26,13 +26,52 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "gun" "gauss"
-
 $texturegroup ice
 {
   {
     "gaussCHROME.BMP"
     "glow.BMP"
     "V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "gaussCHROME.BMP"
+    "glow.BMP"
+    "V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "gaussCHROME.BMP"
+    "glow.BMP"
+    "V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "gaussCHROME.BMP"
+    "glow.BMP"
+    "V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "gaussCHROME.BMP"
+    "glow.BMP"
+    "V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "invert_gaussCHROME.BMP"
+    "invert_glow.BMP"
+    "invert_V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "invert_gaussCHROME.BMP"
+    "invert_glow.BMP"
+    "invert_V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "invert_gaussCHROME.BMP"
+    "invert_glow.BMP"
+    "invert_V_GAUSS_REFERENCE.BMP"
+  }
+  {
+    "invert_gaussCHROME.BMP"
+    "invert_glow.BMP"
+    "invert_V_GAUSS_REFERENCE.BMP"
   }
   {
     "invert_gaussCHROME.BMP"
@@ -45,19 +84,94 @@ $texturegroup ice
     "..\..\ringchrome.bmp"
   }
   {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+    "..\..\ringchrome.bmp"
+  }
+  {
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
     "..\iceCHROME.bmp"
   }
   {
-    "gaussCHROME.BMP"
-    "glow.BMP"
-    "V_GAUSS_REFERENCE.BMP"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
   }
   {
     "..\..\silverCHROME.bmp"
     "..\..\silverCHROME.bmp"
     "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+    "..\..\silverCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+  }
+  {
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
+    "..\..\goldCHROME.bmp"
   }
   {
     "..\..\goldCHROME.bmp"
@@ -87,3 +201,4 @@ $sequence "draw_lowkey" "draw" fps 140 { event 5004 0 "default_draw.wav" }
 $sequence "draw" "draw" fps 140 { event 5004 0 "default_draw.wav" } { event 5005 0 "gauss_selected.wav" } 
 
 // End of QC script.
+

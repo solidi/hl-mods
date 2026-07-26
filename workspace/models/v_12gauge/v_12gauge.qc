@@ -28,7 +28,6 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "studio" "12gauge"
 
 $body "studio" "shell"
-
 $texturegroup ice
 {
   {
@@ -37,31 +36,7 @@ $texturegroup ice
     "12gauge_receiver.bmp"
     "12gauge_stock.bmp"
     "shell.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
-  }
-  {
-    "invert_12gauge_chrome.bmp"
-    "invert_12gauge_pump.bmp"
-    "invert_12gauge_receiver.bmp"
-    "invert_12gauge_stock.bmp"
-    "invert_shell.bmp"
-    "..\GLOVED_sleeve.bmp"
-  }
-  {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\GLOVED_sleeve.bmp"
-  }
-  {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "12gauge_chrome.bmp"
@@ -69,7 +44,151 @@ $texturegroup ice
     "12gauge_receiver.bmp"
     "12gauge_stock.bmp"
     "shell.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "12gauge_chrome.bmp"
+    "12gauge_pump.bmp"
+    "12gauge_receiver.bmp"
+    "12gauge_stock.bmp"
+    "shell.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "12gauge_chrome.bmp"
+    "12gauge_pump.bmp"
+    "12gauge_receiver.bmp"
+    "12gauge_stock.bmp"
+    "shell.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "12gauge_chrome.bmp"
+    "12gauge_pump.bmp"
+    "12gauge_receiver.bmp"
+    "12gauge_stock.bmp"
+    "shell.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "invert_12gauge_chrome.bmp"
+    "invert_12gauge_pump.bmp"
+    "invert_12gauge_receiver.bmp"
+    "invert_12gauge_stock.bmp"
+    "invert_shell.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "invert_12gauge_chrome.bmp"
+    "invert_12gauge_pump.bmp"
+    "invert_12gauge_receiver.bmp"
+    "invert_12gauge_stock.bmp"
+    "invert_shell.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "invert_12gauge_chrome.bmp"
+    "invert_12gauge_pump.bmp"
+    "invert_12gauge_receiver.bmp"
+    "invert_12gauge_stock.bmp"
+    "invert_shell.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "invert_12gauge_chrome.bmp"
+    "invert_12gauge_pump.bmp"
+    "invert_12gauge_receiver.bmp"
+    "invert_12gauge_stock.bmp"
+    "invert_shell.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "invert_12gauge_chrome.bmp"
+    "invert_12gauge_pump.bmp"
+    "invert_12gauge_receiver.bmp"
+    "invert_12gauge_stock.bmp"
+    "invert_shell.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\silverCHROME.bmp"
@@ -77,7 +196,39 @@ $texturegroup ice
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\goldCHROME.bmp"
@@ -85,7 +236,39 @@ $texturegroup ice
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
 }
 
@@ -117,3 +300,5 @@ $sequence "shoot_big" "shoot_big" fps 13 { event 5001 0 "41" }
 $sequence "deepidle" "deepidle" fps 12 loop 
 
 // End of QC script.
+
+

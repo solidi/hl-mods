@@ -36,12 +36,43 @@ $body "portalgungun26" "portalgungun26"
 $body "portalgunglass" "portalgunglass"
 
 $texrendermode "v_portalgun_glass.bmp" "additive" 
-
 $texturegroup ice
 {
   {
     "v_portalgun_glass.bmp"
     "v_portalgun.bmp"
+  }
+  {
+    "v_portalgun_glass.bmp"
+    "v_portalgun.bmp"
+  }
+  {
+    "v_portalgun_glass.bmp"
+    "v_portalgun.bmp"
+  }
+  {
+    "v_portalgun_glass.bmp"
+    "v_portalgun.bmp"
+  }
+  {
+    "v_portalgun_glass.bmp"
+    "v_portalgun.bmp"
+  }
+  {
+    "invert_v_portalgun_glass.bmp"
+    "invert_v_portalgun.bmp"
+  }
+  {
+    "invert_v_portalgun_glass.bmp"
+    "invert_v_portalgun.bmp"
+  }
+  {
+    "invert_v_portalgun_glass.bmp"
+    "invert_v_portalgun.bmp"
+  }
+  {
+    "invert_v_portalgun_glass.bmp"
+    "invert_v_portalgun.bmp"
   }
   {
     "invert_v_portalgun_glass.bmp"
@@ -52,16 +83,76 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
   {
-    "v_portalgun_glass.bmp"
-    "v_portalgun.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
   {
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
   {
     "..\goldCHROME.bmp"
@@ -96,3 +187,4 @@ $sequence "shoot1_unsil" "shoot1_unsil" fps 30
 $sequence "shoot2_unsil" "shoot2_unsil" fps 30 
 
 // End of QC script.
+

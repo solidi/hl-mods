@@ -26,57 +26,217 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "wrench"
-
 $texturegroup ice
 {
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
-    "..\gordon_GLOVE_handpak.bmp.BMP"
-    "..\gordon_GLOVED_knuckle.BMP"
-  }
-  {
-    "invert_spanner_text.bmp"
-    "invert_spannerCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
-  }
-  {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
-  }
-  {
-    "..\iceCHROME.bmp"
-    "..\iceCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
   }
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
+  }
+  {
+    "invert_spanner_text.bmp"
+    "invert_spannerCHROME.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "invert_spanner_text.bmp"
+    "invert_spannerCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "invert_spanner_text.bmp"
+    "invert_spannerCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "invert_spanner_text.bmp"
+    "invert_spannerCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "invert_spanner_text.bmp"
+    "invert_spannerCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
   }
   {
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
   }
   {
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
   }
 }
 
@@ -104,3 +264,5 @@ $sequence "throw" "throw" fps 45 { event 5005 0 "wrench_getsome.wav" }
 $sequence "use" "use" fps 30 
 
 // End of QC script.
+
+

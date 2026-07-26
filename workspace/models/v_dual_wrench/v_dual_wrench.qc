@@ -29,57 +29,217 @@ $body "studio" "wrench_right"
 $body "studio" "wrench_left"
 $body "studio" "gordon_sd_arm_right"
 $body "studio" "gordon_sd_arm_left"
-
 $texturegroup ice
 {
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "..\gordon_GLOVED_knuckle.bmp"
-    "..\gordon_GLOVE_handpak.bmp.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
-  }
-  {
-    "..\ringchrome.bmp"
-    "..\ringchrome.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
-  }
-  {
-    "..\hd\iceCHROME.bmp"
-    "..\hd\iceCHROME.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
     "spanner_text.bmp"
     "spannerCHROME.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "spanner_text.bmp"
+    "spannerCHROME.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
-    "..\GLOVED_knuckle.bmp"
-    "..\GLOVE_handpak.bmp.bmp"
-    "..\GLOVED_sleeve.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_knuckle_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_knuckle_red.bmp"
+    "..\GLOVE_handpak.bmp_red.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_knuckle_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\GLOVED_knuckle_green.bmp"
+    "..\GLOVE_handpak.bmp_green.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
 }
 
@@ -105,3 +265,5 @@ $sequence "draw_both" "draw_both_shift" fps 48 { event 5004 0 "wrench_draw.wav" 
 $sequence "holster_both" "holster_both_shift2" fps 48 
 
 // End of QC script.
+
+

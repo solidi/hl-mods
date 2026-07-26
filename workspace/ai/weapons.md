@@ -16,6 +16,34 @@ Cross-cutting reference for everything that registers a `weapon_*` classname. Mo
 - `workspace/redist/events/*.sc` — event script stubs loaded by both server `PRECACHE_EVENT` and client `HookEvent`.
 - `workspace/src/cl_dll/wpn_shared/` — client mirrors of select weapons (used by Half-Life predicted weapons).
 
+## Viewmodel Skin Matrix (Client)
+
+Weapon finish and HEV sleeve color are now resolved as separate client dimensions.
+
+- Weapon finish cvar: `cl_weaponmodel` (`0..5`)
+- Sleeve cvar: `cl_sleevemodel` (`0..4`)
+- Runtime composition for first-person `v_*.mdl` uses:
+	- `combinedSkin = weaponIndex * 5 + sleeveIndex`
+- Compatibility fallback exists: if a model has fewer skin families than `combinedSkin`, client falls back to weapon-only skin until that QC/model is migrated.
+
+Implications for weapon assets:
+
+- Each `v_*.qc` texturegroup must expose 30 rows (6 weapon finishes x 5 sleeve colors) in the same deterministic row order used by the formula above.
+- Client event visuals that previously keyed off raw skin indexes should use the shared helper `UseIceVisualStyle()` so mutator overrides (`HALFLIFE`) and forced viewmodel finishes (`GOLDENGUNS`) remain consistent.
+
+### Shared HD Sleeve Texture Workflow
+
+Some HD QCs reference shared sleeve textures under `models/hd/` (for example `iceSleeve_*.bmp` and `iceSleeveExt_*.bmp`) instead of model-local texture files.
+
+- Color correction strategy used by current content:
+	- Use the blue variant (`iceSleeve_blue.bmp` / `iceSleeveExt_blue.bmp`) as a structure template.
+	- Preserve the target color image (red/yellow/green) for non-gray regions.
+	- Transplant gray detail regions from the blue template into the target variant.
+- Keep outputs as 8bpp indexed BMP to avoid compile/runtime incompatibilities.
+- `$texturegroup` row 0 token names must match the actual SMD mesh token names for each sleeve/hand slot. If row 0 references a different token family (for example row 0 uses `GLOVED_sleeve_orange` while the SMD still uses `GLOVED_sleeve_blue`), studiomdl keeps the source token and that slot appears "stuck" across rows.
+- If orange must be the first sleeve row for a model, retoken the SMD sleeve slot(s) to orange first, then keep QC rows in the expected orange/blue/red/yellow/green order.
+- Rebuild caveat: touching only shared textures may not trigger recompiles because `Compile-Model` compares timestamps inside each model folder. Touch dependent QCs (or run a clean model build) to force all affected MDLs to refresh.
+
 ## CBasePlayerWeapon Mechanics
 
 All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base provides:

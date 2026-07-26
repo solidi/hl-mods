@@ -280,7 +280,9 @@ expiring mutator does the same. Once the timestamp expires, `MutatorsThink`:
      bystanders inside a 64-unit sphere, kills the player if hull traces solid).
    - `GODMODE` on → set `FL_GODMODE`; off → clear (but not on `FL_NOTARGET`
      snowmen — they keep god-mode).
-   - `HALFLIFE` toggles `HIDEHUD_ICE` and sends `gmsgHideWeapon`.
+  - `HALFLIFE` toggles `HIDEHUD_ICE` and sends `gmsgHideWeapon`.
+    Client-side visual resolvers treat `HIDEHUD_ICE` as a hard override:
+    weapon model index is forced to normal and HEV sleeves are forced to orange.
    - Cvar mirrors: `sv_infiniteammo` (2/0), `mp_randomweapon` (2/0),
      `sys_timescale` (1.49/1.0 for `SPEEDUP`; 0.49/1.0 for `SLOWMO` in
      `EnvMutators`), `sv_slowbullets` (2/0), `g_ExplosiveAI`,
@@ -643,7 +645,7 @@ mutators tick normally throughout play.
 | 21 | `firebullets` | S | Ignites victims on hit. |
 | 22 | `firestarter` | S/Weapon | Grants `weapon_flamethrower`. |
 | 24 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
-| 25 | `goldenguns` | S | One-hit-kill damage bonus. |
+| 25 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
 | 26 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
 | 29 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
 | 30 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
@@ -675,7 +677,7 @@ mutators tick normally throughout play.
 | 15 | `crate` | C | Player model becomes `models/box.mdl`. |
 | 16 | `credits` | S | Enters "credits" mode on players (`m_iCreditMode = 1`). |
 | 23 | `fog` | S | Broadcasts `gmsgFog(50,200,125,125,125,0)`. |
-| 27 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements. |
+| 27 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements and forces vanilla first-person visual style (normal weapon + orange sleeves). |
 | 31 | `inverse` | C | Colour-corrector negates output. |
 | 32 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
 | 34 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |

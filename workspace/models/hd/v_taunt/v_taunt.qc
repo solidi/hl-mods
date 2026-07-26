@@ -26,36 +26,127 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "v_taunt"
-
 $texturegroup ice
 {
   {
-    "..\gordon_sleeve.bmp"
-    "..\gordon_glove.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
   }
   {
-    "..\iceSleeve.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve_blue.bmp"
+    "..\iceGlove_blue.bmp"
   }
   {
-    "..\iceSleeve.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve_red.bmp"
+    "..\iceGlove_red.bmp"
   }
   {
-    "..\iceSleeve.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve_yellow.bmp"
+    "..\iceGlove_yellow.bmp"
   }
   {
-    "..\iceSleeve.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve_green.bmp"
+    "..\iceGlove_green.bmp"
   }
   {
-    "..\iceSleeve.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
   }
   {
-    "..\iceSleeve.bmp"
-    "..\iceGlove.bmp"
+    "..\iceSleeve_blue.bmp"
+    "..\iceGlove_blue.bmp"
+  }
+  {
+    "..\iceSleeve_red.bmp"
+    "..\iceGlove_red.bmp"
+  }
+  {
+    "..\iceSleeve_yellow.bmp"
+    "..\iceGlove_yellow.bmp"
+  }
+  {
+    "..\iceSleeve_green.bmp"
+    "..\iceGlove_green.bmp"
+  }
+  {
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
+  }
+  {
+    "..\iceSleeve_blue.bmp"
+    "..\iceGlove_blue.bmp"
+  }
+  {
+    "..\iceSleeve_red.bmp"
+    "..\iceGlove_red.bmp"
+  }
+  {
+    "..\iceSleeve_yellow.bmp"
+    "..\iceGlove_yellow.bmp"
+  }
+  {
+    "..\iceSleeve_green.bmp"
+    "..\iceGlove_green.bmp"
+  }
+  {
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
+  }
+  {
+    "..\iceSleeve_blue.bmp"
+    "..\iceGlove_blue.bmp"
+  }
+  {
+    "..\iceSleeve_red.bmp"
+    "..\iceGlove_red.bmp"
+  }
+  {
+    "..\iceSleeve_yellow.bmp"
+    "..\iceGlove_yellow.bmp"
+  }
+  {
+    "..\iceSleeve_green.bmp"
+    "..\iceGlove_green.bmp"
+  }
+  {
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
+  }
+  {
+    "..\iceSleeve_blue.bmp"
+    "..\iceGlove_blue.bmp"
+  }
+  {
+    "..\iceSleeve_red.bmp"
+    "..\iceGlove_red.bmp"
+  }
+  {
+    "..\iceSleeve_yellow.bmp"
+    "..\iceGlove_yellow.bmp"
+  }
+  {
+    "..\iceSleeve_green.bmp"
+    "..\iceGlove_green.bmp"
+  }
+  {
+    "..\iceSleeve_orange.bmp"
+    "..\iceGlove_orange.bmp"
+  }
+  {
+    "..\iceSleeve_blue.bmp"
+    "..\iceGlove_blue.bmp"
+  }
+  {
+    "..\iceSleeve_red.bmp"
+    "..\iceGlove_red.bmp"
+  }
+  {
+    "..\iceSleeve_yellow.bmp"
+    "..\iceGlove_yellow.bmp"
+  }
+  {
+    "..\iceSleeve_green.bmp"
+    "..\iceGlove_green.bmp"
   }
 }
 
@@ -77,3 +168,5 @@ $sequence "point" "point" fps 40
 
 
 // End of QC script.
+
+

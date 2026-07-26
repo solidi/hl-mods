@@ -26,7 +26,6 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "body" "hgun"
-
 $texturegroup ice
 {
   {
@@ -34,6 +33,54 @@ $texturegroup ice
     "HGUN_Bottom1.BMP"
     "HGUN_Cheek1.bmp"
     "HGUN_Horn1.bmp"
+  }
+  {
+    "HGUN_Back1.bmp"
+    "HGUN_Bottom1.BMP"
+    "HGUN_Cheek1.bmp"
+    "HGUN_Horn1.bmp"
+  }
+  {
+    "HGUN_Back1.bmp"
+    "HGUN_Bottom1.BMP"
+    "HGUN_Cheek1.bmp"
+    "HGUN_Horn1.bmp"
+  }
+  {
+    "HGUN_Back1.bmp"
+    "HGUN_Bottom1.BMP"
+    "HGUN_Cheek1.bmp"
+    "HGUN_Horn1.bmp"
+  }
+  {
+    "HGUN_Back1.bmp"
+    "HGUN_Bottom1.BMP"
+    "HGUN_Cheek1.bmp"
+    "HGUN_Horn1.bmp"
+  }
+  {
+    "invert_HGUN_Back1.BMP"
+    "invert_HGUN_Bottom1.BMP"
+    "invert_HGUN_Cheek1.bmp"
+    "invert_HGUN_Horn1.bmp"
+  }
+  {
+    "invert_HGUN_Back1.BMP"
+    "invert_HGUN_Bottom1.BMP"
+    "invert_HGUN_Cheek1.bmp"
+    "invert_HGUN_Horn1.bmp"
+  }
+  {
+    "invert_HGUN_Back1.BMP"
+    "invert_HGUN_Bottom1.BMP"
+    "invert_HGUN_Cheek1.bmp"
+    "invert_HGUN_Horn1.bmp"
+  }
+  {
+    "invert_HGUN_Back1.BMP"
+    "invert_HGUN_Bottom1.BMP"
+    "invert_HGUN_Cheek1.bmp"
+    "invert_HGUN_Horn1.bmp"
   }
   {
     "invert_HGUN_Back1.BMP"
@@ -48,22 +95,112 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
   }
   {
-    "HGUN_Back1.bmp"
-    "HGUN_Bottom1.BMP"
-    "HGUN_Cheek1.bmp"
-    "HGUN_Horn1.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
   {
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
   {
     "..\goldCHROME.bmp"
@@ -98,3 +235,4 @@ $sequence "draw" "up" fps 120 { event 5004 0 "default_draw.wav" } { event 5005 0
 $sequence "Shoot" "Shoot" fps 24 
 
 // End of QC script.
+

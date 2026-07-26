@@ -61,15 +61,22 @@
 {
     "0" "Models"
     {
-        "0" "Original" "cl_icemodels 0"
-        "1" "Inverted" "cl_icemodels 1"
-        "2" "Iced" "cl_icemodels 2"
-        "3" "Special Edition" "cl_icemodels 3"
-        "4" "Original + Blue HEV" "cl_icemodels 4"
-        "5" "Silver" "cl_icemodels 5"
-        "6" "Gold" "cl_icemodels 6"
+        "0" "Original" "cl_weaponmodel 0"
+        "1" "Inverted" "cl_weaponmodel 1"
+        "2" "Iced" "cl_weaponmodel 2"
+        "3" "Special Edition" "cl_weaponmodel 3"
+        "4" "Silver" "cl_weaponmodel 4"
+        "5" "Gold" "cl_weaponmodel 5"
     }
-    "1" "Effects"
+    "1" "HEV Sleeves"
+    {
+        "0" "Orange" "cl_sleevemodel 0"
+        "1" "Blue" "cl_sleevemodel 1"
+        "2" "Red" "cl_sleevemodel 2"
+        "3" "Yellow" "cl_sleevemodel 3"
+        "4" "Green" "cl_sleevemodel 4"
+    }
+    "2" "Effects"
     {
         "0" "Gun Smoke"
         {
@@ -82,13 +89,13 @@
             "1" "Off" "cl_bulletsmoke 0"
         }
     }
-    "2" "Voice Overs"
+    "3" "Voice Overs"
     {
         "0" "Original" "cl_announcehumor 1;cl_voiceoverpath \'\'"
         "1" "HEV" "cl_announcehumor 1;cl_voiceoverpath hev"
         "2" "Off" "cl_announcehumor 0"
     }
-    "3" "Crosshair Ammo"
+    "4" "Crosshair Ammo"
     {
         "0" "On" "cl_crosshairammo 1"
         "1" "Off" "cl_crosshairammo 0"

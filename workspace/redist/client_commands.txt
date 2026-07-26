@@ -28,14 +28,19 @@ Client commands:
 - "cl_gunsmoke [0|1]" - turn on or off gun smoke effects when fired
 - "cl_hudbend" - experimental bending factor of HUD elements
 - "cl_hudscale" - experimental scaling factor of HUD elements
-- "cl_icemodels [0-6]" - changes models with specific ice skins
+- "cl_weaponmodel [0-5]" - changes weapon model skin variants
     - "0" - real skin
     - "1" - original inverted skin
     - "2" - 1.75 blue ice skin
     - "3" - Cold Ice Remastered edition skin
-    - "4" - real skin + blue hev
-    - "5" - silver skin
-    - "6" - gold skin
+    - "4" - silver skin
+    - "5" - gold skin
+- "cl_sleevemodel [0-4]" - changes HEV sleeve color on viewmodels
+    - "0" - orange sleeves
+    - "1" - blue sleeves
+    - "2" - red sleeves
+    - "3" - yellow sleeves
+    - "4" - green sleeves
 - "cl_kacro [0|1]" - enable/disable key input three times to perform slides and flips
 - "cl_lifemeters [0|1|2|3]" - show or hide lifemeters and damage numbers above the player's head
 - "cl_minfo [0|1]" - display weapon and rune pick up messages

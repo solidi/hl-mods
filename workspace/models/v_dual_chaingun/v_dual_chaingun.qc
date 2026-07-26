@@ -35,7 +35,6 @@ $bodygroup "extra"
 blank
 studio "dual_chaingun"
 }
-
 $texturegroup ice
 {
   {
@@ -44,6 +43,62 @@ $texturegroup ice
     "acChrome.bmp"
     "body_side.bmp"
     "innerspring.bmp"
+  }
+  {
+    "ac_grill.bmp"
+    "ac_grille.bmp"
+    "acChrome.bmp"
+    "body_side.bmp"
+    "innerspring.bmp"
+  }
+  {
+    "ac_grill.bmp"
+    "ac_grille.bmp"
+    "acChrome.bmp"
+    "body_side.bmp"
+    "innerspring.bmp"
+  }
+  {
+    "ac_grill.bmp"
+    "ac_grille.bmp"
+    "acChrome.bmp"
+    "body_side.bmp"
+    "innerspring.bmp"
+  }
+  {
+    "ac_grill.bmp"
+    "ac_grille.bmp"
+    "acChrome.bmp"
+    "body_side.bmp"
+    "innerspring.bmp"
+  }
+  {
+    "invert_ac_grill.bmp"
+    "invert_ac_grille.bmp"
+    "invert_acChrome.bmp"
+    "invert_body_side.bmp"
+    "invert_innerspring.bmp"
+  }
+  {
+    "invert_ac_grill.bmp"
+    "invert_ac_grille.bmp"
+    "invert_acChrome.bmp"
+    "invert_body_side.bmp"
+    "invert_innerspring.bmp"
+  }
+  {
+    "invert_ac_grill.bmp"
+    "invert_ac_grille.bmp"
+    "invert_acChrome.bmp"
+    "invert_body_side.bmp"
+    "invert_innerspring.bmp"
+  }
+  {
+    "invert_ac_grill.bmp"
+    "invert_ac_grille.bmp"
+    "invert_acChrome.bmp"
+    "invert_body_side.bmp"
+    "invert_innerspring.bmp"
   }
   {
     "invert_ac_grill.bmp"
@@ -60,6 +115,34 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -67,11 +150,32 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
   }
   {
-    "ac_grill.bmp"
-    "ac_grille.bmp"
-    "acChrome.bmp"
-    "body_side.bmp"
-    "innerspring.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
+    "..\hd\iceCHROME.bmp"
   }
   {
     "..\silverCHROME.bmp"
@@ -79,6 +183,62 @@ $texturegroup ice
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
+    "..\goldCHROME.bmp"
   }
   {
     "..\goldCHROME.bmp"
@@ -113,3 +273,4 @@ $sequence "holster" "holster_shift3" fps 51
 $sequence "reload" "reload_shift3" fps 13
 
 // End of QC script.
+

@@ -62,6 +62,7 @@ v1.1 Features:
     - Added a "Surprise Me" button to the vote menu for a randomized selection
     - Instant mutators can now be selected from the mutator vote panel
 - Game Modes Changes
+    - Added hev sleeve colors to show which team a player is on (blue, red, green, yellow)
     - New celebration sequences switch to thirdperson and play sounds
     - Added a banner system so that the team objective is clear when entering the arena
     - Added initial spectator menu selection on all game modes
@@ -164,6 +165,7 @@ v1.1 Features:
         - Added assists to the scoreboard
         - Show team-color HUD and radar indicators
 - Mutator Changes
+    - Made instant mutators off by default
     - Added support for per-mutator duration declaration
         - Example: sv_addmutator "longjump" sets the duration to whatever sv_mutatortime is (in seconds)
         - Example: sv_addmutator "longjump 120" for 120 seconds
@@ -227,6 +229,7 @@ v1.1 Features:
     - Added "mp_ktsspawn1" and "mp_ktsspawn2" for the blue and red KTS goal spawn entities
     - Added server timestamps to chat messaging
 - Client
+    - Added support for cl_weaponmodel and cl_sleevemodel, removed cl_icemodels
     - Added "cl_thirdcamera" so the player can enable or disable the third-person camera in supported scenarios
     - Added damage numbers rendered on the HUD when hitting an enemy
     - Damage numbers are colored blue or orange based on team
@@ -396,7 +399,7 @@ How to Play:
 
 Start or join a Cold Ice server. You will spawn with fists and a randomly selected melee weapon. Don't forget you have an off-handed grapple hook and iron sights! (See below). Server and client options below will dictate gameplay. Then, have fun.
 
-If you dislike the "blue" theme, this mod has the option to switch to real skins! Use cl_icemodels (see below).
+If you dislike the "blue" theme, this mod has the option to switch to real skins! Use cl_weaponmodel (see below).
 
 Dedicated Server:
 

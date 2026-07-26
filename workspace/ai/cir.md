@@ -167,5 +167,8 @@ These come from `workspace/plan/learnings.md` and from in-repo discoveries; they
 - **Localizable strings prefixed with `#`** are looked up in `resource/valve_english.txt` (and friends). Use `BufferedLocaliseTextString` to resolve them in VGUI.
 - **VGUI fonts ≠ engine fonts ≠ HUD fonts.** They live in different schemes; do not mix. `fonts.wad` is no longer used by the modern engine.
 - **Sort case-insensitively for player-facing lists.** Use `qsort` + `stricmp` (Windows) / `strcasecmp` (POSIX). The dynamic map list is alphabetized this way before transmission so the menu order matches what players expect.
+- **Shared model texture edits require forced model rebuilds.** `Compile-Model` timestamp checks are model-folder local. Editing shared textures in `workspace/models/` or `workspace/models/hd/` (for example `iceSleeve_*.bmp`, `iceSleeveExt_*.bmp`, `GLOVED_*`) can be skipped unless you also touch dependent QCs or run a clean model build.
+- **Texturegroup row-0 token identity controls whether sleeve slots can switch colors.** For a given slot, QC row 0 token names must match the SMD source token names. If the SMD token is `...sleeve_blue` but row 0 is authored as `...sleeve_orange`, that slot may compile as a fixed source token and ignore per-row replacements.
+- **Sleeve color variants use the blue template for neutral details.** For `iceSleeve*` families, preserve target color regions and transplant gray pixels from the blue variant into red/yellow/green variants, then save as indexed 8bpp BMP.
 
 For the full historical list, see `workspace/plan/learnings.md`.

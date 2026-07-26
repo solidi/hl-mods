@@ -28,50 +28,187 @@ $eyeposition 0.000000 0.000000 0.000000
 $body "studio" "zapgun"
 
 $body "studio" "clip_reference"
-
 $texturegroup ice
 {
   {
     "zapper_skin.bmp"
-    "..\gordon_GLOVED_sleeve.bmp"
-    "..\gordon_GLOVE_handpak.bmp.BMP"
-    "..\gordon_GLOVED_knuckle.BMP"
-  }
-  {
-    "invert_zapper_skin.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
-  }
-  {
-    "..\ringchrome.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
-  }
-  {
-    "..\iceCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.bmp"
+    "..\GLOVED_knuckle_orange.bmp"
   }
   {
     "zapper_skin.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "zapper_skin.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "zapper_skin.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "zapper_skin.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
+  }
+  {
+    "invert_zapper_skin.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "invert_zapper_skin.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "invert_zapper_skin.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "invert_zapper_skin.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "invert_zapper_skin.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\ringchrome.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\iceCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
   }
   {
     "..\silverCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\silverCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
   }
   {
     "..\goldCHROME.bmp"
-    "..\GLOVED_sleeve.bmp"
-    "..\GLOVE_handpak.bmp.BMP"
-    "..\GLOVED_knuckle.BMP"
+    "..\GLOVED_sleeve_orange.bmp"
+    "..\GLOVE_handpak.bmp_orange.BMP"
+    "..\GLOVED_knuckle_orange.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVE_handpak.bmp_blue.BMP"
+    "..\GLOVED_knuckle_blue.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_red.bmp"
+    "..\GLOVE_handpak.bmp_red.BMP"
+    "..\GLOVED_knuckle_red.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
+    "..\GLOVE_handpak.bmp_yellow.BMP"
+    "..\GLOVED_knuckle_yellow.BMP"
+  }
+  {
+    "..\goldCHROME.bmp"
+    "..\GLOVED_sleeve_green.bmp"
+    "..\GLOVE_handpak.bmp_green.BMP"
+    "..\GLOVED_knuckle_green.BMP"
   }
 }
 
@@ -102,3 +239,5 @@ $sequence "silencer" "holster" fps 24 { event 5005 0 "handgun_bond.wav" }
 $sequence "add_silencer" "add_silencer" fps 18 
 
 // End of QC script.
+
+

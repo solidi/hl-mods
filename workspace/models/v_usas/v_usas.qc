@@ -26,28 +26,126 @@ $eyeposition 0.000000 0.000000 0.000000
 
 //reference mesh(es)
 $body "studio" "usas"
-
 $texturegroup ice
 {
   {
+    "bodychrome.bmp"
     "body.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_blue.bmp"
+    "bodychrome.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_red.bmp"
+    "bodychrome.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_yellow.bmp"
+    "bodychrome.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_green.bmp"
+    "bodychrome.bmp"
   }
   {
     "invert_body.bmp"
+    "invert_bodychrome.bmp"
   }
   {
+    "..\GLOVED_sleeve_blue.bmp"
+    "invert_bodychrome.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_red.bmp"
+    "invert_bodychrome.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_yellow.bmp"
+    "invert_bodychrome.bmp"
+  }
+  {
+    "..\GLOVED_sleeve_green.bmp"
+    "invert_bodychrome.bmp"
+  }
+  {
+    "bodychrome.bmp"
     "..\ringchrome.bmp"
   }
   {
+    "bodychrome_blue.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "bodychrome_red.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "bodychrome_yellow.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "bodychrome_green.bmp"
+    "..\ringchrome.bmp"
+  }
+  {
+    "bodychrome.bmp"
     "..\hd\iceCHROME.bmp"
   }
   {
-    "body.bmp"
+    "bodychrome_blue.bmp"
+    "..\hd\iceCHROME.bmp"
   }
   {
+    "bodychrome_red.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "bodychrome_yellow.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "bodychrome_green.bmp"
+    "..\hd\iceCHROME.bmp"
+  }
+  {
+    "bodychrome.bmp"
     "..\silverCHROME.bmp"
   }
   {
+    "bodychrome_blue.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "bodychrome_red.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "bodychrome_yellow.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "bodychrome_green.bmp"
+    "..\silverCHROME.bmp"
+  }
+  {
+    "bodychrome.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "bodychrome_blue.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "bodychrome_red.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "bodychrome_yellow.bmp"
+    "..\goldCHROME.bmp"
+  }
+  {
+    "bodychrome_green.bmp"
     "..\goldCHROME.bmp"
   }
 }
@@ -86,3 +184,4 @@ $sequence "reload2" "reload" fps 96 { event 5004 1 "weapons/reloadusas.wav" }
 $sequence "reload3" "reload" fps 96 { event 5004 1 "weapons/reloadusas.wav" }  
 
 // End of QC script.
+
