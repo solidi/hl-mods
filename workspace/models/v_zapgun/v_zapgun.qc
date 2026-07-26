@@ -32,7 +32,7 @@ $texturegroup ice
 {
   {
     "zapper_skin.bmp"
-    "..\GLOVED_sleeve_blue.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\GLOVE_handpak.bmp_orange.bmp"
     "..\GLOVED_knuckle_orange.bmp"
   }

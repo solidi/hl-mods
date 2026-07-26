@@ -42,7 +42,7 @@ $texturegroup ice
     "sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "barrel_chrome.bmp"
     "barrelltop.bmp"
     "bodyback.bmp"
@@ -53,7 +53,7 @@ $texturegroup ice
     "sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
     "barrel_chrome.bmp"
     "barrelltop.bmp"
     "bodyback.bmp"
@@ -64,7 +64,7 @@ $texturegroup ice
     "sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
     "barrel_chrome.bmp"
     "barrelltop.bmp"
     "bodyback.bmp"
@@ -75,7 +75,7 @@ $texturegroup ice
     "sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "barrel_chrome.bmp"
     "barrelltop.bmp"
     "bodyback.bmp"
@@ -86,7 +86,7 @@ $texturegroup ice
     "sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "invert_barrel_chrome.bmp"
     "invert_barrelltop.bmp"
     "invert_bodyback.bmp"
@@ -97,7 +97,7 @@ $texturegroup ice
     "invert_sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "invert_barrel_chrome.bmp"
     "invert_barrelltop.bmp"
     "invert_bodyback.bmp"
@@ -108,7 +108,7 @@ $texturegroup ice
     "invert_sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
     "invert_barrel_chrome.bmp"
     "invert_barrelltop.bmp"
     "invert_bodyback.bmp"
@@ -119,7 +119,7 @@ $texturegroup ice
     "invert_sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
     "invert_barrel_chrome.bmp"
     "invert_barrelltop.bmp"
     "invert_bodyback.bmp"
@@ -130,7 +130,7 @@ $texturegroup ice
     "invert_sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "invert_barrel_chrome.bmp"
     "invert_barrelltop.bmp"
     "invert_bodyback.bmp"
@@ -141,7 +141,7 @@ $texturegroup ice
     "invert_sight.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -152,7 +152,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -163,7 +163,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -174,7 +174,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -185,7 +185,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
@@ -196,7 +196,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -207,7 +207,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -218,7 +218,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -229,7 +229,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -240,7 +240,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
@@ -251,7 +251,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
@@ -262,7 +262,7 @@ $texturegroup ice
     "..\silverCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
@@ -273,7 +273,7 @@ $texturegroup ice
     "..\silverCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
@@ -284,7 +284,7 @@ $texturegroup ice
     "..\silverCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
@@ -295,7 +295,7 @@ $texturegroup ice
     "..\silverCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
     "..\silverCHROME.bmp"
@@ -306,7 +306,7 @@ $texturegroup ice
     "..\silverCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
@@ -317,7 +317,7 @@ $texturegroup ice
     "..\goldCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
@@ -328,7 +328,7 @@ $texturegroup ice
     "..\goldCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
@@ -339,7 +339,7 @@ $texturegroup ice
     "..\goldCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
@@ -350,7 +350,7 @@ $texturegroup ice
     "..\goldCHROME.bmp"
   }
   {
-    "..\HAND_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"
     "..\goldCHROME.bmp"

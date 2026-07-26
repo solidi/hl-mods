@@ -73,6 +73,19 @@ Non-viewmodel entities continue using weapon-only skin selection.
 
 `UseIceVisualStyle()` is the central guard for ice-blue client effects (particles, muzzle flash variants, beam tint), so FX now respect mutator overrides without mutating user cvars.
 
+## Sleeve Texture Authoring Notes
+
+Recent sleeve texture work introduced an authoring pattern for shared HD sleeve atlases:
+
+- Base shared files like `models/hd/iceSleeve_*.bmp` and `models/hd/iceSleeveExt_*.bmp` are consumed by many HD viewmodels (and by some SD QCs through `..\\hd\\...` references).
+- To keep neutral gray suit details consistent across colors, treat `iceSleeve_blue.bmp` / `iceSleeveExt_blue.bmp` as structure templates.
+- Workflow for red/yellow/green variants:
+    1. Keep each target texture's color regions.
+    2. Copy only gray-like pixels from the blue template into the target.
+    3. Save back as 8bpp indexed BMP.
+- Keep source and target dimensions identical before merge; model compilers expect texture dimensions to stay stable.
+- Build caveat: `Compile-Model` timestamp checks are model-folder local, so shared texture edits alone may be skipped. Touch affected QCs (or clean rebuild) before compiling to force MDL refresh.
+
 ## Hooking a New User Message
 
 Three places to touch (see the existing `MapList` plumbing for the full pattern):

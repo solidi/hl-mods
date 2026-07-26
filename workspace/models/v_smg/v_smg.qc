@@ -103,7 +103,7 @@ $texturegroup ice
     "invert_HK_chrome.bmp"
     "invert_sighttop.bmp"
     "invert_Silencerback.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "invert_buttstockrear.bmp"
@@ -115,7 +115,7 @@ $texturegroup ice
     "invert_HK_chrome.bmp"
     "invert_sighttop.bmp"
     "invert_Silencerback.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
     "invert_buttstockrear.bmp"
@@ -127,7 +127,7 @@ $texturegroup ice
     "invert_HK_chrome.bmp"
     "invert_sighttop.bmp"
     "invert_Silencerback.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
   }
   {
     "invert_buttstockrear.bmp"
@@ -139,7 +139,7 @@ $texturegroup ice
     "invert_HK_chrome.bmp"
     "invert_sighttop.bmp"
     "invert_Silencerback.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
   }
   {
     "invert_buttstockrear.bmp"
@@ -151,7 +151,7 @@ $texturegroup ice
     "invert_HK_chrome.bmp"
     "invert_sighttop.bmp"
     "invert_Silencerback.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -163,7 +163,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -175,7 +175,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -187,7 +187,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -199,7 +199,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
   }
   {
     "..\ringchrome.bmp"
@@ -211,7 +211,7 @@ $texturegroup ice
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
     "..\ringchrome.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
@@ -223,7 +223,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_orange.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
@@ -235,7 +235,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_blue.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
@@ -247,7 +247,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_red.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
@@ -259,7 +259,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_yellow.bmp"
   }
   {
     "..\hd\iceCHROME.bmp"
@@ -271,7 +271,7 @@ $texturegroup ice
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
     "..\hd\iceCHROME.bmp"
-    "..\PLAYER_ForeArm1.bmp"
+    "..\GLOVED_sleeve_green.bmp"
   }
   {
     "..\silverCHROME.bmp"
