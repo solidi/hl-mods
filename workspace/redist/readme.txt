@@ -62,6 +62,7 @@ v1.1 Features:
     - Added a "Surprise Me" button to the vote menu for a randomized selection
     - Instant mutators can now be selected from the mutator vote panel
 - Game Modes Changes
+    - Added hev sleeve colors to show which team a player is on (blue, red, green, yellow)
     - New celebration sequences switch to thirdperson and play sounds
     - Added a banner system so that the team objective is clear when entering the arena
     - Added initial spectator menu selection on all game modes
@@ -164,6 +165,7 @@ v1.1 Features:
         - Added assists to the scoreboard
         - Show team-color HUD and radar indicators
 - Mutator Changes
+    - Made instant mutators off by default
     - Added support for per-mutator duration declaration
         - Example: sv_addmutator "longjump" sets the duration to whatever sv_mutatortime is (in seconds)
         - Example: sv_addmutator "longjump 120" for 120 seconds
