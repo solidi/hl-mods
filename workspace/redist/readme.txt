@@ -196,6 +196,8 @@ v1.1 Features:
 - Weapons Additions and Changes
     - Chumtoads
         - Use "reload" to detonate loose chumtoads with a larger blast radius
+    - Flamethrowers
+        - Use "reload" attack to place napalm pools on floor and walls
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun

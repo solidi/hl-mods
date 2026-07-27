@@ -44,7 +44,8 @@ Runs every think frame. Two passes: monsters first, then players.
 - **Transparency:** enemy skipped if `rendermode == kRenderTransTexture && renderamt < renderamt_threshold[skill]`. Hard-skip at `renderamt < 60` (regardless of skill) or `EF_NODRAW`.
 - **Teamplay:** teammates are always skipped (with S&I scientist exception when bot holds mindray).
 - **Live grenades** within 192 units and >2s from detonation pre-empt player targeting (`VALVE_DLL` only).
-  - The grenade scanner (`BotAssessGrenades`, bot_combat.cpp ~5310) walks all entities and applies a **hardcoded classname allowlist** — anything not in the list is ignored. Current entries (default branch): `monster_tripmine`, `monster_proxmine`, `monster_snark`, `grenade`, `monster_chumtoad`, `monster_propdecoy`, `kts_snowball`. The `CRABBED_DLL` branch additionally includes `monster_satchel`, `rpg_rocket`. **When you add a new player-placed projectile, append its classname to both branches** or bots will walk straight into it.
+  - The grenade scanner (`BotAssessGrenades`, bot_combat.cpp ~5310) walks all entities and applies a **hardcoded classname allowlist** — anything not in the list is ignored. Current entries (default branch): `monster_tripmine`, `monster_proxmine`, `monster_snark`, `grenade`, `monster_chumtoad`, `monster_propdecoy`, `kts_snowball`, `napalm_pool`. The `CRABBED_DLL` branch additionally includes `monster_satchel`, `rpg_rocket`. **When you add a new player-placed projectile, append its classname to both branches** or bots will walk straight into it.
+  - `napalm_pool` entries are collected only to clear `pBotUser`; they are **never** assigned to `pBotEnemy` (pools are not shootable, and setting them there would overwrite real player enemies acquired by `BotFindEnemy`). All napalm evasion is handled per-frame by `BotAvoidNapalmPools` — see [Napalm Pool Avoidance](#napalm-pool-avoidance-added-2026-07).
 
 **Gamemode overrides at the top of the function:**
 - `GAME_PROPHUNT` while paused → no enemy
@@ -134,6 +135,52 @@ When the current enemy classname is `monster_snark` or `monster_chumtoad`:
 - The auto-pick path also skips melee weapons for this threat class, so if a ranged option exists it is preferred.
 - `BotShootAtEnemy` checks whether any non-melee counter weapon is usable at the current distance. If none is usable, the bot enters an evade branch (`BotEvadeBioThreat`) and runs away instead of attacking.
 - Both melee impulse paths are disabled for this threat class (the primary-fire melee block and the independent close-range kick/punch block), so the fallback is strictly ranged fire or disengage.
+
+### Napalm Pool Avoidance (added 2026-07)
+Handles the persistent `napalm_pool` hazards spawned by the single/dual flamethrower fuel-dump reload (see [weapons.md](workspace/ai/weapons.md#napalm-fuel-dump-napalm_pool-spawned-by-flamethrower-reload)). The pools are stationary AoE hazards, are not shootable, and can be dropped directly on a bot's waypoint route.
+
+**Function:** `BotAvoidNapalmPools( bot_t *pBot )` in [bot_combat.cpp](workspace/grave-bot-src/dlls/bot_combat.cpp) (declared in [bot_func.h](workspace/grave-bot-src/dlls/bot_func.h)).
+
+**Call site:** invoked **every frame** from `BotThink` in [bot.cpp](workspace/grave-bot-src/dlls/bot.cpp) immediately after the throttled `BotAssessGrenades` block. Not throttled — see history note below.
+
+**Tuning constants** (top of `bot_combat.cpp`, near the hook cooldowns):
+
+| Constant | Value | Meaning |
+|---|---|---|
+| `BOT_NAPALM_AVOID_RADIUS` | 256u | Outer awareness ring, used by `BotAssessGrenades` classname detection loop. |
+| `BOT_NAPALM_DANGER_RADIUS` | 160u | Pool distance at which per-frame avoidance activates. |
+| `BOT_NAPALM_TOUCH_RADIUS` | 96u | Inside this, the outward-bias weight is raised (0.4 → 0.8) so the bot retreats harder than it circles. |
+
+**Steering algorithm** (per frame):
+1. `UTIL_FindEntityInSphere` scan for `napalm_pool` classnames within `BOT_NAPALM_DANGER_RADIUS`; keep the nearest.
+2. If none: no-op.
+3. Compute horizontal `vecFromPool = bot.origin - pool.origin` (fall back to bot facing if directly on top of the pool origin).
+4. `vecTangent = CrossProduct(vecFromPool.Normalize(), Vector(0,0,1))` — perpendicular strafe axis.
+5. Pick the tangent side whose dot with the current waypoint (or `v_goal`) direction is largest. This preserves route progress. If no waypoint/goal, pick randomly.
+6. Trace the chosen tangent 64u. If blocked, try the opposite side. If both are blocked, fall back to pure outward retreat along `vecFromPool`.
+7. Blend the chosen tangent with outward bias (0.4 normal, 0.8 inside `BOT_NAPALM_TOUCH_RADIUS`) so the bot doesn't graze the pool edge while circling.
+8. Install the resulting unit vector into the existing obstacle-strafe path:
+   - `pBot->pAvoid = pNearestPool`
+   - `pBot->avoid_dir = vecAvoid`
+   - `pBot->f_do_avoid_time  = time + 0.5s`
+   - `pBot->f_ignore_wpt_time = time + 0.5s`
+   - `pBot->b_engaging_enemy = FALSE`
+9. Set `pEdict->v.ideal_yaw` toward the escape vector via `BotFixIdealYaw` so the `cos(yaw - move)` forward-speed term (see [bot.cpp](workspace/grave-bot-src/dlls/bot.cpp) waypoint following block) does not collapse to zero while strafe direction and facing disagree.
+10. Force `f_move_speed = f_max_speed`, `f_strafe_speed = 0`. Standing still on a burning pool would let it tick damage while the bot debates.
+
+**Why this uses `pAvoid` / `avoid_dir` and not `pBotEnemy`:**
+- [bot.cpp](workspace/grave-bot-src/dlls/bot.cpp) already gates waypoint following on `pBot->avoid_dir != g_vecZero`, and the movement direction line uses `pEdict->origin + avoid_dir * 64` when `avoid_dir` is non-zero. Reusing this path means no new movement code and no interaction with combat targeting.
+- `pBotEnemy = pool` was the original approach and it failed in two ways: (a) `BotFindEnemy` runs every frame and overwrites `pBotEnemy` with any real player enemy nearby, silencing evasion; (b) `BotEvadeBioThreat` only set `f_ignore_wpt_time = 0.3s`, which expired before the waypoint route pulled the bot back through the pool.
+
+**History (2026-07-27):**
+- Symptom: bots walked straight through napalm pools placed on waypoint segments.
+- Root cause: `BotAssessGrenades` set `pBot->pBotEnemy = pNewNapalm` at 0.2s cadence; the assignment was overwritten by `BotFindEnemy` on the very next tick when a real player enemy was in sphere, and the downstream `BotEvadeBioThreat` window (0.3s waypoint ignore + straight-away yaw) was too short to keep the bot out of the pool.
+- Fix: this section. `BotAvoidNapalmPools` runs unthrottled and steers via `pAvoid` regardless of pBotEnemy state. Detected pool no longer assigned to `pBotEnemy` in `BotAssessGrenades`; that assignment now only clears `pBotUser`.
+
+**Do not:**
+- Reintroduce `pBotEnemy = <napalm_pool>` anywhere. Pools are not shootable, and setting them shadows real enemies.
+- Throttle `BotAvoidNapalmPools` to the same 0.2s cadence as `BotAssessGrenades`. That is exactly what let bots plow through the pool originally.
+- Reduce `BOT_NAPALM_DANGER_RADIUS` below `pool_radius (48u) + player_hull (~32u) + cluster spread (~36u)`. If pool sizing in [weapons.md](workspace/ai/weapons.md#napalm-fuel-dump-napalm_pool-spawned-by-flamethrower-reload) changes, revisit these constants.
 
 ### Burst Discipline (added 2026-04)
 For automatic weapons (`primary_fire_hold && !primary_fire_charge`) at distance > 350 units:
@@ -244,6 +291,7 @@ Defined in [bot.h](workspace/grave-bot-src/dlls/bot.h). Initialized in `BotSpawn
 | `b_strafe_direction` | bool | Combat strafe left/right |
 | `f_strafe_chng_dir` | float | Next strafe flip time |
 | `dmg_origin` / `f_dmg_time` | Vector/float | Last damage source (for return-fire) |
+| `pAvoid` / `avoid_dir` / `f_do_avoid_time` | edict_t*/Vector/float | Obstacle-strafe path shared by `BotAvoidContact` (monsters/players in the way) and `BotAvoidNapalmPools` (napalm hazards on the route). While `avoid_dir != g_vecZero`, [bot.cpp](workspace/grave-bot-src/dlls/bot.cpp) waypoint following is bypassed and the bot moves toward `origin + avoid_dir * 64`. |
 
 ---
 

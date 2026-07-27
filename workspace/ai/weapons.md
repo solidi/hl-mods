@@ -9,6 +9,7 @@ Cross-cutting reference for everything that registers a `weapon_*` classname. Mo
 - `workspace/src/dlls/weapons.{h,cpp}` — `CBasePlayerItem`, `CBasePlayerWeapon`, the `ItemPostFrame` dispatcher, weapon registry (`ItemInfoArray`), `CGrenade` base, and shared helpers (`ApplyMultiDamage`, `EjectBrass`, `W_Precache`, throw helpers).
 - `workspace/src/dlls/<weapon>.cpp` — one file per weapon (a few share, e.g. `mp5.cpp` covers `weapon_mp5` and `weapon_9mmAR`).
 - `workspace/src/dlls/ggrenade.cpp` — core grenade entity logic (`CGrenade`) plus specialized throwable entities such as `freezegrenade`.
+- `workspace/src/dlls/napalm_pool.cpp` — persistent flame-hazard entity used by flamethrower reload fuel-dump mode (`napalm_pool`).
 - `workspace/src/dlls/wpn_shared/hl_wpn_glock.cpp` — the only HLSDK-shared weapon kept under `wpn_shared/`.
 - `workspace/src/dlls/dual_*.cpp` — akimbo variants spawned by the Dualizer mutator (one per base weapon).
 - `workspace/src/cl_dll/ev_hldm.cpp` — client prediction events (`EV_FireXxx`). A new server weapon that fires while held by the local player must register a matching event here or it will feel laggy.
@@ -62,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CKnife` (zoom), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CKnife` (zoom), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump). |
 
 ### Ammo accounting
 
@@ -160,7 +161,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_gauss` → `CGauss` (`gauss.cpp`) — charge-up secondary.
 - `weapon_egon` → `CEgon` (`egon.cpp`)
 - `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun`
-- `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower`
+- `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
 - `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`)
 - `weapon_cannon` → `CCannon` (`cannon.cpp`)
@@ -179,6 +180,50 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`)
 - `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`)
 - `weapon_vice` → `CVice` (`vice.cpp`)
+
+## Napalm Fuel Dump (`napalm_pool`, spawned by flamethrower `+reload`)
+
+Both flamethrowers use `AcceptReload() == TRUE`, so `IN_RELOAD` dispatches a third fire option that places persistent napalm hazards. Placement, ammo drain, animation, sound and event playback are all server-authoritative; there is no client-side prediction for this reload path.
+
+### Wiring
+
+1. `CFlameThrower::Reload()` and `CDualFlameThrower::Reload()` first terminate active stream state (`EndAttack`) and clear `pev->playerclass` so hold-fire and reload states cannot overlap.
+2. Client build (`CLIENT_DLL`) branches early: it only advances `m_flNextAttack` / `m_flNextPrimaryAttack` / `m_flNextSecondaryAttack` / `m_flTimeWeaponIdle` so `ItemPostFrame` will not re-enter `Reload()`. No client prediction, no client-side `PlayEmptySound`, no client `PLAYBACK_EVENT`. (Historic client trace/prediction attempts caused false empty-clicks and PM stack warnings; see `/memories/repo/vest_clientdll_link_guard.md`.)
+3. Server build performs `CNapalmPool::CanDeployPools(m_pPlayer)` — a forward `UTIL_TraceLine` from `GetGunPosition()` out to `NAPALM_TRACE_DISTANCE` (`320u`) that only accepts hits on `MOVETYPE_NONE` / `MOVETYPE_PUSH` non-conveyor surfaces (`IsValidNapalmSurface`). On failure, server calls `PlayEmptySound()` and applies a short cooldown (`+0.25s`).
+4. On success, server calls `CNapalmPool::DeployPools(pPlayer, iDesiredPools, damage, radius)` which fans discrete pool entities over the impact plane using tangent/bitangent vectors from the base hit normal. Per-pool placement re-traces from `+24u` above the target to `-32u` below along the base normal and validates the sub-surface, so pools on uneven geometry are dropped instead of hovering.
+5. Pool counts are asymmetric by weapon:
+	- Single flamethrower (`FLAMETHROWER_NAPALM_POOL_COUNT`): up to **3** pools per reload.
+	- Dual flamethrower (`DUAL_FLAMETHROWER_NAPALM_POOL_COUNT`): up to **6** pools per reload.
+6. Ammo is consumed as `iPoolsSpawned * <POOL_COUNT>` per weapon (so each pool "costs" a full pool-count worth of fuel), clamped at 0. Partial placement is allowed when some probe spots fail.
+7. Each pool has independent lifetime bookkeeping; default burn time is **5 seconds per entity** (`NAPALM_DEFAULT_LIFETIME`).
+8. Reload cooldown is `1.5s` for both flamethrowers (`FLAMETHROWER_NAPALM_COOLDOWN` / `DUAL_FLAMETHROWER_NAPALM_COOLDOWN`). `m_flTimeWeaponIdle` is pushed to `cooldown + 0.5s` so the end sound plays cleanly before the idle animation resumes.
+
+### Feedback effect (server-driven, broadcast to host)
+
+On a successful reload, the server plays a brief primary-attack-style flame stream burst that ends when the napalm is considered thrown. All three events use `flags = 0` (not `FEV_NOTHOST`) so the host also receives them — required because there is no client prediction for this reload:
+
+1. `PLAYBACK_EVENT_FULL(0, edict, m_usFlameStream, delay=0.0, ..., bparam1=1)` → `flameburst.wav` startup puff + `FLAMETHROWER_FIRE3` weapon anim (`EV_FireFlameStream` in `ev_hldm.cpp`).
+2. `PLAYBACK_EVENT_FULL(0, edict, m_usFlameStream, delay=0.05, ..., iparam1=1, iparam2=1)` → looping `flamerun.wav` on `CHAN_STATIC`.
+3. `PLAYBACK_EVENT_FULL(FEV_GLOBAL | FEV_RELIABLE, edict, m_usFlameThrowerEnd, delay=<STARTUP_TIME=1.5s>, ..., iparam1=1)` → scheduled stop of `CHAN_STATIC` + `flamethrowerend.wav` (`EV_EndFlameThrower`).
+
+The visual flame stream is driven by the client Aurora particle system (`aurora/fburst*.aur`, spraytype `FlameThrFlame*`) attached per player index. Emission is gated on the target player's networked `curstate.playerclass`. Reload sets `m_pPlayer->pev->playerclass = 1` server-side to turn the emitter on; `CFlameThrower::WeaponIdle` / `CDualFlameThrower::WeaponIdle` reset it to `0` the next frame `ItemPostFrame` runs (after `m_flNextAttack` cooldown), which naturally ends the flame in sync with `flamethrowerend.wav`. No explicit stop is required from `Reload()`.
+
+### Pool behavior
+
+- Classname: `napalm_pool`.
+- Tick cadence: think every `0.05s`, damage gate `NAPALM_DAMAGE_INTERVAL = 0.3s`, FX gate `NAPALM_FX_INTERVAL = 0.15s`.
+- Radius: `48u` per pool (medium spread).
+- Damage profile: `DMG_BURN | DMG_NEVERGIB` DoT to living players/monsters with line-of-sight checks; per-tick damage supplied by the calling weapon (currently `1.0` for both).
+- Friendly-fire semantics: hazard hurts everyone in range (owner and teammates included).
+- Surface scope: pools support floor/wall/ceiling placement but reject dynamic/non-static anchors (`FL_CONVEYOR`, non-`MOVETYPE_NONE`/`MOVETYPE_PUSH`).
+- Persistence: `Save`/`Restore` implemented explicitly (not via `IMPLEMENT_SAVERESTORE`) covering expire/damage/FX timers, damage-per-tick, radius, surface normal and owner EHANDLE.
+
+### Integration points
+
+- Round cleanup: `CHalfLifeMultiplay::RemoveAndFillItems` removes `napalm_pool` entities on reset.
+- GunGame cleanup: leveling past flamethrower tiers deactivates both `flameball` and `napalm_pool` owned by the player.
+- Grave-bot registration: `grave-bot-src/dlls/linkfunc.cpp` includes `LINK_ENTITY_TO_FUNC(napalm_pool)` so bot DLL classname dispatch is valid.
+- Grave-bot hazard logic: `BotAssessGrenades` detects `napalm_pool` entities but no longer assigns them as `pBotEnemy` (that competed with real player targeting and did nothing useful — pools are not shootable). Per-frame steering is done by `BotAvoidNapalmPools` (`bot_combat.cpp`), called from `BotThink` right after grenade assessment. It scans within `BOT_NAPALM_DANGER_RADIUS = 160u`, picks the nearest pool, and installs a tangent `avoid_dir` (perpendicular to the pool→bot line, biased toward the current waypoint / `v_goal` and outward from the pool) plus a 0.5s `f_ignore_wpt_time`/`f_do_avoid_time` window using the existing `pAvoid` obstacle-strafe path in `bot.cpp`. Inside `BOT_NAPALM_TOUCH_RADIUS = 96u` the outward-bias weight is raised so the bot retreats harder than it circles.
 
 ## Freeze Grenade (`freezegrenade`, thrown by `weapon_handgrenade` reload)
 
@@ -290,7 +335,7 @@ When you add a server-side entity that players can place or that lingers in the 
 1. **`LINK_ENTITY_TO_CLASS`** in the entity's `.cpp` (server) — _and_ **`LINK_ENTITY_TO_FUNC`** in [grave-bot-src/dlls/linkfunc.cpp](../grave-bot-src/dlls/linkfunc.cpp). The bot DLL has its own LINK table; missing entries cause `CreateNamedEntity` to fail when the bot loads.
 2. **Precache.** Add `UTIL_PrecacheOther("monster_xxx")` to the `Precache()` of every weapon/spawner that creates it. See `CTripmine::Precache`, `CSatchel::Precache`.
 3. **`CHalfLifeMultiplay::RemoveAndFillItems`** (multiplay_gamerules.cpp ~line 1063) — append the classname to `pRemoveThese[]` so map restarts sweep player-placed instances. Add a tripmine-style special case if the entity has a beam/sprite/sound that needs explicit teardown.
-4. **Bot threat scanning** — [grave-bot-src/dlls/bot_combat.cpp](../grave-bot-src/dlls/bot_combat.cpp) `BotAssessGrenades` keeps an allowlist of classnames bots are willing to shoot at. Both branches (`CRABBED_DLL` and default) need the new classname or bots will walk into mines.
+4. **Bot threat scanning** — [grave-bot-src/dlls/bot_combat.cpp](../grave-bot-src/dlls/bot_combat.cpp) `BotAssessGrenades` keeps an allowlist of hazard classnames. Both branches (`CRABBED_DLL` and default) need the new classname or bots will not react/avoid correctly.
 5. **Gungame rotation** — [src/dlls/gungame_gamerules.cpp](../src/dlls/gungame_gamerules.cpp) `IPointsForKill` calls `DeactivateItems(pAttacker, "monster_xxx")` / `DeactivateSatchels(pAttacker)` when the player advances past the parent weapon. If your projectile descends from `weapon_satchel` or `weapon_tripmine`, hook the cleanup there too. See [gungame_gamerules.md](gungame_gamerules.md).
 6. **Save/Restore** — `IMPLEMENT_SAVERESTORE` + `TYPEDESCRIPTION m_SaveData[]` for any persisted fields. Single-player isn't the only case; round restarts on dedicated servers also serialise.
 7. **FGD** (if level designers can place it directly) — `cir/maps/cir.fgd` and any per-mod FGDs.
