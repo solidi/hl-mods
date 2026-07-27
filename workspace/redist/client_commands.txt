@@ -1,6 +1,6 @@
 Client commands:
 
-- Switch between original and HD models using the "Enable original models" in the "Content" panel
+- Switch between original and HD models using the "Enable original models" option in the "Content" panel
     - Or use "+_sethdmodels" in-game startup parameters
 - "+commandmenu" - All client options menu
 - "+hook" - Deploy hook

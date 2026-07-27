@@ -58,8 +58,8 @@ Server commands:
 - "mp_hunterselfcost" - amount of damage taken by hunter when firing his weapon
 - "mp_iceblood [0|1]" - Enable blue blood
 - "mp_icesprites [0|1]" - Switch between select ice or real environment sprites
-- "mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib""
-    - A semicolon separated list of items that are "interactive" (kickable, pickupable)
+- "mp_interactiveitems" - A semicolon-separated list of items that are "interactive" (kickable, pickupable)
+    - Example: mp_interactiveitems "grenade;monster_satchel;monster_chumtoad;monster_snark;monster_barrel;gib;kts_snowball"
 - "mp_ktsspawn1" - name of entity where the blue goal will spawn in KTS
 - "mp_ktsspawn2" - name of entity where the red goal will spawn in KTS
 - "mp_meleedrop [0|1]" - allow kick or punch attacks to drop weapons out of hands
