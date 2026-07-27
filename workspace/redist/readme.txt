@@ -184,9 +184,10 @@ v1.1 Features:
     - Added the snowball launcher and instagib hornets during the snowballs and instagib mutators
     - The instant health/armor swap no longer frags the player; it drops health to 1
 - Bot Changes
+    - Added "botmaxspeed [units]" which sets the moving speed of the bots
+    - Added "bot_aim_difficulty [0-2]" where zero is perfect and 2 is sloppy
     - Bots use the grappling hook in combat with sv_bots_hook "1"
     - Tuned bots to act more human-like in combat, and adjusted aim
-    - Added bot_aim_difficulty [0-2] where zero is perfect and 2 is sloppy
     - Tuned and improved bot behavior across all custom game modes
     - Bots no longer attempt wallclimbing
     - Bots intelligently select runes during gameplay
