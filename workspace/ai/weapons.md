@@ -160,7 +160,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_railgun` → `CRailgun` (`railgun.cpp`), `weapon_dual_railgun` → `CDualRailgun` — beam/trail/glow are client event-driven (`EV_FireRailgun`, `EV_FireDualRailgun`) while hit/damage remains server-authoritative.
 - `weapon_gauss` → `CGauss` (`gauss.cpp`) — charge-up secondary.
 - `weapon_egon` → `CEgon` (`egon.cpp`)
-- `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun`
+- `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun` — passive hornet trickle-recharges automatically; **holding `+reload` doubles the recharge rate** and plays the `func_healthcharger` loop for audible feedback (see below).
 - `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
 - `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`)
@@ -316,6 +316,44 @@ All in `tripmine.cpp`:
 - The trip-mine model has the world `body=3` selected for the placed look; `CProxMine` keeps that body.
 - `monster_proxmine` is precached by both `CSatchel::Precache` and `CTripmine::Precache` via `UTIL_PrecacheOther("monster_proxmine")`. If you script-spawn a proxmine from a context where neither weapon was precached (custom map logic, third-party deployer), call `UTIL_PrecacheOther("monster_proxmine")` first.
 - There is no client prediction event for the proxmine deploy. The 1-second post-place gate hides the latency.
+
+## Hivehand Hold-Reload Recharge (`+reload` on hornetgun / dual hornetgun)
+
+Both `weapon_hornetgun` (`CHgun`) and `weapon_dual_hornetgun` (`CDualHgun`) already trickle-charge hornet ammo automatically via `Reload()` calls made from `PrimaryAttack()`, `SecondaryAttack()`, and `WeaponIdle()`. Holding `IN_RELOAD` upgrades that passive trickle to an active fast-charge state with `func_healthcharger` audio feedback.
+
+### Wiring
+
+1. Both classes override `AcceptReload()` to return `TRUE` so `CBasePlayerWeapon::ItemPostFrame()` will dispatch `IN_RELOAD` into `Reload()` even though the weapons are `WEAPON_NOCLIP`. Neither weapon sets `m_fInReload`, so the dispatcher calls `Reload()` every frame the button is held.
+2. `Reload()` inspects `m_pPlayer->pev->button & IN_RELOAD` to distinguish the **active** path (player is holding reload) from the **passive** path (called from the attack/idle helpers).
+3. Two lightweight per-weapon state fields (`int m_iChargeSoundOn`, `float m_flChargeNextEmpty`) track the looping-sound state and throttle the empty-deny sound. They are not save/restored — same policy as the existing `m_iFirePhase`.
+4. `Precache()` adds `PRECACHE_SOUND("items/medcharge4.wav")` and `PRECACHE_SOUND("items/medshotno1.wav")` alongside the existing hornet precache.
+5. `Holster()` explicitly `STOP_SOUND`s the loop and clears `m_iChargeSoundOn` so switching weapons mid-charge doesn't leave a stuck static-channel sound.
+
+### Charge rate
+
+Active hold-reload runs at exactly 2x the passive rate — half the passive interval per hornet:
+
+| Weapon | Passive interval | Active interval |
+|--------|------------------|-----------------|
+| `weapon_hornetgun` | `0.5s * WeaponMultipler()` | `0.25s * WeaponMultipler()` |
+| `weapon_dual_hornetgun` | `0.25s * WeaponMultipler()` | `0.125s * WeaponMultipler()` |
+
+The `while` loop against `m_flRechargeTime < gpGlobals->time` is preserved so ticks catch up correctly across variable frame times, and `m_flRechargeTime` is still only advanced under `#ifndef CLIENT_DLL` (client prediction only changes `m_rgAmmo`).
+
+### Audio feedback (mirrors `func_healthcharger`)
+
+- Start of active charge: `EMIT_SOUND(player, CHAN_STATIC, "items/medcharge4.wav")` — matches the loop channel/sample the real health charger uses.
+- End of active charge (ammo just hit cap): `STOP_SOUND(player, CHAN_STATIC, "items/medcharge4.wav")` then `EMIT_SOUND(player, CHAN_ITEM, "items/medshotno1.wav")` as a "full" chime.
+- `+reload` pressed while already full: no charge, no loop; play `items/medshotno1.wav` throttled by `m_flChargeNextEmpty` (0.62s cooldown, matching the sample length) so continuous hold doesn't spam.
+- Player releases `+reload` mid-charge: the passive path (called from `WeaponIdle()` or the attack helpers the next frame) issues `STOP_SOUND` and clears `m_iChargeSoundOn`.
+
+Sounds are emitted on the player edict (`ENT(m_pPlayer->pev)`), same edict/channel pattern used by `CGravityGun` for its own loop. No client prediction event is added; the audio is server-broadcast and the ammo tick is already predicted through `m_rgAmmo`.
+
+### Caveats
+
+- `PrimaryAttack()` and `SecondaryAttack()` short-circuit while `IN_RELOAD` is held — they call `Reload()` for the charge tick, bump `m_flNextPrimaryAttack` / `m_flNextSecondaryAttack` by `0.1s`, and return. Without this gate, holding attack + reload cycled shots at the fast-charge rate. Firing resumes the frame reload is released.
+- Both classes still set `ITEM_FLAG_NOAUTORELOAD` so no auto-reload path collides with the manual reload dispatch.
+- If you add a new hivehand-family weapon (e.g., a third variant), replicate the header additions (`AcceptReload()`, `m_iChargeSoundOn`, `m_flChargeNextEmpty`), the two `PRECACHE_SOUND` calls, the `Holster()` stop-sound guard, and the `IN_RELOAD` fire-gate in both attack functions — otherwise the loop can leak across weapon switches or the weapon will still fire while charging.
 
 ## Conventions / Lessons
 
