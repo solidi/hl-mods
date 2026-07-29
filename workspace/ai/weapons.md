@@ -335,8 +335,8 @@ Active hold-reload runs at exactly 2x the passive rate — half the passive inte
 
 | Weapon | Passive interval | Active interval |
 |--------|------------------|-----------------|
-| `weapon_hornetgun` | `0.5s * WeaponMultipler()` | `0.25s * WeaponMultipler()` |
-| `weapon_dual_hornetgun` | `0.25s * WeaponMultipler()` | `0.125s * WeaponMultipler()` |
+| `weapon_hornetgun` | `0.5s * g_pGameRules->WeaponMultipler()` | `0.25s * g_pGameRules->WeaponMultipler()` |
+| `weapon_dual_hornetgun` | `0.25s * g_pGameRules->WeaponMultipler()` | `0.125s * g_pGameRules->WeaponMultipler()` |
 
 The `while` loop against `m_flRechargeTime < gpGlobals->time` is preserved so ticks catch up correctly across variable frame times, and `m_flRechargeTime` is still only advanced under `#ifndef CLIENT_DLL` (client prediction only changes `m_rgAmmo`).
 

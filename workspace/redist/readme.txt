@@ -205,7 +205,7 @@ v1.1 Features:
         - Added a laser to +attack2 so ice plasma can be detonated midair
     - Hand grenades explode on contact with living targets (players/monsters)
     - Hornetguns
-        - Use "reload" to quickly reload hornets to full capacity
+        - Hold "reload" to recharge hornets up to full capacity (recharges faster while held)
         - Fixed angle issue of hornets while strafing
     - Proximity Mine
         - Use "reload" on either the tripmine or the satchel to place a proximity mine
