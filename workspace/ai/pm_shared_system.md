@@ -63,11 +63,9 @@ Movement-related audio in `pm_shared.c` is produced by two functions:
 Spectators/observers should never generate movement water/step sounds from pm_shared.
 
 Current guard convention:
-- Return early when either is true:
+- `PM_PlayerMove()` returns early when either is true:
   - `pmove->spectator`
   - `pmove->iuser1 > 0`
-
-This is now enforced in both `PM_UpdateStepSound()` and `PM_PlayWaterSounds()`.
 
 ## 5. 2026 fix: spectator water audio leak
 

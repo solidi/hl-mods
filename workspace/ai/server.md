@@ -10,7 +10,7 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 |--------|-------------|-------|
 | Game rules / mode dispatch | `gamerules.cpp::InstallGameRules()`, `multiplay_gamerules.{h,cpp}` | [gamerules.md](gamerules.md) |
 | Mutators / pause | `MutatorsThink()`, `g_szMutators[]`, `PauseMutators()`/`RestoreMutators()` | [mutator_system.md](mutator_system.md) |
-| Shared movement / prediction core | `src/pm_shared/pm_shared.c::PM_PlayerMove()` | [pm_shared_system.md](pm_shared_system.md) |
+| Shared movement / prediction core | `workspace/src/pm_shared/pm_shared.c::PM_PlayerMove()` | [pm_shared_system.md](pm_shared_system.md) |
 | Bot AI | `grave-bot-src/dlls/` | [gravebot.md](gravebot.md) (sub-spoke: [gravebot_combat.md](gravebot_combat.md)) |
 | Weapons / `weapon_*` entities | `weapons.{h,cpp}`, `<weapon>.cpp`, `wpn_shared/` | [weapons.md](weapons.md) |
 | Map cycle / map vote | `multiplay_gamerules.cpp::ReloadMapCycleFile`, `BuildServerMapList`, `SendMapListToClient` | this file (below); cross-cutting flow: [voting_system.md](voting_system.md) |
