@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CKnife` (zoom), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CKnife` (zoom, uses `iMaxClip = 1` hack instead), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump). |
 
 ### Ammo accounting
 
@@ -180,6 +180,67 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`)
 - `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`)
 - `weapon_vice` → `CVice` (`vice.cpp`)
+
+## Melee Charged Smash (`+reload` on crowbar / wrench / dual wrench)
+
+`weapon_crowbar` (`CCrowbar`), `weapon_wrench` (`CWrench`) and `weapon_dual_wrench` (`CDualWrench`) expose a third fire option via `IN_RELOAD`: a **hold-to-charge fatal smash** that reuses the existing throw pull-back and throw-release animations without actually throwing the weapon.
+
+`CKnife` intentionally does **not** participate: its `+reload` is still the sniper-style 30° zoom toggle. If you add a new melee weapon that should smash, replicate the crowbar wiring; the knife is the sole opt-out.
+
+### Wiring
+
+1. Each participating class overrides `AcceptReload() == TRUE`. All three are `WEAPON_NOCLIP`.
+2. Each class stores two private timers (per-class, not save-restored):
+   - `float m_flSmashStart` — the moment `+reload` was first pressed. `0` when idle.
+   - `float m_flNextSmashCharge` — post-smash cooldown gate. `Reload()` bails while `gpGlobals->time < m_flNextSmashCharge`.
+   Both are reset to `0` in `Spawn`, `Deploy`, `DeployLowKey` and `Holster`.
+   Both fields live on `CBaseEntity` (in `cbase.h`, next to `m_flStartThrow`) so they can be networked through `weapon_data_t`. See the "Client prediction sync" note below — without it, client-side prediction wipes the values every prediction frame and the cooldown/anim visibly breaks.
+3. `Reload()` is the charge-start / charge-hold path (called every frame `IN_RELOAD` is held because none of these weapons set `m_fInReload`):
+   - Redirects to `PrimaryAttack()` in GunGame (same gate the throw secondary uses).
+   - No-ops if the throw pull-back (`m_flStartThrow > 0`) is already active — the two mutually exclusive third-modes never interleave.
+   - No-ops while inside the post-smash cooldown window. This is the key anti-spam gate: without it, tapping `+reload` re-triggers a smash every frame (per-frame `Reload()` dispatch from `ItemPostFrame`).
+   - First frame the button is held (`m_flSmashStart == 0`): plays `*_PULL_BACK` on the viewmodel, applies a small `punchangle`, records `m_flSmashStart = gpGlobals->time`, and parks `m_flTimeWeaponIdle` far in the future (`+5s`) so the idle picker cannot steal the anim mid-charge.
+   - Subsequent frames while held: only re-parks `m_flTimeWeaponIdle`.
+4. `PrimaryAttack()` and `SecondaryAttack()` short-circuit while `m_flSmashStart > 0` so a lingering timer from the previous frame can't be interrupted by a mash.
+5. Release is resolved inside `WeaponIdle()` — the check is placed **before** the standard `m_flTimeWeaponIdle > UTIL_WeaponTimeBase()` guard. On the first idle tick where `IN_RELOAD` is no longer held:
+   - `flChargeTime = gpGlobals->time - m_flSmashStart` is computed, then `m_flSmashStart = 0`.
+   - `flChargeTime >= 1.0f` → `Smash( TRUE )` (fatal path).
+   - Anything shorter (tap-cheat) → `Smash( FALSE )` — same throw animation and same execution path, only the damage and cooldown differ.
+6. `Holster()` clears `m_flSmashStart` so switching weapons mid-charge cannot fire a stray smash on redeploy. `m_flNextSmashCharge` is also cleared so a fresh deploy is instantly responsive.
+
+### `Smash( int fFatal )` behavior (server-authoritative)
+
+- **Animation is always the throw release** (`CROWBAR_THROW2` / `WRENCH_THROW2` / `DUAL_WRENCH_THROW`), for both the fatal and tap paths. This guarantees the viewmodel continues cleanly from the `*_PULL_BACK` pose that was playing during charge — swapping to a `*_ATTACK*HIT` anim on tap-release would snap the pose mid-swing.
+- Larger `punchangle` when fatal.
+- Traces `48u` forward from `GetGunPosition()`, upgrading to a `head_hull` sweep + `UTIL_FindHullIntersection` if the line trace misses (same pattern as `Swing()`).
+- **Does not fire the `m_usCrowbar` / `m_usWrench` event.** The client-side callbacks for those events (`EV_Crowbar`, `EV_Wrench`, `EV_FireDualWrench` in [ev_hldm.cpp](workspace/src/cl_dll/ev_hldm.cpp)) call `EV_WeaponAnimation(*_ATTACK*MISS)` for the local player. `FEV_NOTHOST` does **not** suppress this — it only tells the server to skip the host when relaying; the client's own prediction still runs the callback. Firing the event would immediately overwrite the `*_THROW2` viewmodel pose with a randomized swing miss. Sounds and decals are emitted directly by `Smash()` on the server (broadcast via `EMIT_SOUND` / `DecalGunshot`), so nothing is lost.
+- Living/damageable target hit:
+  - `fFatal` → `TraceAttack` with `9999.0f` damage and `DMG_CLUB | DMG_ALWAYSGIB`. `DMG_ALWAYSGIB` guarantees a gib on kill regardless of overkill margin.
+  - Tap fallback → normal `plrDmgCrowbar` / `plrDmgWrench` / `plrDmgWrench * 2` (dual) with `DMG_CLUB`. This is the "cheat" branch: throw anim plays, but damage is only a regular swing.
+  - Applies a forward velocity punch on flesh (`200..700` u/s depending on weapon and fatality).
+  - Plays the `*_hitbod*.wav` sample matched to that weapon.
+- Non-flesh target (machines, breakables, etc.) and world/brush hit both **decal with `BULLET_PLAYER_WRENCH`** regardless of which weapon fired. The wrench decal is the largest melee impact mark in the shipping decal set, so any smash release visually reads as an extreme-force hit even from a crowbar or knife-sized weapon. The decal is dropped inline with a direct `DecalGunshot(&tr, BULLET_PLAYER_WRENCH)` call (server-only, inside `#ifndef CLIENT_DLL`), replacing the earlier deferred-`Smack` path that would have used the weapon's own smaller decal.
+- Brush hit: plays `TEXTURETYPE_PlaySound` for surface material, then a harder `*_hit2.wav` variant when fatal (louder impact for the "wall crack" feel), else the standard `*_hit1.wav`.
+- Whiff (nothing in reach): plays the standard `*_miss1.wav` whoosh.
+- Cooldowns after the smash resolves:
+  - `m_flNextPrimaryAttack = m_flNextSecondaryAttack = GetNextAttackDelay( fFatal ? 0.9 : 0.5 )`
+  - `m_flTimeWeaponIdle = UTIL_WeaponTimeBase() + 1.0`
+  - `m_flNextSmashCharge = gpGlobals->time + ( fFatal ? 0.5 : 0.3 )` — this is the tap-spam gate. `+reload` is inert for 0.3s after any tap and 0.5s after a fatal smash.
+
+### Design notes / gotchas
+
+- **Tap-and-hold anim reuse.** Because tap-release uses `Smash(FALSE)` instead of `Swing(1)`, the viewmodel plays the same `*_THROW2` anim in both branches. There is no path from a charged pull-back into a swing anim in these three weapons.
+- **Charge cannot interleave with the throw.** `Reload()` bails if `m_flStartThrow > 0` and `SecondaryAttack()` / `PrimaryAttack()` bail if `m_flSmashStart > 0`. Base `ItemPostFrame()` already dispatches at most one of `IN_ATTACK2` / `IN_ATTACK` / `IN_RELOAD` per frame, so cross-mode contention is limited to the exact release frame — the guards cover it.
+- **Cooldown gate is the primary anti-cheese.** Without `m_flNextSmashCharge`, per-frame `Reload()` re-entry lets a spam-tapper fire smashes as fast as their client tick, because the base attack cooldowns don't apply to reload dispatch. Don't remove it.
+- **Underwater is not blocked.** The throw secondary is disabled in `waterlevel == 3`; the smash is intentionally allowed underwater since nothing is thrown and it is a pure melee.
+- **No save/restore for `m_flSmashStart` / `m_flNextSmashCharge`.** A round restart or level transition mid-charge simply drops the charge back to idle. This matches the treatment of `m_iFirePhase` and similar cosmetic timers elsewhere.
+- **No new client event / prediction.** Only the server plays sounds/spawns decals; the client uses the pre-existing melee event to trigger visuals. The 0.5–0.9s post-smash attack cooldown covers the round-trip latency for anim/damage feedback.
+- **Client prediction sync (critical).** `HUD_WeaponsPostThink` in [hl_weapons.cpp](workspace/src/cl_dll/hl/hl_weapons.cpp) rebuilds every predicted weapon's state from `weapon_data_t` each prediction frame. Any weapon field that is not copied through `weapon_data_t` gets zeroed on the client between frames. The smash pair is wired as:
+  - `m_flSmashStart` ↔ `weapon_data_t::fuser4`
+  - `m_flNextSmashCharge` ↔ `weapon_data_t::m_fReloadTime` (unused elsewhere)
+  Both are written in server [client.cpp `GetWeaponData`](workspace/src/dlls/client.cpp) and read/written in client `HUD_TxferPredictionData`.
+  **Do not forget the delta list.** The engine's delta compressor drops any `weapon_data_t` field that lacks a `DEFINE_DELTA` entry in [redist/delta.lst](workspace/redist/delta.lst) (and its source copy [src/network/delta.lst](workspace/src/network/delta.lst)). `fuser4` was added to that block for this feature; `m_fReloadTime` was already there. If you add another custom float and skip the sync — or the delta entry — the symptom is exactly what motivated this pass: the anim looks like a normal swing (because client-side `m_flSmashStart` was 0 by release so `Smash()` wasn't invoked in prediction) and the cooldown gate fires on the server only (so `+reload` can be tapped every frame without visible resistance).
+- **Knife opt-out is intentional.** The user-facing 30° sniper zoom on `weapon_knife` was originally implemented via `Reload()` and is kept as-is. If you flip that call site to a smash, you also need to fix `CKnife::Holster()`, which invokes `Reload()` to un-zoom — a naive smash rewrite there would fire a smash on holster.
 
 ## Napalm Fuel Dump (`napalm_pool`, spawned by flamethrower `+reload`)
 
