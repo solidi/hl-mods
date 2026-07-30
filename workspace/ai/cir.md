@@ -131,6 +131,7 @@ Most features cut across both halves via a registered user-message; if you are t
 ## Spoke Index
 
 ### Cross-cutting (server + client together)
+- [pm_shared_system.md](pm_shared_system.md) — shared movement/prediction runtime (`pm_shared.c`), including spectator/audio safeguards.
 - [voting_system.md](voting_system.md) — gameplay / mutator / map vote sequence; conventions every vote panel must follow.
 - [game_options_system.md](game_options_system.md) — fourth vote phase; server-defined dynamic cvar items from `gameoptions.txt`.
 - [server_options_system.md](server_options_system.md) — fifth vote phase; server-defined global cvar items from `serveroptions.txt` (no `game` token).

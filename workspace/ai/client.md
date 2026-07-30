@@ -28,6 +28,7 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 
 - `hud.{h,cpp}` — `CHud`, the singleton HUD; `HOOK_MESSAGE` registry; engine callback wiring.
 - `hud_msg.cpp` — message handlers that live on `CHud` itself (e.g. `MsgFunc_InitHUD`).
+- `src/pm_shared/pm_shared.c` — shared movement/prediction runtime used by both client and server. See [pm_shared_system.md](pm_shared_system.md).
 - `vgui_TeamFortressViewport.{h,cpp}` — the client viewport, all VGUI menus, all VGUI message handlers. See [vgui_system.md](vgui_system.md).
 - `vgui_VoteMapWindow.cpp`, `vgui_VoteGameplayWindow.cpp`, `vgui_VoteMutatorWindow.cpp` — the three vote panels.
 - `lifebar.{h,cpp}` — player overhead lifebar sprites and floating damage numbers (attacker ownership emphasis). See [lifebar.md](lifebar.md).
