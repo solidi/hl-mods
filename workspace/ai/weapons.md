@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead).
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), and `CAshpod` (portal clear). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
 
 ### Ammo accounting
 
@@ -178,7 +178,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 
 ### Special / utility
 - `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`)
-- `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`)
+- `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`) — `+reload` now performs **Portal clear**: removes both live owner-linked `ent_portal` entities (if present), plays a confirmation click (`buttons/blip1.wav`) on success, and plays a deny sound (`common/wpn_denyselect.wav`) when no portals were active. The action is press-edge gated with a small cooldown to avoid spam while holding reload.
 - `weapon_vice` → `CVice` (`vice.cpp`)
 
 ## Melee Charged Smash (`+reload` on crowbar / wrench / dual wrench)
