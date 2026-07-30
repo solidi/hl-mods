@@ -197,6 +197,8 @@ v1.1 Features:
 - Weapons Additions and Changes
     - Chumtoads
         - Use "reload" to detonate loose chumtoads with a larger blast radius
+    - Crowbar
+        - Press, hold, and then release "reload" to perform a super smash
     - Flamethrowers
         - Use "reload" attack to place napalm pools on floor and walls
     - Freeze Grenade
@@ -223,6 +225,8 @@ v1.1 Features:
     - Vest
         - Switches to thirdperson on button push
         - Use "reload" to switch to proximity mode
+    - Wrench / Dual Wrench
+        - Press, hold, and then release "reload" to perform a super smash
     - Zapgun
         - Added a triple zap secondary attack
         - Added a stun gun laser attack when pressing the reload button
