@@ -225,7 +225,7 @@ v1.1 Features:
     - Vest
         - Switches to thirdperson on button push
         - Use "reload" to switch to proximity mode
-    - Wrenches
+    - Wrench / Dual Wrench
         - Press, hold, and then release "reload" to perform a super smash
     - Zapgun
         - Added a triple zap secondary attack

@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CKnife` (zoom, uses `iMaxClip = 1` hack instead), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead).
 
 ### Ammo accounting
 
