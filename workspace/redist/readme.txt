@@ -379,6 +379,7 @@ v1.1 Features:
         - Additional row added to the old scoreboard to accommodate the server name
         - Patched server crash in rune_ammo
         - Fixed cutoff scoreboard voice column
+        - Fixed water sounds coming from spectators
     - Server
         - Added support for Ubuntu 22+ on Linux
         - Added missing wav file, ambience/water_flowing2.wav
