@@ -209,6 +209,8 @@ v1.1 Features:
     - Hornetguns
         - Hold "reload" to recharge hornets up to full capacity (recharges faster while held)
         - Fixed angle issue of hornets while strafing
+    - Portalgun
+        - Hold "reload" to clear portals
     - Proximity Mine
         - Use "reload" on either the tripmine or the satchel to place a proximity mine
     - Snarks
