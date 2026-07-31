@@ -111,6 +111,17 @@ Dual secondary note: the first barrel is predicted immediately; the delayed off-
 6. Secondary beam alignment intentionally uses level view angles (`v_angle`) and does not include `punchangle`, preventing rapid follow-up shots from drifting off the plasma path.
 7. Client visuals are driven by `EV_FireFreezeGunLaser` (`cl_dll/ev_hldm.cpp`) and event hook registration in `cl_dll/hl/hl_events.cpp`; shipping requires `workspace/redist/events/freezegun_laser.sc`.
 
+### Fingergun Burst Secondary Pattern (authoritative confuse, rapid burst playback)
+
+`weapon_fingergun` keeps primary behavior but now adds a zapgun-style burst on secondary.
+
+1. `SecondaryAttack()` fires one immediate `FingerFire()` and sets `m_iBurstShotsRemaining = 2` (`FINGERGUN_BURST_SHOT_COUNT - 1`).
+2. Follow-up shots are server-think driven through `BurstThink()` with `FINGERGUN_BURST_SHOT_GAP = 0.10s`.
+3. Burst state is reset in `Spawn`, `Deploy`, `DeployLowKey`, `Holster`, and `PrimaryAttack` so queued shots cannot leak across state transitions.
+4. Both primary and burst shots share the same helper (`FingerFire`), so trace/damage/event behavior remains identical per shot (`DMG_CONFUSE` path).
+5. Shared underwater lockout (`FINGERGUN_UNDERWATER_LOCKOUT = 0.15s`) blocks both primary and secondary.
+6. Client builds mirror delayed owner-side feedback for burst shots 2 and 3 with delayed `PLAYBACK_EVENT_FULL(FEV_NOTHOST, ...)` calls, keeping perceived cadence aligned with server-think firing.
+
 ### CGrenade
 
 `weapons.h` declares `CGrenade : public CBaseMonster` as the projectile base for thrown/timed explosives. Key entry points:
@@ -135,7 +146,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_chainsaw` → `CChainsaw` (`chainsaw.cpp`)
 - `weapon_rocketcrowbar` → `CRocketCrowbar` (`rocket_crowbar.cpp`) — melee/launcher hybrid: `+attack` swings, `+attack2` spawns a `CDrunkRocket`, and `+reload` remotely detonates your live thrown drunk rockets with a confirmation click (`buttons/blip1.wav`). Pro tip: **Use RELOAD button to detonate your drunk rockets**.
 - `weapon_fists` → `CFists` (`fists.cpp`)
-- `weapon_fingergun` → `CFingerGun` (`fingergun.cpp`) — joke gun used by some mutators.
+- `weapon_fingergun` → `CFingerGun` (`fingergun.cpp`) — joke gun used by some mutators. `+attack` fires a single confuse shot; `+attack2` fires a rapid 3-shot burst (`bang-bang-bang`) to improve hit reliability for brief confusion/freeze-style control. Both modes are blocked underwater.
 
 ### Slot 2 — Pistols / sidearms
 - `weapon_glock`, `weapon_9mmhandgun` → `CGlock` (`wpn_shared/hl_wpn_glock.cpp`), `weapon_dual_glock` → `CDualGlock`
@@ -423,6 +434,7 @@ Sounds are emitted on the player edict (`ENT(m_pPlayer->pev)`), same edict/chann
 - **If a weapon needs asymmetric fire cadence (e.g., instant secondary after slower primary), audit `ItemPostFrame()` as well as weapon-local timers.** The base dispatcher may overwrite one attack timer with the other after `PrimaryAttack()`/`SecondaryAttack()`.
 - **Reload semantics on no-clip weapons:** override `AcceptReload()` to `TRUE` and implement `Reload()` — that’s the entire contract.
 - **Zapgun multi-mode pattern:** keep gameplay authoritative (burst tracers + stun trace in server `dlls`) and emit client event callbacks for beam visuals/snappy feel (`ev_hldm.cpp` + `hl_events.cpp`).
+- **Burst-on-secondary pattern (Zapgun/Fingergun):** fire one shot immediately, queue remaining shots with a short-gap think callback, and mirror delayed local playback in `CLIENT_DLL` so owner animation/audio stays in phase.
 - **Don't mutate state inside `Holster()` without also clearing `m_pPlayer->m_iWeapons*` for `ITEM_FLAG_EXHAUSTIBLE` weapons.** See `CSatchel::Holster` and `CTripmine::Holster` for the canonical pattern.
 - **Floating weapons:** `floatingweapons` cvar selects an alternate world-sequence (see `CSatchel::Spawn`, `CTripmine::Spawn`).
 - **Test with bots.** The Grave bot has hand-tuned weapon-use logic — see [gravebot_combat.md](gravebot_combat.md) and `/memories/repo/gravebot_combat_mechanics.md`. New weapons that don't appear in its preference tables fall through to the default melee logic.
