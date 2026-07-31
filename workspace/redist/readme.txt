@@ -202,7 +202,7 @@ v1.1 Features:
     - Flamethrowers
         - Use "reload" attack to place napalm pools on floor and walls
     - Fingergun
-        - Secondary attack now performs a triple fire attack
+        - Secondary attack now fires a rapid 3-shot burst
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun

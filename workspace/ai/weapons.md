@@ -111,7 +111,7 @@ Dual secondary note: the first barrel is predicted immediately; the delayed off-
 6. Secondary beam alignment intentionally uses level view angles (`v_angle`) and does not include `punchangle`, preventing rapid follow-up shots from drifting off the plasma path.
 7. Client visuals are driven by `EV_FireFreezeGunLaser` (`cl_dll/ev_hldm.cpp`) and event hook registration in `cl_dll/hl/hl_events.cpp`; shipping requires `workspace/redist/events/freezegun_laser.sc`.
 
-### Fingergun Burst Secondary Pattern (authoritative confuse, rapid burst playback)
+### Fingergun Burst Secondary Pattern (authoritative confusion, rapid burst playback)
 
 `weapon_fingergun` keeps primary behavior but now adds a zapgun-style burst on secondary.
 
