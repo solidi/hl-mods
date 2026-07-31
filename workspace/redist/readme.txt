@@ -201,6 +201,8 @@ v1.1 Features:
         - Press, hold, and then release "reload" to perform a super smash
     - Flamethrowers
         - Use "reload" attack to place napalm pools on floor and walls
+    - Fingergun
+        - Secondary attack now fires a rapid 3-shot burst
     - Freeze Grenade
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun
