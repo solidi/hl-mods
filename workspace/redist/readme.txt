@@ -195,10 +195,13 @@ v1.1 Features:
     - Bots now use freeze grenades when available
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
+    - Default ammo gives are increased by twice the amount
     - Chumtoads
         - Use "reload" to detonate loose chumtoads with a larger blast radius
     - Crowbar
         - Press, hold, and then release "reload" to perform a super smash
+    - Egon
+        - Hold "reload" to fire a nova bomb
     - Flamethrowers
         - Use "reload" attack to place napalm pools on floor and walls
     - Fingergun
@@ -222,8 +225,9 @@ v1.1 Features:
         - Make new snowballs with the reload button
         - Improved throw performance so it is more predictable
         - Primary attack is a medium throw; secondary is hold/charge for a longer throw
-    - Railgun
+    - Railgun / Dual Railguns
         - Firing is now client-side predicted for smoother play
+        - Hold "reload" to fire a nova beam
     - Rocketcrowbar
         - Use "reload" to detonate rockets on command
     - Vest

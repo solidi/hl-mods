@@ -1,4 +1,4 @@
-332
+333
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -234,6 +234,7 @@ d_dual_glock		640	640hudof15	192	16	48	16
 d_snowbomb	640	640hudof09	192	16	48	16
 d_proxmine		640	640hud1	192	176	32	16
 d_freezegrenade		640	640hud1	192	160	32	16
+d_egon_nova_ball	640	640hud1	192	128	32	16
 
 // Mutators
 coolflesh	640 gameicons	0	0	64	64
