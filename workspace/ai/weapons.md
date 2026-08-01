@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), and `CAshpod` (portal clear). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Egon and Railgun charged modes, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), and `CAshpod` (portal clear). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
 
 ### Ammo accounting
 
@@ -98,6 +98,46 @@ When `CLIENT_WEAPONS` is defined, predicted weapons save `m_flNextPrimaryAttack`
 6. Client event registration is mandatory in `hl_events.cpp`, and both `events/*.sc` files must exist in `workspace/redist/events/`.
 
 Dual secondary note: the first barrel is predicted immediately; the delayed off-hand barrel still fires server-authoritatively for damage, and a client-side delayed playback event keeps the second visual responsive.
+
+### Railgun Charged Reload Nova (`+reload` on railgun / dual railgun)
+
+`weapon_railgun` and `weapon_dual_railgun` now expose a hold-to-charge third mode through `Reload()` (`AcceptReload() == TRUE`) while remaining no-clip uranium weapons.
+
+1. Charge gate: both weapons require at least `50` uranium, reject underwater charge, and block normal fire while charging.
+2. Charge timing: hold `+reload` for `3.0s` (`RAIL_NOVA_CHARGE_TIME` / `DUAL_RAIL_NOVA_CHARGE_TIME`). Sound uses `weapons/egon_windup2.wav` on `CHAN_STATIC` with pitch ramp (`90 -> 185`).
+3. Charge anim:
+  - Single railgun: starts `RAILGUN_SPINUP`, then loops `RAILGUN_SPIN` with subtle punch jitter.
+  - Dual railgun: loops `DUAL_RAILGUN_IDLE` during charge with the same jitter/pitch ramp.
+4. Single charged release (`CRailgun::FireChargedShot`):
+  - Consumes `50` ammo once.
+  - Fires the normal rail trace (`StartFire`) so the expected rail hit still happens.
+  - Computes first impact point from a forward trace and spawns a nuclear-style blast at that endpoint (beam disk + cylinder + explosion sprite, shake, `nuke_explosion.wav`).
+  - Applies server-authoritative radial damage: `220` in radius `280` (`DMG_RADIATION | DMG_BLAST | DMG_ALWAYSGIB`).
+5. Dual charged release (`CDualRailgun`):
+  - Right barrel fires first (`FireChargedRight`), consumes `50` ammo total, and spawns right-side endpoint nuke.
+  - Left barrel fires `0.5s` later via `FireThink` (`FireChargedLeft`) and spawns a second endpoint nuke.
+  - Internal state uses `m_fInAttack == 1` (charging) and `m_fInAttack == 2` (waiting for delayed left shot).
+6. Cancel paths: releasing reload, idling out, holstering, water transition, or ammo shortfall cancels charge, stops the static loop, and plays the egon-off stop cue when appropriate.
+
+### Egon Nova Ball Third Mode (`+reload` on egon)
+
+`weapon_egon` now has a reload-held super mode that coexists with normal beam primary/secondary behavior.
+
+1. Charge gate: `Reload()` requires at least `50` uranium, rejects underwater charge, and calls `EndAttack()` first if the regular Egon beam is currently active.
+2. Charge timing/audio: hold `+reload` for `3.0s` (`EGON_NOVA_CHARGE_TIME`) with startup loop pitch ramp (`weapons/egon_windup2.wav`, `90 -> 185`).
+3. Charge visuals: reload charge continuously drives attack-style anims (`EGON_FIRE1..4`) plus recoil shake while held.
+4. Fire path (`CEgon::FireNovaShot`):
+  - Consumes `50` uranium and spawns `egon_nova_ball`.
+  - Projectile uses `sprites/nhth1.spr`, flies at `350u/s`, leaves a beam-follow trail, and expires after `5.0s` if nothing is hit.
+5. Aura damage while flying (`CEgonNovaBall::DealAuraDamage`):
+  - Ticks every `0.25s` in a `280u` sphere.
+  - Damages visible enemy living targets (players/monsters only, teammates/owner excluded) for `24` per tick (`DMG_ENERGYBEAM | DMG_NEVERGIB`).
+  - Emits a per-target lightning trace beam (`TE_BEAMPOINTS`) so multiple simultaneous aura links render correctly.
+6. Supernova detonation (`CEgonNovaBall::DoSupernova`):
+  - Triggers on touch, water contact, or lifetime timeout.
+  - Plays nuclear FX stack (disk/cylinder ring, explosion sprite, shake, `nuke_explosion.wav`).
+  - Applies LOS-checked radial falloff damage to enemy living targets and breakables up to `320` within `380u` (`DMG_ENERGYBEAM | DMG_BLAST | DMG_ALWAYSGIB`).
+7. Cancel paths: releasing reload before full charge, idling, or holstering cancels charge, stops the static startup loop, and cleanly returns to standard Egon idle/fire flow.
 
 ### FreezeGun Shock-Combo Pattern (authoritative combo, client-rendered laser)
 
@@ -168,9 +208,9 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 ### Slot 4 — Heavy / energy / explosive
 - `weapon_crossbow` → `CCrossbow` (`crossbow.cpp`)
 - `weapon_sniperrifle` → `CSniperRifle` (`sniper_rifle.cpp`)
-- `weapon_railgun` → `CRailgun` (`railgun.cpp`), `weapon_dual_railgun` → `CDualRailgun` — beam/trail/glow are client event-driven (`EV_FireRailgun`, `EV_FireDualRailgun`) while hit/damage remains server-authoritative.
+- `weapon_railgun` → `CRailgun` (`railgun.cpp`), `weapon_dual_railgun` → `CDualRailgun` — beam/trail/glow are client event-driven (`EV_FireRailgun`, `EV_FireDualRailgun`) while hit/damage remains server-authoritative; `+reload` adds a 3-second charged mode costing 50 uranium that fires rail + endpoint nuke blast (dual: right now, left after 0.5s with a second nuke).
 - `weapon_gauss` → `CGauss` (`gauss.cpp`) — charge-up secondary.
-- `weapon_egon` → `CEgon` (`egon.cpp`)
+- `weapon_egon` → `CEgon` (`egon.cpp`) — `+reload` adds a 3-second charged nova ball (50 uranium) that flies with periodic aura lightning damage and detonates in a nuke-style supernova on hit/water/timeout.
 - `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun` — passive hornet trickle-recharges automatically; **holding `+reload` doubles the recharge rate** and plays the `func_healthcharger` loop for audible feedback (see below).
 - `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
