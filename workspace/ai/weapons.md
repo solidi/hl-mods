@@ -85,7 +85,7 @@ Use this when a weapon needs a third fire mode on `IN_RELOAD`.
   - Register/predict visual events in `ev_hldm.cpp` + `hl_events.cpp` + `redist/events/*.sc`.
   - Do not rely on server-only think callbacks for local viewmodel animation cadence; mirror delayed local playback with `PLAYBACK_EVENT_FULL(..., delay, ...)` when needed (chainsaw/fingergun pattern).
 6. **Prediction state sync (only when custom fields are used by predicted logic):**
-  - Wire custom weapon fields through `dlls/client.cpp::GetWeaponData` and `cl_dll/hl/hl_weapons.cpp::HUD_WeaponsPostThink`.
+  - Wire custom weapon fields through server [client.cpp `GetWeaponData`](workspace/src/dlls/client.cpp) and client [hl_weapons.cpp `HUD_WeaponsPostThink`](workspace/src/cl_dll/hl/hl_weapons.cpp).
   - Add corresponding `weapon_data_t` fields to both `workspace/redist/delta.lst` and `workspace/src/network/delta.lst` or values are dropped on the wire.
 7. **Regression checklist:**
   - Tap reload, hold reload, and release mid-action paths.
