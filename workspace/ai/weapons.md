@@ -65,6 +65,34 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
 | `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Egon and Railgun charged modes, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), and `CAshpod` (portal clear). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
 
+### Quick Recipe: Third Attack Through `Reload()` (Server + Client)
+
+Use this when a weapon needs a third fire mode on `IN_RELOAD`.
+
+1. **Server dispatch contract (required):**
+  - Override `AcceptReload()` to return `TRUE` for `WEAPON_NOCLIP` weapons.
+  - Implement `Reload()` in the weapon class (`workspace/src/dlls/<weapon>.cpp`).
+2. **Choose input semantics explicitly:**
+  - **Press-edge action:** gate with `m_pPlayer->m_afButtonPressed & IN_RELOAD` (portal clear, zapgun laser, chainsaw triple slash start).
+  - **Hold action:** allow per-frame `Reload()` re-entry while `m_pPlayer->pev->button & IN_RELOAD` (egon/rail charge, hivehand fast recharge).
+3. **Set all cooldown clocks inside `Reload()`:**
+  - Update `m_flNextPrimaryAttack`, `m_flNextSecondaryAttack`, and `m_pPlayer->m_flNextAttack` together.
+  - If this is a predicted weapon, missing `m_pPlayer->m_flNextAttack` often causes base `ItemPostFrame()` timing side-effects.
+4. **Server authority for gameplay:**
+  - Keep traces, damage, entity spawning, and state transitions under server authority (`#ifndef CLIENT_DLL` where appropriate).
+  - If follow-up shots are timed (burst/combo), server can schedule them with think callbacks.
+5. **Client prediction for visuals (critical):**
+  - Register/predict visual events in `ev_hldm.cpp` + `hl_events.cpp` + `redist/events/*.sc`.
+  - Do not rely on server-only think callbacks for local viewmodel animation cadence; mirror delayed local playback with `PLAYBACK_EVENT_FULL(..., delay, ...)` when needed (chainsaw/fingergun pattern).
+6. **Prediction state sync (only when custom fields are used by predicted logic):**
+  - Wire custom weapon fields through `dlls/client.cpp::GetWeaponData` and `cl_dll/hl/hl_weapons.cpp::HUD_WeaponsPostThink`.
+  - Add corresponding `weapon_data_t` fields to both `workspace/redist/delta.lst` and `workspace/src/network/delta.lst` or values are dropped on the wire.
+7. **Regression checklist:**
+  - Tap reload, hold reload, and release mid-action paths.
+  - Primary/secondary recover correctly after reload mode exits.
+  - Underwater/invalid-surface/insufficient-ammo deny paths set sane cooldowns.
+  - Weapon switch during reload mode does not leak state/sounds/thinks.
+
 ### Ammo accounting
 
 - `iMaxClip = WEAPON_NOCLIP` (-1) means the weapon has no clip; ammo is consumed directly out of `m_pPlayer->m_rgAmmo[m_iPrimaryAmmoType]`.
@@ -183,7 +211,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`)
 - `weapon_knife` → `CKnife` (`knife.cpp`) — `+reload` toggles 30° sniper-style zoom; `+attack2` charges a thrown knife; `iMaxClip = 1` is a deliberate hack to force server-side reload routing.
 - `weapon_wrench` → `CWrench` (`wrench.cpp`), `weapon_dual_wrench` → `CDualWrench` (`dual_wrench.cpp`)
-- `weapon_chainsaw` → `CChainsaw` (`chainsaw.cpp`)
+- `weapon_chainsaw` → `CChainsaw` (`chainsaw.cpp`) — three attack modes: `+attack` does a standard close-range slash, `+attack2` runs the rev/loop thrust that can launch the player forward and add upward wall-climb boost when contacting brush surfaces, and `+reload` triggers a rapid 3-hit slash combo (`0.10s` spacing) with a deliberately longer post-combo cooldown than a normal primary slash.
 - `weapon_rocketcrowbar` → `CRocketCrowbar` (`rocket_crowbar.cpp`) — melee/launcher hybrid: `+attack` swings, `+attack2` spawns a `CDrunkRocket`, and `+reload` remotely detonates your live thrown drunk rockets with a confirmation click (`buttons/blip1.wav`). Pro tip: **Use RELOAD button to detonate your drunk rockets**.
 - `weapon_fists` → `CFists` (`fists.cpp`)
 - `weapon_fingergun` → `CFingerGun` (`fingergun.cpp`) — joke gun used by some mutators. `+attack` fires a single confuse shot; `+attack2` fires a rapid 3-shot burst (`bang-bang-bang`) to improve hit reliability for brief confusion/freeze-style control. Both modes are blocked underwater.

@@ -196,6 +196,8 @@ v1.1 Features:
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
     - Default ammo gives are doubled
+    - Chainsaw
+        - Use "reload" to triple slash
     - Chumtoads
         - Use "reload" to detonate loose chumtoads with a larger blast radius
     - Crowbar
