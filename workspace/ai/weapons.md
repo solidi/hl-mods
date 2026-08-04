@@ -256,9 +256,64 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_vest` → `CVest` (`vest.cpp`) — wearable suicide explosive with a third-mode `+reload` proximity trigger (see below).
 
 ### Special / utility
-- `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`)
+- `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`) — `+reload` performs a short-range force-push burst that can launch multiple nearby valid targets (players/monsters/movable entities) with strong knockback + lift; successful bursts play a sonic-ring visual stack.
 - `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`) — `+reload` now performs **Portal clear**: removes both live owner-linked `ent_portal` entities (if present), plays a confirmation click (`buttons/blip1.wav`) on success, and plays a deny sound (`common/wpn_denyselect.wav`) when no portals were active. The action is press-edge gated with a small cooldown to avoid spam while holding reload.
 - `weapon_vice` → `CVice` (`vice.cpp`)
+
+## Gravitygun Force Push (`+reload` on `weapon_gravitygun`)
+
+`weapon_gravitygun` now exposes a third mode via `Reload()` (`AcceptReload() == TRUE`): a short-range, mostly-utility sonic shove that focuses on displacement over raw damage.
+
+### Wiring
+
+1. `CGravityGun::Reload()` is called from base `ItemPostFrame()` when `IN_RELOAD` is held (no clip weapon + `AcceptReload`).
+2. The mode is gated by `m_flNextRepulseTime`, because reload dispatch can re-enter every frame while the button is held.
+3. Gameplay authority is server-side (`#ifndef CLIENT_DLL`); client path only advances `m_flNextAttack` to keep timing sane under prediction.
+
+### Targeting and hit qualification
+
+1. Burst origin is computed from the attacker origin (`pev->origin + forward * 36 + up * 28`), not from weapon model bones.
+2. The attack first processes the currently held entity (if any), then scans a sphere of `180u` (`GRAVITYGUN_REPULSE_RADIUS`) for additional targets.
+3. Allowed targets:
+  - alive players,
+  - alive monsters,
+  - non-static movable entities.
+4. Exclusions include owner, `worldspawn`, `SOLID_NOT`, `MOVETYPE_FOLLOW`, and static/non-physical movetypes (`NONE`/`PUSH`/`NOCLIP`).
+5. LOS is required per target via `UTIL_TraceLine` from burst origin to target center.
+
+### Knockback profile
+
+1. Launch vector blends outward direction, a forward bias, and an upward bias.
+2. Force scales by distance (`1150..1900`) and adds explicit vertical uplift (`220..420`) so victims are clearly lifted off the ground.
+3. Damage is intentionally light (`8`) with `DMG_SONIC | DMG_NEVERGIB`; design intent is control/spacing, not lethality.
+
+### Feedback and visuals
+
+1. Success path (`>=1` target pushed):
+  - `GRAVITYGUN_FIRE` anim,
+  - `weapons/rocketfire1.wav`,
+  - broadcast TE stack: `TE_BEAMDISK` + `TE_BEAMCYLINDER` + `TE_SPRITE` + `TE_DLIGHT`.
+2. Fail path (`0` targets):
+  - `GRAVITYGUN_PICKUP` anim,
+  - `common/wpn_denyselect.wav`.
+3. Burst sprites are precached from mod-local assets with fallback chain:
+  - beam: `sprites/sanic.spr` -> `sprites/lgtning.spr` -> `sprites/glowbig.spr`
+  - flash: `sprites/glowbig.spr` -> `sprites/animglow01.spr`
+
+### Cooldowns
+
+1. Success cooldown: `0.85s * WeaponMultipler()`.
+2. Fail cooldown: `0.45s * WeaponMultipler()`.
+3. `Reload()` updates all relevant clocks together:
+  - `m_pPlayer->m_flNextAttack`
+  - `m_flNextPrimaryAttack`
+  - `m_flNextSecondaryAttack`
+  - `m_flNextRepulseTime`
+
+### Debug / maintenance note
+
+- Developer trace (`developer > 0`) logs target count, burst origin, and sprite indexes per burst.
+- Known failure signature: `beamSprite=0 flashSprite=0` means precache indexes were wiped before use. In this weapon, indices must not be zeroed after `Precache()` inside `Spawn()`.
 
 ## Melee Charged Smash (`+reload` on crowbar / wrench / dual wrench)
 
