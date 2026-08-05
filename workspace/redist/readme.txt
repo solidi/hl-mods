@@ -220,6 +220,8 @@ v1.1 Features:
     - Hornetguns
         - Hold "reload" to recharge hornets up to full capacity (recharges faster while held)
         - Fixed angle issue of hornets while strafing
+    - Nuke
+        - Use "reload" to place a proximity nuke package
     - Portalgun
         - Press "reload" to clear portals (edge-triggered; holding won't spam)
     - Proximity Mine
