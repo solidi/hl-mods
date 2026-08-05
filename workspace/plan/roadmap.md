@@ -117,6 +117,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. Chaingun
         1. [x] Secondary chaingun idea?
         1. [x] Tracers on all bullets?
+        1. [x] Faster spin, third function
     1. [x] Hide viewmodel when ricochet is enabled
     1. [x] prox mine / tripmine on satchel using reload
     1. [x] C4 mine placement with satchels
@@ -330,8 +331,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Tighten up all idle animation times to match code
     1. [ ] Correct all brass shell ejection points
     1. [ ] Use attachment point for each model
-    1. Chaingun
-        1. [ ] Faster spin?
     1. [ ] [Homing rockets](http://web.archive.org/web/20040804045551/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=72)
     1. [ ] Grenades that randomly teleport when they bounce? (AudioCraZ)
     1. [ ] Grenades that never stop bouncing and have a random timer to detonate. (Flubber bomb) (AudioCraZ)

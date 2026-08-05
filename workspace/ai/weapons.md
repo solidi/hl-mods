@@ -227,7 +227,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 ### Slot 3 — SMG / chain / shotguns
 - `weapon_mp5`, `weapon_9mmAR` → `CMP5` (`mp5.cpp`) — primary `9mm`, secondary `ARgrenades` (M203).
 - `weapon_smg` → `CSMG` (`smg.cpp`), `weapon_dual_smg` → `CDualSMG`
-- `weapon_chaingun` → `CChaingun` (`chaingun.cpp`), `weapon_dual_chaingun` → `CDualChaingun`
+- `weapon_chaingun` → `CChaingun` (`chaingun.cpp`), `weapon_dual_chaingun` → `CDualChaingun` — both now have three functions: `+attack` fires, `+attack2` pre-revs without firing, and **hold `+reload` to pre-rev**; releasing reload grants a 1.0s bonus window (no windup + tighter cone) on primary fire.
 - `weapon_shotgun` → `CShotgun` (`shotgun.cpp`)
 - `weapon_sawedoff` → `CSawedOff` (`sawedoff.cpp`), `weapon_dual_sawedoff` → `CDualSawedOff`
 - `weapon_12gauge` → `C12Gauge` (`gauge_shotgun.cpp`)
@@ -259,6 +259,16 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`) — `+reload` performs a short-range force-push burst that can launch multiple nearby valid targets (players/monsters/movable entities) with strong knockback + lift; successful bursts play a sonic-ring visual stack.
 - `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`) — `+reload` now performs **Portal clear**: removes both live owner-linked `ent_portal` entities (if present), plays a confirmation click (`buttons/blip1.wav`) on success, and plays a deny sound (`common/wpn_denyselect.wav`) when no portals were active. The action is press-edge gated with a small cooldown to avoid spam while holding reload.
 - `weapon_vice` → `CVice` (`vice.cpp`)
+
+## Chaingun Reload Pre-Rev (`+reload` on `weapon_chaingun` and `weapon_dual_chaingun`)
+
+`weapon_chaingun` and `weapon_dual_chaingun` now use reload as a third function while preserving normal magazine reload behavior.
+
+1. Normal reload path is unchanged when the clip is below max and reserve `9mm` exists (`DefaultReload` still runs).
+2. If no top-off reload can happen (for example full clip), holding `+reload` now spins the barrels up without firing.
+3. Releasing `+reload` arms a 1.0s bonus window.
+4. `+attack` during that window skips the normal `0.4s` windup and uses a tighter base spread cone (`2°` instead of `3°`).
+5. The bonus stays active for the full 1.0s window and then expires; on expiry, chaingun returns to the normal spin state flow.
 
 ## Gravitygun Force Push (`+reload` on `weapon_gravitygun`)
 

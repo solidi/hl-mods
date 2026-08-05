@@ -196,6 +196,8 @@ v1.1 Features:
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
     - Default ammo gives are doubled
+    - Chaingun
+        - Use "reload" on full clip to pre-spin and improve accuracy
     - Chainsaw
         - Use "reload" to triple slash
     - Chumtoads
