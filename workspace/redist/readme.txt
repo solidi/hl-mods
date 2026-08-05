@@ -212,6 +212,8 @@ v1.1 Features:
         - Use "reload" on hand grenades to throw a freeze grenade
     - Freeze Gun
         - Added a laser to +attack2 so ice plasma can be detonated midair
+    - Gravitygun
+        - Use "reload" for a force-push attack
     - Hand grenades explode on contact with living targets (players/monsters)
     - Hornetguns
         - Hold "reload" to recharge hornets up to full capacity (recharges faster while held)
