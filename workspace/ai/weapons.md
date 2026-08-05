@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Egon and Railgun charged modes, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), and `CAshpod` (portal clear). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Egon and Railgun charged modes / Nuke suicide plant, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), `CAshpod` (portal clear), and `CNuke` (suicide-plant package). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
 
 ### Quick Recipe: Third Attack Through `Reload()` (Server + Client)
 
@@ -244,7 +244,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
 - `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`)
 - `weapon_cannon` → `CCannon` (`cannon.cpp`)
-- `weapon_nuke` → `CNuke` (`nuke.cpp`) — single-use map-wide kaboom.
+- `weapon_nuke` → `CNuke` (`nuke.cpp`) — primary/secondary still launch the tactical nuke rocket (secondary = camera mode), and `+reload` now throws a sticky satchel-style nuclear package that arms as a proximity self-destruct trap.
 
 ### Slot 5 — Throwables / placeables
 - `weapon_handgrenade` → `CHandGrenade` (`handgrenade.cpp`) — `+attack` throws a cluster grenade, `+attack2` throws a timed grenade, **`+reload` throws `freezegrenade`**. These timed throwables now detonate immediately when they touch a living player/monster; they still bounce/roll on non-living collision.
@@ -324,6 +324,32 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 
 - Developer trace (`developer > 0`) logs target count, burst origin, and sprite indexes per burst.
 - Known failure signature: `beamSprite=0 flashSprite=0` means precache indexes were wiped before use. In this weapon, indices must not be zeroed after `Precache()` inside `Spawn()`.
+
+## Nuke Suicide Plant (`+reload` on `weapon_nuke`)
+
+`weapon_nuke` now has a third fire mode through reload: a satchel-style sticky nuclear trap that is owner-safe and proximity-triggered.
+
+### Wiring
+
+1. `CNuke` now overrides `AcceptReload() == TRUE`, so no-clip reload dispatch is enabled.
+2. `CNuke::Reload()` is press-edge gated (`m_afButtonPressed & IN_RELOAD`) and consumes `1` nuke ammo on launch.
+3. Reload launch uses `monster_satchel` as the carrier package (thrown forward with player-velocity inherit), plays `weapons/glauncher.wav` as the launch thump, and applies standard attack cooldown clocks.
+4. The thrown satchel is tagged with `SF_SATCHEL_NUKE_PACKAGE` so `CSatchelCharge::SatchelSlide()` treats it as a sticky payload instead of a decoy:
+  - first non-owner brush/entity touch sticks immediately,
+  - impact plays the satchel ground/wall bounce sound,
+  - touch converts the package into `monster_proxmine` via `DeployProxMineAt(..., bNuclear=TRUE)`.
+5. `CProxMine` reads `SF_PROXMINE_NUCLEAR` and switches to nuclear behavior:
+  - larger detect radius (`PROXMINE_NUCLEAR_DETECT_RADIUS`),
+  - team filtering disabled (owner is still exempt),
+  - detonation uses nuke TE stack + `nuke_explosion.wav`,
+  - kill pass executes over all living players/monsters except the real owner, producing the intended owner immunity while all others die.
+
+### Reuse / mutator hook
+
+- Proxmine deployment is now split into shared helpers:
+  - `DeployProxMine(pPlayer, bNuclear)` (trace + mount),
+  - `DeployProxMineAt(pPlayer, origin, normal, bNuclear)` (direct mount).
+- This is the switch point for future mutators that want satchel/tripmine/proxmine deployments to become nuclear without adding a second mine class.
 
 ## Melee Charged Smash (`+reload` on crowbar / wrench / dual wrench)
 
@@ -495,6 +521,7 @@ Both `weapon_satchel` and `weapon_tripmine` deploy a **proximity mine** when the
 2. `ItemPostFrame()`'s reload branch was changed from `iMaxClip() != WEAPON_NOCLIP` to `(iMaxClip() != WEAPON_NOCLIP || AcceptReload())`, so the dispatcher will call `Reload()` on these no-clip weapons.
 3. `CSatchel::Reload()` and `CTripmine::Reload()` trace 128 units forward from the gun position. On a valid static surface (`MOVETYPE_NONE` / `MOVETYPE_PUSH`, non-conveyor) they create `monster_proxmine` at the impact, decrement ammo, play the place animation, and gate `m_flNextAttack` for 1 s.
 4. `CSatchel` refuses to place a mine while the radio detonator is out (`m_chargeReady != 0`).
+5. Shared deploy helpers now accept a nuclear toggle (`bNuclear`) and can also mount directly at a chosen point/normal (`DeployProxMineAt`), which is how nuke reload converts its sticky satchel package into a nuclear proxmine.
 
 ### `CProxMine` lifecycle
 

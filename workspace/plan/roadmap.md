@@ -195,7 +195,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Chilldemic improvements
       1. [ ] If single skeleton is fraged on start of chilldemic, survivors win
         1. [ ] Or, everyone starts as survivors, one person is selected as skeleton in real time
+1. Voting
+    1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
+    1. [ ] [Pi is -1](https://www.youtube.com/watch?v=yDL5gh5JwBU)
     1. [ ] Stomp on head
     1. [ ] Deadly water, like skyhook, but with water textures
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
@@ -292,7 +295,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Taser
     1. [ ] Counter-Strike penguin
 1. Weapons Mechanics
-    1. [ ] [Three-burst shot](https://www.youtube.com/watch?v=klvKykzzMo4&t=50s)
+    1. [ ] Grenades and explosions ring the ears.
+    1. [ ] [Three-burst shot for all ammo weapons](https://www.youtube.com/watch?v=klvKykzzMo4&t=50s)
     1. [ ] [Drop a forklift](https://www.youtube.com/watch?v=6MTjdllk1_E&t=450s) on players (third function, gravity gun)
     1. [ ] [Dio's Zawarudo](https://www.youtube.com/watch?v=6MTjdllk1_E&t=470s) on players
     1. [ ] [Sideways weapons?](https://www.reddit.com/r/AskGames/comments/6ktkki/what_was_the_first_shooter_game_where_the_player/)
@@ -403,6 +407,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. UI / Menu
     1. [ ] Orange text in [xash3d menu](http://xash3d.ru/doku.php?id=xashcookbook:en:recipes:art:custom_menu_art)
 1. Runes
+    1. [ ] Three-burst shot for all weapons.
+    1. [ ] Revive, die once, immediately come back, and rune is toast. Idea from [Jeepy's screenshot](https://www.youtube.com/watch?v=8XrfOzo9Xbc&t=350s)
     1. [ ] Quad damage (Napoleon's [model idea](https://cdn.discordapp.com/attachments/923312701252460544/980739942168793178/cir_logo_3D.7z))
     1. [ ] Super jump rune
     1. [ ] Invulerability rune, uses battery power (Napoleon)
@@ -501,7 +507,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [x] Fix chumtoad not appearing on radar
 1. Game Mechanics
     1. [x] [Clear decals](https://github.com/N7P0L3ON/flatline-24-default/commit/a4dcc8c435ce574ec5ed842e23ffe4c570001fd5), and recharge hev/health charges on round.
-    1. [ ] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
+    1. [x] [Nuke affects every player](https://github.com/N7P0L3ON/flatline-24-default/commit/4b2bdc31d5f77fb9c7ef9b7f266ebec5301df388)
 1. Mutators
     1. Added 9 Instant mutators
         1. [x] +1 health
