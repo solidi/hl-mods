@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Egon and Railgun charged modes / Nuke suicide plant, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), `CAshpod` (portal clear), and `CNuke` (suicide-plant package). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Gauss EMP vent / Egon and Railgun charged modes / Nuke suicide plant, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CGauss` (EMP vent), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), `CAshpod` (portal clear), and `CNuke` (suicide-plant package). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
 
 ### Quick Recipe: Third Attack Through `Reload()` (Server + Client)
 
@@ -167,6 +167,31 @@ Dual secondary note: the first barrel is predicted immediately; the delayed off-
   - Applies LOS-checked radial falloff damage to enemy living targets and breakables up to `320` within `380u` (`DMG_ENERGYBEAM | DMG_BLAST | DMG_ALWAYSGIB`).
 7. Cancel paths: releasing reload before full charge, idling, or holstering cancels charge, stops the static startup loop, and cleanly returns to standard Egon idle/fire flow.
 
+### Gauss EMP Vent (`+reload` on gauss)
+
+`weapon_gauss` now exposes a reload-held third mode that vents stored charge as a non-damaging EMP pulse.
+
+1. Input/state wiring:
+  - `CGauss` now overrides `AcceptReload() == TRUE`.
+  - Holding `+reload` enters a Gauss-style wind-up (`GAUSS_SPINUP` -> `GAUSS_SPIN`) using the existing spin event/pitch ramp.
+  - Release is resolved in `WeaponIdle()` before normal idle selection, mirroring other hold-and-release third modes.
+2. Charge duration and radius:
+  - Starting EMP charge consumes `5` uranium immediately, even for very short taps.
+  - While `+reload` is held, EMP spin drains additional uranium over time (`0.10s` MP / `0.30s` SP cadence).
+  - Hold duration can be indefinite (no self-zap timeout).
+  - Effective EMP radius scales with held time and clamps at `512u`.
+3. Pulse visuals/audio:
+  - On release, the player emits a radial disk pulse (`TE_BEAMDISK` + `TE_BEAMCYLINDER`) centered on the player.
+  - Ring radius uses the exact final EMP radius value (same clamped `96..512` result used for entity disruption range).
+  - Center flash sprite switches by `mp_icesprites` (`icesprites` cvar): orange (`sprites/hotglow.spr`) or ice (`sprites/ice_hotglow.spr`).
+  - Spin loop is stopped through the normal reliable Gauss stop event, then release uses `GAUSS_FIRE2` + discharge audio.
+4. EMP disruption behavior (server-authoritative):
+  - Always disarms/removes in-range `monster_proxmine`, `monster_tripmine`, `monster_satchel`, and owner-linked `ent_portal` pairs.
+  - Also expires active explosive/projectile entities (grenades/rockets/flak/plasma/napalm/snarks/chumtoads and related thrown projectiles).
+  - Armed vests in range are neutralized via `CVest::DisarmForEMP()` (proximity mode + pending detonation are canceled).
+5. Damage policy:
+  - EMP pulse does **not** apply direct player damage; its effect is utility/disruption only.
+
 ### FreezeGun Shock-Combo Pattern (authoritative combo, client-rendered laser)
 
 `weapon_freezegun` now has a primary plasma orb and a secondary hitscan ice laser with UT99-style combo behavior.
@@ -237,7 +262,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_crossbow` → `CCrossbow` (`crossbow.cpp`)
 - `weapon_sniperrifle` → `CSniperRifle` (`sniper_rifle.cpp`)
 - `weapon_railgun` → `CRailgun` (`railgun.cpp`), `weapon_dual_railgun` → `CDualRailgun` — beam/trail/glow are client event-driven (`EV_FireRailgun`, `EV_FireDualRailgun`) while hit/damage remains server-authoritative; `+reload` adds a 3-second charged mode costing 50 uranium that fires rail + endpoint nuke blast (dual: right now, left after 0.5s with a second nuke).
-- `weapon_gauss` → `CGauss` (`gauss.cpp`) — charge-up secondary.
+- `weapon_gauss` → `CGauss` (`gauss.cpp`) — primary hitscan beam, classic charge-up secondary, and a reload-held EMP vent pulse that scales to `512u` and disables nearby explosives/portals/armed vests without direct player damage.
 - `weapon_egon` → `CEgon` (`egon.cpp`) — `+reload` adds a 3-second charged nova ball (50 uranium) that flies with periodic aura lightning damage and detonates in a nuke-style supernova on hit/water/timeout.
 - `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun` — passive hornet trickle-recharges automatically; **holding `+reload` doubles the recharge rate** and plays the `func_healthcharger` loop for audible feedback (see below).
 - `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
