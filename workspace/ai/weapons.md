@@ -176,10 +176,10 @@ Dual secondary note: the first barrel is predicted immediately; the delayed off-
   - Holding `+reload` enters a Gauss-style wind-up (`GAUSS_SPINUP` -> `GAUSS_SPIN`) using the existing spin event/pitch ramp.
   - Release is resolved in `WeaponIdle()` before normal idle selection, mirroring other hold-and-release third modes.
 2. Charge duration and radius:
-  - Starting EMP charge consumes `5` uranium immediately (`GAUSS_EMP_START_COST`), even for very short taps.
+  - Starting EMP charge consumes `5` uranium immediately, even for very short taps.
   - While `+reload` is held, EMP spin drains additional uranium over time (`0.10s` MP / `0.30s` SP cadence).
   - Hold duration can be indefinite (no self-zap timeout).
-  - Effective EMP radius scales with held time and clamps at `512u` (`GAUSS_EMP_MAX_RADIUS`).
+  - Effective EMP radius scales with held time and clamps at `512u`.
 3. Pulse visuals/audio:
   - On release, the player emits a radial disk pulse (`TE_BEAMDISK` + `TE_BEAMCYLINDER`) centered on the player.
   - Ring radius uses the exact final EMP radius value (same clamped `96..512` result used for entity disruption range).
