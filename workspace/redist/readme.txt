@@ -216,6 +216,8 @@ v1.1 Features:
         - Added a laser to +attack2 so ice plasma can be detonated midair
     - Gravitygun
         - Use "reload" for a force-push attack
+    - Gauss
+        - Use "reload" to fire a disarming EMP blast
     - Hand grenades explode on contact with living targets (players/monsters)
     - Hornetguns
         - Hold "reload" to recharge hornets up to full capacity (recharges faster while held)
