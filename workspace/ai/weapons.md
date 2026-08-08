@@ -63,7 +63,7 @@ All player weapons derive from `CBasePlayerWeapon` (in `weapons.h`). The base pr
 | `WeaponIdle()` | none | Called when no fire buttons; gate `m_flTimeWeaponIdle`. |
 | `SemiAuto()` | — | Return `TRUE` if the weapon should require button release between shots; default `FALSE`. |
 | `UseDecrement()` | — | Return `TRUE` when client predicts the weapon. Standard pattern: `#if defined( CLIENT_WEAPONS ) return TRUE; #else return FALSE; #endif`. |
-| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Gauss EMP vent / Egon and Railgun charged modes / Nuke suicide plant, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CGauss` (EMP vent), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), `CAshpod` (portal clear), and `CNuke` (suicide-plant package). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
+| `AcceptReload()` | — | New (see Proximity Mines / Freeze Grenades / Snowball / Vest / Napalm Fuel Dump / Melee Smash / Portal clear / Gauss EMP vent / Egon and Railgun charged modes / Nuke suicide plant / Vice drug package, below). Default `FALSE`. Return `TRUE` to force `IN_RELOAD` to invoke `Reload()` even on `WEAPON_NOCLIP` weapons. Used by `CCrowbar` / `CWrench` / `CDualWrench` (charged smash), `CSatchel` (prox mine), `CTripmine` (prox mine), `CHandGrenade` (freeze throw), `CSnowball` (repack one snowball), `CVest` (enable proximity trigger mode), `CFlameThrower` and `CDualFlameThrower` (fuel dump), `CGauss` (EMP vent), `CEgon` (nova ball), `CRailgun` and `CDualRailgun` (charged rail + nuclear endpoint blast), `CAshpod` (portal clear), `CNuke` (suicide-plant package), and `CVice` (drug package throw). Knife zoom uses `Reload()` but does not rely on `AcceptReload()` (it uses the `iMaxClip = 1` hack instead). |
 
 ### Quick Recipe: Third Attack Through `Reload()` (Server + Client)
 
@@ -283,7 +283,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 ### Special / utility
 - `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`) — `+reload` performs a short-range force-push burst that can launch multiple nearby valid targets (players/monsters/movable entities) with strong knockback + lift; successful bursts play a sonic-ring visual stack.
 - `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`) — `+reload` now performs **Portal clear**: removes both live owner-linked `ent_portal` entities (if present), plays a confirmation click (`buttons/blip1.wav`) on success, and plays a deny sound (`common/wpn_denyselect.wav`) when no portals were active. The action is press-edge gated with a small cooldown to avoid spam while holding reload.
-- `weapon_vice` → `CVice` (`vice.cpp`)
+- `weapon_vice` → `CVice` (`vice.cpp`) — `+attack` smokes (self-poison), `+attack2` drinks (self-poison), and `+reload` throws a short-range sticky drug package that arms as a proximity poison/confusion trap. Throwing the package consumes the Vice weapon (one-use utility drop).
 
 ## Chaingun Reload Pre-Rev (`+reload` on `weapon_chaingun` and `weapon_dual_chaingun`)
 
@@ -368,13 +368,34 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
   - team filtering disabled (owner is still exempt),
   - detonation uses nuke TE stack + `nuke_explosion.wav`,
   - kill pass executes over all living players/monsters except the real owner, producing the intended owner immunity while all others die.
+6. Nuclear package indicator lights are always blue and intentionally ignore `icesprites`; this keeps the mine’s indicator identity distinct from standard red prox mines and Vice green drug mines.
 
 ### Reuse / mutator hook
 
 - Proxmine deployment is now split into shared helpers:
-  - `DeployProxMine(pPlayer, bNuclear)` (trace + mount),
-  - `DeployProxMineAt(pPlayer, origin, normal, bNuclear)` (direct mount).
+  - `DeployProxMine(pPlayer, bNuclear, bDrug)` (trace + mount),
+  - `DeployProxMineAt(pPlayer, origin, normal, bNuclear, bDrug)` (direct mount).
 - This is the switch point for future mutators that want satchel/tripmine/proxmine deployments to become nuclear without adding a second mine class.
+
+## Vice Sticky Drug Package (`+reload` on `weapon_vice`)
+
+`weapon_vice` now has a third route via reload: a short-range sticky packet that converts into a proxmine-backed drug cloud trap.
+
+### Wiring
+
+1. `CVice` now exposes `Reload()` and `AcceptReload() == TRUE` for explicit third-mode dispatch.
+2. Reload is press-edge gated (`m_afButtonPressed & IN_RELOAD`) and throws a `monster_satchel` carrier with `SF_SATCHEL_DRUG_PACKAGE`.
+3. Satchel touch conversion reuses the same path as nuclear package conversion and mounts a `monster_proxmine` through `DeployProxMineAt(..., bNuclear=FALSE, bDrug=TRUE)`.
+4. On successful throw, the player loses `weapon_vice` immediately (`m_iWeapons2` bit cleared + destroy path), making the mode intentionally single-use per pickup.
+
+### Drug proxmine behavior
+
+1. Detect radius is short-range (`PROXMINE_DRUG_DETECT_RADIUS`), smaller than normal proxmine.
+2. On trigger, blast visuals use a small ring + dlight + sprite burst:
+  - **green** in normal mode,
+  - **blue** when `icesprites` is enabled.
+3. After blast, the mine runs a brief lingering cloud (`PROXMINE_DRUG_DURATION`) that ticks (`PROXMINE_DRUG_TICK_INTERVAL`) poison + confusion damage (`DMG_POISON | DMG_CONFUSE`) in a compact radius (`PROXMINE_DRUG_RADIUS`), creating a short confusion-lock window.
+4. Indicator light color is always **green** for drug mines and does not change with `icesprites`.
 
 ## Melee Charged Smash (`+reload` on crowbar / wrench / dual wrench)
 
@@ -546,14 +567,18 @@ Both `weapon_satchel` and `weapon_tripmine` deploy a **proximity mine** when the
 2. `ItemPostFrame()`'s reload branch was changed from `iMaxClip() != WEAPON_NOCLIP` to `(iMaxClip() != WEAPON_NOCLIP || AcceptReload())`, so the dispatcher will call `Reload()` on these no-clip weapons.
 3. `CSatchel::Reload()` and `CTripmine::Reload()` trace 128 units forward from the gun position. On a valid static surface (`MOVETYPE_NONE` / `MOVETYPE_PUSH`, non-conveyor) they create `monster_proxmine` at the impact, decrement ammo, play the place animation, and gate `m_flNextAttack` for 1 s.
 4. `CSatchel` refuses to place a mine while the radio detonator is out (`m_chargeReady != 0`).
-5. Shared deploy helpers now accept a nuclear toggle (`bNuclear`) and can also mount directly at a chosen point/normal (`DeployProxMineAt`), which is how nuke reload converts its sticky satchel package into a nuclear proxmine.
+5. Shared deploy helpers now accept mode toggles (`bNuclear`, `bDrug`) and can also mount directly at a chosen point/normal (`DeployProxMineAt`), which is how nuke reload and vice reload convert sticky satchel packages into special proxmine variants.
 
 ### `CProxMine` lifecycle
 
 - `Spawn` — mounts to the model already in place (`models/v_tripmine.mdl`, `body=3`, `TRIPMINE_WORLD` sequence), starts `mine_deploy.wav` + `mine_charge.wav`, schedules `PowerupThink` with a 2.5 s power-up timer.
-- `PowerupThink` — traces back to find the host surface, then on arm time it goes `SOLID_BBOX`, plays `mine_activate.wav`, calls `MakeIndicator()` to attach a `sprites/glow01.spr` glow sprite (red, `kRenderGlow`, `kRenderFxNoDissipation`, scale 0.2), and hands off to `ProxThink`.
+- `PowerupThink` — traces back to find the host surface, then on arm time it goes `SOLID_BBOX`, plays `mine_activate.wav`, calls `MakeIndicator()` to attach a `sprites/glow01.spr` glow sprite, and hands off to `ProxThink`.
+- `MakeIndicator` color coding is mode-specific and never tied to `icesprites`: normal proxmine = red, drug proxmine = green, nuclear proxmine = blue.
 - `ProxThink` — every 50 ms blinks the indicator (220 → 32 alpha at 0.5 s rate) and every 150 ms scans `UTIL_FindEntityInSphere` for any living `IsPlayer()`/`FL_MONSTER` target inside `PROXMINE_DETECT_RADIUS` (200 u). The owner and same-team players (via `g_pGameRules->PlayerRelationship`) are skipped; a line-of-sight trace must clear before detonation.
-- `Killed` / `DelayDeathThink` — short random delay, then `CGrenade::Explode` with `DMG_BLAST` and `gSkillData.plrDmgTripmine`.
+- `Killed` / `DelayDeathThink` — short random delay, then mode-specific detonation:
+  - normal proxmine: classic tripmine-style blast,
+  - drug proxmine: small colored blast + short poison/confusion cloud ticks,
+  - nuclear proxmine: nuke TE stack + owner-safe kill-all pulse.
 - `TakeDamage` — quietly disarms (no explosion) if shot while still powering up.
 
 ### Tuning knobs
