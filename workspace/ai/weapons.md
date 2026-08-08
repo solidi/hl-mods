@@ -368,7 +368,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. â€œDual_*â
   - team filtering disabled (owner is still exempt),
   - detonation uses nuke TE stack + `nuke_explosion.wav`,
   - kill pass executes over all living players/monsters except the real owner, producing the intended owner immunity while all others die.
-6. Nuclear package indicators are always blue and intentionally ignore `icesprites`; this keeps visual identity distinct from standard red prox mines and vice green drug mines.
+6. Nuclear package indicator lights are always blue and intentionally ignore `icesprites`; this keeps the mineâ€™s indicator identity distinct from standard red prox mines and Vice green drug mines.
 
 ### Reuse / mutator hook
 
@@ -385,7 +385,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. â€œDual_*â
 
 1. `CVice` now exposes `Reload()` and `AcceptReload() == TRUE` for explicit third-mode dispatch.
 2. Reload is press-edge gated (`m_afButtonPressed & IN_RELOAD`) and throws a `monster_satchel` carrier with `SF_SATCHEL_DRUG_PACKAGE`.
-3. Satchel touch conversion reuses the same path as nuclear package conversion and mounts a `monster_proxmine` through `DeployProxMineAt(..., bDrug=TRUE)`.
+3. Satchel touch conversion reuses the same path as nuclear package conversion and mounts a `monster_proxmine` through `DeployProxMineAt(..., bNuclear=FALSE, bDrug=TRUE)`.
 4. On successful throw, the player loses `weapon_vice` immediately (`m_iWeapons2` bit cleared + destroy path), making the mode intentionally single-use per pickup.
 
 ### Drug proxmine behavior

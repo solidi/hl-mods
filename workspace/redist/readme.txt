@@ -246,7 +246,7 @@ v1.1 Features:
         - Switches to thirdperson on button push
         - Use "reload" to switch to proximity mode
     - Vice
-        - Use "reload" to place a drug proximity mine
+        - Use "reload" to throw a sticky drug package (single-use) that arms as a drug proximity mine
     - Wrench / Dual Wrench
         - Press, hold, and then release "reload" to perform a super smash
     - Zapgun
