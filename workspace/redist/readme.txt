@@ -226,8 +226,13 @@ v1.1 Features:
         - Use "reload" to place a proximity nuke package
     - Portalgun
         - Press "reload" to clear portals (edge-triggered; holding won't spam)
-    - Proximity Mine
-        - Use "reload" on either the tripmine or the satchel to place a proximity mine
+    - Railgun / Dual Railguns
+        - Firing is now client-side predicted for smoother play
+        - Hold "reload" to charge, then release to fire a nova beam
+    - Rocketcrowbar
+        - Use "reload" to detonate rockets on command
+    - Satchel
+        - Use "reload" to place an explosive proximity mine
     - Snarks
         - Use "reload" to detonate loose snarks at a higher blast radius
     - Snowball
@@ -235,14 +240,13 @@ v1.1 Features:
         - Make new snowballs with the reload button
         - Improved throw performance so it is more predictable
         - Primary attack is a medium throw; secondary is hold/charge for a longer throw
-    - Railgun / Dual Railguns
-        - Firing is now client-side predicted for smoother play
-        - Hold "reload" to charge, then release to fire a nova beam
-    - Rocketcrowbar
-        - Use "reload" to detonate rockets on command
+    - Tripmine
+        - Use "reload" to place an explosive proximity mine
     - Vest
         - Switches to thirdperson on button push
         - Use "reload" to switch to proximity mode
+    - Vice
+        - Use "reload" to place a drug proximity mine
     - Wrench / Dual Wrench
         - Press, hold, and then release "reload" to perform a super smash
     - Zapgun
