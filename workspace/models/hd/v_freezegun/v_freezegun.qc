@@ -221,7 +221,9 @@ $texrendermode "plasma_v_alpha.bmp" "additive"
 // attachment(s)
 $attachment 0 "Bone03" -23.000000 0.000000 0.000000
 // aim
-$attachment 0 "Bone03" 2.000000 2.000000 5.000000
+$attachment 1 "Bone03" 2.000000 2.000000 5.000000
+// angles
+$attachment 2 "Bone03" 0.000000 0.000000 0.000000
 
 // hit box(es)
 $hbox 0 "root" -9.310103 -5.299614 -12.557959 9.310107 0.000000 0.000000

@@ -35,6 +35,46 @@ All of them implement at minimum:
 - `SlotInput(int iSlot)` — keyboard slot selection (1–9 keys).
 - `Initialize()` — called on each new level start.
 
+## Mouse Wheel Scrolling (All Extended Menu Scroll Panels)
+
+Mouse wheel scrolling is now enabled for all retained-mode menu scroll panels that can extend past their visible region.
+
+- Entry point: `CViewPortInputHandler::mouseWheeled` in `src/cl_dll/vgui_TeamFortressViewport.cpp`.
+- Dispatch: the viewport forwards wheel delta to the currently open menu via `gViewPort->m_pCurrentMenu->MouseWheeled(delta)`.
+- Legacy fallback: `TeamFortressViewport::KeyInput` also maps `K_MWHEELUP`/`K_MWHEELDOWN` to `MouseWheeled(+1/-1)` while a VGUI menu is open, for clients where wheel input is surfaced as key events instead of VGUI wheel callbacks.
+- Base contract: `CMenuPanel::MouseWheeled(int)` defaults to `false`; panels with a scroll area override it.
+- Shared behavior: `HandleScrollPanelMouseWheel(ScrollPanel*, int)` in `src/cl_dll/vgui_CustomObjects.cpp`.
+- Button-hover forwarding: `CHandler_MenuButtonOver::mouseWheeled` and `CHandler_ButtonHighlight::mouseWheeled` also forward wheel input to the active menu so wheel scroll still works while cursor is over interactive vote buttons.
+- Passive-child forwarding: `CHandler_MenuWheelForward::mouseWheeled` is attached to scroll clients and non-button label overlays (row labels / tally labels / wait labels) so wheel input is not lost when hovering text-only regions.
+
+Helper behavior details:
+
+- Preserves horizontal scroll and only adjusts vertical scroll.
+- Normalizes wheel deltas (including `±120` Windows-style deltas), then clamps effective steps to `[-8, 8]` per event.
+- Applies a fixed `24` pixel vertical increment per step.
+
+Panels wired through this path:
+
+- `CClassMenuPanel`
+- `CTeamMenuPanel`
+- `CVoteGameplayPanel`
+- `CVoteMapPanel`
+- `CVoteMutatorPanel`
+- `CVoteGameOptionsPanel`
+- `CVoteServerOptionsPanel`
+- `CMessageWindowPanel` (MOTD/text window)
+
+Extra hardening for panel-specific dead zones:
+
+- `CVoteMapPanel`: wheel-forward input attached to scroll panel client + per-button tally labels.
+- `CVoteMutatorPanel`: wheel-forward input attached to scroll panel client + per-button subtitle/tally labels + synthetic INSTANT subtitle/tally label.
+- `CVoteGameOptionsPanel`: wheel-forward input attached to scroll panel client + row labels + wait label + per-option tally labels.
+- `CVoteServerOptionsPanel`: wheel-forward input attached to scroll panel client + row labels + wait label + per-option tally labels.
+
+Also wired for non-`CMenuPanel` extended scroll content:
+
+- `ControlConfigPanel` (`src/cl_dll/vgui_ControlConfigPanel.cpp`) via `InputSignal` bridge objects attached to the scroll panel/client/table.
+
 ## RTV Vote Panel Dismiss Rules
 
 - `CVoteGameplayPanel::Update()` and `CVoteMapPanel::Update()` auto-dismiss only for mid-game RTV (`!gHUD.m_iIntermission`) and now wait about 2.0 seconds after local vote selection before hiding.

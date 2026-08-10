@@ -462,6 +462,7 @@ Bots **never** open a join menu. `ClientPutInServer` sets `m_bWantsToPlay = TRUE
 8. **Stale `pBotPickupItem` blocking mode logic** — generic item-pickup pointer left non-null prevents the per-mode `*Think` else-if branch from firing. Each mode clears it explicitly in `*PreUpdate` (or in the early branch of `BotThink`) when the role demands it.
 9. **`f_waypoint_goal_time` 1-second spawn delay** — an early implementation set this on spawn, suppressing goal selection for the first second. Now zeroed in `BotSpawnInit` so goal selection fires the first frame.
 10. **`old_waypoint_goal` carryover** — if not cleared in `BotSpawnInit`, stale waypoint indices from a previous map can be restored after combat disengagement and send the bot to an invalid waypoint.
+11. **Client game sound pathing in `PlayCSound`** — in `cl_dll/hud_msg.cpp` `MsgFunc_PlayCSound`, entries must be relative to the `sound/` root (e.g. `gol.wav`, `soccer.wav`, `airhorn.wav`). Do not prefix with `sound/` there, or the lookup can fail silently and connected players will not hear mode announcer/goal audio.
 
 ## Per-Mode Spokes
 

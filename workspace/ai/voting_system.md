@@ -66,11 +66,14 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 - After an RTV ends (or its collection window expires), `mp_rtvcooldown` seconds must pass before another RTV type can be started.
 - RTV static collection windows are epoch-synced to server/map lifetime in `client.cpp`, so stale collect/vote state does not survive a map restart.
 - Startup cooldown is anchored to map-start time (not first chat attempt), so fresh map loads cannot trigger immediate RTV.
+- RTV collection quorum is computed as majority (`eligibleHumans/2 + 1`) using connected human net-clients only: bots/proxies/disconnected clients are excluded.
+- During an active RTV collection window, required votes are recalculated on each contribution and the tally only counts currently eligible humans, preventing stale "need one more vote" states after disconnect/state churn.
 
 ### Mid-game RTV chat commands
 
 - `gamemodes` in chat starts/joins a majority RTV collection window (`rtvtime`), then opens the gameplay vote panel (`VoteForGameplayRTV`).
 - `maps` in chat starts/joins a majority RTV collection window (`rtvtime`), then opens the map vote panel (`VoteForMapRTV`).
+- Spectators/observers are allowed to start and participate in RTV collection (policy change); only bots/proxies are excluded from quorum math.
 - On successful gameplay/map RTV tally, the server prints an explicit success line naming the selected mode/map, then calls `EndMultiplayerGame()`.
 - Successful gameplay/map RTV sets `m_bSkipIntermissionVoting = TRUE`, so intermission is short (`mp_chattime` only) and does not run the full five-phase intermission vote sequence again.
 - Mid-game RTV panel close UX uses a grace delay instead of immediate hide:

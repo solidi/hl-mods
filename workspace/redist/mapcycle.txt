@@ -5,7 +5,6 @@ chillworks \size\large
 cold_base \size\medium
 coldice \size\medium
 comet \size\medium
-defroster \size\large
 datafloe \size\medium
 depot \size\small
 doublefrost \size\medium
@@ -23,7 +22,6 @@ glupshitto \size\small
 ice_pit \size\medium
 latenightxmas \size\medium
 overflow \size\medium
-quadfrost \size\large
 snow_camp \size\mega
 snowcross \size\medium
 snowtransit \size\medium

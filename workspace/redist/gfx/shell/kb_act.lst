@@ -131,6 +131,7 @@
 "blank"			"#Ice_Extras_Title"
 "blank"			"=========================="
 "+hook"			"#Ice_Grappling_Hook"
+"drop"			"#Ice_Drop_Weapon"
 "drop_rune"		"#Ice_Drop_Rune"
 "feign"			"#Ice_Feign"
 "taunt"			"#Ice_Taunt"

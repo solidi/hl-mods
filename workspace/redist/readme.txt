@@ -27,6 +27,7 @@ v1.1 Features:
     - "upsidedown" - reverses up and down views
 - New Maps
     - suspension, a rebuild of Laserus's 1999 map by b1rd
+    - Removed quadfrost and defroster from normal rotation
 - New Command Menu
     -  "+commandmenu" (;) is now available in-game to toggle many options provided
 - New Radar indicators
@@ -56,11 +57,11 @@ v1.1 Features:
     - Added support for "rtv" in the chat as confirmation of a "vote" challenge
     - Send the current menu to a connecting player during a vote
     - Fixed menu title selection and added a brief pause for mutator menu voting
-    - Spectators cannot start an rtv of mutators, gameoptions, or serveroptions
     - Self-voting selection is now clear with white highlights
     - Added gamemode to all vote panels so the current mode is clear
     - Added a "Surprise Me" button to the vote menu for a randomized selection
     - Instant mutators can now be selected from the mutator vote panel
+    - Added mouse scrolling support to vgui menus
 - Game Modes Changes
     - Added hev sleeve colors to show which team a player is on (blue, red, green, yellow)
     - New celebration sequences switch to thirdperson and play sounds
@@ -73,6 +74,7 @@ v1.1 Features:
         - Improved bot performance and seeking during gameplay
         - Player who wins a battle continues to the next battle until defeated
         - Player with the most frags, even if negative, wins if time runs out
+        - Added frags to go read out for both players and spectators
     - Battle Royale
         - Improved bot performance and safe spot behavior during gameplay
         - Play a siren sound when the safespot shrinks
@@ -148,7 +150,7 @@ v1.1 Features:
         - Disable automelee in this gamemode to avoid automatic finding
         - Hunters regain health if converting a prop to a hunter
         - Last prop notice, and prop has double health and extra grenades
-        - Props run faster
+        - Props run faster, can no longer use the grappling hook
     - Shidden
         - Improved bot behavior for dealter and smelter roles
         - The fart no longer instantly kills; it now freezes the player
@@ -361,6 +363,7 @@ v1.1 Features:
             - Prevent props from picking up weapons
             - Fixed ammo decoy model drops
             - Props are no longer deducted points if they destroy decoys
+            - Restore props after round ends, protect against trigger_hurt
         - Shidden
             - Fixed missing messages when dealters are defeated
             - Fixed HUD scoreboard for remaining players

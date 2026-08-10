@@ -333,6 +333,8 @@ $texturegroup ice
 $attachment 0 "Hands biped L Forearm" 0.00000 0.00000 0.00000
 // aim
 $attachment 1 "Hands biped L Forearm" 3.0 6.0 6.5
+// angles
+$attachment 2 "Hands biped L Forearm" 0.000000 0.000000 0.000000
 
 // hit box(es)
 $hbox 0 "Hands biped L Forearm" -0.750000 -3.040000 -2.280000 15.650000 2.190000 3.140000

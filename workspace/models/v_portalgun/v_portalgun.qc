@@ -160,6 +160,12 @@ $texturegroup ice
   }
 }
 
+$attachment 0 "ValveBiped.Bip01_R_Hand" 0.000000 0.000000 0.000000
+// aim
+$attachment 1 "ValveBiped.Bip01_R_Hand" 2.0 3.0 7.0
+// angles
+$attachment 2 "ValveBiped.Bip01_R_Hand" 0.000000 0.000000 0.000000
+
 // hit box(es)
 $hbox 0 "ValveBiped.Bip01_R_UpperArm" 0.000000 -2.110000 -1.540000 12.250000 1.170000 1.730000
 $hbox 0 "ValveBiped.Bip01_R_Forearm" -0.280000 -1.540000 -1.710000 11.980000 1.650000 1.490000
