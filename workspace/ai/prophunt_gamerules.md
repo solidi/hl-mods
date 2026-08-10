@@ -40,6 +40,27 @@ duplicated `m_afButtonPressed` / `pev->button` read advances the body
 twice per press and produces "skipped" bodies and racing cooldowns.
 The decoy spawned via `monster_propdecoy` reads the same `fuser4`.
 
+### Prop camera icon (`cam_prop`)
+
+Prop Hunt now drives third-camera through `StatusIcon` using the sprite key
+`cam_prop` instead of direct `CLIENT_COMMAND("thirdperson/firstperson")`
+calls in gamerules.
+
+* **Spawn as prop (real players only):** `PlayerSpawn` sets
+  `m_fCameraDelay = gpGlobals->time + 1.0`; `PlayerThink` sends
+  `WRITE_BYTE(1), WRITE_STRING("cam_prop")` when the delay expires.
+  The 1-second defer avoids missed camera toggles during spawn churn.
+* **Spawn as hunter:** `PlayerSpawn` sends `cam_prop` disable (`WRITE_BYTE(0)`)
+  immediately to clear stale prop camera state.
+* **Prop converted to hunter:** conversion path schedules
+  `m_fCameraDelay = gpGlobals->time + 1.0`; on expiry, `PlayerThink` sends
+  `cam_prop` disable (`WRITE_BYTE(0)`).
+* **Round end with prop winners:** `DetermineWinner` sends
+  `cam_prop` disable (`WRITE_BYTE(0)`) to all in-arena props before winner
+  presentation so post-round camera state is normalized.
+* **Bots:** skipped entirely (`FL_FAKECLIENT` guard) because they do not
+  consume HUD/camera icon messages.
+
 ### +use morph (snap-onto-item)
 
 Props can also morph by **walking up to a live world item and pressing
@@ -55,8 +76,8 @@ Props can also morph by **walking up to a live world item and pressing
   the bot moves on to the next candidate.
 * `PlayerUse` runs a supplemental `UTIL_FindEntityInSphere` scan of
   radius `PROP_ANCHOR_USE_RADIUS` (80u) ahead of the standard FCAP scan
-  because world weapons/ammo are `SOLID_TRIGGER` with no `FCAP_*_USE`
-  flag and would never be picked by the normal `+use` loop.  The view
+  because world weapons/ammo do not advertise `FCAP_*_USE` and would never
+  be picked by the normal `+use` loop.  The view
   cone is the standard `VIEW_FIELD_NARROW` dot.
 * On success the item is hidden (`EF_NODRAW` + saved-`solid` → `SOLID_NOT`),
   the prop's `fuser4` is snapped to the derived body, the morph
@@ -72,6 +93,27 @@ Props can also morph by **walking up to a live world item and pressing
 * `ReleasePropAnchor` is also called on prop→hunter conversion, on
   `PlayerSpawn`, and on `ClientDisconnected`, so an item never stays
   invisible if its owner team-swaps or quits.
+
+### Map pickup resilience (`trigger_hurt`, snowcross)
+
+Prop Hunt now protects map-spawned weapon/ammo/item anchors from scripted
+map sweep damage and guarantees fresh anchors at each round start:
+
+* `CBasePlayerItem::TakeDamage`, `CBasePlayerAmmo::TakeDamage`, and
+  `CItem::TakeDamage` ignore
+  damage when `pevInflictor` is `trigger_hurt` **and** the pickup is a
+  world pickup (`owner == NULL`).  This prevents moving nuke sweeps from
+  deleting real anchors.
+* `CHalfLifePropHunt::WeaponShouldRespawn` / `AmmoShouldRespawn` /
+  `ItemShouldRespawn` now defer
+  to `CHalfLifeMultiplay`, so destroyed map pickups respawn normally
+  (`SF_NORESPAWN` still respected).
+* At round boot (inside `CHalfLifePropHunt::Think` before team shuffle),
+  `RestoreWorldPickupsForRound` scans world `weapon_*` / `ammo_*` /
+  `item_*` entities,
+  re-materializes hidden respawn placeholders, and re-arms
+  `health=1,takedamage=DAMAGE_YES` so props always have blend targets
+  before hunters are released.
 
 Bots use the same path: `BotProphuntPreUpdate` checks each frame whether
 its chosen `p_pp_target_item` is morphable (`PP_AnchorMorphBody`); if so
@@ -91,14 +133,25 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
 | `mp_hunterselfcost`   | 1       | HP a hunter loses per primary-fire event (excludes fists/grenade).     |
 | `mp_floatingweapons`  | (inh.)  | Inherited from base; controls dropped-weapon behaviour.                |
 
+### Grappling hook policy
+
+`+hook` is gated by `CGameRules::AllowGrapplingHook`.
+
+* In Prop Hunt, **props are always denied** grappling hook deploy.
+* Hunters follow the base multiplayer gate (`mp_grapplinghook` / inherited
+  hook settings).
+
 ## Round lifecycle
 
-1. **Spawn** — `PlayerSpawn` sets per-team loadout, clears render fx, seeds
+1. **Round reset / spawn prep** — before team assignment, the server runs
+  `RestoreWorldPickupsForRound` so hidden or damaged world `weapon_*` /
+  `ammo_*` / `item_*` props are visible and damage-reactive again.
+2. **Spawn** — `PlayerSpawn` sets per-team loadout, clears render fx, seeds
    `fuser4`, sets `haste="1"` on prop edicts via
    `g_engfuncs.pfnSetPhysicsKeyValue`.
-2. **Freeze window** — hunters are pinned for `prophuntfreeze` while props
+3. **Freeze window** — hunters are pinned for `prophuntfreeze` while props
    scatter.  Server signals via `pev->fuser3 = gpGlobals->time + duration`.
-3. **Active play** —
+4. **Active play** —
    * Prop damage path: `FPlayerCanTakeDamage` subtracts `PROP_DAMAGE_PROXY = 5`
      HP per hit, plays pain sound, returns FALSE (no engine damage).  When
      `pev->health <= 0` the prop is converted to a hunter (team swap, glow
@@ -108,7 +161,7 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
      `hunterselfcost.value` HP, floor at 5.
    * Kill-heal: converting a prop tops the responsible hunter's HP up to
      `max_health`.
-4. **Last prop buff** — when `m_iPropsRemain == 1 && m_iPropsStarted >= 2`
+5. **Last prop buff** — when `m_iPropsRemain == 1 && m_iPropsStarted >= 2`
    stamp `pev->fuser3 = -1` on the survivor (the cross-DLL DESPERATE flag
    read by the bot), top HP to `prophealth*2`, broadcast a chat line
    announcing the last prop standing, and resupply one hand grenade every
@@ -117,7 +170,7 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
    key off `kRenderFxGlowShell` but that field collides with the freeze
    rune in `player.cpp` (and with weapon-box / corpse render fx), so the
    trigger could be missed or clobbered.
-5. **Round end** — winner pulse, banner, `EndMultiplayerGame()` rotate.
+6. **Round end** — winner pulse, banner, `EndMultiplayerGame()` rotate.
 
 ## Cross-DLL signals (server ↔ bot)
 
@@ -137,6 +190,9 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
 * `monster_propdecoy` — short-lived prop decoy spawned by props during
   panic; its `pev->body` is forced to match the owner's `fuser4` so it
   visually matches the prop that dropped it.
+* Decoys ignore `trigger_hurt` damage (`CPropDecoy::TakeDamage`) so
+  map-scripted hurt sweeps (for example snowcross nuclear passes) do not
+  delete decoys or trigger hunter score penalties tied to destroyed props.
 
 ## Bot AI implementation
 

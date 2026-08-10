@@ -2,6 +2,7 @@
 
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
 [ ] cold_base.bsp outside area showing tunnel in sky
+[ ] Using full screen is hall of mirrors - in training2?
 
 ## Suggestions
 
@@ -33,6 +34,38 @@
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
 [ ] pirate sounds when hat mutator on
+
+## v1.1 Buglist
+
+## GSS v1.1 Playtest August 2026
+
+[x] closeup mutator
+    [x] single and dual handcannon off center
+[x] CTF
+    [x] command menu
+        [X] in ctf, after accepting spectator, spectator cannot join red or blue button from menu, does nothing
+[x] crouch broken, some maps?
+[x] suspension missing in mapcycle?
+[x] accounting issue with connected to server
+[x] cannot change weapons?
+[x] 1 vs 1
+    [x] fraglimit not working. always best of three
+    [x] show fraglimit in hud
+[x] reenable rtv voting in spectator
+[x] scrollwheel not working for vgui
+[x] Loot
+    [x] Was able to pick up hgun when already having weapon, should have read "drop weapon first"
+    [x] Crash on join, messages too big?
+    [x] Drop weapons bind - add to config and bind
+[x] Prophunt
+    [x] nuke kills all props in snowcross, need to respawn items
+    [x] thirdperson not working as prophunt when starting as prop
+    [x] crash on prophunt, func_tank
+[x] KTS
+    [x] No score or audience sounds on others scoring?
+[x] Horde
+    [x] Refresh ammo if starting new wave after the last round
+[x] Client side crash - playtest (gungame), quadfrost and deroster, remove.
 [x] ASMR weapon from UT?
 [x] Add infinity snowballs, and remove the fists
 

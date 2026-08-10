@@ -163,7 +163,13 @@ $texturegroup ice
 
 // attachment(s)
 $attachment 0 "Bip01 R Finger12" 0.000000 0.000000 0.000000
-$attachment 1 "Bip01 L Finger12" 0.000000 0.000000 0.000000
+// aim
+$attachment 1 "Bip01 R Finger12" 2.0 4.5 4.0
+// angles
+$attachment 2 "Bip01 R Finger12" 0.000000 0.000000 0.000000
+
+// Second finger
+//$attachment 1 "Bip01 L Finger12" 0.000000 0.000000 0.000000
 
 // hit box(es)
 $hbox 0 "Bip01 R Hand" 0.000000 0.000000 0.000000 8.085783 1.563943 7.994959

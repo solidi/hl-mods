@@ -12,6 +12,8 @@
 
 ## Win Condition
 - First player to reach `roundfraglimit` frags wins the round
+- Arena resolves `mp_roundfraglimit` live at runtime (`CVAR_GET_FLOAT("mp_roundfraglimit")`) for winner checks, respawn gates, and HUD text
+- If `mp_roundfraglimit <= 0`, there is no frag-cap win condition; rounds end by timer, disconnect, or map/intermission flow
 - If `roundtimelimit` expires, highest frag count wins; tied frags = draw (no champion)
 - Winner becomes the **reigning champion** and defends against the next challenger
 - Overall match ends after `roundlimit` total rounds (cvar); calls `GoToIntermission()`
@@ -114,6 +116,7 @@ MATCH IN PROGRESS (g_GameInProgress = TRUE)
   1. `g_GameInProgress == TRUE`
   2. Player IS one of the two active arena combatants (`pPlayer1` or `pPlayer2`)
   3. The opponent has NOT yet reached `roundfraglimit` (opponent's frags < limit)
+     - If `roundfraglimit <= 0`, combatants can always respawn (no frag-cap cutoff)
 - Dead non-combatants get `m_flForceToObserverTime = gpGlobals->time + 3.0` → forced to spectator
 
 ## HasGameTimerExpired
@@ -155,7 +158,7 @@ The source comment at line 511 (`//Should really be using InsertClientsIntoArena
 - Match-end edge cases (`countdown abort`, `disconnect during countdown` at lines 295/320/580): `SuckAllToSpectator()` — full reset.
 
 ### Spectator-Side HUD (during active match)
-Lines 234-256: every observer (`plr->IsSpectator() && !FL_FAKECLIENT`) gets a `gmsgObjective` broadcast each tick showing `"1 vs. 1: Round N | Player1 (HP/Armor) vs. Player2 (HP/Armor)"`. This is what spectators see while waiting for their turn in the pool.
+Lines 234-256: every observer (`plr->IsSpectator() && !FL_FAKECLIENT`) gets a `gmsgObjective` broadcast each tick showing `"1 vs. 1: Round N | Player1 (HP/Armor) vs. Player2 (HP/Armor)"` plus the frag target line (`"First to N frags"` or `"No frag limit"`). This is what spectators see while waiting for their turn in the pool.
 
 ### Spectator Pitfalls Specific to Arena
 - **The opponent pool only contains committed-to-play players.** Both `CheckClients()` and Arena's own pool builders (initial-build at ~line 339 and exhaustion-rebuild at ~line 429) gate on `IsCommittedToPlay()`. A spectator can be `IsSpectator() == TRUE` AND committed (sitting out the current 1v1) and still be in `m_iOpponentPool[]`; Limbo + Chose-Spectate are excluded entirely.
@@ -168,6 +171,8 @@ Lines 234-256: every observer (`plr->IsSpectator() && !FL_FAKECLIENT`) gets a `g
 - Calls `CHalfLifeMultiplay::PlayerKilled()` first (standard frag accounting)
 - If `g_GameInProgress`: updates both players' HUD objectives:
   - Shows opponent name, frags needed to win, progress bar percentage
+  - Uses live `mp_roundfraglimit` resolution for all frags-to-go/progress text
+  - If no frag cap (`<= 0`), shows no-limit messaging and avoids progress divide-by-zero
   - Switches to "You Defeated X!" / "You are the WINNER!" when frag limit reached
 
 ## Key CVars
@@ -177,6 +182,15 @@ Lines 234-256: every observer (`plr->IsSpectator() && !FL_FAKECLIENT`) gets a `g
 | `roundtimelimit` | Time limit per round (0 = no limit) |
 | `roundlimit` | Total rounds before intermission (0 = unlimited) |
 | `roundwaittime` | Seconds to wait before starting when players are present |
+
+### `mp_roundfraglimit` Source of Truth (2026-08 fix)
+- Root cause of the "always 3 frags" bug: arena flow relied on a stale/cached frag-limit path during runtime transitions; because game-options include a `3 frags` choice, rounds could repeatedly resolve to 3 even when `1` was expected.
+- Fix contract: resolve `mp_roundfraglimit` live via `CVAR_GET_FLOAT("mp_roundfraglimit")` in every arena frag-limit decision path.
+- Required touch points:
+  1. Round win check in `Think()`
+  2. Respawn gate in `FPlayerCanRespawn()`
+  3. Objective/HUD updates in `PlayerKilled()` and spectator objective broadcast
+- No-limit semantics: `<= 0` means frag cap disabled; do not end rounds by frags and do not compute `%` progress from frag limit.
 
 ---
 
@@ -351,3 +365,4 @@ All arena fields reset on every spawn:
 6. **Dead-end waypoints cause infinite spin**: Waypoints without outgoing paths trap the bot in a spin loop. The dead-end escape logic scans for nearby connected waypoints to break out.
 7. **Death animation keeps enemy state alive**: The dead block (`deadflag != DEAD_NO`) fires `BotSpawnInit` only once (via `need_to_initialize`), then early-returns every subsequent frame. Without explicit clearing, `pBotEnemy`, `v_goal`, and `i_arena_opponent` persist through the entire death animation — the bot keeps tracking its dead opponent. Fix: clear arena combat state unconditionally (every frame) at the top of the dead block, before the `need_to_initialize` check.
 8. **Opponent temporarily dead breaks waypoint goal**: When the opponent is respawning, `BotFindWaypointGoal`'s arena section can't find an alive opponent. If this sets `waypoint_goal = -1` and returns, the bot loses all navigation. Fix: guard the waypoint-setting code with `if (pOpponent)` and let the `!pOpponent` case fall through to normal FFA waypoint logic (health/weapon/random) so the bot keeps moving during the brief respawn window.
+9. **Round frag limit must be read live**: Arena round-end and HUD code must use live `mp_roundfraglimit` resolution, not stale/cached values. A stale value previously manifested as rounds always ending at `3` frags regardless of voted/startup `1`.

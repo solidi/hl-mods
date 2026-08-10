@@ -74,6 +74,15 @@ Non-viewmodel entities continue using weapon-only skin selection.
 
 `UseIceVisualStyle()` is the central guard for ice-blue client effects (particles, muzzle flash variants, beam tint), so FX now respect mutator overrides without mutating user cvars.
 
+## Iron Sight Attachment Contract
+
+`V_IronSight` in `view.cpp` now requires the viewmodel studio header to declare both of these attachment slots:
+
+- attachment `1`: iron-sight position (`aim_punch`)
+- attachment `2`: iron-sight angle offsets (`aim_angles`)
+
+If either slot is missing (for example, models that reuse attachment 1 for an alternate muzzle like sawedoff), client code skips iron-sight close-up/angle transforms and restores normal FOV behavior.
+
 ## Sleeve Texture Authoring Notes
 
 Recent sleeve texture work introduced an authoring pattern for shared HD sleeve atlases:

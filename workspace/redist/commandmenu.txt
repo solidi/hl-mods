@@ -137,10 +137,11 @@
 }
 "3" "Combat"
 {
-    "0" "Throw Weapon" "impulse 216"
-    "1" "Force Grab" "impulse 215"
-    "2" "Drop Rune" "drop_rune"
-    "3" "Moves"
+    "0" "Drop Weapon" "drop"
+    "1" "Drop Rune" "drop_rune"
+    "2" "Throw Weapon" "impulse 216"
+    "3" "Force Grab" "impulse 215"
+    "4" "Moves"
     {
         "0" "Kick" "impulse 206"
         "1" "Punch" "impulse 207"
@@ -153,12 +154,12 @@
         "8" "Roll Left" "impulse 211"
         "9" "Swap Dual Weapon" "impulse 205"
     }
-    "4" "Actions"
+    "5" "Actions"
     {
         "0" "Taunt" "taunt"
         "1" "Feign Death" "feign"
     }
-    "5" "Auto Options"
+    "6" "Auto Options"
     {
         "0" "Auto Melee"
         {
