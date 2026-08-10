@@ -27,7 +27,7 @@ v1.1 Features:
     - "upsidedown" - reverses up and down views
 - New Maps
     - suspension, a rebuild of Laserus's 1999 map by b1rd
-    - Removed quadfrost and deforster from normal rotation
+    - Removed quadfrost and defroster from normal rotation
 - New Command Menu
     -  "+commandmenu" (;) is now available in-game to toggle many options provided
 - New Radar indicators

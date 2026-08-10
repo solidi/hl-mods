@@ -65,7 +65,7 @@
     [x] No score or audience sounds on others scoring?
 [x] Horde
     [x] Refresh ammo if starting new wave after the last round
-[x] Client side crash - playtest (gungame), quadfrost and deroster, remove.
+[x] Client side crash - playtest (gungame), quadfrost and defroster, remove.
 [x] ASMR weapon from UT?
 [x] Add infinity snowballs, and remove the fists
 

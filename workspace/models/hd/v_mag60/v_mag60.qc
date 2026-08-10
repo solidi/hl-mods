@@ -246,7 +246,7 @@ $attachment 0 "bladegun" 0.000000 -7.800000 -10.000000
 // aim
 $attachment 1 "bladegun" 3.0 3.5 3.1
 // angles
-$attachment 2 "Bip01 R Hand" 0.000000 0.000000 0.000000
+$attachment 2 "bladegun" 0.000000 0.000000 0.000000
 
 // hit box(es)
 $hbox 0 "Bip01 L Forearm" 0.000000 -9.331287 0.000000 4.370319 0.000000 4.803056
