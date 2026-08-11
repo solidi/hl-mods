@@ -267,7 +267,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun` — passive hornet trickle-recharges automatically; **holding `+reload` doubles the recharge rate** and plays the `func_healthcharger` loop for audible feedback (see below).
 - `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
-- `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`)
+- `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`) — `+reload` while clip is full now cycles primary payload mode (contact default, bounce, cluster, freeze, sticky prox satchel, sticky drug satchel); mode is shown on HUD, persists across holster/deploy, and resets after weapon loss/reacquire.
 - `weapon_cannon` → `CCannon` (`cannon.cpp`)
 - `weapon_nuke` → `CNuke` (`nuke.cpp`) — primary/secondary still launch the tactical nuke rocket (secondary = camera mode), and `+reload` now throws a sticky satchel-style nuclear package that arms as a proximity self-destruct trap.
 
@@ -284,6 +284,27 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_gravitygun` → `CGravityGun` (`gravitygun.cpp`) — `+reload` performs a short-range force-push burst that can launch multiple nearby valid targets (players/monsters/movable entities) with strong knockback + lift; successful bursts play a sonic-ring visual stack.
 - `weapon_ashpod`, `weapon_portalgun` → `CAshpod` (`ashpod.cpp`) — `+reload` now performs **Portal clear**: removes both live owner-linked `ent_portal` entities (if present), plays a confirmation click (`buttons/blip1.wav`) on success, and plays a deny sound (`common/wpn_denyselect.wav`) when no portals were active. The action is press-edge gated with a small cooldown to avoid spam while holding reload.
 - `weapon_vice` → `CVice` (`vice.cpp`) — `+attack` smokes (self-poison), `+attack2` drinks (self-poison), and `+reload` throws a short-range sticky drug package that arms as a proximity poison/confusion trap. Throwing the package consumes the Vice weapon (one-use utility drop).
+
+## Grenade Launcher Full-Clip Mode Select (`+reload` on `weapon_glauncher`)
+
+`weapon_glauncher` keeps normal reload behavior while the clip is not full. When the clip is full, reload is repurposed as a press-edge mode cycle for **primary fire only**.
+
+### Modes (primary only)
+
+1. Contact grenade (default)
+2. Timed bounce grenade
+3. Cluster grenade
+4. Freeze grenade (`freezegrenade`)
+5. Sticky proximity satchel package (`SF_SATCHEL_PROX_PACKAGE`, non-nuclear)
+6. Sticky drug satchel package (`SF_SATCHEL_DRUG_PACKAGE`)
+
+### Behavior
+
+1. Secondary fire is unchanged (existing cluster/snowbomb behavior remains).
+2. Every mode cycle prints center-HUD text with the newly selected mode.
+3. Deploy and low-key deploy always print the currently active mode.
+4. Selection persists while the weapon remains owned (holster/deploy safe).
+5. Losing and re-acquiring the weapon resets mode to default contact.
 
 ## Chaingun Reload Pre-Rev (`+reload` on `weapon_chaingun` and `weapon_dual_chaingun`)
 
@@ -567,7 +588,7 @@ Both `weapon_satchel` and `weapon_tripmine` deploy a **proximity mine** when the
 2. `ItemPostFrame()`'s reload branch was changed from `iMaxClip() != WEAPON_NOCLIP` to `(iMaxClip() != WEAPON_NOCLIP || AcceptReload())`, so the dispatcher will call `Reload()` on these no-clip weapons.
 3. `CSatchel::Reload()` and `CTripmine::Reload()` trace 128 units forward from the gun position. On a valid static surface (`MOVETYPE_NONE` / `MOVETYPE_PUSH`, non-conveyor) they create `monster_proxmine` at the impact, decrement ammo, play the place animation, and gate `m_flNextAttack` for 1 s.
 4. `CSatchel` refuses to place a mine while the radio detonator is out (`m_chargeReady != 0`).
-5. Shared deploy helpers now accept mode toggles (`bNuclear`, `bDrug`) and can also mount directly at a chosen point/normal (`DeployProxMineAt`), which is how nuke reload and vice reload convert sticky satchel packages into special proxmine variants.
+5. Shared deploy helpers now accept mode toggles (`bNuclear`, `bDrug`) and can also mount directly at a chosen point/normal (`DeployProxMineAt`), which is how nuke reload, vice reload, and grenade-launcher sticky primary modes convert satchel packages into proxmine variants.
 
 ### `CProxMine` lifecycle
 
