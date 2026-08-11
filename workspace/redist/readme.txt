@@ -198,6 +198,8 @@ v1.1 Features:
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
     - Default ammo gives are doubled
+    - Cannon
+        - On full clip, use "reload" to deploy a vent blast
     - Chaingun
         - Use "reload" on full clip to pre-spin and improve accuracy
     - Chainsaw

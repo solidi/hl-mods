@@ -268,7 +268,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
 - `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`) — `+reload` while clip is full now cycles primary payload mode (contact default, bounce, cluster, freeze, sticky prox satchel, sticky drug satchel); mode is shown on HUD, persists across holster/deploy, and resets after weapon loss/reacquire.
-- `weapon_cannon` → `CCannon` (`cannon.cpp`)
+- `weapon_cannon` → `CCannon` (`cannon.cpp`) — `+reload` now fires a close-range defensive shockwave (2 rockets, radial knockback, projectile swat, no underwater effect).
 - `weapon_nuke` → `CNuke` (`nuke.cpp`) — primary/secondary still launch the tactical nuke rocket (secondary = camera mode), and `+reload` now throws a sticky satchel-style nuclear package that arms as a proximity self-destruct trap.
 
 ### Slot 5 — Throwables / placeables
@@ -370,6 +370,41 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 
 - Developer trace (`developer > 0`) logs target count, burst origin, and sprite indexes per burst.
 - Known failure signature: `beamSprite=0 flashSprite=0` means precache indexes were wiped before use. In this weapon, indices must not be zeroed after `Precache()` inside `Spawn()`.
+
+## Cannon Shockwave Reload (`+reload` on `weapon_cannon`)
+
+`weapon_cannon` now exposes reload as an instant defensive utility burst when enough rocket ammo is available.
+
+### Wiring
+
+1. `CCannon` now overrides `AcceptReload() == TRUE` and implements `Reload()` as a press-edge action (`m_afButtonPressed & IN_RELOAD`) to avoid hold-repeat spam.
+2. Client reload dispatch was aligned with server behavior in `hl_weapons.cpp` (`iMaxClip() != WEAPON_NOCLIP || AcceptReload()`), so no-clip reload modes predict consistently.
+3. `Reload()` is blocked underwater (`waterlevel == 3`) and when fewer than `2` rockets are available.
+
+### Costs and cooldowns
+
+1. Ammo cost: `2` rockets per shockwave.
+2. Success cooldown: `4.5s * WeaponMultipler()`.
+3. Fail cooldown (underwater/insufficient ammo): `0.45s * WeaponMultipler()`.
+
+### Radius, knockback, and damage
+
+1. Radius: `180u` around the player (`pev->origin + up * 36`).
+2. Players and monsters are pushed radially away from the player in a full 360-degree protection ring, with modest upward lift.
+3. Push strength is intentionally lighter than gravitygun repulse (`900..1450` force, `150..280` uplift, distance-scaled).
+4. Light utility damage is applied to living targets only (`6`, `DMG_SONIC | DMG_NEVERGIB`).
+
+### Projectile swat behavior
+
+1. Nearby live projectiles/explosive entities inside the radius are also repulsed.
+2. This includes common grenade/rocket/flak/plasma/hornet/snark/chumtoad/disc/flying-melee projectile classes plus generic dynamic bounce/fly/toss entities.
+3. Projectile swat does not apply damage; it only redirects velocity.
+
+### FX and player feedback
+
+1. Burst visual stack reuses the gravity push language (`TE_BEAMDISK`, `TE_BEAMCYLINDER`, `TE_SPRITE`, `TE_DLIGHT`) with the same ice/non-ice color split.
+2. Burst uses `weapons/rocketfire1.wav`; underwater denial uses `common/wpn_denyselect.wav`.
+3. Client HUD pro tip was added for cannon: "Use RELOAD to blast a close-range shockwave".
 
 ## Nuke Suicide Plant (`+reload` on `weapon_nuke`)
 
