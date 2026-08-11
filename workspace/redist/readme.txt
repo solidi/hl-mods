@@ -219,7 +219,7 @@ v1.1 Features:
     - Gravitygun
         - Use "reload" for a force-push attack
     - Grenade Launcher
-        - Use "reload" to select the type of grenade to launch
+        - With a full clip, use "reload" to select the type of grenade to launch
     - Gauss
         - Use "reload" to fire a disarming EMP blast
     - Hand grenades explode on contact with living targets (players/monsters)
