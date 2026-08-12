@@ -199,7 +199,7 @@ v1.1 Features:
 - Weapons Additions and Changes
     - Default ammo gives are doubled
     - Cannon
-        - On full clip, use "reload" to deploy a vent blast
+        - With at least 2 rockets, use "reload" to deploy a vent blast
     - Chaingun
         - Use "reload" on full clip to pre-spin and improve accuracy
     - Chainsaw
