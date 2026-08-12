@@ -21,7 +21,7 @@ picks them up, see [gravebot.md → Rune handling](gravebot.md#4-rune-handling).
 | 6  | `RUNE_GRAVITY`  | `rune_gravity`  | `pev->gravity = 0.6`                               | [items.cpp](../src/dlls/items.cpp#L885) |
 | 7  | `RUNE_STRENGTH` | `rune_strength` | `flDamage *= 1.5` for outgoing damage              | [player.cpp](../src/dlls/player.cpp#L513-L515) |
 | 8  | `RUNE_CLOAK`    | `rune_cloak`    | Render alpha invisibility                          | [items.cpp](../src/dlls/items.cpp#L1002-L1006) |
-| 9  | `RUNE_AMMO`     | `rune_ammo`     | Refilling ammo (+ instagib hornetgun /             | [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp#L2312-L2325), [items.cpp](../src/dlls/items.cpp#L1068-L1086) |
+| 9  | `RUNE_AMMO`     | `rune_ammo`     | Refilling ammo (except `weapon_nuke`) (+ instagib hornetgun / | [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp#L2324-L2347), [items.cpp](../src/dlls/items.cpp#L1068-L1086) |
 |    |                 |                 | snowball glauncher in those modes)                 | |
 
 `RUNE_FLAKE`, `RUNE_SKULL`, `RUNE_HORNET`, `RUNE_SNOWBALL` (10–13) are
@@ -32,6 +32,13 @@ Player-side state lives on `CBasePlayer`:
 - `m_fHasRune` — current rune ID, 0 if none ([player.h](../src/dlls/player.h#L227)).
 - `m_flRuneHealTime` — regen / ammo tick gate ([player.h](../src/dlls/player.h#L228)).
 - `m_fVampireHealth` — vampire drain accumulator ([player.h](../src/dlls/player.h#L533)).
+
+### 1.1 Ammo rune anti-spam guard (2026-08)
+
+- `RUNE_AMMO` regen now skips `weapon_nuke` in
+   [multiplay_gamerules.cpp `CHalfLifeMultiplay::PlayerThink`](../src/dlls/multiplay_gamerules.cpp#L2324-L2347).
+- Scope is intentionally narrow: this only affects the periodic +1 ammo tick
+   while carrying `RUNE_AMMO`; pickup/drop behavior is unchanged.
 
 ---
 
