@@ -185,8 +185,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Cycle through key interest items in certain gameplay modes, like loot, monsters, chumtoad, etc.
     1. [ ] 1 vs. 1 mode
         1. [ ] visualize leadership ladder board so there is an ulimate fight before mode ends
-        1. [ ]  the one that loses goes out and naother one steps in.. it would be fuin if it's made gated with a cvar best of 3 or best of 5 matches.
-        1. [ ] cvar option thats like ctctoads, busters, etc, but 1v1 vs 1v1v1 etc
+        1. [ ] The loser is eliminated and another player steps in. It would be fun to gate this behind a CVAR for best-of-three or best-of-five matches.
+        1. [ ] Add a CVAR option similar to ctctoads and busters, but for 1v1, 1v1v1, etc.
     1. [ ] Instagib
         1. [ ] Oblierated / pixels death
     1. [ ] Support
