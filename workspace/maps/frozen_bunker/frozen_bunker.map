@@ -7604,13 +7604,13 @@
 }
 {
 "classname" "infodecal"
-"texture" "decals/{drips1"
+"texture" "{DRIPS1"
 "spawnflags" "0"
 "origin" "-1872 9 50"
 }
 {
 "classname" "infodecal"
-"texture" "decals/{drip2"
+"texture" "{DRIP2"
 "spawnflags" "0"
 "origin" "-2160 -85 55"
 }
@@ -9441,7 +9441,7 @@
 }
 {
 "classname" "infodecal"
-"texture" "decals/{scorch1"
+"texture" "{SCORCH1"
 "spawnflags" "0"
 "origin" "-227 -908 674"
 }
