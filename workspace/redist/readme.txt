@@ -260,6 +260,7 @@ v1.1 Features:
         - Added a stun gun laser attack when pressing the reload button
 - Runes
     - Added support for unique runes, one of each type. For abundant/duplicate rune spawning, use mp_allowrunes 2 (or higher)
+    - Removed ammo rune ability to replicate nuke ammo
 - Server
     - Added "botfinditem [0-1]" to turn the bot item search logic on or off
     - Added "mp_rtvtime [sec]" for real-time voting duration
