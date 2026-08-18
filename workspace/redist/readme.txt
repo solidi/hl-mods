@@ -198,6 +198,7 @@ v1.1 Features:
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
     - Default ammo gives are doubled
+    - Grappling Hook provides Scorpion-like attack, pulling in their victim if hit
     - Cannon
         - With at least 2 rockets, use "reload" to deploy a vent blast
     - Chaingun
