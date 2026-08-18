@@ -39,7 +39,7 @@ The entity is registered with `LINK_ENTITY_TO_CLASS( grapple_hook, CHook )`.
 | `mp_grapplinghookdeploytime`  | `1.0`   | Cooldown between consecutive `+hook` deployments — written to `m_flNextHook`. |
 | `mp_grabsky`                  | `1`     | When `1`, sky-grappling is allowed (the texture trace is skipped). When `0`, `FireHook` traces forward and refuses if the surface texture is `"sky"`. |
 | `sk_plr_hookspeed`            | skill   | `gSkillData.plrSpeedHook` — projectile launch speed. |
-| `sk_plr_dmg_hook`             | skill   | `gSkillData.plrDmgHook` — damage on a takedamage entity hit. |
+| `sk_plr_dmg_hook`             | skill   | `gSkillData.plrDmgHook` — damage on non-finisher takedamage hits (non-player or disallowed player-hit path). |
 
 Per-mode `AllowGrapplingHook` (returns `BOOL`):
 - Singleplayer: always allows.
@@ -72,35 +72,57 @@ client.cpp / impulse 217: CHook::HookCreate( player )
    │   SetTouch(HookTouch); nextthink = +0.2                    │
    └────────────────────────────────────────────────────────────┘
                         |
-            ┌───────────┴───────────┐
-            v                       v
-     touches owner             touches anything else
-     (re-arm 0.2s think)       SetTouch(NULL); SetThink(NULL)
-                                       |
-                  ┌────────────────────┼─────────────────────┐
-                  v                                          v
-       pOther->takedamage                              !takedamage (wall)
-       TraceAttack(plrDmgHook, DMG_NEVERGIB)           SOLID_NOT, vel=0
-       restore player movetype/gravity                 SetThink(Think)
-       m_fActiveHook = FALSE                           m_fHookInWall = TRUE
-       SP: Killed(); MP: pev->effects |= EF_NODRAW     player->movetype = FLY
-       pev->nextthink = -1     <-- hibernating         (null-guarded)
-                  |
-                  v
-                 -hook bind  → KillHook() → SUB_Remove() → UpdateOnRemove()
-                  ^
-                  |
-   ┌──────────────┴──────────────────────────────────┐
-   │ Think() — runs every 0.1s while in wall         │
-   │   if !pevOwner || !IsAlive(): SetTouch(NULL),   │
-   │     SetThink(SUB_Remove), bail.                 │
-   │   draws TE_BEAMPOINTS rope each tick.           │
-   │   pulls owner along (pev->origin - owner.origin)│
-   │     * 3.0 + m_vVecDirHookMove until <50u.       │
-   │   when within 50u: latch m_vPlayerHangOrigin,   │
-   │     pin player at that origin, gravity = -.001. │
-   └─────────────────────────────────────────────────┘
+                ┌───────────┬──────────────┬──────────────┐
+                v           v              v
+            touches owner  hits player   touches anything else
+            (re-arm 0.2s   (damage legal) SetTouch(NULL); SetThink(NULL)
+            think)             |                    |
+                         v                    v
+                  BeginFatalPull(victim)    ┌──────────────┬──────────────┐
+                  victim MOVETYPE_FLY       v              v
+                  victim gravity/friction  pOther->takedamage  !takedamage (wall)
+                  forced pull every 0.05s  TraceAttack         SOLID_NOT, vel=0
+                  timeout guard 2.5s       plrDmgHook          SetThink(Think)
+                         |              restore owner phys   m_fHookInWall=TRUE
+                         v              SP: Killed(); MP:    owner MOVETYPE_FLY
+                  on contact radius <48u:   EF_NODRAW + idle
+                  auto uppercut + fatal              |
+                  victim launch upward               v
+                  KillHook() -> SUB_Remove()  -hook bind / cleanup paths
+                                     KillHook() -> SUB_Remove()
+
+Think() loops:
+- Wall mode: every 0.1s, beam draw + owner pull/hang behavior.
+- Fatal-pull mode: every 0.05s, beam draw + forced victim pull.
+- Abort conditions for both modes: owner missing/dead, victim missing/dead,
+  observer transition, timeout.
 ```
+
+### Player finisher state (Scorpion-style)
+
+When the projectile touches a player and `FPlayerCanTakeDamage(victim, owner)`
+is true, it no longer does immediate hook damage. Instead:
+
+1. `BeginFatalPull` captures victim physics (`movetype`, `solid`, `gravity`,
+   `friction`) and switches to a collision-free reel phase
+   (`MOVETYPE_NOCLIP`, `SOLID_NOT`, `gravity=0`, `friction=0`) so ledges and
+   tiny collision lips cannot stall the pull.
+2. `UpdateFatalPull` runs every 0.05s, repeatedly overriding victim movement
+   toward an anchor in front of the hook owner so input cannot break out.
+  The owner also emits `get_over_here.wav` on this successful catch transition.
+3. On arrival (`<48u`), `DoFatalUppercut` auto-triggers a fist-style uppercut:
+  - owner offhand punch (`StartPunch`) when available, with direct
+    `PLAYER_PUNCH` fallback, plus shoryuken/body hit SFX,
+   - victim launch impulse (forward + strong upward velocity),
+   - fatal damage attempt (double-pass high damage, no gib).
+4. Hook teardown (`KillHook`/`UpdateOnRemove`) restores victim physics if the
+   finisher was aborted before the uppercut landed.
+
+Abort/cleanup guarantees:
+- If owner dies/disconnects before impact: hook is removed, victim physics are restored.
+- If victim dies/disconnects before impact: hook is removed, attack ends.
+- `-hook`, respawn cleanup, and transition cleanup all go through
+  `RestoreFatalVictimPhysics` before final removal.
 
 ### State surface
 
@@ -114,6 +136,14 @@ client.cpp / impulse 217: CHook::HookCreate( player )
 | `m_fPlayerAtEnd`        | `BOOL`    | Player has reached the hang point — pin in place. |
 | `m_vPlayerHangOrigin`   | `Vector`  | Origin to pin player at once `m_fPlayerAtEnd`. |
 | `m_vVecDirHookMove`     | `Vector`  | Forward vector at fire time, baked into the pull velocity. |
+| `m_hFatalVictim`        | `EHANDLE` | Victim being dragged for finisher; auto-nulls on edict free. |
+| `m_fFatalPull`          | `BOOL`    | Finisher mode active; Think drives victim pull each tick. |
+| `m_fVictimPhysicsCaptured` | `BOOL` | Whether victim physics snapshot is valid for restore. |
+| `m_iVictimMoveType`     | `int`     | Saved victim movetype before forced pull starts. |
+| `m_iVictimSolid`        | `int`     | Saved victim solid type before forced pull starts. |
+| `m_flVictimGravity`     | `float`   | Saved victim gravity before forced pull starts. |
+| `m_flVictimFriction`    | `float`   | Saved victim friction before forced pull starts. |
+| `m_flFatalAbortTime`    | `float`   | Absolute timeout for finisher pull (`now + 2.5s`). |
 | `ropesprite`            | `short`   | Sprite index for the beam (currently borrows `g_sModelIndexSmoke2`). |
 
 `CBasePlayer` members (under `#if defined( GRAPPLING_HOOK )`):
@@ -159,6 +189,20 @@ in-place; record them here so future regressions are obvious.
    is the existing behavior — *not* changed — but called out so future edits
    don't "fix" it accidentally.
 
+### Session update: player-hit finisher path
+
+- **New behavior:** damage-legal player collisions route into
+  `BeginFatalPull`/`UpdateFatalPull`/`DoFatalUppercut` instead of immediate
+  `TraceAttack(plrDmgHook)`.
+- **No-escape pull:** victim is continuously forced into collision-free
+  `MOVETYPE_NOCLIP` + `SOLID_NOT` with zero gravity/friction and per-tick
+  position stepping/velocity override.
+- **Fatal resolve:** on close contact, victim is launched upward and receives
+  a guaranteed-kill damage burst (subject only to external absolute immunity
+  systems that block all damage).
+- **Safety teardown:** all abort and destruction paths restore captured victim
+  physics through `RestoreFatalVictimPhysics`.
+
 ### Lifecycle invariants to preserve
 
 - `m_fActiveHook == TRUE` ⇔ "I currently own the player's movetype." Always
@@ -170,6 +214,12 @@ in-place; record them here so future regressions are obvious.
   in `client.cpp` and the impulse 217 case in `player.cpp`.
   `UpdateOnRemove` only clears the pointer when it still equals `this`, so
   ownership can't be silently reassigned.
+- If `m_fFatalPull` is active and `m_fVictimPhysicsCaptured` is true, teardown
+  must pass through `RestoreFatalVictimPhysics` before entity removal.
+- Restore must include `solid` along with `movetype`/`gravity`/`friction` so
+  aborted or interrupted pulls cannot leave broken collision state behind.
+- `DoFatalUppercut` must clear fatal-pull bookkeeping before `KillHook` to
+  avoid double-restore against stale EHANDLE state.
 
 ---
 
@@ -195,6 +245,11 @@ in-place; record them here so future regressions are obvious.
 - **`mp_grabsky` polarity is inverted from the cvar name.** `1` = sky-grapple
   permitted (texture trace skipped), `0` = sky-grapple refused. The default
   is `1`, matching the original Cold Ice behaviour.
+- **Finisher only starts on legal PvP damage.** The Scorpion path is gated by
+  `g_pGameRules->FPlayerCanTakeDamage(victim, owner)`. Friendly-fire-off or
+  protected targets stay on the normal takedamage path.
+- **Pull timeout is intentional.** `m_flFatalAbortTime` (2.5s) exists to avoid
+  indefinite victim lock if geometry/physics stalls the pull.
 
 ---
 

@@ -128,6 +128,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Freezegun secondary fire beam to explode primary plasma
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
+    1. [x] add red, yellow, and green hev viewmodels
 1. Mechanics
     1. [x] Support forcegrab for all force grab items that are stationary
     1. [x] Grapple hook support for bots
@@ -154,7 +155,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 1. Use AI to
     1. [ ] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
-    1. [ ] add red, yellow, and green hev viewmodels
     1. [ ] Pick up barrel and throw
 1. Supported Systems
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
@@ -164,6 +164,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. New Game Modes
+    1. [ ] pve, bots become more and more til you win.
     1. [ ] last gun standing. similar to LMS and gun game. You start with strong weapon, each time you get killed next respawn you get a weaker weapon. The first to drop to the weakest weapon ends the round/game. It could be not just a weapon, but random weapon from a weapon category.
     1. [ ] Ice Tag - Teamplay, two teams. -When a player is killed (not a suicide) that player is Frozen. A frozen player will die after say 10-15 seconds, however if a teammate touches them they will revive (unfreeze).If all players on a give team are frozen then the round is lost by that team. (Napoleon's idea)
     1. [ ] Assimilated - if you frag a player from the opponent's team they join your team - the players can't change teams, and the round ends when the time runs out or when all players are in one team at any given point - basically kill and assimilate - obviously... I need to figure out what happens when the player count drops under two... xD - I would assume the round ends and those two players would be sucked back into waiting as observer lol. Or game could go so that if the last person is fragged on the opposite team, and then it ends. "Assimilated" is a nice name to the mode... (Napoleon's idea)
@@ -200,6 +201,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Voting
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
+    1. [ ] 3xer - all weapons fire three shots in rapid succession, but only cost one ammo cycle
     1. [ ] [Pi is -1](https://www.youtube.com/watch?v=yDL5gh5JwBU)
     1. [ ] Stomp on head
     1. [ ] Deadly water, like skyhook, but with water textures
