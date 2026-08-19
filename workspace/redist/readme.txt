@@ -197,6 +197,7 @@ v1.1 Features:
     - Bots now use freeze grenades when available
     - Bots release the grappling hook when they are frozen or their role changes
 - Weapons Additions and Changes
+    - Explosions leave damaging flames
     - Default ammo gives are doubled
     - Grappling Hook provides Scorpion-like attack, pulling in their victim if hit
     - Cannon

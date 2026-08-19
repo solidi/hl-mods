@@ -224,6 +224,32 @@ Dual secondary note: the first barrel is predicted immediately; the delayed off-
 - `BounceTouch`, `SlideTouch`, `ExplodeTouch`, `DangerSoundThink`, `Detonate`, `DetonateUse`, `TumbleThink`.
 - `UseSatchelCharges(pevOwner, SATCHELCODE)` — detonate / release all `monster_satchel` belonging to a player.
 
+### Explosion-Seeded Napalm Residue (`napalm_pool` from `CGrenade::Explode`)
+
+Explosions that already produce the lingering center flame sprite now also attempt to seed a small number of `napalm_pool` entities on nearby static floor/wall surfaces.
+
+1. Hook point: `ggrenade.cpp::CGrenade::Explode(TraceResult*, int)` now calls `CNapalmPool::DeployExplosionPools(...)` immediately after `RadiusDamage`.
+2. Scale input: the helper receives both explosion damage (`pev->dmg`) and blast radius (`pev->dmg * 2.5f`) so pool budget scales with blast size.
+3. Conservative count policy:
+  - Desired pools = `floor(radius / 140)` clamped to `1..4`.
+  - Hard local cap: no spawn when `>=10` pools already exist nearby.
+  - Hard global cap: no spawn when `>=72` pools exist in the world.
+  - Spacing guard: each candidate rejects if another pool is already within `52u`.
+4. Surface patterning:
+  - Radial probe pattern over a clamped pattern radius (`56..220u`) around the blast.
+  - Per-angle floor probe (downward trace) plus wall probe (horizontal trace).
+  - Wall deposits require mostly non-horizontal normals (`|normal.z| <= 0.70`) so ceilings/floors are not double-counted as wall placements.
+  - Fallback: if all probes fail, one center floor probe is attempted.
+5. Owner attribution + disconnect safety:
+  - Pools use the explosion attacker as owner when that owner edict is still valid.
+  - If owner is missing/freed or a disconnected player, spawn proceeds ownerless to avoid stale pointers.
+  - Runtime burn attribution now also guards raw `pev->owner` against freed edicts before reading it.
+6. Per-pool strength is intentionally modest and clamped:
+  - Damage per tick = `flDamage * 0.008`, clamped to `0.8..1.5`.
+  - Pool radius = `flRadius * 0.18`, clamped to `36..56`.
+
+This keeps visual/gameplay follow-through for blasts while limiting entity growth under heavy explosive spam.
+
 ## User-Message Registry (weapon-relevant)
 
 User messages registered in `player.cpp::LinkUserMessages()` that weapons depend on: `CurWeapon`, `AmmoX`, `AmmoPickup`, `WeapPickup`, `WeaponList`, `HideWeapon`, plus per-feature ones (e.g. `Brass`, `EjectBr`, `Crosshair`). Remember the **≤10-char name limit** (≤8 safe). Long payloads must be chunked — see [server.md → User-Message Registry](server.md#user-message-registry).
