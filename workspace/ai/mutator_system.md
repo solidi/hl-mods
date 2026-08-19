@@ -203,7 +203,7 @@ resets. That is the *only* place the chaos-bar increment is broadcast during
 the periodic cadence.
 
 ### 3.3 `AddInstantMutator()`
-Rolls `RANDOM_LONG(0, 13)` and applies a one-shot effect to every live,
+Rolls `RANDOM_LONG(0, 14)` and applies a one-shot effect to every live,
 non-observer, non-disconnected player:
 - 0: no-op announcement.
 - 1: `+1` HP (clamped to max_health).
@@ -221,6 +221,8 @@ non-observer, non-disconnected player:
   `MUTATOR_CHUMXPLODE` (this gate is checked once at the top of case 12; if it
   fails, the entire case is skipped).
 - 13: spawns a `monster_human_assassin` in front of the player.
+- 14: `Extra Ammo` — grants a current-weapon ammo bonus to each eligible player
+  when the equipped weapon has a valid primary ammo type.
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` and a
 `gmsgChaos(mutatorTime)` refresh (so the chaos-bar animates even in "instant

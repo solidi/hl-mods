@@ -25,6 +25,8 @@ v1.1 Features:
     - "skyhook" - if a player touches a sky texture, they are gibbed
     - "tinnitus" - lowers sfx volume and introduces a buzzing sound
     - "upsidedown" - reverses up and down views
+- New Instant Mutators
+    - "extra ammo" - eligible living players receive extra primary ammo for their current weapon
 - New Maps
     - suspension, a rebuild of Laserus's 1999 map by b1rd
     - Removed quadfrost and defroster from normal rotation

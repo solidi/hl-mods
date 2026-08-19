@@ -83,9 +83,15 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Game Mechanics
     1. [x] Visual hitpoint deductions during play? [See potential tech](https://github.com/YaLTeR/OpenAG/pull/103/files)
 
-### v1.1
+### Template Patterns
 
-1. See v1-buglist.md
+1. Switching ammo type
+2. Push / defense
+3. Triple firing
+4. Explosion / neo bomb type
+5. Jam weapon
+
+### v1.1
 
 1. Game Modes
     1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
