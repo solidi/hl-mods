@@ -13089,72 +13089,6 @@
 "origin" "-88 1568 -56"
 }
 {
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 280 0"
-"origin" "-512 1680 -16"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 146 0"
-"origin" "-352 368 -176"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 315 0"
-"origin" "-1312 0 112"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 139 0"
-"origin" "288 -448 208"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 139 0"
-"origin" "144 736 272"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 280 0"
-"origin" "-592 1312 -144"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 318 0"
-"origin" "-1472 1264 48"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 72 0"
-"origin" "-576 -1024 -144"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 265 0"
-"origin" "272 0 -144"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 90 0"
-"origin" "-512 -480 -16"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 270 0"
-"origin" "-512 736 -16"
-}
-{
 "classname" "info_node"
 "hinttype" "0"
 "activity" "45"
@@ -15202,24 +15136,6 @@
 "origin" "-480 1952 288"
 }
 {
-"classname" "info_player_coop"
-"spawnflags" "0"
-"angles" "0 270 0"
-"origin" "-336 560 -224"
-}
-{
-"classname" "info_player_coop"
-"spawnflags" "0"
-"angles" "0 270 0"
-"origin" "-368 656 -256"
-}
-{
-"classname" "info_player_coop"
-"spawnflags" "0"
-"angles" "0 270 0"
-"origin" "-480 656 -256"
-}
-{
 "classname" "item_healthkit"
 "spawnflags" "0"
 "angles" "0 0 0"
@@ -15487,41 +15403,11 @@
 "origin" "-432 1696 -48"
 }
 {
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 270 0"
-"origin" "-1184 576 -336"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 336 0"
-"origin" "-1328 -624 112"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 315 0"
-"origin" "-1312 0 -144"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 265 0"
-"origin" "-512 -768 -144"
-}
-{
 "classname" "ammo_9mmAR"
 "delay" "0"
 "spawnflags" "0"
 "angles" "0 0 0"
 "origin" "-528 -1008 -184"
-}
-{
-"classname" "info_player_deathmatch"
-"spawnflags" "0"
-"angles" "0 347 0"
-"origin" "-688 864 272"
 }
 {
 "classname" "info_intermission"
@@ -17091,4 +16977,118 @@
 "classname" "info_player_deathmatch"
 "angles" "0 45 0"
 "origin" "433 911 -60"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 270 0"
+"origin" "-336 560 -224"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 270 0"
+"origin" "-368 656 -256"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 270 0"
+"origin" "-480 656 -256"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 280 0"
+"origin" "-512 1680 -16"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 146 0"
+"origin" "-352 368 -176"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 315 0"
+"origin" "-1312 0 112"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 139 0"
+"origin" "288 -448 208"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 139 0"
+"origin" "144 736 272"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 280 0"
+"origin" "-592 1312 -144"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 318 0"
+"origin" "-1472 1264 48"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 72 0"
+"origin" "-576 -1024 -144"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 265 0"
+"origin" "272 0 -144"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 90 0"
+"origin" "-512 -480 -16"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 270 0"
+"origin" "-512 736 -16"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 270 0"
+"origin" "-1184 576 -336"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 336 0"
+"origin" "-1328 -624 112"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 315 0"
+"origin" "-1312 0 -144"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 265 0"
+"origin" "-512 -768 -144"
+}
+{
+"classname" "info_player_deathmatch"
+"spawnflags" "0"
+"angles" "0 347 0"
+"origin" "-688 864 272"
 }

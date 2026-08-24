@@ -7233,11 +7233,6 @@
 }
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "2016 -392 420"
-}
-{
 "classname" "func_wall"
 "zhlt_lightflags" "0"
 "rendercolor" "0 0 0"
@@ -7948,56 +7943,6 @@
 }
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 179 0"
-"origin" "2121 1655 36"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 231 0"
-"origin" "2111 672 292"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 253 0"
-"origin" "1195 776 36"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "561 1744 412"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "589 1587 164"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "-218 674 118"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 179 0"
-"origin" "475 446 36"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 271 0"
-"origin" "-451 1541 36"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 300 0"
-"origin" "-202 1532 36"
-}
-{
-"classname" "info_player_deathmatch"
-"angles" "0 270 0"
-"origin" "1471 1443 164"
-}
-{
 "classname" "item_battery"
 "delay" "0"
 "angles" "0 0 0"
@@ -8539,11 +8484,6 @@
 "origin" "602 154 128"
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 0 0"
-"origin" "572 181 164"
-}
-{
 "classname" "weapon_handgrenade"
 "delay" "0"
 "angles" "0 0 0"
@@ -8720,50 +8660,10 @@
 }
 }
 {
-"classname" "info_player_deathmatch"
-"angles" "0 180 0"
-"origin" "2128 1325 36"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 270 0"
-"origin" "1137 1439 164"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 136 0"
-"origin" "456 -199 36"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 0 0"
-"origin" "-485 273 36"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 180 0"
-"origin" "482 595 118"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 317 0"
-"origin" "1824 812 36"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 0 0"
-"origin" "621 -405 412"
-}
-{
 "classname" "ammo_9mmAR"
 "delay" "0"
 "angles" "0 0 0"
 "origin" "-570 1369 0"
-}
-{
-"classname" "info_player_coop"
-"angles" "0 315 0"
-"origin" "576 1037 36"
 }
 {
 "classname" "ammo_9mmAR"
@@ -8941,6 +8841,71 @@
 }
 {
 "classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "2016 -392 420"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 179 0"
+"origin" "2121 1655 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 231 0"
+"origin" "2111 672 292"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 253 0"
+"origin" "1195 776 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "561 1744 412"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "589 1587 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-218 674 118"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 179 0"
+"origin" "475 446 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 271 0"
+"origin" "-451 1541 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 300 0"
+"origin" "-202 1532 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "1471 1443 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "572 181 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "2128 1325 36"
+}
+{
+"classname" "info_player_deathmatch"
 "angles" "0 180 0"
 "origin" "2121 -229 291"
 }
@@ -8993,4 +8958,39 @@
 "classname" "info_player_deathmatch"
 "angles" "0 0 0"
 "origin" "-479 440 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 270 0"
+"origin" "1137 1439 164"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 136 0"
+"origin" "456 -199 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "-485 273 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 180 0"
+"origin" "482 595 118"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 317 0"
+"origin" "1824 812 36"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 0 0"
+"origin" "621 -405 412"
+}
+{
+"classname" "info_player_deathmatch"
+"angles" "0 315 0"
+"origin" "576 1037 36"
 }
