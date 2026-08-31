@@ -18,8 +18,8 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L892) —
-  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..86) and `MAX_MUTATORS_CL` (client
-  cap = `MUTATOR_VOLATILE + 1`).
+  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..87) and
+  `MAX_MUTATORS_CL` (client cap = `MUTATOR_VOLATILE + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads three physinfo keys the server writes for movement/audio: `topsy`,
   `haste`, `prop`.
@@ -35,6 +35,9 @@ below).
   destructor + `FreeMutatorChain` (fixes former map-to-map leak).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L597-L2372) —
   All the `CGameRules::*Mutators*` methods described in §3.
+- [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
+  per-player mutator checks that depend on contact with map geometry (e.g.
+  `skyhook`, `floorislava`).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L100) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
@@ -105,12 +108,16 @@ timer bar. `mutatorId == -1` sentinel is used only during message parsing to
 break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
-- Server: `g_szMutators[MAX_MUTATORS]` where `MAX_MUTATORS = MUTATOR_VOLATILE`
-  (86 entries). Indexing is always `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 87 entries
+- Server: `g_szMutators[MAX_MUTATORS]` where
+  `MAX_MUTATORS = MUTATOR_VOLATILE` (87 entries). Indexing is always
+  `g_szMutators[id - 1]`.
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 88 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
+- Real mutators are maintained in **alphabetical order** in all three aligned
+  tables (`const.h` IDs, `g_szMutators[]`, `sMutators[]`), so new mutators
+  must be inserted alphabetically and downstream IDs renumbered in lockstep.
 - Special sentinels on the `gmsgAddMutator` wire: `254` = clear all,
   `255` = end-of-batch, `-1` (as read byte) = short-read guard.
 - Vote-only synthetic slots (only ever appear in vote payloads, never in the
@@ -374,6 +381,25 @@ plumbing exists (`m_iShowMutatorMessage`, throttled by
 `m_flDetectedMutatorChange` reapply cycles). If a future banner ever needs to
 show live mutators, this is the entry point.
 
+### 3.12 `floorislava` floor detection and burn timing
+`MUTATOR_FLOORISLAVA` lives in `player.cpp` because floor contact is a
+per-player runtime condition, not a global world-cvar toggle.
+
+Detection strategy is intentionally **map-agnostic** (no per-map texture lists):
+- Requires `FL_ONGROUND` so the engine's movement system decides whether the
+  player is standing on something.
+- Rejects ladder and deep-water states (`IsOnLadder`, `waterlevel >= 2`) so
+  climbing/swimming does not trigger lava burns.
+- Accepts world/brush supports (`worldspawn`, `SOLID_BSP`, or
+  `FL_WORLDBRUSH`) from `pev->groundentity`.
+- Falls back to a short downward trace when `groundentity` is absent or
+  ambiguous; requires an upward-facing plane normal (`normal.z >= 0.35`) and
+  the same world/brush test.
+
+When contact is valid, a per-player cooldown (`m_flFloorIsLavaTime`) reapplies
+burn at fixed cadence (0.75 s). Each pulse extends `m_fBurnTime` by a small
+amount, which feeds the existing `PlayerBurn()` timed-fire pipeline.
+
 ---
 
 ## 4. Wire protocol
@@ -606,27 +632,27 @@ mutators tick normally throughout play.
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 79 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 80 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
 |---:|---|---|---|
 | 4 | `astronaut` | SC | `sv_gravity = 199`; client colour-cor slight blue tint. |
 | 8 | `bigfoot` | S | `sv_stepsize = 192`. |
-| 28 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
-| 37 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
-| 38 | `longjump` | S | Grants `item_longjump`. |
-| 43 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
-| 47 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
-| 59 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
-| 67 | `sanic` | C | Replaces player model with sanic sprite. |
-| 70 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
-| 71 | `slowbullets` | S | `sv_slowbullets = 2`. |
-| 72 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
-| 75 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 77 | `superjump` | S | `sv_jumpheight = 299`. |
-| 82 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 84 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 29 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
+| 38 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
+| 39 | `longjump` | S | Grants `item_longjump`. |
+| 44 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
+| 48 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
+| 60 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
+| 68 | `sanic` | C | Replaces player model with sanic sprite. |
+| 71 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
+| 72 | `slowbullets` | S | `sv_slowbullets = 2`. |
+| 73 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
+| 76 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
+| 78 | `superjump` | S | `sv_jumpheight = 299`. |
+| 83 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 85 | `upsidedown` | C | View roll 180 + mouse inversion. |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -646,30 +672,31 @@ mutators tick normally throughout play.
 | 20 | `fastweapons` | S | Weapon time-scaling. |
 | 21 | `firebullets` | S | Ignites victims on hit. |
 | 22 | `firestarter` | S/Weapon | Grants `weapon_flamethrower`. |
-| 24 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
-| 25 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
-| 26 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
-| 29 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
-| 30 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
-| 33 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
-| 46 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
-| 49 | `noreload` | S | No reload cycles. |
-| 51 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
-| 53 | `paintball` | SC | Paintball-style hit FX. |
-| 56 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
-| 57 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
-| 60 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
-| 61 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
-| 63 | `ricochet` | S | Bullets bounce (up to N ricochets). |
-| 64 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
-| 65 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
-| 66 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
-| 73 | `slowweapons` | S | Weapon time-scaling. |
-| 74 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
-| 76 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 83 | `turrets` | S | Auto-turrets fire at everyone. |
-| 85 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 86 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 23 | `floorislava` | S | Standing on map floors/brushes ignites the player on a short cadence (timed burn via `PlayerBurn`). |
+| 25 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
+| 26 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
+| 27 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
+| 30 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
+| 31 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
+| 34 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
+| 47 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
+| 50 | `noreload` | S | No reload cycles. |
+| 52 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
+| 54 | `paintball` | SC | Paintball-style hit FX. |
+| 57 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
+| 58 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
+| 61 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
+| 62 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
+| 64 | `ricochet` | S | Bullets bounce (up to N ricochets). |
+| 65 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
+| 66 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
+| 67 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
+| 74 | `slowweapons` | S | Weapon time-scaling. |
+| 75 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
+| 77 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
+| 84 | `turrets` | S | Auto-turrets fire at everyone. |
+| 86 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 87 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -678,31 +705,31 @@ mutators tick normally throughout play.
 | 13 | `coolflesh` | SC | Frostbite / freeze cosmetic. |
 | 15 | `crate` | C | Player model becomes `models/box.mdl`. |
 | 16 | `credits` | S | Enters "credits" mode on players (`m_iCreditMode = 1`). |
-| 23 | `fog` | S | Broadcasts `gmsgFog(50,200,125,125,125,0)`. |
-| 27 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements and forces vanilla first-person visual style (normal weapon + orange sleeves). |
-| 31 | `inverse` | C | Colour-corrector negates output. |
-| 32 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
-| 34 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
-| 35 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
-| 36 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
-| 39 | `loopback` | S | Damage returns to the attacker (wormhole). |
-| 40 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
-| 41 | `maxpack` | S | Max ammo pickups. |
-| 42 | `mcclane` | C | View roll -180 permanently. |
-| 44 | `minime` | C | Player model scaled to 0.5×, view offset. |
-| 45 | `mirror` | C | Mouse X inverted; view mirrored. |
-| 48 | `noradar` | C | Hides radar HUD. |
-| 50 | `notify` | S | Notification/phone effect. |
-| 52 | `oldtime` | C | Black-and-white colour correction. |
-| 54 | `paper` | C | Player bones flattened to 10 % Y-axis. |
-| 55 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
-| 58 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
-| 62 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
-| 68 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
-| 69 | `sildenafil` | C | Colour-corrector blue boost. |
-| 78 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 80 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 81 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 24 | `fog` | S | Broadcasts `gmsgFog(50,200,125,125,125,0)`. |
+| 28 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements and forces vanilla first-person visual style (normal weapon + orange sleeves). |
+| 32 | `inverse` | C | Colour-corrector negates output. |
+| 33 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
+| 35 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
+| 36 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
+| 37 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
+| 40 | `loopback` | S | Damage returns to the attacker (wormhole). |
+| 41 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
+| 42 | `maxpack` | S | Max ammo pickups. |
+| 43 | `mcclane` | C | View roll -180 permanently. |
+| 45 | `minime` | C | Player model scaled to 0.5×, view offset. |
+| 46 | `mirror` | C | Mouse X inverted; view mirrored. |
+| 49 | `noradar` | C | Hides radar HUD. |
+| 51 | `notify` | S | Notification/phone effect. |
+| 53 | `oldtime` | C | Black-and-white colour correction. |
+| 55 | `paper` | C | Player bones flattened to 10 % Y-axis. |
+| 56 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
+| 59 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
+| 63 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
+| 69 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
+| 70 | `sildenafil` | C | Colour-corrector blue boost. |
+| 79 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 81 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 82 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
@@ -716,27 +743,31 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 
 ## 9. Adding a new mutator (checklist)
 
-1. **ID (shared).** Append to `common/const.h` immediately before
-   `MAX_MUTATORS_CL`, e.g. `#define MUTATOR_FOOBAR 87`. Bump the sentinel:
-   `#define MAX_MUTATORS_CL MUTATOR_FOOBAR + 1`. The server-side
-   `MAX_MUTATORS` macro (`gamerules.h`) auto-tracks because it is
-   `MUTATOR_VOLATILE`, which means **adding at the end works, but inserting
-   in the middle re-numbers every downstream ID and will desync clients** —
-   always append.
-2. **Server name table.** Append the internal string to
+1. **ID (shared).** Insert the new mutator in alphabetical order in
+   `common/const.h` (matching `g_szMutators[]` token order) and renumber every
+   following `MUTATOR_*` define so IDs remain contiguous.
+2. **Server name table.** Insert the internal string into the alphabetically
+   correct position in
    `dlls/gamerules.cpp::g_szMutators[]`. Must be lowercase, unique, and match
    the substring compare used by `sv_addmutator` / `sv_chaosfilter` /
    `MutatorAllowed`.
-3. **Client display table.** Append `{ "name", "short description" }` to
-   `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]` at the same index. Do
+3. **Client display table.** Insert `{ "name", "short description" }` at the
+   same alphabetical/index position in
+   `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`. Do
    not reorder existing entries.
-4. **Filters.** Decide whether the mutator should be allowed in every mode.
+4. **Settings UI IDs.** Update `workspace/redist/settings.scr` mutator list to
+   insert the same mutator at the matching alphabetical position, and renumber
+   every following numeric value.
+5. **Max sentinels.** Ensure sentinel macros point to the final mutator after
+   renumbering (`MAX_MUTATORS` in `gamerules.h` and `MAX_MUTATORS_CL` in
+   `common/const.h`).
+6. **Filters.** Decide whether the mutator should be allowed in every mode.
    If not, add `strstr(mutator, g_szMutators[MUTATOR_FOOBAR - 1]) ||
    atoi(mutator) == MUTATOR_FOOBAR` return-`FALSE` blocks in the relevant
    `MutatorAllowed` overrides (and `CHalfLifeMultiplay::MutatorAllowed` if
    universally disabled). Add to `sv_chaosfilter` default if it should be
    opt-in only.
-5. **Effect wiring.**
+7. **Effect wiring.**
    - Purely visual: `MutatorEnabled(MUTATOR_FOOBAR)` checks in the appropriate
      client file (`StudioModelRenderer.cpp`, `view.cpp`, `colorcor.cpp`, etc.).
    - Gameplay: `MutatorEnabled` checks in the server hot paths. If the check
@@ -752,17 +783,17 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
    - Client-only kickoff: extend `MsgFunc_AddMut` (the `mutatorId == ...`
      ladder) and its mirror inside the `254` clear-all branch and the
      `CHudStatusIcons::Draw` expiry loop.
-6. **VGUI vote panel.** No code change needed unless the mutator should be
+8. **VGUI vote panel.** No code change needed unless the mutator should be
    *hidden* from the vote grid; if so add a `strstr(sMutators[i].name, ...)`
    skip in `CVoteMutatorPanel` constructor (matching the existing
    slowmo/speedup/topsyturvy/itemsexplode/explosiveai list).
-7. **Pause/restore.** Nothing to change — the pause system operates on IDs
+9. **Pause/restore.** Nothing to change — the pause system operates on IDs
    and TTLs, not on effects.
-8. **Documentation.** Add a row to the catalogue in §8 and update any relevant
+10. **Documentation.** Add a row to the catalogue in §8 and update any relevant
    spoke doc (`workspace/ai/voting_system.md`,
    `workspace/ai/gamerules.md`, mode-specific docs when the mutator is
    permanently associated with a mode).
-9. **Build.** Windows: `workspace/Build-Windows.ps1`. Linux:
+11. **Build.** Windows: `workspace/Build-Windows.ps1`. Linux:
    `workspace/build-linux.sh`. Both DLLs must rebuild (`ice.dll` and
    `client.dll`) so the shared const.h change is picked up on both sides.
 
@@ -770,9 +801,12 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 
 ## 10. Known pitfalls & invariants
 
-- **Symmetric IDs.** `MUTATOR_*` values are on the wire. Do not reorder or
-  renumber. If a value is retired, keep the enum slot and just filter the
-  string in `MutatorAllowed` everywhere.
+- **Symmetric IDs and ordering.** `MUTATOR_*` values are on the wire. Keep
+  `common/const.h`, `dlls/gamerules.cpp::g_szMutators[]`,
+  `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`, and
+  `workspace/redist/settings.scr` mutator IDs synchronized. Canonical order is
+  alphabetical; inserting a new mutator requires renumbering all later IDs in
+  every one of those lists in the same change.
 - **List memory (server).** `MutatorsThink` used to `unlink` nodes without
   `delete` — resulting in a heap leak per expiration. The current code deletes
   cleanly; do not remove the `delete m;` calls in the expiration pass, the
