@@ -277,10 +277,11 @@ DESCRIPTION SERVER_OPTIONS
 			"tinnitus" "81"
 			"toilet" "82"
 			"topsyturvy (sp only)" "83"
-			"turrets" "84"
-			"upsidedown" "85"
-			"vested" "86"
-			"volatile" "87"
+			"triplebang" "84"
+			"turrets" "85"
+			"upsidedown" "86"
+			"vested" "87"
+			"volatile" "88"
 		}
 		{ "1" }
 	}

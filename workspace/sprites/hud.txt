@@ -1,4 +1,4 @@
-335
+336
 selection		320 320hud1	160	160	80	20
 
 bucket1			320 320hud2	108	16	12	12
@@ -323,7 +323,8 @@ amidead	640 gameicons3	0	128	64	64
 skyhook	640 gameicons	192	0	64	64
 noradar	640 gameicons3	128	64	64	64
 tinnitus	640 gameicons4	0	128	64	64
-itemsexplode	640 gameicons4	0	128	64	64
+floorislava	640 gameicons2	192	0	64	64
+triplebang 640 gameicons	128	192	64	64
 
 // Cams
 cam_chumtoad	640 gameicons	192	192	64	64

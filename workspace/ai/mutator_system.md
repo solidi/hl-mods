@@ -18,7 +18,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L892) —
-  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..87) and
+  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..88) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_VOLATILE + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads three physinfo keys the server writes for movement/audio: `topsy`,
@@ -38,7 +38,7 @@ below).
 - [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
   per-player mutator checks that depend on contact with map geometry (e.g.
   `skyhook`, `floorislava`).
-- [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L100) — cvar
+- [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
 - [workspace/src/dlls/multiplay_gamerules.cpp](workspace/src/dlls/multiplay_gamerules.cpp#L307-L1483) —
@@ -109,9 +109,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_VOLATILE` (87 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_VOLATILE` (88 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 88 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 89 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -368,6 +368,32 @@ Called from weapon PreFrame / Fire paths. Applies pre-fire mutator effects:
   spawns projectiles in addition to (or instead of) the normal shot.
 - **PUSHY.** Applies a backwards velocity impulse (`-forward * rand(50..100) * 3`)
   on every shot, clearing `FL_ONGROUND` first. Turns firing into recoil-boost.
+
+### 3.9.1 `triplebang` central burst dispatch (`weapons.cpp::ItemPostFrame`)
+`MUTATOR_TRIPLEBANG` is implemented in the shared attack dispatch path instead
+of weapon-by-weapon custom code:
+- For bullet-style and projectile-launcher weapons, one eligible
+  primary/secondary trigger starts a queued burst: first shot fires
+  immediately, then follow-up shots fire every `0.15s` (scaled by weapon speed
+  multiplier) until three shots are fired.
+- While the queue is active, manual attack input is masked so the next trigger
+  cannot start until the burst finishes.
+- Ammo accounting stays at **one trigger's cost** by snapshotting clip + reserve
+  ammo before the first shot, replaying follow-up shots from the pre-shot state,
+  then restoring the post-first-shot ammo state.
+- Exemptions are handled centrally for high-risk classes (placeables,
+  utility/melee, and complex charge/beam weapons) to avoid breaking arm/disarm,
+  charge-up, or toggle-style behavior. Current exemptions include
+  chainsaw, gravitygun/ashpod,
+  egon, and placeables/throwables
+  (handgrenade/satchel/tripmine/snark/chumtoad/snowball/vest/nuke).
+- Burst queue state is mirrored in `cl_dll/hl/hl_weapons.cpp` for prediction and
+  synchronized through `weapon_data_t` side channels:
+  `m_iWeaponState` (signed pending count / attack mode), `m_flPumpTime`
+  (pre-shot clip), `m_fNextAimBonus` (pre-shot primary reserve), and
+  `m_flNextReload` (pre-shot secondary reserve).
+- Non-timed eligible weapons retain the immediate multi-dispatch fallback in
+  the same central path so generic mutator behavior remains intact.
 
 ### 3.10 `MutatorEnabled(int mutatorId)`
 List walk. Returns `TRUE` when a matching node exists and either
@@ -652,7 +678,7 @@ mutators tick normally throughout play.
 | 76 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
 | 78 | `superjump` | S | `sv_jumpheight = 299`. |
 | 83 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 85 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 86 | `upsidedown` | C | View roll 180 + mouse inversion. |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -694,9 +720,10 @@ mutators tick normally throughout play.
 | 74 | `slowweapons` | S | Weapon time-scaling. |
 | 75 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
 | 77 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 84 | `turrets` | S | Auto-turrets fire at everyone. |
-| 86 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 87 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 84 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 85 | `turrets` | S | Auto-turrets fire at everyone. |
+| 87 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 88 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
