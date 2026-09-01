@@ -17,12 +17,15 @@ below).
 ## 1. Where the code lives
 
 ### Shared / IDs
-- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L892) —
-  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..88) and
+- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L893) —
+  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..89) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_VOLATILE + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
-  reads three physinfo keys the server writes for movement/audio: `topsy`,
-  `haste`, `prop`.
+  reads movement/audio/control physinfo keys the server writes: `topsy`,
+  `haste`, `prop`, `slj`, `jumpheight`, and `negpi`.
+- [workspace/src/pm_shared/pm_math.c](workspace/src/pm_shared/pm_math.c) —
+  mutator-aware PI in shared math: when `physinfo["negpi"] == "1"`, `M_PI`
+  resolves to `-1.0` for prediction/server PM math.
 
 ### Server (dlls/)
 - [workspace/src/dlls/gamerules.h](workspace/src/dlls/gamerules.h#L65-L272) —
@@ -35,6 +38,8 @@ below).
   destructor + `FreeMutatorChain` (fixes former map-to-map leak).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L597-L2372) —
   All the `CGameRules::*Mutators*` methods described in §3.
+- [workspace/src/dlls/util.h](workspace/src/dlls/util.h) — centralized
+  mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
 - [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
   per-player mutator checks that depend on contact with map geometry (e.g.
   `skyhook`, `floorislava`).
@@ -55,7 +60,8 @@ below).
 ### Client (cl_dll/)
 - [workspace/src/cl_dll/hud.h](workspace/src/cl_dll/hud.h#L534-L898) — client
   `mutators_t`, `MutatorEnabled(int)`, `GetMutator(int)`, `CHudStatusIcons`
-  timer/icon fields, `m_Mutators` list on `CHud`.
+  timer/icon fields, `m_Mutators` list on `CHud`, and centralized
+  mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
 - [workspace/src/cl_dll/hud.cpp](workspace/src/cl_dll/hud.cpp#L571-L1234) —
   message shim registration (`HOOK_MESSAGE( AddMut )`,
   `HOOK_MESSAGE( Chaos )`), `MutatorEnabled` / `GetMutator` implementations.
@@ -109,9 +115,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_VOLATILE` (88 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_VOLATILE` (89 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 89 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 90 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -658,7 +664,7 @@ mutators tick normally throughout play.
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 80 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 81 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
@@ -669,16 +675,16 @@ mutators tick normally throughout play.
 | 38 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
 | 39 | `longjump` | S | Grants `item_longjump`. |
 | 44 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
-| 48 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
-| 60 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
-| 68 | `sanic` | C | Replaces player model with sanic sprite. |
-| 71 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
-| 72 | `slowbullets` | S | `sv_slowbullets = 2`. |
-| 73 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
-| 76 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 78 | `superjump` | S | `sv_jumpheight = 299`. |
-| 83 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 86 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 49 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
+| 61 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
+| 69 | `sanic` | C | Replaces player model with sanic sprite. |
+| 72 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
+| 73 | `slowbullets` | S | `sv_slowbullets = 2`. |
+| 74 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
+| 77 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
+| 79 | `superjump` | S | `sv_jumpheight = 299`. |
+| 84 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 87 | `upsidedown` | C | View roll 180 + mouse inversion. |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -706,24 +712,25 @@ mutators tick normally throughout play.
 | 31 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
 | 34 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
 | 47 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
-| 50 | `noreload` | S | No reload cycles. |
-| 52 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
-| 54 | `paintball` | SC | Paintball-style hit FX. |
-| 57 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
-| 58 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
-| 61 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
-| 62 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
-| 64 | `ricochet` | S | Bullets bounce (up to N ricochets). |
-| 65 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
-| 66 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
-| 67 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
-| 74 | `slowweapons` | S | Weapon time-scaling. |
-| 75 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
-| 77 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 84 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
-| 85 | `turrets` | S | Auto-turrets fire at everyone. |
-| 87 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 88 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 48 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
+| 51 | `noreload` | S | No reload cycles. |
+| 53 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
+| 55 | `paintball` | SC | Paintball-style hit FX. |
+| 58 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
+| 59 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
+| 62 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
+| 63 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
+| 65 | `ricochet` | S | Bullets bounce (up to N ricochets). |
+| 66 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
+| 67 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
+| 68 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
+| 75 | `slowweapons` | S | Weapon time-scaling. |
+| 76 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
+| 78 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
+| 85 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 86 | `turrets` | S | Auto-turrets fire at everyone. |
+| 88 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 89 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -745,18 +752,18 @@ mutators tick normally throughout play.
 | 43 | `mcclane` | C | View roll -180 permanently. |
 | 45 | `minime` | C | Player model scaled to 0.5×, view offset. |
 | 46 | `mirror` | C | Mouse X inverted; view mirrored. |
-| 49 | `noradar` | C | Hides radar HUD. |
-| 51 | `notify` | S | Notification/phone effect. |
-| 53 | `oldtime` | C | Black-and-white colour correction. |
-| 55 | `paper` | C | Player bones flattened to 10 % Y-axis. |
-| 56 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
-| 59 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
-| 63 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
-| 69 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
-| 70 | `sildenafil` | C | Colour-corrector blue boost. |
-| 79 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 81 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 82 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 50 | `noradar` | C | Hides radar HUD. |
+| 52 | `notify` | S | Notification/phone effect. |
+| 54 | `oldtime` | C | Black-and-white colour correction. |
+| 56 | `paper` | C | Player bones flattened to 10 % Y-axis. |
+| 57 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
+| 60 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
+| 64 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
+| 70 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
+| 71 | `sildenafil` | C | Colour-corrector blue boost. |
+| 80 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 82 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 83 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,

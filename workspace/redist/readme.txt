@@ -13,6 +13,7 @@ v1.2 Features:
 
 - New Mutators
     - "floorislava" - the ground scorches your boots
+    - "negativepi" - pi is now -1
     - "triplebang" - every trigger pulls three shots
 
 Highly-Valued Upcoming Features:
