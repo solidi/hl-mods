@@ -18,7 +18,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L893) —
-  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..89) and
+  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..90) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_VOLATILE + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -115,9 +115,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_VOLATILE` (89 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_VOLATILE` (90 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 90 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 91 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -288,6 +288,9 @@ expiring mutator does the same. Once the timestamp expires, `MutatorsThink`:
    - `SANTAHAT` on → schedule next santa sound; off → clear.
    - Call `GiveMutators(pl)` to hand out mutator-granted weapons.
    - `INVISIBLE` on/off → `MakeInvisible` / `MakeVisible`.
+   - `STOMPONHEAD` on → force live active players to `pev->gravity = 0.70`;
+     off → restore players at exactly that value to `1.0` (except Shidden
+     dealters, which own `0.70` natively).
    - `999` on → force HP/armour/max to 999; off → clamp back to 100 unless the
      player is `IsArmoredMan` or virus-flagged.
    - `JEEPATHON` / `TOILET` → force body/bodygroup indices.
@@ -317,7 +320,9 @@ Runs directly from step 2 above (and can be re-invoked). Not per-player.
 - `SUPERJUMP` → `sv_jumpheight` 299/45.
 - `ASTRONAUT` → `sv_gravity` 199/800.
 - `BIGFOOT` → `sv_stepsize` 192/18.
-- Per player: `TINNITUS` writes physinfo `prop=2` (footstep silencer);
+- Per player: `STOMPONHEAD` applies Shidden-style low gravity (`0.70`) to
+  live non-spectators while active (with Shidden-dealter-safe restore on
+  disable), `TINNITUS` writes physinfo `prop=2` (footstep silencer), and
   `FOG` sends per-client `gmsgFog(50, 200, 125,125,125, 0)` unless an
   `env_fog` entity exists; toggles the flashlight to match `LIGHTSOUT`.
 
@@ -335,6 +340,7 @@ the per-life state:
 - Random weapon (if the mode allows).
 - `GiveMutators(pl)` — see §3.8.
 - Invisibility toggle.
+- `MUTATOR_STOMPONHEAD` → per-life low-gravity baseline (`pev->gravity = 0.70`).
 - `999` — force HP/max/armour to 999.
 - `JEEPATHON` / `TOILET` bodygroups.
 - `NOCLIP` / `GODMODE` flags.
@@ -431,6 +437,22 @@ Detection strategy is intentionally **map-agnostic** (no per-map texture lists):
 When contact is valid, a per-player cooldown (`m_flFloorIsLavaTime`) reapplies
 burn at fixed cadence (0.75 s). Each pulse extends `m_fBurnTime` by a small
 amount, which feeds the existing `PlayerBurn()` timed-fire pipeline.
+
+### 3.13 `stomponhead` head-hit instagib + low gravity
+`MUTATOR_STOMPONHEAD` reuses the proven Shidden stomp envelope in
+`player.cpp::CheckHeadStomp` but removes team-role restrictions:
+
+- Any alive, non-spectator player with sufficient downward landing speed can
+  trigger the stomp.
+- Any alive, non-spectator target player within the stomp sphere can be
+  stomped (no team checks).
+- Uses the same spatial checks as Shidden (`48u` search radius and
+  `victim_z <= stomper_z + 36`) so head-contact feel remains familiar.
+- Kill path is direct `Killed(..., GIB_ALWAYS)` for deterministic gibbing.
+
+Gravity tuning mirrors Shidden's low-gravity feel so stomps are easier to
+land: while active, players are held at `pev->gravity = 0.70` (applied on
+spawn and re-applied in think/update paths).
 
 ---
 
@@ -664,7 +686,7 @@ mutators tick normally throughout play.
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 81 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 82 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
@@ -682,9 +704,10 @@ mutators tick normally throughout play.
 | 73 | `slowbullets` | S | `sv_slowbullets = 2`. |
 | 74 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
 | 77 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 79 | `superjump` | S | `sv_jumpheight = 299`. |
-| 84 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 87 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 79 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
+| 80 | `superjump` | S | `sv_jumpheight = 299`. |
+| 85 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 88 | `upsidedown` | C | View roll 180 + mouse inversion. |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -727,10 +750,10 @@ mutators tick normally throughout play.
 | 75 | `slowweapons` | S | Weapon time-scaling. |
 | 76 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
 | 78 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 85 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
-| 86 | `turrets` | S | Auto-turrets fire at everyone. |
-| 88 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 89 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 86 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 87 | `turrets` | S | Auto-turrets fire at everyone. |
+| 89 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 90 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -761,9 +784,9 @@ mutators tick normally throughout play.
 | 64 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
 | 70 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
 | 71 | `sildenafil` | C | Colour-corrector blue boost. |
-| 80 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 82 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 83 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 81 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 83 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 84 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
