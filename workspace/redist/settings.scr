@@ -284,6 +284,7 @@ DESCRIPTION SERVER_OPTIONS
 			"upsidedown" "88"
 			"vested" "89"
 			"volatile" "90"
+			"waterhurt" "91"
 		}
 		{ "1" }
 	}

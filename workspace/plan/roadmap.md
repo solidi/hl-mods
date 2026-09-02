@@ -98,6 +98,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] 3xer - all weapons fire three shots in rapid succession, but only cost one ammo cycle
     1. [x] [Pi is -1](https://www.youtube.com/watch?v=yDL5gh5JwBU)
     1. [x] Stomp on head
+    1. [x] Deadly water, like skyhook, but with water textures
 
 ### Unscheduled
 
@@ -149,7 +150,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Voting
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
-    1. [ ] Deadly water, like skyhook, but with water textures
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
     1. [ ] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)

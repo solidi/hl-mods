@@ -16,6 +16,7 @@ v1.2 Features:
     - "negativepi" - pi is now -1
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots
+    - "waterhurt" - touch water and explode
 
 Highly-Valued Upcoming Features:
 

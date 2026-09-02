@@ -18,8 +18,8 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L893) —
-  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..90) and
-  `MAX_MUTATORS_CL` (client cap = `MUTATOR_VOLATILE + 1`).
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..91) and
+  `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
   `haste`, `prop`, `slj`, `jumpheight`, and `negpi`.
@@ -31,7 +31,7 @@ below).
 - [workspace/src/dlls/gamerules.h](workspace/src/dlls/gamerules.h#L65-L272) —
   `struct mutators_t` (linked list node), `CGameRules` interface, protected /
   private state (`m_Mutators`, `m_SavedMutators`, timers, pool, flags),
-  `MAX_MUTATORS = MUTATOR_VOLATILE`, `extern const char *g_szMutators[]`.
+  `MAX_MUTATORS = MUTATOR_WATERHURT`, `extern const char *g_szMutators[]`.
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L66-L153) —
   `g_szMutators[]` name table (index = `MUTATOR_* - 1`).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L164-L172) —
@@ -42,10 +42,13 @@ below).
   mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
 - [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
   per-player mutator checks that depend on contact with map geometry (e.g.
-  `skyhook`, `floorislava`).
+  `skyhook`, `floorislava`, `waterhurt`).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
+- [workspace/redist/server_commands.txt](workspace/redist/server_commands.txt)
+  — admin-facing mutator list and descriptions under `sv_addmutator`; keep
+  entries alphabetically ordered.
 - [workspace/src/dlls/multiplay_gamerules.cpp](workspace/src/dlls/multiplay_gamerules.cpp#L307-L1483) —
   `RandomizeMutator`, `VoteForMutator`, `CheckMutatorRTV`, mutator-vote arm of
   intermission voting state machine, `GoToIntermission()` pause call,
@@ -115,9 +118,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_VOLATILE` (90 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (91 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 91 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 92 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -708,6 +711,7 @@ mutators tick normally throughout play.
 | 80 | `superjump` | S | `sv_jumpheight = 299`. |
 | 85 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 88 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 91 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -812,9 +816,12 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
    same alphabetical/index position in
    `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`. Do
    not reorder existing entries.
-4. **Settings UI IDs.** Update `workspace/redist/settings.scr` mutator list to
-   insert the same mutator at the matching alphabetical position, and renumber
-   every following numeric value.
+4. **Settings + command docs.** Update `workspace/redist/settings.scr` mutator
+  list to insert the same mutator at the matching alphabetical position, and
+  renumber every following numeric value.
+  Also update `workspace/redist/server_commands.txt` under `sv_addmutator`
+  with the same mutator name and a brief description, kept in alphabetical
+  order with the surrounding mutators.
 5. **Max sentinels.** Ensure sentinel macros point to the final mutator after
    renumbering (`MAX_MUTATORS` in `gamerules.h` and `MAX_MUTATORS_CL` in
    `common/const.h`).
@@ -863,7 +870,9 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`, and
   `workspace/redist/settings.scr` mutator IDs synchronized. Canonical order is
   alphabetical; inserting a new mutator requires renumbering all later IDs in
-  every one of those lists in the same change.
+  every one of those lists in the same change. Keep
+  `workspace/redist/server_commands.txt` mutator bullets alphabetized too, with
+  matching mutator names and descriptions.
 - **List memory (server).** `MutatorsThink` used to `unlink` nodes without
   `delete` — resulting in a heap leak per expiration. The current code deletes
   cleanly; do not remove the `delete m;` calls in the expiration pass, the

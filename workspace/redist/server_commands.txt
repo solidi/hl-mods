@@ -112,6 +112,7 @@ Server commands:
     - "fastweapons" - all weapons are faster.
     - "firebullets" - all tracers are hot
     - "firestarter" - start with a flamethrower
+    - "floorislava" - the ground scorches your boots
     - "fog" - heavy fog moves into the gameplay
     - "godmode" - everyone is invincible
     - "goldenguns" - guns provide one shot frags
@@ -136,6 +137,7 @@ Server commands:
     - "minime" - players are half the size
     - "mirror" - mirror, mirror on the wall
     - "napkinstory" - the legend reduced to two words
+    - "negativepi" - pi is now -1
     - "noclip" - fly through walls
     - "noradar" - hides the radar, compass, and world indicators from the HUD
     - "noreload" - no one can reload
@@ -166,17 +168,20 @@ Server commands:
     - "snowballs" - a random chance of snowballs throw on attack
     - "speedup" - everything is sped up by half! (sp only!)
     - "stahp" - some sounds replaced with stahp!
+    - "stomponhead" - land on heads for instant gibs
     - "superjump" - jump three times the height, disables fall damage.
     - "thirdperson" - an out of body experience
     - "three" - three random mutators at once
     - "tinnitus" - lowers sfx volume and introduces a buzzing sound
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "topsyturvy" - everything is turned upside down (sp only!)
+    - "triplebang" - every trigger pulls three shots
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "unchaos" - to shut off chaos mode
     - "upsidedown" - reverses up and down views
     - "vested" - everyone starts with a vest
     - "volatile" - where players blow up when fragged
+    - "waterhurt" - if a player touches water, they are gibbed
 - "sv_bots_hook [0|1]" - bots use the grappling hook in combat
 - "sv_botsmelee [0|1]" - to toggle bots close combat on or off
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns
