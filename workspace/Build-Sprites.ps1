@@ -138,6 +138,7 @@ try {
     Compile-Sprite $binDir "star" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "flowerxmas" $spritesDir $redistdir\sprites
     Compile-Sprite $binDir "gameicons6" $spritesDir $redistdir\sprites
+    Compile-Sprite $binDir "b-tele1" $spritesDir $redistdir\sprites
 
     # weapon_*.txt, hud.txt, etc.
     Write-Output "Copying sprite text files..."
