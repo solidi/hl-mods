@@ -99,6 +99,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Pi is -1](https://www.youtube.com/watch?v=yDL5gh5JwBU)
     1. [x] Stomp on head
     1. [x] Deadly water, like skyhook, but with water textures
+    1. [x] Continuous slide (crazydog)
 
 ### Unscheduled
 
@@ -186,7 +187,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
-    1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
     1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
