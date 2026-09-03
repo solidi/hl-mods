@@ -162,6 +162,7 @@ Server commands:
     - "santahat" - everyone wears a santa hat and says hohoho randomly
     - "sildenafil" - screen goes blue
     - "skyhook" - if a player touches a sky texture, they are gibbed
+    - "slide" - everyone continuously performs Selaco slide loops
     - "slowbullets" - bullets travel slowly to target
     - "slowmo" - everything is slowed down by half! (sp only!)
     - "slowweapons" - all weapons are slower.
