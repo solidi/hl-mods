@@ -14,6 +14,7 @@ v1.2 Features:
 - New Mutators
     - "floorislava" - the ground scorches your boots
     - "negativepi" - pi is now -1
+    - "nomouse" - alive players lose mouse input
     - "slide" - continuous selaco slide
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots

@@ -100,6 +100,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Stomp on head
     1. [x] Deadly water, like skyhook, but with water textures
     1. [x] Continuous slide (crazydog)
+    1. [x] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
 
 ### Unscheduled
 
@@ -152,7 +153,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
-    1. [ ] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
@@ -173,8 +173,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
-    1. [ ] how about another mutator where the view / screen is turned sideways? (Napoleon)
-    1. [ ] jammed radar mutator
     1. [ ] rocketjump mutator
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
@@ -460,6 +458,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] "firestarter" Flame Wars/Arena- every attack set the target on fire. The attack itself does no damage the fire however does [Napoleon]
     1. [x] am i dead?
     1. [x] rats around map
+    1. [x] jammed radar mutator
+    1. [x] how about another mutator where the view / screen is turned sideways? (Napoleon)
 1. Weapons
     1. [x] Snowball Machine / Snowball Generator in place of Egon gun
     1. Chaingun

@@ -17,7 +17,6 @@
 [ ] sky texture on spawn monsters
 [ ] accept all cookies mutator
 [ ] blue screen mutator
-[ ] Broken mouse mutator
 [ ] Recoil mutator?
 [ ] double vote influence on steamids (for $$$)
 [ ] 69 mutator, change as many numbers to 69
@@ -34,6 +33,10 @@
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
 [ ] pirate sounds when hat mutator on
+
+Implemented
+
+[x] Broken mouse mutator
 
 ## v1.1 Buglist
 

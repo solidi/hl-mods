@@ -139,6 +139,7 @@ Server commands:
     - "napkinstory" - the legend reduced to two words
     - "negativepi" - pi is now -1
     - "noclip" - fly through walls
+    - "nomouse" - disable mouse movement and mouse buttons for alive active players
     - "noradar" - hides the radar, compass, and world indicators from the HUD
     - "noreload" - no one can reload
     - "notify" - interrupt players with annoying chat notifications
