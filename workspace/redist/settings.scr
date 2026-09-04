@@ -285,8 +285,9 @@ DESCRIPTION SERVER_OPTIONS
 			"turrets" "89"
 			"upsidedown" "90"
 			"vested" "91"
-			"volatile" "92"
-			"waterhurt" "93"
+			"victor" "92"
+			"volatile" "93"
+			"waterhurt" "94"
 		}
 		{ "1" }
 	}

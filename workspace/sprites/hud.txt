@@ -329,6 +329,7 @@ triplebang 640 gameicons	128	192	64	64
 negativepi		640	gameicons2	128	64	64	64
 stomponhead	640 gameicons2	192	64	64	64
 waterhurt	640 gameicons	192	0	64	64
+victor	640 gameicons4	192	192	64	64
 nomouse 640 gameicons3	128	64	64	64
 
 // Cams

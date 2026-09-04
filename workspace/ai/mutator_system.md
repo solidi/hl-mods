@@ -18,7 +18,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L893) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..93) and
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..94) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -43,6 +43,9 @@ below).
 - [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
   per-player mutator checks that depend on contact with map geometry (e.g.
   `skyhook`, `floorislava`, `waterhurt`).
+- [workspace/src/dlls/weapons.cpp](workspace/src/dlls/weapons.cpp) —
+  `CWeaponBox` victor magnet logic (`MOVETYPE_NOCLIP` glide, 10 s timeout,
+  victor-only touch lock while active).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
@@ -119,9 +122,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (93 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (94 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 94 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 95 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -460,6 +463,25 @@ Gravity tuning mirrors Shidden's low-gravity feel so stomps are easier to
 land: while active, players are held at `pev->gravity = 0.70` (applied on
 spawn and re-applied in think/update paths).
 
+### 3.14 `victor` fragger-owned weaponbox pull
+`MUTATOR_VICTOR` is implemented in the server weaponbox path
+(`player.cpp::PackDeadPlayerItems`, `weapons.cpp::CWeaponBox`) and affects only
+death-dropped `weaponbox` entities.
+
+- On player death, if the killer is a live player, the victim's death-drop
+  weaponbox is tagged with that killer as the *victor target*.
+- While tagged, the box switches to `MOVETYPE_NOCLIP` and glides toward the
+  victor (same smooth velocity-lerp style as coldskulls magnetism, but always
+  aimed at the killer).
+- During this glide window, touch is locked to that victor only; all other
+  players are ignored.
+- The pull automatically stops and the box drops (`MOVETYPE_TOSS`) when:
+  - the victor dies/disconnects,
+  - the mutator is disabled,
+  - or 10 seconds elapse without a successful pickup.
+- World drops that are not `weaponbox` (runes, item entities, etc.) are not
+  part of this mutator.
+
 ---
 
 ## 4. Wire protocol
@@ -718,7 +740,7 @@ mutators tick normally throughout play.
 | 82 | `superjump` | S | `sv_jumpheight = 299`. |
 | 87 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 90 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 93 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 94 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -764,7 +786,8 @@ mutators tick normally throughout play.
 | 88 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
 | 89 | `turrets` | S | Auto-turrets fire at everyone. |
 | 91 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 92 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 92 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
+| 93 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |

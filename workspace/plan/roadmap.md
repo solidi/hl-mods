@@ -101,6 +101,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Deadly water, like skyhook, but with water textures
     1. [x] Continuous slide (crazydog)
     1. [x] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [x] Dropped item floats to victor
 
 ### Unscheduled
 
@@ -152,12 +153,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Voting
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
-    1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
-    1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
-    1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
-    1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
-    1. [ ] Dropped item floats to victor
-    1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
     1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
     1. [ ] "dontshoot?" clickboom - randomly throw weapon
@@ -222,6 +217,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
+    1. [ ] --------
+    1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
+    1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
+    1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
+1. Instant Mutators
+    1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly

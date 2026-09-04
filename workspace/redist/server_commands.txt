@@ -182,6 +182,7 @@ Server commands:
     - "unchaos" - to shut off chaos mode
     - "upsidedown" - reverses up and down views
     - "vested" - everyone starts with a vest
+    - "victor" - fragged player's dropped weaponbox glides only to the fragger for up to 10 seconds
     - "volatile" - where players blow up when fragged
     - "waterhurt" - if a player touches water, they are gibbed
 - "sv_bots_hook [0|1]" - bots use the grappling hook in combat
