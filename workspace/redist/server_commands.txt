@@ -145,6 +145,7 @@ Server commands:
     - "notify" - interrupt players with annoying chat notifications
     - "notthebees" - hornets spawn from a player or monster who was killed
     - "oldtime" - gameplay becomes desaturated
+    - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
     - "paintball" - weapons and explosions leave paint decals
     - "paper" - players are flat
     - "piratehat" - argh, matey.

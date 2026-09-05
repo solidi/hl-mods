@@ -15,6 +15,7 @@ v1.2 Features:
     - "floorislava" - the ground scorches your boots
     - "negativepi" - pi is now -1
     - "nomouse" - alive players lose mouse input
+    - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
     - "slide" - continuous selaco slide
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots

@@ -102,6 +102,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Continuous slide (crazydog)
     1. [x] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [x] Dropped item floats to victor
+    1. [x] Floor is lava [perhaps search textures floor,ice,grass,etc](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [x] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
 
 ### Unscheduled
 
@@ -154,7 +156,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
     1. [ ] assassin like jumpscare
-    1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
     1. [ ] "dontshoot?" clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
@@ -194,12 +195,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Light up melee weapons
         1. [ ] Light effects all firing
     1. [ ] SlappersOnly - remove all weapons, change behavior of fists to slaps with classic sound/slap
-    1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] License to Kill
     1. [ ] [Ghost riders](https://gamebanana.com/mods/167145) add players to wheelthrones
     1. [ ] Tiny
     1. [ ] Tiktok - exploder (random explosions of people)
-    1. [ ] Floor is lava [perhaps search textures floor,ice,grass,etc](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
     1. [ ] 10x mode (yai boi)
     1. [ ] penguins in place of toads
@@ -224,6 +223,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
 1. Instant Mutators
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
+    1. [ ] Rubberband (Players who are at the bottom get max health)
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
