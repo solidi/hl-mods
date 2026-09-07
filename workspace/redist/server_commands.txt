@@ -156,6 +156,7 @@ Server commands:
     - "railguns" - everyone spawns with dual railguns
     - "randomweapon" - spawn with a randomly selected weapon
     - "rats" - spawns numerous explosive rats on the map
+    - "revive" - first lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death
     - "ricochet" - the best mod ever made
     - "rocketbees" - hornets are explosive
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk

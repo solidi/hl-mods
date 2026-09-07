@@ -162,7 +162,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] 3 to life
     1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [ ] ooof sound
-    1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] random textures
     1. [ ] random sounds
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
@@ -217,6 +216,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] --------
+    1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
     1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
@@ -224,6 +224,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Instant Mutators
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] Rubberband (Players who are at the bottom get max health)
+    1. [ ] blue screen
+    1. [ ] accept all cookies
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
