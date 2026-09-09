@@ -12,6 +12,7 @@ This mod features works from the community. Without their dedication and hard wo
 v1.2 Features:
 
 - New Mutators
+    - "drunk" - your view keeps swaying and spinning
     - "floorislava" - the ground scorches your boots
     - "negativepi" - pi is now -1
     - "nomouse" - alive players lose mouse input

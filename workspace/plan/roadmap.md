@@ -104,6 +104,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Dropped item floats to victor
     1. [x] Floor is lava [perhaps search textures floor,ice,grass,etc](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [x] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
+    1. [x] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
+    1. [x] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
 
 ### Unscheduled
 
@@ -165,14 +167,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] random textures
     1. [ ] random sounds
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
-    1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
     1. [ ] rocketjump mutator
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
-    1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
     1. [ ] Vampire (increase health too)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)

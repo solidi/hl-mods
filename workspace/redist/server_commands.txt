@@ -108,6 +108,7 @@ Server commands:
     - "credits" - show all contributors in an endless loop.
     - "dealter" - dealing with farts, of course
     - "dontshoot" - firing any weapon will explode the player.
+    - "drunk" - your view keeps swaying and spinning
     - "explosiveai" - AI blows up when it cannot find its next task
     - "fastweapons" - all weapons are faster.
     - "firebullets" - all tracers are hot
