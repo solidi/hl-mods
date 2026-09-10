@@ -14,6 +14,7 @@ v1.2 Features:
 - New Mutators
     - "drunk" - your view keeps swaying and spinning
     - "floorislava" - the ground scorches your boots
+    - "headshot" - player kills only award frag credit when the final hit is a headshot
     - "negativepi" - pi is now -1
     - "nomouse" - alive players lose mouse input
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain

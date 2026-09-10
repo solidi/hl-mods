@@ -106,6 +106,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
     1. [x] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [x] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
+    1. [x] Tiny
 
 ### Unscheduled
 
@@ -196,7 +197,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] SlappersOnly - remove all weapons, change behavior of fists to slaps with classic sound/slap
     1. [ ] License to Kill
     1. [ ] [Ghost riders](https://gamebanana.com/mods/167145) add players to wheelthrones
-    1. [ ] Tiny
     1. [ ] Tiktok - exploder (random explosions of people)
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
     1. [ ] 10x mode (yai boi)

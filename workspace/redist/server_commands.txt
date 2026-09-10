@@ -119,6 +119,7 @@ Server commands:
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
     - "halflife" - hides the Cold Ice HUD elements for a plain Half-Life look
+    - "headshot" - player kills only award frag credit when the final hit is a headshot
     - "ice" - all the ground is covered in ice
     - "infiniteammo" - all weapons have infinite ammo
     - "instagib" - spawn with a zapgun that dole one hit kills

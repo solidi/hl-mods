@@ -17,8 +17,8 @@ below).
 ## 1. Where the code lives
 
 ### Shared / IDs
-- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L893) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..97) and
+- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L904) —
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..98) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -122,9 +122,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (97 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (98 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 98 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 99 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -519,7 +519,29 @@ driver resolution).
   side-effects (LMS, Chilldemic, Horde, Shidden, etc.) short-circuit when
   revive is pending so the first lethal kill does not advance mode end-state.
 
-### 3.17 `drunk` continuous camera disorientation
+### 3.17 `headshot` frag-credit gate
+`MUTATOR_HEADSHOT` is implemented in the shared PvP scoring path in
+`multiplay_gamerules.cpp::PlayerKilled`, with hit validation metadata sourced
+from `player.cpp::TraceAttack`.
+
+- Shared player damage (`player.cpp::TakeDamage`) clamps non-headshot lethal
+  PvP damage to leave the victim at 1 HP, so ordinary PvP kills cannot finish
+  unless the validating hitgroup is head.
+- PvP kill scoring requires a validated headshot final blow from the killer.
+- Non-headshot PvP deaths still follow normal death flow, but frag credit is
+  blocked for that kill event.
+- Direct-kill paths that bypass regular damage aggregation (for example some
+  weapon/entity `Killed()` calls) are guarded in `player.cpp::Killed` with the
+  same validator so mutator behavior remains consistent.
+- Command parser compatibility: `sv_addmutator "headsht"` is normalized to
+  `headshot` (duration suffix preserved), so legacy typo scripts still work.
+- Pacifist/revive integration is preserved: pacifist victim-frag inversion
+  applies only when the kill also satisfies the headshot requirement; revive
+  still suppresses scoring as before.
+- Applies uniformly across game modes because almost all mode-specific
+  `PlayerKilled` overrides delegate to `CHalfLifeMultiplay::PlayerKilled`.
+
+### 3.18 `drunk` continuous camera disorientation
 `MUTATOR_DRUNK` is implemented client-side in `cl_dll/view.cpp` so core
 gameplay logic (movement speed, weapon behavior, scoring, collision) remains
 unchanged.
@@ -768,31 +790,31 @@ mutators tick normally throughout play.
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 87 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 88 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
 |---:|---|---|---|
 | 4 | `astronaut` | SC | `sv_gravity = 199`; client colour-cor slight blue tint. |
 | 8 | `bigfoot` | S | `sv_stepsize = 192`. |
-| 30 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
-| 39 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
-| 40 | `longjump` | S | Grants `item_longjump`. |
-| 45 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
-| 50 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
-| 51 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
-| 64 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
-| 73 | `sanic` | C | Replaces player model with sanic sprite. |
-| 76 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
-| 77 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
-| 78 | `slowbullets` | S | `sv_slowbullets = 2`. |
-| 79 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
-| 82 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 84 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
-| 85 | `superjump` | S | `sv_jumpheight = 299`. |
-| 90 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 93 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 97 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 31 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
+| 40 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
+| 41 | `longjump` | S | Grants `item_longjump`. |
+| 46 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
+| 51 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
+| 52 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
+| 65 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
+| 74 | `sanic` | C | Replaces player model with sanic sprite. |
+| 77 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
+| 78 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
+| 79 | `slowbullets` | S | `sv_slowbullets = 2`. |
+| 80 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
+| 83 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
+| 85 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
+| 86 | `superjump` | S | `sv_jumpheight = 299`. |
+| 91 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 94 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 98 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -816,32 +838,33 @@ mutators tick normally throughout play.
 | 26 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
 | 27 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
 | 28 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
-| 31 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
-| 32 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
-| 35 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
-| 48 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
-| 49 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
-| 53 | `noreload` | S | No reload cycles. |
-| 55 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
-| 57 | `pacifist` | S | Player-vs-player kills award +1 frag to the victim, do not increment victim deaths, and award no killer frag credit. |
-| 58 | `paintball` | SC | Paintball-style hit FX. |
-| 61 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
-| 62 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
-| 65 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
-| 66 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
-| 68 | `revive` | S | First lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death increment. |
-| 69 | `ricochet` | S | Bullets bounce (up to N ricochets). |
-| 70 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
-| 71 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
-| 72 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
-| 80 | `slowweapons` | S | Weapon time-scaling. |
-| 81 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
-| 83 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 91 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
-| 92 | `turrets` | S | Auto-turrets fire at everyone. |
-| 94 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 95 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
-| 96 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 30 | `headshot` | S | Player-vs-player kills only award frag credit when the final blow is a validated headshot from the killer. |
+| 32 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
+| 33 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
+| 36 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
+| 49 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
+| 50 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
+| 54 | `noreload` | S | No reload cycles. |
+| 56 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
+| 58 | `pacifist` | S | Player-vs-player kills award +1 frag to the victim, do not increment victim deaths, and award no killer frag credit. |
+| 59 | `paintball` | SC | Paintball-style hit FX. |
+| 62 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
+| 63 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
+| 66 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
+| 67 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
+| 69 | `revive` | S | First lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death increment. |
+| 70 | `ricochet` | S | Bullets bounce (up to N ricochets). |
+| 71 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
+| 72 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
+| 73 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
+| 81 | `slowweapons` | S | Weapon time-scaling. |
+| 82 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
+| 84 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
+| 92 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 93 | `turrets` | S | Auto-turrets fire at everyone. |
+| 95 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 96 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
+| 97 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -853,29 +876,29 @@ mutators tick normally throughout play.
 | 19 | `drunk` | C | Continuously sways/spins first-person view and injects periodic punch bursts for disorientation. |
 | 25 | `fog` | S | Broadcasts `gmsgFog(50,200,125,125,125,0)`. |
 | 29 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements and forces vanilla first-person visual style (normal weapon + orange sleeves). |
-| 33 | `inverse` | C | Colour-corrector negates output. |
-| 34 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
-| 36 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
-| 37 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
-| 38 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
-| 41 | `loopback` | S | Damage returns to the attacker (wormhole). |
-| 42 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
-| 43 | `maxpack` | S | Max ammo pickups. |
-| 44 | `mcclane` | C | View roll -180 permanently. |
-| 46 | `minime` | C | Player model scaled to 0.5×, view offset. |
-| 47 | `mirror` | C | Mouse X inverted; view mirrored. |
-| 52 | `noradar` | C | Hides radar HUD. |
-| 54 | `notify` | S | Notification/phone effect. |
-| 56 | `oldtime` | C | Black-and-white colour correction. |
-| 59 | `paper` | C | Player bones flattened to 10 % Y-axis. |
-| 60 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
-| 63 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
-| 67 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
-| 74 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
-| 75 | `sildenafil` | C | Colour-corrector blue boost. |
-| 86 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 88 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 89 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 34 | `inverse` | C | Colour-corrector negates output. |
+| 35 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
+| 37 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
+| 38 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
+| 39 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
+| 42 | `loopback` | S | Damage returns to the attacker (wormhole). |
+| 43 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
+| 44 | `maxpack` | S | Max ammo pickups. |
+| 45 | `mcclane` | C | View roll -180 permanently. |
+| 47 | `minime` | C | Player model scaled to 0.5×, view offset. |
+| 48 | `mirror` | C | Mouse X inverted; view mirrored. |
+| 53 | `noradar` | C | Hides radar HUD. |
+| 55 | `notify` | S | Notification/phone effect. |
+| 57 | `oldtime` | C | Black-and-white colour correction. |
+| 60 | `paper` | C | Player bones flattened to 10 % Y-axis. |
+| 61 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
+| 64 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
+| 68 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
+| 75 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
+| 76 | `sildenafil` | C | Colour-corrector blue boost. |
+| 87 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 89 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 90 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
