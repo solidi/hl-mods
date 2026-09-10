@@ -11024,7 +11024,7 @@
 "origin" "-351 320 108"
 }
 {
-"classname" "item_spikes"
+"classname" "item_battery"
 "spawnflags" "0"
 "origin" "-432 440 -40"
 }
@@ -11134,12 +11134,12 @@
 "origin" "760 -360 40"
 }
 {
-"classname" "item_shells"
+"classname" "ammo_buckshot"
 "spawnflags" "1"
 "origin" "344 -720 -32"
 }
 {
-"classname" "item_shells"
+"classname" "ammo_buckshot"
 "spawnflags" "0"
 "origin" "-192 -448 -128"
 }
@@ -11165,7 +11165,7 @@
 "origin" "1608 -640 -40"
 }
 {
-"classname" "item_rockets"
+"classname" "ammo_rpgclip"
 "spawnflags" "0"
 "origin" "1848 -864 -40"
 }
