@@ -108,6 +108,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [x] Tiny
     1. [x] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
+    1. [x] rocketjump mutator
 
 ### Unscheduled
 
@@ -170,7 +171,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
-    1. [ ] rocketjump mutator
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)

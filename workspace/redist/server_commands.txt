@@ -162,6 +162,7 @@ Server commands:
     - "ricochet" - the best mod ever made
     - "rocketbees" - hornets are explosive
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+    - "rocketjump" - self-fired rockets launch you high with minimal self-damage
     - "rockets" - a random chance of rockets throw on attack!
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "santahat" - everyone wears a santa hat and says hohoho randomly
