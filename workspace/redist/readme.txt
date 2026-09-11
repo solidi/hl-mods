@@ -19,6 +19,7 @@ v1.2 Features:
     - "nomouse" - alive players lose mouse input
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
     - "revive" - first lethal player-vs-player frag per spawn revives the victim in-place with default spawn loadout, no killer frag gain, and no victim death increment
+    - "sleepy" - active human players get periodic black fade pulses like nodding off
     - "slide" - continuous selaco slide
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots

@@ -18,7 +18,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L904) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..98) and
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..99) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -122,9 +122,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (98 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (99 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 99 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 100 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -555,6 +555,20 @@ unchanged.
   the legacy "keep spinning while punch is low" style without server-side
   state mutation.
 
+### 3.19 `sleepy` periodic blackout pulse
+`MUTATOR_SLEEPY` is implemented server-side in `dlls/player.cpp::CBasePlayer::PostThink`
+and applies a periodic HUD fade to simulate nodding off.
+
+- Runs only while the mutator is active.
+- Applies only to active human players: non-bot (`!FL_FAKECLIENT`),
+  non-spectator, alive, and `deadflag == DEAD_NO`.
+- Uses a per-player timer (`m_flSleepyTime`) so each player gets a fade every
+  `SLEEPY_TIME` seconds (3.0 s): `UTIL_ScreenFade(this, Vector(0,0,0), 1.75f,
+  0.1f, 255, FFADE_IN)`.
+- Works across game modes because it sits in the shared player post-think path;
+  round-based pause/restore still applies normally via the existing mutator
+  list lifecycle.
+
 ---
 
 ## 4. Wire protocol
@@ -790,7 +804,7 @@ mutators tick normally throughout play.
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 88 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 89 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
@@ -806,15 +820,15 @@ mutators tick normally throughout play.
 | 65 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
 | 74 | `sanic` | C | Replaces player model with sanic sprite. |
 | 77 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
-| 78 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
-| 79 | `slowbullets` | S | `sv_slowbullets = 2`. |
-| 80 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
-| 83 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 85 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
-| 86 | `superjump` | S | `sv_jumpheight = 299`. |
-| 91 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 94 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 98 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 79 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
+| 80 | `slowbullets` | S | `sv_slowbullets = 2`. |
+| 81 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
+| 84 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
+| 86 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
+| 87 | `superjump` | S | `sv_jumpheight = 299`. |
+| 92 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 95 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 99 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -857,14 +871,14 @@ mutators tick normally throughout play.
 | 71 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
 | 72 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
 | 73 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
-| 81 | `slowweapons` | S | Weapon time-scaling. |
-| 82 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
-| 84 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 92 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
-| 93 | `turrets` | S | Auto-turrets fire at everyone. |
-| 95 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 96 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
-| 97 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 82 | `slowweapons` | S | Weapon time-scaling. |
+| 83 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
+| 85 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
+| 93 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 94 | `turrets` | S | Auto-turrets fire at everyone. |
+| 96 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 97 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
+| 98 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -896,9 +910,10 @@ mutators tick normally throughout play.
 | 68 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
 | 75 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
 | 76 | `sildenafil` | C | Colour-corrector blue boost. |
-| 87 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 89 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 90 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 78 | `sleepy` | S | Every 3 seconds, applies a black HUD fade pulse (`UTIL_ScreenFade`) to active human players (non-bot, non-spectator, `deadflag == DEAD_NO`). |
+| 88 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 90 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 91 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
