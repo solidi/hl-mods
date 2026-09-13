@@ -295,6 +295,8 @@ expiring mutator does the same. Once the timestamp expires, `MutatorsThink`:
    - `SANTAHAT` on → schedule next santa sound; off → clear.
    - `SLIDE` on → force-start Selaco slide on active players;
      off → force-end Selaco slide immediately (`EndSelacoSlide(TRUE)`).
+     The off path keys on `m_fSelacoForced`, which `StartSelacoSlide(TRUE)`
+     sets; keep those two in sync or the teardown becomes dead code.
    - Call `GiveMutators(pl)` to hand out mutator-granted weapons.
    - `INVISIBLE` on/off → `MakeInvisible` / `MakeVisible`.
    - `STOMPONHEAD` on → force live active players to `pev->gravity = 0.70`;
@@ -518,8 +520,15 @@ driver resolution).
 - Mode-specific `PlayerKilled` overrides that apply elimination/conversion
   side-effects (LMS, Chilldemic, Horde, Shidden, etc.) short-circuit when
   revive is pending so the first lethal kill does not advance mode end-state.
+- `m_bMutatorPendingRevive` is armed in `TakeDamage` *before* the damage is
+  actually applied, so both `TakeDamage` (post-apply) and the headshot veto in
+  `Killed` disarm it again when the victim survives the "lethal" blow.
+  Otherwise an unrelated later death would consume the revive.
+- `PlayerDeathThink` re-checks `MutatorEnabled(MUTATOR_REVIVE)` so disabling
+  the mutator between the arming hit and the death falls through to the normal
+  death sequence, matching every gamerules callsite.
 
-### 3.17 `headshot` frag-credit gate
+### 3.17 `headshot` kill gate
 `MUTATOR_HEADSHOT` is implemented in the shared PvP scoring path in
 `multiplay_gamerules.cpp::PlayerKilled`, with hit validation metadata sourced
 from `player.cpp::TraceAttack`.
@@ -532,7 +541,11 @@ from `player.cpp::TraceAttack`.
   blocked for that kill event.
 - Direct-kill paths that bypass regular damage aggregation (for example some
   weapon/entity `Killed()` calls) are guarded in `player.cpp::Killed` with the
-  same validator so mutator behavior remains consistent.
+  same validator so mutator behavior remains consistent. That guard keeps the
+  victim alive, so scripted instant-kill mechanics must re-check `IsAlive()`
+  after calling `Killed()` before announcing a kill (see `CheckHeadStomp`).
+- The veto path also clears `m_bMutatorPendingRevive` and
+  `m_bChilldemicPendingConvert`, because the victim is not dying after all.
 - Command parser compatibility: `sv_addmutator "headsht"` is normalized to
   `headshot` (duration suffix preserved), so legacy typo scripts still work.
 - Pacifist/revive integration is preserved: pacifist victim-frag inversion
@@ -868,7 +881,7 @@ mutators tick normally throughout play.
 | 26 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
 | 27 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
 | 28 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
-| 30 | `headshot` | S | Player-vs-player kills only award frag credit when the final blow is a validated headshot from the killer. |
+| 30 | `headshot` | S | Only a headshot final blow can kill another player; other lethal PvP hits are clamped to leave the victim at 1 HP and award no frag. |
 | 32 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
 | 33 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
 | 36 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |

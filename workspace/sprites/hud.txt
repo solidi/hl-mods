@@ -1,4 +1,4 @@
-346
+348
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
