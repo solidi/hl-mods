@@ -108,15 +108,18 @@ Server commands:
     - "credits" - show all contributors in an endless loop.
     - "dealter" - dealing with farts, of course
     - "dontshoot" - firing any weapon will explode the player.
+    - "drunk" - your view keeps swaying and spinning
     - "explosiveai" - AI blows up when it cannot find its next task
     - "fastweapons" - all weapons are faster.
     - "firebullets" - all tracers are hot
     - "firestarter" - start with a flamethrower
+    - "floorislava" - the ground scorches your boots
     - "fog" - heavy fog moves into the gameplay
     - "godmode" - everyone is invincible
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
     - "halflife" - hides the Cold Ice HUD elements for a plain Half-Life look
+    - "headshot" - only a headshot final blow can kill another player; other lethal hits leave them at 1 health and award no frag
     - "ice" - all the ground is covered in ice
     - "infiniteammo" - all weapons have infinite ammo
     - "instagib" - spawn with a zapgun that dole one hit kills
@@ -136,12 +139,15 @@ Server commands:
     - "minime" - players are half the size
     - "mirror" - mirror, mirror on the wall
     - "napkinstory" - the legend reduced to two words
+    - "negativepi" - pi is now -1
     - "noclip" - fly through walls
+    - "nomouse" - disable mouse movement and mouse buttons for alive active players
     - "noradar" - hides the radar, compass, and world indicators from the HUD
     - "noreload" - no one can reload
     - "notify" - interrupt players with annoying chat notifications
     - "notthebees" - hornets spawn from a player or monster who was killed
     - "oldtime" - gameplay becomes desaturated
+    - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
     - "paintball" - weapons and explosions leave paint decals
     - "paper" - players are flat
     - "piratehat" - argh, matey.
@@ -152,31 +158,39 @@ Server commands:
     - "railguns" - everyone spawns with dual railguns
     - "randomweapon" - spawn with a randomly selected weapon
     - "rats" - spawns numerous explosive rats on the map
+    - "revive" - first lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death
     - "ricochet" - the best mod ever made
     - "rocketbees" - hornets are explosive
     - "rocketcrowbar" - spawn with a rocket crowbar, makes all rockets act drunk
+    - "rocketjump" - self-fired rockets launch you high with minimal self-damage
     - "rockets" - a random chance of rockets throw on attack!
     - "sanic" - evil santa and sanic with a santa hat team up against you
     - "santahat" - everyone wears a santa hat and says hohoho randomly
     - "sildenafil" - screen goes blue
     - "skyhook" - if a player touches a sky texture, they are gibbed
+    - "sleepy" - active human players get periodic black fade pulses like nodding off
+    - "slide" - everyone continuously performs Selaco slide loops
     - "slowbullets" - bullets travel slowly to target
     - "slowmo" - everything is slowed down by half! (sp only!)
     - "slowweapons" - all weapons are slower.
     - "snowballs" - a random chance of snowballs throw on attack
     - "speedup" - everything is sped up by half! (sp only!)
     - "stahp" - some sounds replaced with stahp!
+    - "stomponhead" - land on heads for instant gibs
     - "superjump" - jump three times the height, disables fall damage.
     - "thirdperson" - an out of body experience
     - "three" - three random mutators at once
     - "tinnitus" - lowers sfx volume and introduces a buzzing sound
     - "toilet" - game is in the toilet, we ain't hurt nobody.
     - "topsyturvy" - everything is turned upside down (sp only!)
+    - "triplebang" - every trigger pulls three shots
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "unchaos" - to shut off chaos mode
     - "upsidedown" - reverses up and down views
     - "vested" - everyone starts with a vest
+    - "victor" - fragged player's dropped weaponbox glides only to the fragger for up to 10 seconds
     - "volatile" - where players blow up when fragged
+    - "waterhurt" - if a player touches water, they are gibbed
 - "sv_bots_hook [0|1]" - bots use the grappling hook in combat
 - "sv_botsmelee [0|1]" - to toggle bots close combat on or off
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns

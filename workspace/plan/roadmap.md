@@ -93,69 +93,22 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 
 ### v1.1
 
-1. Game Modes
-    1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
-    1. [x] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly choose two spawn points as goals? (AudioCraZ)
-1. Gamemode Changes
-    1. [x] bot behavior improvement in all gamemodes
-    1. [x] Skeleton appears the moment fragged from survivor
-    1. [x] CtC, more than one chumtoad?
-    1. [x] Shidden, Stomp on head
-    1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
-    1. [x] Provide side icons for flag, ctc toad, and lj when obtained
-    1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
-    1. [x] random map select
-1. Voting
-    1. [x] Game Option Menu, specific to each game mode
-        1. [x] Basic options, On/Off/More/Less toggles.
-        1. [x] Come up with a list per gamemode, and then instruct AI
-1. Game Mutators
-    1. [x] Instagib
-        1. [x] Golden gun / golden metal corpse fall
-        1. [x] Add hornetgun(s) to instagib as powerup
-    1. Instant mutators
-        1. [x] give mutator, random, and fast.
-    1. [x] "firestarter" Flame Wars/Arena- every attack set the target on fire. The attack itself does no damage the fire however does [Napoleon]
-    1. [x] am i dead?
-    1. [x] rats around map
-1. Weapons
-    1. [x] Snowball Machine / Snowball Generator in place of Egon gun
-    1. Chaingun
-        1. [x] Secondary chaingun idea?
-        1. [x] Tracers on all bullets?
-        1. [x] Faster spin, third function
-    1. [x] Hide viewmodel when ricochet is enabled
-    1. [x] prox mine / tripmine on satchel using reload
-    1. [x] C4 mine placement with satchels
-    1. [x] Convert throw-hold effect to all other weapons for control
-    1. [x] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
-    1. [x] Freeze grenades ([AudioCraZ](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
-    1. [x] Hand grenade blows up on contact with enemy
-    1. [ ] Freezegun secondary fire beam to explode primary plasma
-1. Weapon ViewModel / Effects
-    1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
-    1. [x] add red, yellow, and green hev viewmodels
-1. Mechanics
-    1. [x] Support forcegrab for all force grab items that are stationary
-    1. [x] Grapple hook support for bots
-1. Fixes
-    1. [x] one waypoint in frosty on top platform has no paths
-    1. [x] sildenafil - make weapons fast
-    1. [x] Change solid type of barrel after throw
-    1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
-    1. [x] one waypoint in snowyard by backyard ladder has no paths
-    1. [x] Bots will not deploy snarks/chumtoads against snark/chumtoad threats (use ranged or evade)
-1. Use AI to
-    1. [x] Move railgun system to client-side
-    1. [x] Add support for menu on round based games, commit to gamemode
-    1. Mouse P.I. for Hire
-        1. [x] Last hit is bullet + Headshot, remove head
-        1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
-1. HUD
-    1. [x] Add map name to the scoreboard
-    1. [x] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
-1. Game Dev Tools
-    1. [x] Add support for detailed textures
+1. Mutators
+    1. [x] Rising ice / lava (CrazyO)
+    1. [x] 3xer - all weapons fire three shots in rapid succession, but only cost one ammo cycle
+    1. [x] [Pi is -1](https://www.youtube.com/watch?v=yDL5gh5JwBU)
+    1. [x] Stomp on head
+    1. [x] Deadly water, like skyhook, but with water textures
+    1. [x] Continuous slide (crazydog)
+    1. [x] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [x] Dropped item floats to victor
+    1. [x] Floor is lava [perhaps search textures floor,ice,grass,etc](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [x] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
+    1. [x] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
+    1. [x] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
+    1. [x] Tiny
+    1. [x] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
+    1. [x] rocketjump mutator
 
 ### Unscheduled
 
@@ -207,39 +160,20 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Voting
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
-    1. [ ] 3xer - all weapons fire three shots in rapid succession, but only cost one ammo cycle
-    1. [ ] [Pi is -1](https://www.youtube.com/watch?v=yDL5gh5JwBU)
-    1. [ ] Stomp on head
-    1. [ ] Deadly water, like skyhook, but with water textures
-    1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
-    1. [ ] no looking [up/down](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
-    1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
-    1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
-    1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
-    1. [ ] Dropped item floats to victor
-    1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
     1. [ ] assassin like jumpscare
-    1. [ ] pacifists You frag a player, that player gets +1 point and +0 deaths. (Napoleon)
     1. [ ] "dontshoot?" clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
     1. [ ] animate icons when chaos is changing like a slot machine (mario kart sfx)
     1. [ ] 3 to life
-    1. [ ] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [ ] ooof sound
-    1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
     1. [ ] random textures
     1. [ ] random sounds
     1. [ ] [inverse movement](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=1000s)
-    1. [ ] [drunk fov](https://www.youtube.com/watch?v=1h3nTAeNvl4&t=640s)
     1. [ ] [fade out](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
-    1. [ ] how about another mutator where the view / screen is turned sideways? (Napoleon)
-    1. [ ] jammed radar mutator
-    1. [ ] rocketjump mutator
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
     1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
-    1. [ ] "drunk" mutator - the camera should shake, with bulet dispersion and acquarecy reduced (Napoleon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
     1. [ ] Vampire (increase health too)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
@@ -247,12 +181,10 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
-    1. [ ] Continuous slide (crazydog)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
     1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
-    1. [ ] Rising ice / lava (CrazyO)
     1. [ ] rocket jumping, your rockets do not to much damage to owner
     1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
@@ -263,12 +195,9 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Light up melee weapons
         1. [ ] Light effects all firing
     1. [ ] SlappersOnly - remove all weapons, change behavior of fists to slaps with classic sound/slap
-    1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] License to Kill
     1. [ ] [Ghost riders](https://gamebanana.com/mods/167145) add players to wheelthrones
-    1. [ ] Tiny
     1. [ ] Tiktok - exploder (random explosions of people)
-    1. [ ] Floor is lava [perhaps search textures floor,ice,grass,etc](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
     1. [ ] 10x mode (yai boi)
     1. [ ] penguins in place of toads
@@ -286,6 +215,17 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
+    1. [ ] --------
+    1. [ ] [A Great Source](https://github.com/ScriptedSnark/GSChaos) of new mutators, with implementations.
+    1. [ ] [f1 racing](https://twitter.com/ScrewderiaF1/status/1849034493400678659) mutator
+    1. [ ] [Reflect damage](https://github.com/N7P0L3ON/flatline-24-default/commit/1e68b8d0b62106e60f4b779c993ee5c341dd94eb)
+    1. [ ] [spawn mounted turret](https://www.youtube.com/watch?v=QW-n7x4YQ_8)
+    1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
+1. Instant Mutators
+    1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
+    1. [ ] Rubberband (Players who are at the bottom get max health)
+    1. [ ] blue screen
+    1. [ ] accept all cookies
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
@@ -494,6 +434,74 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
     1. [ ] what about instead of a jet pack, you have the “go away boost” where you mele range with a “rocket” (slap a rocket on another player) and they take off like a rocket from a rocket crowbar? (AudioCraZ)
+
+### v1.1
+
+1. Game Modes
+    1. [x] [Loot mode](https://www.youtube.com/watch?v=OXdnKdBK1yg&t=1190s) - start with no weapons, weapons spawn random, one loot item, to be brought back to drop off (snow_camp square)
+    1. [x] What about "kick the Santa hat"? Where you are just kicking the hat (or frosty head) around the map? Randomly choose two spawn points as goals? (AudioCraZ)
+1. Gamemode Changes
+    1. [x] bot behavior improvement in all gamemodes
+    1. [x] Skeleton appears the moment fragged from survivor
+    1. [x] CtC, more than one chumtoad?
+    1. [x] Shidden, Stomp on head
+    1. [x] Thirdperson mode in ctc, ctf when having object. Disable thirdperson mutator in all including loot
+    1. [x] Provide side icons for flag, ctc toad, and lj when obtained
+    1. [x] Prophunt [Waiting music](https://www.youtube.com/watch?v=JRPXRHS4XNQ) for seekers
+    1. [x] random map select
+1. Voting
+    1. [x] Game Option Menu, specific to each game mode
+        1. [x] Basic options, On/Off/More/Less toggles.
+        1. [x] Come up with a list per gamemode, and then instruct AI
+1. Game Mutators
+    1. [x] Instagib
+        1. [x] Golden gun / golden metal corpse fall
+        1. [x] Add hornetgun(s) to instagib as powerup
+    1. Instant mutators
+        1. [x] give mutator, random, and fast.
+    1. [x] "firestarter" Flame Wars/Arena- every attack set the target on fire. The attack itself does no damage the fire however does [Napoleon]
+    1. [x] am i dead?
+    1. [x] rats around map
+    1. [x] jammed radar mutator
+    1. [x] how about another mutator where the view / screen is turned sideways? (Napoleon)
+1. Weapons
+    1. [x] Snowball Machine / Snowball Generator in place of Egon gun
+    1. Chaingun
+        1. [x] Secondary chaingun idea?
+        1. [x] Tracers on all bullets?
+        1. [x] Faster spin, third function
+    1. [x] Hide viewmodel when ricochet is enabled
+    1. [x] prox mine / tripmine on satchel using reload
+    1. [x] C4 mine placement with satchels
+    1. [x] Convert throw-hold effect to all other weapons for control
+    1. [x] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
+    1. [x] Freeze grenades ([AudioCraZ](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
+    1. [x] Hand grenade blows up on contact with enemy
+    1. [ ] Freezegun secondary fire beam to explode primary plasma
+1. Weapon ViewModel / Effects
+    1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
+    1. [x] add red, yellow, and green hev viewmodels
+1. Mechanics
+    1. [x] Support forcegrab for all force grab items that are stationary
+    1. [x] Grapple hook support for bots
+1. Fixes
+    1. [x] one waypoint in frosty on top platform has no paths
+    1. [x] sildenafil - make weapons fast
+    1. [x] Change solid type of barrel after throw
+    1. [x] Learned that giving a weapon on spawn that already is given with spawnweaponlist causes entities to accumulate.
+    1. [x] one waypoint in snowyard by backyard ladder has no paths
+    1. [x] Bots will not deploy snarks/chumtoads against snark/chumtoad threats (use ranged or evade)
+1. Use AI to
+    1. [x] Move railgun system to client-side
+    1. [x] Add support for menu on round based games, commit to gamemode
+    1. Mouse P.I. for Hire
+        1. [x] Last hit is bullet + Headshot, remove head
+        1. [x] Document radar, new mode, compass. Square, close (up arrow), there (down arrow)
+1. HUD
+    1. [x] Add map name to the scoreboard
+    1. [x] Add large health bar and player name or monster name above in hud - [from boltgun.](https://www.youtube.com/watch?v=VMt67r4EYBU&t=166s)
+1. Game Dev Tools
+    1. [x] Add support for detailed textures
 
 ### v1
 

@@ -17,27 +17,41 @@ below).
 ## 1. Where the code lives
 
 ### Shared / IDs
-- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L892) —
-  `MUTATOR_CHAOS`..`MUTATOR_VOLATILE` IDs (1..86) and `MAX_MUTATORS_CL` (client
-  cap = `MUTATOR_VOLATILE + 1`).
+- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L904) —
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..100) and
+  `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
-  reads three physinfo keys the server writes for movement/audio: `topsy`,
-  `haste`, `prop`.
+  reads movement/audio/control physinfo keys the server writes: `topsy`,
+  `haste`, `prop`, `slj`, `jumpheight`, and `negpi`.
+- [workspace/src/pm_shared/pm_math.c](workspace/src/pm_shared/pm_math.c) —
+  mutator-aware PI in shared math: when `physinfo["negpi"] == "1"`, `M_PI`
+  resolves to `-1.0` for prediction/server PM math.
 
 ### Server (dlls/)
 - [workspace/src/dlls/gamerules.h](workspace/src/dlls/gamerules.h#L65-L272) —
   `struct mutators_t` (linked list node), `CGameRules` interface, protected /
   private state (`m_Mutators`, `m_SavedMutators`, timers, pool, flags),
-  `MAX_MUTATORS = MUTATOR_VOLATILE`, `extern const char *g_szMutators[]`.
+  `MAX_MUTATORS = MUTATOR_WATERHURT`, `extern const char *g_szMutators[]`.
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L66-L153) —
   `g_szMutators[]` name table (index = `MUTATOR_* - 1`).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L164-L172) —
   destructor + `FreeMutatorChain` (fixes former map-to-map leak).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L597-L2372) —
   All the `CGameRules::*Mutators*` methods described in §3.
-- [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L100) — cvar
+- [workspace/src/dlls/util.h](workspace/src/dlls/util.h) — centralized
+  mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
+- [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
+  per-player mutator checks that depend on contact with map geometry (e.g.
+  `skyhook`, `floorislava`, `waterhurt`).
+- [workspace/src/dlls/weapons.cpp](workspace/src/dlls/weapons.cpp) —
+  `CWeaponBox` victor magnet logic (`MOVETYPE_NOCLIP` glide, 10 s timeout,
+  victor-only touch lock while active).
+- [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
+- [workspace/redist/server_commands.txt](workspace/redist/server_commands.txt)
+  — admin-facing mutator list and descriptions under `sv_addmutator`; keep
+  entries alphabetically ordered.
 - [workspace/src/dlls/multiplay_gamerules.cpp](workspace/src/dlls/multiplay_gamerules.cpp#L307-L1483) —
   `RandomizeMutator`, `VoteForMutator`, `CheckMutatorRTV`, mutator-vote arm of
   intermission voting state machine, `GoToIntermission()` pause call,
@@ -52,7 +66,8 @@ below).
 ### Client (cl_dll/)
 - [workspace/src/cl_dll/hud.h](workspace/src/cl_dll/hud.h#L534-L898) — client
   `mutators_t`, `MutatorEnabled(int)`, `GetMutator(int)`, `CHudStatusIcons`
-  timer/icon fields, `m_Mutators` list on `CHud`.
+  timer/icon fields, `m_Mutators` list on `CHud`, and centralized
+  mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
 - [workspace/src/cl_dll/hud.cpp](workspace/src/cl_dll/hud.cpp#L571-L1234) —
   message shim registration (`HOOK_MESSAGE( AddMut )`,
   `HOOK_MESSAGE( Chaos )`), `MutatorEnabled` / `GetMutator` implementations.
@@ -77,7 +92,8 @@ below).
 - Client render/input consumers (mutator effects, non-exhaustive):
   `StudioModelRenderer.cpp` (BIGHEAD/MINIME/PAPER/SANIC/CRATE bones and
   proxies), `view.cpp` (MCCLANE/UPSIDEDOWN/AMIDEAD/TOPSYTURVY roll),
-  `input.cpp` + `inputw32.cpp` (MIRROR/UPSIDEDOWN input inversion),
+  `input.cpp` + `inputw32.cpp` (MIRROR/UPSIDEDOWN input inversion,
+  NOMOUSE suppression),
   `colorcor.cpp` (OLDTIME/ASTRONAUT/INVERSE/SILDENAFIL post-process),
   `hud_redraw.cpp`, `radar.cpp`, `lifebar.cpp`, `ammo.cpp`, `entity.cpp`,
   `hl_weapons.cpp`, `com_weapons.cpp`.
@@ -105,12 +121,16 @@ timer bar. `mutatorId == -1` sentinel is used only during message parsing to
 break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
-- Server: `g_szMutators[MAX_MUTATORS]` where `MAX_MUTATORS = MUTATOR_VOLATILE`
-  (86 entries). Indexing is always `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 87 entries
+- Server: `g_szMutators[MAX_MUTATORS]` where
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (100 entries). Indexing is always
+  `g_szMutators[id - 1]`.
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 101 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
+- Real mutators are maintained in **alphabetical order** in all three aligned
+  tables (`const.h` IDs, `g_szMutators[]`, `sMutators[]`), so new mutators
+  must be inserted alphabetically and downstream IDs renumbered in lockstep.
 - Special sentinels on the `gmsgAddMutator` wire: `254` = clear all,
   `255` = end-of-batch, `-1` (as read byte) = short-read guard.
 - Vote-only synthetic slots (only ever appear in vote payloads, never in the
@@ -273,8 +293,15 @@ expiring mutator does the same. Once the timestamp expires, `MutatorsThink`:
      `TOPSYTURVY` / `MEGASPEED` / `ICE`.
    - `AUTOAIM` off → `ResetAutoaim`.
    - `SANTAHAT` on → schedule next santa sound; off → clear.
+   - `SLIDE` on → force-start Selaco slide on active players;
+     off → force-end Selaco slide immediately (`EndSelacoSlide(TRUE)`).
+     The off path keys on `m_fSelacoForced`, which `StartSelacoSlide(TRUE)`
+     sets; keep those two in sync or the teardown becomes dead code.
    - Call `GiveMutators(pl)` to hand out mutator-granted weapons.
    - `INVISIBLE` on/off → `MakeInvisible` / `MakeVisible`.
+   - `STOMPONHEAD` on → force live active players to `pev->gravity = 0.70`;
+     off → restore players at exactly that value to `1.0` (except Shidden
+     dealters, which own `0.70` natively).
    - `999` on → force HP/armour/max to 999; off → clamp back to 100 unless the
      player is `IsArmoredMan` or virus-flagged.
    - `JEEPATHON` / `TOILET` → force body/bodygroup indices.
@@ -304,7 +331,9 @@ Runs directly from step 2 above (and can be re-invoked). Not per-player.
 - `SUPERJUMP` → `sv_jumpheight` 299/45.
 - `ASTRONAUT` → `sv_gravity` 199/800.
 - `BIGFOOT` → `sv_stepsize` 192/18.
-- Per player: `TINNITUS` writes physinfo `prop=2` (footstep silencer);
+- Per player: `STOMPONHEAD` applies Shidden-style low gravity (`0.70`) to
+  live non-spectators while active (with Shidden-dealter-safe restore on
+  disable), `TINNITUS` writes physinfo `prop=2` (footstep silencer), and
   `FOG` sends per-client `gmsgFog(50, 200, 125,125,125, 0)` unless an
   `env_fog` entity exists; toggles the flashlight to match `LIGHTSOUT`.
 
@@ -322,6 +351,7 @@ the per-life state:
 - Random weapon (if the mode allows).
 - `GiveMutators(pl)` — see §3.8.
 - Invisibility toggle.
+- `MUTATOR_STOMPONHEAD` → per-life low-gravity baseline (`pev->gravity = 0.70`).
 - `999` — force HP/max/armour to 999.
 - `JEEPATHON` / `TOILET` bodygroups.
 - `NOCLIP` / `GODMODE` flags.
@@ -362,6 +392,32 @@ Called from weapon PreFrame / Fire paths. Applies pre-fire mutator effects:
 - **PUSHY.** Applies a backwards velocity impulse (`-forward * rand(50..100) * 3`)
   on every shot, clearing `FL_ONGROUND` first. Turns firing into recoil-boost.
 
+### 3.9.1 `triplebang` central burst dispatch (`weapons.cpp::ItemPostFrame`)
+`MUTATOR_TRIPLEBANG` is implemented in the shared attack dispatch path instead
+of weapon-by-weapon custom code:
+- For bullet-style and projectile-launcher weapons, one eligible
+  primary/secondary trigger starts a queued burst: first shot fires
+  immediately, then follow-up shots fire every `0.15s` (scaled by weapon speed
+  multiplier) until three shots are fired.
+- While the queue is active, manual attack input is masked so the next trigger
+  cannot start until the burst finishes.
+- Ammo accounting stays at **one trigger's cost** by snapshotting clip + reserve
+  ammo before the first shot, replaying follow-up shots from the pre-shot state,
+  then restoring the post-first-shot ammo state.
+- Exemptions are handled centrally for high-risk classes (placeables,
+  utility/melee, and complex charge/beam weapons) to avoid breaking arm/disarm,
+  charge-up, or toggle-style behavior. Current exemptions include
+  chainsaw, gravitygun/ashpod,
+  egon, and placeables/throwables
+  (handgrenade/satchel/tripmine/snark/chumtoad/snowball/vest/nuke).
+- Burst queue state is mirrored in `cl_dll/hl/hl_weapons.cpp` for prediction and
+  synchronized through `weapon_data_t` side channels:
+  `m_iWeaponState` (signed pending count / attack mode), `m_flPumpTime`
+  (pre-shot clip), `m_fNextAimBonus` (pre-shot primary reserve), and
+  `m_flNextReload` (pre-shot secondary reserve).
+- Non-timed eligible weapons retain the immediate multi-dispatch fallback in
+  the same central path so generic mutator behavior remains intact.
+
 ### 3.10 `MutatorEnabled(int mutatorId)`
 List walk. Returns `TRUE` when a matching node exists and either
 `timeToLive == -1` or `timeToLive > gpGlobals->time`. This is what the ~200+
@@ -373,6 +429,174 @@ Currently a stub — the on-HUD "Mutators Active: …" banner is disabled but th
 plumbing exists (`m_iShowMutatorMessage`, throttled by
 `m_flDetectedMutatorChange` reapply cycles). If a future banner ever needs to
 show live mutators, this is the entry point.
+
+### 3.12 `floorislava` floor detection and burn timing
+`MUTATOR_FLOORISLAVA` lives in `player.cpp` because floor contact is a
+per-player runtime condition, not a global world-cvar toggle.
+
+Detection strategy is intentionally **map-agnostic** (no per-map texture lists):
+- Requires `FL_ONGROUND` so the engine's movement system decides whether the
+  player is standing on something.
+- Rejects ladder and deep-water states (`IsOnLadder`, `waterlevel >= 2`) so
+  climbing/swimming does not trigger lava burns.
+- Accepts world/brush supports (`worldspawn`, `SOLID_BSP`, or
+  `FL_WORLDBRUSH`) from `pev->groundentity`.
+- Falls back to a short downward trace when `groundentity` is absent or
+  ambiguous; requires an upward-facing plane normal (`normal.z >= 0.35`) and
+  the same world/brush test.
+
+When contact is valid, a per-player cooldown (`m_flFloorIsLavaTime`) reapplies
+burn at fixed cadence (0.75 s). Each pulse extends `m_fBurnTime` by a small
+amount, which feeds the existing `PlayerBurn()` timed-fire pipeline.
+
+### 3.13 `stomponhead` head-hit instagib + low gravity
+`MUTATOR_STOMPONHEAD` reuses the proven Shidden stomp envelope in
+`player.cpp::CheckHeadStomp` but removes team-role restrictions:
+
+- Any alive, non-spectator player with sufficient downward landing speed can
+  trigger the stomp.
+- Any alive, non-spectator target player within the stomp sphere can be
+  stomped (no team checks).
+- Uses the same spatial checks as Shidden (`48u` search radius and
+  `victim_z <= stomper_z + 36`) so head-contact feel remains familiar.
+- Kill path is direct `Killed(..., GIB_ALWAYS)` for deterministic gibbing.
+
+Gravity tuning mirrors Shidden's low-gravity feel so stomps are easier to
+land: while active, players are held at `pev->gravity = 0.70` (applied on
+spawn and re-applied in think/update paths).
+
+### 3.14 `victor` fragger-owned weaponbox pull
+`MUTATOR_VICTOR` is implemented in the server weaponbox path
+(`player.cpp::PackDeadPlayerItems`, `weapons.cpp::CWeaponBox`) and affects only
+death-dropped `weaponbox` entities.
+
+- On player death, if the killer is a live player, the victim's death-drop
+  weaponbox is tagged with that killer as the *victor target*.
+- While tagged, the box switches to `MOVETYPE_NOCLIP` and glides toward the
+  victor (same smooth velocity-lerp style as coldskulls magnetism, but always
+  aimed at the killer).
+- During this glide window, touch is locked to that victor only; all other
+  players are ignored.
+- The pull automatically stops and the box drops (`MOVETYPE_TOSS`) when:
+  - the victor dies/disconnects,
+  - the mutator is disabled,
+  - or 10 seconds elapse without a successful pickup.
+- World drops that are not `weaponbox` (runes, item entities, etc.) are not
+  part of this mutator.
+
+### 3.15 `pacifist` kill-credit inversion
+`MUTATOR_PACIFIST` is implemented in `multiplay_gamerules.cpp::PlayerKilled`
+and applies to player-vs-player kills (including vehicle-driver kills after
+driver resolution).
+
+- The victim gets `+1` frag.
+- The victim's death count is not incremented.
+- The killer does not gain or lose frag credit from that kill path.
+- Suicide and world-kill paths keep their normal behavior.
+- LMS and Chilldemic keep their mode flow logic, but skip their victim-frag
+  reset/penalty when `pacifist` is active so the victim reward is preserved.
+
+### 3.16 `revive` one-life instant rebirth
+`MUTATOR_REVIVE` is implemented across `player.cpp::TakeDamage`,
+`player.cpp::PlayerDeathThink`, and
+`multiplay_gamerules.cpp::PlayerKilled`.
+
+- On a lethal player-vs-player hit, `TakeDamage` marks a pending revive and
+  stores the victim's death origin/angles if that player has not used revive
+  during the current spawn.
+- While pending, `PlayerKilled` suppresses score impact for that kill path:
+  killer gains no frag credit and victim death count does not increment.
+- On the next `PlayerDeathThink` tick, the victim's inventory is dropped/packed
+  using normal death rules, then `Spawn()` is called with in-place respawn
+  (`m_bSkipSpawnPointSelect = TRUE`) and position restored to the death point.
+- After in-place respawn, linear/base/angular velocity are zeroed so the revived
+  player regains footing instead of carrying pre-death momentum.
+- Rebirth visuals are emitted via `TE_TELEPORT` at death/reappear locations,
+  plus a short blue screen-fade pulse.
+- `m_bMutatorReviveUsed` is set after the respawn so subsequent lethal hits in
+  that same life behave as normal deaths.
+- `Spawn()` resets revive usage state, so each new spawn gets exactly one
+  revive again.
+- Mode-specific `PlayerKilled` overrides that apply elimination/conversion
+  side-effects (LMS, Chilldemic, Horde, Shidden, etc.) short-circuit when
+  revive is pending so the first lethal kill does not advance mode end-state.
+- `m_bMutatorPendingRevive` is armed in `TakeDamage` *before* the damage is
+  actually applied, so both `TakeDamage` (post-apply) and the headshot veto in
+  `Killed` disarm it again when the victim survives the "lethal" blow.
+  Otherwise an unrelated later death would consume the revive.
+- `PlayerDeathThink` re-checks `MutatorEnabled(MUTATOR_REVIVE)` so disabling
+  the mutator between the arming hit and the death falls through to the normal
+  death sequence, matching every gamerules callsite.
+
+### 3.17 `headshot` kill gate
+`MUTATOR_HEADSHOT` is implemented in the shared PvP scoring path in
+`multiplay_gamerules.cpp::PlayerKilled`, with hit validation metadata sourced
+from `player.cpp::TraceAttack`.
+
+- Shared player damage (`player.cpp::TakeDamage`) clamps non-headshot lethal
+  PvP damage to leave the victim at 1 HP, so ordinary PvP kills cannot finish
+  unless the validating hitgroup is head.
+- PvP kill scoring requires a validated headshot final blow from the killer.
+- Non-headshot PvP deaths still follow normal death flow, but frag credit is
+  blocked for that kill event.
+- Direct-kill paths that bypass regular damage aggregation (for example some
+  weapon/entity `Killed()` calls) are guarded in `player.cpp::Killed` with the
+  same validator so mutator behavior remains consistent. That guard keeps the
+  victim alive, so scripted instant-kill mechanics must re-check `IsAlive()`
+  after calling `Killed()` before announcing a kill (see `CheckHeadStomp`).
+- The veto path also clears `m_bMutatorPendingRevive` and
+  `m_bChilldemicPendingConvert`, because the victim is not dying after all.
+- Command parser compatibility: `sv_addmutator "headsht"` is normalized to
+  `headshot` (duration suffix preserved), so legacy typo scripts still work.
+- Pacifist/revive integration is preserved: pacifist victim-frag inversion
+  applies only when the kill also satisfies the headshot requirement; revive
+  still suppresses scoring as before.
+- Applies uniformly across game modes because almost all mode-specific
+  `PlayerKilled` overrides delegate to `CHalfLifeMultiplay::PlayerKilled`.
+
+### 3.18 `drunk` continuous camera disorientation
+`MUTATOR_DRUNK` is implemented client-side in `cl_dll/view.cpp` so core
+gameplay logic (movement speed, weapon behavior, scoring, collision) remains
+unchanged.
+
+- Active only for alive, first-person, non-spectator players.
+- Applies continuous sinusoidal offsets to pitch/yaw/roll each frame so the
+  view never settles.
+- Adds periodic punch-angle bursts when the current punch magnitude decays below
+  a threshold (`< 15`) to keep the motion erratic and disorienting.
+- Uses the existing punch-angle decay pipeline (`V_DropPunchAngle`), mirroring
+  the legacy "keep spinning while punch is low" style without server-side
+  state mutation.
+
+### 3.19 `sleepy` periodic blackout pulse
+`MUTATOR_SLEEPY` is implemented server-side in `dlls/player.cpp::CBasePlayer::PostThink`
+and applies a periodic HUD fade to simulate nodding off.
+
+- Runs only while the mutator is active.
+- Applies only to active human players: non-bot (`!FL_FAKECLIENT`),
+  non-spectator, alive, and `deadflag == DEAD_NO`.
+- Uses a per-player timer (`m_flSleepyTime`) so each player gets a fade every
+  `SLEEPY_TIME` seconds (3.0 s): `UTIL_ScreenFade(this, Vector(0,0,0), 1.75f,
+  0.1f, 255, FFADE_IN)`.
+- Works across game modes because it sits in the shared player post-think path;
+  round-based pause/restore still applies normally via the existing mutator
+  list lifecycle.
+
+### 3.20 `rocketjump` low-self-damage rocket mobility
+`MUTATOR_ROCKETJUMP` is implemented in the shared damage path
+`dlls/combat.cpp::CBaseMonster::TakeDamage`, so it applies uniformly across
+all game modes.
+
+- Applies only to **self-inflicted** blast damage (`DMG_BLAST`) where the
+  attacker and victim are the same player.
+- Applies only when the blast inflictor classname is a rocket projectile
+  (`rpg_rocket` or `rocketcrowbar`).
+- Caps self-damage health loss to 12.
+- Keeps blast impulse and adds extra lift when the rocket detonates below the
+  player (vertical offset scaled boost), making intentional downward shots jump
+  higher.
+- Removes `DMG_BURN` for the qualifying self-rocket blast so rocket-jumping
+  does not ignite the shooter or apply post-jump burn ticks.
 
 ---
 
@@ -453,10 +677,13 @@ timers.
 Where each mutator lands on the client:
 
 - **View/roll (view.cpp):** `MCCLANE` (view roll -180 permanently),
-  `UPSIDEDOWN` (roll +180), `AMIDEAD` (roll +80), `TOPSYTURVY` in singleplayer
-  (roll 180 while alive). `MINIME` also adjusts view height.
+  `UPSIDEDOWN` (roll +180), `AMIDEAD` (roll +80), `DRUNK` (continuous sway +
+  periodic punch kicks), `TOPSYTURVY` in singleplayer (roll 180 while alive).
+  `MINIME` also adjusts view height.
 - **Input inversion (inputw32.cpp + input.cpp):** `MIRROR`, `TOPSYTURVY`,
   `UPSIDEDOWN` flip mouse axes appropriately so the world stays controllable.
+  `NOMOUSE` suppresses mouse look and mouse buttons for alive, active,
+  non-spectator players only.
 - **Post-process (colorcor.cpp):** `OLDTIME` and `INVERSE` (colour negation /
   black-and-white), `ASTRONAUT` (blue tint), `SILDENAFIL` (blue boost).
 - **StudioModelRenderer.cpp (per-bone):** `BIGHEAD` (scale head/arm bones 3x),
@@ -606,27 +833,31 @@ mutators tick normally throughout play.
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 79 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 90 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
 |---:|---|---|---|
 | 4 | `astronaut` | SC | `sv_gravity = 199`; client colour-cor slight blue tint. |
 | 8 | `bigfoot` | S | `sv_stepsize = 192`. |
-| 28 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
-| 37 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
-| 38 | `longjump` | S | Grants `item_longjump`. |
-| 43 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
-| 47 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
-| 59 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
-| 67 | `sanic` | C | Replaces player model with sanic sprite. |
-| 70 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
-| 71 | `slowbullets` | S | `sv_slowbullets = 2`. |
-| 72 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
-| 75 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 77 | `superjump` | S | `sv_jumpheight = 299`. |
-| 82 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 84 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 31 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
+| 40 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
+| 41 | `longjump` | S | Grants `item_longjump`. |
+| 46 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
+| 51 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
+| 52 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
+| 65 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
+| 75 | `sanic` | C | Replaces player model with sanic sprite. |
+| 78 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
+| 80 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
+| 81 | `slowbullets` | S | `sv_slowbullets = 2`. |
+| 82 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
+| 85 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
+| 87 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
+| 88 | `superjump` | S | `sv_jumpheight = 299`. |
+| 93 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 96 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 100 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -642,34 +873,42 @@ mutators tick normally throughout play.
 | 14 | `cowboy` | S/Weapon | Grants `weapon_dual_sawedoff`. |
 | 17 | `dealter` | S | Per-frame damage to non-suit players (rot effect). |
 | 18 | `dontshoot` | S/Weapon | Grants `weapon_fingergun`; every trigger pull damages the shooter (see `WeaponMutators`). |
-| 19 | `explosiveai` | S | Sets `g_ExplosiveAI`. **Blocked in `MutatorAllowed`.** |
-| 20 | `fastweapons` | S | Weapon time-scaling. |
-| 21 | `firebullets` | S | Ignites victims on hit. |
-| 22 | `firestarter` | S/Weapon | Grants `weapon_flamethrower`. |
-| 24 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
-| 25 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
-| 26 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
-| 29 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
-| 30 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
-| 33 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
-| 46 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
-| 49 | `noreload` | S | No reload cycles. |
-| 51 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
-| 53 | `paintball` | SC | Paintball-style hit FX. |
-| 56 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
-| 57 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
-| 60 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
-| 61 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
-| 63 | `ricochet` | S | Bullets bounce (up to N ricochets). |
-| 64 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
-| 65 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
-| 66 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
-| 73 | `slowweapons` | S | Weapon time-scaling. |
-| 74 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
-| 76 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 83 | `turrets` | S | Auto-turrets fire at everyone. |
-| 85 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 86 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 20 | `explosiveai` | S | Sets `g_ExplosiveAI`. **Blocked in `MutatorAllowed`.** |
+| 21 | `fastweapons` | S | Weapon time-scaling. |
+| 22 | `firebullets` | S | Ignites victims on hit. |
+| 23 | `firestarter` | S/Weapon | Grants `weapon_flamethrower`. |
+| 24 | `floorislava` | S | Standing on map floors/brushes ignites the player on a short cadence (timed burn via `PlayerBurn`). |
+| 26 | `godmode` | S/Weapon | Sets `FL_GODMODE`; grants `weapon_vice` (special melee). |
+| 27 | `goldenguns` | S | One-hit-kill damage bonus. Client also forces first-person weapon finish to gold (sleeve color remains independently resolved). |
+| 28 | `grenades` | S | 1/11 fire chance to also throw a grenade. |
+| 30 | `headshot` | S | Only a headshot final blow can kill another player; other lethal PvP hits are clamped to leave the victim at 1 HP and award no frag. |
+| 32 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
+| 33 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
+| 36 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
+| 49 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
+| 50 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
+| 54 | `noreload` | S | No reload cycles. |
+| 56 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
+| 58 | `pacifist` | S | Player-vs-player kills award +1 frag to the victim, do not increment victim deaths, and award no killer frag credit. |
+| 59 | `paintball` | SC | Paintball-style hit FX. |
+| 62 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
+| 63 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
+| 66 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
+| 67 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
+| 69 | `revive` | S | First lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death increment. |
+| 70 | `ricochet` | S | Bullets bounce (up to N ricochets). |
+| 71 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
+| 72 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
+| 73 | `rocketjump` | S | Self-fired rockets cap self-damage, get stronger lift when detonated below the player, and do not apply self-burn DOT from the blast. |
+| 74 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
+| 83 | `slowweapons` | S | Weapon time-scaling. |
+| 84 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
+| 86 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
+| 94 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 95 | `turrets` | S | Auto-turrets fire at everyone. |
+| 97 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 98 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
+| 99 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -678,31 +917,33 @@ mutators tick normally throughout play.
 | 13 | `coolflesh` | SC | Frostbite / freeze cosmetic. |
 | 15 | `crate` | C | Player model becomes `models/box.mdl`. |
 | 16 | `credits` | S | Enters "credits" mode on players (`m_iCreditMode = 1`). |
-| 23 | `fog` | S | Broadcasts `gmsgFog(50,200,125,125,125,0)`. |
-| 27 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements and forces vanilla first-person visual style (normal weapon + orange sleeves). |
-| 31 | `inverse` | C | Colour-corrector negates output. |
-| 32 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
-| 34 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
-| 35 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
-| 36 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
-| 39 | `loopback` | S | Damage returns to the attacker (wormhole). |
-| 40 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
-| 41 | `maxpack` | S | Max ammo pickups. |
-| 42 | `mcclane` | C | View roll -180 permanently. |
-| 44 | `minime` | C | Player model scaled to 0.5×, view offset. |
-| 45 | `mirror` | C | Mouse X inverted; view mirrored. |
-| 48 | `noradar` | C | Hides radar HUD. |
-| 50 | `notify` | S | Notification/phone effect. |
-| 52 | `oldtime` | C | Black-and-white colour correction. |
-| 54 | `paper` | C | Player bones flattened to 10 % Y-axis. |
-| 55 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
-| 58 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
-| 62 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
-| 68 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
-| 69 | `sildenafil` | C | Colour-corrector blue boost. |
-| 78 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 80 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 81 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 19 | `drunk` | C | Continuously sways/spins first-person view and injects periodic punch bursts for disorientation. |
+| 25 | `fog` | S | Broadcasts `gmsgFog(50,200,125,125,125,0)`. |
+| 29 | `halflife` | S | `HIDEHUD_ICE` hides Cold Ice HUD elements and forces vanilla first-person visual style (normal weapon + orange sleeves). |
+| 34 | `inverse` | C | Colour-corrector negates output. |
+| 35 | `invisible` | S | `MakeInvisible` / `MakeVisible` on players. |
+| 37 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
+| 38 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
+| 39 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
+| 42 | `loopback` | S | Damage returns to the attacker (wormhole). |
+| 43 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
+| 44 | `maxpack` | S | Max ammo pickups. |
+| 45 | `mcclane` | C | View roll -180 permanently. |
+| 47 | `minime` | C | Player model scaled to 0.5×, view offset. |
+| 48 | `mirror` | C | Mouse X inverted; view mirrored. |
+| 53 | `noradar` | C | Hides radar HUD. |
+| 55 | `notify` | S | Notification/phone effect. |
+| 57 | `oldtime` | C | Black-and-white colour correction. |
+| 60 | `paper` | C | Player bones flattened to 10 % Y-axis. |
+| 61 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
+| 64 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
+| 68 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
+| 76 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
+| 77 | `sildenafil` | C | Colour-corrector blue boost. |
+| 79 | `sleepy` | S | Every 3 seconds, applies a black HUD fade pulse (`UTIL_ScreenFade`) to active human players (non-bot, non-spectator, `deadflag == DEAD_NO`). |
+| 89 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 91 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 92 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
@@ -716,27 +957,34 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 
 ## 9. Adding a new mutator (checklist)
 
-1. **ID (shared).** Append to `common/const.h` immediately before
-   `MAX_MUTATORS_CL`, e.g. `#define MUTATOR_FOOBAR 87`. Bump the sentinel:
-   `#define MAX_MUTATORS_CL MUTATOR_FOOBAR + 1`. The server-side
-   `MAX_MUTATORS` macro (`gamerules.h`) auto-tracks because it is
-   `MUTATOR_VOLATILE`, which means **adding at the end works, but inserting
-   in the middle re-numbers every downstream ID and will desync clients** —
-   always append.
-2. **Server name table.** Append the internal string to
+1. **ID (shared).** Insert the new mutator in alphabetical order in
+   `common/const.h` (matching `g_szMutators[]` token order) and renumber every
+   following `MUTATOR_*` define so IDs remain contiguous.
+2. **Server name table.** Insert the internal string into the alphabetically
+   correct position in
    `dlls/gamerules.cpp::g_szMutators[]`. Must be lowercase, unique, and match
    the substring compare used by `sv_addmutator` / `sv_chaosfilter` /
    `MutatorAllowed`.
-3. **Client display table.** Append `{ "name", "short description" }` to
-   `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]` at the same index. Do
+3. **Client display table.** Insert `{ "name", "short description" }` at the
+   same alphabetical/index position in
+   `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`. Do
    not reorder existing entries.
-4. **Filters.** Decide whether the mutator should be allowed in every mode.
+4. **Settings + command docs.** Update `workspace/redist/settings.scr` mutator
+  list to insert the same mutator at the matching alphabetical position, and
+  renumber every following numeric value.
+  Also update `workspace/redist/server_commands.txt` under `sv_addmutator`
+  with the same mutator name and a brief description, kept in alphabetical
+  order with the surrounding mutators.
+5. **Max sentinels.** Ensure sentinel macros point to the final mutator after
+   renumbering (`MAX_MUTATORS` in `gamerules.h` and `MAX_MUTATORS_CL` in
+   `common/const.h`).
+6. **Filters.** Decide whether the mutator should be allowed in every mode.
    If not, add `strstr(mutator, g_szMutators[MUTATOR_FOOBAR - 1]) ||
    atoi(mutator) == MUTATOR_FOOBAR` return-`FALSE` blocks in the relevant
    `MutatorAllowed` overrides (and `CHalfLifeMultiplay::MutatorAllowed` if
    universally disabled). Add to `sv_chaosfilter` default if it should be
    opt-in only.
-5. **Effect wiring.**
+7. **Effect wiring.**
    - Purely visual: `MutatorEnabled(MUTATOR_FOOBAR)` checks in the appropriate
      client file (`StudioModelRenderer.cpp`, `view.cpp`, `colorcor.cpp`, etc.).
    - Gameplay: `MutatorEnabled` checks in the server hot paths. If the check
@@ -752,17 +1000,17 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
    - Client-only kickoff: extend `MsgFunc_AddMut` (the `mutatorId == ...`
      ladder) and its mirror inside the `254` clear-all branch and the
      `CHudStatusIcons::Draw` expiry loop.
-6. **VGUI vote panel.** No code change needed unless the mutator should be
+8. **VGUI vote panel.** No code change needed unless the mutator should be
    *hidden* from the vote grid; if so add a `strstr(sMutators[i].name, ...)`
    skip in `CVoteMutatorPanel` constructor (matching the existing
    slowmo/speedup/topsyturvy/itemsexplode/explosiveai list).
-7. **Pause/restore.** Nothing to change — the pause system operates on IDs
+9. **Pause/restore.** Nothing to change — the pause system operates on IDs
    and TTLs, not on effects.
-8. **Documentation.** Add a row to the catalogue in §8 and update any relevant
+10. **Documentation.** Add a row to the catalogue in §8 and update any relevant
    spoke doc (`workspace/ai/voting_system.md`,
    `workspace/ai/gamerules.md`, mode-specific docs when the mutator is
    permanently associated with a mode).
-9. **Build.** Windows: `workspace/Build-Windows.ps1`. Linux:
+11. **Build.** Windows: `workspace/Build-Windows.ps1`. Linux:
    `workspace/build-linux.sh`. Both DLLs must rebuild (`ice.dll` and
    `client.dll`) so the shared const.h change is picked up on both sides.
 
@@ -770,9 +1018,18 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 
 ## 10. Known pitfalls & invariants
 
-- **Symmetric IDs.** `MUTATOR_*` values are on the wire. Do not reorder or
-  renumber. If a value is retired, keep the enum slot and just filter the
-  string in `MutatorAllowed` everywhere.
+- **Symmetric IDs and ordering.** `MUTATOR_*` values are on the wire. Keep
+  `common/const.h`, `dlls/gamerules.cpp::g_szMutators[]`,
+  `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`, and
+  `workspace/redist/settings.scr` mutator IDs synchronized. Canonical order is
+  alphabetical; inserting a new mutator requires renumbering all later IDs in
+  every one of those lists in the same change. Keep
+  `workspace/redist/server_commands.txt` mutator bullets alphabetized too, with
+  matching mutator names and descriptions.
+- **HUD sprite declaration count.** The first line of
+  `workspace/sprites/hud.txt` is the sprite declaration total. Any add/remove
+  of a sprite alias (including mutator icons like `pacifist`) must update that
+  number, or trailing entries can fail to load.
 - **List memory (server).** `MutatorsThink` used to `unlink` nodes without
   `delete` — resulting in a heap leak per expiration. The current code deletes
   cleanly; do not remove the `delete m;` calls in the expiration pass, the

@@ -15,9 +15,6 @@
 [ ] scoreboard should have mini icons for both "it" player and runes
 [ ] Airstrike should damage everyone
 [ ] sky texture on spawn monsters
-[ ] accept all cookies mutator
-[ ] blue screen mutator
-[ ] Broken mouse mutator
 [ ] Recoil mutator?
 [ ] double vote influence on steamids (for $$$)
 [ ] 69 mutator, change as many numbers to 69
@@ -34,6 +31,12 @@
 [ ] custom sounds on weapon death
 [ ] show winning vote on map and gamemode before vote ends?
 [ ] pirate sounds when hat mutator on
+
+Implemented
+
+[ ] accept all cookies mutator
+[ ] blue screen mutator
+[x] Broken mouse mutator
 
 ## v1.1 Buglist
 
