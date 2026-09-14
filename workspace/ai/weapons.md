@@ -432,6 +432,16 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. â€œDual_*â
 2. Burst uses `weapons/rocketfire1.wav`; underwater denial uses `common/wpn_denyselect.wav`.
 3. Client HUD pro tip was added for cannon: "Use RELOAD to blast a close-range shockwave".
 
+## Cannon Flak Bounce Audio Culling (`flak` touch in `cannon.cpp`)
+
+`CFlak::FlakTouch()` now applies layered audio culling so cannon flak still gives impact feedback without turning dense flak clouds into a full-volume sound wall.
+
+1. The existing per-shard touch cadence gate is preserved (`m_flNextAttack`, `0.25s`), so one flak shard cannot spam bounce audio on rapid repeated contacts.
+2. A new shared global gate (`CANNON_FLAK_BOUNCE_SOUND_GLOBAL_COOLDOWN = 0.06s`) limits how often any flak shard may emit `debris/concrete2.wav` in aggregate.
+3. Bounce audio now requires a meaningful impact speed (`CANNON_FLAK_BOUNCE_SOUND_MIN_SPEED = 280u/s`) to suppress low-energy scrape chatter.
+4. Playback switched to `EMIT_SOUND_DYN` with impact-scaled volume (`0.55` normal bounce, `0.80` hard bounce) plus small pitch variance, keeping bounce presence while reducing harsh chorus spikes.
+5. Gameplay authority is unchanged: only audio emission is culled; touch velocity damping and damage timing continue through the same `FlakTouch()` path.
+
 ## Nuke Suicide Plant (`+reload` on `weapon_nuke`)
 
 `weapon_nuke` now has a third fire mode through reload: a satchel-style sticky nuclear trap that is owner-safe and proximity-triggered.
