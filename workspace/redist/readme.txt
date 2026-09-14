@@ -26,6 +26,9 @@ v1.2 Features:
     - "triplebang" - every trigger pulls three shots
     - "victor" - fragged drops fly only to the fragger
     - "waterhurt" - touch water and explode
+- Patches
+    - Fixed ironsights server crash (thanks to albatross)
+    - Fixed flak sound effects 
 
 Highly-Valued Upcoming Features:
 
