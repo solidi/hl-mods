@@ -109,6 +109,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Tiny
     1. [x] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [x] rocketjump mutator
+    1. [x] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
 
 ### Unscheduled
 
@@ -183,7 +184,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
-    1. [ ] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
     1. [ ] rocket jumping, your rockets do not to much damage to owner
     1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)

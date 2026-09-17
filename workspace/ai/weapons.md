@@ -259,7 +259,7 @@ User messages registered in `player.cpp::LinkUserMessages()` that weapons depend
 Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*” weapons are spawned by the Dualizer mutator; you normally don’t put them in maps.
 
 ### Slot 1 — Melee
-- `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`)
+- `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`) — while the `expcrowbar` mutator is active it gains an explode-on-contact swing, and its throw secondary + charged smash degrade to plain swings (see [Explosive Crowbar](#explosive-crowbar-expcrowbar-mutator)).
 - `weapon_knife` → `CKnife` (`knife.cpp`) — `+reload` toggles 30° sniper-style zoom; `+attack2` charges a thrown knife; `iMaxClip = 1` is a deliberate hack to force server-side reload routing.
 - `weapon_wrench` → `CWrench` (`wrench.cpp`), `weapon_dual_wrench` → `CDualWrench` (`dual_wrench.cpp`)
 - `weapon_chainsaw` → `CChainsaw` (`chainsaw.cpp`) — three attack modes: `+attack` does a standard close-range slash, `+attack2` runs the rev/loop thrust that can launch the player forward and add upward wall-climb boost when contacting brush surfaces, and `+reload` triggers a rapid 3-hit slash combo (`0.10s` spacing) with a deliberately longer post-combo cooldown than a normal primary slash.
@@ -489,11 +489,50 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 3. After blast, the mine runs a brief lingering cloud (`PROXMINE_DRUG_DURATION`) that ticks (`PROXMINE_DRUG_TICK_INTERVAL`) poison + confusion damage (`DMG_POISON | DMG_CONFUSE`) in a compact radius (`PROXMINE_DRUG_RADIUS`), creating a short confusion-lock window.
 4. Indicator light color is always **green** for drug mines and does not change with `icesprites`.
 
+## Explosive Crowbar (`expcrowbar` mutator)
+
+`MUTATOR_EXPCROWBAR` turns the ordinary `weapon_crowbar` into a demolition tool for the duration of the mutator. The primary swing is unchanged apart from the added blast. The throw secondary (`+attack2`) and the charged reload smash (`+reload`) are temporarily **folded into the primary swing** while the mutator is active, because the borrowed view model has no animations for them — see Caveats.
+
+### Wiring
+
+1. `crowbar.cpp` owns the whole feature. `ExplosiveCrowbarActive()` is the single gate and resolves through `g_pGameRules->MutatorEnabled()` on the server and the client-side `MutatorEnabled()` (declared `extern bool` for the `CLIENT_DLL` build) so prediction agrees with authority.
+2. `CGameRules::GiveMutators` grants `weapon_crowbar` when the mutator is active and the player does not already own one. It intentionally does **not** `SelectItem` — the existing loadout is left alone.
+3. `CCrowbar::Deploy` / `DeployLowKey` route through `CCrowbar::DeployExplosive`, which deploys `models/v_rocketcrowbar.mdl` and then overrides `m_pPlayer->pev->team` to `WEAPON_ROCKETCROWBAR - 1`. `pev->team` is the p_weapons bodygroup selector (`StudioModelRenderer.cpp` copies it into `curstate.body` for the player weapon model), and `DefaultDeploy` always writes `m_iId - 1` there, so the override must happen after the base call.
+4. `CCrowbar::Precache` unconditionally precaches `models/v_rocketcrowbar.mdl`. Without it, `MODEL_INDEX` returns 0 when the mutator flips on mid-round and the player ends up with no viewmodel at all.
+5. Toggle handling lives in the mutator apply block in `gamerules.cpp` (`m_flDetectedMutatorChange`): if the active item is `weapon_crowbar` and the current `pev->viewmodel` does not match the model the current mutator state wants, the item is re-`Deploy()`ed. Comparing viewmodel strings keeps this idempotent, so unrelated mutator churn does not spam redeploys, and the mutator expiring restores `models/v_crowbar.mdl` plus the crowbar p_weapons index. The redeploy also clears `m_flStartThrow` / `m_flSmashStart`, so a charge or throw in flight when the mutator flips cannot resolve against the wrong view model.
+6. `CCrowbar::SecondaryAttack()` and `CCrowbar::Reload()` both short-circuit into `PrimaryAttack()` on `ExplosiveCrowbarActive()`, so all three buttons swing. The gates sit **after** the GunGame redirect (which does the same thing) and before any throw/charge state is set. Each one then mirrors the cooldown `Swing()` wrote so the base dispatcher produces a normal swing cadence rather than a free-running one: secondary copies `m_flNextPrimaryAttack` into `m_flNextSecondaryAttack` (the secondary branch of `ItemPostFrame` re-syncs both from the *secondary* value), and reload copies it into `m_pPlayer->m_flNextAttack` (the reload branch re-syncs all three from *that*). `AcceptReload()` still returns `TRUE`.
+
+### Blast
+
+`ExplosiveCrowbarBlast( pevInflictor, pevAttacker, pTrace )` (server-only) is fired from two places:
+
+1. `CCrowbar::Swing()` — immediately after `ApplyMultiDamage`, on any swing that connects (`tr.flFraction < 1.0`). It is placed before the `!pEntity->IsAlive()` early-return so killing blows still detonate. Whiffed swings do nothing.
+2. `CFlyingCrowbar::SpinTouch()` — on any impact of a thrown crowbar, using the crowbar as inflictor and the stored `m_hOwner` as attacker. `SpinTouch` now snapshots `UTIL_GetGlobalTrace()` at entry so the impact plane survives the sound/spark effects that run before the blast. This path currently only fires for crowbars already airborne when the mutator turned on, since the throw itself is gated off — keep it wired so re-enabling the throw needs no further work.
+
+Blast profile:
+
+| Knob | Value |
+|---|---|
+| Damage | `100` (`EXPCROWBAR_BLAST_DAMAGE`) |
+| Radius | `250u` (`EXPCROWBAR_BLAST_RADIUS`) |
+| Damage type | `DMG_BLAST \| DMG_BURN` |
+| Self damage | none — `RadiusDamage( …, ignoreAttacker = TRUE )` |
+
+Visuals reuse the standard explosion stack: `TE_EXPLOSION` with the ice/normal fireball split off `icesprites`, `g_sModelIndexWExplosion` underwater, a scorch (or paintball) decal, and a `bits_SOUND_COMBAT` entry so monsters react.
+
+### Caveats
+
+- **Throw and smash temporarily degrade to a swing.** `v_rocketcrowbar.mdl` only ships sequences `0..11` (`idle1`, `draw_lowkey`, `draw`, `holster`, four attack pairs, `idle2`, `idle3`); it has no `pull_back` (12) or `throw` (13). Rather than let the studio renderer clamp those requests to a wrong pose, `SecondaryAttack()` and `Reload()` route into `PrimaryAttack()` while the mutator is active. To restore the real modes, copy `pull_back.smd` / `throw.smd` from `workspace/models/v_crowbar/` into `workspace/models/v_rocketcrowbar/`, append the matching `$sequence` lines to both `v_rocketcrowbar.qc` files (base and `models/hd/`), rebuild the models, then drop the two `ExplosiveCrowbarActive()` redirects.
+- Because `ignoreAttacker` exempts the attacker entirely, the swinger also receives no blast *impulse*. Teammates are not exempt.
+- No other weapon gets this ability — the gate is entirely inside `crowbar.cpp`. `weapon_rocketcrowbar` is a separate weapon and is unaffected.
+
 ## Melee Charged Smash (`+reload` on crowbar / wrench / dual wrench)
 
 `weapon_crowbar` (`CCrowbar`), `weapon_wrench` (`CWrench`) and `weapon_dual_wrench` (`CDualWrench`) expose a third fire option via `IN_RELOAD`: a **hold-to-charge fatal smash** that reuses the existing throw pull-back and throw-release animations without actually throwing the weapon.
 
 `CKnife` intentionally does **not** participate: its `+reload` is still the sniper-style 30° zoom toggle. If you add a new melee weapon that should smash, replicate the crowbar wiring; the knife is the sole opt-out.
+
+`CCrowbar` additionally folds the smash (and its throw secondary) back into a plain primary swing while the `expcrowbar` mutator is active — the borrowed `v_rocketcrowbar.mdl` has no `pull_back` / `throw` sequences. See [Explosive Crowbar](#explosive-crowbar-expcrowbar-mutator).
 
 ### Wiring
 

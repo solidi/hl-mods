@@ -13,6 +13,7 @@ v1.2 Features:
 
 - New Mutators
     - "drunk" - your view keeps swaying and spinning
+    - "expcrowbar" - crowbar swings detonate
     - "floorislava" - the ground scorches your boots
     - "headshot" - player kills only award frag credit when the final hit is a headshot
     - "negativepi" - pi is now -1
