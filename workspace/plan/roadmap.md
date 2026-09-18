@@ -110,6 +110,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Sleepy](https://github.com/ScriptedSnark/GSChaos/blob/master/GSChaos/CFeatureSleepy.cpp) - pulsing black outs
     1. [x] rocketjump mutator
     1. [x] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
+    1. [x] rocket jumping, your rockets do not to much damage to owner
+    1. [x] Tiktok - exploder (random explosions of people)
 
 ### Unscheduled
 
@@ -185,7 +187,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
-    1. [ ] rocket jumping, your rockets do not to much damage to owner
     1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] CrazyO - track reel of a person speaking
@@ -197,7 +198,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] SlappersOnly - remove all weapons, change behavior of fists to slaps with classic sound/slap
     1. [ ] License to Kill
     1. [ ] [Ghost riders](https://gamebanana.com/mods/167145) add players to wheelthrones
-    1. [ ] Tiktok - exploder (random explosions of people)
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
     1. [ ] 10x mode (yai boi)
     1. [ ] penguins in place of toads
