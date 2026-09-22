@@ -12,6 +12,7 @@ This mod features works from the community. Without their dedication and hard wo
 v1.2 Features:
 
 - New Mutators
+    - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
     - "drunk" - your view keeps swaying and spinning
     - "expcrowbar" - crowbar swings detonate
     - "exploder" - everyone is a walking time bomb

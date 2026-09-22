@@ -92,6 +92,7 @@ Server commands:
         - Example: sv_addmutator "longjump 0" for a permanent duration until map change or until it is cleared
     - "999" - start with 999 health and battery.
     - "amidead" - tilts view by eighty degrees
+    - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
     - "astronaut" - gravity is turned down
     - "autoaim" - all weapons have extreme autoaim.
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
