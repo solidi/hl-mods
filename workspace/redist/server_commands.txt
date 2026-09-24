@@ -191,6 +191,7 @@ Server commands:
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "unchaos" - to shut off chaos mode
     - "upsidedown" - reverses up and down views
+    - "vampire" - deal damage to drain health from players and monsters
     - "vested" - everyone starts with a vest
     - "victor" - fragged player's dropped weaponbox glides only to the fragger for up to 10 seconds
     - "volatile" - where players blow up when fragged

@@ -294,10 +294,11 @@ DESCRIPTION SERVER_OPTIONS
 			"triplebang" "98"
 			"turrets" "99"
 			"upsidedown" "100"
-			"vested" "101"
-			"victor" "102"
-			"volatile" "103"
-			"waterhurt" "104"
+			"vampire" "101"
+			"vested" "102"
+			"victor" "103"
+			"volatile" "104"
+			"waterhurt" "105"
 		}
 		{ "1" }
 	}

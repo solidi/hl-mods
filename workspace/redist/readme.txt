@@ -28,6 +28,7 @@ v1.2 Features:
     - "slide" - continuous selaco slide
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots
+    - "vampire" - deal damage to drain health
     - "victor" - fragged drops fly only to the fragger
     - "waterhurt" - touch water and explode
 - Patches

@@ -18,7 +18,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L904) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..104) and
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..105) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -42,7 +42,7 @@ below).
   mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
 - [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
   per-player mutator/rune checks that depend on runtime player state (e.g.
-  `skyhook`, `floorislava`, `waterhurt`, and shared regen/ammoregen/rune pulses).
+  `skyhook`, `floorislava`, `waterhurt`, and shared regen/ammoregen/vampire/rune pulses).
 - [workspace/src/dlls/weapons.cpp](workspace/src/dlls/weapons.cpp) —
   `CWeaponBox` victor magnet logic (`MOVETYPE_NOCLIP` glide, 10 s timeout,
   victor-only touch lock while active).
@@ -122,9 +122,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (104 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (105 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 105 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 106 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -450,9 +450,9 @@ When contact is valid, a per-player cooldown (`m_flFloorIsLavaTime`) reapplies
 burn at fixed cadence (0.75 s). Each pulse extends `m_fBurnTime` by a small
 amount, which feeds the existing `PlayerBurn()` timed-fire pipeline.
 
-### 3.12.1 shared rune + `regen`/`ammoregen` tick in player post-think
+### 3.12.1 shared rune + `regen`/`ammoregen`/`vampire` tick in player post-think
 `CBasePlayer::PostThink` calls `HandleSharedRuneAndRegenThink`, so periodic
-rune behavior and mutator regen/ammoregen now run in every mode (including
+rune behavior and mutator regen/ammoregen/vampire now run in every mode (including
 single-player), not only multiplayer gamerules.
 
 - Scope guard: alive, connected, non-spectator players with `deadflag == DEAD_NO`.
@@ -463,8 +463,14 @@ single-player), not only multiplayer gamerules.
 - `MUTATOR_AMMOREGEN`: every eligible player gets rune-ammo-style +1 active
   weapon ammo pulses (primary first, then secondary), excluding `weapon_nuke`,
   on a 1-second cadence.
+- `MUTATOR_VAMPIRE`: player damage applies rune-vampire-style lifesteal pulses
+  (half the outgoing damage, clamped by max health on apply). It works against
+  both players and monsters; monster extraction is awarded in
+  `CBaseMonster::TakeDamage`.
 - If a player already has `RUNE_REGEN` or `RUNE_AMMO`, the matching mutator
   branch skips that player to avoid double-stacking.
+- `MUTATOR_VAMPIRE` and `RUNE_VAMPIRE` share the same pending-heal channel
+  (`m_fVampireHealth`), so damage events do not double-award lifesteal.
 
 ### 3.13 `stomponhead` head-hit instagib + low gravity
 `MUTATOR_STOMPONHEAD` reuses the proven Shidden stomp envelope in
@@ -947,7 +953,7 @@ mutators tick normally throughout play.
 | 92 | `superjump` | S | `sv_jumpheight = 299`. |
 | 97 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 100 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 104 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 105 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -1000,9 +1006,10 @@ mutators tick normally throughout play.
 | 90 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
 | 98 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
 | 99 | `turrets` | S | Auto-turrets fire at everyone. |
-| 101 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 102 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
-| 103 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 101 | `vampire` | S | Outgoing player damage grants lifesteal (half damage) as a deferred heal pulse; applies when damaging both players and monsters. |
+| 102 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 103 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
+| 104 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
