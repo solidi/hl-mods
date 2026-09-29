@@ -112,6 +112,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Explosive crowbar](https://www.youtube.com/watch?v=Ykm7ENrQZZ8) mode
     1. [x] rocket jumping, your rockets do not to much damage to owner
     1. [x] Tiktok - exploder (random explosions of people)
+    1. [x] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
 
 ### Unscheduled
 
@@ -187,7 +188,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Bullets penerate walls
     1. [ ] Available weapons can explode if damaged
     1. [ ] Sanic mode with custom spray as sprite (Crazydog)
-    1. [ ] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] CrazyO - track reel of a person speaking
     1. [ ] Oneshot - 1 health start or reduce

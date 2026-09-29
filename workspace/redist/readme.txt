@@ -17,6 +17,7 @@ v1.2 Features:
     - "expcrowbar" - crowbar swings detonate
     - "exploder" - everyone is a walking time bomb
     - "floorislava" - the ground scorches your boots
+    - "fragswap" - frag scores swap between attacker and victim
     - "headshot" - player kills only award frag credit when the final hit is a headshot
     - "negativepi" - pi is now -1
     - "nomouse" - alive players lose mouse input
