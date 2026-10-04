@@ -178,6 +178,7 @@ Server commands:
     - "slowbullets" - bullets travel slowly to target
     - "slowmo" - everything is slowed down by half! (sp only!)
     - "slowweapons" - all weapons are slower.
+    - "snarkbar" - if your thrown crowbar hits anything, it spawns five owner-attributed snarks at impact
     - "snowballs" - a random chance of snowballs throw on attack
     - "speedup" - everything is sped up by half! (sp only!)
     - "stahp" - some sounds replaced with stahp!

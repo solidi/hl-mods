@@ -260,6 +260,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 
 ### Slot 1 — Melee
 - `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`) — while the `expcrowbar` mutator is active it gains an explode-on-contact swing, and its throw secondary + charged smash degrade to plain swings (see [Explosive Crowbar](#explosive-crowbar-expcrowbar-mutator)).
+- `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`) — when mutator `snarkbar` is active, thrown crowbar (`flying_crowbar`) impacts spawn five owner-attributed snarks around the impact with collision-safe placement retries.
 - `weapon_knife` → `CKnife` (`knife.cpp`) — `+reload` toggles 30° sniper-style zoom; `+attack2` charges a thrown knife; `iMaxClip = 1` is a deliberate hack to force server-side reload routing.
 - `weapon_wrench` → `CWrench` (`wrench.cpp`), `weapon_dual_wrench` → `CDualWrench` (`dual_wrench.cpp`)
 - `weapon_chainsaw` → `CChainsaw` (`chainsaw.cpp`) — three attack modes: `+attack` does a standard close-range slash, `+attack2` runs the rev/loop thrust that can launch the player forward and add upward wall-climb boost when contacting brush surfaces, and `+reload` triggers a rapid 3-hit slash combo (`0.10s` spacing) with a deliberately longer post-combo cooldown than a normal primary slash.

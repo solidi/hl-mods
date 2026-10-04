@@ -27,6 +27,7 @@ v1.2 Features:
     - "rocketjump" - minimal self rocket damage for high jumps
     - "sleepy" - active human players get periodic black fade pulses like nodding off
     - "slide" - continuous selaco slide
+    - "snarkbar" - thrown crowbar impacts release five snarks
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots
     - "vampire" - deal damage to drain health

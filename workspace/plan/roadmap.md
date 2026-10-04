@@ -113,6 +113,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] rocket jumping, your rockets do not to much damage to owner
     1. [x] Tiktok - exploder (random explosions of people)
     1. [x] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
+    1. [x] Vampire (increase health too)
+    1. [x] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
 
 ### Unscheduled
 
@@ -177,9 +179,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] the rocket crowbar mutator... should have a small chance to fire a nuke rocket... (napoleon)
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
-    1. [ ] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
-    1. [ ] Vampire (increase health too)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [ ] Blue takis, hornetguns replaced with blue takis
