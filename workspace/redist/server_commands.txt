@@ -113,6 +113,7 @@ Server commands:
     - "expcrowbar" - everyone gets a crowbar whose swings detonate on contact
     - "exploder" - living players randomly detonate on a random timer, blast damages everyone nearby
     - "explosiveai" - AI blows up when it cannot find its next task
+    - "fadetoblack" - active alive players see stronger blackout as health drops, while low-health attackers deal up to 3x damage
     - "fastweapons" - all weapons are faster.
     - "firebullets" - all tracers are hot
     - "firestarter" - start with a flamethrower

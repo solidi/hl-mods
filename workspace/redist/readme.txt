@@ -16,6 +16,7 @@ v1.2 Features:
     - "drunk" - your view keeps swaying and spinning
     - "expcrowbar" - crowbar swings detonate
     - "exploder" - everyone is a walking time bomb
+    - "fadetoblack" - lower health darkens vision and boosts your damage
     - "floorislava" - the ground scorches your boots
     - "fragswap" - frag scores swap between attacker and victim
     - "headshot" - player kills only award frag credit when the final hit is a headshot
@@ -34,6 +35,7 @@ v1.2 Features:
     - "victor" - fragged drops fly only to the fragger
     - "waterhurt" - touch water and explode
 - Patches
+    - Added console warning if an unkown mutator is applied
     - Fixed ironsights server crash (thanks to albatross)
     - Fixed flak sound effects 
 

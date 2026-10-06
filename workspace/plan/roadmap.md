@@ -115,6 +115,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Frag swap - if you get killed, you drop to 0 points, and the killer gets your frags (Napoleon)
     1. [x] Vampire (increase health too)
     1. [x] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
+    1. [x] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
 
 ### Unscheduled
 
@@ -129,6 +130,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] New Life Launcher program?
     1. [ ] [Inno Setup](https://github.com/N7P0L3ON/Flatline-Arena-Master/commit/5158ce7977d7a0a5ba5ff9bc2d6dcce5350b1697) install script
 1. New Game Modes
+    1. [ ] bomb and hostage gamemodes, like pure CS.
     1. [ ] pve, bots become more and more til you win.
     1. [ ] last gun standing. similar to LMS and gun game. You start with strong weapon, each time you get killed next respawn you get a weaker weapon. The first to drop to the weakest weapon ends the round/game. It could be not just a weapon, but random weapon from a weapon category.
     1. [ ] Ice Tag - Teamplay, two teams. -When a player is killed (not a suicide) that player is Frozen. A frozen player will die after say 10-15 seconds, however if a teammate touches them they will revive (unfreeze).If all players on a give team are frozen then the round is lost by that team. (Napoleon's idea)
@@ -181,7 +183,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Accurate bullets
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
     1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
-    1. [ ] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)

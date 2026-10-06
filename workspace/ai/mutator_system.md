@@ -12,21 +12,25 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-03)
+## 0. Recent delta (2026-10-04)
 
+- `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - Added `snarkbar` (`MUTATOR_SNARKBAR`) in the shared mutator ID space.
 - While active, `GiveMutators` ensures alive players own a crowbar (`weapon_crowbar`) if they do not already have one.
 - `flying_crowbar` impact handling now spawns five `monster_snark` entities that are attributed to the original thrower.
 - Snark spawn points are resolved through repeated hull probes and surface-offset retries so impacts against walls/entities still emit usable, unstuck snarks near the contact location.
 - No mode-specific `MutatorAllowed` filters were added, so `snarkbar` remains eligible anywhere mutators are enabled.
+- Added `fadetoblack` (`MUTATOR_FADETOBLACK`) in alphabetical ID order after `explosiveai` (all downstream mutator IDs shifted by +1).
+- While active, `fadetoblack` applies a local HP-based blackout overlay for alive active players and boosts outgoing damage for alive active non-observer attackers as HP drops.
+- No mode-specific `MutatorAllowed` filters were added, so `fadetoblack` remains eligible anywhere mutators are enabled.
 
 ---
 
 ## 1. Where the code lives
 
 ### Shared / IDs
-- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L904) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..107) and
+- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L914) —
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..108) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -46,6 +50,9 @@ below).
   destructor + `FreeMutatorChain` (fixes former map-to-map leak).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L597-L2372) —
   All the `CGameRules::*Mutators*` methods described in §3.
+- [workspace/src/dlls/combat.cpp](workspace/src/dlls/combat.cpp#L1038-L1245) —
+  shared damage pipeline (`CBaseMonster::TakeDamage`) including
+  `fadetoblack` low-health outgoing damage scaling.
 - [workspace/src/dlls/util.h](workspace/src/dlls/util.h) — centralized
   mutator-aware `M_PI` (`negativepi` forces PI to `-1.0`).
 - [workspace/src/dlls/player.cpp](workspace/src/dlls/player.cpp#L4258) —
@@ -130,9 +137,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (107 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (108 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 107 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 109 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -201,6 +208,7 @@ Called once per server frame from `CHalfLifeMultiplay::Think()`. Structure
      - Sends `gmsgAddMutator(id + 1, sendDuration)` (permanent → send `0`).
      - Prepends a new `mutators_t` node to `m_Mutators`.
      - Bumps `m_flDetectedMutatorChange = gpGlobals->time + 1.0`.
+    - If no table entry matches, prints an explicit unknown-mutator warning to the server console and applies nothing.
    - Regardless of outcome, clears `sv_addmutator` at end.
 5. **Expire old mutators.** Walks `m_Mutators`; nodes whose `timeToLive` has
    passed (and isn't `-1`) are unlinked, logged, and **`delete`d**. `count`
@@ -721,6 +729,23 @@ allowed in every game mode, and grants nothing.
   round intermissions stop the fuses without any extra wiring; the next tick
   after the round resumes reschedules them.
 
+### 3.23 `fadetoblack` low-health risk/reward
+`MUTATOR_FADETOBLACK` is implemented across shared server damage flow and
+client HUD draw code so it behaves consistently in every mode.
+
+- **Server damage scaling (`dlls/combat.cpp::CBaseMonster::TakeDamage`).**
+  Damage gets scaled when the attacker is a player who is alive, active, and
+  not observing (`IsAlive`, `deadflag == DEAD_NO`, `iuser1 == 0`, not
+  `IsObserver()`), and attacker/victim are different entities.
+- **Damage curve.** Multiplier is `1.0 + (missingHealth^2 * 2.0)`, so output
+  stays 1x at full health and ramps toward 3x at near-zero health.
+- **Client blackout (`cl_dll/hud_redraw.cpp`).** The local player receives a
+  fullscreen black alpha-blended GL quad overlay whose alpha uses a blended linear+
+  quadratic missing-health ramp and caps at `235/255` so near-death is almost black but still
+  faintly visible.
+- **Mode filters.** No mode-specific `MutatorAllowed` blacklist entries were
+  added, so `fadetoblack` remains eligible in all mutator-enabled modes.
+
 ---
 
 ## 4. Wire protocol
@@ -809,6 +834,9 @@ Where each mutator lands on the client:
   non-spectator players only.
 - **Post-process (colorcor.cpp):** `OLDTIME` and `INVERSE` (colour negation /
   black-and-white), `ASTRONAUT` (blue tint), `SILDENAFIL` (blue boost).
+- **HP blackout (hud_redraw.cpp):** `FADETOBLACK` draws a fullscreen black
+  overlay using missing-health percentage for alive active non-observer local
+  players, capped just below fully black.
 - **StudioModelRenderer.cpp (per-bone):** `BIGHEAD` (scale head/arm bones 3x),
   `MINIME` (0.5x whole skeleton + -8 z), `PAPER` (Y-axis to 10 %), `CRATE`
   (swap model to `models/box.mdl`), `SANIC` (spawn a persistent
@@ -952,11 +980,15 @@ mutators tick normally throughout play.
 **World-cvar** means `EnvMutators` slams a cvar (§3.6).
 **Filtered by:** modes that reject the mutator via `MutatorAllowed`.
 
+Newly added mutator: `fadetoblack` (`MUTATOR_FADETOBLACK`) is a global
+risk/reward mutator with HP-based client blackout and low-health outgoing
+damage scaling (documented in §3.23).
+
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 95 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 97 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
@@ -980,7 +1012,7 @@ mutators tick normally throughout play.
 | 88 | `superjump` | S | `sv_jumpheight = 299`. |
 | 93 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 96 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 107 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 108 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
