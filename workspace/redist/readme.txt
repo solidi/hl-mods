@@ -21,6 +21,7 @@ v1.2 Features:
     - "fragswap" - frag scores swap between attacker and victim
     - "headshot" - player kills only award frag credit when the final hit is a headshot
     - "negativepi" - pi is now -1
+    - "nelliaschoice" - one random non-movement bind becomes lethal
     - "nomouse" - alive players lose mouse input
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
     - "regen" - everyone slowly regenerates health and armor

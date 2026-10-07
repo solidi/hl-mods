@@ -116,6 +116,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Vampire (increase health too)
     1. [x] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [x] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
+    1. [x] Random bind key blows you up (Nellia's Choice)
 
 ### Unscheduled
 
@@ -213,7 +214,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] apache helicopter
     1. [ ] "Same mutator?" chums/snarks wont die or when person dies, spawn chums/snarks
     1. [ ] [can punter](https://www.moddb.com/mods/can-punter)
-    1. [ ] Random bind key blows you up (Nellia's Choice)
     1. [ ] For every 3 seconds you dont shoot you lose 5 health (Yaboi idea on weapon idling damage)
     1. [ ] Rocket/Railgun mutator, [self explanatory](https://www.youtube.com/watch?v=jY6yBTYxLko).
     1. [ ] --------

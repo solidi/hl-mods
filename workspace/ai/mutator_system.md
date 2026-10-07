@@ -12,7 +12,7 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-04)
+## 0. Recent delta (2026-10-06)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - Added `snarkbar` (`MUTATOR_SNARKBAR`) in the shared mutator ID space.
@@ -23,6 +23,11 @@ below).
 - Added `fadetoblack` (`MUTATOR_FADETOBLACK`) in alphabetical ID order after `explosiveai` (all downstream mutator IDs shifted by +1).
 - While active, `fadetoblack` applies a local HP-based blackout overlay for alive active players and boosts outgoing damage for alive active non-observer attackers as HP drops.
 - No mode-specific `MutatorAllowed` filters were added, so `fadetoblack` remains eligible anywhere mutators are enabled.
+- Added `nelliaschoice` (`MUTATOR_NELLIASCHOICE`) in alphabetical ID order after `napkinstory` (all downstream mutator IDs shifted by +1).
+- While active, one non-movement, non-primary button is randomly selected as the danger key (`use`, `secondary attack`, `reload`, `alt1`, `ironsight`, or `score`) and center-printed as `<KEY> is the danger key!`.
+- Pressing the selected danger key by an alive, active, non-observer player detonates and kills that player.
+- Deactivating `nelliaschoice` clears the selected key; reactivation rolls a fresh key.
+- `Nellia's Choice` was proposed by the alias `Nellia`.
 
 ---
 
@@ -30,7 +35,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L914) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..108) and
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..109) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -137,9 +142,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (108 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (109 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 109 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 110 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -176,6 +181,8 @@ break the read loop; `254` is a "clear all" signal (see §4).
 - `m_iNotTheBees`, `m_iDontShoot`, `m_iVolatile` — mirrored flags used by
   hot-path checks in `WeaponMutators` / weapon code where a full list scan is
   wasteful.
+- `m_iNelliaChoiceDangerButton`, `m_szNelliaChoiceDangerKey` — selected
+  danger-key state for `nelliaschoice` while active.
 - `szSkyColorRed/Green/Blue` — original sky colour saved at map start so
   `MUTATOR_LIGHTSOUT` can restore it.
 - `m_bMutatorsPaused`, `m_SavedMutators`, `m_flSavedChaosMutatorTime`,
@@ -207,6 +214,7 @@ Called once per server frame from `CHalfLifeMultiplay::Think()`. Structure
        (`timeToLive = -1`); `N > 0` → custom seconds; missing → `sv_mutatortime`.
      - Sends `gmsgAddMutator(id + 1, sendDuration)` (permanent → send `0`).
      - Prepends a new `mutators_t` node to `m_Mutators`.
+    - If the added mutator is `nelliaschoice`, rolls and announces the danger key.
      - Bumps `m_flDetectedMutatorChange = gpGlobals->time + 1.0`.
     - If no table entry matches, prints an explicit unknown-mutator warning to the server console and applies nothing.
    - Regardless of outcome, clears `sv_addmutator` at end.
@@ -746,6 +754,26 @@ client HUD draw code so it behaves consistently in every mode.
 - **Mode filters.** No mode-specific `MutatorAllowed` blacklist entries were
   added, so `fadetoblack` remains eligible in all mutator-enabled modes.
 
+### 3.24 `nelliaschoice` danger-key roulette
+`MUTATOR_NELLIASCHOICE` is implemented server-side in `dlls/gamerules.cpp` with
+per-frame trigger checks in `dlls/player.cpp::CBasePlayer::PreThink`, so the
+effect is authoritative and applies in every mode.
+
+- **Activation roll.** On mutator enable (or restore without existing state),
+  the server picks one key from a fixed non-movement set:
+  `IN_USE`, `IN_ATTACK2`, `IN_RELOAD`, `IN_ALT1`, `IN_IRONSIGHT`, `IN_SCORE`.
+- **Announcement.** The selected key is center-printed to all clients as
+  `<KEY> is the danger key!` and logged server-side.
+- **Persistence.** The chosen key remains fixed for the full active lifetime of
+  the mutator.
+- **Trigger path.** If an alive, active, non-observer player presses the chosen
+  key edge (`m_afButtonPressed`), the server detonates them (`CGrenade::Vest`)
+  and force-kills any survivor state to guarantee the effect resolves.
+- **Reroll policy.** Deactivating `nelliaschoice` clears the stored key; a later
+  reactivation rolls a fresh danger key.
+
+`Nellia's Choice` was proposed by the alias `Nellia`.
+
 ---
 
 ## 4. Wire protocol
@@ -980,15 +1008,18 @@ mutators tick normally throughout play.
 **World-cvar** means `EnvMutators` slams a cvar (§3.6).
 **Filtered by:** modes that reject the mutator via `MutatorAllowed`.
 
-Newly added mutator: `fadetoblack` (`MUTATOR_FADETOBLACK`) is a global
-risk/reward mutator with HP-based client blackout and low-health outgoing
-damage scaling (documented in §3.23).
+Newly added mutators:
+- `fadetoblack` (`MUTATOR_FADETOBLACK`) is a global risk/reward mutator with
+  HP-based client blackout and low-health outgoing damage scaling (documented
+  in §3.23).
+- `nelliaschoice` (`MUTATOR_NELLIASCHOICE`) assigns a random non-movement danger
+  key that detonates the pressing player (documented in §3.24).
 
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 97 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 98 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
@@ -1012,7 +1043,7 @@ damage scaling (documented in §3.23).
 | 88 | `superjump` | S | `sv_jumpheight = 299`. |
 | 93 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 96 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 108 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 109 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -1041,6 +1072,7 @@ damage scaling (documented in §3.23).
 | 33 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
 | 36 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
 | 49 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
+| 55 | `nelliaschoice` | S | One non-movement key (`use`, `secondary attack`, `reload`, `alt1`, `ironsight`, `score`) is randomly selected while active; pressing that key detonates and kills the active non-observer player. |
 | 50 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
 | 54 | `noreload` | S | No reload cycles. |
 | 56 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
