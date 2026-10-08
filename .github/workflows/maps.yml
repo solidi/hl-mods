@@ -162,6 +162,22 @@ jobs:
         # Sprites are needed for packaging
         .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config -Clean
 
+    - name: Restore Add-on Redist Assets
+      if: ${{ matrix.map == 'defroster' || matrix.map == 'quadfrost' }}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        $addonRedist = ".\${{env.FOLDER_NAME}}\add-ons\${{matrix.map}}\redist"
+        $mainRedist = ".\${{env.FOLDER_NAME}}\redist"
+
+        if (-not (Test-Path $addonRedist)) {
+          Write-Error "Add-on redist not found: $addonRedist"
+          exit 1
+        }
+
+        Get-ChildItem -Path $addonRedist -Force | ForEach-Object {
+          Copy-Item -Path $_.FullName -Destination $mainRedist -Recurse -Force
+        }
+
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
