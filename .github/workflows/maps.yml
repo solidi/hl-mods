@@ -103,23 +103,13 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot,catacombs,stalkyard2,furrow,fences,frozen_bunker,frozenwarehouse,suspension,glupshitto,cold_base,frosty,overflow,focus,defroster]
+        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot,catacombs,stalkyard2,furrow,fences,frozen_bunker,frozenwarehouse,suspension,glupshitto,cold_base,frosty,overflow,focus,quadfrost,defroster]
 
     steps:
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
-        submodules: false
-
-    - name: Checkout detailed-textures submodule
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        git submodule update --init workspace/detailed-textures
-
-    - name: Checkout add-ons submodule
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        git submodule update --init --recursive workspace/add-ons
+        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v4
