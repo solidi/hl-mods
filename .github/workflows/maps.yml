@@ -103,18 +103,13 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot,catacombs,stalkyard2,furrow,fences,frozen_bunker,frozenwarehouse,suspension,glupshitto,cold_base,frosty,overflow,focus]
+        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot,catacombs,stalkyard2,furrow,fences,frozen_bunker,frozenwarehouse,suspension,glupshitto,cold_base,frosty,overflow,focus,quadfrost,defroster]
 
     steps:
     - uses: actions/checkout@v4
       with:
         token: ${{ secrets.COLDICE_ADD_ONS_PAT }}
-        submodules: false
-
-    - name: Checkout detailed-textures submodule
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: |
-        git submodule update --init workspace/detailed-textures
+        submodules: recursive
 
     - name: Download tools
       uses: actions/download-artifact@v4
@@ -149,6 +144,11 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+
+    - name: Unpack Add-ons
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: .\${{env.FOLDER_NAME}}\add-ons\Copy-Addons.ps1 -ConfigFile Config
 
     - name: Build Sounds
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -161,6 +161,22 @@ jobs:
       run: |
         # Sprites are needed for packaging
         .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config -Clean
+
+    - name: Restore Add-on Redist Assets
+      if: ${{ matrix.map == 'defroster' || matrix.map == 'quadfrost' }}
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: |
+        $addonRedist = ".\${{env.FOLDER_NAME}}\add-ons\${{matrix.map}}\redist"
+        $mainRedist = ".\${{env.FOLDER_NAME}}\redist"
+
+        if (-not (Test-Path $addonRedist)) {
+          Write-Error "Add-on redist not found: $addonRedist"
+          exit 1
+        }
+
+        Get-ChildItem -Path $addonRedist -Force | ForEach-Object {
+          Copy-Item -Path $_.FullName -Destination $mainRedist -Recurse -Force
+        }
 
     - name: Compile ${{matrix.map}}
       working-directory: ${{env.GITHUB_WORKSPACE}}
