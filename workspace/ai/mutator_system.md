@@ -12,7 +12,7 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-06)
+## 0. Recent delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - Added `snarkbar` (`MUTATOR_SNARKBAR`) in the shared mutator ID space.
@@ -28,6 +28,9 @@ below).
 - Pressing the selected danger key by an alive, active, non-observer player detonates and kills that player.
 - Deactivating `nelliaschoice` clears the selected key; reactivation rolls a fresh key.
 - `Nellia's Choice` was proposed by the alias `Nellia`.
+- Added `nohud` (`MUTATOR_NOHUD`) in alphabetical ID order after `noclip` (all downstream mutator IDs shifted by +1).
+- Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..110`, with `MAX_MUTATORS_CL = 111` including trailing `RANDOM`.
+- While active, `nohud` suppresses all client HUD elements and crosshairs; only the left-side `nohud` status icon is rendered.
 
 ---
 
@@ -35,7 +38,7 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L914) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..109) and
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..110) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -142,9 +145,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (109 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (110 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 110 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 111 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -1014,6 +1017,8 @@ Newly added mutators:
   in §3.23).
 - `nelliaschoice` (`MUTATOR_NELLIASCHOICE`) assigns a random non-movement danger
   key that detonates the pressing player (documented in §3.24).
+- `nohud` (`MUTATOR_NOHUD`) suppresses all client HUD/crosshair rendering except
+  the mutator's own status icon.
 
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
@@ -1119,6 +1124,7 @@ Newly added mutators:
 | 49 | `mcclane` | C | View roll -180 permanently. |
 | 51 | `minime` | C | Player model scaled to 0.5×, view offset. |
 | 52 | `mirror` | C | Mouse X inverted; view mirrored. |
+| 58 | `nohud` | C | Hides all client HUD elements and crosshairs while still drawing only the left-side `nohud` status icon. |
 | 57 | `noradar` | C | Hides radar HUD. |
 | 59 | `notify` | S | Notification/phone effect. |
 | 61 | `oldtime` | C | Black-and-white colour correction. |
@@ -1195,9 +1201,11 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 9. **Pause/restore.** Nothing to change — the pause system operates on IDs
    and TTLs, not on effects.
 10. **Documentation.** Add a row to the catalogue in §8 and update any relevant
-   spoke doc (`workspace/ai/voting_system.md`,
-   `workspace/ai/gamerules.md`, mode-specific docs when the mutator is
-   permanently associated with a mode).
+  spoke doc (`workspace/ai/voting_system.md`,
+  `workspace/ai/gamerules.md`, mode-specific docs when the mutator is
+  permanently associated with a mode). Also add/update the mutator entry in
+  `workspace/redist/readme.txt` under the current version's New Mutators list
+  with name + short description.
 11. **Build.** Windows: `workspace/Build-Windows.ps1`. Linux:
    `workspace/build-linux.sh`. Both DLLs must rebuild (`ice.dll` and
    `client.dll`) so the shared const.h change is picked up on both sides.
@@ -1213,7 +1221,9 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   alphabetical; inserting a new mutator requires renumbering all later IDs in
   every one of those lists in the same change. Keep
   `workspace/redist/server_commands.txt` mutator bullets alphabetized too, with
-  matching mutator names and descriptions.
+  matching mutator names and descriptions, and update
+  `workspace/redist/readme.txt` New Mutators release notes with the new mutator
+  name/description.
 - **HUD sprite declaration count.** The first line of
   `workspace/sprites/hud.txt` is the sprite declaration total. Any add/remove
   of a sprite alias (including mutator icons like `pacifist`) must update that
