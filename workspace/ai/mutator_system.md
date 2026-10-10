@@ -15,6 +15,7 @@ below).
 ## 0. Recent delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
+- `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
 - Added `snarkbar` (`MUTATOR_SNARKBAR`) in the shared mutator ID space.
 - While active, `GiveMutators` ensures alive players own a crowbar (`weapon_crowbar`) if they do not already have one.
 - `flying_crowbar` impact handling now spawns five `monster_snark` entities that are attributed to the original thrower.
@@ -491,13 +492,21 @@ single-player), not only multiplayer gamerules.
   weapon ammo pulses (primary first, then secondary), excluding `weapon_nuke`,
   on a 1-second cadence.
 - `MUTATOR_VAMPIRE`: player damage applies rune-vampire-style lifesteal pulses
-  (half the outgoing damage, clamped by max health on apply). It works against
-  both players and monsters; monster extraction is awarded in
-  `CBaseMonster::TakeDamage`.
+  (half the health the victim actually lost, clamped by max health on apply).
+  It works against both players and monsters.
 - If a player already has `RUNE_REGEN` or `RUNE_AMMO`, the matching mutator
   branch skips that player to avoid double-stacking.
 - `MUTATOR_VAMPIRE` and `RUNE_VAMPIRE` share the same pending-heal channel
   (`m_fVampireHealth`), so damage events do not double-award lifesteal.
+- Credit is accrued in exactly one place, `combat.cpp::AccrueVampireHealth`,
+  called from `CBaseMonster::TakeDamage` right after `pev->health -= flTake`.
+  It credits `healthBefore - max(healthAfter, 0)`, so rejected friendly fire
+  (`FPlayerCanTakeDamage`), armor absorption, godmode / spawn protection, the
+  headshot clamp and overkill never heal. It accumulates (`+=`), so every
+  pellet and every victim in a frame counts; `Spawn()` clears it. Do not
+  re-add credit in `TraceAttack`: that runs before all of those checks and
+  used to overwrite per pellet. Because the hook is on `TakeDamage`, blast,
+  burn and other non-trace damage drains too, for the rune as well.
 
 ### 3.13 `stomponhead` head-hit instagib + low gravity
 `MUTATOR_STOMPONHEAD` reuses the proven Shidden stomp envelope in
@@ -615,8 +624,6 @@ from `player.cpp::TraceAttack`.
   after calling `Killed()` before announcing a kill (see `CheckHeadStomp`).
 - The veto path also clears `m_bMutatorPendingRevive` and
   `m_bChilldemicPendingConvert`, because the victim is not dying after all.
-- Command parser compatibility: `sv_addmutator "headsht"` is normalized to
-  `headshot` (duration suffix preserved), so legacy typo scripts still work.
 - Pacifist/revive integration is preserved: pacifist victim-frag inversion
   applies only when the kill also satisfies the headshot requirement; revive
   still suppresses scoring as before.
@@ -1046,7 +1053,7 @@ Newly added mutators:
 | 36 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
 | 45 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
 | 46 | `longjump` | S | Grants `item_longjump`. |
-| 46 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
+| 51 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
 | 57 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
 | 59 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
 | 72 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |

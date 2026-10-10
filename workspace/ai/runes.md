@@ -14,7 +14,7 @@ picks them up, see [gravebot.md → Rune handling](gravebot.md#4-rune-handling).
 | ID | Enum            | Classname       | Effect (one-line)                                  | Effect site |
 |----|-----------------|-----------------|----------------------------------------------------|-------------|
 | 1  | `RUNE_FRAG`     | `rune_frag`     | +1 frag per kill (kill counts as 2)                | [multiplay_gamerules.cpp `IPointsForKill`](../src/dlls/multiplay_gamerules.cpp#L2693) |
-| 2  | `RUNE_VAMPIRE`  | `rune_vampire`  | Heal attacker by `damage/2` on damage dealt        | [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp#L2283-L2294), [player.cpp](../src/dlls/player.cpp#L508-L511) |
+| 2  | `RUNE_VAMPIRE`  | `rune_vampire`  | Heal attacker by half the health the victim actually lost | [combat.cpp](../src/dlls/combat.cpp) `AccrueVampireHealth`, applied in [player.cpp](../src/dlls/player.cpp) `HandleSharedRuneAndRegenThink` |
 | 3  | `RUNE_PROTECT`  | `rune_protect`  | Halve incoming damage                              | [player.cpp](../src/dlls/player.cpp#L519-L520) |
 | 4  | `RUNE_REGEN`    | `rune_regen`    | +1 HP/s while health < max, then +1 armor/s while armor < max_health | [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp#L2298-L2309) |
 | 5  | `RUNE_HASTE`    | `rune_haste`    | Faster fire / shorter reload + physics `haste=1`   | [items.cpp](../src/dlls/items.cpp#L802) and weapon `RUNE_HASTE` checks |
