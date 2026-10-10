@@ -19,7 +19,7 @@ v1.2 Features:
     - "fadetoblack" - lower health darkens vision and boosts your damage
     - "floorislava" - the ground scorches your boots
     - "fragswap" - frag scores swap between attacker and victim
-    - "headshot" - player kills only award frag credit when the final hit is a headshot
+    - "headshot" - only a headshot final blow can kill another player
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement bind becomes lethal
     - "nohud" - hide all hud elements except its own status icon

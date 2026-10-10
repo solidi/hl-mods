@@ -144,8 +144,8 @@ Server commands:
     - "minime" - players are half the size
     - "mirror" - mirror, mirror on the wall
     - "napkinstory" - the legend reduced to two words
-    - "nelliaschoice" - one random non-movement key becomes lethal; pressing it detonates the active player
     - "negativepi" - pi is now -1
+    - "nelliaschoice" - one random non-movement key becomes lethal; pressing it detonates the active player
     - "noclip" - fly through walls
     - "nohud" - hides all HUD and crosshair elements except the nohud status icon
     - "nomouse" - disable mouse movement and mouse buttons for alive active players
