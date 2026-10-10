@@ -12,21 +12,32 @@ This mod features works from the community. Without their dedication and hard wo
 v1.2 Features:
 
 - New Mutators
+    - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
     - "drunk" - your view keeps swaying and spinning
+    - "expcrowbar" - crowbar swings detonate
+    - "exploder" - everyone is a walking time bomb
+    - "fadetoblack" - lower health darkens vision and boosts your damage
     - "floorislava" - the ground scorches your boots
-    - "headshot" - player kills only award frag credit when the final hit is a headshot
+    - "fragswap" - frag scores swap between attacker and victim
+    - "headshot" - only a headshot final blow can kill another player
     - "negativepi" - pi is now -1
+    - "nelliaschoice" - one random non-movement bind becomes lethal
+    - "nohud" - hide all hud elements except its own status icon
     - "nomouse" - alive players lose mouse input
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
+    - "regen" - everyone slowly regenerates health and armor
     - "revive" - first lethal player-vs-player frag per spawn revives the victim in-place with default spawn loadout, no killer frag gain, and no victim death increment
     - "rocketjump" - minimal self rocket damage for high jumps
     - "sleepy" - active human players get periodic black fade pulses like nodding off
     - "slide" - continuous selaco slide
+    - "snarkbar" - thrown crowbar impacts release five snarks
     - "stomponhead" - land on heads for instant gibs
     - "triplebang" - every trigger pulls three shots
+    - "vampire" - deal damage to drain health
     - "victor" - fragged drops fly only to the fragger
     - "waterhurt" - touch water and explode
 - Patches
+    - Added console warning if an unkown mutator is applied
     - Fixed ironsights server crash (thanks to albatross)
     - Fixed flak sound effects 
 

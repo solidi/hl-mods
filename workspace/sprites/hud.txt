@@ -1,4 +1,4 @@
-348
+358
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -271,6 +271,7 @@ turrets	640 gameicons2	0	192	64	64
 infiniteammo	640 gameicons2	64	192	64	64
 randomweapon	640 gameicons2	128	192	64	64
 rocketcrowbar	640 gameicons2	192	192	64	64
+expcrowbar	640 gameicons2	192	192	64	64
 notthebees	640 gameicons3	0	0	64	64
 instagib	640 gameicons3	64	0	64	64
 megarun	640 gameicons3	128	0	64	64
@@ -284,6 +285,7 @@ jesus	640 gameicons3	0	128	64	64
 berserker	640 gameicons3	64	128	64	64
 autoaim	640 gameicons3	128	128	64	64
 slowweapons	640 gameicons3	192	128	64	64
+snarkbar	640 gameicons3	0	0	64	64
 fastweapons	640 gameicons3	0	192	64	64
 skeleton	640 gameicons3	64	192	64	64
 jack	640 gameicons3	128	192	64	64
@@ -300,6 +302,7 @@ goldenguns	640 gameicons4	192	128	64	64
 stahp	640 gameicons4	0	192	64	64
 noreload	640 gameicons4	64	192	64	64
 fog	640 gameicons4	128	192	64	64
+vampire	640 640hudrunes	64	0	64	64
 vested	640 gameicons4	192	192	64	64
 noclip	640 gameicons5	0	0	64	64
 dealter	640 gameicons5	64	0	64	64
@@ -323,20 +326,27 @@ firebullets	640 gameicons5	192	192	64	64
 mcclane	640 gameicons5	64	64	64	64
 upsidedown	640 gameicons	192	64	64	64
 rats	640 gameicons	0	0	64	64
+ammoregen	640 640hudrunes	0	128	64	64
+regen	640 640hudrunes	192	0	64	64
 amidead	640 gameicons3	0	128	64	64
 skyhook	640 gameicons	192	0	64	64
 sleepy	640 gameicons	0	128	64	64
 slide	640 gameicons2	192	64	64	64
 noradar	640 gameicons3	128	64	64	64
+nohud	640 gameicons3	128	64	64	64
 tinnitus	640 gameicons4	0	128	64	64
 floorislava	640 gameicons2	192	0	64	64
+fadetoblack	640 gameicons	0	128	64	64
+fragswap	640 gameicons4	192	128	64	64
 triplebang 640 gameicons	128	192	64	64
+nelliaschoice	640	gameicons2	128	64	64	64
 negativepi		640	gameicons2	128	64	64	64
 stomponhead	640 gameicons2	192	64	64	64
 waterhurt	640 gameicons	192	0	64	64
 victor	640 gameicons4	192	192	64	64
 pacifist	640 gameicons3	128	64	64	64
 revive	640 gameicons3	64	192	64	64
+exploder	640 gameicons2	0	128	64	64
 nomouse 640 gameicons3	128	64	64	64
 
 // Cams

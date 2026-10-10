@@ -92,6 +92,7 @@ Server commands:
         - Example: sv_addmutator "longjump 0" for a permanent duration until map change or until it is cleared
     - "999" - start with 999 health and battery.
     - "amidead" - tilts view by eighty degrees
+    - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
     - "astronaut" - gravity is turned down
     - "autoaim" - all weapons have extreme autoaim.
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
@@ -109,12 +110,16 @@ Server commands:
     - "dealter" - dealing with farts, of course
     - "dontshoot" - firing any weapon will explode the player.
     - "drunk" - your view keeps swaying and spinning
+    - "expcrowbar" - everyone gets a crowbar whose swings detonate on contact
+    - "exploder" - living players randomly detonate on a random timer, blast damages everyone nearby
     - "explosiveai" - AI blows up when it cannot find its next task
+    - "fadetoblack" - active alive players see stronger blackout as health drops, while low-health attackers deal up to 3x damage
     - "fastweapons" - all weapons are faster.
     - "firebullets" - all tracers are hot
     - "firestarter" - start with a flamethrower
     - "floorislava" - the ground scorches your boots
     - "fog" - heavy fog moves into the gameplay
+    - "fragswap" - on player-vs-player frags, victim takes the attacker's frag total plus frag gain while attacker takes the victim's pre-kill frags
     - "godmode" - everyone is invincible
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
@@ -140,7 +145,9 @@ Server commands:
     - "mirror" - mirror, mirror on the wall
     - "napkinstory" - the legend reduced to two words
     - "negativepi" - pi is now -1
+    - "nelliaschoice" - one random non-movement key becomes lethal; pressing it detonates the active player
     - "noclip" - fly through walls
+    - "nohud" - hides all HUD and crosshair elements except the nohud status icon
     - "nomouse" - disable mouse movement and mouse buttons for alive active players
     - "noradar" - hides the radar, compass, and world indicators from the HUD
     - "noreload" - no one can reload
@@ -158,6 +165,7 @@ Server commands:
     - "railguns" - everyone spawns with dual railguns
     - "randomweapon" - spawn with a randomly selected weapon
     - "rats" - spawns numerous explosive rats on the map
+    - "regen" - all alive non-spectator players regenerate health first, then armor
     - "revive" - first lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death
     - "ricochet" - the best mod ever made
     - "rocketbees" - hornets are explosive
@@ -173,6 +181,7 @@ Server commands:
     - "slowbullets" - bullets travel slowly to target
     - "slowmo" - everything is slowed down by half! (sp only!)
     - "slowweapons" - all weapons are slower.
+    - "snarkbar" - if your thrown crowbar hits anything, it spawns five owner-attributed snarks at impact
     - "snowballs" - a random chance of snowballs throw on attack
     - "speedup" - everything is sped up by half! (sp only!)
     - "stahp" - some sounds replaced with stahp!
@@ -187,6 +196,7 @@ Server commands:
     - "turrets" - sentry guns randomly appear, firing bullets and rockets at everyone
     - "unchaos" - to shut off chaos mode
     - "upsidedown" - reverses up and down views
+    - "vampire" - deal damage to drain health from players and monsters
     - "vested" - everyone starts with a vest
     - "victor" - fragged player's dropped weaponbox glides only to the fragger for up to 10 seconds
     - "volatile" - where players blow up when fragged
