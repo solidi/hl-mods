@@ -20,6 +20,7 @@ v1.2 Features:
     - "floorislava" - the ground scorches your boots
     - "fragswap" - frag scores swap between attacker and victim
     - "headshot" - only a headshot final blow can kill another player
+    - "myfavtexture" - every wall wears the same texture
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement bind becomes lethal
     - "nohud" - hide all hud elements except its own status icon
