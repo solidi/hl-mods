@@ -143,6 +143,7 @@ Server commands:
     - "megarun" - run faster than normal
     - "minime" - players are half the size
     - "mirror" - mirror, mirror on the wall
+    - "myfavtexture" - every world and brush surface renders the same texture (client-side visual only)
     - "napkinstory" - the legend reduced to two words
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement key becomes lethal; pressing it detonates the active player

@@ -1,4 +1,4 @@
-358
+359
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -308,6 +308,7 @@ noclip	640 gameicons5	0	0	64	64
 dealter	640 gameicons5	64	0	64	64
 bigfoot	640 gameicons5	128	0	64	64
 mirror	640 gameicons5	192	0	64	64
+myfavtexture	640 gameicons5	192	0	64	64
 thirdperson	640 gameicons5	0	64	64	64
 closeup	640 gameicons5	64	64	64	64
 railguns	640 gameicons3	64	0	64	64

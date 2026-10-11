@@ -127,6 +127,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Banner / pickup overlays | [banner_system.md](banner_system.md) |
 | Life bars + floating damage numbers | [lifebar.md](lifebar.md) |
 | Particle and flame effects (message -> manager -> render lifecycle) | [particle_system.md](particle_system.md) |
+| World/brush texture swap (`myfavtexture` mutator, hardware `texture_t::gl_texturenum`) | `mutator_myfavtexture.cpp`, [mutator_system.md §3.25](mutator_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |

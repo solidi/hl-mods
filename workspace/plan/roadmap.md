@@ -117,6 +117,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] snarkbar - thrown crowbar lands and spawns snarks (Naploeon)
     1. [x] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [x] Random bind key blows you up (Nellia's Choice)
+    1. [x] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
 
 ### Unscheduled
 
@@ -183,7 +184,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Heavy (inverse of astronaut)
     1. [ ] Accurate bullets
     1. [ ] Disable mutator list [via a file](https://github.com/bacontsu/codename-borea/blob/spirit/spirit-1.8-trinity-op4/dlls/util.cpp#L3340)
-    1. [ ] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [ ] Blue takis, hornetguns replaced with blue takis
     1. [ ] Pong - [pong](https://www.youtube.com/watch?v=oMeVxnFytJk&t=260s) is played on players screen
     1. [ ] [Rolling on the floor](https://www.youtube.com/clip/UgkxGDswiSRVQhEH4hN-N775AfBGuqerdbur)
@@ -227,6 +227,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rubberband (Players who are at the bottom get max health)
     1. [ ] blue screen
     1. [ ] accept all cookies
+    1. [ ] nothing
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
