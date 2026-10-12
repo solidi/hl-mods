@@ -1,4 +1,4 @@
-359
+360
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -299,6 +299,7 @@ ricochet	640 gameicons4	192	64	64	64
 notify	640 gameicons4	64	128	64	64
 credits	640 gameicons4	128	128	64	64
 goldenguns	640 gameicons4	192	128	64	64
+goldeneye	640 gameicons4	192	128	64	64
 stahp	640 gameicons4	0	192	64	64
 noreload	640 gameicons4	64	192	64	64
 fog	640 gameicons4	128	192	64	64
