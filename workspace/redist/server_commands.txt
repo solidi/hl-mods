@@ -121,6 +121,7 @@ Server commands:
     - "fog" - heavy fog moves into the gameplay
     - "fragswap" - on player-vs-player frags, victim takes the attacker's frag total plus frag gain while attacker takes the victim's pre-kill frags
     - "godmode" - everyone is invincible
+    - "goldeneye" - health and armor numbers are removed; GoldenEye 007 styled curved health (red/orange) and armor (blue) bars appear briefly when hurt
     - "goldenguns" - guns provide one shot frags
     - "grenades" - a random chance of a grenade throw on attack
     - "halflife" - hides the Cold Ice HUD elements for a plain Half-Life look

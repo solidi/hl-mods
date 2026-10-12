@@ -19,6 +19,7 @@ v1.2 Features:
     - "fadetoblack" - lower health darkens vision and boosts your damage
     - "floorislava" - the ground scorches your boots
     - "fragswap" - frag scores swap between attacker and victim
+    - "goldeneye" - health and armor numbers are replaced by classic 007 curved bars that appear briefly when hurt
     - "headshot" - only a headshot final blow can kill another player
     - "myfavtexture" - every wall wears the same texture
     - "negativepi" - pi is now -1

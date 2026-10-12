@@ -118,6 +118,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] "Fade to black" - Based on your HP (%) your screen fades a bit, on the point of Death your screen is almost grayedout. However you do more damage the lower your HP is, to the point of let's say 2x or 3x more damage. (Napoleon)
     1. [x] Random bind key blows you up (Nellia's Choice)
     1. [x] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
+    1. [x] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
 
 ### Unscheduled
 
@@ -193,7 +194,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [In the eyes of](https://www.youtube.com/watch?v=5RaZGXd96VU)
     1. [ ] CrazyO - track reel of a person speaking
     1. [ ] Oneshot - 1 health start or reduce
-    1. [ ] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [ ] Lightsout updates
         1. [ ] Light up melee weapons
         1. [ ] Light effects all firing
