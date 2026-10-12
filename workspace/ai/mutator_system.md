@@ -12,19 +12,25 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-11)
+## 0. Recent delta (2026-10-12)
 
-- Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` is now 33, `three` is now 101).
-- Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count is now 360 (`goldeneye` reuses the `goldenguns` icon rect).
+- Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` is now 48, `three` is now 102).
+- Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count is now 361 (`linemode` reuses the `oldtime` icon rect).
+- While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
+
+## 0.1 Earlier delta (2026-10-11)
+
+- Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
+- Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.1 Earlier delta (2026-10-10)
+## 0.2 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.2 Earlier delta (2026-10-09)
+## 0.3 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -50,8 +56,8 @@ below).
 ## 1. Where the code lives
 
 ### Shared / IDs
-- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L918) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..112) and
+- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L919) —
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..113) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -132,6 +138,11 @@ below).
   `GoldenEye_Active` / `GoldenEye_OnDamage` / `GoldenEye_Reset` /
   `GoldenEye_Draw` (declared in `hud.h`), driven from `health.cpp` and
   gated in `battery.cpp` for `goldeneye` (§3.26).
+- [workspace/src/cl_dll/mutator_linemode.cpp](workspace/src/cl_dll/mutator_linemode.cpp) —
+  `LineMode_CaptureScene` (called from `tri.cpp::HUD_DrawNormalTriangles`)
+  and `LineMode_Draw` (called at the top of `cdll_int.cpp::HUD_Redraw`,
+  before `gHUD.Redraw`), both declared in `hud.h`; depth-edge GLSL
+  post-process for `linemode` (§3.27).
 - Client render/input consumers (mutator effects, non-exhaustive):
   `StudioModelRenderer.cpp` (BIGHEAD/MINIME/PAPER/SANIC/CRATE bones and
   proxies), `view.cpp` (MCCLANE/UPSIDEDOWN/AMIDEAD/TOPSYTURVY roll),
@@ -165,9 +176,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (112 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (113 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 113 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 114 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -908,6 +919,90 @@ pool. The HUD icon alias reuses the `goldenguns` rect.
   so with `negativepi` the arcs shrink to roughly ±16° and flip top/bottom,
   same as the other HUD consumers that route through `M_PI`.
 
+### 3.27 `linemode` GoldenEye 007 Line Mode
+`MUTATOR_LINEMODE` is client-only and lives in
+`cl_dll/mutator_linemode.cpp`. The server only carries the name-table entry;
+no `MutatorAllowed` filter, so it is allowed in every mode and in the Chaos
+pool. The HUD icon alias reuses the `oldtime` rect.
+
+- **Look.** Recreates the N64 hidden Line Mode: the whole 3D view is painted
+  white and only geometric edges are inked black — silhouettes of players,
+  monsters, items, projectiles and the viewmodel against what is behind them,
+  plus creases of the world and brush entities (wall corners, floor/wall
+  seams, steps, door frames, crate edges, pipe facets). Textures, lighting,
+  decals and anything that does not write depth (sprites, particles, beams,
+  most additive/blended surfaces) wash out to white. The HUD is untouched.
+- **Two hooks.** `LineMode_CaptureScene` runs from
+  `tri.cpp::HUD_DrawNormalTriangles`, the only client callback where the
+  world projection is current. It records `GL_VIEWPORT`, `GL_DEPTH_RANGE`,
+  `far/(far-near) = (1 - P[10]) / 2` and the view-space tangent per pixel
+  `2 / (|P[0]| * viewportWidth)` from `GL_PROJECTION_MATRIX`. Non-perspective
+  passes (`P[11] > -0.5`, spectator overview) are ignored; when several passes
+  render in a frame (spectator inset) the largest viewport wins.
+  `LineMode_Draw` runs at the top of `cdll_int.cpp::HUD_Redraw` (after
+  `gPortalRenderer.DrawPortal`, before `gHUD.Redraw`), when the finished 3D
+  frame, including the viewmodel, is still in the back buffer with its depth.
+  The capture flag is consumed every `HUD_Redraw`, so a frame without a
+  perspective 3D pass draws nothing.
+- **Edge test.** The depth buffer is copied with `glCopyTexSubImage2D` into a
+  `GL_DEPTH_COMPONENT24` `GL_TEXTURE_2D` (nearest, clamp, resized with the
+  viewport) and a full-screen GLSL 1.10 quad samples it. Window depth is
+  affine in `1/z`, so it is exactly linear across any plane in screen space.
+  For each pixel the shader takes the absolute second difference of depth
+  along the horizontal, vertical and both diagonals at `step` pixels and keeps
+  the largest. Dividing by `far/(far-near) - depth` (proportional to `1/z`)
+  turns it into a change of screen-space surface slope, so planar surfaces at
+  any distance or grazing angle stay white while creases and depth jumps
+  light up. `smoothstep(T, 2T)` with
+  `T = LINEMODE_CREASE_SLOPE (0.5) * step * tanPerPixel` grades the ink:
+  bends of about 27° head-on start to show and 45°+ creases and every
+  silhouette are solid black. Samples past the viewport border report no bend,
+  so the screen frame does not get an outline.
+- **Line weight and noise.** `step = max(1, round(viewportHeight / 720))`, so
+  lines are about 2 px at 720p, 4 px at 1080p/1440p and 6 px at 4K. A noise
+  floor of `LINEMODE_DEPTH_ULPS (6)` depth-buffer quantization steps (from
+  `GL_DEPTH_BITS`, clamped 16..24, scaled by the captured depth range) is
+  subtracted first, which also fades weak creases out naturally with
+  distance. Depth is normalized by the captured `glDepthRange`, so
+  `gl_ztrick`'s alternating reversed half-ranges map back to `0..1`.
+- **Viewmodel.** GoldSrc squeezes the viewmodel into the first 30 % of the
+  depth range, which is still affine, so its planes stay white; its
+  silhouette inks strongly but interior creases read about an order of
+  magnitude weaker than world creases, leaving mostly an outline of hands
+  and gun.
+- **GL plumbing.** GL 2.0 entry points (`glCreateShader`..`glUniform2f`,
+  `glActiveTexture`) are resolved once through `SDL_GL_GetProcAddress`
+  into a file-local table with explicit `__stdcall` on Windows; constants are
+  `#ifndef`-guarded because Windows `GL/gl.h` is 1.1 while Linux headers
+  already carry them. The program is built lazily on first active frame and
+  re-validated with `glIsProgram`; the texture with `glIsTexture`. Each draw
+  saves `GL_CURRENT_PROGRAM` / `GL_ACTIVE_TEXTURE` and wraps everything in
+  `glPushAttrib(ENABLE|COLOR_BUFFER|DEPTH_BUFFER|TEXTURE|VIEWPORT|POLYGON|SCISSOR)`
+  so the engine's cached texture binding and the later HUD/VGUI passes see
+  unchanged state. Fixed-function fog and texture enables are irrelevant
+  under the fragment shader.
+- **Failure handling.** Missing entry points, compile/link errors (info log is
+  printed) or a rejected depth copy (checked with `glGetError` after clearing
+  stale errors, once per texture allocation; e.g. a multisampled read buffer)
+  print `linemode: <reason>, effect disabled` and switch the effect off for
+  the rest of the session, leaving normal rendering. No-op on Xash
+  (`g_fXashEngine`), on non-OpenGL renderers
+  (`IEngineStudio.IsHardware() != 1`) and on macOS (stubs).
+- **Lifecycle.** Both hooks read `MutatorEnabled(MUTATOR_LINEMODE)` every
+  frame, so add, expiry, `clear` (254), pause/restore and late join need no
+  `MsgFunc_AddMut` / expiry / `InitHUD` kickoffs. GL objects persist across
+  maps; nothing is restored when the mutator ends because nothing in the
+  engine was modified.
+- **Interactions.** Effects drawn later in `HUD_Redraw` apply on top of the
+  line image: `mirror` flips it, `fadetoblack` darkens it, and with
+  `cl_screeneffects 1` the colour corrector inverts it for `inverse` (white
+  lines on black) and tints it for `sildenafil`; `oldtime` has no visible
+  effect on a black/white image. Screen fades or tints the engine composites
+  before `HUD_Redraw` are likely washed out.
+- **Tuning.** `LINEMODE_CREASE_SLOPE` (lower = more interior lines),
+  `LINEMODE_LINE_SCALE` (lower = thicker lines) and `LINEMODE_DEPTH_ULPS`
+  (higher = fewer far-distance lines) at the top of the file.
+
 ---
 
 ## 4. Wire protocol
@@ -1007,6 +1102,9 @@ Where each mutator lands on the client:
 - **Health/armor HUD (mutator_goldeneye.cpp, health.cpp, battery.cpp):**
   `GOLDENEYE` hides the health/armor numbers and icons and draws GoldenEye
   007 curved segmented bars for a few seconds after each hit (§3.26).
+- **Line Mode (mutator_linemode.cpp, tri.cpp, cdll_int.cpp):** `LINEMODE`
+  copies the depth buffer after the 3D view and redraws it as black edge
+  lines on white with a GLSL pass before the HUD (§3.27).
 - **StudioModelRenderer.cpp (per-bone):** `BIGHEAD` (scale head/arm bones 3x),
   `MINIME` (0.5x whole skeleton + -8 z), `PAPER` (Y-axis to 10 %), `CRATE`
   (swap model to `models/box.mdl`), `SANIC` (spawn a persistent
@@ -1163,12 +1261,14 @@ Newly added mutators:
 - `goldeneye` (`MUTATOR_GOLDENEYE`) replaces the health/armor numbers with
   GoldenEye 007 styled curved bars shown briefly when hurt (documented in
   §3.26).
+- `linemode` (`MUTATOR_LINEMODE`) renders GoldenEye 007's hidden Line Mode,
+  black traced edges on a white world (documented in §3.27).
 
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
 |---:|---|---|---|---|
 | 1 | `chaos` | S | Not a real mutator — enabling it starts the periodic chaos cadence (`m_flChaosMutatorTime`). Cleared with `unchaos`. | — |
-| 101 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
+| 102 | `three` | S | Not a mutator — special token in `sv_addmutator` that fires `AddRandomMutator` three times. | — |
 
 ### Movement / physics (world cvars or physinfo)
 | ID | Name | Scope | Effect |
@@ -1177,22 +1277,22 @@ Newly added mutators:
 | 9 | `bigfoot` | S | `sv_stepsize = 192`. |
 | 37 | `ice` | S | Per-spawn `friction = 0.3`; slippery movement. |
 | 46 | `lightsout` | S | Lightstyle 0 blackout, force flashlight on, sky→(1,1,1). |
-| 47 | `longjump` | S | Grants `item_longjump`. |
-| 52 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
-| 59 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
-| 61 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
-| 74 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
-| 85 | `sanic` | C | Replaces player model with sanic sprite. |
-| 88 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
-| 90 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
-| 91 | `slowbullets` | S | `sv_slowbullets = 2`. |
-| 92 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
-| 96 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
-| 98 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
-| 99 | `superjump` | S | `sv_jumpheight = 299`. |
-| 104 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
-| 107 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 112 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 48 | `longjump` | S | Grants `item_longjump`. |
+| 53 | `megarun` (physinfo `haste=1`) | SC | Player haste; pm_shared reads `canHaste`. |
+| 60 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
+| 62 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
+| 75 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
+| 86 | `sanic` | C | Replaces player model with sanic sprite. |
+| 89 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
+| 91 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
+| 92 | `slowbullets` | S | `sv_slowbullets = 2`. |
+| 93 | `slowmo` | S | `sys_timescale = 0.49`. **Blocked in `MutatorAllowed` — treat as disabled.** |
+| 97 | `speedup` | S | `sys_timescale = 1.49`. **Blocked in `MutatorAllowed`.** |
+| 99 | `stomponhead` | S | Any active player who lands on another player's head instantly gibs the victim; players use Shidden-like low gravity (`pev->gravity = 0.70`) while active. |
+| 100 | `superjump` | S | `sv_jumpheight = 299`. |
+| 105 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
+| 108 | `upsidedown` | C | View roll 180 + mouse inversion. |
+| 113 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -1220,32 +1320,32 @@ Newly added mutators:
 | 38 | `infiniteammo` | S | `sv_infiniteammo = 2`. |
 | 39 | `instagib` | S/Weapon | Grants `weapon_zapgun`. |
 | 42 | `itemsexplode` | S | Weapons/items become destructible; iterates `entityList[]`. **Blocked in `MutatorAllowed`.** |
-| 56 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
-| 58 | `nelliaschoice` | S | One non-movement key (`use`, `secondary attack`, `reload`, `alt1`, `ironsight`, `score`) is randomly selected while active; pressing that key detonates and kills the active non-observer player. |
-| 57 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
-| 63 | `noreload` | S | No reload cycles. |
-| 65 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
-| 67 | `pacifist` | S | Player-vs-player kills award +1 frag to the victim, do not increment victim deaths, and award no killer frag credit. |
-| 68 | `paintball` | SC | Paintball-style hit FX. |
-| 71 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
-| 72 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
-| 75 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
-| 76 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
-| 79 | `revive` | S | First lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death increment. |
-| 80 | `ricochet` | S | Bullets bounce (up to N ricochets). |
-| 81 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
-| 82 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
-| 83 | `rocketjump` | S | Self-fired rockets cap self-damage, get stronger lift when detonated below the player, and do not apply self-burn DOT from the blast. |
-| 84 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
-| 93 | `slowweapons` | S | Weapon time-scaling. |
-| 95 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
-| 97 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
-| 94 | `snarkbar` | S/Weapon | Ensures players have `weapon_crowbar`; thrown `flying_crowbar` impacts spawn five owner-attributed `monster_snark` entities with collision-safe spawn retries near the contact point. |
-| 105 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
-| 106 | `turrets` | S | Auto-turrets fire at everyone. |
-| 109 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
-| 110 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
-| 111 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 57 | `napkinstory` | S | (napkin_story reference — melee/scoring tweak.) |
+| 59 | `nelliaschoice` | S | One non-movement key (`use`, `secondary attack`, `reload`, `alt1`, `ironsight`, `score`) is randomly selected while active; pressing that key detonates and kills the active non-observer player. |
+| 58 | `negativepi` | SC | Central math override mutator: all shared PI references resolve to `-1.0` while active (server `dlls/util.h::M_PI`, client `cl_dll/hud.h::M_PI`, and PM shared math via `pm_shared/pm_math.c`). Server replicates state through player physinfo key `negpi` so prediction and server movement agree. Direct `2π`/`π/180` callsites route through `M_PI` (e.g. `napalm_pool.cpp`, `lifebar.cpp`, `radar.cpp`). |
+| 64 | `noreload` | S | No reload cycles. |
+| 66 | `notthebees` | S | Sets `m_iNotTheBees`; hornetgun swarms exit players on damage. |
+| 68 | `pacifist` | S | Player-vs-player kills award +1 frag to the victim, do not increment victim deaths, and award no killer frag credit. |
+| 69 | `paintball` | SC | Paintball-style hit FX. |
+| 72 | `plumber` | S/Weapon | Grants `weapon_dual_wrench`. |
+| 73 | `portal` | S/Weapon | Grants `weapon_ashpod`. |
+| 76 | `railguns` | S/Weapon | Grants `weapon_dual_railgun` + full uranium. |
+| 77 | `randomweapon` | S | `mp_randomweapon = 2`; per-spawn random loadout. |
+| 80 | `revive` | S | First lethal player-vs-player frag per spawn immediately revives the victim in-place with default spawn loadout; killer gains no frag and victim gains no death increment. |
+| 81 | `ricochet` | S | Bullets bounce (up to N ricochets). |
+| 82 | `rocketbees` | S/Weapon | Grants `weapon_hornetgun`; bee projectiles explode. |
+| 83 | `rocketcrowbar` | S/Weapon | Grants `weapon_rocketcrowbar`. |
+| 84 | `rocketjump` | S | Self-fired rockets cap self-damage, get stronger lift when detonated below the player, and do not apply self-burn DOT from the blast. |
+| 85 | `rockets` | S | 1/11 fire chance to also throw a rocket (via `ThrowRocket`). |
+| 94 | `slowweapons` | S | Weapon time-scaling. |
+| 96 | `snowballs` | S | 1/11 fire chance to also throw a snowball. |
+| 98 | `stahp` | S | `UTIL_IsMovementBlocked` returns TRUE (see util.h) — freezes movement. |
+| 95 | `snarkbar` | S/Weapon | Ensures players have `weapon_crowbar`; thrown `flying_crowbar` impacts spawn five owner-attributed `monster_snark` entities with collision-safe spawn retries near the contact point. |
+| 106 | `triplebang` | S/SC | Central `ItemPostFrame` burst mutator: bullet-style, projectile-launcher, requested sci-fi projectile families (crossbow/freezegun/rpg, gauss, hornetgun, railgun including dual variants where applicable), fists, and melee (crowbar, rocketcrowbar, knife, wrench, dual wrench) fire three shots in queued succession (`~0.15s` between shots) with one-trigger ammo cost; other eligible weapons use immediate central fallback. |
+| 107 | `turrets` | S | Auto-turrets fire at everyone. |
+| 110 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
+| 111 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
+| 112 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -1263,27 +1363,28 @@ Newly added mutators:
 | 43 | `jack` | C | Jack-in-the-box head cosmetic (blocked in PropHunt). |
 | 44 | `jeepathon` | S | Every player becomes a jeep bodygroup. |
 | 45 | `jope` | S | Player names swapped to "Jope"; original saved in info-key `j`. |
-| 48 | `loopback` | S | Damage returns to the attacker (wormhole). |
-| 49 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
-| 50 | `maxpack` | S | Max ammo pickups. |
-| 51 | `mcclane` | C | View roll -180 permanently. |
-| 53 | `minime` | C | Player model scaled to 0.5×, view offset. |
-| 54 | `mirror` | C | Mouse X inverted; view mirrored. |
-| 55 | `myfavtexture` | C | Every world/brush surface renders one replacement texture (`AAATRIGGER` from `halflife.wad`, checker fallback); OpenGL only (§3.25). |
-| 60 | `nohud` | C | Hides all client HUD elements and crosshairs while still drawing only the left-side `nohud` status icon. |
-| 62 | `noradar` | C | Hides radar HUD. |
-| 64 | `notify` | S | Notification/phone effect. |
-| 66 | `oldtime` | C | Black-and-white colour correction. |
-| 69 | `paper` | C | Player bones flattened to 10 % Y-axis. |
-| 70 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
-| 73 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
-| 77 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
-| 86 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
-| 87 | `sildenafil` | C | Colour-corrector blue boost. |
-| 89 | `sleepy` | S | Every 3 seconds, applies a black HUD fade pulse (`UTIL_ScreenFade`) to active human players (non-bot, non-spectator, `deadflag == DEAD_NO`). |
-| 100 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
-| 102 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
-| 103 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 47 | `linemode` | C | GoldenEye 007 hidden Line Mode: the 3D view washes out to white and silhouettes/creases of the world, brush entities and models are traced in black via a real-time depth-buffer GLSL pass before the HUD. OpenGL 2.0 only; other renderers draw normally (§3.27). |
+| 49 | `loopback` | S | Damage returns to the attacker (wormhole). |
+| 50 | `marshmellow` | C | Marshmallow head (blocked in PropHunt). |
+| 51 | `maxpack` | S | Max ammo pickups. |
+| 52 | `mcclane` | C | View roll -180 permanently. |
+| 54 | `minime` | C | Player model scaled to 0.5×, view offset. |
+| 55 | `mirror` | C | Mouse X inverted; view mirrored. |
+| 56 | `myfavtexture` | C | Every world/brush surface renders one replacement texture (`AAATRIGGER` from `halflife.wad`, checker fallback); OpenGL only (§3.25). |
+| 61 | `nohud` | C | Hides all client HUD elements and crosshairs while still drawing only the left-side `nohud` status icon. |
+| 63 | `noradar` | C | Hides radar HUD. |
+| 65 | `notify` | S | Notification/phone effect. |
+| 67 | `oldtime` | C | Black-and-white colour correction. |
+| 70 | `paper` | C | Player bones flattened to 10 % Y-axis. |
+| 71 | `piratehat` | C | Pirate cosmetic (blocked in PropHunt). |
+| 74 | `pumpkin` | C | Pumpkin cosmetic (blocked in PropHunt). |
+| 78 | `rats` | S | Spawns `monster_rat` entities with `iuser1 = MUTATOR_RATS`. |
+| 87 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
+| 88 | `sildenafil` | C | Colour-corrector blue boost. |
+| 90 | `sleepy` | S | Every 3 seconds, applies a black HUD fade pulse (`UTIL_ScreenFade`) to active human players (non-bot, non-spectator, `deadflag == DEAD_NO`). |
+| 101 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 103 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
+| 104 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
@@ -1299,7 +1400,10 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 
 1. **ID (shared).** Insert the new mutator in alphabetical order in
    `common/const.h` (matching `g_szMutators[]` token order) and renumber every
-   following `MUTATOR_*` define so IDs remain contiguous.
+   following `MUTATOR_*` define so IDs remain contiguous. Apply the same
+   insert + renumber to the bot's copy in
+   `workspace/grave-bot-src/common/const.h` (separate project, not picked up
+   by the mod build, so drift is silent).
 2. **Server name table.** Insert the internal string into the alphabetically
    correct position in
    `dlls/gamerules.cpp::g_szMutators[]`. Must be lowercase, unique, and match
@@ -1361,7 +1465,8 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 ## 10. Known pitfalls & invariants
 
 - **Symmetric IDs and ordering.** `MUTATOR_*` values are on the wire. Keep
-  `common/const.h`, `dlls/gamerules.cpp::g_szMutators[]`,
+  `common/const.h`, `grave-bot-src/common/const.h`,
+  `dlls/gamerules.cpp::g_szMutators[]`,
   `cl_dll/vgui_TeamFortressViewport.cpp::sMutators[]`, and
   `workspace/redist/settings.scr` mutator IDs synchronized. Canonical order is
   alphabetical; inserting a new mutator requires renumbering all later IDs in
