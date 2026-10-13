@@ -366,6 +366,16 @@ All defined in
 The bot still respects `mp_grapplinghook` — `BotHookEnabled` returns false
 if either cvar is zero.
 
+### 7.6a `botpause` interaction
+
+`botpause 1` (server command, `b_botpause` in [dll.cpp](../grave-bot-src/dlls/dll.cpp)) only zeroes bot movement and skips the wander/gamemode-think branch of `BotThink`. Enemy acquisition, `BotShootAtEnemy` → `BotFireWeapon` (PURSUIT / DAMAGE), the ESCAPE call in the engagement branch, and `BotFindItem` (ITEM) all keep running. Hooks are therefore gated at the shared choke points so every mode and intent is covered:
+
+- `BotHookEnabled` returns false while `b_botpause` is set (blocks every `BotConsiderHookFor*`).
+- `BotFireHook` refuses to send impulse 217 while paused (defense for any direct caller).
+- `BotMaybeReleaseHook` force-releases an active hook when pause turns on, because a latched hook keeps reeling the player even with movement zeroed.
+
+Per-bot `f_pause_time` (the short idle pause) is **not** part of this gate.
+
 ### 7.7 CtC-specific hook hardening (session update)
 
 - **Holder transition guard**: in CtC, if a bot becomes a chumtoad holder while a hook is active, `BotMaybeReleaseHook` force-releases immediately.
