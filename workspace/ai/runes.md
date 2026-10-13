@@ -20,7 +20,7 @@ picks them up, see [gravebot.md → Rune handling](gravebot.md#4-rune-handling).
 | 5  | `RUNE_HASTE`    | `rune_haste`    | Faster fire / shorter reload + physics `haste=1`   | [items.cpp](../src/dlls/items.cpp#L802) and weapon `RUNE_HASTE` checks |
 | 6  | `RUNE_GRAVITY`  | `rune_gravity`  | `pev->gravity = 0.6`                               | [items.cpp](../src/dlls/items.cpp#L885) |
 | 7  | `RUNE_STRENGTH` | `rune_strength` | `flDamage *= 1.5` for outgoing damage              | [player.cpp](../src/dlls/player.cpp#L513-L515) |
-| 8  | `RUNE_CLOAK`    | `rune_cloak`    | Render alpha invisibility                          | [items.cpp](../src/dlls/items.cpp#L1002-L1006) |
+| 8  | `RUNE_CLOAK`    | `rune_cloak`    | Render alpha invisibility (tracking hornets ignore the carrier unless revealed by attacking — see [weapons.md](weapons.md#hornet-targeting-gamerules-aware)) | [items.cpp](../src/dlls/items.cpp#L1002-L1006) |
 | 9  | `RUNE_AMMO`     | `rune_ammo`     | Refilling ammo (except `weapon_nuke`) (+ instagib hornetgun / | [multiplay_gamerules.cpp](../src/dlls/multiplay_gamerules.cpp#L2324-L2347), [items.cpp](../src/dlls/items.cpp#L1068-L1086) |
 |    |                 |                 | snowball glauncher in those modes)                 | |
 

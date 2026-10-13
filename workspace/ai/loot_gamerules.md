@@ -27,7 +27,8 @@
 - `TEAM_ICEMAN = 0`, `TEAM_SANTA = 1`, `TEAM_GINA = 2`, `TEAM_FROST = 3`.
 - Names: `s_TeamNames[4] = { "iceman", "santa", "gina", "frost" }`.
 - `pPlayer->pev->fuser4 = teamIdx (0..3)` while not carrying — overwritten to `RADAR_LOOT (16)` when carrying, restored to team idx on drop/death/score.
-- `IsTeamplay()` returns `TRUE`. `PlayerRelationship` returns `GR_TEAMMATE` when `m_szTeamName` matches.
+- `IsTeamplay()` returns `TRUE`. `PlayerRelationship` returns `GR_TEAMMATE` when both players share `m_iLootTeam` (>= 0).
+- No `ShouldAutoAim` override (base returns `TRUE` for every player). Tracking hornets exclude teammates via `PlayerRelationship`; aim-assist does not.
 
 ## Entities
 

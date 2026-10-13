@@ -381,6 +381,14 @@ Three changes were made to handle them:
   visible 15-25° pitch oscillation, easiest to see on the dealter
   whose alpha is scaled by next-attack time in `player.cpp::PostThink`.
 
+### Hornets vs. cloaked dealters (`hornet.cpp`)
+
+Smelter tracking hornets do not home in on dealters while cloaked
+(`kRenderTransAlpha` with `renderamt < HORNET_CLOAK_REVEAL_ALPHA` = 128).
+A dealter that attacks flashes above the threshold and becomes briefly
+trackable; the hornet drops the lock when they re-cloak.  See
+[weapons.md → Hornet Targeting](weapons.md#hornet-targeting-gamerules-aware).
+
 ### Dead-player audio gates (`bot.cpp` + `util.cpp`)
 
 Killed players keep their edicts (and `FL_CLIENT`) for a moment with

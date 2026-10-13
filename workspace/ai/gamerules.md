@@ -81,6 +81,8 @@ Every mode inherits the virtual methods below. The default behavior lives in `CG
         `mp_spawnprotectiontime`).
 - `FlPlayerFallDamage` — fall-damage rule per `mp_falldamage`.
 - `PlayerRelationship` — used by autoaim and friendly-AI; returns `GR_TEAMMATE` / `GR_ENEMY` / `GR_ALLY` / `GR_NEUTRAL`.
+- `ShouldAutoAim` — "is this target hostile to me" for aim-assist **and tracking hornets** (`CHornet::IRelationship`). Modes with role-based hostility (CtC holder-only, Horde monsters-only) must express it here and/or in `PlayerRelationship`. See [weapons.md → Hornet Targeting](weapons.md#hornet-targeting-gamerules-aware).
+- **Side-effect warning:** `FPlayerCanTakeDamage` mutates state in Shidden (fart-freeze), Prop Hunt (prop HP buffer / conversion), and KTS (dribbler strip). Only call it from a real damage path. For scanners / target selection use `PlayerRelationship` + `ShouldAutoAim`, which are pure in every mode.
 - `IsTeamplay`, `GetTeamID`, `GetTeamIndex`, `GetIndexedTeamName`, `IsValidTeam`, `ChangePlayerTeam`, `SetDefaultPlayerTeam` — team-rules surface used by HUD, voice mgr, and bot side.
 
 ### Mode-specific predicates
@@ -463,6 +465,7 @@ Bots **never** open a join menu. `ClientPutInServer` sets `m_bWantsToPlay = TRUE
 9. **`f_waypoint_goal_time` 1-second spawn delay** — an early implementation set this on spawn, suppressing goal selection for the first second. Now zeroed in `BotSpawnInit` so goal selection fires the first frame.
 10. **`old_waypoint_goal` carryover** — if not cleared in `BotSpawnInit`, stale waypoint indices from a previous map can be restored after combat disengagement and send the bot to an invalid waypoint.
 11. **Client game sound pathing in `PlayCSound`** — in `cl_dll/hud_msg.cpp` `MsgFunc_PlayCSound`, entries must be relative to the `sound/` root (e.g. `gol.wav`, `soccer.wav`, `airhorn.wav`). Do not prefix with `sound/` there, or the lookup can fail silently and connected players will not hear mode announcer/goal audio.
+12. **Calling `FPlayerCanTakeDamage` as a query** — it is not side-effect free (see Damage & teams). Using it in proximity scans or homing logic can freeze Shidden smelters, drain/convert Prop Hunt props, or strip the KTS dribbler without any hit landing.
 
 ## Per-Mode Spokes
 

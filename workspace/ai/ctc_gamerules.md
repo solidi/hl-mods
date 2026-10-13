@@ -209,6 +209,13 @@ CtC is FFA with a single shared objective (the chumtoad), so it uses the **simpl
 ### Grappling Hook
 - `AllowGrapplingHook`: Returns TRUE only if player is NOT holding chumtoad (`!m_iHoldingChumtoad`)
 
+### Hornet Targeting
+- Chaser-fired tracking hornets only seek chumtoad holders. Driven generically by `CHornet::IRelationship` (`src/dlls/hornet.cpp`) via `PlayerRelationship` (chaser↔chaser = `GR_TEAMMATE`) and `ShouldAutoAim` (holder-only) — no CtC-specific code in `hornet.cpp`.
+- The loose `monster_ctctoad` is `DAMAGE_NO`, so hornets ignore it instead of chasing it.
+- `TrackTarget` revalidates `m_hEnemy` every think: if the tracked holder drops the toad mid-flight, the hornet drops them and re-acquires the nearest visible holder.
+- Collision is unchanged: a hornet that physically hits a chaser still dies on contact, and `FPlayerCanTakeDamage` blocks the damage.
+- See [weapons.md → Hornet Targeting](weapons.md#hornet-targeting-gamerules-aware).
+
 ### Mutators Blocked
 - `MUTATOR_999`, `MUTATOR_CHUMXPLODE`, `MUTATOR_NOCLIP`, `MUTATOR_DONTSHOOT`, `MUTATOR_THIRDPERSON`
 
