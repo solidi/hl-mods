@@ -291,7 +291,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 - `weapon_railgun` → `CRailgun` (`railgun.cpp`), `weapon_dual_railgun` → `CDualRailgun` — beam/trail/glow are client event-driven (`EV_FireRailgun`, `EV_FireDualRailgun`) while hit/damage remains server-authoritative; `+reload` adds a 3-second charged mode costing 50 uranium that fires rail + endpoint nuke blast (dual: right now, left after 0.5s with a second nuke).
 - `weapon_gauss` → `CGauss` (`gauss.cpp`) — primary hitscan beam, classic charge-up secondary, and a reload-held EMP vent pulse that scales to `512u` and disables nearby explosives/portals/armed vests without direct player damage.
 - `weapon_egon` → `CEgon` (`egon.cpp`) — `+reload` adds a 3-second charged nova ball (50 uranium) that flies with periodic aura lightning damage and detonates in a nuke-style supernova on hit/water/timeout.
-- `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun` — passive hornet trickle-recharges automatically; **holding `+reload` doubles the recharge rate** and plays the `func_healthcharger` loop for audible feedback (see below).
+- `weapon_hornetgun` → `CHgun` (`hornetgun.cpp`), `weapon_dual_hornetgun` → `CDualHgun` — passive hornet trickle-recharges automatically; **holding `+reload` doubles the recharge rate** and plays the `func_healthcharger` loop for audible feedback (see below). Tracking hornets only seek players the active gamerules treat as hostile (see [Hornet Targeting](#hornet-targeting-gamerules-aware)).
 - `weapon_flamethrower` → `CFlameThrower` (`flamethrower.cpp`), `weapon_dual_flamethrower` → `CDualFlameThrower` — `+reload` now performs a fuel dump that splats persistent `napalm_pool` hazards onto world/static surfaces (single: 3 pools, dual: 6 pools).
 - `weapon_rpg` → `CRpg` (`rpg.cpp`), `weapon_dual_rpg` → `CDualRpg`
 - `weapon_glauncher` → `CGrenadeLauncher` (`glauncher.cpp`) — `+reload` while clip is full now cycles primary payload mode (contact default, bounce, cluster, freeze, sticky prox satchel, sticky drug satchel); mode is shown on HUD, persists across holster/deploy, and resets after weapon loss/reacquire.
@@ -768,6 +768,58 @@ Sounds are emitted on the player edict (`ENT(m_pPlayer->pev)`), same edict/chann
 - `PrimaryAttack()` and `SecondaryAttack()` short-circuit while `IN_RELOAD` is held — they call `Reload()` for the charge tick, bump `m_flNextPrimaryAttack` / `m_flNextSecondaryAttack` by `0.1s`, and return. Without this gate, holding attack + reload cycled shots at the fast-charge rate. Firing resumes the frame reload is released.
 - Both classes still set `ITEM_FLAG_NOAUTORELOAD` so no auto-reload path collides with the manual reload dispatch.
 - If you add a new hivehand-family weapon (e.g., a third variant), replicate the header additions (`AcceptReload()`, `m_iChargeSoundOn`, `m_flChargeNextEmpty`), the two `PRECACHE_SOUND` calls, the `Holster()` stop-sound guard, and the `IN_RELOAD` fire-gate in both attack functions — otherwise the loop can leak across weapon switches or the weapon will still fire while charging.
+
+## Hornet Targeting (gamerules-aware)
+
+Tracking hornets (`hornet` / `CHornet`, [hornet.cpp](../src/dlls/hornet.cpp)) acquire targets via `Look(512)` + `BestVisibleEnemy()`, both of which consult `CHornet::IRelationship()`. That override is the single place where hornet target rules live.
+
+### `CHornet::IRelationship` rules (in order)
+
+1. Same `modelindex` (other hornets) → `R_NO` (stock).
+2. `pTarget->pev->takedamage == DAMAGE_NO` → `R_NO`. Skips spectators, the loose CtC `monster_ctctoad`, and other undamageable `FL_MONSTER` entities.
+2b. **Invisible player** → `R_NO` (applies to all hornets, any owner): `EF_NODRAW`, or `rendermode == kRenderTransAlpha` with `renderamt < HORNET_CLOAK_REVEAL_ALPHA` (128, `hornet.h`). Covers the cloak rune, the Invisible mutator, and Shidden dealters (all via `kRenderTransAlpha`). `CBasePlayer::PreThink` drives a cloaked player's `renderamt` from weapon next-attack timers (≈50 idle, up to 255 right after firing), so an attacking cloaked player is briefly trackable and the per-tick revalidation drops the lock once they re-cloak.
+3. **Player target + player owner** (`pev->owner` has `FL_CLIENT`):
+   - the owner itself → `R_NO` (tracking hornets pass through their owner, so chasing them was wasted flight);
+   - `g_pGameRules->PlayerRelationship(owner, target) == GR_TEAMMATE` → `R_NO`;
+   - `!g_pGameRules->ShouldAutoAim(owner, target->edict())` → `R_NO`.
+4. Otherwise falls through to the stock `CBaseMonster::IRelationship` class table (`CLASS_PLAYER_BIOWEAPON` row).
+
+Monster-owned hornets (alien grunt) and hornets with no owner skip step 3 and keep stock behavior.
+
+### Per-tick revalidation (`TrackTarget`)
+
+Before the `m_hEnemy == NULL` re-acquire, `m_hEnemy` is cleared if it is no longer `IsAlive()` or, for players, if `IRelationship()` now returns `R_NO`. This covers a CtC holder dropping the toad mid-flight, team swaps (Chilldemic infection, Prop Hunt conversion, Loot team changes), and targets dying — the hornet then re-acquires a valid target instead of homing on stale state.
+
+### Contact vs. targeting
+
+`TrackTouch` intentionally uses `CBaseMonster::IRelationship()` (stock table), **not** the gamerules-aware override. Contact with a non-target player still runs `DieTouch` → `TakeDamage`, so friendly-fire / immunity is decided by `FPlayerCanTakeDamage` exactly as before (e.g. FF-on teamplay still damages teammates on collision; CtC chasers take no damage). Only *seeking* is gamerules-aware.
+
+### Why `ShouldAutoAim` + `PlayerRelationship` (not `FPlayerCanTakeDamage`)
+
+`FPlayerCanTakeDamage` has side effects in several modes and must never be called from a scanner or targeting predicate:
+
+| Mode | Side effect inside `FPlayerCanTakeDamage` |
+|------|-------------------------------------------|
+| Shidden | Fart-freeze applies `m_iFreezeCounter`, glow, sound, screen fade, center-print |
+| Prop Hunt | Subtracts `PROP_DAMAGE_PROXY` HP from props, plays pain sound, converts prop → hunter |
+| KTS | Strips the dribbler via `DropCharm` |
+
+`ShouldAutoAim` and `PlayerRelationship` are pure in every mode. Both are checked because Loot does not override `ShouldAutoAim` (base returns `TRUE` for all players) — its teammates are only excluded via `PlayerRelationship`.
+
+### Resulting behavior per mode
+
+| Mode(s) | Player-fired hornets track |
+|---------|----------------------------|
+| FFA, Arena, Cold Skull, GunGame, Instagib, Snowball, LMS (FFA) | Any alive non-owner player |
+| Teamplay, CTF, Cold Spot, LMS (teams), Busters, Chilldemic, JvS, Prop Hunt, Shidden, KTS, Loot | Enemy-team players only |
+| CtC | Chumtoad holders only (`ShouldAutoAim` is holder-only; chasers are `GR_TEAMMATE`); the loose toad is ignored (`DAMAGE_NO`) |
+| Horde | Monsters only (`ShouldAutoAim` returns `TRUE` only for `monster_*`) |
+
+Spawn-protected players are skipped by `BestVisibleEnemy`'s `FL_GODMODE` check. Cloaked players are skipped unless revealed by attacking (rule 2b). Contact with a cloaked player still damages them normally.
+
+### Adding a new mode
+
+If a mode has non-team roles (like CtC holder vs. chasers), make `ShouldAutoAim` and/or `PlayerRelationship` express "who is hostile to whom" — hornets (and aim-assist) pick it up automatically. Do not add mode-specific checks to `hornet.cpp`.
 
 ## Conventions / Lessons
 

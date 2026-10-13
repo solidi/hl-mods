@@ -39,7 +39,7 @@ All connected players join a single team (`"survivors"`, `pev->fuser3 == 1`) and
 - `IsTeamplay()` returns `TRUE`
 - `FPlayerCanTakeDamage`: blocks all PvP damage between survivors (no FF, period — not even with `friendlyfire` non-zero)
 - `PlayerRelationship`: `GR_TEAMMATE` for all player→player pairs
-- `ShouldAutoAim`: disabled against teammates
+- `ShouldAutoAim`: returns `TRUE` only for `monster_*` classnames (never players) — player-fired tracking hornets therefore only seek monsters
 - Monsters can damage and kill players normally; players score frags off monsters
 
 ## Horde Monster Tagging

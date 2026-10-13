@@ -42,7 +42,8 @@ v1.2 Features:
 - Patches
     - Added console warning if an unkown mutator is applied
     - Fixed ironsights server crash (thanks to albatross)
-    - Fixed flak sound effects 
+    - Fixed flak sound effects
+    - Hornets no longer track teammates incorrectly nor invisible foes 
 
 Highly-Valued Upcoming Features:
 
