@@ -777,7 +777,7 @@ Tracking hornets (`hornet` / `CHornet`, [hornet.cpp](../src/dlls/hornet.cpp)) ac
 
 1. Same `modelindex` (other hornets) → `R_NO` (stock).
 2. `pTarget->pev->takedamage == DAMAGE_NO` → `R_NO`. Skips spectators, the loose CtC `monster_ctctoad`, and other undamageable `FL_MONSTER` entities.
-2b. **Invisible player** → `R_NO` (applies to all hornets, any owner): `EF_NODRAW`, or `rendermode == kRenderTransAlpha` with `renderamt < HORNET_CLOAK_REVEAL_ALPHA` (128, `hornet.h`). Covers the cloak rune, the Invisible mutator, and Shidden dealters (all via `kRenderTransAlpha`). `CBasePlayer::PreThink` drives a cloaked player's `renderamt` from weapon next-attack timers (≈50 idle, up to 255 right after firing), so an attacking cloaked player is briefly trackable and the per-tick revalidation drops the lock once they re-cloak.
+2b. **Invisible player** → `R_NO` (applies to all hornets, any owner): `EF_NODRAW`, or `rendermode == kRenderTransAlpha` with `renderamt < HORNET_CLOAK_REVEAL_ALPHA` (128, `hornet.h`). Covers the cloak rune, the Invisible mutator, and Shidden dealters (all via `kRenderTransAlpha`). `CBasePlayer::PostThink` drives a cloaked player's `renderamt` from weapon next-attack timers (≈50 idle, up to 255 right after firing), so an attacking cloaked player is briefly trackable and the per-tick revalidation drops the lock once they re-cloak.
 3. **Player target + player owner** (`pev->owner` has `FL_CLIENT`):
    - the owner itself → `R_NO` (tracking hornets pass through their owner, so chasing them was wasted flight);
    - `g_pGameRules->PlayerRelationship(owner, target) == GR_TEAMMATE` → `R_NO`;

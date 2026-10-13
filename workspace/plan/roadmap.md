@@ -228,7 +228,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] blue screen
     1. [ ] accept all cookies
     1. [ ] nothing
-    1. [ ] maximum ammo for current weapons in posession
+    1. [ ] maximum ammo for current weapons in possession
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
