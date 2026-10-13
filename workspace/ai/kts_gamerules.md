@@ -78,7 +78,7 @@ The snowball entity caches its dribbler via `m_hDribbler` (an `EHANDLE`) and `pe
 | `m_fNoRecaptureUntil` | float | Expiry time for same-controller recapture block |
 | `m_bWasGravityHeld` | BOOL | Transition flag: gravity-held in previous think tick |
 | `m_fScrumStartTime` | float | Start of the current scrum stall window (`-1` = no contested crowd) |
-| `m_vScrumAnchor` | Vector | Ball origin when the stall window started; travel beyond 128u re-anchors |
+| `m_vScrumAnchor` | Vector | Ball origin when the stall window started; travel beyond 256u re-anchors |
 | `pev->euser1` | edict_t* | Points to dribbler's edict (authoritative; used by bot code) |
 | `pev->iuser1` | int | Forcegrab state: 0 = attract, 1 = repel |
 | `pev->iuser2` | int | Gravity gun operator entity index; consumed (copied into `m_hLastToucher`, then zeroed) at the top of the next `BallThink` |
@@ -319,7 +319,7 @@ Called from `BallThink` auto-acquire, `BallTouch` slow-ball capture, and gravity
 #define KTS_SCRUM_POP_SPEED       320.0f  // horizontal pop speed
 #define KTS_SCRUM_POP_LIFT        420.0f  // vertical pop speed
 #define KTS_SCRUM_NO_CAPTURE_TIME 1.0f    // global no-auto-capture after a pop
-#define KTS_SCRUM_GOAL_AVOID_DIST 512.0f  // never pop toward a goal closer than this
+#define KTS_SCRUM_GOAL_AVOID_DIST 512.0f  // penalize pop headings toward goals closer than this
 ```
 
 Related non-KTS constants that shape possession fights: kick trace range `96u` (`KickAttack`), kick interactive-nudge radius `96u` (the `192u` bot branch reads the weapon entity's `pev->flags`, never `FL_FAKECLIENT`, so it is dead), `sk_plr_kick = 20`, `sk_plr_gravitygun = 20`, gravity-gun force push radius `180u`, forcegrab capture speed `<= 75 u/s`, gravity-gun hold drop distance `128u`.
