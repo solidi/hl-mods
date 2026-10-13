@@ -49,7 +49,7 @@ v1.2 Features:
     - Fixed flak sound effects
     - Hornets no longer track teammates incorrectly nor invisible foes
     - Fix rocket model orientation
-Bot Patches
+- Bot Patches
     - Prevent bots from firing their hook when paused
 
 Highly-Valued Upcoming Features:
