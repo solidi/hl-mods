@@ -1,4 +1,4 @@
-360
+361
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -260,6 +260,7 @@ paintball	640 gameicons2	64	0	64	64
 explosiveai	640 gameicons2	128	0	64	64
 itemsexplode	640 gameicons2	192	0	64	64
 lightsout	640 gameicons2	0	64	64	64
+linemode	640 gameicons	0	128	64	64
 ice			640	gameicons2	64	64	64	64
 pushy		640	gameicons2	128	64	64	64
 superjump	640 gameicons2	192	64	64	64

@@ -136,6 +136,7 @@ Server commands:
     - "jeepathon" - everyone is a jeep.
     - "jope" - it's all a jope!
     - "lightsout" - all the lights are turned out, but your flashlight has unlimited battery
+    - "linemode" - GoldenEye 007 line mode; the world washes out to white and only model and geometry edges are traced in black (client-side visual only)
     - "longjump" - everyone receives a long jump module
     - "loopback" - teleport to the place of your last frag
     - "marshmellow" - come back 1999 to you.

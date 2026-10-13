@@ -21,6 +21,7 @@ v1.2 Features:
     - "fragswap" - frag scores swap between attacker and victim
     - "goldeneye" - health and armor numbers are replaced by classic 007 curved bars that appear briefly when hurt
     - "headshot" - only a headshot final blow can kill another player
+    - "linemode" - classic 007 line mode, everything washes out to white with black traced edges
     - "myfavtexture" - every wall wears the same texture
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement bind becomes lethal
