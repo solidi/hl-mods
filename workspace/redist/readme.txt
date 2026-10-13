@@ -39,8 +39,10 @@ v1.2 Features:
     - "vampire" - deal damage to drain health
     - "victor" - fragged drops fly only to the fragger
     - "waterhurt" - touch water and explode
-- Patches
+- Mutator Patches
     - Added console warning if an unkown mutator is applied
+- Gamemode Patches
+    - Add scrum lockout detection in kick the snowball
     - Fixed ironsights server crash (thanks to albatross)
     - Fixed flak sound effects
     - Hornets no longer track teammates incorrectly nor invisible foes
