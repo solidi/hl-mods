@@ -393,3 +393,4 @@ configured at [dll.cpp 1944–2001](../grave-bot-src/dlls/dll.cpp#L1944-L2001).
 | `bot_reaction_time_max <skill 1-5> <v>` | — | Edit one skill row. |
 | `bot_aim_difficulty` | 1.0 | Multiplier on aim tracking/jitter and re-acquire reaction delay. |
 | `botskill <1-5>` | — | Sets `default_bot_skill` for new bots (1=hardest, 5=easiest). |
+| `botpause <0/1>` | 0 | Server command (`b_botpause`). Zeroes bot movement and skips the wander/gamemode-think branch. Bots still acquire enemies, aim and fire, but never deploy the grappling hook and release any active hook — see [grappling_hook.md §7.6a](grappling_hook.md#76a-botpause-interaction). |

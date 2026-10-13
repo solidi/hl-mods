@@ -43,11 +43,14 @@ v1.2 Features:
     - Added console warning if an unkown mutator is applied
 - Gamemode Patches
     - Added scrum lockup detection in Kick the Snowball
-- General Patches
+- Weapon Patches
+    - View weapons react to player sprinting
     - Fixed ironsights server crash (thanks to albatross)
     - Fixed flak sound effects
     - Hornets no longer track teammates incorrectly nor invisible foes
     - Fix rocket model orientation
+- Bot Patches
+    - Prevent bots from firing their hook when paused
 
 Highly-Valued Upcoming Features:
 
