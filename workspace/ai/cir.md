@@ -43,6 +43,28 @@ There is **no** `hl.vcxproj` and **no** `hl.dll` in this repo. The server librar
 
 Engine is 32-bit. **Do not try `x64`.**
 
+### Adding a source file
+
+Every new `.cpp` must be listed in three places in the same change, or one platform/IDE silently drifts:
+
+| DLL | VS project (`ClCompile`) | VS filters (`ClCompile` + `<Filter>`) | Linux makefile |
+|-----|--------------------------|---------------------------------------|----------------|
+| Client | `src/projects/vs2019/hl_cdll.vcxproj` | `hl_cdll.vcxproj.filters`, `Source Files\cl_dll` | `src/linux/Makefile.hl_cdll` |
+| Server | `src/projects/vs2019/hldll.vcxproj` | `hldll.vcxproj.filters`, `Source Files\dlls` | `src/linux/Makefile.hldll` |
+
+A file missing from `.filters` still compiles; it just shows up outside the folder tree in Solution Explorer, so nothing flags it. The `vs2010` projects are stale and not maintained. Audit parity after adding files:
+
+```powershell
+cd C:\hl-mods\workspace\src\projects\vs2019
+[xml]$p = Get-Content hl_cdll.vcxproj; [xml]$f = Get-Content hl_cdll.vcxproj.filters
+foreach ($t in 'ClCompile','ClInclude') {
+    $pi = @($p.Project.ItemGroup | % { $_.$t } | ? { $_ } | % { $_.Include })
+    $fi = @($f.Project.ItemGroup | % { $_.$t } | ? { $_ } | % { $_.Include })
+    $pi | ? { $fi -notcontains $_ } | % { "MISSING in filters: $_" }
+    $fi | ? { $pi -notcontains $_ } | % { "STALE in filters:   $_" }
+}
+```
+
 ### Direct MSBuild invocation (when the wrapper is overkill)
 
 For a fast targeted rebuild during iteration, drive MSBuild directly. The platform-name string is **not** the same for `.sln` and `.vcxproj` — get this wrong and you get `MSB4126: invalid solution configuration`.

@@ -12,31 +12,36 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-13)
+## 0. Recent delta (2026-10-14)
+
+- Added the `Accept All Cookies` **instant** mutator as `AddInstantMutator()` case 15 (roll is now `RANDOM_LONG(0, 15)`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed; it is only ever picked at random on the instant cadence.
+- New user message `gmsgCookies` (`"Cookies"`, 1 byte) opens a client-side VGUI cookie consent wall (`CCookiesPanel`, `MENU_COOKIES`) on every alive, active, non-bot player: scrollable fake agreement, `Accept All Cookies` (dismiss) on the left, `Reject All Cookies` (client runs `disconnect`) on the right. All strings come from `titles.txt` (see §3.3.1).
+
+## 0.1 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
 - Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count is now 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
-## 0.1 Earlier delta (2026-10-12)
+## 0.2 Earlier delta (2026-10-12)
 
 - Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` became 48, `three` was then 102).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count was then 361 (`linemode` reuses the `oldtime` icon rect).
 - While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
 
-## 0.2 Earlier delta (2026-10-11)
+## 0.3 Earlier delta (2026-10-11)
 
 - Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.3 Earlier delta (2026-10-10)
+## 0.4 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.4 Earlier delta (2026-10-09)
+## 0.5 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -133,6 +138,9 @@ below).
 - [workspace/src/cl_dll/vgui_VoteMutatorWindow.cpp](workspace/src/cl_dll/vgui_VoteMutatorWindow.cpp) —
   intermission vote panel and synthetic `INSTANT MUTATORS` button
   (`MUTATOR_VOTE_INSTANT = MAX_MUTATORS_CL + 1`).
+- [workspace/src/cl_dll/vgui_CookiesWindow.cpp](workspace/src/cl_dll/vgui_CookiesWindow.cpp) —
+  `CCookiesPanel` cookie consent wall for the `Accept All Cookies` instant
+  mutator, opened by `TeamFortressViewport::MsgFunc_Cookies` (§3.3.1).
 - [workspace/src/cl_dll/mutator_tinnitus.cpp](workspace/src/cl_dll/mutator_tinnitus.cpp) —
   `Tinnitus_Hook` intercepts `pEventAPI->EV_PlaySound` when the tinnitus buzz
   is active and ducks all other sounds to 5%. Enabled/disabled via server
@@ -291,30 +299,78 @@ resets. That is the *only* place the chaos-bar increment is broadcast during
 the periodic cadence.
 
 ### 3.3 `AddInstantMutator()`
-Rolls `RANDOM_LONG(0, 14)` and applies a one-shot effect to every live,
-non-observer, non-disconnected player:
-- 0: no-op announcement.
-- 1: `+1` HP (clamped to max_health).
-- 2: swap HP ↔ armour (skips god-mode players).
-- 3: `+100` HP.
-- 4: `+100` armour.
-- 5: HP → 1 (skips god-mode).
-- 6: HP=armour=69 ("Nice!").
-- 7: HP=armour=67 ("Six, seeeeven!").
-- 8: spawns a live timed `CGrenade` in front of each player.
-- 9: `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
-- 10: places a `monster_tripmine` if a valid surface is in front of the player.
-- 11: spawns a friendly `monster_snark` in front of each player.
-- 12: spawns a `monster_chumtoad` — but only if the current mode allows
-  `MUTATOR_CHUMXPLODE` (this gate is checked once at the top of case 12; if it
+Rolls `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` over the file-local
+`instant_mutator_e` enum in `gamerules.cpp` and applies a one-shot effect to
+every live, non-observer, non-disconnected player. Each `case` uses the enum
+name; the numeric value is what the server log prints
+(`Instant mutator "<n>" enabled`). To add one, append an `INSTANT_*` entry
+with the next explicit value just before `INSTANT_MUTATOR_COUNT` (the roll
+range follows automatically) and add its `case`:
+- 0 `INSTANT_NOTHING`: no-op announcement.
+- 1 `INSTANT_PLUS_1_HEALTH`: `+1` HP (clamped to max_health).
+- 2 `INSTANT_SWAP_HEALTH_ARMOR`: swap HP ↔ armour (skips god-mode players).
+- 3 `INSTANT_PLUS_100_HEALTH`: `+100` HP.
+- 4 `INSTANT_PLUS_100_ARMOR`: `+100` armour.
+- 5 `INSTANT_1_HEALTH`: HP → 1 (skips god-mode).
+- 6 `INSTANT_NICE`: HP=armour=69 ("Nice!").
+- 7 `INSTANT_SIX_SEVEN`: HP=armour=67 ("Six, seeeeven!").
+- 8 `INSTANT_HOT_POTATO`: spawns a live timed `CGrenade` in front of each player.
+- 9 `INSTANT_RANDOM_DAMAGE`: `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
+- 10 `INSTANT_TRIPMINE`: places a `monster_tripmine` if a valid surface is in front of the player.
+- 11 `INSTANT_PET_SNARK`: spawns a friendly `monster_snark` in front of each player.
+- 12 `INSTANT_PET_CHUMTOAD`: spawns a `monster_chumtoad` — but only if the current mode allows
+  `MUTATOR_CHUMXPLODE` (this gate is checked once at the top of the case; if it
   fails, the entire case is skipped).
-- 13: spawns a `monster_human_assassin` in front of the player.
-- 14: `Extra Ammo` — grants a current-weapon ammo bonus to each eligible player
+- 13 `INSTANT_HUMAN_ASSASSIN`: spawns a `monster_human_assassin` in front of the player.
+- 14 `INSTANT_EXTRA_AMMO`: grants a current-weapon ammo bonus to each eligible player
   when the equipped weapon has a valid primary ammo type.
+- 15 `INSTANT_ACCEPT_ALL_COOKIES`: opens the cookie consent wall on each eligible
+  human player (see §3.3.1).
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` and a
 `gmsgChaos(mutatorTime)` refresh (so the chaos-bar animates even in "instant
 only" configurations).
+
+### 3.3.1 `Accept All Cookies` cookie wall
+A gag instant mutator that interrupts play with a fake cookie consent dialog.
+It is not a `MUTATOR_*` entry: it cannot be added with `sv_addmutator`, voted,
+or filtered per mode, and is only reached through the random roll above (or
+through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`).
+
+- **Server (`gamerules.cpp`, `INSTANT_ACCEPT_ALL_COOKIES`).** For each player that is alive, not
+  `IsSpectator()`, not `IsObserver()`, not `HasDisconnected` and not
+  `FL_FAKECLIENT`, sends `MSG_ONE gmsgCookies` with `BYTE allowDisconnect`.
+  The byte is `0` for the listen-server host (`!IS_DEDICATED_SERVER() &&
+  index == 1`), because a host `disconnect` would shut the match down for
+  everyone. Then prints `[Mutators] Accept All Cookies!` to chat.
+- **Client message.** `TeamFortressViewport::MsgFunc_Cookies` stores the flag
+  on the panel and calls `ShowVGUIMenu(MENU_COOKIES)`. HLTV spectators
+  (`IsSpectateOnly`) ignore it. The normal `ShowVGUIMenu` rules apply: no
+  menu during intermission or demo playback, no duplicate if a wall is
+  already open or queued, and it queues behind any menu that is already up.
+- **Panel (`cl_dll/vgui_CookiesWindow.cpp`, `CCookiesPanel`).** Created once
+  in the viewport constructor and reused. A darkened full-screen layer holds
+  a centred window with a title, a `CTFScrollPanel` of agreement text and two
+  buttons at the bottom: `Accept All Cookies` (left) and the slightly
+  fainter `Reject All Cookies` (right). Mouse wheel scrolling uses the shared
+  `HandleScrollPanelMouseWheel` path with wheel forwarding on the text. The
+  window border picks up `HudColor()` and the scroll position resets to the
+  top on every `Open()`. The game keeps running underneath, and while a VGUI
+  menu is up the cursor replaces mouselook, which is the point.
+- **Choices.** Clicks within 0.5 s of opening are ignored (stale fire-button
+  state, same rule as `CMenuHandler_StringCommandClassSelect`). Accept closes
+  the wall with `HideTopMenu()`. Reject closes it and runs `disconnect` on
+  the client; with `allowDisconnect == 0` (listen host) Reject only closes it.
+- **Votes take priority.** If a vote panel (`MENU_VOTE*`) opens while the
+  wall is the top menu, `ShowVGUIMenu` closes the wall first so the vote is
+  never stuck behind it. `TeamFortressViewport::Initialize` (level change)
+  closes it through `HideVGUIMenu()`.
+- **Localization (`redist/titles.txt`).** `Cookies_Title`, `Cookies_Accept`,
+  `Cookies_Reject` and `Cookies_Agreement`. The agreement is read with
+  `CHudTextMessage::LookupString` (no 1024-byte buffer limit), carriage
+  returns are stripped and the text is wrapped by VGUI; each paragraph is one
+  line in `titles.txt` (keep lines under the engine's 512-character line
+  buffer) separated by blank lines.
 
 ### 3.4 `MutatorAllowed(const char *mutator)` filter chain
 - `CGameRules::MutatorAllowed` is pure-virtual (`= FALSE`) so every rules
@@ -1082,7 +1138,7 @@ every mode and in the Chaos pool. The HUD icon alias reuses the `drunk` rect.
 
 ## 4. Wire protocol
 
-The server drives the client over three user messages. All names are ≤ 8
+The server drives the client over four user messages. All names are ≤ 8
 chars to satisfy engine limits.
 
 ### `gmsgAddMutator` — mutator add / clear / restore
@@ -1123,6 +1179,11 @@ Handled in `TeamFortressViewport::MsgFunc_VoteMutator`, opens
 
 Related: `gmsgVote` / `gmsgVoteFor` carry the per-player vote number
 (1..`MAX_MUTATORS + 2`) so the tally labels stay live.
+
+### `gmsgCookies` — cookie wall (instant mutator)
+`MSG_ONE`, single `BYTE allowDisconnect` (`0` for the listen-server host).
+Handled in `TeamFortressViewport::MsgFunc_Cookies`, opens `CCookiesPanel`
+(`MENU_COOKIES`). See §3.3.1.
 
 ---
 
@@ -1183,6 +1244,8 @@ Where each mutator lands on the client:
 - **Motion blur (mutator_blur.cpp, cdll_int.cpp):** `BLUR` blends the
   previous blurred frame over the finished 3D view and copies the result back
   as history, before the HUD (§3.28).
+- **Cookie wall (vgui_CookiesWindow.cpp):** instant mutator 15 opens the
+  `CCookiesPanel` VGUI menu from `gmsgCookies` (§3.3.1).
 - **StudioModelRenderer.cpp (per-bone):** `BIGHEAD` (scale head/arm bones 3x),
   `MINIME` (0.5x whole skeleton + -8 z), `PAPER` (Y-axis to 10 %), `CRATE`
   (swap model to `models/box.mdl`), `SANIC` (spawn a persistent
@@ -1525,6 +1588,16 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
    - Client-only kickoff: extend `MsgFunc_AddMut` (the `mutatorId == ...`
      ladder) and its mirror inside the `254` clear-all branch and the
      `CHudStatusIcons::Draw` expiry loop.
+   - New source file (e.g. client `cl_dll/mutator_<name>.cpp` or
+     `cl_dll/vgui_<Name>Window.cpp`): register it in all three build lists in
+     the same change. Client: `src/projects/vs2019/hl_cdll.vcxproj`
+     (`ClCompile`), `hl_cdll.vcxproj.filters` (`ClCompile` with
+     `<Filter>Source Files\cl_dll</Filter>`), and `src/linux/Makefile.hl_cdll`
+     (`$(HL1_OBJ_DIR)/<name>.o`). Server: `hldll.vcxproj`,
+     `hldll.vcxproj.filters` (`Source Files\dlls`) and `src/linux/Makefile.hldll`.
+     A file missing from `.filters` still builds, so the gap is silent; the
+     `mutator_tinnitus`, `mutator_myfavtexture`, `mutator_goldeneye`,
+     `mutator_linemode` and `mutator_blur` adds all missed it until 2026-10-14.
 8. **VGUI vote panel.** No code change needed unless the mutator should be
    *hidden* from the vote grid; if so add a `strstr(sMutators[i].name, ...)`
    skip in `CVoteMutatorPanel` constructor (matching the existing
@@ -1540,6 +1613,9 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
 11. **Build.** Windows: `workspace/Build-Windows.ps1`. Linux:
    `workspace/build-linux.sh`. Both DLLs must rebuild (`ice.dll` and
    `client.dll`) so the shared const.h change is picked up on both sides.
+   If the change added a source file, confirm the `.vcxproj` and
+   `.vcxproj.filters` item lists still match (see the project audit snippet in
+   [cir.md](cir.md#adding-a-source-file)).
 
 ---
 
