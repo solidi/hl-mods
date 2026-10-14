@@ -226,11 +226,12 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] [Deja Vu](https://www.youtube.com/watch?v=QW-n7x4YQ_8&t=1330s) - teleport back every few seconds
 1. Instant Mutators
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
-    1. [ ] Rubberband (Players who are at the bottom get max health)
+    1. [ ] Rubberband (Players who are at the bottom get max health), top players scaled back health and armor
     1. [ ] blue screen
     1. [ ] accept all cookies
     1. [ ] nothing
     1. [ ] maximum ammo for current weapons in possession
+    1. [ ] unarm players
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
