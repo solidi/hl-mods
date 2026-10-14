@@ -99,6 +99,7 @@ Server commands:
     - "berserker" - go crazy with chainsaws and fists.
     - "bigfoot" - step size is crazy big
     - "bighead" - players heads are very large
+    - "blur" - motion blur; every frame smears into the next, so anything that moves leaves a fading trail (client-side visual only)
     - "busters" - everyone spawns with the egon
     - "chaos" - randomly selects three mutators every 30 seconds!
     - "chumxplode" - a killer chumtoad appears directly after an explosion
