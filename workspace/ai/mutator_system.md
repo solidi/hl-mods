@@ -14,7 +14,9 @@ below).
 
 ## 0. Recent delta (2026-10-15)
 
-- Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll is now `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
+- Added the `Remove func_*` **instant** mutator as `INSTANT_REMOVE_FUNC = 17` (roll is now `0..17`). It removes every entity of one random `func_*` class present on the map, announces `[Mutators] Remove func_*: <classname> was removed!`, and nothing comes back until the next map change (see §3.3.3). Server-only; no client, registry or asset change.
+- Hardened runtime removal of brush entities for it (also fixes `killtarget`): `CFuncTank`, `CFuncTankLaser`, `CFuncTrackTrain` and `CFuncTrackChange` gained `UpdateOnRemove` teardown, and `CFuncTankControls` / `CPlatTrigger` hold `EHANDLE`s instead of raw pointers.
+- Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll was then `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
 - New user message `gmsgBSOD` (`"BSOD"`, 0 bytes) opens a full-screen deep-blue fake crash screen (`CBSODPanel`, `MENU_BSOD`) on every alive, active, non-bot player, plays `sound/bsod.wav` and is dismissed with the bottom-right `Failed Successfully` button. All strings come from `titles.txt` (see §3.3.2).
 
 ## 0.1 Earlier delta (2026-10-14)
@@ -104,6 +106,11 @@ below).
 - [workspace/src/dlls/weapons.cpp](workspace/src/dlls/weapons.cpp) —
   `CWeaponBox` victor magnet logic (`MOVETYPE_NOCLIP` glide, 10 s timeout,
   victor-only touch lock while active).
+- [workspace/src/dlls/func_tank.cpp](workspace/src/dlls/func_tank.cpp),
+  [plats.cpp](workspace/src/dlls/plats.cpp),
+  [trains.h](workspace/src/dlls/trains.h) — `UpdateOnRemove` teardown and
+  `EHANDLE` links that let the `Remove func_*` instant mutator delete tanks,
+  plats, track trains and track changers without dangling pointers (§3.3.3).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
@@ -336,6 +343,8 @@ range follows automatically) and add its `case`:
   human player (see §3.3.1).
 - 16 `INSTANT_BSOD`: opens the blue screen of death on each eligible human
   player (see §3.3.2).
+- 17 `INSTANT_REMOVE_FUNC`: removes every entity of one random `func_*` class
+  present on the map until the next map change (see §3.3.3).
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
 cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
@@ -430,6 +439,74 @@ instant roll (or the `INSTANT MUTATORS` vote winner).
 - **Localization (`redist/titles.txt`).** `BSOD_Title`, `BSOD_Button` and
   `BSOD_Body`. The body is read with `LookupString`, CRs are stripped, and
   each paragraph or register line is one line in `titles.txt`.
+
+### 3.3.3 `Remove func_*` map brush purge
+A server-only instant mutator that deletes one kind of map brush entity for
+the rest of the map. Like §3.3.1 it has no `MUTATOR_*` entry and is only
+reached through the random instant roll (or the `INSTANT MUTATORS` vote
+winner).
+
+- **Keyed list.** `g_RemovableFuncClasses[]` in `gamerules.cpp` lists every
+  `func_*` classname the server DLL links (34, alphabetical), taken from the
+  `LINK_ENTITY_TO_CLASS` lines in `bmodels.cpp`, `buttons.cpp`, `doors.cpp`,
+  `func_break.cpp`, `func_tank.cpp`, `h_battery.cpp`, `healthkit.cpp`,
+  `mortar.cpp`, `plats.cpp`, `triggers.cpp` and `vehicle.cpp`. Each key has an
+  optional `loopSound`. Add new `func_*` classes here when they are linked.
+  `func_rain` / `func_snow` are only looked up by `player.cpp` weather code and
+  are not linked, so they are not in the list.
+- **Roll.** `RemoveRandomFuncClass()` collects the keys that have at least one
+  live entity (not `FL_KILLME`) on the current map and picks one at random,
+  so every roll removes something. `func_traincontrols` and
+  `func_vehiclecontrols` remove themselves once they link to their train, so
+  they only come up when that link failed. With no key present it prints
+  `[Mutators] Remove func_*: nothing left to remove!`.
+- **Removal.** Every live entity of the chosen class goes through
+  `UTIL_Remove`, so `UpdateOnRemove` runs and `targetname` is cleared in the
+  same frame (triggers firing at it find nothing). Chat gets
+  `[Mutators] Remove func_*: <classname> was removed!` and the log gets
+  `Instant mutator "Remove func_*" removed <n> "<classname>"`. The usual
+  chicken broadcast and chaos-bar refresh follow.
+- **No restore.** Nothing is saved or respawned; the next map change spawns
+  everything again from the BSP. Round restarts do not bring removed
+  entities back. In single player a level restored from a save on a return
+  trip keeps the removal, and removing a progression entity (`func_button`,
+  `func_door`, `func_tracktrain`, ...) can soft-lock the level.
+- **Sounds.** Looping `CHAN_STATIC` sounds keep playing on clients after
+  their entity is freed, so each entity gets `STOP_SOUND` on `CHAN_STATIC`
+  before removal for: the key's `loopSound` (charger loops
+  `items/medcharge4.wav` / `items/suitcharge1.wav`), and, only while it is
+  moving (`velocity` or `avelocity` non-zero), every `pev->noise`..`noise3`
+  sample ending in `.wav` (door/plat/train move loops, `func_rotating` fans,
+  tank rotate sound, track train and vehicle engines). Stops are reliable
+  broadcasts, so the moving-only filter keeps their number small.
+- **Removal hardening** (also applies to `killtarget` and any other
+  `UTIL_Remove`):
+  - `CFuncTank::UpdateOnRemove` calls `StopControl()`, so a player manning
+    the tank gets the weapon and weapon HUD back and `m_pTank` cleared.
+  - `CFuncTankLaser::UpdateOnRemove` turns its `env_laser` off; only the
+    tank's `Think` does that, so a beam fired that frame would stay lit.
+  - `CFuncTankControls` stores its tank as `EHANDLE m_hTank` (was raw
+    `CFuncTank *m_pTank`, `FIELD_CLASSPTR`), so using the controls after the
+    tank is gone does nothing. The save field was renamed, so an older SP
+    save loses the controls-to-tank link.
+  - `CPlatTrigger` (the unnamed trigger a `func_plat` / `func_platrot`
+    spawns) stores `EHANDLE m_hPlatform`; once the platform is gone the
+    trigger removes itself on its next touch.
+  - `CFuncTrackTrain::UpdateOnRemove` clears `m_train` and resets `m_code`
+    to `TRAIN_SAFE` on every `func_trackchange` / `func_trackautochange` that
+    pointed at it, so they keep working as plain elevators.
+    `CFuncTrackAuto::Use` now tolerates `m_train == NULL`.
+  - `CFuncTrackChange::UpdateOnRemove` zeroes the velocity of a train it is
+    carrying mid-move; the train would otherwise drift on the platform's
+    velocity forever. The train is left stopped with no path.
+- **Already safe without changes.** Riders/drivers (`PFLAG_ONTRAIN`) leave
+  train mode on the next `PreThink` once `groundentity` no longer resolves;
+  `CFuncVehicle::m_pDriver` dies with the vehicle;
+  `CBaseEntity::UpdateOnRemove` clears node-graph door links (`FL_GRAPHED`);
+  the gravity gun holds an `EHANDLE`; bots check `pBotPickupItem->free`
+  before using chargers.
+- **Mode filters.** None. Instant mutators have no `MutatorAllowed` path, so
+  it can roll in every mode, including single player.
 
 ### 3.4 `MutatorAllowed(const char *mutator)` filter chain
 - `CGameRules::MutatorAllowed` is pure-virtual (`= FALSE`) so every rules
@@ -1746,6 +1823,13 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   `sys_timescale != 1`, etc., and the fence prevents mutator toggling from
   clobbering their custom defaults. Preserve that pattern when adding new
   world-cvar mutators.
+- **Removing map entities at runtime.** Stock brush classes keep raw pointers
+  to each other (`CFuncTrackChange::m_train`, and before 2026-10-15
+  `CFuncTankControls::m_pTank` and `CPlatTrigger::m_pPlatform`). Before a
+  mutator deletes a class of map entity, check who points at it and give the
+  target an `UpdateOnRemove` cleanup or the holder an `EHANDLE`. Stop looping
+  `CHAN_STATIC` sounds first too; clients keep playing them after the entity
+  is freed (§3.3.3).
 
 ---
 
