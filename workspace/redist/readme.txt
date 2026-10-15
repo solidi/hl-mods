@@ -43,6 +43,7 @@ v1.2 Features:
 - New Instant Mutators
     - "accept all cookies" - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
     - "bsod" - a blue screen of death takes over the screen until you click "Failed Successfully"
+    - "remove func_*" - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
 - Gamemode Patches

@@ -38,6 +38,13 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 
 Reference implementation: `weapon_railgun` / `weapon_dual_railgun` now use this split so lagging clients still see immediate local firing effects.
 
+## Runtime Entity Removal
+
+`UTIL_Remove` calls the virtual `CBaseEntity::UpdateOnRemove()` and flags the entity `FL_KILLME`; the engine frees it later in the frame. Override `UpdateOnRemove` (and call the base) when removal must release state held elsewhere, and store cross-entity links as `EHANDLE` so they go `NULL` once the target is freed.
+
+- Brush entities that needed this for the `Remove func_*` instant mutator (and `killtarget`): `CFuncTank` (releases the controlling player), `CFuncTankLaser` (turns its `env_laser` off), `CFuncTrackTrain` (clears `m_train` on track changers), `CFuncTrackChange` (stops a carried train); `CFuncTankControls::m_hTank` and `CPlatTrigger::m_hPlatform` are `EHANDLE`s. Details: [mutator_system.md §3.3.3](mutator_system.md).
+- Looping `CHAN_STATIC` sounds keep playing on clients after their entity is freed. Stop them (`STOP_SOUND` with the same sample) before removing a moving door/train/fan or an active charger.
+
 ## User-Message Registry
 
 The one place to register a `gmsg<Name>` user message is `player.cpp::LinkUserMessages()`. Two things to know:

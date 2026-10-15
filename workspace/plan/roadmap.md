@@ -125,6 +125,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Instant Mutators
     1. [x] accept all cookies
     1. [x] blue screen
+    1. [x] no doors, ladders, buttons, func_illusion (ask ai to do it all in one swoop - no x, randomized array)
 
 ### Unscheduled
 
@@ -243,7 +244,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] no armor
     1. [ ] random weapon give
     1. [ ] All Guns
-    1. [ ] no doors, ladders, buttons, func_illusion (ask ai to do it all in one swoop - no x, randomized array)
     1. [ ] give item (randomized)
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
