@@ -31,7 +31,7 @@ That's it. This builds all three DLLs (bot + server + client) and copies them in
 
 ### Visual Studio project locations (Windows)
 
-MSVC project files live under `workspace/src/projects/vs2019/` — **not** under `workspace/src/dlls/` or `workspace/src/cl_dll/`. The DLL filename comes from `<TargetName>` in each vcxproj and does **not** match the project base name.
+MSVC project files live under `workspace/src/projects/vs2019/` — **not** under `workspace/src/dlls/` or `workspace/src/cl_dll/`. `vs2019/` is the only Visual Studio project set for the game DLLs (the old `projects/vs2010/` folder was removed on 2026-10-14). The DLL filename comes from `<TargetName>` in each vcxproj and does **not** match the project base name.
 
 | Target | Solution | Project file | Output (under `src/projects/vs2019/Release/`) |
 |--------|----------|--------------|------------------------------------------------|
@@ -52,7 +52,7 @@ Every new `.cpp` must be listed in three places in the same change, or one platf
 | Client | `src/projects/vs2019/hl_cdll.vcxproj` | `hl_cdll.vcxproj.filters`, `Source Files\cl_dll` | `src/linux/Makefile.hl_cdll` |
 | Server | `src/projects/vs2019/hldll.vcxproj` | `hldll.vcxproj.filters`, `Source Files\dlls` | `src/linux/Makefile.hldll` |
 
-A file missing from `.filters` still compiles; it just shows up outside the folder tree in Solution Explorer, so nothing flags it. The `vs2010` projects are stale and not maintained. Audit parity after adding files:
+A file missing from `.filters` still compiles; it just shows up outside the folder tree in Solution Explorer, so nothing flags it. Legacy MSVC 6 `.dsp`/`.dsw` files next to the sources are not maintained; don't update them. Audit parity after adding files:
 
 ```powershell
 cd C:\hl-mods\workspace\src\projects\vs2019
