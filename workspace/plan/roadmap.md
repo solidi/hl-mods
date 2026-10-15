@@ -124,6 +124,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
 1. Instant Mutators
     1. [x] accept all cookies
+    1. [x] blue screen
 
 ### Unscheduled
 
@@ -176,6 +177,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Voting
     1. [ ] Summary screen at end of game vote where all players see what was voted for.
 1. Game Mutators
+    1. [ ] left handed "gooseman"
+    1. [ ] Shoot Through Most Stuff
+    1. [ ] quicksilver
+    1. [ ] Continuous Fire
+    1. [ ] Everyone Disco
+    1. [ ] See Through Walls
+    1. [ ] Tippytoe
     1. [ ] assassin like jumpscare
     1. [ ] "dontshoot?" clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
@@ -230,10 +238,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Instant Mutators
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] Rubberband (Players who are at the bottom get max health), top players scaled back health and armor
-    1. [ ] blue screen
-    1. [ ] nothing
     1. [ ] maximum ammo for current weapons in possession
     1. [ ] unarm players
+    1. [ ] no armor
+    1. [ ] random weapon give
+    1. [ ] All Guns
+    1. [ ] no doors, ladders, buttons, func_illusion (ask ai to do it all in one swoop - no x, randomized array)
+    1. [ ] give item (randomized)
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly

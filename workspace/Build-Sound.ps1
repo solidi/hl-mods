@@ -192,6 +192,8 @@ Compile-Sound $binDir $redistDir $soundDir "dribble.mp3" 4.0 "sound\dribble.wav"
 Compile-Sound $binDir $redistDir $soundDir "gameoptions.mp3" 1.0 "sound\gameoptions.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "railgf1a.mp3" 1.0 "sound\railgun_fire2.wav" "wav"
 Compile-Sound $binDir $redistDir $soundDir "scorpion-get-over-here.mp3" 2.0 "sound\get_over_here.wav" "wav" 2 4
+Compile-Sound $binDir $redistDir $soundDir "windows-xp-critical-error.mp3" 2.0 "sound\bsod.wav" "wav"
+Compile-Sound $binDir $redistDir $soundDir "windows-10-uac-prompt.mp3" 4.0 "sound\acceptall.wav" "wav"
 }
 catch
 {

@@ -34,7 +34,7 @@
 
 Implemented
 
-[ ] blue screen mutator
+[x] blue screen mutator
 [x] accept all cookies mutator
 [x] Broken mouse mutator
 

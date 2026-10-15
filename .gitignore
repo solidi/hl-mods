@@ -1,5 +1,6 @@
 .DS_Store
 debughl/
+thirdparty/
 *.pdb
 ice.dll
 ice.so
@@ -91,4 +92,5 @@ ripent.exe
 
 */Config.ps1
 */steam.ps1
+*/steam_dedicated.ps1
 */xash3d.ps1

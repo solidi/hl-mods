@@ -25,6 +25,7 @@ CMenuPanel (base; src/cl_dll/vgui_MenuPanel.cpp)
 ├── CVoteMutatorPanel     — vote on next mutator (+ synthetic INSTANT MUTATORS toggle)
 ├── CVoteMapPanel         — vote on next map (dynamic; see below)
 ├── CCookiesPanel         — "Accept All Cookies" instant mutator wall (MENU_COOKIES)
+├── CBSODPanel            — "bsod" instant mutator fake crash screen (MENU_BSOD)
 ├── CMOTDPanel
 └── …
 ```
@@ -110,9 +111,18 @@ while still rendering regular mutators exactly as before.
 - File: `src/cl_dll/vgui_CookiesWindow.cpp`; menu ID `MENU_COOKIES` (15).
 - Opened by the `Cookies` user message (`MsgFunc_Cookies`), sent by instant mutator 15 (`Accept All Cookies`) to alive, active, non-bot players. See [mutator_system.md §3.3.1](mutator_system.md).
 - Layout: darkened full screen, centred window with title, scrollable agreement text, `Accept All Cookies` button bottom-left, `Reject All Cookies` bottom-right. Built once in the constructor; `Open()` recolours the border with `HudColor()` and scrolls back to the top.
-- Accept closes it (`HideTopMenu()`); Reject closes it and runs `disconnect`, unless the server flagged the player as the listen-server host. Clicks in the first 0.5 s are ignored.
+- `Open()` plays `acceptall.wav`. Accept closes it (`HideTopMenu()`); Reject closes it and runs `disconnect`, unless the server flagged the player as the listen-server host. Clicks in the first 0.5 s are ignored.
 - `ShowVGUIMenu` closes the wall when a vote panel opens on top of it, so a vote is never queued behind it.
 - Strings: `#Cookies_Title`, `#Cookies_Accept`, `#Cookies_Reject`, `#Cookies_Agreement` in `redist/titles.txt`. The agreement is read with `LookupString` (not the 1024-byte `BufferedLocaliseTextString`) and CRs are stripped before wrapping.
+
+## Blue Screen Panel (`CBSODPanel`)
+
+- File: `src/cl_dll/vgui_BSODWindow.cpp`; menu ID `MENU_BSOD` (16).
+- Opened by the empty `BSOD` user message (`MsgFunc_BSOD`), sent by instant mutator 16 (`bsod`) to alive, active, non-bot players. See [mutator_system.md §3.3.2](mutator_system.md).
+- Layout: `paintBackground` fills the full screen with opaque BSOD blue `(0, 0, 170)`. Gray title block with blue text centred near the top, white wrapped body text below (no scroll panel, so the body must fit at 640x480), `Failed Successfully` button bottom-right (white, inverts to blue-on-white when hovered).
+- `Open()` plays `bsod.wav`; the button closes it with `HideTopMenu()` after the 0.5 s click guard.
+- Like the cookie wall, it is skipped (not queued) when another menu is up, and `ShowVGUIMenu` closes it when a vote panel arrives.
+- Strings: `#BSOD_Title`, `#BSOD_Button`, `#BSOD_Body` in `redist/titles.txt`.
 
 ## Dynamic Map List
 

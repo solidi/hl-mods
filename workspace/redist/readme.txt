@@ -42,6 +42,7 @@ v1.2 Features:
     - "waterhurt" - touch water and explode
 - New Instant Mutators
     - "accept all cookies" - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
+    - "bsod" - a blue screen of death takes over the screen until you click "Failed Successfully"
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
 - Gamemode Patches
