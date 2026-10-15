@@ -1611,6 +1611,8 @@ sound\goal_1.wav
 sound\gameoptions.wav
 sound\railgun_fire2.wav
 sound\get_over_here.wav
+sound\bsod.wav
+sound\acceptall.wav
 sprites
 sprites\defroster
 sprites\defroster\beamlight1.spr

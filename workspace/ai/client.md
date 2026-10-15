@@ -123,6 +123,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 |------|--------------|
 | Menus (vote, class, team, …) | [vgui_system.md](vgui_system.md) |
 | Cookie consent wall (`Accept All Cookies` instant mutator) | `vgui_CookiesWindow.cpp`, [vgui_system.md](vgui_system.md), [mutator_system.md §3.3.1](mutator_system.md) |
+| Blue screen of death (`bsod` instant mutator) | `vgui_BSODWindow.cpp`, [vgui_system.md](vgui_system.md), [mutator_system.md §3.3.2](mutator_system.md) |
 | Vote panels (gameplay/mutator/map sequence) | [voting_system.md](voting_system.md) |
 | Radar overlay | [radar_system.md](radar_system.md) |
 | Banner / pickup overlays | [banner_system.md](banner_system.md) |

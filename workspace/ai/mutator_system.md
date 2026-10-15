@@ -12,36 +12,41 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-14)
+## 0. Recent delta (2026-10-15)
+
+- Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll is now `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
+- New user message `gmsgBSOD` (`"BSOD"`, 0 bytes) opens a full-screen deep-blue fake crash screen (`CBSODPanel`, `MENU_BSOD`) on every alive, active, non-bot player, plays `sound/bsod.wav` and is dismissed with the bottom-right `Failed Successfully` button. All strings come from `titles.txt` (see §3.3.2).
+
+## 0.1 Earlier delta (2026-10-14)
 
 - Added the `Accept All Cookies` **instant** mutator as `AddInstantMutator()` case 15 (roll is now `RANDOM_LONG(0, 15)`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed; it is only ever picked at random on the instant cadence.
 - New user message `gmsgCookies` (`"Cookies"`, 1 byte) opens a client-side VGUI cookie consent wall (`CCookiesPanel`, `MENU_COOKIES`) on every alive, active, non-bot player: scrollable fake agreement, `Accept All Cookies` (dismiss) on the left, `Reject All Cookies` (client runs `disconnect`) on the right. All strings come from `titles.txt` (see §3.3.1).
 
-## 0.1 Earlier delta (2026-10-13)
+## 0.2 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
 - Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count is now 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
-## 0.2 Earlier delta (2026-10-12)
+## 0.3 Earlier delta (2026-10-12)
 
 - Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` became 48, `three` was then 102).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count was then 361 (`linemode` reuses the `oldtime` icon rect).
 - While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
 
-## 0.3 Earlier delta (2026-10-11)
+## 0.4 Earlier delta (2026-10-11)
 
 - Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.4 Earlier delta (2026-10-10)
+## 0.5 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.5 Earlier delta (2026-10-09)
+## 0.6 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -141,6 +146,9 @@ below).
 - [workspace/src/cl_dll/vgui_CookiesWindow.cpp](workspace/src/cl_dll/vgui_CookiesWindow.cpp) —
   `CCookiesPanel` cookie consent wall for the `Accept All Cookies` instant
   mutator, opened by `TeamFortressViewport::MsgFunc_Cookies` (§3.3.1).
+- [workspace/src/cl_dll/vgui_BSODWindow.cpp](workspace/src/cl_dll/vgui_BSODWindow.cpp) —
+  `CBSODPanel` fake crash screen for the `bsod` instant mutator, opened by
+  `TeamFortressViewport::MsgFunc_BSOD` (§3.3.2).
 - [workspace/src/cl_dll/mutator_tinnitus.cpp](workspace/src/cl_dll/mutator_tinnitus.cpp) —
   `Tinnitus_Hook` intercepts `pEventAPI->EV_PlaySound` when the tinnitus buzz
   is active and ducks all other sounds to 5%. Enabled/disabled via server
@@ -326,8 +334,12 @@ range follows automatically) and add its `case`:
   when the equipped weapon has a valid primary ammo type.
 - 15 `INSTANT_ACCEPT_ALL_COOKIES`: opens the cookie consent wall on each eligible
   human player (see §3.3.1).
+- 16 `INSTANT_BSOD`: opens the blue screen of death on each eligible human
+  player (see §3.3.2).
 
-Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` and a
+Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
+cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
+do, see §3.3.1 / §3.3.2) and a
 `gmsgChaos(mutatorTime)` refresh (so the chaos-bar animates even in "instant
 only" configurations).
 
@@ -346,8 +358,9 @@ through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`).
 - **Client message.** `TeamFortressViewport::MsgFunc_Cookies` stores the flag
   on the panel and calls `ShowVGUIMenu(MENU_COOKIES)`. HLTV spectators
   (`IsSpectateOnly`) ignore it. The normal `ShowVGUIMenu` rules apply: no
-  menu during intermission or demo playback, no duplicate if a wall is
-  already open or queued, and it queues behind any menu that is already up.
+  menu during intermission or demo playback, and no duplicate if a wall is
+  already open. `ShowCookiesMenu` also refuses to open (the wall is skipped,
+  not queued) while any other menu is up.
 - **Panel (`cl_dll/vgui_CookiesWindow.cpp`, `CCookiesPanel`).** Created once
   in the viewport constructor and reused. A darkened full-screen layer holds
   a centred window with a title, a `CTFScrollPanel` of agreement text and two
@@ -357,6 +370,11 @@ through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`).
   window border picks up `HudColor()` and the scroll position resets to the
   top on every `Open()`. The game keeps running underneath, and while a VGUI
   menu is up the cursor replaces mouselook, which is the point.
+- **Sound.** `Open()` plays `acceptall.wav` (`sound/acceptall.wav`, listed in
+  `workspace/manifest`, asset supplied separately). As with the BSOD, the
+  case clears `broadcastChicken` and sends the chicken `MSG_ONE_UNRELIABLE`
+  only to connected human players who did not get the wall, so it cannot
+  cut the wall's sound off.
 - **Choices.** Clicks within 0.5 s of opening are ignored (stale fire-button
   state, same rule as `CMenuHandler_StringCommandClassSelect`). Accept closes
   the wall with `HideTopMenu()`. Reject closes it and runs `disconnect` on
@@ -371,6 +389,47 @@ through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`).
   returns are stripped and the text is wrapped by VGUI; each paragraph is one
   line in `titles.txt` (keep lines under the engine's 512-character line
   buffer) separated by blank lines.
+
+### 3.3.2 `bsod` blue screen of death
+A gag instant mutator that throws a fake system crash over the player's view.
+Like §3.3.1 it has no `MUTATOR_*` entry and is only reached through the random
+instant roll (or the `INSTANT MUTATORS` vote winner).
+
+- **Server (`gamerules.cpp`, `INSTANT_BSOD`).** Same eligibility as the cookie
+  wall (alive, not `IsSpectator()`, not `IsObserver()`, not
+  `HasDisconnected`, not `FL_FAKECLIENT`). Sends an empty `MSG_ONE gmsgBSOD`
+  and prints `[Mutators] Blue Screen of Death!` to chat. Nothing is
+  destructive, so the listen-server host gets the same screen.
+- **Client message.** `TeamFortressViewport::MsgFunc_BSOD` calls
+  `ShowVGUIMenu(MENU_BSOD)`; HLTV spectators ignore it. `ShowBSODMenu` skips
+  (does not queue) while any other menu is up, and the usual intermission /
+  demo / duplicate rules apply.
+- **Panel (`cl_dll/vgui_BSODWindow.cpp`, `CBSODPanel`).** Created once in the
+  viewport constructor and reused. `paintBackground` fills the whole screen
+  with opaque classic BSOD blue `(0, 0, 170)`, covering the world and HUD. A
+  gray title block with blue text (`Title Font`, sized to the localized text
+  plus padding) is centred near the top; white `Briefing Text` body text fills
+  the screen below it (plain `TextPanel`, wrapped, no scrolling, so keep the
+  body short enough for 640x480). The `Failed Successfully` `ColorButton`
+  sits bottom-right: white text and border, inverting to blue text on white
+  when hovered.
+- **Sound.** `Open()` plays `bsod.wav` (`sound/bsod.wav`) through the
+  client `PlaySound`, so it fires when the screen actually becomes visible.
+  The usual instant-mutator chicken shares that local sound channel and would
+  cut it off, so `INSTANT_BSOD` skips the `MSG_BROADCAST` chicken
+  (`broadcastChicken = FALSE`) and sends it `MSG_ONE_UNRELIABLE` only to
+  connected human players who did not get the screen (dead, spectating).
+  The file is listed in `workspace/manifest`; the source asset and its
+  `Build-Sound.ps1` `Compile-Sound` line are supplied separately.
+- **Dismiss.** Clicks within 0.5 s of opening are ignored (same stale
+  fire-button rule as the cookie wall); the button then closes the screen
+  with `HideTopMenu()`. Keys do nothing, despite what the text claims.
+- **Votes take priority.** `ShowVGUIMenu` closes the screen when a
+  `MENU_VOTE*` panel arrives, and `TeamFortressViewport::Initialize` closes
+  it on level change.
+- **Localization (`redist/titles.txt`).** `BSOD_Title`, `BSOD_Button` and
+  `BSOD_Body`. The body is read with `LookupString`, CRs are stripped, and
+  each paragraph or register line is one line in `titles.txt`.
 
 ### 3.4 `MutatorAllowed(const char *mutator)` filter chain
 - `CGameRules::MutatorAllowed` is pure-virtual (`= FALSE`) so every rules
@@ -1138,7 +1197,7 @@ every mode and in the Chaos pool. The HUD icon alias reuses the `drunk` rect.
 
 ## 4. Wire protocol
 
-The server drives the client over four user messages. All names are ≤ 8
+The server drives the client over five user messages. All names are ≤ 8
 chars to satisfy engine limits.
 
 ### `gmsgAddMutator` — mutator add / clear / restore
@@ -1184,6 +1243,11 @@ Related: `gmsgVote` / `gmsgVoteFor` carry the per-player vote number
 `MSG_ONE`, single `BYTE allowDisconnect` (`0` for the listen-server host).
 Handled in `TeamFortressViewport::MsgFunc_Cookies`, opens `CCookiesPanel`
 (`MENU_COOKIES`). See §3.3.1.
+
+### `gmsgBSOD` — blue screen of death (instant mutator)
+`MSG_ONE`, no payload (registered with size `0`). Handled in
+`TeamFortressViewport::MsgFunc_BSOD`, opens `CBSODPanel` (`MENU_BSOD`).
+See §3.3.2.
 
 ---
 
@@ -1246,6 +1310,8 @@ Where each mutator lands on the client:
   as history, before the HUD (§3.28).
 - **Cookie wall (vgui_CookiesWindow.cpp):** instant mutator 15 opens the
   `CCookiesPanel` VGUI menu from `gmsgCookies` (§3.3.1).
+- **Blue screen (vgui_BSODWindow.cpp):** instant mutator 16 opens the
+  `CBSODPanel` VGUI menu from `gmsgBSOD` and plays `bsod.wav` (§3.3.2).
 - **StudioModelRenderer.cpp (per-bone):** `BIGHEAD` (scale head/arm bones 3x),
   `MINIME` (0.5x whole skeleton + -8 z), `PAPER` (Y-axis to 10 %), `CRATE`
   (swap model to `models/box.mdl`), `SANIC` (spawn a persistent

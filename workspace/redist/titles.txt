@@ -1247,3 +1247,36 @@ We may change this policy at any time, without notice, in the middle of a firefi
 10. CONSENT
 By selecting "Accept All Cookies" you consent to everything above, below, and beside this text. By selecting "Reject All Cookies" you will be removed from the server immediately, because without cookies we cannot remember who you are. Choose wisely. Someone is shooting at you.
 }
+
+// "bsod" instant mutator crash screen. Keep each paragraph on one line under 500 characters.
+BSOD_Title
+{
+COLD ICE OS
+}
+
+BSOD_Button
+{
+Failed Successfully
+}
+
+BSOD_Body
+{
+A fatal exception 0E has occurred at 0028:C0FFEE11 in VXD FRAGMGR(01) + 00001999. The current match has been terminated to prevent damage to your kill/death ratio.
+
+FRAG_LIMIT_NOT_LESS_OR_EQUAL
+
+*** STOP: 0x0000001E (0xC0000005, 0xBFF9DFFF, 0x00000000, 0x0000DEAD)
+*** HEADCRAB.SYS - Address BFF9DFFF base at BFF90000, DateStamp 1998c01d
+
+EAX=00C0FFEE  EBX=0000DEAD  ECX=00000067  EDX=BADF00D5
+ESI=00000069  EDI=00000000  EBP=0064FEC4  ESP=0064FE84
+
+*  Press any key to continue. Just kidding, use the button.
+*  Press CTRL+ALT+DEL to lose all unsaved frags on all maps.
+
+Beginning dump of physical memory...
+Dumping snarks to disk... 100
+Physical memory dump complete.
+
+Contact your system administrator or a scientist in a lab coat for further assistance.
+}
