@@ -13071,13 +13071,13 @@
 }
 {
 "classname" "infodecal"
-"texture" "decals/{crack2"
+"texture" "{CRACK2"
 "spawnflags" "0"
 "origin" "281.442 2128 164.618"
 }
 {
 "classname" "infodecal"
-"texture" "decals/{crack4"
+"texture" "{CRACK4"
 "spawnflags" "0"
 "origin" "16 1946.34 166.014"
 }
