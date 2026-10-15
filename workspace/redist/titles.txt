@@ -1193,3 +1193,57 @@ kts
 {
 KICK THE SNOWBALL
 }
+
+// "Accept All Cookies" instant mutator wall. Keep each agreement paragraph on one line under 500 characters.
+Cookies_Title
+{
+WE VALUE YOUR PRIVACY
+}
+
+Cookies_Accept
+{
+Accept All Cookies
+}
+
+Cookies_Reject
+{
+Reject All Cookies
+}
+
+Cookies_Agreement
+{
+COLD ICE REMASTERED COOKIE POLICY AND END USER FRAG AGREEMENT
+Last updated: moments before you were fragged.
+
+By continuing to play on this server ("the Arena"), you ("the Respawnable") agree to the storage of cookies, crumbs, and assorted baked goods on your device, your keyboard, and in the gaps between your keys. This notice appears at the worst possible moment by design and in full accordance with industry standards.
+
+1. WHAT ARE COOKIES?
+Cookies are small text files placed on your computer to remember your preferences, such as your favorite weapon, your least favorite map, and how many times you jumped into the lava on purpose. Some cookies are chocolate chip. Most are not.
+
+2. STRICTLY NECESSARY COOKIES
+These cookies keep the game running. They remember that you are alive, which is currently a temporary condition. They cannot be switched off, but you are welcome to try.
+
+3. PERFORMANCE COOKIES
+We collect anonymous statistics about how often you miss with the railgun, how long you spend reading this agreement, and how many enemies are aiming at you right now. The answer to the last one is: all of them.
+
+4. TARGETING COOKIES
+Targeting cookies are used to show you relevant advertisements and to help the other players target you. While this window is open you remain a valid target. We recommend that you keep scrolling anyway.
+
+5. FUNCTIONAL COOKIES
+These cookies remember your crosshair, your sensitivity, and your grudges. They are shared with the scientists of Black Mesa for research purposes and with the snarks for entertainment purposes.
+
+6. THIRD PARTY COOKIES
+Our partners include, but are not limited to, the Black Mesa cafeteria, a headcrab named Lamarr, the Xen tourism board, and a man in a blue suit who will not tell us his name. Each partner has its own privacy policy, which none of them have read.
+
+7. DATA RETENTION
+Your data is kept until the heat death of the universe or the next map change, whichever comes first. Snowballs are retained until they melt.
+
+8. YOUR RIGHTS
+You have the right to access, correct, or delete your data. To exercise these rights, fill out form 27B/6 in triplicate and fax it to the Anomalous Materials laboratory. Expect a reply within seven to ten business resonance cascades.
+
+9. CHANGES TO THIS POLICY
+We may change this policy at any time, without notice, in the middle of a firefight. Continued use of the server after a change means you accept that change, the previous change, and any changes we think of later.
+
+10. CONSENT
+By selecting "Accept All Cookies" you consent to everything above, below, and beside this text. By selecting "Reject All Cookies" you will be removed from the server immediately, because without cookies we cannot remember who you are. Choose wisely. Someone is shooting at you.
+}

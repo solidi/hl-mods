@@ -34,8 +34,8 @@
 
 Implemented
 
-[ ] accept all cookies mutator
 [ ] blue screen mutator
+[x] accept all cookies mutator
 [x] Broken mouse mutator
 
 ## v1.1 Buglist

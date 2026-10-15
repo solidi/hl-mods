@@ -24,6 +24,7 @@ CMenuPanel (base; src/cl_dll/vgui_MenuPanel.cpp)
 ├── CVoteServerOptionsPanel — vote per-row global server options (`serveroptions.txt`)
 ├── CVoteMutatorPanel     — vote on next mutator (+ synthetic INSTANT MUTATORS toggle)
 ├── CVoteMapPanel         — vote on next map (dynamic; see below)
+├── CCookiesPanel         — "Accept All Cookies" instant mutator wall (MENU_COOKIES)
 ├── CMOTDPanel
 └── …
 ```
@@ -63,6 +64,7 @@ Panels wired through this path:
 - `CVoteGameOptionsPanel`
 - `CVoteServerOptionsPanel`
 - `CMessageWindowPanel` (MOTD/text window)
+- `CCookiesPanel` (cookie wall)
 
 Extra hardening for panel-specific dead zones:
 
@@ -102,6 +104,15 @@ Gameplay/mutator/map vote panels follow this convention. The full rationale live
 
 UI tally/highlight treats it as an extra slot beyond the mutator array,
 while still rendering regular mutators exactly as before.
+
+## Cookie Wall Panel (`CCookiesPanel`)
+
+- File: `src/cl_dll/vgui_CookiesWindow.cpp`; menu ID `MENU_COOKIES` (15).
+- Opened by the `Cookies` user message (`MsgFunc_Cookies`), sent by instant mutator 15 (`Accept All Cookies`) to alive, active, non-bot players. See [mutator_system.md §3.3.1](mutator_system.md).
+- Layout: darkened full screen, centred window with title, scrollable agreement text, `Accept All Cookies` button bottom-left, `Reject All Cookies` bottom-right. Built once in the constructor; `Open()` recolours the border with `HudColor()` and scrolls back to the top.
+- Accept closes it (`HideTopMenu()`); Reject closes it and runs `disconnect`, unless the server flagged the player as the listen-server host. Clicks in the first 0.5 s are ignored.
+- `ShowVGUIMenu` closes the wall when a vote panel opens on top of it, so a vote is never queued behind it.
+- Strings: `#Cookies_Title`, `#Cookies_Accept`, `#Cookies_Reject`, `#Cookies_Agreement` in `redist/titles.txt`. The agreement is read with `LookupString` (not the 1024-byte `BufferedLocaliseTextString`) and CRs are stripped before wrapping.
 
 ## Dynamic Map List
 
@@ -171,7 +182,7 @@ Unknown / missing values silently default to `medium`.
 
 ## Hooking a New Vote Panel — Cheatsheet
 
-1. Subclass `CMenuPanel` in `vgui_<Name>Window.cpp`. Construct the static furniture (title label, scroll panel) in the ctor; defer dynamic content to `Open()`.
+1. Subclass `CMenuPanel` in `vgui_<Name>Window.cpp`. Construct the static furniture (title label, scroll panel) in the ctor; defer dynamic content to `Open()`. Add the new file to `src/projects/vs2019/hl_cdll.vcxproj`, `hl_cdll.vcxproj.filters` (`Source Files\cl_dll`) and `src/linux/Makefile.hl_cdll`.
 2. Add a `MENU_<NAME>` enum value in `vgui_TeamFortressViewport.h`.
 3. Wire it up in `TeamFortressViewport::ShowVGUIMenu` (the giant switch).
 4. Server side: register the `Vote<X>` message in `player.cpp` (≤10 chars), broadcast it from the relevant `Think()` branch, and have `Vote()` in `client.cpp` understand the new vote-mode constant.
