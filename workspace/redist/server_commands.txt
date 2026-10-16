@@ -215,6 +215,7 @@ Server commands:
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
 - "sv_instantmutators [0|1]" - Enable or disable instant mutators
+    - "allguns" only rolls in single player; multiplayer servers never get it
 - "sv_jumpheight 45" - Adjust the player's jump height
 - "sv_mutatorcount [3 (0-7)]" - how many mutators are rotated during chaos mode
 - "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence

@@ -94,7 +94,9 @@ gamemode role tags (Busters / CTC / Arena / CTF / Loot).
 | `SpawnRunes()` | Spawn cycle — runs every 30 s. Spawn count = `min(ceil(playerCount/2) + 1, 9)`. |
 | `CreateRune(class)` | Picks a random `info_player_deathmatch` via `SelectSpawnPoint`, applies `AllowRuneSpawn` gamerule filtering, applies world-spawn uniqueness filter, then creates the entity with random velocity (plus mutator side-effects such as turrets / barrels / rats). |
 | `SelectSpawnPoint(spot)` | Random `info_player_deathmatch`. |
-| `static DropRune(pPlayer)` | Drops the player's current rune at their position. |
+| `static DropRune(pPlayer)` | `ClearRune` + spawns the old rune in front of the player. |
+| `static ClearRune(pPlayer)` | Takes the held rune away without leaving it in the world (state, haste/render, AMMO weapon, status icon). Returns the classname or `NULL`. |
+| `static GiveRune(pPlayer, class)` | Grants a rune directly (see §4.1). No `AllowRuneSpawn` / `mp_allowrunes` check; callers decide. |
 
 Spawn cadence: first batch +5 s after map load, rebuild every 30 s. Up to
 nine spawn attempts happen per cycle (capped by player count), with no reroll
@@ -118,8 +120,9 @@ Scope is intentionally limited to the periodic world spawner path only.
 
 - Included: `CWorldRunes::SpawnRunes` -> `CWorldRunes::CreateRune`.
 - Not included: direct/special rune creation paths such as
-   `CWorldRunes::DropRune`, Snowball direct `Create("rune_ammo")`, and role grants
-   like JvS `GiveNamedItem("rune_cloak")`.
+   `CWorldRunes::DropRune`, Snowball direct `Create("rune_ammo")`, and direct
+   grants through `CWorldRunes::GiveRune` (JvS Jesus cloak, `randomrune`
+   instant mutator).
 
 ### 3.2 Precache safety patch (2026-06)
 
@@ -144,7 +147,7 @@ Resulting behavior:
 - `mp_allowrunes` now controls only whether the periodic world rune spawner is
    created.
 - Rune assets/classes are always precached during map spawn, so later
-   `Create("rune_*")` / `GiveNamedItem("rune_*")` calls are safe.
+   `Create("rune_*")` / `CWorldRunes::GiveRune` calls are safe.
 
 ---
 
@@ -157,7 +160,7 @@ The only drop entry point is the `drop_rune` client command
 else if ( FStrEq(pcmd, "drop_rune" ) )
 {
     CBasePlayer *pPlayer = GetClassPtr((CBasePlayer *)pev);
-    if ( pPlayer->m_fHasRune )
+    if ( pPlayer->m_fHasRune && !pPlayer->IsArmoredMan )
     {
         CWorldRunes::DropRune(pPlayer);
         ClientPrint(pPlayer->pev, HUD_PRINTCENTER, "Discarded Rune\n");
@@ -165,7 +168,10 @@ else if ( FStrEq(pcmd, "drop_rune" ) )
 }
 ```
 
-`CWorldRunes::DropRune(pPlayer)` ([items.cpp](../src/dlls/items.cpp#L1147-L1235)):
+JvS Jesus (`IsArmoredMan`) cannot discard his cloak rune (§4.2).
+
+`CWorldRunes::DropRune(pPlayer)` is `ClearRune` followed by the floor spawn.
+`CWorldRunes::ClearRune(pPlayer)` ([items.cpp](../src/dlls/items.cpp)):
 
 1. Maps `m_fHasRune` → classname (`rune_frag`, `rune_vampire`, …).
 2. Per-rune cleanup:
@@ -175,15 +181,60 @@ else if ( FStrEq(pcmd, "drop_rune" ) )
    - **CLOAK** — restore render mode.
    - **HASTE** — reset physics key `haste=0` unless ArmoredMan / MEGASPEED
      mutator / Shidden skeleton exceptions apply.
-3. Spawns the rune entity at `pPlayer->GetGunPosition() + v_forward * 32`
-   with velocity ≈ `v_forward * 400`.
-4. Clears `m_fHasRune` and the matching status icon.
+3. Clears `m_fHasRune` and turns off the status icon `MyTouch` turned on.
+   For AMMO that is `rune_hornet` (Instagib) / `rune_slauncher` (Snowball) /
+   `rune_ammo`; before 2026-10-16 `DropRune` always turned off `rune_ammo`,
+   leaving the hornet / slauncher icon stuck.
 
-There is also a death-drop in [player.cpp](../src/dlls/player.cpp#L897-L924):
-on death, if `m_fHasRune` is set and no other rune is within 256 u, it calls
-`CWorldRunes::DropRune(this)`. Otherwise it just clears `m_fHasRune` and
-resets rune-related local state (including haste/render reset path) — this
-prevents rune clusters when bots or players die on top of an existing rune.
+`DropRune` then spawns the rune entity at
+`pPlayer->GetGunPosition() + v_forward * 32` with velocity ≈ `v_forward * 400`.
+
+There is also a death-drop in `CBasePlayer::PackDeadPlayerItems`
+([player.cpp](../src/dlls/player.cpp)): JvS Jesus (`IsArmoredMan`) always goes
+through `ClearRune` (nothing is dropped). Otherwise, if no other rune is
+within 256 u, it calls `CWorldRunes::DropRune(this)`; if there is one, it just
+clears `m_fHasRune` and resets rune-related local state (including
+haste/render reset path) — this prevents rune clusters when bots or players
+die on top of an existing rune.
+
+### 4.1 Granting a rune directly
+
+`RuneTouch` returns early unless the rune has `FL_ONGROUND`. A rune created
+with `GiveNamedItem("rune_*")` is still airborne when it is touched, so the
+pickup never happens and `GiveNamedItem` removes it as an orphan. Use
+`CWorldRunes::GiveRune(pPlayer, class)` instead: it creates the rune at the
+player, sets `FL_ONGROUND`, calls `Touch(pPlayer)` (normal `MyTouch`, pickup
+sound, `gmsgItemPickup`, status icon, screen fade) and removes the entity if
+it was not taken. It returns `FALSE` when the player already holds a rune;
+call `ClearRune` first to replace one.
+
+### 4.2 JvS Jesus cloak (2026-10-16)
+
+`CHalfLifeJesusVsSanta::PlayerSpawn` used `GiveNamedItem("rune_cloak")`, which
+hit the §4.1 problem, so Jesus was never cloaked. It now calls
+`CWorldRunes::GiveRune(pPlayer, "rune_cloak")`. The cloak belongs to the mode:
+
+- Death clears it instead of dropping it (a dropped cloak would cloak a Santa,
+  and with `revive` it would land next to the revived Jesus).
+- `drop_rune` is ignored for Jesus.
+- The `randomrune` and `runeburst` instant mutators skip Jesus.
+- `ClearRune` keeps the existing ArmoredMan exemptions (haste and render are
+  not reset).
+
+Cloak visibility is driven by `CBasePlayer::PostThink`: while
+`rendermode == kRenderTransAlpha` and no spawn-shield effect is pending,
+`renderamt` follows the active weapon's next-attack times, so the holder is
+invisible while idle and visible right after attacking.
+
+### 4.3 Spawn shield vs cloak
+
+The spawn shield (`mp_spawnprotectiontime`) switches the player to
+`kRenderTransAdd` + `kRenderFxStrobeFaster` 0.25 s after spawn, and
+`ExpireSpawnProtection` resets `rendermode` to normal. Before 2026-10-16 this
+removed the cloak from anyone holding it at expiry, which is every JvS Jesus.
+`ExpireSpawnProtection` now clears `renderfx` and calls `MakeInvisible()` when
+`m_fHasRune == RUNE_CLOAK`, the same way it already did for the `invisible`
+mutator.
 
 ---
 

@@ -247,8 +247,17 @@ walls — both fixed.)
 ### 4.8 Throw Weapon (impulse 216)
 
 - Entry: `CBasePlayerWeapon::ThrowWeapon(TRUE)`.
-- Spawns a `monster_throwweapon` entity carrying the active weapon model + id.
+- Spawns a `monster_throwweapon` entity carrying the active weapon model + id;
+  it detonates after 2 s as `CGrenade::Vest(thrower, origin, plrDmgVest / 2)`.
 - Gate: `g_pGameRules->IsAllowedToDropWeapon(this)`. Sets `EFLAG_THROW`.
+- The weapon leaves the inventory through `DropPlayerItem("", FALSE, TRUE)`.
+  That no-weaponbox path `Kill()`s the weapon (`RemovePlayerItem` clears
+  `m_pLastItem` / `m_pLastRef`); before 2026-10-16 it only unlinked it and
+  leaked a hidden edict per throw.
+- The explosive is launched before `DropPlayerItem` runs, so callers must not
+  throw a weapon `DropPlayerItem` would refuse (`ITEM_FLAG_NODROP`, cannot
+  holster) or it is duplicated. The `hotfingers` instant mutator pre-checks
+  both ([mutator_system.md §3.3.4](mutator_system.md)).
 
 ### 4.9 Off-hand Grenade (impulse 209)
 
