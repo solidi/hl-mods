@@ -89,7 +89,7 @@ Every mode inherits the virtual methods below. The default behavior lives in `CG
 `CGameRules::IsCtC()` / `IsKickTheSnowball()` / `IsBusters()` / `IsCtF()` / `IsColdSpot()` / etc. — fast `g_GameMode == GAME_*` checks used by shared engine code that can't see per-mode classes.
 
 ### Mutators
-- `MutatorAllowed(name)` — per-mode opt-out for any of the ~85 mutators in `g_szMutators[]`.
+- `MutatorAllowed(name)` — per-mode opt-out for the mutators in `g_szMutators[]`. Current block matrix: [mutator_system.md §3.4](mutator_system.md#34-mutatorallowedconst-char-mutator-filter-chain). Every new mutator (full or instant) must be reviewed against every mode's filter: [mutator_system.md §9 step 6](mutator_system.md#9-adding-a-new-mutator-checklist).
 - `EnvMutators` / `SpawnMutators` / `WeaponMutators` / `GiveMutators` — entry points the mutator system calls every frame / on spawn / on weapon equip.
 - `PauseMutators` / `RestoreMutators` — round-based modes pause mutator timers between rounds.
 
