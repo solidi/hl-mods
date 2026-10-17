@@ -125,6 +125,10 @@ The dispatch switch in [CheatImpulseCommands L5325-5410](../src/dlls/player.cpp#
   - `2` → adds a second vertical kick + double-jump sound.
   - `3` → triggers a flip + `PLAYER_SUPERJUMP` for long-jump module.
 - Reset on touching ground.
+- With the `vvvvvv` mutator (`m_fGravityFlipAllowed`), jump is a gravity
+  flip done in `pm_shared`; `Jump()` only plays `PLAYER_JUMP` and returns,
+  and wall climb is disabled (see
+  [mutator_system.md §3.29](mutator_system.md)).
 
 ### 4.6 Force Grab (impulse 215)
 

@@ -14,6 +14,8 @@ below).
 
 ## 0. Recent delta (2026-10-16)
 
+- Added `vvvvvv` (`MUTATOR_VVVVVV = 114`) in alphabetical ID order after `volatile`; only `waterhurt` shifts (now 115). Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..115`, with `MAX_MUTATORS_CL = 116` including trailing `RANDOM`. `hud.txt` declaration count is now 363 (`vvvvvv` reuses the `upsidedown` icon rect).
+- While active, jump no longer jumps: on a surface it flips the player's gravity, so they fall to the ceiling and walk on it upside down, and the next jump flips them back (VVVVVV). Shared movement in `pm_shared.c` (physinfo `vvv`, predicted flag `pmove->fuser1`), server state/hitboxes/fall damage in `player.cpp` + `client.cpp`, rolled camera/input/player model on the client. Bots never flip; blocked in Prop Hunt (see §3.29).
 - Added ten weapon / item / rune **instant** mutators as `INSTANT_UNARM = 18` .. `INSTANT_ROBIN_HOOD = 27` (roll is now `0..27`): `unarm`, `randomweapon`, `allguns`, `randomitem`, `randomrune`, `butterfingers`, `dualwield`, `roulette`, `runeburst`, `robinhood` (see §3.3.4). Server-only; no client, registry or asset change. `allguns` is single player only: in multiplayer the roll re-picks instead.
 - New rune helpers `CWorldRunes::ClearRune` (split out of `DropRune`) and `CWorldRunes::GiveRune`. `GiveNamedItem("rune_*")` never worked because `RuneTouch` requires `FL_ONGROUND`.
 - JvS Jesus now actually gets his cloak rune (`GiveRune`), keeps it through the spawn shield, and never drops or discards it. `ClearRune` also turns off the Instagib/Snowball ammo-rune icon (`rune_hornet` / `rune_slauncher`) that `DropRune` used to leave on screen.
@@ -38,7 +40,7 @@ below).
 ## 0.3 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
-- Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count is now 362 (`blur` reuses the `drunk` icon rect).
+- Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count was then 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
 ## 0.4 Earlier delta (2026-10-12)
@@ -86,11 +88,12 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L920) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..114) and
+  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..115) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
-  `haste`, `prop`, `slj`, `jumpheight`, and `negpi`.
+  `haste`, `prop`, `slj`, `jumpheight`, `negpi`, and `vvv` (gravity flip,
+  §3.29).
 - [workspace/src/pm_shared/pm_math.c](workspace/src/pm_shared/pm_math.c) —
   mutator-aware PI in shared math: when `physinfo["negpi"] == "1"`, `M_PI`
   resolves to `-1.0` for prediction/server PM math.
@@ -223,9 +226,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (114 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_WATERHURT` (115 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 115 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 116 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -665,7 +668,9 @@ re-rolling.
     `INVISIBLE` and `DEALTER`; CtC disables `999`, `CHUMXPLODE`, `NOCLIP`,
     `DONTSHOOT`; PropHunt disables all "hat"-style cosmetic mutators
     (`SANTAHAT`, `PIRATEHAT`, `COWBOY`, `MARSHMELLO`, `JACK`, `PUMPKIN`,
-    `TOILET`) because they would leak prop identity.
+    `TOILET`) because they would leak prop identity, and `VVVVVV` because
+    hunters keep their self-cost shot tracker in `pev->fuser1`, the slot the
+    gravity flip uses.
   - **Gun Game** — huge blacklist of weapon-granting mutators
     (`BARRELS`, `BERSERKER`, `DEALTER`, `DONTSHOOT`, `INSTAGIB`, `PLUMBER`,
     `COWBOY`, `BUSTERS`, `FIRESTARTER`, `PORTAL`, `RAILGUNS`, `RICOCHET`,
@@ -1408,6 +1413,88 @@ every mode and in the Chaos pool. The HUD icon alias reuses the `drunk` rect.
   ~15 at very high frame rates) can stop decaying, leaving a faint ghost
   until that area of the screen changes. Same behaviour as GSChaos.
 
+### 3.29 `vvvvvv` gravity flip
+`MUTATOR_VVVVVV` recreates VVVVVV's core mechanic: jump flips your gravity.
+On a surface, jump sends the player falling to the ceiling, where they walk
+upside down; jump again and they fall back to the floor. Works in single
+player and multiplayer, in every mode except Prop Hunt. The HUD icon alias
+reuses the `upsidedown` rect.
+
+- **Why it works in GoldSrc.** Player hulls are axis-aligned boxes centred
+  on the origin (standing ±36, ducked ±18), so the same hull fits upside
+  down and collision/stuck code needs no change. All player gravity and
+  ground logic lives in `pm_shared.c`, which the mod owns and which runs on
+  the server and in client prediction alike. A plain negative
+  `pev->gravity` is not enough: `PM_CatagorizePosition` only looks for
+  ground below the player, so they would stay "airborne" on the ceiling
+  (air acceleration, no friction, no steps, no jump).
+- **State.** The server writes physinfo `vvv` = `1` (mutator on, not a bot)
+  in `CBasePlayer::SyncGravityFlipMutator`, run every `PreThink` (after the
+  game-over check), in `Spawn` and in `Restore`. The flipped state is
+  `pev->fuser1 > 0`; the engine copies `fuser1` into `pmove` and back on the
+  server, and `UpdateClientData` now sends `cd->fuser1` so client prediction
+  starts from the same value. `pm_shared` only touches `fuser1` while `vvv`
+  is on, which is why Prop Hunt (hunter shot tracker in `fuser1`) blocks the
+  mutator. Turning it off (or spawning) runs `ClearGravityFlip`: `fuser1 = 0`,
+  view offset back to positive, any 180 roll cleared.
+- **pm_shared.** `PM_PlayerMove` sets file-local `g_flPmUp` (`-1` while
+  flipped) before `PM_CheckParamters`; observers, spectators and dead
+  players are reset to `fuser1 = 0`, noclip and `waterlevel >= 2` un-flip
+  (swimming always uses normal gravity). Every "+Z is up" spot is scaled by
+  `g_flPmUp`: gravity (`PM_AddCorrectGravity`, `PM_FixupGravityVelocity`),
+  ground probe and "moving away fast" check in `PM_CatagorizePosition`,
+  stair step up/down and floor normal in `PM_WalkMove`, edge-friction probe
+  in `PM_Friction`, floor normals in `PM_FlyMove`, duck/unduck origin
+  shift, view offset and `PM_FixPlayerCrouchStuck` direction, fall velocity,
+  step-sound knee/feet points and the texture trace. Ladders are ignored
+  while flipped. `PM_AddGravity` (dead/toss bodies) is unchanged.
+- **Jump.** `PM_Jump`, after the swim branch: with `vvv` on, a fresh jump
+  press while on ground in `MOVETYPE_WALK` toggles the flip, clears
+  `onground`, sets `velocity.z` to 200 toward the new floor and plays the
+  step sound. Nothing else: no normal jump, double jump or long jump.
+  `CBasePlayer::Jump` only plays `PLAYER_JUMP` and returns, so the
+  triple-jump flips cannot fire, and `ClimbingPhysics` (wall climb) is off.
+- **Upside down = roll 180.** While flipped `PM_CheckParamters` adds 180 to
+  `pmove->angles[ROLL]`. That mirrors `pmove->right`, so strafe keys follow
+  the rolled screen without any client sidemove swap, and the engine copies
+  it into `pev->angles`/`v_angle`. `PostThink` also forces
+  `pev->angles.z = 180` (and clears a leftover roll when not flipped) so the
+  engine's server-side hitboxes are upside down with the model, and
+  `AddToFullPack` sends `state->angles[2] = 180` plus `EF_INVLIGHT` (lit
+  from the ceiling, like ceiling turrets) for flipped players.
+- **Fall damage.** `m_flFallVelocity` follows the flip. No fall damage while
+  the mutator is on for that player; `m_fGravityFlipFallGrace` also skips
+  the first landing after a forced un-flip (mutator expiry), so chaos ending
+  does not splat players off the ceiling.
+- **Client camera (`view.cpp`).** `HUD_PostRunCmd` stores the predicted
+  `to->client.fuser1` in `g_iVVVVVVFlipped`; `VVVVVV_LocalFlipped()` (declared
+  in `hud.h`) adds the mutator, observer and HLTV gates.
+  `V_VVVVVVFlipAmount` eases 0..1 over 0.2 s (snaps on death, map change and
+  hitches). `V_CalcNormalRefdef` rolls the view, viewmodel and third-person
+  camera by `180 * amount`, rolls `pparams->forward/right/up` too (sound
+  panning, iron sight, sway), glides the eye height through the hull during
+  the roll, flips view bob and `minime`'s offset, and skips stair-step
+  smoothing while flipped.
+- **Client input.** Mouse X/Y (`inputw32.cpp`) and the turn/look keys
+  (`CL_AdjustAngles`) invert while flipped, XOR'd with
+  `mirror`/`upsidedown`/`topsyturvy`. Strafe keys are not swapped (pm does
+  it). While the mutator is on `CL_AdjustAngles` also zeroes view roll: a
+  server `fixangle` (portal, loopback) copies `pev->angles` with its 180
+  roll, which the stock ±50 clamp would otherwise leave at 50 forever.
+- **Player model (`StudioModelRenderer.cpp`).** `StudioDrawPlayer` treats a
+  normalized roll in (90, 270) as flipped (the local player uses
+  `VVVVVV_LocalFlipped()` and gets roll 180 or 0 forced). For flipped
+  players the pitch handed to `StudioPlayerBlend` is negated and the four
+  torso yaw controllers are mirrored (`255 - c`), because aim blend and
+  torso twist are model-space and would otherwise point the wrong way on an
+  upside down body.
+- **Bots.** `vvv` is `0` for `FL_FAKECLIENT` (grave_bot jumps to navigate
+  and has no ceiling waypoints), so bots move normally.
+- **Known limits.** The flip transition itself is unanimated for other
+  players beyond engine angle interpolation; client-side event effects
+  (shell ejection) use unrolled angles; maps with open sky let players walk
+  on the sky brush; floating name/health bars stay above the origin.
+
 ---
 
 ## 4. Wire protocol
@@ -1499,9 +1586,12 @@ Where each mutator lands on the client:
 - **View/roll (view.cpp):** `MCCLANE` (view roll -180 permanently),
   `UPSIDEDOWN` (roll +180), `AMIDEAD` (roll +80), `DRUNK` (continuous sway +
   periodic punch kicks), `TOPSYTURVY` in singleplayer (roll 180 while alive).
-  `MINIME` also adjusts view height.
+  `MINIME` also adjusts view height. `VVVVVV` eases a +180 roll of the view,
+  viewmodel and third-person camera while the local player is on the
+  ceiling (§3.29).
 - **Input inversion (inputw32.cpp + input.cpp):** `MIRROR`, `TOPSYTURVY`,
   `UPSIDEDOWN` flip mouse axes appropriately so the world stays controllable.
+  `VVVVVV` toggles the mouse/turn/look inversion while flipped.
   `NOMOUSE` suppresses mouse look and mouse buttons for alive, active,
   non-spectator players only.
 - **Post-process (colorcor.cpp):** `OLDTIME` and `INVERSE` (colour negation /
@@ -1687,6 +1777,8 @@ Newly added mutators:
   black traced edges on a white world (documented in §3.27).
 - `blur` (`MUTATOR_BLUR`) renders frame-feedback motion blur on the 3D view
   (documented in §3.28).
+- `vvvvvv` (`MUTATOR_VVVVVV`) turns jump into a gravity flip so players walk
+  on the ceiling upside down (documented in §3.29).
 
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
@@ -1716,7 +1808,8 @@ Newly added mutators:
 | 101 | `superjump` | S | `sv_jumpheight = 299`. |
 | 106 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 109 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 114 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 114 | `vvvvvv` (physinfo `vvv=1`) | SC | Jump flips gravity: fall to the ceiling and walk on it upside down, jump again to return. Predicted in `pm_shared` via `pmove->fuser1`; rolled camera, input and player model; no fall damage; bots excluded. Blocked in Prop Hunt (§3.29). |
+| 115 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -1937,10 +2030,13 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   (mutators, JvS, snowball path) can still occur; `CWorld::Precache` must
   always call `PrecacheRunes()` or `PF_precache_model_I` will fatal on
   `models/w_runes.mdl`. Applies to mutators that give runes as side effects.
-- **Physinfo keys.** `topsy`, `haste`, and `prop` are read by
+- **Physinfo keys.** `topsy`, `haste`, `prop` and `vvv` are read by
   `pm_shared/pm_shared.c` on both sides. Server writes them via
   `g_engfuncs.pfnSetPhysicsKeyValue`. Keep the key names in sync — a typo
-  silently disables the effect.
+  silently disables the effect. Predicted per-player movement state must live
+  in a `pmove` user field that the engine copies back on the server and
+  `UpdateClientData` sends (`vvvvvv` uses `fuser1`); `iuser4` is not free
+  (pm double jump vs `cd->iuser4 = m_iWeapons2`).
 - **Third-person / iron sight / tinnitus.** The three "kickoff" mutators
   need explicit *stop* paths in three places: the client's expiry pass in
   `CHudStatusIcons::Draw`, the `254` clear-all branch of `MsgFunc_AddMut`, and

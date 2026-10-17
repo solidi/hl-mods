@@ -39,6 +39,7 @@ v1.2 Features:
     - "triplebang" - every trigger pulls three shots
     - "vampire" - deal damage to drain health
     - "victor" - fragged drops fly only to the fragger
+    - "vvvvvv" - jump flips your gravity, walk on the ceiling upside down and jump again to fall back to the floor
     - "waterhurt" - touch water and explode
 - New Instant Mutators
     - "accept all cookies" - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
