@@ -1,4 +1,4 @@
-363
+364
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -246,6 +246,7 @@ portal		640 gameicons	0	64	64	64
 jope		640 gameicons	64	64	64	64
 plumber		640 gameicons	128	64	64	64
 inverse		640 gameicons	192	64	64	64
+discomode	640 gameicons	192	64	64	64
 oldtime		640 gameicons	0	128	64	64
 sildenafil	640 gameicons	64	128	64	64
 astronaut	640 gameicons	128	128	64	64

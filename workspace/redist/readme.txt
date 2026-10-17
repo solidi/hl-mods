@@ -14,6 +14,7 @@ v1.2 Features:
 - New Mutators
     - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
     - "blur" - motion blur, everything smears when it moves
+    - "discomode" - classic 007 GameShark disco mode, every polygon flashes in shifting psychedelic colors (rapid flashing)
     - "drunk" - your view keeps swaying and spinning
     - "expcrowbar" - crowbar swings detonate
     - "exploder" - everyone is a walking time bomb

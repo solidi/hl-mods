@@ -121,12 +121,18 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [x] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
     1. [x] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4) - jump flips gravity, walk on the ceiling
+    1. [x] Everyone Disco
 1. Game Mechanics
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
 1. Instant Mutators
     1. [x] accept all cookies
     1. [x] blue screen
     1. [x] no doors, ladders, buttons, func_illusion (ask ai to do it all in one swoop - no x, randomized array)
+    1. [x] random weapon give
+    1. [x] All Guns
+    1. [x] give item (randomized)
+    1. [x] unarm players
+    1. [x] maximum ammo for current weapons in possession
 
 ### Unscheduled
 
@@ -183,7 +189,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Shoot Through Most Stuff
     1. [ ] quicksilver
     1. [ ] Continuous Fire
-    1. [ ] Everyone Disco
     1. [ ] See Through Walls
     1. [ ] Tippytoe
     1. [ ] assassin like jumpscare
@@ -240,11 +245,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] Rubberband (Players who are at the bottom get max health), top players scaled back health and armor
     1. [ ] no armor
-    1. [x] random weapon give
-    1. [x] All Guns
-    1. [x] give item (randomized)
-    1. [x] unarm players
-    1. [ ] maximum ammo for current weapons in possession
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly

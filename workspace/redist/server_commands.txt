@@ -109,6 +109,7 @@ Server commands:
     - "crate" - boxwars in the 2020's.
     - "credits" - show all contributors in an endless loop.
     - "dealter" - dealing with farts, of course
+    - "discomode" - GoldenEye 007 GameShark disco mode; every polygon is painted a bright solid or rainbow color that flashes and shifts many times a second (client-side visual only; rapid flashing)
     - "dontshoot" - firing any weapon will explode the player.
     - "drunk" - your view keeps swaying and spinning
     - "expcrowbar" - everyone gets a crowbar whose swings detonate on contact
