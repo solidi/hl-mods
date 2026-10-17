@@ -42,18 +42,36 @@ v1.2 Features:
     - "waterhurt" - touch water and explode
 - New Instant Mutators
     - "accept all cookies" - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
+    - "allguns" - you get every weapon the game allows (single player only)
     - "bsod" - a blue screen of death takes over the screen until you click "Failed Successfully"
+    - "butterfingers" - everyone drops the weapon in their hands
+    - "dryfire" - everyone's clip is emptied, time to reload
+    - "dualwield" - the weapon in your hands gets its dual version
+    - "hotfingers" - everyone throws the weapon in their hands as a live explosive
+    - "maxammo" - your current weapon's ammo is filled to the max
+    - "passitleft" - everyone hands the weapon in their hands to the next player
+    - "randomammo" - everyone gets the same random ammo pickup
+    - "randomitem" - everyone gets the same random item (health kit, battery or long jump)
+    - "randomrune" - everyone gets the same random rune, replacing the one they held
+    - "randomweapon" - everyone gets the same random weapon
     - "remove func_*" - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "robinhood" - the top fragger is disarmed and last place gets their guns
+    - "roulette" - everyone gets a different random weapon
+    - "runeburst" - everyone holding a rune drops it at once
+    - "runeshuffle" - held runes rotate to the next rune holder
+    - "unarm" - everyone is stripped down to their fists
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
 - Gamemode Patches
     - Added scrum lockup detection in Kick the Snowball
+    - Jesus now receives the cloak rune in Jesus vs Santa
 - Weapon Patches
     - View weapons react to player sprinting
     - Fixed ironsights server crash (thanks to albatross)
     - Fixed flak sound effects
     - Hornets no longer track teammates incorrectly nor invisible foes
     - Fix rocket model orientation
+    - Thrown weapons no longer leave a hidden entity behind
 - Bot Patches
     - Prevent bots from firing their hook when paused
 

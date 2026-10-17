@@ -12,43 +12,54 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-15)
+## 0. Recent delta (2026-10-16)
+
+- Added ten weapon / item / rune **instant** mutators as `INSTANT_UNARM = 18` .. `INSTANT_ROBIN_HOOD = 27` (roll is now `0..27`): `unarm`, `randomweapon`, `allguns`, `randomitem`, `randomrune`, `butterfingers`, `dualwield`, `roulette`, `runeburst`, `robinhood` (see §3.3.4). Server-only; no client, registry or asset change. `allguns` is single player only: in multiplayer the roll re-picks instead.
+- New rune helpers `CWorldRunes::ClearRune` (split out of `DropRune`) and `CWorldRunes::GiveRune`. `GiveNamedItem("rune_*")` never worked because `RuneTouch` requires `FL_ONGROUND`.
+- JvS Jesus now actually gets his cloak rune (`GiveRune`), keeps it through the spawn shield, and never drops or discards it. `ClearRune` also turns off the Instagib/Snowball ammo-rune icon (`rune_hornet` / `rune_slauncher`) that `DropRune` used to leave on screen.
+- `item_healthkit` is now precached in `W_Precache`, so it can be given on maps that do not place one.
+- Added three more: `INSTANT_RANDOM_AMMO = 28` (`randomammo`), `INSTANT_HOTFINGERS = 29` (`hotfingers`), `INSTANT_MAX_AMMO = 30` (`maxammo`); roll is now `0..30` (see §3.3.4).
+- Added `INSTANT_DRY_FIRE = 31` (`dryfire`), `INSTANT_PASS_IT_LEFT = 32` (`passitleft`), `INSTANT_RUNE_SHUFFLE = 33` (`runeshuffle`); roll is now `0..33` (see §3.3.4).
+- Fixed an edict leak in `CBasePlayer::DropPlayerItem`: the no-weaponbox path (used only by `ThrowWeapon`, i.e. impulse 216, empty-weapon auto-throw and `hotfingers`) unlinked the weapon without `Kill()`, leaving a hidden `MOVETYPE_FOLLOW` edict until map change on every throw. `RemovePlayerItem` now also clears `m_pLastRef` (3027a05 first did this only in the throw path), so holster-mode `SelectLastItem` cannot promote a weapon that `RemoveNamedItem`, `DestroyItem`, `DropPlayerItem`, `PackWeapon` or the Busters egon cap has removed.
+- 3027a05: `unarm` now uses the weapon gate (`InstantWeaponsAllowed()`), so it reports nothing allowed in GunGame, Busters, Instagib, Loot and Snowball. `UnarmPlayer()` leaves the Capture the Chumtoad carrier (`m_iHoldingChumtoad`) armed, which covers both `unarm` and the robbed player in `robinhood`.
+
+## 0.1 Earlier delta (2026-10-15)
 
 - Added the `Remove func_*` **instant** mutator as `INSTANT_REMOVE_FUNC = 17` (roll is now `0..17`). It removes every entity of one random `func_*` class present on the map, announces `[Mutators] Remove func_*: <classname> was removed!`, and nothing comes back until the next map change (see §3.3.3). Server-only; no client, registry or asset change.
 - Hardened runtime removal of brush entities for it (also fixes `killtarget`): `CFuncTank`, `CFuncTankLaser`, `CFuncTrackTrain` and `CFuncTrackChange` gained `UpdateOnRemove` teardown, and `CFuncTankControls` / `CPlatTrigger` hold `EHANDLE`s instead of raw pointers.
 - Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll was then `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
 - New user message `gmsgBSOD` (`"BSOD"`, 0 bytes) opens a full-screen deep-blue fake crash screen (`CBSODPanel`, `MENU_BSOD`) on every alive, active, non-bot player, plays `sound/bsod.wav` and is dismissed with the bottom-right `Failed Successfully` button. All strings come from `titles.txt` (see §3.3.2).
 
-## 0.1 Earlier delta (2026-10-14)
+## 0.2 Earlier delta (2026-10-14)
 
 - Added the `Accept All Cookies` **instant** mutator as `AddInstantMutator()` case 15 (roll is now `RANDOM_LONG(0, 15)`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed; it is only ever picked at random on the instant cadence.
 - New user message `gmsgCookies` (`"Cookies"`, 1 byte) opens a client-side VGUI cookie consent wall (`CCookiesPanel`, `MENU_COOKIES`) on every alive, active, non-bot player: scrollable fake agreement, `Accept All Cookies` (dismiss) on the left, `Reject All Cookies` (client runs `disconnect`) on the right. All strings come from `titles.txt` (see §3.3.1).
 
-## 0.2 Earlier delta (2026-10-13)
+## 0.3 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
 - Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count is now 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
-## 0.3 Earlier delta (2026-10-12)
+## 0.4 Earlier delta (2026-10-12)
 
 - Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` became 48, `three` was then 102).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count was then 361 (`linemode` reuses the `oldtime` icon rect).
 - While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
 
-## 0.4 Earlier delta (2026-10-11)
+## 0.5 Earlier delta (2026-10-11)
 
 - Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.5 Earlier delta (2026-10-10)
+## 0.6 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.6 Earlier delta (2026-10-09)
+## 0.7 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -111,6 +122,9 @@ below).
   [trains.h](workspace/src/dlls/trains.h) — `UpdateOnRemove` teardown and
   `EHANDLE` links that let the `Remove func_*` instant mutator delete tanks,
   plats, track trains and track changers without dangling pointers (§3.3.3).
+- [workspace/src/dlls/items.cpp](workspace/src/dlls/items.cpp) —
+  `CWorldRunes::ClearRune` / `GiveRune` used by the `randomrune` instant
+  mutator and the JvS Jesus cloak (§3.3.4).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
   `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
@@ -320,7 +334,9 @@ every live, non-observer, non-disconnected player. Each `case` uses the enum
 name; the numeric value is what the server log prints
 (`Instant mutator "<n>" enabled`). To add one, append an `INSTANT_*` entry
 with the next explicit value just before `INSTANT_MUTATOR_COUNT` (the roll
-range follows automatically) and add its `case`:
+range follows automatically) and add its `case`. Single-player-only instants
+are re-rolled while `IsMultiplayer()` (today only `INSTANT_ALL_GUNS`, see
+§3.3.4):
 - 0 `INSTANT_NOTHING`: no-op announcement.
 - 1 `INSTANT_PLUS_1_HEALTH`: `+1` HP (clamped to max_health).
 - 2 `INSTANT_SWAP_HEALTH_ARMOR`: swap HP ↔ armour (skips god-mode players).
@@ -345,6 +361,8 @@ range follows automatically) and add its `case`:
   player (see §3.3.2).
 - 17 `INSTANT_REMOVE_FUNC`: removes every entity of one random `func_*` class
   present on the map until the next map change (see §3.3.3).
+- 18 `INSTANT_UNARM` .. 33 `INSTANT_RUNE_SHUFFLE`: weapon / item / rune / ammo
+  instants (see §3.3.4).
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
 cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
@@ -507,6 +525,126 @@ winner).
   before using chargers.
 - **Mode filters.** None. Instant mutators have no `MutatorAllowed` path, so
   it can roll in every mode, including single player.
+
+### 3.3.4 Weapon, item, rune and ammo instants
+Sixteen server-only instants, each a static `Instant*()` function in
+`gamerules.cpp` that the `switch` dispatches to. They act on every
+`IsInstantTarget()` player: a player that is alive, not `IsSpectator()`, not
+`IsObserver()` and not `HasDisconnected`. Bots are included. When nothing
+applies they print `[Mutators] <Name>: nothing allowed here!` instead of
+re-rolling.
+
+- **Weapon gate.** `InstantWeaponsAllowed()` returns
+  `MutatorAllowed("randomweapon")`, so GunGame, Busters, Instagib, Loot and
+  Snowball (modes whose progression, loadout or weapon-count rules block the
+  `randomweapon` mutator) refuse every weapon-granting instant. The pool is
+  built at roll time from `CBasePlayerItem::ItemInfoArray` (every precached
+  weapon) minus `IsWithheldWeapon()` (fists, nuke, vice, fingergun), then
+  filtered by `CanRandomizeWeapon` and `CanHaveNamedItem` (for any target,
+  or for one player). Refused weapons are never rolled, so there is no retry
+  loop. `GiveNamedItem` still applies per-player rules (`CanHaveNamedItem`,
+  `CanHavePlayerItem`), so props, dealters, skeletons and the CtC carrier
+  simply get nothing.
+- 18 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
+  Busters, Instagib, Loot and Snowball, where the loadout is the mode).
+  Elsewhere `UnarmPlayer()` runs `RemoveAllItems(FALSE)` (keeps the suit,
+  clears ammo) then gives `weapon_fists`. The Capture the Chumtoad carrier
+  (`m_iHoldingChumtoad`) is skipped and keeps everything, including the
+  chumtoad. Mode weapons outside the gate are not given back until respawn
+  (KtS gravity gun, Prop Hunt hunter guns).
+- 19 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
+  `SelectItem`). Chat: `[Mutators] Random Weapon: <pszDisplayName>!`.
+- 20 **`allguns`** — **single player only.** `AddInstantMutator` re-rolls
+  while it lands on `INSTANT_ALL_GUNS` and `IsMultiplayer()` is true, so it
+  never fires (or announces) in multiplayer. Every owned weapon is a
+  persistent edict, and handing ~45 weapons to every player in one frame can
+  exhaust the edict pool (default 900) on a full server, which is a fatal
+  `ED_Alloc: no free edicts`. In single player it gives every candidate
+  weapon the player does not own yet, then `SelectItem` back to the weapon
+  they were holding (pickups auto-switch by weight).
+- 21 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
+  `item_healthkit`, `item_longjump`) that `CanHaveNamedItem` accepts for at
+  least one target, given with `GiveNamedItem`. A player who cannot use it
+  (full health or armor, already has long jump, `CanHaveItem` refusal) gets
+  nothing. Snowball and `dualsonly` refuse every non-weapon name, so it
+  reports nothing allowed there. Requires the `item_healthkit` precache in
+  `W_Precache`.
+- 22 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
+  rune in `g_InstantRunes[]` passes `AllowRuneSpawn` (single player, Prop
+  Hunt). Otherwise each target that does not already hold that rune gets
+  `ClearRune` + `GiveRune` (silent replace). JvS Jesus (`IsArmoredMan`) is
+  skipped.
+- 23 **`butterfingers`** — nothing allowed when `mp_weaponstay > 0` or no
+  target passes `IsAllowedToDropWeapon`. Otherwise `DropPlayerItem("")`
+  (weaponbox) for each target whose active item is not `ITEM_FLAG_NODROP`.
+- 24 **`dualwield`** — weapon gate; an active single weapon in
+  `g_DualWieldPairs[]` gets its dual version (if `CanRandomizeWeapon`
+  allows), which is selected. The single is kept (`impulse 205` swaps).
+- 25 **`roulette`** — weapon gate; each target rolls their own candidate,
+  preferring weapons they do not own yet. The weapon title HUD on deploy
+  shows what they got.
+- 26 **`runeburst`** — `DropRune` for every target holding a rune except
+  JvS Jesus.
+- 27 **`robinhood`** — weapon gate; needs two targets with different frags.
+  Highest and lowest `pev->frags` are picked (ties by reservoir sampling).
+  The rich player's non-withheld, `CanRandomizeWeapon` weapons are given to
+  the poor player, and the rich player is unarmed through `UnarmPlayer()`.
+  Chat names are passed as `UTIL_ClientPrintAll` parameters, never formatted
+  into the message. A Capture the Chumtoad carrier (`m_iHoldingChumtoad`) is
+  never picked as rich or poor: `UnarmPlayer()` would skip them (duplicating
+  their weapons) and `CanHaveNamedItem` refuses them everything.
+- 28 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
+  ammo type: `ammo_357`, `ammo_9mmAR`, `ammo_ARgrenades`, `ammo_buckshot`,
+  `ammo_crossbow`, `ammo_gaussclip`, `ammo_rpgclip`) that `CanHaveNamedItem`
+  accepts for at least one target, given to every target with
+  `GiveNamedItem`. Same no-spill rule as `randomitem`: `GiveAmmo` returns -1
+  when the player is already at max carry, the pickup fails and
+  `GiveNamedItem` removes the orphan entity; a partial top-up is clamped to
+  max carry. Mode refusals (`CanHavePlayerAmmo`: Busters buster, Chilldemic
+  virus, CtC carrier, Prop Hunt props) get nothing. Snowball, `dualsonly`
+  and Instagib refuse every ammo name, so it reports nothing allowed there.
+  Chat: `[Mutators] Random Ammo: <name>!`.
+- 29 **`hotfingers`** — `butterfingers`, but each active weapon goes
+  through `CBasePlayerWeapon::ThrowWeapon(TRUE)` (the impulse 216 weapon
+  throw): a `monster_throwweapon` showing the weapon is launched forward and
+  detonates after 2 s as `CGrenade::Vest(thrower, origin, plrDmgVest / 2)`,
+  and the weapon leaves the inventory. Nothing allowed when
+  `mp_weaponstay > 0`, `ricochet` is active or no target passes
+  `IsAllowedToDropWeapon`. Per player it also skips `ITEM_FLAG_NODROP`
+  weapons and weapons that cannot holster, because `ThrowWeapon` launches the
+  explosive before `DropPlayerItem`, which would refuse them and duplicate the
+  weapon. `ThrowWeapon`'s own guards still apply (fists/fingergun/vice,
+  offhand cooldown, force grab).
+- 30 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
+  tops primary and secondary reserve ammo up to `iMaxAmmo1/2` with
+  `GiveAmmo` (HUD pickup notice). Weapons without ammo are skipped, as are
+  the nuke and, in Capture the Chumtoad, the chumtoad (extra chumtoads would
+  add charms). Clips are not touched.
+- 31 **`dryfire`** — empties the clip (`m_iClip = 0`) of each target's
+  active weapon; reserve ammo is kept, so everyone has to reload. Weapons
+  without a clip (`iMaxClip() <= 0`: melee, grenades, egon, ...) and the nuke
+  are skipped. It also zeroes `m_iTripleBangShotsPending`, because a queued
+  `triplebang` shot restores the pre-burst clip. The client picks the empty
+  clip up through the normal weapon data / `CurWeapon` sync. No mode gate.
+- 32 **`passitleft`** — weapon gate; needs two targets. Targets form a
+  ring in player-index order and each passes their active weapon to the
+  next one. Every pass is decided before any inventory changes: the weapon
+  must be able to holster, not be withheld, pass `CanRandomizeWeapon`, and
+  the receiver must pass `CanHaveNamedItem` (otherwise the giver keeps it).
+  Then all givers `RemoveNamedItem` and all receivers `GiveNamedItem` +
+  `SelectItem`. Reserve ammo stays with the giver; the receiver gets the
+  default clip (or extra ammo if they already own that weapon).
+- 33 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
+  holder is `ClearRune`d first (`GiveRune` refuses players still holding a
+  rune), then each rune goes to the next holder in player-index order via
+  `GiveRune`. No `AllowRuneSpawn` check: the runes already exist this round.
+- **Runes.** `GiveNamedItem("rune_*")` silently fails (`RuneTouch` needs
+  `FL_ONGROUND`), so `GiveRune` creates the rune, grounds it and calls
+  `Touch`. See [runes.md §4.1](runes.md#41-granting-a-rune-directly).
+- **JvS Jesus cloak.** Jesus's `rune_cloak` belongs to the mode: granted
+  with `GiveRune` in `PlayerSpawn`, cleared (not dropped) on death, ignored
+  by `drop_rune`, `randomrune` and `runeburst`, and restored by
+  `ExpireSpawnProtection`. See [runes.md §4.2](runes.md#42-jvs-jesus-cloak-2026-10-16).
 
 ### 3.4 `MutatorAllowed(const char *mutator)` filter chain
 - `CGameRules::MutatorAllowed` is pure-virtual (`= FALSE`) so every rules
@@ -1830,6 +1968,15 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   target an `UpdateOnRemove` cleanup or the holder an `EHANDLE`. Stop looping
   `CHAN_STATIC` sounds first too; clients keep playing them after the entity
   is freed (§3.3.3).
+- **Giving things at runtime.** Anything an instant mutator hands out must be
+  precached at map start (`item_healthkit` was not until 2026-10-16), and
+  runes must go through `CWorldRunes::GiveRune`, not `GiveNamedItem`
+  (§3.3.4). Mode-owned runes (JvS Jesus) must be skipped by instants that
+  replace or drop runes.
+- **Removing owned weapons.** `RemovePlayerItem` unlinks the weapon and
+  clears `m_pLastItem` and `m_pLastRef` (holster-mode last weapon), so
+  callers can `Kill()` it without `SelectLastItem` later promoting a freed
+  entity. Keep both clears there rather than at each call site.
 
 ---
 
