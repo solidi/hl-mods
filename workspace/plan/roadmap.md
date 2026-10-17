@@ -120,6 +120,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] "My favorite texture" - [see possible texture swap implementation](https://github.com/bacontsu/halflife_animatedwater/blob/main/cl_dll/waterrenderer.cpp#L435)
     1. [x] Goldeneye - removes health and armor counts, changes to classic 007 bars when hurt
     1. [x] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
+    1. [x] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4) - jump flips gravity, walk on the ceiling
 1. Game Mechanics
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
 1. Instant Mutators
@@ -217,7 +218,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Hardcore - 1 health, one weapon, 1 clip (yai boi) idea
     1. [ ] 10x mode (yai boi)
     1. [ ] penguins in place of toads
-    1. [ ] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4)
     1. [ ] RandomNuke - idea by Mitchell The BoneLord
     1. [ ] SUPERCOOL
     1. [ ] grunts

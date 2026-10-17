@@ -307,7 +307,8 @@ DESCRIPTION SERVER_OPTIONS
 			"vested" "111"
 			"victor" "112"
 			"volatile" "113"
-			"waterhurt" "114"
+			"vvvvvv" "114"
+			"waterhurt" "115"
 		}
 		{ "1" }
 	}

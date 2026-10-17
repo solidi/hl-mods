@@ -182,7 +182,7 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
 | `fuser4`     | server → bot      | Team marker + decoy body (1..70 prop, 0 hunter).               |
 | `fuser3`     | server → bot      | **Props only.** Multi-signal: `> 1` = freeze deadline (gpGlobals->time + d), `== 1` = unstick request, `< 0` = last-prop-standing (DESPERATE).  The negative sentinel intentionally cannot collide with the positive freeze deadline. |
 | `fuser2`     | server → server   | Morph cooldown (server-side, set by weapon morph in `weapons.cpp`).  |
-| `fuser1`     | server → server   | Hunter last-shot `m_flNextPrimaryAttack` snapshot.             |
+| `fuser1`     | server → server   | Hunter last-shot `m_flNextPrimaryAttack` snapshot. Same slot the `vvvvvv` gravity flip uses, so `MutatorAllowed` blocks `vvvvvv` in Prop Hunt. |
 | `flags & FL_FROZEN` | server → bot | **Hunters only.** Set by `EnableControl(FALSE)` during the round-start freeze.  Bot must check this flag, **not** `fuser3`, for hunter-frozen state — `fuser3` is stale prop-role data on a hunter and was the source of a recurring "frozen hunter jumps when attacked" bug. |
 
 ## Entities

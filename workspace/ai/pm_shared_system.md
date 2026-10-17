@@ -94,6 +94,26 @@ When changing `pm_shared.c`:
    - water entry/exit,
    - observer roaming and chase modes.
 4. Confirm no prediction regressions (client feel and hit timing).
+5. Any new "up is +Z" logic (ground probes, step heights, gravity, duck
+   origin shifts, floor normals) must be scaled by `g_flPmUp` so the
+   `vvvvvv` gravity flip keeps working (see §6.1).
+
+### 6.1 Gravity orientation (`vvvvvv` mutator)
+
+- File-local `g_flPmUp` is `1` normally and `-1` while a player walks on the
+  ceiling. `PM_PlayerMove` sets it first thing each frame from physinfo `vvv`
+  and the predicted flag `pmove->fuser1 > 0`.
+- Scaled by it: `PM_AddCorrectGravity`, `PM_FixupGravityVelocity`,
+  `PM_CatagorizePosition`, `PM_WalkMove` steps, `PM_Friction` edge probe,
+  `PM_FlyMove` floor normals, `PM_Duck` / `PM_UnDuck` origin shift and view
+  offset, fall velocity, step-sound probes and the texture trace.
+- Hulls are symmetric around the origin, so collision code is unchanged.
+- While flipped `pmove->angles[ROLL]` gets +180, which mirrors
+  `pmove->right` (strafe follows the rolled screen) and becomes the player's
+  roll on the server.
+- `PM_Jump` turns jump into the flip; ladders are ignored and swimming
+  (`waterlevel >= 2`) un-flips. Full mechanics:
+  [mutator_system.md §3.29](mutator_system.md).
 
 ## 7. Quick navigation map
 
