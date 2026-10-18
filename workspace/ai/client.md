@@ -130,6 +130,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Life bars + floating damage numbers | [lifebar.md](lifebar.md) |
 | Particle and flame effects (message -> manager -> render lifecycle) | [particle_system.md](particle_system.md) |
 | World/brush texture swap (`myfavtexture` mutator, hardware `texture_t::gl_texturenum`) | `mutator_myfavtexture.cpp`, [mutator_system.md §3.25](mutator_system.md) |
+| Second view per frame + see-through blend (`xray` mutator, `nextView`, user clip plane) | `mutator_xray.cpp`, `view.cpp::V_CalcRefdef`, `GameStudioModelRenderer.cpp`, [mutator_system.md §3.31](mutator_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |

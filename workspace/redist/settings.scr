@@ -310,6 +310,7 @@ DESCRIPTION SERVER_OPTIONS
 			"volatile" "114"
 			"vvvvvv" "115"
 			"waterhurt" "116"
+			"xray" "117"
 		}
 		{ "1" }
 	}
