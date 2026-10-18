@@ -12,14 +12,19 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-17)
+## 0. Recent delta (2026-10-18)
 
-- Added `discomode` (`MUTATOR_DISCOMODE = 20`) in alphabetical ID order after `dealter` (all downstream mutator IDs shifted by +1; `dontshoot` is now 21, `linemode` 49, `three` 104, `vvvvvv` 115). Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..116`, with `MAX_MUTATORS_CL = 117` including trailing `RANDOM`. `hud.txt` declaration count is now 364 (`discomode` reuses the `inverse` icon rect).
+- Added `xray` (`MUTATOR_XRAY = 117`) in alphabetical ID order after `waterhurt`; no existing ID shifts. Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..117`, with `MAX_MUTATORS_CL = 118` including trailing `RANDOM`. `hud.txt` declaration count is now 365 (`xray` reuses the `invisible` icon rect). The grave_bot `const.h` gained the define; no bot rebuild is needed because nothing was renumbered.
+- While active, every client recreates the GoldenEye 007 GameShark see-through geometry code: walls, floors, ceilings and brush entities near the player turn semi-transparent, with their edges kept almost solid, and show the rooms, players and items behind them over black void. The engine draws the view twice a frame (ref_params `nextView`): the second view clips the near world away with a user clip plane and forces `r_novis`, and the first view is blended back over it before the viewmodel. Client-only; blocked in Prop Hunt (see §3.31).
+
+## 0.1 Earlier delta (2026-10-17)
+
+- Added `discomode` (`MUTATOR_DISCOMODE = 20`) in alphabetical ID order after `dealter` (all downstream mutator IDs shifted by +1; `dontshoot` is now 21, `linemode` 49, `three` 104, `vvvvvv` 115). Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..116`, with `MAX_MUTATORS_CL = 117` including trailing `RANDOM`. `hud.txt` declaration count was then 364 (`discomode` reuses the `inverse` icon rect).
 - While active, every client recreates the GoldenEye 007 GameShark code that made the game "flash rapidly with shifting, psychedelic colors": after the 3D view, a GLSL pass rebuilds each pixel's world-space plane from the depth buffer and paints every polygon (world, brush entities, models, viewmodel) one fully saturated solid colour, re-rolled 10 times a second, cycling in between, and on some beats swept with a world-space rainbow. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.30).
 - The grave_bot copy of `const.h` was renumbered in the same change; rebuild the bot DLL, its `UTIL_MutatorEnabled` matches numeric IDs.
 - New rule: every new mutator, full or instant, gets a recorded review against every game mode's filter (§9 step 6). §3.4 now holds the filter matrix as it is in code; it had wrongly listed Arena, Prop Hunt and Shidden as blocking `thirdperson`, and Arena as having an override. A regression pass over the existing mutators and instants is pending.
 
-## 0.1 Earlier delta (2026-10-16)
+## 0.2 Earlier delta (2026-10-16)
 
 - Added `vvvvvv` (`MUTATOR_VVVVVV = 114`) in alphabetical ID order after `volatile`; only `waterhurt` shifts (then 115). Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..115`, with `MAX_MUTATORS_CL = 116` including trailing `RANDOM`. `hud.txt` declaration count was then 363 (`vvvvvv` reuses the `upsidedown` icon rect).
 - While active, jump no longer jumps: on a surface it flips the player's gravity, so they fall to the ceiling and walk on it upside down, and the next jump flips them back (VVVVVV). Shared movement in `pm_shared.c` (physinfo `vvv`, predicted flag `pmove->fuser1`), server state/hitboxes/fall damage in `player.cpp` + `client.cpp`, rolled camera/input/player model on the client. Bots never flip; blocked in Prop Hunt (see §3.29).
@@ -32,43 +37,43 @@ below).
 - Fixed an edict leak in `CBasePlayer::DropPlayerItem`: the no-weaponbox path (used only by `ThrowWeapon`, i.e. impulse 216, empty-weapon auto-throw and `hotfingers`) unlinked the weapon without `Kill()`, leaving a hidden `MOVETYPE_FOLLOW` edict until map change on every throw. `RemovePlayerItem` now also clears `m_pLastRef` (3027a05 first did this only in the throw path), so holster-mode `SelectLastItem` cannot promote a weapon that `RemoveNamedItem`, `DestroyItem`, `DropPlayerItem`, `PackWeapon` or the Busters egon cap has removed.
 - 3027a05: `unarm` now uses the weapon gate (`InstantWeaponsAllowed()`), so it reports nothing allowed in GunGame, Busters, Instagib, Loot and Snowball. `UnarmPlayer()` leaves the Capture the Chumtoad carrier (`m_iHoldingChumtoad`) armed, which covers both `unarm` and the robbed player in `robinhood`.
 
-## 0.2 Earlier delta (2026-10-15)
+## 0.3 Earlier delta (2026-10-15)
 
 - Added the `Remove func_*` **instant** mutator as `INSTANT_REMOVE_FUNC = 17` (roll is now `0..17`). It removes every entity of one random `func_*` class present on the map, announces `[Mutators] Remove func_*: <classname> was removed!`, and nothing comes back until the next map change (see §3.3.3). Server-only; no client, registry or asset change.
 - Hardened runtime removal of brush entities for it (also fixes `killtarget`): `CFuncTank`, `CFuncTankLaser`, `CFuncTrackTrain` and `CFuncTrackChange` gained `UpdateOnRemove` teardown, and `CFuncTankControls` / `CPlatTrigger` hold `EHANDLE`s instead of raw pointers.
 - Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll was then `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
 - New user message `gmsgBSOD` (`"BSOD"`, 0 bytes) opens a full-screen deep-blue fake crash screen (`CBSODPanel`, `MENU_BSOD`) on every alive, active, non-bot player, plays `sound/bsod.wav` and is dismissed with the bottom-right `Failed Successfully` button. All strings come from `titles.txt` (see §3.3.2).
 
-## 0.3 Earlier delta (2026-10-14)
+## 0.4 Earlier delta (2026-10-14)
 
 - Added the `Accept All Cookies` **instant** mutator as `AddInstantMutator()` case 15 (roll is now `RANDOM_LONG(0, 15)`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed; it is only ever picked at random on the instant cadence.
 - New user message `gmsgCookies` (`"Cookies"`, 1 byte) opens a client-side VGUI cookie consent wall (`CCookiesPanel`, `MENU_COOKIES`) on every alive, active, non-bot player: scrollable fake agreement, `Accept All Cookies` (dismiss) on the left, `Reject All Cookies` (client runs `disconnect`) on the right. All strings come from `titles.txt` (see §3.3.1).
 
-## 0.4 Earlier delta (2026-10-13)
+## 0.5 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count was then 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
-## 0.5 Earlier delta (2026-10-12)
+## 0.6 Earlier delta (2026-10-12)
 
 - Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` became 48, `three` was then 102).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count was then 361 (`linemode` reuses the `oldtime` icon rect).
 - While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
 
-## 0.6 Earlier delta (2026-10-11)
+## 0.7 Earlier delta (2026-10-11)
 
 - Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.7 Earlier delta (2026-10-10)
+## 0.8 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.8 Earlier delta (2026-10-09)
+## 0.9 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -95,8 +100,8 @@ below).
 
 ### Shared / IDs
 - [workspace/src/common/const.h](workspace/src/common/const.h#L805-L922) —
-  `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` IDs (1..116) and
-  `MAX_MUTATORS_CL` (client cap = `MUTATOR_WATERHURT + 1`).
+  `MUTATOR_CHAOS`..`MUTATOR_XRAY` IDs (1..117) and
+  `MAX_MUTATORS_CL` (client cap = `MUTATOR_XRAY + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
   `haste`, `prop`, `slj`, `jumpheight`, `negpi`, and `vvv` (gravity flip,
@@ -109,7 +114,7 @@ below).
 - [workspace/src/dlls/gamerules.h](workspace/src/dlls/gamerules.h#L65-L272) —
   `struct mutators_t` (linked list node), `CGameRules` interface, protected /
   private state (`m_Mutators`, `m_SavedMutators`, timers, pool, flags),
-  `MAX_MUTATORS = MUTATOR_WATERHURT`, `extern const char *g_szMutators[]`.
+  `MAX_MUTATORS = MUTATOR_XRAY`, `extern const char *g_szMutators[]`.
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L66-L153) —
   `g_szMutators[]` name table (index = `MUTATOR_* - 1`).
 - [workspace/src/dlls/gamerules.cpp](workspace/src/dlls/gamerules.cpp#L164-L172) —
@@ -207,6 +212,16 @@ below).
   `Blur_Draw` (called at the top of `cdll_int.cpp::HUD_Redraw` right after
   `LineMode_Draw` and `DiscoMode_Draw`, before `gHUD.Redraw`), declared in
   `hud.h`; frame-feedback motion blur for `blur` (§3.28).
+- [workspace/src/cl_dll/mutator_xray.cpp](workspace/src/cl_dll/mutator_xray.cpp) —
+  file-local class `CXRay` behind eight `XRay_*` hooks declared in `hud.h`:
+  `XRay_BeginSecondView` / `XRay_RequestSecondView` (first and last in
+  `view.cpp::V_CalcRefdef`), `XRay_NormalTriangles` (first in
+  `tri.cpp::HUD_DrawNormalTriangles`), `XRay_TransparentTriangles` (last in
+  `HUD_DrawTransparentTriangles`), `XRay_EndFrame` (top of
+  `cdll_int.cpp::HUD_Redraw`), and `XRay_SecondView` /
+  `XRay_BeginStudio` / `XRay_EndStudio` used by the
+  `GameStudioModelRenderer.cpp` draw wrappers; two-view see-through pass for
+  `xray` (§3.31).
 - Client render/input consumers (mutator effects, non-exhaustive):
   `StudioModelRenderer.cpp` (BIGHEAD/MINIME/PAPER/SANIC/CRATE bones and
   proxies), `view.cpp` (MCCLANE/UPSIDEDOWN/AMIDEAD/TOPSYTURVY roll),
@@ -240,9 +255,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_WATERHURT` (116 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_XRAY` (117 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 117 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 118 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -690,7 +705,7 @@ re-rolling.
   | `CHalfLifeInstagib` (`instagib_gamerules.cpp`) | Instagib | `999`, `berserker`, `instagib`, `maxpack`, `noreload`, `plumber`, `busters`, `cowboy`, `firestarter`, `portal`, `railguns`, `randomweapon`, `rocketcrowbar`, `slowbullets`, `vested` (one-shot rule) |
   | `CHalfLifeKickTheSnowball` (`kts_gamerules.cpp`) | Kick the Snowball | `thirdperson` |
   | `CHalfLifeLoot` (`loot_gamerules.cpp`) | Loot | `999`, `chumxplode`, `noclip`, `randomweapon`, `dontshoot`, `maxpack`, `thirdperson` (weapon-count rules) |
-  | `CHalfLifePropHunt` (`prophunt_gamerules.cpp`) | Prop Hunt | `santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`, `pumpkin`, `toilet` (would give a prop away), `vvvvvv` (hunter shot tracker lives in `pev->fuser1`, the gravity-flip slot) |
+  | `CHalfLifePropHunt` (`prophunt_gamerules.cpp`) | Prop Hunt | `santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`, `pumpkin`, `toilet` (would give a prop away), `vvvvvv` (hunter shot tracker lives in `pev->fuser1`, the gravity-flip slot), `xray` (hunters would see props through walls) |
   | `CHalfLifeShidden` (`shidden_gamerules.cpp`) | Shidden | `invisible`, `dealter` |
 
 - No override, base filter only: FFA (`CHalfLifeMultiplay`), Teamplay
@@ -1625,6 +1640,124 @@ and in the Chaos pool. The HUD icon alias reuses the `inverse` rect.
   makes its reconstructed positions wrong but still planar per facet, so it
   gets solid facet colours that shift as the view turns.
 
+### 3.31 `xray` GoldenEye 007 GameShark see-through geometry
+`MUTATOR_XRAY` is client-only and lives in `cl_dll/mutator_xray.cpp`: a
+file-local class `CXRay` with one static instance behind the `XRay_*` hooks
+declared in `hud.h`. The server only carries the name-table entry and the
+Prop Hunt block. The HUD icon alias reuses the `invisible` rect.
+
+- **What it recreates.** A GoldenEye 007 GameShark code that "disabled or
+  heavily glitched the standard texture drawing layers on walls, floors, and
+  ceilings", so solid surfaces looked transparent or semi-translucent and the
+  rooms and characters behind them showed through. Only the look is
+  simulated.
+- **Look.** The world and brush entities (doors, `func_wall`, breakables,
+  trains) within `XRAY_PEEL_DISTANCE` (384 units of eye-space depth) turn
+  see-through: faces at `XRAY_SURFACE_ALPHA` (40%), their creases and
+  silhouettes at `XRAY_EDGE_ALPHA` (85%) so near walls read as panes of
+  glass, ramping back to solid between `XRAY_FADE_START` (half, 192 units)
+  and 384 units. Behind them show the rest of the map as cut-away rooms
+  (back faces are culled), players, monsters, items and sprites, over black
+  void where there is no geometry. The viewmodel and HUD are unchanged.
+- **Why two views.** The engine draws the world itself, opaque and depth
+  writing, with no client hook in between, and a post-process only sees what
+  was drawn. So the view is rendered twice a frame through the engine's
+  `ref_params_t::nextView` loop, the same loop the spectator inset and the
+  portal renderer use.
+- **Per frame.**
+  1. `XRay_RequestSecondView` (last in `view.cpp::V_CalcRefdef`) runs only
+     for the normal player view: not for intermission, spectators/HLTV
+     (their inset owns `nextView`), `onlyClientDraw`, or when another
+     feature has already chained a view (portal passes come first and xray
+     chains after the last one). It builds the shader if needed, saves the
+     final `ref_params_t` and sets `nextView = 1`.
+  2. The first view renders normally; `XRay_NormalTriangles` captures its
+     viewport, depth range and projection.
+  3. The engine calls `V_CalcRefdef` again. `XRay_BeginSecondView` (first in
+     `V_CalcRefdef`) restores the saved params instead of running
+     `V_CalcNormalRefdef` again (punch decay, bob and step smoothing must not
+     tick twice), sets `nextView = 0`, copies the finished first view's
+     colour (`GL_RGB8`, unit 1) and depth (`GL_DEPTH_COMPONENT24`, unit 0),
+     clears the colour inside the viewport to black, enables
+     `GL_CLIP_PLANE0 = (0, 0, -1, -384)` (specified under an identity
+     modelview, so it stays in eye space whatever matrices the engine loads)
+     and writes `r_novis` `.value = 1`.
+  4. In the second view `R_MarkLeaves` marks every leaf and the world and
+     solid brush entities are drawn minus everything nearer than 384 units.
+     The `GameStudioModelRenderer.cpp` wrappers turn the clip plane off
+     around every studio model, so models are never peeled.
+     `XRay_NormalTriangles` then turns the clip plane off and restores
+     `r_novis`, so transparent entities, beams and the mod's particles draw
+     in both views.
+  5. `XRay_TransparentTriangles` (last in `HUD_DrawTransparentTriangles`)
+     draws one full-screen GLSL 1.10 quad with the first view's colour and a
+     per-pixel opacity, blended `SRC_ALPHA, ONE_MINUS_SRC_ALPHA` over the
+     second view.
+  6. The engine draws the viewmodel (identical in both views) on top.
+- **Opacity.** From the first view's depth `d` (normalized by its depth
+  range): `dist = P[14] / (2d - 1 + P[10])`,
+  `opacity = max(mix(0.4, 1, smoothstep(192, 384, dist)), edge * 0.85)`.
+  `edge` is the `linemode` second-difference crease test (§3.27) with the
+  same threshold, noise floor and resolution-scaled line weight; samples that
+  touch the viewmodel are ignored so the gun gets no solid halo. Pixels with
+  `d <= XRAY_VIEWMODEL_DEPTH` (0.3, the viewmodel's squeezed range) are
+  copied opaque. At the peel distance both views agree, so there is no seam.
+- **Why the blend is inside the 3D frame.** Engine screen fades
+  (`UTIL_ScreenFade`, `sleepy`) are drawn after the views, before
+  `HUD_Redraw`. Blending at `HUD_Redraw` would lay the unfaded first view
+  back over them.
+- **Second-view draws only render.** The wrappers strip `STUDIO_EVENTS` (no
+  doubled muzzle flashes, shells or event sounds), skip `StudioDrawPlayer`
+  under `sanic` (it only steers per-player temp sprites), and restore each
+  player's `gaitframe` / `gaityaw` / `prevgaitorigin` after the draw so idle
+  legs do not animate at double speed. The `w_battery` glow dlight in
+  `StudioDrawModel` is skipped in the second view.
+- **GL state.** Same loader and failure pattern as `linemode` /
+  `discomode`. The copy and the blend save `GL_CURRENT_PROGRAM`, the active
+  unit and unit 1's binding and run inside `glPushAttrib`; the clip plane is
+  set outside it. Clip plane and `r_novis` are also cleared by
+  `XRay_EndFrame` at the top of `HUD_Redraw` and whenever `V_CalcRefdef`
+  finds that a requested view never came, so neither can leak into 2D
+  drawing or the next frame.
+- **Failure handling.** Missing entry points, compile/link errors (info log
+  printed) or a rejected copy (checked once per texture allocation) print
+  `xray: <reason>, effect disabled` and turn the effect off for the session;
+  a rejected copy also leaves that second view unpeeled, so the frame looks
+  normal. No-op on Xash (`g_fXashEngine`), on non-OpenGL renderers and on
+  macOS (stubs). Without an `r_novis` cvar it still works, but only leaves in
+  the PVS are drawn, so more of what lies behind walls is void.
+- **Lifecycle.** All hooks read `MutatorEnabled(MUTATOR_XRAY)` every frame;
+  add, expiry, `clear` (254), pause/restore and late join need no kickoffs.
+  `r_novis` is only forced from the start of the second view to its
+  `HUD_DrawNormalTriangles`.
+- **Interactions.** `linemode`, `discomode` and `blur` run at `HUD_Redraw`
+  on the blended image; `linemode` and `discomode` read the second view's
+  depth, so they trace and colour the peeled layer (what is behind the near
+  walls, plus models). `myfavtexture`, `fog` and `lightsout` apply to both
+  views. `invisible`, the cloak rune and Shidden dealters keep their render
+  modes and stay hard to see through a 40% wall.
+- **Cost.** Two scene renders a frame, the second over the whole map (no
+  PVS), plus two full-screen copies and one blend.
+- **Mode filters.** Blocked in Prop Hunt (`CHalfLifePropHunt::MutatorAllowed`):
+  hunters would see props through walls, and `StudioDrawPlayer` lowers a
+  prop's entity origin by 36 units on every draw, so a second draw would put
+  it 72 units down. All other filter sites in §3.4 reviewed 2026-10-18: no
+  block needed. It is client-only and touches no `pev` field, loadout, round
+  state or objective; seeing through walls is symmetric for both teams in
+  CtF, CtC, KtS, Cold Spot and Cold Skull, and for everyone in FFA, Arena,
+  LMS, Chilldemic, Horde and Jesus vs Santa. Shidden dealters stay
+  `kRenderTransAlpha`. The name contains no blocked name and is inside none.
+- **Known limits.** The peel is one plane at a fixed depth: everything
+  nearer than 384 units turns see-through at once (including the floor at
+  your feet) and only geometry beyond it shows through, so rooms in between
+  are skipped. The server only sends entities in each player's PVS, so
+  players and items in sealed-off rooms are missing from rooms drawn behind
+  walls. Brush entities with a render mode (glass, fences, `func_illusionary`,
+  water) are drawn with the transparent entities, after the clip plane is
+  off, so they stay as they are. Engine particles drawn after
+  `HUD_DrawTransparentTriangles` are not covered by the blend: near ones draw
+  slightly brighter, ones behind the near walls show at full strength.
+
 ---
 
 ## 4. Wire protocol
@@ -1747,6 +1880,10 @@ Where each mutator lands on the client:
 - **Motion blur (mutator_blur.cpp, cdll_int.cpp):** `BLUR` blends the
   previous blurred frame over the finished 3D view and copies the result back
   as history, before the HUD (§3.28).
+- **See-through geometry (mutator_xray.cpp, view.cpp, tri.cpp,
+  GameStudioModelRenderer.cpp):** `XRAY` renders the view twice a frame, the
+  second time with the near world clipped away, and blends the first view
+  back over it before the viewmodel (§3.31).
 - **Cookie wall (vgui_CookiesWindow.cpp):** instant mutator 15 opens the
   `CCookiesPanel` VGUI menu from `gmsgCookies` (§3.3.1).
 - **Blue screen (vgui_BSODWindow.cpp):** instant mutator 16 opens the
@@ -1916,6 +2053,9 @@ Newly added mutators:
 - `discomode` (`MUTATOR_DISCOMODE`) repaints every polygon in flashing,
   shifting psychedelic colours like the GoldenEye 007 GameShark code
   (documented in §3.30).
+- `xray` (`MUTATOR_XRAY`) turns nearby walls, floors and ceilings
+  semi-transparent like the GoldenEye 007 GameShark see-through geometry
+  code (documented in §3.31).
 
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
@@ -2041,6 +2181,7 @@ Newly added mutators:
 | 103 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
 | 105 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
 | 106 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
+| 117 | `xray` | C | GoldenEye 007 GameShark see-through geometry: the view is drawn twice a frame, the second time with the world and brush entities within 384 units clipped away and `r_novis` forced, then the first view is blended back at 40% (edges 85%, solid again by the peel distance), so nearby walls, floors and ceilings show the rooms, players and items behind them over black void. OpenGL 2.0 only, other renderers draw normally. Blocked in Prop Hunt (§3.31). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
@@ -2258,6 +2399,14 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   pass that binds a texture on a unit other than the active one must rebind
   that unit's previous texture: the engine caches per-unit bindings
   (lightmaps live on unit 1).
+- **Extra views per frame.** `xray` (and the portal renderer) make the
+  engine render more than one view a frame, so `V_CalcRefdef`,
+  `HUD_DrawNormalTriangles`, `HUD_DrawTransparentTriangles` and every studio
+  draw can run more than once. Per-frame logic in `V_CalcNormalRefdef` must
+  not run for the xray view (it reuses the saved params), and code in
+  `StudioDrawModel` / `StudioDrawPlayer` that allocates, plays or advances
+  something per call needs a `XRay_SecondView()` guard or must be time
+  gated (§3.31).
 
 ---
 

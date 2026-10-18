@@ -122,6 +122,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Motion blur](https://github.com/bacontsu/codename-borea/commit/c6e5ffedb3dc256a6caed8484eb4396bef8bc54b) and [update](https://github.com/bacontsu/codename-borea/commit/c0acfcaf5d799b37468e3044be3c53e8118734b8)
     1. [x] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4) - jump flips gravity, walk on the ceiling
     1. [x] Everyone Disco
+    1. [x] See Through Walls / X-Ray Vision
 1. Game Mechanics
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
 1. Instant Mutators
@@ -189,7 +190,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Shoot Through Most Stuff
     1. [ ] quicksilver
     1. [ ] Continuous Fire
-    1. [ ] See Through Walls
     1. [ ] Tippytoe
     1. [ ] assassin like jumpscare
     1. [ ] "dontshoot?" clickboom - randomly throw weapon

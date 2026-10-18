@@ -141,6 +141,15 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
 * Hunters follow the base multiplayer gate (`mp_grapplinghook` / inherited
   hook settings).
 
+### Mutator filters
+
+`CHalfLifePropHunt::MutatorAllowed` blocks the hat/body cosmetics that would
+give a prop away (`santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`,
+`pumpkin`, `toilet`), `vvvvvv` (shares `pev->fuser1`, see below) and `xray`:
+hunters would see props through walls, and `StudioDrawPlayer` lowers a
+prop's origin by 36 units per draw, which the xray second view would apply
+twice. Full matrix: [mutator_system.md §3.4](mutator_system.md).
+
 ## Round lifecycle
 
 1. **Round reset / spawn prep** — before team assignment, the server runs

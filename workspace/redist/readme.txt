@@ -42,6 +42,7 @@ v1.2 Features:
     - "victor" - fragged drops fly only to the fragger
     - "vvvvvv" - jump flips your gravity, walk on the ceiling upside down and jump again to fall back to the floor
     - "waterhurt" - touch water and explode
+    - "xray" - classic 007 GameShark see-through mode, nearby walls, floors and ceilings turn semi-transparent and reveal what is behind them
 - New Instant Mutators
     - "accept all cookies" - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
     - "allguns" - you get every weapon the game allows (single player only)
