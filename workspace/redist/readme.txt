@@ -51,18 +51,21 @@ v1.2 Features:
     - "dryfire" [8] - everyone's clip is emptied, time to reload
     - "dualwield" [9] - the weapon in your hands gets its dual version
     - "hotfingers" [12] - everyone throws the weapon in their hands as a live explosive
-    - "maxammo" [14] - your current weapon's ammo is filled to the max
-    - "passitleft" [17] - everyone hands the weapon in their hands to the next player
-    - "randomammo" [21] - everyone gets the same random ammo pickup
-    - "randomitem" [22] - everyone gets the same random item (health kit, battery or long jump)
-    - "randomrune" [23] - everyone gets the same random rune, replacing the one they held
-    - "randomweapon" [24] - everyone gets the same random weapon
-    - "remove func_*" [25] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
-    - "robinhood" [26] - the top fragger is disarmed and last place gets their guns
-    - "roulette" [27] - everyone gets a different random weapon
-    - "runeburst" [28] - everyone holding a rune drops it at once
-    - "runeshuffle" [29] - held runes rotate to the next rune holder
-    - "unarm" [33] - everyone is stripped down to their fists
+    - "knifevolley" [14] - everyone throws a fan of five knives that vanish on impact
+    - "maxammo" [15] - your current weapon's ammo is filled to the max
+    - "passitleft" [18] - everyone hands the weapon in their hands to the next player
+    - "pipevolley" [21] - everyone throws a fan of five crowbars that vanish on impact
+    - "randomammo" [23] - everyone gets the same random ammo pickup
+    - "randomitem" [24] - everyone gets the same random item (health kit, battery or long jump)
+    - "randomrune" [25] - everyone gets the same random rune, replacing the one they held
+    - "randomweapon" [26] - everyone gets the same random weapon
+    - "remove func_*" [27] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "robinhood" [28] - the top fragger is disarmed and last place gets their guns
+    - "roulette" [29] - everyone gets a different random weapon
+    - "runeburst" [30] - everyone holding a rune drops it at once
+    - "runeshuffle" [31] - held runes rotate to the next rune holder
+    - "unarm" [35] - everyone is stripped down to their fists
+    - "wrenchvolley" [36] - everyone throws a fan of five wrenches that vanish on impact
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
     - Added "sv_addinstantmutator [index]" to apply any instant mutator on demand; every index is listed in server_commands.txt
