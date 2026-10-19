@@ -2,7 +2,8 @@
 
 Cold Ice Remastered's *mutators* are gameplay modifiers that layer on top of the
 active game mode. They can be enabled manually (`sv_addmutator`), rotated on a
-timer (Chaos Mode), sprayed randomly as one-shot effects (Instant Mutators), or
+timer (Chaos Mode), sprayed randomly as one-shot effects (Instant Mutators,
+which operators can also fire by index with `sv_addinstantmutator`), or
 selected democratically at intermission (Mutator Vote). Effects range from
 purely visual (client-only HUD/render tweaks) to gameplay-critical (per-player
 weapons, movement physics, respawn behaviour), so the system straddles the
@@ -16,6 +17,9 @@ below).
 
 - Added `xray` (`MUTATOR_XRAY = 117`) in alphabetical ID order after `waterhurt`; no existing ID shifts. Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..117`, with `MAX_MUTATORS_CL = 118` including trailing `RANDOM`. `hud.txt` declaration count is now 365 (`xray` reuses the `invisible` icon rect). The grave_bot `const.h` gained the define; no bot rebuild is needed because nothing was renumbered.
 - While active, every client recreates the GoldenEye 007 GameShark see-through geometry code: walls, floors, ceilings and brush entities near the player turn semi-transparent, with their edges kept almost solid, and show the rooms, players and items behind them over black void. The engine draws the view twice a frame (ref_params `nextView`): the second view clips the near world away with a user clip plane and forces `r_novis`, and the first view is blended back over it before the viewmodel. Client-only; blocked in Prop Hunt (see §3.31).
+- New server cvar `sv_addinstantmutator <index>` fires one instant mutator by its `instant_mutator_e` value (`0..33`) on the next 1 Hz `MutatorsThink` tick, then clears itself. `AddInstantMutator` now takes `int index = -1` (`-1` or out of range = random roll, unchanged for the cadence and the vote). A forced instant skips the `gmsgChaos` bar refresh, refuses `allguns` (5) in multiplayer instead of re-rolling, and ignores `sv_instantmutators`. `-1` is the silent "none" value of the new `settings.scr` LIST; anything else outside the range logs `Instant mutator "<value>" is unknown, use an index from 0 to 33.` Instant indices are now operator-facing: `server_commands.txt` lists all of them under `sv_addinstantmutator`, `readme.txt` tags the v1.2 instants with theirs, and `settings.scr` has the LIST (localized `#Ice_AddInstantMutator`). See §3.3.
+- Doc fix: the §2 cvar table listed `sv_instantmutators` with default `"1"`; the code default is `"0"` (`server.cfg` / `listenserver.cfg` set `1`).
+- Instant mutators are renumbered into alphabetical order of their operator-facing names (`+1 health` = 0 .. `unarm` = 33), and that is now the rule: a new instant is inserted at its alphabetical place and every later value shifts, the same as `MUTATOR_*` IDs (§3.3 has the sort rule and the add-an-instant steps). Old -> new: 0->16, 1->0, 2->31, 3->2, 4->1, 5->3, 6->15, 7->30, 8->11, 9->20, 10->32, 11->19, 12->18, 13->13, 14->10, 15->4, 16->6, 17->25, 18->33, 19->24, 20->5, 21->22, 22->23, 23->7, 24->9, 25->27, 26->28, 27->26, 28->21, 29->12, 30->14, 31->8, 32->17, 33->29. Instant numbers in §0.2-§0.4 and in server logs from before this change use the old values. The `AddInstantMutator` switch cases were reordered to match the enum.
 
 ## 0.1 Earlier delta (2026-10-17)
 
@@ -141,11 +145,13 @@ below).
   `CWorldRunes::ClearRune` / `GiveRune` used by the `randomrune` instant
   mutator and the JvS Jesus cloak (§3.3.4).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
-  definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_instantmutators`,
-  `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`) and registration.
+  definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_addinstantmutator`,
+  `sv_instantmutators`, `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`)
+  and registration.
 - [workspace/redist/server_commands.txt](workspace/redist/server_commands.txt)
   — admin-facing mutator list and descriptions under `sv_addmutator`; keep
-  entries alphabetically ordered.
+  entries alphabetically ordered. Every instant mutator is listed in index
+  order with its index under `sv_addinstantmutator`.
 - [workspace/src/dlls/multiplay_gamerules.cpp](workspace/src/dlls/multiplay_gamerules.cpp#L307-L1483) —
   `RandomizeMutator`, `VoteForMutator`, `CheckMutatorRTV`, mutator-vote arm of
   intermission voting state machine, `GoToIntermission()` pause call,
@@ -275,7 +281,8 @@ break the read loop; `254` is a "clear all" signal (see §4).
 | Cvar | Default | Purpose |
 |---|---|---|
 | `sv_addmutator` | `""` | Set by admins / vote / round-transition to enqueue a mutator addition. Consumed by `MutatorsThink`. Supports names, numeric IDs, `chaos`, `unchaos`, `clear`, `three`, and an optional trailing duration (`"name 0"` = permanent). |
-| `sv_instantmutators` | `"1"` | Enables one-shot Instant Mutators on the chaos cadence. |
+| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..33`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
+| `sv_instantmutators` | `"0"` | Enables one-shot Instant Mutators on the chaos cadence. `server.cfg` / `listenserver.cfg` set it to `1`. |
 | `sv_mutatorlist` | `""` | Semi-colon delimited "next up" list. Consumed by `MutatorsThink`: pops the first entry into `sv_addmutator` each tick until empty. Set by the vote tally and by admin. |
 | `sv_mutatorcount` | `"3"` | Number of *simultaneously active* mutators Chaos Mode targets. Clamped `[0, 7]`. |
 | `sv_mutatortime` | `"30"` | Base TTL in seconds for chaos-picked mutators and default `sv_addmutator` duration. Clamped `[10, 120]`. |
@@ -331,19 +338,25 @@ Called once per server frame from `CHalfLifeMultiplay::Think()`. Structure
      - Bumps `m_flDetectedMutatorChange = gpGlobals->time + 1.0`.
     - If no table entry matches, prints an explicit unknown-mutator warning to the server console and applies nothing.
    - Regardless of outcome, clears `sv_addmutator` at end.
-5. **Expire old mutators.** Walks `m_Mutators`; nodes whose `timeToLive` has
+5. **Process `sv_addinstantmutator`.** A whole-string integer in
+   `0..INSTANT_MUTATOR_COUNT - 1` calls `AddInstantMutator(index)`; `-1` is
+   dropped silently; anything else logs
+   `Instant mutator "<value>" is unknown, use an index from 0 to <n>.` The
+   cvar is cleared either way. Because of the pause guard, a value set
+   between rounds waits for `RestoreMutators()`.
+6. **Expire old mutators.** Walks `m_Mutators`; nodes whose `timeToLive` has
    passed (and isn't `-1`) are unlinked, logged, and **`delete`d**. `count`
    tracks live nodes. `szMutators` is rebuilt as a `"id;id;id;"` string.
-6. **Mirror to `gpGlobals->startspot`** (used by legacy checks). Only
+7. **Mirror to `gpGlobals->startspot`** (used by legacy checks). Only
    `ALLOC_STRING`s when the mirror value actually changed (fixes engine
    string-pool bloat).
-7. **Chaos cadence.** If `m_flChaosMutatorTime > 0` and expired *and*
+8. **Chaos cadence.** If `m_flChaosMutatorTime > 0` and expired *and*
    `count < mutatorcount.value` (clamped), advances the timer and calls
    `AddRandomMutator("sv_addmutator", TRUE)` — the trailing `TRUE` also emits
    a `gmsgChaos` bar refresh.
-8. **Instants cadence.** If `sv_instantmutators != 0`, tick
+9. **Instants cadence.** If `sv_instantmutators != 0`, tick
    `m_flInstantMutatorTime` and call `AddInstantMutator()` at each expiry.
-9. **Apply detected change.** If `m_flDetectedMutatorChange > 0` and expired
+10. **Apply detected change.** If `m_flDetectedMutatorChange > 0` and expired
    (see §3.5), reruns `EnvMutators()` and per-player fix-ups.
 
 ### 3.2 `AddRandomMutator(const char *cvarName, BOOL withBar, BOOL three)`
@@ -359,56 +372,118 @@ When `withBar` is true it also fires `gmsgChaos(mutatorTime)` so the client bar
 resets. That is the *only* place the chaos-bar increment is broadcast during
 the periodic cadence.
 
-### 3.3 `AddInstantMutator()`
-Rolls `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` over the file-local
-`instant_mutator_e` enum in `gamerules.cpp` and applies a one-shot effect to
-every live, non-observer, non-disconnected player. Each `case` uses the enum
-name; the numeric value is what the server log prints
-(`Instant mutator "<n>" enabled`). To add one, append an `INSTANT_*` entry
-with the next explicit value just before `INSTANT_MUTATOR_COUNT` (the roll
-range follows automatically), add its `case`, and run the mode review in
-§9 step 6: instants have no `MutatorAllowed` path of their own, so every
-mode restriction has to be a gate inside the instant. Single-player-only instants
-are re-rolled while `IsMultiplayer()` (today only `INSTANT_ALL_GUNS`, see
-§3.3.4):
-- 0 `INSTANT_NOTHING`: no-op announcement.
-- 1 `INSTANT_PLUS_1_HEALTH`: `+1` HP (clamped to max_health).
-- 2 `INSTANT_SWAP_HEALTH_ARMOR`: swap HP ↔ armour (skips god-mode players).
-- 3 `INSTANT_PLUS_100_HEALTH`: `+100` HP.
-- 4 `INSTANT_PLUS_100_ARMOR`: `+100` armour.
-- 5 `INSTANT_1_HEALTH`: HP → 1 (skips god-mode).
-- 6 `INSTANT_NICE`: HP=armour=69 ("Nice!").
-- 7 `INSTANT_SIX_SEVEN`: HP=armour=67 ("Six, seeeeven!").
-- 8 `INSTANT_HOT_POTATO`: spawns a live timed `CGrenade` in front of each player.
-- 9 `INSTANT_RANDOM_DAMAGE`: `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
-- 10 `INSTANT_TRIPMINE`: places a `monster_tripmine` if a valid surface is in front of the player.
-- 11 `INSTANT_PET_SNARK`: spawns a friendly `monster_snark` in front of each player.
-- 12 `INSTANT_PET_CHUMTOAD`: spawns a `monster_chumtoad` — but only if the current mode allows
-  `MUTATOR_CHUMXPLODE` (this gate is checked once at the top of the case; if it
-  fails, the entire case is skipped).
-- 13 `INSTANT_HUMAN_ASSASSIN`: spawns a `monster_human_assassin` in front of the player.
-- 14 `INSTANT_EXTRA_AMMO`: grants a current-weapon ammo bonus to each eligible player
-  when the equipped weapon has a valid primary ammo type.
-- 15 `INSTANT_ACCEPT_ALL_COOKIES`: opens the cookie consent wall on each eligible
-  human player (see §3.3.1).
-- 16 `INSTANT_BSOD`: opens the blue screen of death on each eligible human
-  player (see §3.3.2).
-- 17 `INSTANT_REMOVE_FUNC`: removes every entity of one random `func_*` class
-  present on the map until the next map change (see §3.3.3).
-- 18 `INSTANT_UNARM` .. 33 `INSTANT_RUNE_SHUFFLE`: weapon / item / rune / ammo
-  instants (see §3.3.4).
+### 3.3 `AddInstantMutator(int index = -1)`
+With the default `-1` (or any value outside `0..INSTANT_MUTATOR_COUNT - 1`)
+it rolls `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` over the file-local
+`instant_mutator_e` enum in `gamerules.cpp`; a valid `index` (from
+`sv_addinstantmutator`, §3.1 step 5) skips the roll. Either way it applies a
+one-shot effect to every live, non-observer, non-disconnected player. Each
+`case` uses the enum name; the numeric value is what the server log prints
+(`Instant mutator "<n>" enabled`) and what operators type into
+`sv_addinstantmutator`.
+
+**Ordering rule (owner decision, 2026-10-18).** `instant_mutator_e` values
+follow the alphabetical order of each instant's operator-facing name: the
+name listed under `sv_addinstantmutator` in `server_commands.txt` and in the
+trailing comment on its enum line. The sort is ASCII (ordinal): `+` and
+digits come before letters and a space comes before any letter, so
+`+1 health` < `+100 armor` < `1 health` < `accept all cookies`,
+`hot potato` < `hotfingers` and `random damage` < `randomammo`. Like
+`MUTATOR_*` IDs, the numbers only have to agree within one release: a new
+instant shifts every later value by one, and that is intended. Never append
+a new instant at the end to keep the old numbers.
+
+To add one:
+1. Pick its operator-facing name (lowercase, usually the chat announcement)
+   and find its alphabetical place among the names below.
+2. Insert its `INSTANT_*` entry there in `instant_mutator_e` with that value
+   and a trailing `// <name>` comment, and add 1 to every later value. The
+   roll range follows `INSTANT_MUTATOR_COUNT` automatically.
+3. Add its `case` to the `AddInstantMutator` switch at the same position:
+   the cases follow `instant_mutator_e` order too (case before it = the
+   instant one value lower).
+4. Renumber every list in the same change: the `sv_addinstantmutator` list
+   in `workspace/redist/server_commands.txt` and the `sv_addinstantmutator`
+   LIST in `workspace/redist/settings.scr` (both in index order), the
+   `"allguns" (n)` note under `sv_instantmutators` in `server_commands.txt`,
+   every `[index]` in the `workspace/redist/readme.txt` New Instant Mutators
+   list (and add the new one there with its index), the index list below,
+   the numbers in §3.3.1-§3.3.4 and §5.3, and the cookie wall / BSOD
+   entries in `vgui_system.md`.
+5. Update the `0..<n>` range in the §2 cvar table.
+6. Run the mode review in §9 step 6: instants have no `MutatorAllowed` path
+   of their own, so every mode restriction has to be a gate inside the
+   instant.
+
+Single-player-only instants are re-rolled while `IsMultiplayer()` (today
+only `INSTANT_ALL_GUNS`, see §3.3.4); a forced single-player-only index is
+refused in multiplayer with
+`Instant mutator "<n>" (allguns) is single player only.` and nothing runs
+(no announcement, chicken or log line):
+- 0 `INSTANT_PLUS_1_HEALTH` (`+1 health`): `+1` HP (clamped to max_health).
+- 1 `INSTANT_PLUS_100_ARMOR` (`+100 armor`): `+100` armour.
+- 2 `INSTANT_PLUS_100_HEALTH` (`+100 health`): `+100` HP.
+- 3 `INSTANT_1_HEALTH` (`1 health`): HP → 1 (skips god-mode).
+- 4 `INSTANT_ACCEPT_ALL_COOKIES` (`accept all cookies`): opens the cookie
+  consent wall on each eligible human player (see §3.3.1).
+- 5 `INSTANT_ALL_GUNS` (`allguns`): single player only (see §3.3.4).
+- 6 `INSTANT_BSOD` (`bsod`): opens the blue screen of death on each eligible
+  human player (see §3.3.2).
+- 7 `INSTANT_BUTTERFINGERS` (`butterfingers`): see §3.3.4.
+- 8 `INSTANT_DRY_FIRE` (`dryfire`): see §3.3.4.
+- 9 `INSTANT_DUAL_WIELD` (`dualwield`): see §3.3.4.
+- 10 `INSTANT_EXTRA_AMMO` (`extra ammo`): grants a current-weapon ammo bonus
+  to each eligible player when the equipped weapon has a valid primary ammo
+  type.
+- 11 `INSTANT_HOT_POTATO` (`hot potato`): spawns a live timed `CGrenade` in
+  front of each player.
+- 12 `INSTANT_HOTFINGERS` (`hotfingers`): see §3.3.4.
+- 13 `INSTANT_HUMAN_ASSASSIN` (`human assassin`): spawns a
+  `monster_human_assassin` in front of the player.
+- 14 `INSTANT_MAX_AMMO` (`maxammo`): see §3.3.4.
+- 15 `INSTANT_NICE` (`nice`): HP=armour=69 ("Nice!").
+- 16 `INSTANT_NOTHING` (`nothing`): no-op announcement.
+- 17 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
+- 18 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
+  but only if the current mode allows `MUTATOR_CHUMXPLODE` (this gate is
+  checked once at the top of the case; if it fails, the entire case is
+  skipped).
+- 19 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
+  front of each player.
+- 20 `INSTANT_RANDOM_DAMAGE` (`random damage`):
+  `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
+- 21 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
+- 22 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
+- 23 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
+- 24 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
+- 25 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
+  random `func_*` class present on the map until the next map change (see
+  §3.3.3).
+- 26 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
+- 27 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
+- 28 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
+- 29 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
+- 30 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
+- 31 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
+  (skips god-mode players).
+- 32 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
+  surface is in front of the player.
+- 33 `INSTANT_UNARM` (`unarm`): see §3.3.4.
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
 cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
-do, see §3.3.1 / §3.3.2) and a
+do, see §3.3.1 / §3.3.2). Rolled instants (cadence and vote) also send a
 `gmsgChaos(mutatorTime)` refresh (so the chaos-bar animates even in "instant
-only" configurations).
+only" configurations). Forced instants skip it: they do not move
+`m_flInstantMutatorTime`, and a bar (with its FVox countdown) would announce
+a tick that never comes when chaos and the cadence are off.
 
 ### 3.3.1 `Accept All Cookies` cookie wall
 A gag instant mutator that interrupts play with a fake cookie consent dialog.
 It is not a `MUTATOR_*` entry: it cannot be added with `sv_addmutator`, voted,
 or filtered per mode, and is only reached through the random roll above (or
-through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`).
+through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`),
+or on demand with `sv_addinstantmutator 4`.
 
 - **Server (`gamerules.cpp`, `INSTANT_ACCEPT_ALL_COOKIES`).** For each player that is alive, not
   `IsSpectator()`, not `IsObserver()`, not `HasDisconnected` and not
@@ -454,7 +529,8 @@ through the `INSTANT MUTATORS` vote winner, which calls `AddInstantMutator()`).
 ### 3.3.2 `bsod` blue screen of death
 A gag instant mutator that throws a fake system crash over the player's view.
 Like §3.3.1 it has no `MUTATOR_*` entry and is only reached through the random
-instant roll (or the `INSTANT MUTATORS` vote winner).
+instant roll (or the `INSTANT MUTATORS` vote winner), or with
+`sv_addinstantmutator 6`.
 
 - **Server (`gamerules.cpp`, `INSTANT_BSOD`).** Same eligibility as the cookie
   wall (alive, not `IsSpectator()`, not `IsObserver()`, not
@@ -496,7 +572,7 @@ instant roll (or the `INSTANT MUTATORS` vote winner).
 A server-only instant mutator that deletes one kind of map brush entity for
 the rest of the map. Like §3.3.1 it has no `MUTATOR_*` entry and is only
 reached through the random instant roll (or the `INSTANT MUTATORS` vote
-winner).
+winner), or with `sv_addinstantmutator 25`.
 
 - **Keyed list.** `g_RemovableFuncClasses[]` in `gamerules.cpp` lists every
   `func_*` classname the server DLL links (34, alphabetical), taken from the
@@ -579,66 +655,28 @@ re-rolling.
   loop. `GiveNamedItem` still applies per-player rules (`CanHaveNamedItem`,
   `CanHavePlayerItem`), so props, dealters, skeletons and the CtC carrier
   simply get nothing.
-- 18 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
-  Busters, Instagib, Loot and Snowball, where the loadout is the mode).
-  Elsewhere `UnarmPlayer()` runs `RemoveAllItems(FALSE)` (keeps the suit,
-  clears ammo) then gives `weapon_fists`. The Capture the Chumtoad carrier
-  (`m_iHoldingChumtoad`) is skipped and keeps everything, including the
-  chumtoad. Mode weapons outside the gate are not given back until respawn
-  (KtS gravity gun, Prop Hunt hunter guns).
-- 19 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
-  `SelectItem`). Chat: `[Mutators] Random Weapon: <pszDisplayName>!`.
-- 20 **`allguns`** — **single player only.** `AddInstantMutator` re-rolls
+- 5 **`allguns`** — **single player only.** `AddInstantMutator` re-rolls
   while it lands on `INSTANT_ALL_GUNS` and `IsMultiplayer()` is true, so it
-  never fires (or announces) in multiplayer. Every owned weapon is a
+  never fires (or announces) in multiplayer, and `sv_addinstantmutator 5`
+  is refused there with a console message. Every owned weapon is a
   persistent edict, and handing ~45 weapons to every player in one frame can
   exhaust the edict pool (default 900) on a full server, which is a fatal
   `ED_Alloc: no free edicts`. In single player it gives every candidate
   weapon the player does not own yet, then `SelectItem` back to the weapon
   they were holding (pickups auto-switch by weight).
-- 21 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
-  `item_healthkit`, `item_longjump`) that `CanHaveNamedItem` accepts for at
-  least one target, given with `GiveNamedItem`. A player who cannot use it
-  (full health or armor, already has long jump, `CanHaveItem` refusal) gets
-  nothing. Snowball and `dualsonly` refuse every non-weapon name, so it
-  reports nothing allowed there. Requires the `item_healthkit` precache in
-  `W_Precache`.
-- 22 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
-  rune in `g_InstantRunes[]` passes `AllowRuneSpawn` (single player, Prop
-  Hunt). Otherwise each target that does not already hold that rune gets
-  `ClearRune` + `GiveRune` (silent replace). JvS Jesus (`IsArmoredMan`) is
-  skipped.
-- 23 **`butterfingers`** — nothing allowed when `mp_weaponstay > 0` or no
+- 7 **`butterfingers`** — nothing allowed when `mp_weaponstay > 0` or no
   target passes `IsAllowedToDropWeapon`. Otherwise `DropPlayerItem("")`
   (weaponbox) for each target whose active item is not `ITEM_FLAG_NODROP`.
-- 24 **`dualwield`** — weapon gate; an active single weapon in
+- 8 **`dryfire`** — empties the clip (`m_iClip = 0`) of each target's
+  active weapon; reserve ammo is kept, so everyone has to reload. Weapons
+  without a clip (`iMaxClip() <= 0`: melee, grenades, egon, ...) and the nuke
+  are skipped. It also zeroes `m_iTripleBangShotsPending`, because a queued
+  `triplebang` shot restores the pre-burst clip. The client picks the empty
+  clip up through the normal weapon data / `CurWeapon` sync. No mode gate.
+- 9 **`dualwield`** — weapon gate; an active single weapon in
   `g_DualWieldPairs[]` gets its dual version (if `CanRandomizeWeapon`
   allows), which is selected. The single is kept (`impulse 205` swaps).
-- 25 **`roulette`** — weapon gate; each target rolls their own candidate,
-  preferring weapons they do not own yet. The weapon title HUD on deploy
-  shows what they got.
-- 26 **`runeburst`** — `DropRune` for every target holding a rune except
-  JvS Jesus.
-- 27 **`robinhood`** — weapon gate; needs two targets with different frags.
-  Highest and lowest `pev->frags` are picked (ties by reservoir sampling).
-  The rich player's non-withheld, `CanRandomizeWeapon` weapons are given to
-  the poor player, and the rich player is unarmed through `UnarmPlayer()`.
-  Chat names are passed as `UTIL_ClientPrintAll` parameters, never formatted
-  into the message. A Capture the Chumtoad carrier (`m_iHoldingChumtoad`) is
-  never picked as rich or poor: `UnarmPlayer()` would skip them (duplicating
-  their weapons) and `CanHaveNamedItem` refuses them everything.
-- 28 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
-  ammo type: `ammo_357`, `ammo_9mmAR`, `ammo_ARgrenades`, `ammo_buckshot`,
-  `ammo_crossbow`, `ammo_gaussclip`, `ammo_rpgclip`) that `CanHaveNamedItem`
-  accepts for at least one target, given to every target with
-  `GiveNamedItem`. Same no-spill rule as `randomitem`: `GiveAmmo` returns -1
-  when the player is already at max carry, the pickup fails and
-  `GiveNamedItem` removes the orphan entity; a partial top-up is clamped to
-  max carry. Mode refusals (`CanHavePlayerAmmo`: Busters buster, Chilldemic
-  virus, CtC carrier, Prop Hunt props) get nothing. Snowball, `dualsonly`
-  and Instagib refuse every ammo name, so it reports nothing allowed there.
-  Chat: `[Mutators] Random Ammo: <name>!`.
-- 29 **`hotfingers`** — `butterfingers`, but each active weapon goes
+- 12 **`hotfingers`** — `butterfingers`, but each active weapon goes
   through `CBasePlayerWeapon::ThrowWeapon(TRUE)` (the impulse 216 weapon
   throw): a `monster_throwweapon` showing the weapon is launched forward and
   detonates after 2 s as `CGrenade::Vest(thrower, origin, plrDmgVest / 2)`,
@@ -649,18 +687,12 @@ re-rolling.
   explosive before `DropPlayerItem`, which would refuse them and duplicate the
   weapon. `ThrowWeapon`'s own guards still apply (fists/fingergun/vice,
   offhand cooldown, force grab).
-- 30 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
+- 14 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
   tops primary and secondary reserve ammo up to `iMaxAmmo1/2` with
   `GiveAmmo` (HUD pickup notice). Weapons without ammo are skipped, as are
   the nuke and, in Capture the Chumtoad, the chumtoad (extra chumtoads would
   add charms). Clips are not touched.
-- 31 **`dryfire`** — empties the clip (`m_iClip = 0`) of each target's
-  active weapon; reserve ammo is kept, so everyone has to reload. Weapons
-  without a clip (`iMaxClip() <= 0`: melee, grenades, egon, ...) and the nuke
-  are skipped. It also zeroes `m_iTripleBangShotsPending`, because a queued
-  `triplebang` shot restores the pre-burst clip. The client picks the empty
-  clip up through the normal weapon data / `CurWeapon` sync. No mode gate.
-- 32 **`passitleft`** — weapon gate; needs two targets. Targets form a
+- 17 **`passitleft`** — weapon gate; needs two targets. Targets form a
   ring in player-index order and each passes their active weapon to the
   next one. Every pass is decided before any inventory changes: the weapon
   must be able to holster, not be withheld, pass `CanRandomizeWeapon`, and
@@ -668,10 +700,55 @@ re-rolling.
   Then all givers `RemoveNamedItem` and all receivers `GiveNamedItem` +
   `SelectItem`. Reserve ammo stays with the giver; the receiver gets the
   default clip (or extra ammo if they already own that weapon).
-- 33 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
+- 21 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
+  ammo type: `ammo_357`, `ammo_9mmAR`, `ammo_ARgrenades`, `ammo_buckshot`,
+  `ammo_crossbow`, `ammo_gaussclip`, `ammo_rpgclip`) that `CanHaveNamedItem`
+  accepts for at least one target, given to every target with
+  `GiveNamedItem`. Same no-spill rule as `randomitem`: `GiveAmmo` returns -1
+  when the player is already at max carry, the pickup fails and
+  `GiveNamedItem` removes the orphan entity; a partial top-up is clamped to
+  max carry. Mode refusals (`CanHavePlayerAmmo`: Busters buster, Chilldemic
+  virus, CtC carrier, Prop Hunt props) get nothing. Snowball, `dualsonly`
+  and Instagib refuse every ammo name, so it reports nothing allowed there.
+  Chat: `[Mutators] Random Ammo: <name>!`.
+- 22 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
+  `item_healthkit`, `item_longjump`) that `CanHaveNamedItem` accepts for at
+  least one target, given with `GiveNamedItem`. A player who cannot use it
+  (full health or armor, already has long jump, `CanHaveItem` refusal) gets
+  nothing. Snowball and `dualsonly` refuse every non-weapon name, so it
+  reports nothing allowed there. Requires the `item_healthkit` precache in
+  `W_Precache`.
+- 23 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
+  rune in `g_InstantRunes[]` passes `AllowRuneSpawn` (single player, Prop
+  Hunt). Otherwise each target that does not already hold that rune gets
+  `ClearRune` + `GiveRune` (silent replace). JvS Jesus (`IsArmoredMan`) is
+  skipped.
+- 24 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
+  `SelectItem`). Chat: `[Mutators] Random Weapon: <pszDisplayName>!`.
+- 26 **`robinhood`** — weapon gate; needs two targets with different frags.
+  Highest and lowest `pev->frags` are picked (ties by reservoir sampling).
+  The rich player's non-withheld, `CanRandomizeWeapon` weapons are given to
+  the poor player, and the rich player is unarmed through `UnarmPlayer()`.
+  Chat names are passed as `UTIL_ClientPrintAll` parameters, never formatted
+  into the message. A Capture the Chumtoad carrier (`m_iHoldingChumtoad`) is
+  never picked as rich or poor: `UnarmPlayer()` would skip them (duplicating
+  their weapons) and `CanHaveNamedItem` refuses them everything.
+- 27 **`roulette`** — weapon gate; each target rolls their own candidate,
+  preferring weapons they do not own yet. The weapon title HUD on deploy
+  shows what they got.
+- 28 **`runeburst`** — `DropRune` for every target holding a rune except
+  JvS Jesus.
+- 29 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
   holder is `ClearRune`d first (`GiveRune` refuses players still holding a
   rune), then each rune goes to the next holder in player-index order via
   `GiveRune`. No `AllowRuneSpawn` check: the runes already exist this round.
+- 33 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
+  Busters, Instagib, Loot and Snowball, where the loadout is the mode).
+  Elsewhere `UnarmPlayer()` runs `RemoveAllItems(FALSE)` (keeps the suit,
+  clears ammo) then gives `weapon_fists`. The Capture the Chumtoad carrier
+  (`m_iHoldingChumtoad`) is skipped and keeps everything, including the
+  chumtoad. Mode weapons outside the gate are not given back until respawn
+  (KtS gravity gun, Prop Hunt hunter guns).
 - **Runes.** `GiveNamedItem("rune_*")` silently fails (`RuneTouch` needs
   `FL_ONGROUND`), so `GiveRune` creates the rune, grounds it and calls
   `Touch`. See [runes.md §4.1](runes.md#41-granting-a-rune-directly).
@@ -1884,9 +1961,10 @@ Where each mutator lands on the client:
   GameStudioModelRenderer.cpp):** `XRAY` renders the view twice a frame, the
   second time with the near world clipped away, and blends the first view
   back over it before the viewmodel (§3.31).
-- **Cookie wall (vgui_CookiesWindow.cpp):** instant mutator 15 opens the
+- **Cookie wall (vgui_CookiesWindow.cpp):** instant mutator 4
+  (`accept all cookies`) opens the
   `CCookiesPanel` VGUI menu from `gmsgCookies` (§3.3.1).
-- **Blue screen (vgui_BSODWindow.cpp):** instant mutator 16 opens the
+- **Blue screen (vgui_BSODWindow.cpp):** instant mutator 6 (`bsod`) opens the
   `CBSODPanel` VGUI menu from `gmsgBSOD` and plays `bsod.wav` (§3.3.2).
 - **StudioModelRenderer.cpp (per-bone):** `BIGHEAD` (scale head/arm bones 3x),
   `MINIME` (0.5x whole skeleton + -8 z), `PAPER` (Y-axis to 10 %), `CRATE`
@@ -2255,7 +2333,9 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
      (`CanHaveNamedItem`, `CanHavePlayerItem`, `CanHavePlayerAmmo`,
      `IsAllowedToDropWeapon`, `AllowRuneSpawn`), re-roll single-player-only
      instants under `IsMultiplayer()`, and print `[Mutators] <Name>: nothing
-     allowed here!` when a mode refuses it.
+     allowed here!` when a mode refuses it. Also insert it at its
+     alphabetical place in `instant_mutator_e` and renumber every later
+     instant and every index list (§3.3).
    - **Record the result** in the mutator's own section as a **Mode
      filters** line: what is blocked where and why, or "none; all filter
      sites reviewed <date>" with the reasoning for the risky modes. When a
@@ -2387,6 +2467,16 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   runes must go through `CWorldRunes::GiveRune`, not `GiveNamedItem`
   (§3.3.4). Mode-owned runes (JvS Jesus) must be skipped by instants that
   replace or drop runes.
+- **Instant indices are alphabetical.** `instant_mutator_e` values follow
+  the ASCII order of the instants' operator-facing names (§3.3), the same
+  policy as `MUTATOR_*` IDs. A new instant is inserted at its alphabetical
+  place, with its `case` at the same position in the `AddInstantMutator`
+  switch, and every later value shifts by one; never append it at the end to
+  keep the old numbers. Renumber every list in the same change:
+  `server_commands.txt` (list + the `allguns` note), `settings.scr`,
+  `readme.txt`, this doc (§3.3 list, §3.3.1-§3.3.4, §5.3) and
+  `vgui_system.md`. Operator configs that use `sv_addinstantmutator <n>` must
+  be rechecked after an update.
 - **Removing owned weapons.** `RemovePlayerItem` unlinks the weapon and
   clears `m_pLastItem` and `m_pLastRef` (holster-mode last weapon), so
   callers can `Kill()` it without `SelectLastItem` later promoting a freed
