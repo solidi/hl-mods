@@ -85,6 +85,47 @@ Server commands:
 - "mp_startwithlives" - Sets the starting lives during last man standing
 - "mp_voting [time]" - enable or disable end of the map voting with timer
 - "sv_acrobatics [0|1]" - allow or disallow wall climbing, slides, and flips
+- "sv_addinstantmutator [index]" - Apply one instant mutator right away, picked by its index below
+    - Example: sv_addinstantmutator 6 shows everyone the blue screen of death
+    - Applied on the next mutator tick (within a second); between rounds of round-based modes it waits for the next round
+    - Works whether "sv_instantmutators" is on or off, and does not reset the instant mutator timer
+    - Each instant mutator keeps its game mode rules, so some report "nothing allowed here!" in modes that block them
+    - Indices outside the list print a warning in the server console
+    - Indices follow the alphabetical order of the names below, so a new instant mutator shifts every index after it; recheck configs that use indices after an update
+    - "0" - +1 health: everyone gains 1 health
+    - "1" - +100 armor: everyone gains 100 armor, up to the max
+    - "2" - +100 health: everyone gains 100 health, up to max health
+    - "3" - 1 health: everyone drops to 1 health
+    - "4" - accept all cookies: a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
+    - "5" - allguns: you get every weapon the game allows (single player only; refused on multiplayer servers)
+    - "6" - bsod: a blue screen of death takes over the screen until you click "Failed Successfully"
+    - "7" - butterfingers: everyone drops the weapon in their hands
+    - "8" - dryfire: everyone's clip is emptied, time to reload
+    - "9" - dualwield: the weapon in your hands gets its dual version
+    - "10" - extra ammo: everyone gets extra ammo for their current weapon
+    - "11" - hot potato: a live grenade drops in front of everyone
+    - "12" - hotfingers: everyone throws the weapon in their hands as a live explosive
+    - "13" - human assassin: a human assassin appears in front of everyone
+    - "14" - maxammo: your current weapon's ammo is filled to the max
+    - "15" - nice: everyone is set to 69 health and 69 armor
+    - "16" - nothing: nothing happens
+    - "17" - passitleft: everyone hands the weapon in their hands to the next player
+    - "18" - pet chumtoad: a chumtoad is tossed out in front of everyone (not in modes that block "chumxplode")
+    - "19" - pet snark: a snark is tossed out in front of everyone
+    - "20" - random damage: everyone takes 10 to 20 damage
+    - "21" - randomammo: everyone gets the same random ammo pickup
+    - "22" - randomitem: everyone gets the same random item (health kit, battery or long jump)
+    - "23" - randomrune: everyone gets the same random rune, replacing the one they held
+    - "24" - randomweapon: everyone gets the same random weapon
+    - "25" - remove func_*: one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "26" - robinhood: the top fragger is disarmed and last place gets their guns
+    - "27" - roulette: everyone gets a different random weapon
+    - "28" - runeburst: everyone holding a rune drops it at once
+    - "29" - runeshuffle: held runes rotate to the next rune holder
+    - "30" - six seven: everyone is set to 67 health and 67 armor
+    - "31" - swap health and armor: health and armor trade places
+    - "32" - tripmine: a tripmine is planted on the floor in front of everyone
+    - "33" - unarm: everyone is stripped down to their fists
 - "sv_addmutator" - Add mutators to gameplay.
     - Specify the duration in seconds inside the quotes after the mutator name
         - Example: sv_addmutator "longjump" sets the duration to whatever sv_mutatortime is (in seconds)
@@ -218,7 +259,8 @@ Server commands:
     - "1" - makes the weapon clip infinite
     - "2" - makes the weapon have infinite ammo for reloading
 - "sv_instantmutators [0|1]" - Enable or disable instant mutators
-    - "allguns" only rolls in single player; multiplayer servers never get it
+    - See "sv_addinstantmutator" for the list of instant mutators and their indices
+    - "allguns" (5) only rolls in single player; multiplayer servers never get it
 - "sv_jumpheight 45" - Adjust the player's jump height
 - "sv_mutatorcount [3 (0-7)]" - how many mutators are rotated during chaos mode
 - "sv_mutatorlist" - semicolon separated list of mutators that are added in sequence

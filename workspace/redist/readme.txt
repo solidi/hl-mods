@@ -43,28 +43,30 @@ v1.2 Features:
     - "vvvvvv" - jump flips your gravity, walk on the ceiling upside down and jump again to fall back to the floor
     - "waterhurt" - touch water and explode
     - "xray" - classic 007 GameShark see-through mode, nearby walls, floors and ceilings turn semi-transparent and reveal what is behind them
-- New Instant Mutators
-    - "accept all cookies" - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
-    - "allguns" - you get every weapon the game allows (single player only)
-    - "bsod" - a blue screen of death takes over the screen until you click "Failed Successfully"
-    - "butterfingers" - everyone drops the weapon in their hands
-    - "dryfire" - everyone's clip is emptied, time to reload
-    - "dualwield" - the weapon in your hands gets its dual version
-    - "hotfingers" - everyone throws the weapon in their hands as a live explosive
-    - "maxammo" - your current weapon's ammo is filled to the max
-    - "passitleft" - everyone hands the weapon in their hands to the next player
-    - "randomammo" - everyone gets the same random ammo pickup
-    - "randomitem" - everyone gets the same random item (health kit, battery or long jump)
-    - "randomrune" - everyone gets the same random rune, replacing the one they held
-    - "randomweapon" - everyone gets the same random weapon
-    - "remove func_*" - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
-    - "robinhood" - the top fragger is disarmed and last place gets their guns
-    - "roulette" - everyone gets a different random weapon
-    - "runeburst" - everyone holding a rune drops it at once
-    - "runeshuffle" - held runes rotate to the next rune holder
-    - "unarm" - everyone is stripped down to their fists
+- New Instant Mutators (index in brackets, for sv_addinstantmutator)
+    - "accept all cookies" [4] - a cookie consent wall interrupts play; accept to keep playing, reject to be disconnected
+    - "allguns" [5] - you get every weapon the game allows (single player only)
+    - "bsod" [6] - a blue screen of death takes over the screen until you click "Failed Successfully"
+    - "butterfingers" [7] - everyone drops the weapon in their hands
+    - "dryfire" [8] - everyone's clip is emptied, time to reload
+    - "dualwield" [9] - the weapon in your hands gets its dual version
+    - "hotfingers" [12] - everyone throws the weapon in their hands as a live explosive
+    - "maxammo" [14] - your current weapon's ammo is filled to the max
+    - "passitleft" [17] - everyone hands the weapon in their hands to the next player
+    - "randomammo" [21] - everyone gets the same random ammo pickup
+    - "randomitem" [22] - everyone gets the same random item (health kit, battery or long jump)
+    - "randomrune" [23] - everyone gets the same random rune, replacing the one they held
+    - "randomweapon" [24] - everyone gets the same random weapon
+    - "remove func_*" [25] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "robinhood" [26] - the top fragger is disarmed and last place gets their guns
+    - "roulette" [27] - everyone gets a different random weapon
+    - "runeburst" [28] - everyone holding a rune drops it at once
+    - "runeshuffle" [29] - held runes rotate to the next rune holder
+    - "unarm" [33] - everyone is stripped down to their fists
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
+    - Added "sv_addinstantmutator [index]" to apply any instant mutator on demand; every index is listed in server_commands.txt
+    - Instant mutators are now numbered in alphabetical order
 - Gamemode Patches
     - Added scrum lockup detection in Kick the Snowball
     - Jesus now receives the cloak rune in Jesus vs Santa
