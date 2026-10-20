@@ -265,6 +265,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Counter-Strike penguin
 1. Weapons Mechanics
     1. [ ] Grenades and explosions ring the ears.
+    1. [ ] Blur effect when dying
     1. [ ] [Three-burst shot for all ammo weapons](https://www.youtube.com/watch?v=klvKykzzMo4&t=50s)
     1. [ ] [Drop a forklift](https://www.youtube.com/watch?v=6MTjdllk1_E&t=450s) on players (third function, gravity gun)
     1. [ ] [Dio's Zawarudo](https://www.youtube.com/watch?v=6MTjdllk1_E&t=470s) on players
@@ -340,7 +341,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Bot support
     1. [ ] [Better bot support, actively developed](https://github.com/tschumann/sandbot)
     1. [ ] [Pull zbots out of Counter-Strike](https://github.com/s1lentq/ReGameDLL_CS/tree/master/regamedll/dlls/bot)
-    1. [ ] Bot support for hook
 1. Game Mechanics
     1. [ ] Combo meter for hits applied without taking damage
     1. [ ] Force grab toward charger heals?

@@ -15,6 +15,8 @@ below).
 
 ## 0. Recent delta (2026-10-19)
 
+- Added the `noarmor` **instant** mutator as `INSTANT_NO_ARMOR = 19` (alphabetically between `nice` and `nothing`); roll and `sv_addinstantmutator` range are now `0..41`. Old -> new: 19->20 .. 40->41; 0..18 are unchanged. Sets every target's armor to 0, skipping god-mode players and JvS Jesus (see §3.3.4). Server-only; no client, registry or asset change.
+
 - Added the `kaboom` **instant** mutator as `INSTANT_KABOOM = 15` (alphabetically after `human assassin`); roll and `sv_addinstantmutator` range are now `0..40`. Old -> new: 15->16 .. 39->40 (every value from `knifevolley` on shifts by one); 0..14 are unchanged. Every breakable `func_breakable` on the map breaks the way a trigger breaks it and explodes at once (see §3.3.7). Server-only; no client, registry or asset change.
 - Added three mine **instant** mutators at their alphabetical places: `INSTANT_DRUG_PARTY = 8` (`drugparty`), `INSTANT_NUKE_PARTY = 19` (`nukeparty`) and `INSTANT_PROX_PARTY = 24` (`proxparty`); roll and `sv_addinstantmutator` range are now `0..39`. Old -> new: 8->9, 9->10, 10->11, 11->12, 12->13, 13->14, 14->15, 15->16, 16->17, 17->18, 18->20, 19->21, 20->22, 21->23, 22->25, 23->26, 24->27, 25->28, 26->29, 27->30, 28->31, 29->32, 30->33, 31->34, 32->35, 33->36, 34->37, 35->38, 36->39; 0..7 are unchanged (cookies 4, allguns 5, bsod 6). Each eligible player gets a `monster_proxmine` (drug / nuclear / normal) dropped on the floor under them, owned by them. New `SF_PROXMINE_PARTY` makes the mine trigger on and hit its placer too, keep the placer's frag credit whoever sets it off, and disappear 10 s after arming if nobody did (see §3.3.6). Server-only; no client, registry or asset change.
 
@@ -297,7 +299,7 @@ break the read loop; `254` is a "clear all" signal (see §4).
 | Cvar | Default | Purpose |
 |---|---|---|
 | `sv_addmutator` | `""` | Set by admins / vote / round-transition to enqueue a mutator addition. Consumed by `MutatorsThink`. Supports names, numeric IDs, `chaos`, `unchaos`, `clear`, `three`, and an optional trailing duration (`"name 0"` = permanent). |
-| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..40`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
+| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..41`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
 | `sv_instantmutators` | `"0"` | Enables one-shot Instant Mutators on the chaos cadence. `server.cfg` / `listenserver.cfg` set it to `1`. |
 | `sv_mutatorlist` | `""` | Semi-colon delimited "next up" list. Consumed by `MutatorsThink`: pops the first entry into `sv_addmutator` each tick until empty. Set by the vote tally and by admin. |
 | `sv_mutatorcount` | `"3"` | Number of *simultaneously active* mutators Chaos Mode targets. Clamped `[0, 7]`. |
@@ -462,37 +464,38 @@ refused in multiplayer with
 - 16 `INSTANT_KNIFE_VOLLEY` (`knifevolley`): see §3.3.5.
 - 17 `INSTANT_MAX_AMMO` (`maxammo`): see §3.3.4.
 - 18 `INSTANT_NICE` (`nice`): HP=armour=69 ("Nice!").
-- 19 `INSTANT_NOTHING` (`nothing`): no-op announcement.
-- 20 `INSTANT_NUKE_PARTY` (`nukeparty`): see §3.3.6.
-- 21 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
-- 22 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
+- 19 `INSTANT_NO_ARMOR` (`noarmor`): see §3.3.4.
+- 20 `INSTANT_NOTHING` (`nothing`): no-op announcement.
+- 21 `INSTANT_NUKE_PARTY` (`nukeparty`): see §3.3.6.
+- 22 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
+- 23 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
   but only if the current mode allows `MUTATOR_CHUMXPLODE` (this gate is
   checked once at the top of the case; if it fails, the entire case is
   skipped).
-- 23 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
+- 24 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
   front of each player.
-- 24 `INSTANT_PIPE_VOLLEY` (`pipevolley`): see §3.3.5.
-- 25 `INSTANT_PROX_PARTY` (`proxparty`): see §3.3.6.
-- 26 `INSTANT_RANDOM_DAMAGE` (`random damage`):
+- 25 `INSTANT_PIPE_VOLLEY` (`pipevolley`): see §3.3.5.
+- 26 `INSTANT_PROX_PARTY` (`proxparty`): see §3.3.6.
+- 27 `INSTANT_RANDOM_DAMAGE` (`random damage`):
   `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
-- 27 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
-- 28 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
-- 29 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
-- 30 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
-- 31 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
+- 28 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
+- 29 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
+- 30 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
+- 31 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
+- 32 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
   random `func_*` class present on the map until the next map change (see
   §3.3.3).
-- 32 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
-- 33 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
-- 34 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
-- 35 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
-- 36 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
-- 37 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
+- 33 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
+- 34 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
+- 35 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
+- 36 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
+- 37 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
+- 38 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
   (skips god-mode players).
-- 38 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
+- 39 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
   surface is in front of the player.
-- 39 `INSTANT_UNARM` (`unarm`): see §3.3.4.
-- 40 `INSTANT_WRENCH_VOLLEY` (`wrenchvolley`): see §3.3.5.
+- 40 `INSTANT_UNARM` (`unarm`): see §3.3.4.
+- 41 `INSTANT_WRENCH_VOLLEY` (`wrenchvolley`): see §3.3.5.
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
 cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
@@ -661,7 +664,7 @@ winner), or with `sv_addinstantmutator 25`.
   it can roll in every mode, including single player.
 
 ### 3.3.4 Weapon, item, rune and ammo instants
-Sixteen server-only instants, each a static `Instant*()` function in
+Seventeen server-only instants, each a static `Instant*()` function in
 `gamerules.cpp` that the `switch` dispatches to. They act on every
 `IsInstantTarget()` player: a player that is alive, not `IsSpectator()`, not
 `IsObserver()` and not `HasDisconnected`. Bots are included. When nothing
@@ -716,7 +719,16 @@ re-rolling.
   `GiveAmmo` (HUD pickup notice). Weapons without ammo are skipped, as are
   the nuke and, in Capture the Chumtoad, the chumtoad (extra chumtoads would
   add charms). Clips are not touched.
-- 21 **`passitleft`** — weapon gate; needs two targets. Targets form a
+- 19 **`noarmor`** — sets `armorvalue = 0` on every target (the HUD
+  battery updates through the normal `UpdateClientData` sync). Skips
+  `FL_GODMODE` players and JvS Jesus (`IsArmoredMan`), whose 750 armor is
+  part of the mode like his cloak rune. Chat: `[Mutators] No Armor!`.
+  **Mode filters** (all filter sites reviewed 2026-10-19): no gate. It only
+  removes armor, which every mode allows players to lose; Prop Hunt props
+  already spawn with 0, the Busters buster loses the 100 the mode gives it
+  on becoming buster (like any hit would), and the godmode mutator's
+  players are skipped. Allowed in single player.
+- 22 **`passitleft`** — weapon gate; needs two targets. Targets form a
   ring in player-index order and each passes their active weapon to the
   next one. Every pass is decided before any inventory changes: the weapon
   must be able to holster, not be withheld, pass `CanRandomizeWeapon`, and
@@ -724,7 +736,7 @@ re-rolling.
   Then all givers `RemoveNamedItem` and all receivers `GiveNamedItem` +
   `SelectItem`. Reserve ammo stays with the giver; the receiver gets the
   default clip (or extra ammo if they already own that weapon).
-- 27 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
+- 28 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
   ammo type: `ammo_357`, `ammo_9mmAR`, `ammo_ARgrenades`, `ammo_buckshot`,
   `ammo_crossbow`, `ammo_gaussclip`, `ammo_rpgclip`) that `CanHaveNamedItem`
   accepts for at least one target, given to every target with
@@ -735,21 +747,21 @@ re-rolling.
   virus, CtC carrier, Prop Hunt props) get nothing. Snowball, `dualsonly`
   and Instagib refuse every ammo name, so it reports nothing allowed there.
   Chat: `[Mutators] Random Ammo: <name>!`.
-- 28 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
+- 29 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
   `item_healthkit`, `item_longjump`) that `CanHaveNamedItem` accepts for at
   least one target, given with `GiveNamedItem`. A player who cannot use it
   (full health or armor, already has long jump, `CanHaveItem` refusal) gets
   nothing. Snowball and `dualsonly` refuse every non-weapon name, so it
   reports nothing allowed there. Requires the `item_healthkit` precache in
   `W_Precache`.
-- 29 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
+- 30 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
   rune in `g_InstantRunes[]` passes `AllowRuneSpawn` (single player, Prop
   Hunt). Otherwise each target that does not already hold that rune gets
   `ClearRune` + `GiveRune` (silent replace). JvS Jesus (`IsArmoredMan`) is
   skipped.
-- 30 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
+- 31 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
   `SelectItem`). Chat: `[Mutators] Random Weapon: <pszDisplayName>!`.
-- 32 **`robinhood`** — weapon gate; needs two targets with different frags.
+- 33 **`robinhood`** — weapon gate; needs two targets with different frags.
   Highest and lowest `pev->frags` are picked (ties by reservoir sampling).
   The rich player's non-withheld, `CanRandomizeWeapon` weapons are given to
   the poor player, and the rich player is unarmed through `UnarmPlayer()`.
@@ -757,16 +769,16 @@ re-rolling.
   into the message. A Capture the Chumtoad carrier (`m_iHoldingChumtoad`) is
   never picked as rich or poor: `UnarmPlayer()` would skip them (duplicating
   their weapons) and `CanHaveNamedItem` refuses them everything.
-- 33 **`roulette`** — weapon gate; each target rolls their own candidate,
+- 34 **`roulette`** — weapon gate; each target rolls their own candidate,
   preferring weapons they do not own yet. The weapon title HUD on deploy
   shows what they got.
-- 34 **`runeburst`** — `DropRune` for every target holding a rune except
+- 35 **`runeburst`** — `DropRune` for every target holding a rune except
   JvS Jesus.
-- 35 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
+- 36 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
   holder is `ClearRune`d first (`GiveRune` refuses players still holding a
   rune), then each rune goes to the next holder in player-index order via
   `GiveRune`. No `AllowRuneSpawn` check: the runes already exist this round.
-- 39 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
+- 40 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
   Busters, Instagib, Loot and Snowball, where the loadout is the mode).
   Elsewhere `UnarmPlayer()` runs `RemoveAllItems(FALSE)` (keeps the suit,
   clears ammo) then gives `weapon_fists`. The Capture the Chumtoad carrier
@@ -789,8 +801,8 @@ throwSound, name)` in `gamerules.cpp`. Every eligible target throws a fan of
 | Index | Name | Projectile | Weapon checked | Chat |
 |---:|---|---|---|---|
 | 16 | `knifevolley` | `flying_knife` | `weapon_knife` | `[Mutators] Knife Volley!` |
-| 24 | `pipevolley` | `flying_crowbar` | `weapon_crowbar` | `[Mutators] Pipe Volley!` |
-| 40 | `wrenchvolley` | `flying_wrench` | `weapon_wrench` | `[Mutators] Wrench Volley!` |
+| 25 | `pipevolley` | `flying_crowbar` | `weapon_crowbar` | `[Mutators] Pipe Volley!` |
+| 41 | `wrenchvolley` | `flying_wrench` | `weapon_wrench` | `[Mutators] Wrench Volley!` |
 
 - **Launch.** Same as the weapon's own throw (`CKnife::Throw`,
   `CCrowbar::Throw`, `CWrench::Throw`): speed 1000 plus the thrower's
@@ -844,8 +856,8 @@ them, and has the 2.5 s arming time (`PROXMINE_ARM_TIME`) to get clear:
 | Index | Name | Mine | Detect radius | On trigger |
 |---:|---|---|---:|---|
 | 8 | `drugparty` | `SF_PROXMINE_DRUG` (green) | 160 | small blast + 1.5 s poison / confusion cloud (6 per 0.25 s, 150 u) |
-| 20 | `nukeparty` | `SF_PROXMINE_NUCLEAR` (blue) | 220 | nuke effects + kills every player and monster on the map that is not a teammate of the placer |
-| 25 | `proxparty` | normal (red) | 200 | tripmine blast (`plrDmgTripmine`, `RadiusDamage`) |
+| 21 | `nukeparty` | `SF_PROXMINE_NUCLEAR` (blue) | 220 | nuke effects + kills every player and monster on the map that is not a teammate of the placer |
+| 26 | `proxparty` | normal (red) | 200 | tripmine blast (`plrDmgTripmine`, `RadiusDamage`) |
 
 - **Drop.** A trace straight down from the player's origin (up to
   `MINEPARTY_DROP_RANGE`, 256 u, ignoring players and monsters) must hit a
@@ -2544,8 +2556,8 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
      same change.
    - **Regression pass pending.** Mutators 1..116 and the instants that
      existed before the volleys (everything except `knifevolley`,
-     `pipevolley`, `wrenchvolley`, `drugparty`, `nukeparty`, `proxparty`
-     and `kaboom`) predate
+     `pipevolley`, `wrenchvolley`, `drugparty`, `nukeparty`, `proxparty`,
+     `kaboom` and `noarmor`) predate
      this rule and have not all been reviewed this way (the owner plans a
      dedicated pass). Do not treat today's filters as complete coverage.
 7. **Effect wiring.**
