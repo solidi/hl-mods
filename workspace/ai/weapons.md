@@ -261,6 +261,7 @@ Numbers in parentheses are `iSlot.iPosition` from each `GetItemInfo`. “Dual_*�
 ### Slot 1 — Melee
 - `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`) — while the `expcrowbar` mutator is active it gains an explode-on-contact swing, and its throw secondary + charged smash degrade to plain swings (see [Explosive Crowbar](#explosive-crowbar-expcrowbar-mutator)).
 - `weapon_crowbar` → `CCrowbar` (`crowbar.cpp`) — when mutator `snarkbar` is active, thrown crowbar (`flying_crowbar`) impacts spawn five owner-attributed snarks around the impact with collision-safe placement retries.
+- Thrown `flying_crowbar` / `flying_knife` / `flying_wrench` drop their weapon in a weaponbox on impact. Projectiles flagged `SF_FLYING_VOLLEY` (`weapons.h`), which the `knifevolley` / `pipevolley` / `wrenchvolley` instant mutators throw, vanish instead, and a volley crowbar skips the `snarkbar` wave. See [mutator_system.md §3.3.5](mutator_system.md).
 - `weapon_knife` → `CKnife` (`knife.cpp`) — `+reload` toggles 30° sniper-style zoom; `+attack2` charges a thrown knife; `iMaxClip = 1` is a deliberate hack to force server-side reload routing.
 - `weapon_wrench` → `CWrench` (`wrench.cpp`), `weapon_dual_wrench` → `CDualWrench` (`dual_wrench.cpp`)
 - `weapon_chainsaw` → `CChainsaw` (`chainsaw.cpp`) — three attack modes: `+attack` does a standard close-range slash, `+attack2` runs the rev/loop thrust that can launch the player forward and add upward wall-climb boost when contacting brush surfaces, and `+reload` triggers a rapid 3-hit slash combo (`0.10s` spacing) with a deliberately longer post-combo cooldown than a normal primary slash.
@@ -712,6 +713,7 @@ Both `weapon_satchel` and `weapon_tripmine` deploy a **proximity mine** when the
   - drug proxmine: small colored blast + short poison/confusion cloud ticks,
   - nuclear proxmine: nuke TE stack + owner-safe kill-all pulse.
 - `TakeDamage` — quietly disarms (no explosion) if shot while still powering up.
+- Party mines (`SF_PROXMINE_PARTY`, dropped under every player by the `drugparty` / `nukeparty` / `proxparty` instant mutators through `DeployProxMineAt(..., bParty = TRUE)`): find their surface ignoring players, also trigger on and hit their placer, keep the placer's frag credit in `Killed` whoever sets them off, and are removed `PROXMINE_PARTY_LIFETIME` (10 s) after arming. See [mutator_system.md §3.3.6](mutator_system.md).
 
 ### Tuning knobs
 
