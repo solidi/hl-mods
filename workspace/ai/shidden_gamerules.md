@@ -460,6 +460,16 @@ fraction of the round-start total, so it reads 100 % at the start and
 
 ---
 
+## Mutator filters
+
+`CHalfLifeShidden::MutatorAllowed` blocks `invisible`, `dealter` and
+`virtualboy`. `virtualboy` (2026-10-20) draws bright red wires along depth
+edges, and the `kRenderTransAlpha` dealters still write depth, so every
+dealter would get a solid outline. Full matrix:
+[mutator_system.md §3.4](mutator_system.md).
+
+---
+
 ## Files touched
 
 | File | Section |

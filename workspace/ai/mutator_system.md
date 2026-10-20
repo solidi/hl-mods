@@ -13,30 +13,36 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-19)
+## 0. Recent delta (2026-10-20)
+
+- Added `virtualboy` (`MUTATOR_VIRTUALBOY = 114`) in alphabetical ID order after `victor`; `volatile` is now 115, `vvvvvv` 116, `waterhurt` 117 and `xray` 118. Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..118`, with `MAX_MUTATORS_CL = 119` including trailing `RANDOM`. `hud.txt` declaration count is now 366 (`virtualboy` reuses the `oldtime` icon rect). The grave_bot `const.h` was renumbered in the same change; the bot only checks `dontshoot`, `lightsout` and `topsyturvy`, whose IDs did not move, so its DLL behaves the same.
+- While active, every client sees the game the way a Nintendo Virtual Boy shows it: the 3D view is redrawn as square red LED cells about 224 rows high in four shades (off plus three brightness levels, ordered dither between them), geometric edges light up as bright red wires that dim with distance, and LED row/column gaps plus a visor vignette finish the look. After the HUD is drawn, a second pass turns the whole window red monochrome, so the HUD matches. Client-only; blocked in Shidden (see §3.32).
+- Fixed `linemode` hiding the HUD: additive HUD elements vanished on its white image. The image is now drawn inverted while `gHUD.Redraw` runs and inverted back by the new `LineMode_DrawHud` right after it, which leaves the scene as before and turns the HUD into black ink. `DrawFadeToBlackOverlay` draws white while `LineMode_HudInverted()` is true so `fadetoblack` still darkens. Skipped while `discomode` or `virtualboy` is on (see §3.27).
+
+## 0.1 Earlier delta (2026-10-19)
 
 - Added the `noarmor` **instant** mutator as `INSTANT_NO_ARMOR = 19` (alphabetically between `nice` and `nothing`); roll and `sv_addinstantmutator` range are now `0..41`. Old -> new: 19->20 .. 40->41; 0..18 are unchanged. Sets every target's armor to 0, skipping god-mode players and JvS Jesus (see §3.3.4). Server-only; no client, registry or asset change.
 
 - Added the `kaboom` **instant** mutator as `INSTANT_KABOOM = 15` (alphabetically after `human assassin`); roll and `sv_addinstantmutator` range are now `0..40`. Old -> new: 15->16 .. 39->40 (every value from `knifevolley` on shifts by one); 0..14 are unchanged. Every breakable `func_breakable` on the map breaks the way a trigger breaks it and explodes at once (see §3.3.7). Server-only; no client, registry or asset change.
 - Added three mine **instant** mutators at their alphabetical places: `INSTANT_DRUG_PARTY = 8` (`drugparty`), `INSTANT_NUKE_PARTY = 19` (`nukeparty`) and `INSTANT_PROX_PARTY = 24` (`proxparty`); roll and `sv_addinstantmutator` range are now `0..39`. Old -> new: 8->9, 9->10, 10->11, 11->12, 12->13, 13->14, 14->15, 15->16, 16->17, 17->18, 18->20, 19->21, 20->22, 21->23, 22->25, 23->26, 24->27, 25->28, 26->29, 27->30, 28->31, 29->32, 30->33, 31->34, 32->35, 33->36, 34->37, 35->38, 36->39; 0..7 are unchanged (cookies 4, allguns 5, bsod 6). Each eligible player gets a `monster_proxmine` (drug / nuclear / normal) dropped on the floor under them, owned by them. New `SF_PROXMINE_PARTY` makes the mine trigger on and hit its placer too, keep the placer's frag credit whoever sets it off, and disappear 10 s after arming if nobody did (see §3.3.6). Server-only; no client, registry or asset change.
 
-## 0.1 Earlier delta (2026-10-18)
+## 0.2 Earlier delta (2026-10-18)
 
 - Added three volley **instant** mutators at their alphabetical places: `INSTANT_KNIFE_VOLLEY = 14` (`knifevolley`), `INSTANT_PIPE_VOLLEY = 21` (`pipevolley`) and `INSTANT_WRENCH_VOLLEY = 36` (`wrenchvolley`); roll and `sv_addinstantmutator` range are now `0..36`. Old -> new: 14->15, 15->16, 16->17, 17->18, 18->19, 19->20, 20->22, 21->23, 22->24, 23->25, 24->26, 25->27, 26->28, 27->29, 28->30, 29->31, 30->32, 31->33, 32->34, 33->35; 0..13 are unchanged. Every target that may hold the weapon throws a fan of five `flying_knife` / `flying_crowbar` / `flying_wrench` projectiles once; volley projectiles carry `SF_FLYING_VOLLEY` and vanish on impact instead of dropping a weapon (see §3.3.5). Server-only; no client, registry or asset change.
-- Added `xray` (`MUTATOR_XRAY = 117`) in alphabetical ID order after `waterhurt`; no existing ID shifts. Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..117`, with `MAX_MUTATORS_CL = 118` including trailing `RANDOM`. `hud.txt` declaration count is now 365 (`xray` reuses the `invisible` icon rect). The grave_bot `const.h` gained the define; no bot rebuild is needed because nothing was renumbered.
+- Added `xray` (`MUTATOR_XRAY = 117`) in alphabetical ID order after `waterhurt`; no existing ID shifts. Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..117`, with `MAX_MUTATORS_CL = 118` including trailing `RANDOM`. `hud.txt` declaration count was then 365 (`xray` reuses the `invisible` icon rect). The grave_bot `const.h` gained the define; no bot rebuild is needed because nothing was renumbered.
 - While active, every client recreates the GoldenEye 007 GameShark see-through geometry code: walls, floors, ceilings and brush entities near the player turn semi-transparent, with their edges kept almost solid, and show the rooms, players and items behind them over black void. The engine draws the view twice a frame (ref_params `nextView`): the second view clips the near world away with a user clip plane and forces `r_novis`, and the first view is blended back over it before the viewmodel. Client-only; blocked in Prop Hunt (see §3.31).
 - New server cvar `sv_addinstantmutator <index>` fires one instant mutator by its `instant_mutator_e` value (`0..33`) on the next 1 Hz `MutatorsThink` tick, then clears itself. `AddInstantMutator` now takes `int index = -1` (`-1` or out of range = random roll, unchanged for the cadence and the vote). A forced instant skips the `gmsgChaos` bar refresh, refuses `allguns` (5) in multiplayer instead of re-rolling, and ignores `sv_instantmutators`. `-1` is the silent "none" value of the new `settings.scr` LIST; anything else outside the range logs `Instant mutator "<value>" is unknown, use an index from 0 to 33.` Instant indices are now operator-facing: `server_commands.txt` lists all of them under `sv_addinstantmutator`, `readme.txt` tags the v1.2 instants with theirs, and `settings.scr` has the LIST (localized `#Ice_AddInstantMutator`). See §3.3.
 - Doc fix: the §2 cvar table listed `sv_instantmutators` with default `"1"`; the code default is `"0"` (`server.cfg` / `listenserver.cfg` set `1`).
-- Instant mutators are renumbered into alphabetical order of their operator-facing names (`+1 health` = 0 .. `unarm` = 33), and that is now the rule: a new instant is inserted at its alphabetical place and every later value shifts, the same as `MUTATOR_*` IDs (§3.3 has the sort rule and the add-an-instant steps). Old -> new: 0->16, 1->0, 2->31, 3->2, 4->1, 5->3, 6->15, 7->30, 8->11, 9->20, 10->32, 11->19, 12->18, 13->13, 14->10, 15->4, 16->6, 17->25, 18->33, 19->24, 20->5, 21->22, 22->23, 23->7, 24->9, 25->27, 26->28, 27->26, 28->21, 29->12, 30->14, 31->8, 32->17, 33->29. Instant numbers in §0.3-§0.5 and in server logs from before this change use the old values. The `AddInstantMutator` switch cases were reordered to match the enum.
+- Instant mutators are renumbered into alphabetical order of their operator-facing names (`+1 health` = 0 .. `unarm` = 33), and that is now the rule: a new instant is inserted at its alphabetical place and every later value shifts, the same as `MUTATOR_*` IDs (§3.3 has the sort rule and the add-an-instant steps). Old -> new: 0->16, 1->0, 2->31, 3->2, 4->1, 5->3, 6->15, 7->30, 8->11, 9->20, 10->32, 11->19, 12->18, 13->13, 14->10, 15->4, 16->6, 17->25, 18->33, 19->24, 20->5, 21->22, 22->23, 23->7, 24->9, 25->27, 26->28, 27->26, 28->21, 29->12, 30->14, 31->8, 32->17, 33->29. Instant numbers in §0.4-§0.6 and in server logs from before this change use the old values. The `AddInstantMutator` switch cases were reordered to match the enum.
 
-## 0.2 Earlier delta (2026-10-17)
+## 0.3 Earlier delta (2026-10-17)
 
 - Added `discomode` (`MUTATOR_DISCOMODE = 20`) in alphabetical ID order after `dealter` (all downstream mutator IDs shifted by +1; `dontshoot` is now 21, `linemode` 49, `three` 104, `vvvvvv` 115). Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..116`, with `MAX_MUTATORS_CL = 117` including trailing `RANDOM`. `hud.txt` declaration count was then 364 (`discomode` reuses the `inverse` icon rect).
 - While active, every client recreates the GoldenEye 007 GameShark code that made the game "flash rapidly with shifting, psychedelic colors": after the 3D view, a GLSL pass rebuilds each pixel's world-space plane from the depth buffer and paints every polygon (world, brush entities, models, viewmodel) one fully saturated solid colour, re-rolled 10 times a second, cycling in between, and on some beats swept with a world-space rainbow. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.30).
 - The grave_bot copy of `const.h` was renumbered in the same change; rebuild the bot DLL, its `UTIL_MutatorEnabled` matches numeric IDs.
 - New rule: every new mutator, full or instant, gets a recorded review against every game mode's filter (§9 step 6). §3.4 now holds the filter matrix as it is in code; it had wrongly listed Arena, Prop Hunt and Shidden as blocking `thirdperson`, and Arena as having an override. A regression pass over the existing mutators and instants is pending.
 
-## 0.3 Earlier delta (2026-10-16)
+## 0.4 Earlier delta (2026-10-16)
 
 - Added `vvvvvv` (`MUTATOR_VVVVVV = 114`) in alphabetical ID order after `volatile`; only `waterhurt` shifts (then 115). Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..115`, with `MAX_MUTATORS_CL = 116` including trailing `RANDOM`. `hud.txt` declaration count was then 363 (`vvvvvv` reuses the `upsidedown` icon rect).
 - While active, jump no longer jumps: on a surface it flips the player's gravity, so they fall to the ceiling and walk on it upside down, and the next jump flips them back (VVVVVV). Shared movement in `pm_shared.c` (physinfo `vvv`, predicted flag `pmove->fuser1`), server state/hitboxes/fall damage in `player.cpp` + `client.cpp`, rolled camera/input/player model on the client. Bots never flip; blocked in Prop Hunt (see §3.29).
@@ -49,43 +55,43 @@ below).
 - Fixed an edict leak in `CBasePlayer::DropPlayerItem`: the no-weaponbox path (used only by `ThrowWeapon`, i.e. impulse 216, empty-weapon auto-throw and `hotfingers`) unlinked the weapon without `Kill()`, leaving a hidden `MOVETYPE_FOLLOW` edict until map change on every throw. `RemovePlayerItem` now also clears `m_pLastRef` (3027a05 first did this only in the throw path), so holster-mode `SelectLastItem` cannot promote a weapon that `RemoveNamedItem`, `DestroyItem`, `DropPlayerItem`, `PackWeapon` or the Busters egon cap has removed.
 - 3027a05: `unarm` now uses the weapon gate (`InstantWeaponsAllowed()`), so it reports nothing allowed in GunGame, Busters, Instagib, Loot and Snowball. `UnarmPlayer()` leaves the Capture the Chumtoad carrier (`m_iHoldingChumtoad`) armed, which covers both `unarm` and the robbed player in `robinhood`.
 
-## 0.4 Earlier delta (2026-10-15)
+## 0.5 Earlier delta (2026-10-15)
 
 - Added the `Remove func_*` **instant** mutator as `INSTANT_REMOVE_FUNC = 17` (roll is now `0..17`). It removes every entity of one random `func_*` class present on the map, announces `[Mutators] Remove func_*: <classname> was removed!`, and nothing comes back until the next map change (see §3.3.3). Server-only; no client, registry or asset change.
 - Hardened runtime removal of brush entities for it (also fixes `killtarget`): `CFuncTank`, `CFuncTankLaser`, `CFuncTrackTrain` and `CFuncTrackChange` gained `UpdateOnRemove` teardown, and `CFuncTankControls` / `CPlatTrigger` hold `EHANDLE`s instead of raw pointers.
 - Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll was then `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
 - New user message `gmsgBSOD` (`"BSOD"`, 0 bytes) opens a full-screen deep-blue fake crash screen (`CBSODPanel`, `MENU_BSOD`) on every alive, active, non-bot player, plays `sound/bsod.wav` and is dismissed with the bottom-right `Failed Successfully` button. All strings come from `titles.txt` (see §3.3.2).
 
-## 0.5 Earlier delta (2026-10-14)
+## 0.6 Earlier delta (2026-10-14)
 
 - Added the `Accept All Cookies` **instant** mutator as `AddInstantMutator()` case 15 (roll is now `RANDOM_LONG(0, 15)`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed; it is only ever picked at random on the instant cadence.
 - New user message `gmsgCookies` (`"Cookies"`, 1 byte) opens a client-side VGUI cookie consent wall (`CCookiesPanel`, `MENU_COOKIES`) on every alive, active, non-bot player: scrollable fake agreement, `Accept All Cookies` (dismiss) on the left, `Reject All Cookies` (client runs `disconnect`) on the right. All strings come from `titles.txt` (see §3.3.1).
 
-## 0.6 Earlier delta (2026-10-13)
+## 0.7 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count was then 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
-## 0.7 Earlier delta (2026-10-12)
+## 0.8 Earlier delta (2026-10-12)
 
 - Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` became 48, `three` was then 102).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count was then 361 (`linemode` reuses the `oldtime` icon rect).
 - While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
 
-## 0.8 Earlier delta (2026-10-11)
+## 0.9 Earlier delta (2026-10-11)
 
 - Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.9 Earlier delta (2026-10-10)
+## 0.10 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.10 Earlier delta (2026-10-09)
+## 0.11 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -111,8 +117,8 @@ below).
 ## 1. Where the code lives
 
 ### Shared / IDs
-- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L922) —
-  `MUTATOR_CHAOS`..`MUTATOR_XRAY` IDs (1..117) and
+- [workspace/src/common/const.h](workspace/src/common/const.h#L805-L923) —
+  `MUTATOR_CHAOS`..`MUTATOR_XRAY` IDs (1..118) and
   `MAX_MUTATORS_CL` (client cap = `MUTATOR_XRAY + 1`).
 - [workspace/src/pm_shared/pm_shared.c](workspace/src/pm_shared/pm_shared.c#L308) —
   reads movement/audio/control physinfo keys the server writes: `topsy`,
@@ -224,7 +230,8 @@ below).
 - [workspace/src/cl_dll/mutator_linemode.cpp](workspace/src/cl_dll/mutator_linemode.cpp) —
   `LineMode_CaptureScene` (called from `tri.cpp::HUD_DrawNormalTriangles`)
   and `LineMode_Draw` (called at the top of `cdll_int.cpp::HUD_Redraw`,
-  before `gHUD.Redraw`), both declared in `hud.h`; depth-edge GLSL
+  before `gHUD.Redraw`) and `LineMode_DrawHud` (right after `gHUD.Redraw`),
+  all declared in `hud.h` with `LineMode_HudInverted`; depth-edge GLSL
   post-process for `linemode` (§3.27).
 - [workspace/src/cl_dll/mutator_discomode.cpp](workspace/src/cl_dll/mutator_discomode.cpp) —
   file-local class `CDiscoMode` behind `DiscoMode_CaptureScene` (called
@@ -246,6 +253,14 @@ below).
   `XRay_BeginStudio` / `XRay_EndStudio` used by the
   `GameStudioModelRenderer.cpp` draw wrappers; two-view see-through pass for
   `xray` (§3.31).
+- [workspace/src/cl_dll/mutator_virtualboy.cpp](workspace/src/cl_dll/mutator_virtualboy.cpp) —
+  file-local class `CVirtualBoy` behind `VirtualBoy_CaptureScene` (called
+  from `tri.cpp::HUD_DrawNormalTriangles` right after
+  `DiscoMode_CaptureScene`), `VirtualBoy_Draw` (top of
+  `cdll_int.cpp::HUD_Redraw`, right after `Blur_Draw`) and
+  `VirtualBoy_DrawHud` (right after `gHUD.Redraw`, before the colour
+  corrector), all declared in `hud.h`; red LED display pass and red HUD pass
+  for `virtualboy` (§3.32).
 - Client render/input consumers (mutator effects, non-exhaustive):
   `StudioModelRenderer.cpp` (BIGHEAD/MINIME/PAPER/SANIC/CRATE bones and
   proxies), `view.cpp` (MCCLANE/UPSIDEDOWN/AMIDEAD/TOPSYTURVY roll),
@@ -279,9 +294,9 @@ break the read loop; `254` is a "clear all" signal (see §4).
 
 ### ID space and lookup tables
 - Server: `g_szMutators[MAX_MUTATORS]` where
-  `MAX_MUTATORS = MUTATOR_XRAY` (117 entries). Indexing is always
+  `MAX_MUTATORS = MUTATOR_XRAY` (118 entries). Indexing is always
   `g_szMutators[id - 1]`.
-- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 118 entries
+- Client display: `sMutators[MAX_MUTATORS_CL]` (name + description, 119 entries
   including a trailing `RANDOM`). Also `g_szMutators` is *not* defined
   client-side — the client uses `sMutators[i].name` for labelling only, and
   numeric IDs (`MUTATOR_*`) for behavioural checks.
@@ -996,7 +1011,7 @@ Server-only instant, `InstantKaboom()` in `gamerules.cpp` (includes
   | `CHalfLifeKickTheSnowball` (`kts_gamerules.cpp`) | Kick the Snowball | `thirdperson` |
   | `CHalfLifeLoot` (`loot_gamerules.cpp`) | Loot | `999`, `chumxplode`, `noclip`, `randomweapon`, `dontshoot`, `maxpack`, `thirdperson` (weapon-count rules) |
   | `CHalfLifePropHunt` (`prophunt_gamerules.cpp`) | Prop Hunt | `santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`, `pumpkin`, `toilet` (would give a prop away), `vvvvvv` (hunter shot tracker lives in `pev->fuser1`, the gravity-flip slot), `xray` (hunters would see props through walls) |
-  | `CHalfLifeShidden` (`shidden_gamerules.cpp`) | Shidden | `invisible`, `dealter` |
+  | `CHalfLifeShidden` (`shidden_gamerules.cpp`) | Shidden | `invisible`, `dealter`, `virtualboy` (its wires would outline the translucent dealters, which still write depth) |
 
 - No override, base filter only: FFA (`CHalfLifeMultiplay`), Teamplay
   (`CHalfLifeTeamplay`), Arena, Last Man Standing, Cold Skull, Cold Spot,
@@ -1606,7 +1621,8 @@ pool. The HUD icon alias reuses the `oldtime` rect.
   plus creases of the world and brush entities (wall corners, floor/wall
   seams, steps, door frames, crate edges, pipe facets). Textures, lighting,
   decals and anything that does not write depth (sprites, particles, beams,
-  most additive/blended surfaces) wash out to white. The HUD is untouched.
+  most additive/blended surfaces) wash out to white. The HUD is drawn as
+  black ink (see **HUD** below).
 - **Two hooks.** `LineMode_CaptureScene` runs from
   `tri.cpp::HUD_DrawNormalTriangles`, the only client callback where the
   world projection is current. It records `GL_VIEWPORT`, `GL_DEPTH_RANGE`,
@@ -1619,6 +1635,21 @@ pool. The HUD icon alias reuses the `oldtime` rect.
   frame, including the viewmodel, is still in the back buffer with its depth.
   The capture flag is consumed every `HUD_Redraw`, so a frame without a
   perspective 3D pass draws nothing.
+- **HUD (2026-10-20).** HUD sprites, numbers and text are drawn additively,
+  which cannot darken, so on the white image they vanished. Unless
+  `discomode` or `virtualboy` is also on, `LineMode_Draw` now draws the image
+  inverted (`u_paper` 0: white lines on black), `gHUD.Redraw` draws over that,
+  and `LineMode_DrawHud`, called right after `gHUD.Redraw` (before the colour
+  corrector), copies the linemode viewport (`GL_RGB8`, unit 0) and redraws it
+  as `1 - max(r, g, b)`. The scene comes back exactly; every `CHud` element
+  comes out as black ink at its own brightness (dim elements are grey), so
+  HUD colours turn black like the lines. HUD over a black line merges into
+  it. `LineMode_DrawHud` does not check the mutator, because it can expire
+  during `gHUD.Redraw` while the image is still inverted. A dark overlay
+  drawn during the HUD would turn white, so `DrawFadeToBlackOverlay` asks
+  `LineMode_HudInverted()` and draws white instead. With `discomode` the
+  image is coloured, and `virtualboy` turns the HUD red itself, so neither
+  inverts.
 - **Edge test.** The depth buffer is copied with `glCopyTexSubImage2D` into a
   `GL_DEPTH_COMPONENT24` `GL_TEXTURE_2D` (nearest, clamp, resized with the
   viewport) and a full-screen GLSL 1.10 quad samples it. Window depth is
@@ -1671,11 +1702,16 @@ pool. The HUD icon alias reuses the `oldtime` rect.
 - **Interactions.** Effects drawn later in `HUD_Redraw` apply on top of the
   line image: `discomode` recolours it (white faces take the beat's colours,
   the black ink turns into dark shades of them, §3.30), `blur` smears it
-  (§3.28), `mirror` flips it, `fadetoblack` darkens it, and with
+  (§3.28; while the image is inverted its history is too, so turning
+  `linemode` on or off leaves a short negative ghost), `mirror` flips it,
+  `fadetoblack` darkens it, and with
   `cl_screeneffects 1` the colour corrector inverts it for `inverse` (white
   lines on black) and tints it for `sildenafil`; `oldtime` has no visible
   effect on a black/white image. Screen fades or tints the engine composites
-  before `HUD_Redraw` are likely washed out.
+  before `HUD_Redraw` are likely washed out. VGUI panels and engine overlays
+  (console, net graph, and the engine crosshair if it draws after
+  `HUD_Redraw`) are drawn after the HUD pass and are not inked, so additive
+  ones stay hard to see on white.
 - **Tuning.** `LINEMODE_CREASE_SLOPE` (lower = more interior lines),
   `LINEMODE_LINE_SCALE` (lower = thicker lines) and `LINEMODE_DEPTH_ULPS`
   (higher = fewer far-distance lines) at the top of the file.
@@ -2048,6 +2084,108 @@ Prop Hunt block. The HUD icon alias reuses the `invisible` rect.
   `HUD_DrawTransparentTriangles` are not covered by the blend: near ones draw
   slightly brighter, ones behind the near walls show at full strength.
 
+### 3.32 `virtualboy` Nintendo Virtual Boy display
+`MUTATOR_VIRTUALBOY` is client-only and lives in
+`cl_dll/mutator_virtualboy.cpp`: a file-local class `CVirtualBoy` with one
+static instance behind `VirtualBoy_CaptureScene` / `VirtualBoy_Draw` /
+`VirtualBoy_DrawHud` (declared in `hud.h`). The server only carries the
+name-table entry and the Shidden block. The HUD icon alias reuses the
+`oldtime` rect.
+
+- **What it recreates.** Nintendo's 1995 Virtual Boy: a 384x224 display of
+  red LEDs on black with four shades (off and three brightness levels), on
+  which many games drew their worlds as red wireframes (Red Alarm). Only the
+  look is simulated: no stereoscopic 3D and no flicker.
+- **Grid.** The 3D view is redrawn as square LED cells of
+  `round(viewportHeight / VIRTUALBOY_ROWS)` whole pixels (224 rows, min 1):
+  216 rows of 384 cells at 1920x1080, 240 rows at 720p and 1440p. The grid is
+  centred in the viewport, with partial cells at the edges. Every pixel of a
+  cell gets the same shade.
+- **Fill.** Four colour taps around the cell centre (a quarter cell apart)
+  are averaged to luminance, lifted by `pow(l, VIRTUALBOY_GAMMA)` (0.8) times
+  `VIRTUALBOY_GAIN` (1.4) because most maps are dark, and quantized to shades
+  0..`VIRTUALBOY_FILL_LEVELS` (2) with a 4x4 ordered (Bayer) dither in cell
+  space (`VIRTUALBOY_DITHER` 1 = full, 0 = plain rounding). Surfaces never
+  reach the brightest shade; it is kept for the wires.
+- **Wires.** The `linemode` depth test (§3.27) at the cell centre, with
+  samples half a cell away, so edges come out about one cell wide. Same
+  crease threshold (`VIRTUALBOY_CREASE_SLOPE` 0.5) and noise floor
+  (`VIRTUALBOY_DEPTH_ULPS` 6). Full ink lights shade 3 up close and fades to
+  shade 2 (`VIRTUALBOY_WIRE_FAR_LEVEL`) between 512 and 2048 units of
+  eye-space distance (from depth, as in `xray`); weak creases round to the
+  dimmer shades. A cell shows the brighter of fill and wire.
+- **Colour and LEDs.** Shades 1..3 are LED brightness
+  `VIRTUALBOY_SHADE_1..3` (0.30, 0.60, 1.00) in pure red `(r, 0, 0)`. On cells
+  of 3+ pixels the last `max(1, cell / 5)` pixel rows and columns are darkened
+  (`VIRTUALBOY_ROW_GAP` 55% between LED rows, `VIRTUALBOY_COLUMN_GAP` 25%
+  between mirror scan columns), and a vignette darkens the corners by up to
+  `VIRTUALBOY_VIGNETTE` (50%), the inside of the visor.
+- **Three hooks.** `VirtualBoy_CaptureScene` runs from
+  `tri.cpp::HUD_DrawNormalTriangles` right after `DiscoMode_CaptureScene` and
+  records the viewport, depth range, `P[10]`, `P[14]`, `far/(far-near)` and
+  the view-space tangent per pixel (perspective passes only, largest viewport
+  wins, like `linemode`). `VirtualBoy_Draw` runs at the top of
+  `cdll_int.cpp::HUD_Redraw` right after `Blur_Draw`: it copies that
+  viewport's colour (`GL_RGB8`, unit 1) and depth (`GL_DEPTH_COMPONENT24`,
+  unit 0) into nearest-filtered `GL_TEXTURE_2D` textures and draws one
+  full-screen GLSL 1.10 quad. `VirtualBoy_DrawHud` runs right after
+  `gHUD.Redraw`, before the `cl_screeneffects` colour corrector, and only on
+  frames whose 3D pass ran: it copies the window (current `GL_VIEWPORT`) into
+  a third texture and redraws it as `(max(r, g, b), 0, 0)`. The 3D view is
+  already pure red, so nothing changes there; every `CHud` element (numbers,
+  icons, chat, radar, status icons, `nohud`'s icon, `fadetoblack`'s
+  overlay) turns red at its own brightness, so it stays readable. Both
+  passes share one program; `u_hud` picks the branch.
+- **Why last.** It is the display, so it runs after `linemode`, `discomode`
+  and `blur`: whatever they drew ends up as four red shades, and `blur`'s
+  history keeps the pre-display image.
+- **GL plumbing.** Same GL 2.0 loader, lazy program build, `glIsProgram` /
+  `glIsTexture` revalidation and `glPushAttrib` mask as `discomode`; each
+  pass saves `GL_CURRENT_PROGRAM`, the active unit and unit 1's binding and
+  rebinds unit 1 explicitly. Each copy target (scene colour, scene depth, HUD
+  colour) is specified on first use and on resize, and that first copy is
+  checked with `glGetError`.
+- **Failure handling.** Missing entry points, compile/link errors (info log
+  printed) or a rejected copy print `virtualboy: <reason>, effect disabled`
+  and turn the effect off for the session; the HUD pass never runs without
+  the 3D pass. No-op on Xash (`g_fXashEngine`), on non-OpenGL renderers and
+  on macOS (stubs).
+- **Lifecycle.** All hooks read `MutatorEnabled(MUTATOR_VIRTUALBOY)` every
+  frame; add, expiry, `clear` (254), pause/restore and late join need no
+  kickoffs. Nothing in the engine is modified.
+- **Interactions.** `linemode` turns the fill flat mid red with dark creases,
+  and the wires light the same creases on top. `discomode` survives only as
+  its brightness flashes in the fill. `blur` trails show in the fill.
+  With `xray` the fill is the blended image and the wires trace the peeled
+  second view's depth. Engine screen fades and `UTIL_ScreenFade` flashes are
+  drawn before `HUD_Redraw`, so they become red shades. `mirror` (inside
+  `gHUD.Redraw`) flips the red image. The colour corrector runs after both
+  passes: `oldtime` greys the red, `inverse` turns it into cyan on white and
+  `sildenafil` tints it.
+- **Cost.** Scene pass: two copies and one full-screen draw with 4 colour and
+  9 depth taps per pixel. HUD pass: one copy and one single-tap draw.
+- **Mode filters.** Blocked in Shidden (`CHalfLifeShidden::MutatorAllowed`):
+  dealters are `kRenderTransAlpha` at renderamt 50+ (`player.cpp`), GoldSrc
+  writes depth for translucent studio models, and the wires would draw a
+  bright outline around every dealter while the fill hides their faint
+  body. All other filter sites in §3.4 reviewed 2026-10-20: no block needed.
+  It is client-only and touches no `pev` field, loadout, round state or
+  objective. Team colours (CtF, CtC, Teamplay, Busters, Cold Skull glow
+  shells, team-coloured HUD) lose their hue but keep their brightness, which
+  `oldtime` already does in every mode; the VGUI scoreboard keeps its
+  colours. In Prop Hunt props and real objects are drawn once, the same way,
+  so nothing gives a prop away (unlike `xray`). `invisible` and cloak rune
+  players get the same outline; those are opt-in combinations and are not
+  blocked. The name contains no blocked name and is inside none. `linemode`
+  and `discomode` likely expose Shidden dealters the same way; left for the
+  regression pass (§9 step 6).
+- **Known limits.** VGUI panels (scoreboard, menus, vote panels, MOTD,
+  cookie wall, BSOD) and engine overlays (console, net graph) are drawn by
+  the engine after `HUD_Redraw` and keep their colours. HUD drawn over a
+  shade-3 cell cannot be told apart from it. The dither pattern is fixed to
+  the screen, so it crawls a little over moving surfaces. Sprites, beams and
+  particles do not write depth, so they only show in the fill.
+
 ---
 
 ## 4. Wire protocol
@@ -2153,7 +2291,8 @@ Where each mutator lands on the client:
   overlay using missing-health percentage for alive active non-observer local
   players, capped just below fully black. `DrawFadeToBlackOverlay` restores
   `GL_TEXTURE_2D`, `GL_DEPTH_TEST` and `glColor4f(1,1,1,1)` before returning —
-  the raw-GL HUD passes and VGUI that run after it inherit this state.
+  the raw-GL HUD passes and VGUI that run after it inherit this state. While
+  `LineMode_HudInverted()` is true it draws white instead (§3.27).
 - **World textures (mutator_myfavtexture.cpp):** `MYFAVTEXTURE` swaps every
   world/brush `texture_t` GL id to a tiled replacement texture and restores
   the originals when the mutator ends (§3.25).
@@ -2162,7 +2301,8 @@ Where each mutator lands on the client:
   007 curved segmented bars for a few seconds after each hit (§3.26).
 - **Line Mode (mutator_linemode.cpp, tri.cpp, cdll_int.cpp):** `LINEMODE`
   copies the depth buffer after the 3D view and redraws it as black edge
-  lines on white with a GLSL pass before the HUD (§3.27).
+  lines on white with a GLSL pass before the HUD, inverted while the HUD
+  draws and inverted back after it so the HUD shows as black ink (§3.27).
 - **Disco mode (mutator_discomode.cpp, tri.cpp, cdll_int.cpp):** `DISCOMODE`
   copies the colour and depth buffers after the 3D view and repaints every
   polygon in a solid psychedelic colour picked from its depth-reconstructed
@@ -2174,6 +2314,10 @@ Where each mutator lands on the client:
   GameStudioModelRenderer.cpp):** `XRAY` renders the view twice a frame, the
   second time with the near world clipped away, and blends the first view
   back over it before the viewmodel (§3.31).
+- **Virtual Boy display (mutator_virtualboy.cpp, tri.cpp, cdll_int.cpp):**
+  `VIRTUALBOY` redraws the finished 3D view as dithered red LED cells with
+  bright red depth-edge wires, last of the passes before the HUD, then turns
+  the window red monochrome again after the HUD so it matches (§3.32).
 - **Cookie wall (vgui_CookiesWindow.cpp):** instant mutator 4
   (`accept all cookies`) opens the
   `CCookiesPanel` VGUI menu from `gmsgCookies` (§3.3.1).
@@ -2347,6 +2491,9 @@ Newly added mutators:
 - `xray` (`MUTATOR_XRAY`) turns nearby walls, floors and ceilings
   semi-transparent like the GoldenEye 007 GameShark see-through geometry
   code (documented in §3.31).
+- `virtualboy` (`MUTATOR_VIRTUALBOY`) shows the game as a Nintendo Virtual
+  Boy would, red LED shades on black with red wireframe edges and a red HUD
+  (documented in §3.32).
 
 ### Chaos / meta
 | ID | Name | Scope | Effect | Filtered by |
@@ -2376,8 +2523,8 @@ Newly added mutators:
 | 102 | `superjump` | S | `sv_jumpheight = 299`. |
 | 107 | `topsyturvy` (physinfo `topsy=1`) | SC | Player upside-down. **Blocked in `MutatorAllowed` for MP.** |
 | 110 | `upsidedown` | C | View roll 180 + mouse inversion. |
-| 115 | `vvvvvv` (physinfo `vvv=1`) | SC | Jump flips gravity: fall to the ceiling and walk on it upside down, jump again to return. Predicted in `pm_shared` via `pmove->fuser1`; rolled camera, input and player model; no fall damage; bots excluded. Blocked in Prop Hunt (§3.29). |
-| 116 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
+| 116 | `vvvvvv` (physinfo `vvv=1`) | SC | Jump flips gravity: fall to the ceiling and walk on it upside down, jump again to return. Predicted in `pm_shared` via `pmove->fuser1`; rolled camera, input and player model; no fall damage; bots excluded. Blocked in Prop Hunt (§3.29). |
+| 117 | `waterhurt` | S | Any active non-spectator player touching water is instantly gibbed; checks `waterlevel > 0` and accepts `CONTENT_WATER` plus current-water contents (texture-independent water detection). |
 
 ### Combat modifiers
 | ID | Name | Scope | Effect |
@@ -2430,7 +2577,7 @@ Newly added mutators:
 | 109 | `turrets` | S | Auto-turrets fire at everyone. |
 | 112 | `vested` | S/Weapon | Grants `weapon_vest` (explosive vest). |
 | 113 | `victor` | S | Fragged player's dropped `weaponbox` glides to the fragger with victor-only pickup while active; pull ends on victor death/disconnect, mutator disable, or 10 s timeout. |
-| 114 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
+| 115 | `volatile` | S | Sets `m_iVolatile`; damage cascades. |
 
 ### Visual / HUD
 | ID | Name | Scope | Effect |
@@ -2472,7 +2619,8 @@ Newly added mutators:
 | 103 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
 | 105 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
 | 106 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
-| 117 | `xray` | C | GoldenEye 007 GameShark see-through geometry: the view is drawn twice a frame, the second time with the world and brush entities within 384 units clipped away and `r_novis` forced, then the first view is blended back at 40% (edges 85%, solid again by the peel distance), so nearby walls, floors and ceilings show the rooms, players and items behind them over black void. OpenGL 2.0 only, other renderers draw normally. Blocked in Prop Hunt (§3.31). |
+| 114 | `virtualboy` | C | Nintendo Virtual Boy display: the 3D view is redrawn as square red LED cells about 224 rows high in four shades with ordered dither, geometric edges light up as bright red wires that dim with distance, LED gaps and a visor vignette; after the HUD the whole window is turned red monochrome so the HUD matches. OpenGL 2.0 only, other renderers draw normally. Blocked in Shidden (§3.32). |
+| 118 | `xray` | C | GoldenEye 007 GameShark see-through geometry: the view is drawn twice a frame, the second time with the world and brush entities within 384 units clipped away and `r_novis` forced, then the first view is blended back at 40% (edges 85%, solid again by the peel distance), so nearby walls, floors and ceilings show the rooms, players and items behind them over black void. OpenGL 2.0 only, other renderers draw normally. Blocked in Prop Hunt (§3.31). |
 
 **Note:** Certain names in `g_szMutators[]` do not match their `MUTATOR_*`
 identifier stem — e.g. `MUTATOR_MEGASPEED` uses the string `"megarun"`,
@@ -2554,7 +2702,8 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
      sites reviewed <date>" with the reasoning for the risky modes. When a
      block is added, update the §3.4 matrix and the mode's spoke doc in the
      same change.
-   - **Regression pass pending.** Mutators 1..116 and the instants that
+   - **Regression pass pending.** Every mutator except `discomode`, `xray`
+     and `virtualboy`, and the instants that
      existed before the volleys (everything except `knifevolley`,
      `pipevolley`, `wrenchvolley`, `drugparty`, `nukeparty`, `proxparty`,
      `kaboom` and `noarmor`) predate
@@ -2697,14 +2846,19 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   clears `m_pLastItem` and `m_pLastRef` (holster-mode last weapon), so
   callers can `Kill()` it without `SelectLastItem` later promoting a freed
   entity. Keep both clears there rather than at each call site.
-- **Screen-space render passes.** `linemode`, `discomode` and `blur` run at
-  the top of `HUD_Redraw` in that order, each reading the back buffer the
-  previous one left. A new pass that needs the 3D frame without the HUD
-  belongs in the same spot; one that needs the world projection must capture
+- **Screen-space render passes.** `linemode`, `discomode`, `blur` and
+  `virtualboy` run at the top of `HUD_Redraw` in that order, each reading the
+  back buffer the previous one left; `virtualboy` is the display and stays
+  last. A new pass that needs the 3D frame without the HUD
+  belongs in the same spot (before `virtualboy`); one that needs the world projection must capture
   it in `HUD_DrawNormalTriangles`, because `HUD_Redraw` runs in 2D state. A
   pass that binds a texture on a unit other than the active one must rebind
   that unit's previous texture: the engine caches per-unit bindings
-  (lightmaps live on unit 1).
+  (lightmaps live on unit 1). `LineMode_DrawHud` and `VirtualBoy_DrawHud`
+  are the only passes after `gHUD.Redraw`; the virtualboy one assumes the 3D
+  area is already pure red. While `LineMode_HudInverted()` is true the HUD
+  draws over an inverted image, so any dark overlay drawn during
+  `gHUD.Redraw` has to draw white then (see `DrawFadeToBlackOverlay`).
 - **Extra views per frame.** `xray` (and the portal renderer) make the
   engine render more than one view a frame, so `V_CalcRefdef`,
   `HUD_DrawNormalTriangles`, `HUD_DrawTransparentTriangles` and every studio
