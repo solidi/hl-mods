@@ -48,24 +48,27 @@ v1.2 Features:
     - "allguns" [5] - you get every weapon the game allows (single player only)
     - "bsod" [6] - a blue screen of death takes over the screen until you click "Failed Successfully"
     - "butterfingers" [7] - everyone drops the weapon in their hands
-    - "dryfire" [8] - everyone's clip is emptied, time to reload
-    - "dualwield" [9] - the weapon in your hands gets its dual version
-    - "hotfingers" [12] - everyone throws the weapon in their hands as a live explosive
-    - "knifevolley" [14] - everyone throws a fan of five knives that vanish on impact
-    - "maxammo" [15] - your current weapon's ammo is filled to the max
-    - "passitleft" [18] - everyone hands the weapon in their hands to the next player
-    - "pipevolley" [21] - everyone throws a fan of five crowbars that vanish on impact
-    - "randomammo" [23] - everyone gets the same random ammo pickup
-    - "randomitem" [24] - everyone gets the same random item (health kit, battery or long jump)
-    - "randomrune" [25] - everyone gets the same random rune, replacing the one they held
-    - "randomweapon" [26] - everyone gets the same random weapon
-    - "remove func_*" [27] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
-    - "robinhood" [28] - the top fragger is disarmed and last place gets their guns
-    - "roulette" [29] - everyone gets a different random weapon
-    - "runeburst" [30] - everyone holding a rune drops it at once
-    - "runeshuffle" [31] - held runes rotate to the next rune holder
-    - "unarm" [35] - everyone is stripped down to their fists
-    - "wrenchvolley" [36] - everyone throws a fan of five wrenches that vanish on impact
+    - "drugparty" [8] - an armed drug proximity mine drops at everyone's feet, run!
+    - "dryfire" [9] - everyone's clip is emptied, time to reload
+    - "dualwield" [10] - the weapon in your hands gets its dual version
+    - "hotfingers" [13] - everyone throws the weapon in their hands as a live explosive
+    - "knifevolley" [15] - everyone throws a fan of five knives that vanish on impact
+    - "maxammo" [16] - your current weapon's ammo is filled to the max
+    - "nukeparty" [19] - an armed nuclear proximity mine drops at everyone's feet, run!
+    - "passitleft" [20] - everyone hands the weapon in their hands to the next player
+    - "pipevolley" [23] - everyone throws a fan of five crowbars that vanish on impact
+    - "proxparty" [24] - an armed proximity mine drops at everyone's feet, run!
+    - "randomammo" [26] - everyone gets the same random ammo pickup
+    - "randomitem" [27] - everyone gets the same random item (health kit, battery or long jump)
+    - "randomrune" [28] - everyone gets the same random rune, replacing the one they held
+    - "randomweapon" [29] - everyone gets the same random weapon
+    - "remove func_*" [30] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "robinhood" [31] - the top fragger is disarmed and last place gets their guns
+    - "roulette" [32] - everyone gets a different random weapon
+    - "runeburst" [33] - everyone holding a rune drops it at once
+    - "runeshuffle" [34] - held runes rotate to the next rune holder
+    - "unarm" [38] - everyone is stripped down to their fists
+    - "wrenchvolley" [39] - everyone throws a fan of five wrenches that vanish on impact
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
     - Added "sv_addinstantmutator [index]" to apply any instant mutator on demand; every index is listed in server_commands.txt

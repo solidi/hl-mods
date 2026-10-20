@@ -13,23 +13,27 @@ This document is the single source of truth for the mutator subsystem. It
 supersedes `mutator_pause_system.md` (round-based pause/restore is folded in
 below).
 
-## 0. Recent delta (2026-10-18)
+## 0. Recent delta (2026-10-19)
+
+- Added three mine **instant** mutators at their alphabetical places: `INSTANT_DRUG_PARTY = 8` (`drugparty`), `INSTANT_NUKE_PARTY = 19` (`nukeparty`) and `INSTANT_PROX_PARTY = 24` (`proxparty`); roll and `sv_addinstantmutator` range are now `0..39`. Old -> new: 8->9, 9->10, 10->11, 11->12, 12->13, 13->14, 14->15, 15->16, 16->17, 17->18, 18->20, 19->21, 20->22, 21->23, 22->25, 23->26, 24->27, 25->28, 26->29, 27->30, 28->31, 29->32, 30->33, 31->34, 32->35, 33->36, 34->37, 35->38, 36->39; 0..7 are unchanged (cookies 4, allguns 5, bsod 6). Each eligible player gets a `monster_proxmine` (drug / nuclear / normal) dropped on the floor under them, owned by them. New `SF_PROXMINE_PARTY` makes the mine trigger on and hit its placer too, keep the placer's frag credit whoever sets it off, and disappear 10 s after arming if nobody did (see §3.3.6). Server-only; no client, registry or asset change.
+
+## 0.1 Earlier delta (2026-10-18)
 
 - Added three volley **instant** mutators at their alphabetical places: `INSTANT_KNIFE_VOLLEY = 14` (`knifevolley`), `INSTANT_PIPE_VOLLEY = 21` (`pipevolley`) and `INSTANT_WRENCH_VOLLEY = 36` (`wrenchvolley`); roll and `sv_addinstantmutator` range are now `0..36`. Old -> new: 14->15, 15->16, 16->17, 17->18, 18->19, 19->20, 20->22, 21->23, 22->24, 23->25, 24->26, 25->27, 26->28, 27->29, 28->30, 29->31, 30->32, 31->33, 32->34, 33->35; 0..13 are unchanged. Every target that may hold the weapon throws a fan of five `flying_knife` / `flying_crowbar` / `flying_wrench` projectiles once; volley projectiles carry `SF_FLYING_VOLLEY` and vanish on impact instead of dropping a weapon (see §3.3.5). Server-only; no client, registry or asset change.
 - Added `xray` (`MUTATOR_XRAY = 117`) in alphabetical ID order after `waterhurt`; no existing ID shifts. Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..117`, with `MAX_MUTATORS_CL = 118` including trailing `RANDOM`. `hud.txt` declaration count is now 365 (`xray` reuses the `invisible` icon rect). The grave_bot `const.h` gained the define; no bot rebuild is needed because nothing was renumbered.
 - While active, every client recreates the GoldenEye 007 GameShark see-through geometry code: walls, floors, ceilings and brush entities near the player turn semi-transparent, with their edges kept almost solid, and show the rooms, players and items behind them over black void. The engine draws the view twice a frame (ref_params `nextView`): the second view clips the near world away with a user clip plane and forces `r_novis`, and the first view is blended back over it before the viewmodel. Client-only; blocked in Prop Hunt (see §3.31).
 - New server cvar `sv_addinstantmutator <index>` fires one instant mutator by its `instant_mutator_e` value (`0..33`) on the next 1 Hz `MutatorsThink` tick, then clears itself. `AddInstantMutator` now takes `int index = -1` (`-1` or out of range = random roll, unchanged for the cadence and the vote). A forced instant skips the `gmsgChaos` bar refresh, refuses `allguns` (5) in multiplayer instead of re-rolling, and ignores `sv_instantmutators`. `-1` is the silent "none" value of the new `settings.scr` LIST; anything else outside the range logs `Instant mutator "<value>" is unknown, use an index from 0 to 33.` Instant indices are now operator-facing: `server_commands.txt` lists all of them under `sv_addinstantmutator`, `readme.txt` tags the v1.2 instants with theirs, and `settings.scr` has the LIST (localized `#Ice_AddInstantMutator`). See §3.3.
 - Doc fix: the §2 cvar table listed `sv_instantmutators` with default `"1"`; the code default is `"0"` (`server.cfg` / `listenserver.cfg` set `1`).
-- Instant mutators are renumbered into alphabetical order of their operator-facing names (`+1 health` = 0 .. `unarm` = 33), and that is now the rule: a new instant is inserted at its alphabetical place and every later value shifts, the same as `MUTATOR_*` IDs (§3.3 has the sort rule and the add-an-instant steps). Old -> new: 0->16, 1->0, 2->31, 3->2, 4->1, 5->3, 6->15, 7->30, 8->11, 9->20, 10->32, 11->19, 12->18, 13->13, 14->10, 15->4, 16->6, 17->25, 18->33, 19->24, 20->5, 21->22, 22->23, 23->7, 24->9, 25->27, 26->28, 27->26, 28->21, 29->12, 30->14, 31->8, 32->17, 33->29. Instant numbers in §0.2-§0.4 and in server logs from before this change use the old values. The `AddInstantMutator` switch cases were reordered to match the enum.
+- Instant mutators are renumbered into alphabetical order of their operator-facing names (`+1 health` = 0 .. `unarm` = 33), and that is now the rule: a new instant is inserted at its alphabetical place and every later value shifts, the same as `MUTATOR_*` IDs (§3.3 has the sort rule and the add-an-instant steps). Old -> new: 0->16, 1->0, 2->31, 3->2, 4->1, 5->3, 6->15, 7->30, 8->11, 9->20, 10->32, 11->19, 12->18, 13->13, 14->10, 15->4, 16->6, 17->25, 18->33, 19->24, 20->5, 21->22, 22->23, 23->7, 24->9, 25->27, 26->28, 27->26, 28->21, 29->12, 30->14, 31->8, 32->17, 33->29. Instant numbers in §0.3-§0.5 and in server logs from before this change use the old values. The `AddInstantMutator` switch cases were reordered to match the enum.
 
-## 0.1 Earlier delta (2026-10-17)
+## 0.2 Earlier delta (2026-10-17)
 
 - Added `discomode` (`MUTATOR_DISCOMODE = 20`) in alphabetical ID order after `dealter` (all downstream mutator IDs shifted by +1; `dontshoot` is now 21, `linemode` 49, `three` 104, `vvvvvv` 115). Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..116`, with `MAX_MUTATORS_CL = 117` including trailing `RANDOM`. `hud.txt` declaration count was then 364 (`discomode` reuses the `inverse` icon rect).
 - While active, every client recreates the GoldenEye 007 GameShark code that made the game "flash rapidly with shifting, psychedelic colors": after the 3D view, a GLSL pass rebuilds each pixel's world-space plane from the depth buffer and paints every polygon (world, brush entities, models, viewmodel) one fully saturated solid colour, re-rolled 10 times a second, cycling in between, and on some beats swept with a world-space rainbow. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.30).
 - The grave_bot copy of `const.h` was renumbered in the same change; rebuild the bot DLL, its `UTIL_MutatorEnabled` matches numeric IDs.
 - New rule: every new mutator, full or instant, gets a recorded review against every game mode's filter (§9 step 6). §3.4 now holds the filter matrix as it is in code; it had wrongly listed Arena, Prop Hunt and Shidden as blocking `thirdperson`, and Arena as having an override. A regression pass over the existing mutators and instants is pending.
 
-## 0.2 Earlier delta (2026-10-16)
+## 0.3 Earlier delta (2026-10-16)
 
 - Added `vvvvvv` (`MUTATOR_VVVVVV = 114`) in alphabetical ID order after `volatile`; only `waterhurt` shifts (then 115). Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..115`, with `MAX_MUTATORS_CL = 116` including trailing `RANDOM`. `hud.txt` declaration count was then 363 (`vvvvvv` reuses the `upsidedown` icon rect).
 - While active, jump no longer jumps: on a surface it flips the player's gravity, so they fall to the ceiling and walk on it upside down, and the next jump flips them back (VVVVVV). Shared movement in `pm_shared.c` (physinfo `vvv`, predicted flag `pmove->fuser1`), server state/hitboxes/fall damage in `player.cpp` + `client.cpp`, rolled camera/input/player model on the client. Bots never flip; blocked in Prop Hunt (see §3.29).
@@ -42,43 +46,43 @@ below).
 - Fixed an edict leak in `CBasePlayer::DropPlayerItem`: the no-weaponbox path (used only by `ThrowWeapon`, i.e. impulse 216, empty-weapon auto-throw and `hotfingers`) unlinked the weapon without `Kill()`, leaving a hidden `MOVETYPE_FOLLOW` edict until map change on every throw. `RemovePlayerItem` now also clears `m_pLastRef` (3027a05 first did this only in the throw path), so holster-mode `SelectLastItem` cannot promote a weapon that `RemoveNamedItem`, `DestroyItem`, `DropPlayerItem`, `PackWeapon` or the Busters egon cap has removed.
 - 3027a05: `unarm` now uses the weapon gate (`InstantWeaponsAllowed()`), so it reports nothing allowed in GunGame, Busters, Instagib, Loot and Snowball. `UnarmPlayer()` leaves the Capture the Chumtoad carrier (`m_iHoldingChumtoad`) armed, which covers both `unarm` and the robbed player in `robinhood`.
 
-## 0.3 Earlier delta (2026-10-15)
+## 0.4 Earlier delta (2026-10-15)
 
 - Added the `Remove func_*` **instant** mutator as `INSTANT_REMOVE_FUNC = 17` (roll is now `0..17`). It removes every entity of one random `func_*` class present on the map, announces `[Mutators] Remove func_*: <classname> was removed!`, and nothing comes back until the next map change (see §3.3.3). Server-only; no client, registry or asset change.
 - Hardened runtime removal of brush entities for it (also fixes `killtarget`): `CFuncTank`, `CFuncTankLaser`, `CFuncTrackTrain` and `CFuncTrackChange` gained `UpdateOnRemove` teardown, and `CFuncTankControls` / `CPlatTrigger` hold `EHANDLE`s instead of raw pointers.
 - Added the `bsod` **instant** mutator as `INSTANT_BSOD = 16` (roll was then `RANDOM_LONG(0, INSTANT_MUTATOR_COUNT - 1)` = `0..16`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed.
 - New user message `gmsgBSOD` (`"BSOD"`, 0 bytes) opens a full-screen deep-blue fake crash screen (`CBSODPanel`, `MENU_BSOD`) on every alive, active, non-bot player, plays `sound/bsod.wav` and is dismissed with the bottom-right `Failed Successfully` button. All strings come from `titles.txt` (see §3.3.2).
 
-## 0.4 Earlier delta (2026-10-14)
+## 0.5 Earlier delta (2026-10-14)
 
 - Added the `Accept All Cookies` **instant** mutator as `AddInstantMutator()` case 15 (roll is now `RANDOM_LONG(0, 15)`). Instant mutators have no `MUTATOR_*` ID, so no registry, `settings.scr`, `hud.txt` or vote-panel change was needed; it is only ever picked at random on the instant cadence.
 - New user message `gmsgCookies` (`"Cookies"`, 1 byte) opens a client-side VGUI cookie consent wall (`CCookiesPanel`, `MENU_COOKIES`) on every alive, active, non-bot player: scrollable fake agreement, `Accept All Cookies` (dismiss) on the left, `Reject All Cookies` (client runs `disconnect`) on the right. All strings come from `titles.txt` (see §3.3.1).
 
-## 0.5 Earlier delta (2026-10-13)
+## 0.6 Earlier delta (2026-10-13)
 
 - Added `blur` (`MUTATOR_BLUR = 11`) in alphabetical ID order after `bighead` (all downstream mutator IDs shifted by +1; `busters` is now 12, `linemode` is now 48, `three` is now 103).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..114`, with `MAX_MUTATORS_CL = 115` including trailing `RANDOM`. `hud.txt` declaration count was then 362 (`blur` reuses the `drunk` icon rect).
 - While active, every client renders frame-feedback motion blur (ported from GSChaos `CFeatureBlur`): the previous blurred frame is blended over the finished 3D view at a frame-time based opacity and copied back as history, so anything moving on screen leaves a decaying trail. The HUD stays sharp. Client-only; no server logic or mode filters (see §3.28).
 
-## 0.6 Earlier delta (2026-10-12)
+## 0.7 Earlier delta (2026-10-12)
 
 - Added `linemode` (`MUTATOR_LINEMODE = 47`) in alphabetical ID order after `lightsout` (all downstream mutator IDs shifted by +1; `longjump` became 48, `three` was then 102).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..113`, with `MAX_MUTATORS_CL = 114` including trailing `RANDOM`. `hud.txt` declaration count was then 361 (`linemode` reuses the `oldtime` icon rect).
 - While active, every client renders GoldenEye 007's hidden Line Mode: the 3D view washes out to white and only silhouettes and geometric creases of the world, brush entities and models are traced in black, in real time via a depth-buffer GLSL pass. The HUD draws normally on top. Client-only; no server logic or mode filters (see §3.27).
 
-## 0.7 Earlier delta (2026-10-11)
+## 0.8 Earlier delta (2026-10-11)
 
 - Added `goldeneye` (`MUTATOR_GOLDENEYE = 32`) in alphabetical ID order after `godmode` (all downstream mutator IDs shifted by +1; `goldenguns` became 33, `three` was then 101).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..112`, with `MAX_MUTATORS_CL = 113` including trailing `RANDOM`. `hud.txt` declaration count was then 360 (`goldeneye` reuses the `goldenguns` icon rect).
 - While active, the local HUD drops the health/armor numbers, cross and suit icons and the separator bar; GoldenEye 007 styled curved, segmented health (left, yellow -> red) and armor (right, light blue -> blue) bars flash up for a few seconds whenever the local player is hurt. Client-only; no server logic or mode filters (see §3.26).
 
-## 0.8 Earlier delta (2026-10-10)
+## 0.9 Earlier delta (2026-10-10)
 
 - Added `myfavtexture` (`MUTATOR_MYFAVTEXTURE = 54`) in alphabetical ID order after `mirror` (all downstream mutator IDs shifted by +1; `three` was then 100).
 - Canonical shared mutator range was then `MUTATOR_CHAOS`..`MUTATOR_WATERHURT` = `1..111`, with `MAX_MUTATORS_CL = 112` including trailing `RANDOM`.
 - While active, every world and brush-entity surface on every client renders one replacement texture (default `AAATRIGGER` from `halflife.wad`, procedural black/magenta checker fallback). Client-only; no server logic or mode filters (see §3.25).
 
-## 0.9 Earlier delta (2026-10-09)
+## 0.10 Earlier delta (2026-10-09)
 
 - `MutatorsThink` now logs `Mutator "<name>" is unknown and cannot be applied.` to the server console when `sv_addmutator` does not resolve to a known token (for example, typoing `snackbar`).
 - `sv_addmutator` resolves its first token to a `g_szMutators[]` index (case-insensitive name or numeric id) *before* calling `MutatorAllowed`, and passes the canonical lowercase name to the filter. Every mode filter uses case-sensitive `strstr` against canonical names, so validating raw input let `SLOWMO` bypass the multiplayer `slowmo` block. The enable loop and the `three` special pass key off the same resolved index, so `sv_addmutator 99` now expands `three` like the name does.
@@ -151,6 +155,10 @@ below).
   `SpinTouch` skips the weapon drop (and the crowbar's `snarkbar` wave) for
   projectiles flagged `SF_FLYING_VOLLEY` (`weapons.h`) by the volley
   instants (§3.3.5).
+- [workspace/src/dlls/tripmine.cpp](workspace/src/dlls/tripmine.cpp) —
+  `CProxMine` and `DeployProxMineAt`; `SF_PROXMINE_PARTY` mines from the
+  mine party instants trigger on their placer, keep the placer's frag
+  credit and expire (§3.3.6).
 - [workspace/src/dlls/game.cpp](workspace/src/dlls/game.cpp#L89-L101) — cvar
   definitions (`sv_chaosfilter`, `sv_addmutator`, `sv_addinstantmutator`,
   `sv_instantmutators`, `sv_mutatorlist`, `sv_mutatorcount`, `sv_mutatortime`)
@@ -288,7 +296,7 @@ break the read loop; `254` is a "clear all" signal (see §4).
 | Cvar | Default | Purpose |
 |---|---|---|
 | `sv_addmutator` | `""` | Set by admins / vote / round-transition to enqueue a mutator addition. Consumed by `MutatorsThink`. Supports names, numeric IDs, `chaos`, `unchaos`, `clear`, `three`, and an optional trailing duration (`"name 0"` = permanent). |
-| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..36`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
+| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..39`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
 | `sv_instantmutators` | `"0"` | Enables one-shot Instant Mutators on the chaos cadence. `server.cfg` / `listenserver.cfg` set it to `1`. |
 | `sv_mutatorlist` | `""` | Semi-colon delimited "next up" list. Consumed by `MutatorsThink`: pops the first entry into `sv_addmutator` each tick until empty. Set by the vote tally and by admin. |
 | `sv_mutatorcount` | `"3"` | Number of *simultaneously active* mutators Chaos Mode targets. Clamped `[0, 7]`. |
@@ -437,48 +445,51 @@ refused in multiplayer with
 - 6 `INSTANT_BSOD` (`bsod`): opens the blue screen of death on each eligible
   human player (see §3.3.2).
 - 7 `INSTANT_BUTTERFINGERS` (`butterfingers`): see §3.3.4.
-- 8 `INSTANT_DRY_FIRE` (`dryfire`): see §3.3.4.
-- 9 `INSTANT_DUAL_WIELD` (`dualwield`): see §3.3.4.
-- 10 `INSTANT_EXTRA_AMMO` (`extra ammo`): grants a current-weapon ammo bonus
+- 8 `INSTANT_DRUG_PARTY` (`drugparty`): see §3.3.6.
+- 9 `INSTANT_DRY_FIRE` (`dryfire`): see §3.3.4.
+- 10 `INSTANT_DUAL_WIELD` (`dualwield`): see §3.3.4.
+- 11 `INSTANT_EXTRA_AMMO` (`extra ammo`): grants a current-weapon ammo bonus
   to each eligible player when the equipped weapon has a valid primary ammo
   type.
-- 11 `INSTANT_HOT_POTATO` (`hot potato`): spawns a live timed `CGrenade` in
+- 12 `INSTANT_HOT_POTATO` (`hot potato`): spawns a live timed `CGrenade` in
   front of each player.
-- 12 `INSTANT_HOTFINGERS` (`hotfingers`): see §3.3.4.
-- 13 `INSTANT_HUMAN_ASSASSIN` (`human assassin`): spawns a
+- 13 `INSTANT_HOTFINGERS` (`hotfingers`): see §3.3.4.
+- 14 `INSTANT_HUMAN_ASSASSIN` (`human assassin`): spawns a
   `monster_human_assassin` in front of the player.
-- 14 `INSTANT_KNIFE_VOLLEY` (`knifevolley`): see §3.3.5.
-- 15 `INSTANT_MAX_AMMO` (`maxammo`): see §3.3.4.
-- 16 `INSTANT_NICE` (`nice`): HP=armour=69 ("Nice!").
-- 17 `INSTANT_NOTHING` (`nothing`): no-op announcement.
-- 18 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
-- 19 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
+- 15 `INSTANT_KNIFE_VOLLEY` (`knifevolley`): see §3.3.5.
+- 16 `INSTANT_MAX_AMMO` (`maxammo`): see §3.3.4.
+- 17 `INSTANT_NICE` (`nice`): HP=armour=69 ("Nice!").
+- 18 `INSTANT_NOTHING` (`nothing`): no-op announcement.
+- 19 `INSTANT_NUKE_PARTY` (`nukeparty`): see §3.3.6.
+- 20 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
+- 21 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
   but only if the current mode allows `MUTATOR_CHUMXPLODE` (this gate is
   checked once at the top of the case; if it fails, the entire case is
   skipped).
-- 20 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
+- 22 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
   front of each player.
-- 21 `INSTANT_PIPE_VOLLEY` (`pipevolley`): see §3.3.5.
-- 22 `INSTANT_RANDOM_DAMAGE` (`random damage`):
+- 23 `INSTANT_PIPE_VOLLEY` (`pipevolley`): see §3.3.5.
+- 24 `INSTANT_PROX_PARTY` (`proxparty`): see §3.3.6.
+- 25 `INSTANT_RANDOM_DAMAGE` (`random damage`):
   `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
-- 23 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
-- 24 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
-- 25 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
-- 26 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
-- 27 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
+- 26 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
+- 27 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
+- 28 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
+- 29 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
+- 30 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
   random `func_*` class present on the map until the next map change (see
   §3.3.3).
-- 28 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
-- 29 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
-- 30 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
-- 31 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
-- 32 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
-- 33 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
+- 31 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
+- 32 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
+- 33 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
+- 34 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
+- 35 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
+- 36 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
   (skips god-mode players).
-- 34 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
+- 37 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
   surface is in front of the player.
-- 35 `INSTANT_UNARM` (`unarm`): see §3.3.4.
-- 36 `INSTANT_WRENCH_VOLLEY` (`wrenchvolley`): see §3.3.5.
+- 38 `INSTANT_UNARM` (`unarm`): see §3.3.4.
+- 39 `INSTANT_WRENCH_VOLLEY` (`wrenchvolley`): see §3.3.5.
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
 cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
@@ -677,16 +688,16 @@ re-rolling.
 - 7 **`butterfingers`** — nothing allowed when `mp_weaponstay > 0` or no
   target passes `IsAllowedToDropWeapon`. Otherwise `DropPlayerItem("")`
   (weaponbox) for each target whose active item is not `ITEM_FLAG_NODROP`.
-- 8 **`dryfire`** — empties the clip (`m_iClip = 0`) of each target's
+- 9 **`dryfire`** — empties the clip (`m_iClip = 0`) of each target's
   active weapon; reserve ammo is kept, so everyone has to reload. Weapons
   without a clip (`iMaxClip() <= 0`: melee, grenades, egon, ...) and the nuke
   are skipped. It also zeroes `m_iTripleBangShotsPending`, because a queued
   `triplebang` shot restores the pre-burst clip. The client picks the empty
   clip up through the normal weapon data / `CurWeapon` sync. No mode gate.
-- 9 **`dualwield`** — weapon gate; an active single weapon in
+- 10 **`dualwield`** — weapon gate; an active single weapon in
   `g_DualWieldPairs[]` gets its dual version (if `CanRandomizeWeapon`
   allows), which is selected. The single is kept (`impulse 205` swaps).
-- 12 **`hotfingers`** — `butterfingers`, but each active weapon goes
+- 13 **`hotfingers`** — `butterfingers`, but each active weapon goes
   through `CBasePlayerWeapon::ThrowWeapon(TRUE)` (the impulse 216 weapon
   throw): a `monster_throwweapon` showing the weapon is launched forward and
   detonates after 2 s as `CGrenade::Vest(thrower, origin, plrDmgVest / 2)`,
@@ -697,12 +708,12 @@ re-rolling.
   explosive before `DropPlayerItem`, which would refuse them and duplicate the
   weapon. `ThrowWeapon`'s own guards still apply (fists/fingergun/vice,
   offhand cooldown, force grab).
-- 15 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
+- 16 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
   tops primary and secondary reserve ammo up to `iMaxAmmo1/2` with
   `GiveAmmo` (HUD pickup notice). Weapons without ammo are skipped, as are
   the nuke and, in Capture the Chumtoad, the chumtoad (extra chumtoads would
   add charms). Clips are not touched.
-- 18 **`passitleft`** — weapon gate; needs two targets. Targets form a
+- 20 **`passitleft`** — weapon gate; needs two targets. Targets form a
   ring in player-index order and each passes their active weapon to the
   next one. Every pass is decided before any inventory changes: the weapon
   must be able to holster, not be withheld, pass `CanRandomizeWeapon`, and
@@ -710,7 +721,7 @@ re-rolling.
   Then all givers `RemoveNamedItem` and all receivers `GiveNamedItem` +
   `SelectItem`. Reserve ammo stays with the giver; the receiver gets the
   default clip (or extra ammo if they already own that weapon).
-- 23 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
+- 26 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
   ammo type: `ammo_357`, `ammo_9mmAR`, `ammo_ARgrenades`, `ammo_buckshot`,
   `ammo_crossbow`, `ammo_gaussclip`, `ammo_rpgclip`) that `CanHaveNamedItem`
   accepts for at least one target, given to every target with
@@ -721,21 +732,21 @@ re-rolling.
   virus, CtC carrier, Prop Hunt props) get nothing. Snowball, `dualsonly`
   and Instagib refuse every ammo name, so it reports nothing allowed there.
   Chat: `[Mutators] Random Ammo: <name>!`.
-- 24 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
+- 27 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
   `item_healthkit`, `item_longjump`) that `CanHaveNamedItem` accepts for at
   least one target, given with `GiveNamedItem`. A player who cannot use it
   (full health or armor, already has long jump, `CanHaveItem` refusal) gets
   nothing. Snowball and `dualsonly` refuse every non-weapon name, so it
   reports nothing allowed there. Requires the `item_healthkit` precache in
   `W_Precache`.
-- 25 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
+- 28 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
   rune in `g_InstantRunes[]` passes `AllowRuneSpawn` (single player, Prop
   Hunt). Otherwise each target that does not already hold that rune gets
   `ClearRune` + `GiveRune` (silent replace). JvS Jesus (`IsArmoredMan`) is
   skipped.
-- 26 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
+- 29 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
   `SelectItem`). Chat: `[Mutators] Random Weapon: <pszDisplayName>!`.
-- 28 **`robinhood`** — weapon gate; needs two targets with different frags.
+- 31 **`robinhood`** — weapon gate; needs two targets with different frags.
   Highest and lowest `pev->frags` are picked (ties by reservoir sampling).
   The rich player's non-withheld, `CanRandomizeWeapon` weapons are given to
   the poor player, and the rich player is unarmed through `UnarmPlayer()`.
@@ -743,16 +754,16 @@ re-rolling.
   into the message. A Capture the Chumtoad carrier (`m_iHoldingChumtoad`) is
   never picked as rich or poor: `UnarmPlayer()` would skip them (duplicating
   their weapons) and `CanHaveNamedItem` refuses them everything.
-- 29 **`roulette`** — weapon gate; each target rolls their own candidate,
+- 32 **`roulette`** — weapon gate; each target rolls their own candidate,
   preferring weapons they do not own yet. The weapon title HUD on deploy
   shows what they got.
-- 30 **`runeburst`** — `DropRune` for every target holding a rune except
+- 33 **`runeburst`** — `DropRune` for every target holding a rune except
   JvS Jesus.
-- 31 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
+- 34 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
   holder is `ClearRune`d first (`GiveRune` refuses players still holding a
   rune), then each rune goes to the next holder in player-index order via
   `GiveRune`. No `AllowRuneSpawn` check: the runes already exist this round.
-- 35 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
+- 38 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
   Busters, Instagib, Loot and Snowball, where the loadout is the mode).
   Elsewhere `UnarmPlayer()` runs `RemoveAllItems(FALSE)` (keeps the suit,
   clears ammo) then gives `weapon_fists`. The Capture the Chumtoad carrier
@@ -774,9 +785,9 @@ throwSound, name)` in `gamerules.cpp`. Every eligible target throws a fan of
 
 | Index | Name | Projectile | Weapon checked | Chat |
 |---:|---|---|---|---|
-| 14 | `knifevolley` | `flying_knife` | `weapon_knife` | `[Mutators] Knife Volley!` |
-| 21 | `pipevolley` | `flying_crowbar` | `weapon_crowbar` | `[Mutators] Pipe Volley!` |
-| 36 | `wrenchvolley` | `flying_wrench` | `weapon_wrench` | `[Mutators] Wrench Volley!` |
+| 15 | `knifevolley` | `flying_knife` | `weapon_knife` | `[Mutators] Knife Volley!` |
+| 23 | `pipevolley` | `flying_crowbar` | `weapon_crowbar` | `[Mutators] Pipe Volley!` |
+| 39 | `wrenchvolley` | `flying_wrench` | `weapon_wrench` | `[Mutators] Wrench Volley!` |
 
 - **Launch.** Same as the weapon's own throw (`CKnife::Throw`,
   `CCrowbar::Throw`, `CWrench::Throw`): speed 1000 plus the thrower's
@@ -820,6 +831,77 @@ throwSound, name)` in `gamerules.cpp`. Every eligible target throws a fan of
   volley fires then. FFA, Teamplay, Arena, LMS, Cold Skull, Cold Spot,
   CtF, Horde, Jesus vs Santa and single player have no extra gate; friendly
   fire follows the normal `FPlayerCanTakeDamage` rules.
+
+### 3.3.6 Mine party instants (`drugparty`, `nukeparty`, `proxparty`)
+Three server-only instants that share `InstantMineParty(bNuclear, bDrug,
+name)` in `gamerules.cpp`. Every eligible target gets one `monster_proxmine`
+(`CProxMine`, `tripmine.cpp`) dropped on the floor under them, owned by
+them, and has the 2.5 s arming time (`PROXMINE_ARM_TIME`) to get clear:
+
+| Index | Name | Mine | Detect radius | On trigger |
+|---:|---|---|---:|---|
+| 8 | `drugparty` | `SF_PROXMINE_DRUG` (green) | 160 | small blast + 1.5 s poison / confusion cloud (6 per 0.25 s, 150 u) |
+| 19 | `nukeparty` | `SF_PROXMINE_NUCLEAR` (blue) | 220 | nuke effects + kills every player and monster on the map that is not a teammate of the placer |
+| 24 | `proxparty` | normal (red) | 200 | tripmine blast (`plrDmgTripmine`, `RadiusDamage`) |
+
+- **Drop.** A trace straight down from the player's origin (up to
+  `MINEPARTY_DROP_RANGE`, 256 u, ignoring players and monsters) must hit a
+  floor that faces up (`normal.z >= 0.7`) and that a placed proxmine may
+  mount on (`MOVETYPE_NONE` / `MOVETYPE_PUSH`, not `FL_CONVEYOR`);
+  otherwise that player gets no mine (airborne over a pit, steep slope,
+  conveyor). The mine goes through `DeployProxMineAt(..., bParty = TRUE)`,
+  8 u above the floor, so it plays the usual deploy and charge sounds at the
+  player's feet. Chat: `[Mutators] <Name>! Run!`.
+- **`SF_PROXMINE_PARTY`** (`weapons.h`, `0x0400`; `0x0200` is
+  `SF_MONSTER_FADECORPSE`) changes four things in `CProxMine`:
+  1. `PowerupThink` looks for its surface with an `ignore_monsters` trace.
+     A player-placed mine waits while the trace hits its placer, which would
+     hold a party mine unarmed for as long as its placer stands on it.
+  2. The placer is a valid target: `ProxThink` triggers on them, the drug
+     cloud ticks on them, `Explode`'s `RadiusDamage` already hit them, and
+     the nuclear kill-all includes them. A placer who has not left the
+     detect radius (or line of sight) when the mine arms sets it off and
+     dies by suicide. Teammates of the placer are still skipped exactly as
+     for player-placed mines.
+  3. `Killed` always restores `pev->owner = m_pRealOwner`, so the placer
+     keeps the frag credit even when someone else shoots it or a nearby
+     blast chains it. Player-placed mines still pass ownership to whoever
+     shoots them.
+  4. `m_flPartyEnd` (saved) removes the mine with sparks
+     `PROXMINE_PARTY_LIFETIME` (10 s) after arming if it has not gone off,
+     so repeated parties cannot pile up mine and indicator edicts (2 per
+     player) or leave map-wide nuke traps behind.
+- **Nuke party outcome.** The nuclear mine is a global kill, so the first
+  party nuke that goes off (a placer, or a bot, that did not get clear, or
+  an enemy walking into one) kills every non-teammate on the map and credits
+  its placer, who dies too if it was their own. On a server with bots
+  expect a wipe. Bots see `monster_proxmine` in `BotAssessGrenades` and
+  should move away, but they are not guaranteed to clear 220 u in 2.5 s.
+  Mines whose placers died stay armed until they expire, so a player who
+  respawns within 220 u of one in that window sets it off.
+- **Cost.** Two edicts per player (mine + indicator sprite), for at most
+  2.5 s + 10 s.
+- **Mode filters** (all filter sites reviewed 2026-10-19). Gate 1 is the
+  weapon gate `InstantWeaponsAllowed()`: GunGame (free mine kills outside
+  the weapon progression), Busters, Instagib, Loot and
+  Snowball report `[Mutators] <Name>: nothing allowed here!`. Gate 2 is per
+  player: alive `IsInstantTarget()`, not `FL_FROZEN` (a frozen player
+  cannot run) and `CanHaveNamedItem("weapon_tripmine")`, which leaves out
+  Prop Hunt props (a mine would also mark their position), Chilldemic
+  skeletons, Shidden dealters, the Capture the Chumtoad carrier, every KtS
+  player and everyone under `dualsonly` or a `sv_disallowlist` entry.
+  `nukeparty` also needs `CanHaveNamedItem("weapon_nuke")`, so Chilldemic,
+  Horde, Jesus vs Santa and Shidden (which refuse the nuke because a global
+  kill breaks their round flow) report nothing allowed. Capture the
+  Chumtoad allows it, and the nuclear kill-all bypasses CtC's "only the
+  carrier can be hurt" rule, the same as a player-placed nuclear mine. Round-based modes pause
+  mutators between rounds and during the Prop Hunt hunter freeze, so no
+  party starts then, and `RemoveAndFillItems` clears leftover mines on
+  round reset. FFA, Teamplay, Arena, LMS, Cold Skull, Cold Spot and CtF
+  have no extra gate. Single player allows all three; a `nukeparty` that
+  goes off there kills every monster on the level, scripted NPCs included,
+  which can soft-lock progression (same risk as a player-placed nuclear
+  mine).
 
 ### 3.4 `MutatorAllowed(const char *mutator)` filter chain
 - `CGameRules::MutatorAllowed` is pure-virtual (`= FALSE`) so every rules
@@ -2407,7 +2489,8 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
      same change.
    - **Regression pass pending.** Mutators 1..116 and the instants that
      existed before the volleys (everything except `knifevolley`,
-     `pipevolley` and `wrenchvolley`) predate
+     `pipevolley`, `wrenchvolley`, `drugparty`, `nukeparty` and
+     `proxparty`) predate
      this rule and have not all been reviewed this way (the owner plans a
      dedicated pass). Do not treat today's filters as complete coverage.
 7. **Effect wiring.**

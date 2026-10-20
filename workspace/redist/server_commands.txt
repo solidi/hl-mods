@@ -100,35 +100,38 @@ Server commands:
     - "5" - allguns: you get every weapon the game allows (single player only; refused on multiplayer servers)
     - "6" - bsod: a blue screen of death takes over the screen until you click "Failed Successfully"
     - "7" - butterfingers: everyone drops the weapon in their hands
-    - "8" - dryfire: everyone's clip is emptied, time to reload
-    - "9" - dualwield: the weapon in your hands gets its dual version
-    - "10" - extra ammo: everyone gets extra ammo for their current weapon
-    - "11" - hot potato: a live grenade drops in front of everyone
-    - "12" - hotfingers: everyone throws the weapon in their hands as a live explosive
-    - "13" - human assassin: a human assassin appears in front of everyone
-    - "14" - knifevolley: everyone throws a fan of five knives that vanish on impact
-    - "15" - maxammo: your current weapon's ammo is filled to the max
-    - "16" - nice: everyone is set to 69 health and 69 armor
-    - "17" - nothing: nothing happens
-    - "18" - passitleft: everyone hands the weapon in their hands to the next player
-    - "19" - pet chumtoad: a chumtoad is tossed out in front of everyone (not in modes that block "chumxplode")
-    - "20" - pet snark: a snark is tossed out in front of everyone
-    - "21" - pipevolley: everyone throws a fan of five crowbars that vanish on impact
-    - "22" - random damage: everyone takes 10 to 20 damage
-    - "23" - randomammo: everyone gets the same random ammo pickup
-    - "24" - randomitem: everyone gets the same random item (health kit, battery or long jump)
-    - "25" - randomrune: everyone gets the same random rune, replacing the one they held
-    - "26" - randomweapon: everyone gets the same random weapon
-    - "27" - remove func_*: one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
-    - "28" - robinhood: the top fragger is disarmed and last place gets their guns
-    - "29" - roulette: everyone gets a different random weapon
-    - "30" - runeburst: everyone holding a rune drops it at once
-    - "31" - runeshuffle: held runes rotate to the next rune holder
-    - "32" - six seven: everyone is set to 67 health and 67 armor
-    - "33" - swap health and armor: health and armor trade places
-    - "34" - tripmine: a tripmine is planted on the floor in front of everyone
-    - "35" - unarm: everyone is stripped down to their fists
-    - "36" - wrenchvolley: everyone throws a fan of five wrenches that vanish on impact
+    - "8" - drugparty: an armed drug proximity mine drops at everyone's feet; run before it arms in 2.5 seconds
+    - "9" - dryfire: everyone's clip is emptied, time to reload
+    - "10" - dualwield: the weapon in your hands gets its dual version
+    - "11" - extra ammo: everyone gets extra ammo for their current weapon
+    - "12" - hot potato: a live grenade drops in front of everyone
+    - "13" - hotfingers: everyone throws the weapon in their hands as a live explosive
+    - "14" - human assassin: a human assassin appears in front of everyone
+    - "15" - knifevolley: everyone throws a fan of five knives that vanish on impact
+    - "16" - maxammo: your current weapon's ammo is filled to the max
+    - "17" - nice: everyone is set to 69 health and 69 armor
+    - "18" - nothing: nothing happens
+    - "19" - nukeparty: an armed nuclear proximity mine drops at everyone's feet; run before it arms in 2.5 seconds (not in modes that refuse the nuke)
+    - "20" - passitleft: everyone hands the weapon in their hands to the next player
+    - "21" - pet chumtoad: a chumtoad is tossed out in front of everyone (not in modes that block "chumxplode")
+    - "22" - pet snark: a snark is tossed out in front of everyone
+    - "23" - pipevolley: everyone throws a fan of five crowbars that vanish on impact
+    - "24" - proxparty: an armed proximity mine drops at everyone's feet; run before it arms in 2.5 seconds
+    - "25" - random damage: everyone takes 10 to 20 damage
+    - "26" - randomammo: everyone gets the same random ammo pickup
+    - "27" - randomitem: everyone gets the same random item (health kit, battery or long jump)
+    - "28" - randomrune: everyone gets the same random rune, replacing the one they held
+    - "29" - randomweapon: everyone gets the same random weapon
+    - "30" - remove func_*: one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "31" - robinhood: the top fragger is disarmed and last place gets their guns
+    - "32" - roulette: everyone gets a different random weapon
+    - "33" - runeburst: everyone holding a rune drops it at once
+    - "34" - runeshuffle: held runes rotate to the next rune holder
+    - "35" - six seven: everyone is set to 67 health and 67 armor
+    - "36" - swap health and armor: health and armor trade places
+    - "37" - tripmine: a tripmine is planted on the floor in front of everyone
+    - "38" - unarm: everyone is stripped down to their fists
+    - "39" - wrenchvolley: everyone throws a fan of five wrenches that vanish on impact
 - "sv_addmutator" - Add mutators to gameplay.
     - Specify the duration in seconds inside the quotes after the mutator name
         - Example: sv_addmutator "longjump" sets the duration to whatever sv_mutatortime is (in seconds)

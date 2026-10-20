@@ -713,6 +713,7 @@ Both `weapon_satchel` and `weapon_tripmine` deploy a **proximity mine** when the
   - drug proxmine: small colored blast + short poison/confusion cloud ticks,
   - nuclear proxmine: nuke TE stack + owner-safe kill-all pulse.
 - `TakeDamage` — quietly disarms (no explosion) if shot while still powering up.
+- Party mines (`SF_PROXMINE_PARTY`, dropped under every player by the `drugparty` / `nukeparty` / `proxparty` instant mutators through `DeployProxMineAt(..., bParty = TRUE)`): find their surface ignoring players, also trigger on and hit their placer, keep the placer's frag credit in `Killed` whoever sets them off, and are removed `PROXMINE_PARTY_LIFETIME` (10 s) after arming. See [mutator_system.md §3.3.6](mutator_system.md).
 
 ### Tuning knobs
 
