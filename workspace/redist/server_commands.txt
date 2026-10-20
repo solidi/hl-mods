@@ -253,6 +253,7 @@ Server commands:
     - "vampire" - deal damage to drain health from players and monsters
     - "vested" - everyone starts with a vest
     - "victor" - fragged player's dropped weaponbox glides only to the fragger for up to 10 seconds
+    - "virtualboy" - Nintendo Virtual Boy display; the view turns into a low resolution red and black LED image with bright red wireframe edges, and the HUD turns red too (client-side visual only)
     - "volatile" - where players blow up when fragged
     - "vvvvvv" - jump flips your gravity, walk on the ceiling upside down and jump again to fall back to the floor
     - "waterhurt" - if a player touches water, they are gibbed

@@ -40,6 +40,7 @@ v1.2 Features:
     - "triplebang" - every trigger pulls three shots
     - "vampire" - deal damage to drain health
     - "victor" - fragged drops fly only to the fragger
+    - "virtualboy" - the game runs through a Virtual Boy, everything turns into red and black LEDs with red wireframe edges
     - "vvvvvv" - jump flips your gravity, walk on the ceiling upside down and jump again to fall back to the floor
     - "waterhurt" - touch water and explode
     - "xray" - classic 007 GameShark see-through mode, nearby walls, floors and ceilings turn semi-transparent and reveal what is behind them
