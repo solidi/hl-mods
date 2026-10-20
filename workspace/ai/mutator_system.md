@@ -15,6 +15,7 @@ below).
 
 ## 0. Recent delta (2026-10-19)
 
+- Added the `kaboom` **instant** mutator as `INSTANT_KABOOM = 15` (alphabetically after `human assassin`); roll and `sv_addinstantmutator` range are now `0..40`. Old -> new: 15->16 .. 39->40 (every value from `knifevolley` on shifts by one); 0..14 are unchanged. Every breakable `func_breakable` on the map breaks the way a trigger breaks it and explodes at once (see §3.3.7). Server-only; no client, registry or asset change.
 - Added three mine **instant** mutators at their alphabetical places: `INSTANT_DRUG_PARTY = 8` (`drugparty`), `INSTANT_NUKE_PARTY = 19` (`nukeparty`) and `INSTANT_PROX_PARTY = 24` (`proxparty`); roll and `sv_addinstantmutator` range are now `0..39`. Old -> new: 8->9, 9->10, 10->11, 11->12, 12->13, 13->14, 14->15, 15->16, 16->17, 17->18, 18->20, 19->21, 20->22, 21->23, 22->25, 23->26, 24->27, 25->28, 26->29, 27->30, 28->31, 29->32, 30->33, 31->34, 32->35, 33->36, 34->37, 35->38, 36->39; 0..7 are unchanged (cookies 4, allguns 5, bsod 6). Each eligible player gets a `monster_proxmine` (drug / nuclear / normal) dropped on the floor under them, owned by them. New `SF_PROXMINE_PARTY` makes the mine trigger on and hit its placer too, keep the placer's frag credit whoever sets it off, and disappear 10 s after arming if nobody did (see §3.3.6). Server-only; no client, registry or asset change.
 
 ## 0.1 Earlier delta (2026-10-18)
@@ -296,7 +297,7 @@ break the read loop; `254` is a "clear all" signal (see §4).
 | Cvar | Default | Purpose |
 |---|---|---|
 | `sv_addmutator` | `""` | Set by admins / vote / round-transition to enqueue a mutator addition. Consumed by `MutatorsThink`. Supports names, numeric IDs, `chaos`, `unchaos`, `clear`, `three`, and an optional trailing duration (`"name 0"` = permanent). |
-| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..39`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
+| `sv_addinstantmutator` | `""` | Set by admins to fire one instant mutator by index (`instant_mutator_e`, `0..40`). Consumed and cleared by `MutatorsThink` on the next 1 Hz tick; works with `sv_instantmutators 0`. `-1` = none (silent, the `settings.scr` default); other out-of-range or non-numeric values log a warning (§3.3). |
 | `sv_instantmutators` | `"0"` | Enables one-shot Instant Mutators on the chaos cadence. `server.cfg` / `listenserver.cfg` set it to `1`. |
 | `sv_mutatorlist` | `""` | Semi-colon delimited "next up" list. Consumed by `MutatorsThink`: pops the first entry into `sv_addmutator` each tick until empty. Set by the vote tally and by admin. |
 | `sv_mutatorcount` | `"3"` | Number of *simultaneously active* mutators Chaos Mode targets. Clamped `[0, 7]`. |
@@ -456,40 +457,42 @@ refused in multiplayer with
 - 13 `INSTANT_HOTFINGERS` (`hotfingers`): see §3.3.4.
 - 14 `INSTANT_HUMAN_ASSASSIN` (`human assassin`): spawns a
   `monster_human_assassin` in front of the player.
-- 15 `INSTANT_KNIFE_VOLLEY` (`knifevolley`): see §3.3.5.
-- 16 `INSTANT_MAX_AMMO` (`maxammo`): see §3.3.4.
-- 17 `INSTANT_NICE` (`nice`): HP=armour=69 ("Nice!").
-- 18 `INSTANT_NOTHING` (`nothing`): no-op announcement.
-- 19 `INSTANT_NUKE_PARTY` (`nukeparty`): see §3.3.6.
-- 20 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
-- 21 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
+- 15 `INSTANT_KABOOM` (`kaboom`): every breakable `func_breakable` breaks
+  and explodes at once (see §3.3.7).
+- 16 `INSTANT_KNIFE_VOLLEY` (`knifevolley`): see §3.3.5.
+- 17 `INSTANT_MAX_AMMO` (`maxammo`): see §3.3.4.
+- 18 `INSTANT_NICE` (`nice`): HP=armour=69 ("Nice!").
+- 19 `INSTANT_NOTHING` (`nothing`): no-op announcement.
+- 20 `INSTANT_NUKE_PARTY` (`nukeparty`): see §3.3.6.
+- 21 `INSTANT_PASS_IT_LEFT` (`passitleft`): see §3.3.4.
+- 22 `INSTANT_PET_CHUMTOAD` (`pet chumtoad`): spawns a `monster_chumtoad` —
   but only if the current mode allows `MUTATOR_CHUMXPLODE` (this gate is
   checked once at the top of the case; if it fails, the entire case is
   skipped).
-- 22 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
+- 23 `INSTANT_PET_SNARK` (`pet snark`): spawns a friendly `monster_snark` in
   front of each player.
-- 23 `INSTANT_PIPE_VOLLEY` (`pipevolley`): see §3.3.5.
-- 24 `INSTANT_PROX_PARTY` (`proxparty`): see §3.3.6.
-- 25 `INSTANT_RANDOM_DAMAGE` (`random damage`):
+- 24 `INSTANT_PIPE_VOLLEY` (`pipevolley`): see §3.3.5.
+- 25 `INSTANT_PROX_PARTY` (`proxparty`): see §3.3.6.
+- 26 `INSTANT_RANDOM_DAMAGE` (`random damage`):
   `TakeDamage(RANDOM_FLOAT(10,20), DMG_SLASH)` (skips god-mode).
-- 26 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
-- 27 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
-- 28 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
-- 29 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
-- 30 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
+- 27 `INSTANT_RANDOM_AMMO` (`randomammo`): see §3.3.4.
+- 28 `INSTANT_RANDOM_ITEM` (`randomitem`): see §3.3.4.
+- 29 `INSTANT_RANDOM_RUNE` (`randomrune`): see §3.3.4.
+- 30 `INSTANT_RANDOM_WEAPON` (`randomweapon`): see §3.3.4.
+- 31 `INSTANT_REMOVE_FUNC` (`remove func_*`): removes every entity of one
   random `func_*` class present on the map until the next map change (see
   §3.3.3).
-- 31 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
-- 32 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
-- 33 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
-- 34 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
-- 35 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
-- 36 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
+- 32 `INSTANT_ROBIN_HOOD` (`robinhood`): see §3.3.4.
+- 33 `INSTANT_ROULETTE` (`roulette`): see §3.3.4.
+- 34 `INSTANT_RUNE_BURST` (`runeburst`): see §3.3.4.
+- 35 `INSTANT_RUNE_SHUFFLE` (`runeshuffle`): see §3.3.4.
+- 36 `INSTANT_SIX_SEVEN` (`six seven`): HP=armour=67 ("Six, seeeeven!").
+- 37 `INSTANT_SWAP_HEALTH_ARMOR` (`swap health and armor`): swap HP ↔ armour
   (skips god-mode players).
-- 37 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
+- 38 `INSTANT_TRIPMINE` (`tripmine`): places a `monster_tripmine` if a valid
   surface is in front of the player.
-- 38 `INSTANT_UNARM` (`unarm`): see §3.3.4.
-- 39 `INSTANT_WRENCH_VOLLEY` (`wrenchvolley`): see §3.3.5.
+- 39 `INSTANT_UNARM` (`unarm`): see §3.3.4.
+- 40 `INSTANT_WRENCH_VOLLEY` (`wrenchvolley`): see §3.3.5.
 
 Every path finishes by broadcasting `CLIENT_SOUND_CHICKEN` (unless the case
 cleared `broadcastChicken`; `INSTANT_ACCEPT_ALL_COOKIES` and `INSTANT_BSOD`
@@ -708,12 +711,12 @@ re-rolling.
   explosive before `DropPlayerItem`, which would refuse them and duplicate the
   weapon. `ThrowWeapon`'s own guards still apply (fists/fingergun/vice,
   offhand cooldown, force grab).
-- 16 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
+- 17 **`maxammo`** — for each target's active weapon (via `GetWeaponPtr`),
   tops primary and secondary reserve ammo up to `iMaxAmmo1/2` with
   `GiveAmmo` (HUD pickup notice). Weapons without ammo are skipped, as are
   the nuke and, in Capture the Chumtoad, the chumtoad (extra chumtoads would
   add charms). Clips are not touched.
-- 20 **`passitleft`** — weapon gate; needs two targets. Targets form a
+- 21 **`passitleft`** — weapon gate; needs two targets. Targets form a
   ring in player-index order and each passes their active weapon to the
   next one. Every pass is decided before any inventory changes: the weapon
   must be able to holster, not be withheld, pass `CanRandomizeWeapon`, and
@@ -721,7 +724,7 @@ re-rolling.
   Then all givers `RemoveNamedItem` and all receivers `GiveNamedItem` +
   `SelectItem`. Reserve ammo stays with the giver; the receiver gets the
   default clip (or extra ammo if they already own that weapon).
-- 26 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
+- 27 **`randomammo`** — one of `g_InstantAmmo[]` (one precached pickup per
   ammo type: `ammo_357`, `ammo_9mmAR`, `ammo_ARgrenades`, `ammo_buckshot`,
   `ammo_crossbow`, `ammo_gaussclip`, `ammo_rpgclip`) that `CanHaveNamedItem`
   accepts for at least one target, given to every target with
@@ -732,21 +735,21 @@ re-rolling.
   virus, CtC carrier, Prop Hunt props) get nothing. Snowball, `dualsonly`
   and Instagib refuse every ammo name, so it reports nothing allowed there.
   Chat: `[Mutators] Random Ammo: <name>!`.
-- 27 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
+- 28 **`randomitem`** — one of `g_InstantItems[]` (`item_battery`,
   `item_healthkit`, `item_longjump`) that `CanHaveNamedItem` accepts for at
   least one target, given with `GiveNamedItem`. A player who cannot use it
   (full health or armor, already has long jump, `CanHaveItem` refusal) gets
   nothing. Snowball and `dualsonly` refuse every non-weapon name, so it
   reports nothing allowed there. Requires the `item_healthkit` precache in
   `W_Precache`.
-- 28 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
+- 29 **`randomrune`** — nothing allowed when `mp_allowrunes <= 0` or no
   rune in `g_InstantRunes[]` passes `AllowRuneSpawn` (single player, Prop
   Hunt). Otherwise each target that does not already hold that rune gets
   `ClearRune` + `GiveRune` (silent replace). JvS Jesus (`IsArmoredMan`) is
   skipped.
-- 29 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
+- 30 **`randomweapon`** — one weapon for every target (`GiveNamedItem` +
   `SelectItem`). Chat: `[Mutators] Random Weapon: <pszDisplayName>!`.
-- 31 **`robinhood`** — weapon gate; needs two targets with different frags.
+- 32 **`robinhood`** — weapon gate; needs two targets with different frags.
   Highest and lowest `pev->frags` are picked (ties by reservoir sampling).
   The rich player's non-withheld, `CanRandomizeWeapon` weapons are given to
   the poor player, and the rich player is unarmed through `UnarmPlayer()`.
@@ -754,16 +757,16 @@ re-rolling.
   into the message. A Capture the Chumtoad carrier (`m_iHoldingChumtoad`) is
   never picked as rich or poor: `UnarmPlayer()` would skip them (duplicating
   their weapons) and `CanHaveNamedItem` refuses them everything.
-- 32 **`roulette`** — weapon gate; each target rolls their own candidate,
+- 33 **`roulette`** — weapon gate; each target rolls their own candidate,
   preferring weapons they do not own yet. The weapon title HUD on deploy
   shows what they got.
-- 33 **`runeburst`** — `DropRune` for every target holding a rune except
+- 34 **`runeburst`** — `DropRune` for every target holding a rune except
   JvS Jesus.
-- 34 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
+- 35 **`runeshuffle`** — needs two rune holders (JvS Jesus excluded). Every
   holder is `ClearRune`d first (`GiveRune` refuses players still holding a
   rune), then each rune goes to the next holder in player-index order via
   `GiveRune`. No `AllowRuneSpawn` check: the runes already exist this round.
-- 38 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
+- 39 **`unarm`** — weapon gate (since 3027a05; nothing allowed in GunGame,
   Busters, Instagib, Loot and Snowball, where the loadout is the mode).
   Elsewhere `UnarmPlayer()` runs `RemoveAllItems(FALSE)` (keeps the suit,
   clears ammo) then gives `weapon_fists`. The Capture the Chumtoad carrier
@@ -785,9 +788,9 @@ throwSound, name)` in `gamerules.cpp`. Every eligible target throws a fan of
 
 | Index | Name | Projectile | Weapon checked | Chat |
 |---:|---|---|---|---|
-| 15 | `knifevolley` | `flying_knife` | `weapon_knife` | `[Mutators] Knife Volley!` |
-| 23 | `pipevolley` | `flying_crowbar` | `weapon_crowbar` | `[Mutators] Pipe Volley!` |
-| 39 | `wrenchvolley` | `flying_wrench` | `weapon_wrench` | `[Mutators] Wrench Volley!` |
+| 16 | `knifevolley` | `flying_knife` | `weapon_knife` | `[Mutators] Knife Volley!` |
+| 24 | `pipevolley` | `flying_crowbar` | `weapon_crowbar` | `[Mutators] Pipe Volley!` |
+| 40 | `wrenchvolley` | `flying_wrench` | `weapon_wrench` | `[Mutators] Wrench Volley!` |
 
 - **Launch.** Same as the weapon's own throw (`CKnife::Throw`,
   `CCrowbar::Throw`, `CWrench::Throw`): speed 1000 plus the thrower's
@@ -841,8 +844,8 @@ them, and has the 2.5 s arming time (`PROXMINE_ARM_TIME`) to get clear:
 | Index | Name | Mine | Detect radius | On trigger |
 |---:|---|---|---:|---|
 | 8 | `drugparty` | `SF_PROXMINE_DRUG` (green) | 160 | small blast + 1.5 s poison / confusion cloud (6 per 0.25 s, 150 u) |
-| 19 | `nukeparty` | `SF_PROXMINE_NUCLEAR` (blue) | 220 | nuke effects + kills every player and monster on the map that is not a teammate of the placer |
-| 24 | `proxparty` | normal (red) | 200 | tripmine blast (`plrDmgTripmine`, `RadiusDamage`) |
+| 20 | `nukeparty` | `SF_PROXMINE_NUCLEAR` (blue) | 220 | nuke effects + kills every player and monster on the map that is not a teammate of the placer |
+| 25 | `proxparty` | normal (red) | 200 | tripmine blast (`plrDmgTripmine`, `RadiusDamage`) |
 
 - **Drop.** A trace straight down from the player's origin (up to
   `MINEPARTY_DROP_RANGE`, 256 u, ignoring players and monsters) must hit a
@@ -902,6 +905,58 @@ them, and has the 2.5 s arming time (`PROXMINE_ARM_TIME`) to get clear:
   goes off there kills every monster on the level, scripted NPCs included,
   which can soft-lock progression (same risk as a player-placed nuclear
   mine).
+
+### 3.3.7 `kaboom` every breakable explodes
+Server-only instant, `InstantKaboom()` in `gamerules.cpp` (includes
+`func_break.h`). GoldenEye-style: every crate, pane of glass, vent and other
+`func_breakable` on the map breaks and explodes at the same moment.
+
+- **Targets.** Every `func_breakable` (`CBreakable`, not `func_pushable`)
+  that is not `FL_KILLME`, still has `takedamage` on and is solid, and
+  `IsBreakable()` (not unbreakable glass). `takedamage` is off for
+  trigger-only breakables (`SF_BREAK_TRIGGER_ONLY`, map scripting) and for
+  ones already broken and waiting for `sv_breakabletime`, so both are left
+  alone. With no target it prints
+  `[Mutators] Kaboom: nothing left to blow up!`.
+- **Order.** (1) Count, then list the targets (`EHANDLE`, centre, and
+  whether the map gave it an `explodemagnitude`) in a `new[]` array, so
+  any number of breakables is handled. (2) Turn `takedamage` off on all of
+  them; otherwise the first blasts would break later breakables through
+  `TakeDamage` before their own blast. (3) `Use()` each one that is still
+  solid and not `FL_KILLME` (a target fired by an earlier break may have
+  broken or removed it): that is the trigger path, so gibs, break sound,
+  `target` firing, `spawnobject` items, the `sv_breakabletime` respawn
+  (`Restart` turns `takedamage` back on) and the map's own
+  `explodemagnitude` blast all behave as if a trigger had broken it.
+  (4) Every listed breakable without its own blast gets `KaboomBlast` at
+  its centre. The server log gets
+  `Instant mutator "kaboom" blew up <n> "func_breakable"`.
+- **`KaboomBlast`.** `KABOOM_MAGNITUDE` (100, about a hand grenade): a
+  `TE_EXPLOSION` (ice or normal fireball, scale 30, the explosion's own
+  sound) and `RadiusDamage(centre, breakable, breakable, 100, 250,
+  DMG_BLAST)`. It deliberately does not go through `ExplosionCreate`: each
+  `env_explosion` is an edict for 0.3 s and spawns up to three
+  `spark_shower` edicts, which on a map with a few hundred breakables could
+  exhaust the edict pool in one frame. The breakable is the inflictor so
+  the trace skips it. As with a map `explodemagnitude` blast, the attacker
+  is the breakable, so deaths are world kills (no frag credit, no frag
+  loss, a death for the victim). Blasts also hurt players, monsters,
+  barrels and other damageable entities in range; the effect messages are
+  unreliable, so on a very large burst some fireballs may not draw.
+- **No restore.** Nothing is saved; with the default `sv_breakabletime 20`
+  the breakables come back after 20 s (with `goldeneye_respawn.wav`), with
+  `0` they stay gone until the next map.
+- **Mode filters** (all filter sites reviewed 2026-10-19). None. It grants
+  no weapon and credits no player, so the weapon gate and per-player item
+  rules do not apply, and every mode (GunGame, Busters, Instagib, Loot,
+  Snowball, CtC, CtF, KtS, Prop Hunt, Shidden, Chilldemic, Horde, Arena,
+  LMS, Cold Skull, Cold Spot, JvS, FFA, Teamplay) treats a blast death like
+  any other world death, the same as an explosive breakable a player shoots.
+  Round-based modes pause mutators between rounds. Prop Hunt props hiding
+  next to breakables can die without a hunter, which counts like any
+  environmental death. Single player is allowed; breaking everything fires
+  every breakable's `target`, which can start scripted sequences early, and
+  the blasts can kill scripted NPCs (same class of risk as `Remove func_*`).
 
 ### 3.4 `MutatorAllowed(const char *mutator)` filter chain
 - `CGameRules::MutatorAllowed` is pure-virtual (`= FALSE`) so every rules
@@ -2489,8 +2544,8 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
      same change.
    - **Regression pass pending.** Mutators 1..116 and the instants that
      existed before the volleys (everything except `knifevolley`,
-     `pipevolley`, `wrenchvolley`, `drugparty`, `nukeparty` and
-     `proxparty`) predate
+     `pipevolley`, `wrenchvolley`, `drugparty`, `nukeparty`, `proxparty`
+     and `kaboom`) predate
      this rule and have not all been reviewed this way (the owner plans a
      dedicated pass). Do not treat today's filters as complete coverage.
 7. **Effect wiring.**
