@@ -17,6 +17,7 @@ below).
 
 - Added `virtualboy` (`MUTATOR_VIRTUALBOY = 114`) in alphabetical ID order after `victor`; `volatile` is now 115, `vvvvvv` 116, `waterhurt` 117 and `xray` 118. Canonical shared mutator range is now `MUTATOR_CHAOS`..`MUTATOR_XRAY` = `1..118`, with `MAX_MUTATORS_CL = 119` including trailing `RANDOM`. `hud.txt` declaration count is now 366 (`virtualboy` reuses the `oldtime` icon rect). The grave_bot `const.h` was renumbered in the same change; the bot only checks `dontshoot`, `lightsout` and `topsyturvy`, whose IDs did not move, so its DLL behaves the same.
 - While active, every client sees the game the way a Nintendo Virtual Boy shows it: the 3D view is redrawn as square red LED cells about 224 rows high in four shades (off plus three brightness levels, ordered dither between them), geometric edges light up as bright red wires that dim with distance, and LED row/column gaps plus a visor vignette finish the look. After the HUD is drawn, a second pass turns the whole window red monochrome, so the HUD matches. Client-only; blocked in Shidden (see §3.32).
+- Mode filter regression pass, first step (critical findings only; the rest of the audit is applied incrementally): `sanic` is blocked in Prop Hunt and Shidden, because the client draws an opaque sanic sprite at every player's origin before it looks at props or render mode, which marks every prop and every invisible dealter. `999` is blocked in Chilldemic: skeletons (50 HP) would get 999, and the 100 clamp when it ends skips the virus team, so they keep it.
 - Fixed `linemode` hiding the HUD: additive HUD elements vanished on its white image. The image is now drawn inverted while `gHUD.Redraw` runs and inverted back by the new `LineMode_DrawHud` right after it, which leaves the scene as before and turns the HUD into black ink. `DrawFadeToBlackOverlay` draws white while `LineMode_HudInverted()` is true so `fadetoblack` still darkens. Skipped while `discomode` or `virtualboy` is on (see §3.27).
 
 ## 0.1 Earlier delta (2026-10-19)
@@ -996,22 +997,22 @@ Server-only instant, `InstantKaboom()` in `gamerules.cpp` (includes
   ```
   `strstr` means a block also catches any mutator whose name *contains* the
   blocked name (`ice` is inside `nelliaschoice`, `regen` inside `ammoregen`).
-- Filter sites, checked against the code on 2026-10-17:
+- Filter sites, checked against the code on 2026-10-20:
 
   | Rules class (file) | Mode(s) | Blocks |
   |---|---|---|
   | `CHalfLifeMultiplay` (`multiplay_gamerules.cpp`) | base of every multiplayer mode | `slowmo`, `speedup`, `topsyturvy`, `explosiveai` everywhere; with `g_GameMode == GAME_SNOWBALL` also `maxpack`, `berserker`, `plumber`, `cowboy`, `busters`, `firestarter`, `portal`, `randomweapon`, `rocketcrowbar`, `vested`, `firebullets` |
   | `CHalfLifeRules` (`singleplay_gamerules.cpp`) | single player | `maxpack` only. Does not chain to the base, so the four base blocks are allowed (the "sp only" mutators). |
   | `CMultiplayBusters` (`busters_gamerules.cpp`) | Busters | `randomweapon`, `invisible`, `busters`, `thirdperson` |
-  | `CHalfLifeChilldemic` (`chilldemic_gamerules.cpp`) | Chilldemic | `thirdperson` |
+  | `CHalfLifeChilldemic` (`chilldemic_gamerules.cpp`) | Chilldemic | `999` (skeletons would go from 50 HP to 999 and keep it after expiry, the clamp skips the virus team), `thirdperson` |
   | `CHalfLifeCaptureTheChumtoad` (`ctc_gamerules.cpp`) | Capture the Chumtoad | `999`, `chumxplode`, `noclip`, `dontshoot`, `thirdperson` |
   | `CHalfLifeCaptureTheFlag` (`ctf_gamerules.cpp`) | Capture the Flag | `thirdperson` |
   | `CHalfLifeGunGame` (`gungame_gamerules.cpp`) | Gun Game | `barrels`, `berserker`, `dealter`, `dontshoot`, `instagib`, `plumber`, `cowboy`, `busters`, `firestarter`, `portal`, `railguns`, `ricochet`, `rocketbees`, `rocketcrowbar`, `vested`, `randomweapon` (weapon progression) |
   | `CHalfLifeInstagib` (`instagib_gamerules.cpp`) | Instagib | `999`, `berserker`, `instagib`, `maxpack`, `noreload`, `plumber`, `busters`, `cowboy`, `firestarter`, `portal`, `railguns`, `randomweapon`, `rocketcrowbar`, `slowbullets`, `vested` (one-shot rule) |
   | `CHalfLifeKickTheSnowball` (`kts_gamerules.cpp`) | Kick the Snowball | `thirdperson` |
   | `CHalfLifeLoot` (`loot_gamerules.cpp`) | Loot | `999`, `chumxplode`, `noclip`, `randomweapon`, `dontshoot`, `maxpack`, `thirdperson` (weapon-count rules) |
-  | `CHalfLifePropHunt` (`prophunt_gamerules.cpp`) | Prop Hunt | `santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`, `pumpkin`, `toilet` (would give a prop away), `vvvvvv` (hunter shot tracker lives in `pev->fuser1`, the gravity-flip slot), `xray` (hunters would see props through walls) |
-  | `CHalfLifeShidden` (`shidden_gamerules.cpp`) | Shidden | `invisible`, `dealter`, `virtualboy` (its wires would outline the translucent dealters, which still write depth) |
+  | `CHalfLifePropHunt` (`prophunt_gamerules.cpp`) | Prop Hunt | `santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`, `pumpkin`, `toilet` (would give a prop away), `sanic` (the opaque sprite is drawn on every player, props included), `vvvvvv` (hunter shot tracker lives in `pev->fuser1`, the gravity-flip slot), `xray` (hunters would see props through walls) |
+  | `CHalfLifeShidden` (`shidden_gamerules.cpp`) | Shidden | `invisible`, `dealter`, `sanic` (the sprite ignores render mode and would mark the invisible dealters), `virtualboy` (its wires would outline the translucent dealters, which still write depth) |
 
 - No override, base filter only: FFA (`CHalfLifeMultiplay`), Teamplay
   (`CHalfLifeTeamplay`), Arena, Last Man Standing, Cold Skull, Cold Spot,
@@ -2513,7 +2514,7 @@ Newly added mutators:
 | 62 | `noclip` | S | `MOVETYPE_NOCLIP` for players; kills bystanders on off-toggle. |
 | 64 | `nomouse` | C | Disables mouse look and mouse buttons for alive, active, non-spectator players; dead/spectator and UI flows are unaffected. |
 | 77 | `pushy` | S | `WeaponMutators` gives -recoil impulse on every shot. |
-| 88 | `sanic` | C | Replaces player model with sanic sprite. |
+| 88 | `sanic` | C | Replaces player model with sanic sprite. Filtered by Prop Hunt, Shidden (the opaque sprite marks props and invisible dealters). |
 | 91 | `skyhook` | S | Grappling-hook-style gameplay tweak (`AllowGrapplingHook`). |
 | 93 | `slide` | S | Forces alive active players into continuous Selaco slide loops; each cycle restarts immediately while active, and removal force-breaks active slides. |
 | 94 | `slowbullets` | S | `sv_slowbullets = 2`. |
@@ -2529,7 +2530,7 @@ Newly added mutators:
 ### Combat modifiers
 | ID | Name | Scope | Effect |
 |---:|---|---|---|
-| 2 | `999` | S | Force HP/armour/max_health to 999. Filtered by CtC, Instagib, Loot. |
+| 2 | `999` | S | Force HP/armour/max_health to 999. Filtered by Chilldemic, CtC, Instagib, Loot. |
 | 3 | `amidead` | C | View roll 80° (drunken lean). |
 | 6 | `autoaim` | S | Client-driven aim assist; off-toggle calls `ResetAutoaim`. |
 | 7 | `barrels` | S/Weapon | Grants `weapon_gravitygun`; barrels become props. |

@@ -462,8 +462,10 @@ fraction of the round-start total, so it reads 100 % at the start and
 
 ## Mutator filters
 
-`CHalfLifeShidden::MutatorAllowed` blocks `invisible`, `dealter` and
-`virtualboy`. `virtualboy` (2026-10-20) draws bright red wires along depth
+`CHalfLifeShidden::MutatorAllowed` blocks `invisible`, `dealter`, `sanic`
+and `virtualboy`. `sanic` draws an opaque sprite at every player's origin
+whatever their render mode, so it would show every dealter.
+`virtualboy` (2026-10-20) draws bright red wires along depth
 edges, and the `kRenderTransAlpha` dealters still write depth, so every
 dealter would get a solid outline. Full matrix:
 [mutator_system.md §3.4](mutator_system.md).

@@ -79,6 +79,8 @@ v1.2 Features:
 - Gamemode Patches
     - Added scrum lockup detection in Kick the Snowball
     - Jesus now receives the cloak rune in Jesus vs Santa
+    - Filtered sanic mutator from Prophunt and Shidden
+    - Filtered 999 mutator from chilldemic
 - Weapon Patches
     - View weapons react to player sprinting
     - Fixed ironsights server crash (thanks to albatross)

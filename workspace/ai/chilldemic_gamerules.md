@@ -120,7 +120,7 @@ Implementation details:
 - Infected players cannot switch away from `skeleton`
 
 ## Mutator Constraints
-- Explicitly disallows thirdperson mutator in this mode (`MutatorAllowed`)
+- Explicitly disallows the `999` and `thirdperson` mutators in this mode (`MutatorAllowed`). `999` would give skeletons (50 HP) 999 HP, and the 100 clamp when it ends skips the virus team, so they would keep it.
 - Inherits other mutator policy from `CHalfLifeMultiplay`
 
 ## Spectator Behavior
