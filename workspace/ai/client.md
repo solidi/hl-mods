@@ -132,6 +132,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | World/brush texture swap (`myfavtexture` mutator, hardware `texture_t::gl_texturenum`) | `mutator_myfavtexture.cpp`, [mutator_system.md §3.25](mutator_system.md) |
 | Second view per frame + see-through blend (`xray` mutator, `nextView`, user clip plane) | `mutator_xray.cpp`, `view.cpp::V_CalcRefdef`, `GameStudioModelRenderer.cpp`, [mutator_system.md §3.31](mutator_system.md) |
 | Red LED display + red HUD (`virtualboy` mutator, last screen-space pass before the HUD and one pass after it) | `mutator_virtualboy.cpp`, `cdll_int.cpp::HUD_Redraw`, `tri.cpp`, [mutator_system.md §3.32](mutator_system.md) |
+| World hidden, objects kept (`nobackgrounds` mutator, reject-all user clip plane, opaque brush entities and sprites moved to the transparent pass, fog-coloured backdrop) | `mutator_nobackgrounds.cpp`, `view.cpp::V_CalcRefdef`, `entity.cpp::HUD_AddEntity`, `GameStudioModelRenderer.cpp`, `fog.cpp`, [mutator_system.md §3.33](mutator_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |

@@ -1,4 +1,4 @@
-366
+367
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -356,6 +356,7 @@ exploder	640 gameicons2	0	128	64	64
 nomouse 640 gameicons3	128	64	64	64
 vvvvvv	640 gameicons	192	64	64	64
 xray	640 gameicons	192	128	64	64
+nobackgrounds	640 gameicons2	0	64	64	64
 
 // Cams
 cam_chumtoad	640 gameicons	192	192	64	64
