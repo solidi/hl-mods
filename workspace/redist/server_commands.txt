@@ -200,6 +200,7 @@ Server commands:
     - "napkinstory" - the legend reduced to two words
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement key becomes lethal; pressing it detonates the active player
+    - "nobackgrounds" - GoldenEye 007 GameShark no background code; walls, floors, ceilings and the sky stop drawing but still block and collide, while players, monsters, items, doors and glass still draw over a flat blue backdrop (the fog colour while fog is on) (client-side visual only)
     - "noclip" - fly through walls
     - "nohud" - hides all HUD and crosshair elements except the nohud status icon
     - "nomouse" - disable mouse movement and mouse buttons for alive active players

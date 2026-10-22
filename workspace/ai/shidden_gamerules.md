@@ -462,9 +462,11 @@ fraction of the round-start total, so it reads 100 % at the start and
 
 ## Mutator filters
 
-`CHalfLifeShidden::MutatorAllowed` blocks `invisible`, `dealter`, `sanic`
-and `virtualboy`. `sanic` draws an opaque sprite at every player's origin
+`CHalfLifeShidden::MutatorAllowed` blocks `invisible`, `dealter`, `sanic`,
+`nobackgrounds` and `virtualboy`. `sanic` draws an opaque sprite at every player's origin
 whatever their render mode, so it would show every dealter.
+`nobackgrounds` (2026-10-21) stops drawing the walls, so the translucent
+dealters show against a flat backdrop from anywhere in the PVS.
 `virtualboy` (2026-10-20) draws bright red wires along depth
 edges, and the `kRenderTransAlpha` dealters still write depth, so every
 dealter would get a solid outline. Full matrix:

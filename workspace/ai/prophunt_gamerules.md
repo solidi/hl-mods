@@ -145,10 +145,11 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
 
 `CHalfLifePropHunt::MutatorAllowed` blocks the hat/body cosmetics that would
 give a prop away (`santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`,
-`pumpkin`, `toilet`), `sanic`, `vvvvvv` (shares `pev->fuser1`, see below)
-and `xray`. `StudioDrawPlayer` draws the opaque sanic sprite at every
+`pumpkin`, `toilet`), `sanic`, `vvvvvv` (shares `pev->fuser1`, see below),
+`nobackgrounds` and `xray`. `StudioDrawPlayer` draws the opaque sanic sprite at every
 player's origin before it reaches the prop branch, so every prop would be
-marked. With `xray`, hunters would see props through walls, and
+marked. With `nobackgrounds` (no walls drawn) and `xray`, hunters would see
+props through walls, and
 `StudioDrawPlayer` lowers a prop's origin by 36 units per draw, which the
 xray second view would apply twice. Full matrix:
 [mutator_system.md §3.4](mutator_system.md).

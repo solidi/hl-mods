@@ -27,6 +27,7 @@ v1.2 Features:
     - "myfavtexture" - every wall wears the same texture
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement bind becomes lethal
+    - "nobackgrounds" - classic 007 GameShark no background mode, walls, floors, ceilings and the sky vanish while players, items, doors and glass still show over a flat blue backdrop
     - "nohud" - hide all hud elements except its own status icon
     - "nomouse" - alive players lose mouse input
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
