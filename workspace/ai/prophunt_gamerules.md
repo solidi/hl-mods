@@ -143,7 +143,8 @@ blacklists the anchor and forces a fresh pick.  Non-morphable anchors
 
 ### Mutator filters
 
-`CHalfLifePropHunt::MutatorAllowed` blocks the hat/body cosmetics that would
+`CHalfLifePropHunt::MutatorAllowed` blocks `autorun` and `pogo` (props hide by
+standing still, and they keep everyone moving), the hat/body cosmetics that would
 give a prop away (`santahat`, `piratehat`, `cowboy`, `marshmellow`, `jack`,
 `pumpkin`, `toilet`), `sanic`, `vvvvvv` (shares `pev->fuser1`, see below),
 `nobackgrounds` and `xray`. `StudioDrawPlayer` draws the opaque sanic sprite at every

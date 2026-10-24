@@ -115,6 +115,29 @@ When changing `pm_shared.c`:
   (`waterlevel >= 2`) un-flips. Full mechanics:
   [mutator_system.md §3.29](mutator_system.md).
 
+### 6.2 Movement mutators (`autorun`, `backwards`, `ducked`, `fly`, `heavy`, `noduck`, `nojump`, `pinball`, `planted`, `pogo`) and hitstun
+
+- Physinfo `mv` holds `MV_*` bits (`pm_shared.h`). `PM_ApplyMoveMutators`,
+  first in `PM_PlayerMove`, reads them into file-local `g_iPmMoveMutators`
+  (0 for spectators, observers, limbo and the dead) and edits `pmove->cmd`
+  before `PM_CheckParamters`: clears `IN_JUMP` (out of deep water) or
+  `IN_DUCK`, forces `IN_DUCK`, sets `forwardmove` to `maxspeed` (autorun),
+  negates/swaps moves (backwards), and zeroes moves, move buttons and jump
+  while firing (planted) or while `clientmaxspeed == HITSTUN_MAXSPEED`
+  (hitstun). The server applies the same edits to `pev->button` in
+  `PreThink`.
+- `heavy` doubles gravity in `PM_AddCorrectGravity` / `PM_FixupGravityVelocity`.
+  `pinball`: `PM_FlyMove` records the last wall normal, `PM_PinballBounce`
+  mirrors a hard, stopped wall hit. `pogo` forces a jump on every landing
+  unless `g_bPmJumpBlocked`.
+- `fly`: `PM_Flying()` skips ladder detection, un-flips `vvvvvv`, clears
+  `IN_DUCK` in the air before `PM_Duck`, and the `MOVETYPE_WALK` case runs
+  `PM_FlyMutatorMove` (friction on every axis, `PM_Accelerate` along the
+  view, jump/duck from `g_iPmFlyButtons` rise and sink, `PM_FlyMove` slide
+  with a one-step-up retry, `flFallVelocity = 0`). It runs with
+  `g_flPmUp = 1`. Full mechanics:
+  [mutator_system.md §3.34](mutator_system.md).
+
 ## 7. Quick navigation map
 
 Useful functions in `pm_shared.c`:

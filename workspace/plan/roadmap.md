@@ -134,6 +134,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] give item (randomized)
     1. [x] unarm players
     1. [x] maximum ammo for current weapons in possession
+    1. [x] no armor
 
 ### Unscheduled
 
@@ -190,7 +191,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Shoot Through Most Stuff
     1. [ ] quicksilver
     1. [ ] Continuous Fire
-    1. [ ] Tippytoe
     1. [ ] assassin like jumpscare
     1. [ ] "dontshoot?" clickboom - randomly throw weapon
     1. [ ] cool flesh, add pick up sprite on HUD.
@@ -244,7 +244,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Instant Mutators
     1. [ ] "loopback" "Portal Storm" / "Unstable Dimensions". Every 5 seconds all players are teleported to random info_player_deathmatch (no all of them to the same spot... hopefully at random spots). Napoleon's idea.
     1. [ ] Rubberband (Players who are at the bottom get max health), top players scaled back health and armor
-    1. [ ] no armor
 1. New Weapons
     1. [ ] Kiss bomb, and floats and blows up
     1. [ ] Flying rose, makes you fly
@@ -420,7 +419,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Separate hev arms/hands cleanly to all v_ models for customization
     1. [ ] Compact w_ models into p_
     1. [ ] Extend length of viewmodel arms, so larger fov's do not show disconnected arms from body
-    1. [ ] Railgun effect client side to reduce server messages?
 1. Game Dev Tools
     1. [ ] Add support for map brief text file
     1. [ ] Update studiomdl to [funnky's toolset](https://github.com/fnky/studiomdl)
