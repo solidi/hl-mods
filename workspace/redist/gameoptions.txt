@@ -48,7 +48,6 @@
 {
 	"game"     "arena"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -68,7 +67,6 @@
 {
 	"game"     "arena"
 	"cvar"     "mp_roundfraglimit"
-	"No Limit"  "0"
 	"1 frag"  "1"
 	"3 frags"   "3"
 	"10 frags"    "10"
@@ -89,7 +87,6 @@
 {
 	"game"    "busters"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"25 Points"    "25"
 	"50 Points"   "50"
 	"75 Points"    "75"
@@ -108,7 +105,6 @@
 {
 	"game"     "chilldemic"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -127,7 +123,6 @@
 {
 	"game"     "coldskull"
 	"cvar"     "mp_fraglimit"
-	"No Limit"  "0"
 	"25 Skulls"    "25"
 	"50 Skulls"   "50"
 	"75 Skulls"    "75"
@@ -138,7 +133,6 @@
 {
 	"game"    "coldspot"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"25 Points"    "25"
 	"50 Points"   "50"
 	"75 Points"    "75"
@@ -187,7 +181,6 @@
 {
 	"game"    "ctc"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"10 Points"    "10"
 	"25 Points"   "25"
 	"50 Points"    "50"
@@ -198,7 +191,6 @@
 {
 	"game"    "ctf"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"3 Points"    "3"
 	"10 Points"   "10"
 	"15 Points"    "15"
@@ -218,7 +210,6 @@
 	"game"     "ffa"
 	"cvar"     "mp_fraglimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"15 frags" "15"
 	"25 frags" "25"
 	"50 frags" "50"
@@ -229,7 +220,6 @@
 	"game"     "ffa"
 	"cvar"     "mp_timelimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"10 min"   "10"
 	"30 min"   "30"
 	"45 min"   "45"
@@ -280,7 +270,6 @@
 	"game"     "gungame"
 	"cvar"     "mp_timelimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"10 min"   "10"
 	"30 min"   "30"
 	"45 min"   "45"
@@ -291,7 +280,6 @@
 {
 	"game"     "horde"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -301,7 +289,6 @@
 {
 	"game"    "horde"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"25 Points"    "25"
 	"50 Points"   "50"
 	"75 Points"    "75"
@@ -331,7 +318,6 @@
 	"game"     "instagib"
 	"cvar"     "mp_fraglimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"15 frags" "15"
 	"25 frags" "25"
 	"50 frags" "50"
@@ -342,7 +328,6 @@
 	"game"     "instagib"
 	"cvar"     "mp_timelimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"10 min"   "10"
 	"30 min"   "30"
 	"45 min"   "45"
@@ -353,7 +338,6 @@
 {
 	"game"     "jvs"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -382,7 +366,6 @@
 {
 	"game"    "kts"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"3 Points"    "3"
 	"10 Points"   "10"
 	"15 Points"    "15"
@@ -393,7 +376,6 @@
 	"game"     "kts"
 	"cvar"     "mp_timelimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"10 min"   "10"
 	"30 min"   "30"
 	"45 min"   "45"
@@ -404,7 +386,6 @@
 {
 	"game"     "loot"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -424,7 +405,6 @@
 {
 	"game"    "loot"
 	"cvar"    "mp_scorelimit"
-	"No Limit"  "0"
 	"3 Points"    "3"
 	"10 Points"   "10"
 	"15 Points"    "15"
@@ -435,7 +415,6 @@
 {
 	"game"     "lms"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -492,7 +471,6 @@
 {
 	"game"     "prophunt"
 	"cvar"     "mp_roundlimit"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -552,7 +530,6 @@
 	"game"     "shidden"
 	"cvar"     "mp_roundlimit"
 	"restart"  "0"
-	"No Limit"  "0"
 	"3 Rounds"  "3"
 	"10 Rounds"   "10"
 	"15 Rounds"    "15"
@@ -582,7 +559,6 @@
 	"game"     "snowball"
 	"cvar"     "mp_fraglimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"5 frags" "5"
 	"10 frags" "10"
 	"25 frags" "25"
@@ -593,7 +569,6 @@
 	"game"     "snowball"
 	"cvar"     "mp_timelimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"5 min"   "5"
 	"10 min"   "10"
 	"15 min"   "15"
@@ -605,7 +580,6 @@
 	"game"     "teamplay"
 	"cvar"     "mp_fraglimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"15 frags" "15"
 	"25 frags" "25"
 	"50 frags" "50"
@@ -616,7 +590,6 @@
 	"game"     "teamplay"
 	"cvar"     "mp_timelimit"
 	"restart"  "0"
-	"No Limit" "0"
 	"10 min"   "10"
 	"30 min"   "30"
 	"45 min"   "45"

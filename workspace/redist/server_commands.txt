@@ -144,6 +144,8 @@ Server commands:
     - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
     - "astronaut" - gravity is turned down
     - "autoaim" - all weapons have extreme autoaim.
+    - "autorun" - you can never stop running forward; you can only steer and strafe (bots are not affected)
+    - "backwards" - movement keys are swapped, forward walks back and left strafes right (bots are not affected)
     - "barrels" - start with the gravitygun, flaming explosive barrels spawn to throw at others
     - "berserker" - go crazy with chainsaws and fists.
     - "bigfoot" - step size is crazy big
@@ -161,6 +163,7 @@ Server commands:
     - "discomode" - GoldenEye 007 GameShark disco mode; every polygon is painted a bright solid or rainbow color that flashes and shifts many times a second (client-side visual only; rapid flashing)
     - "dontshoot" - firing any weapon will explode the player.
     - "drunk" - your view keeps swaying and spinning
+    - "ducked" - everyone is forced to stay crouched
     - "expcrowbar" - everyone gets a crowbar whose swings detonate on contact
     - "exploder" - living players randomly detonate on a random timer, blast damages everyone nearby
     - "explosiveai" - AI blows up when it cannot find its next task
@@ -169,6 +172,7 @@ Server commands:
     - "firebullets" - all tracers are hot
     - "firestarter" - start with a flamethrower
     - "floorislava" - the ground scorches your boots
+    - "fly" - fly like noclip, but walls, floors and players still block you; look to steer, jump rises, duck sinks, no fall damage (bots are not affected)
     - "fog" - heavy fog moves into the gameplay
     - "fragswap" - on player-vs-player frags, victim takes the attacker's frag total plus frag gain while attacker takes the victim's pre-kill frags
     - "godmode" - everyone is invincible
@@ -177,6 +181,8 @@ Server commands:
     - "grenades" - a random chance of a grenade throw on attack
     - "halflife" - hides the Cold Ice HUD elements for a plain Half-Life look
     - "headshot" - only a headshot final blow can kill another player; other lethal hits leave them at 1 health and award no frag
+    - "heavy" - players have double gravity: low jumps and hard landings
+    - "hitstun" - like GoldenEye 007, a player or monster that gets hurt cannot move or attack for a moment
     - "ice" - all the ground is covered in ice
     - "infiniteammo" - all weapons have infinite ammo
     - "instagib" - spawn with a zapgun that dole one hit kills
@@ -202,7 +208,9 @@ Server commands:
     - "nelliaschoice" - one random non-movement key becomes lethal; pressing it detonates the active player
     - "nobackgrounds" - GoldenEye 007 GameShark no background code; walls, floors, ceilings and the sky stop drawing but still block and collide, while players, monsters, items, doors and glass still draw over a flat blue backdrop (the fog colour while fog is on) (client-side visual only)
     - "noclip" - fly through walls
+    - "noduck" - no one can crouch
     - "nohud" - hides all HUD and crosshair elements except the nohud status icon
+    - "nojump" - no one can jump; flips, wall climbs and the hurricane kick are off too
     - "nomouse" - disable mouse movement and mouse buttons for alive active players
     - "noradar" - hides the radar, compass, and world indicators from the HUD
     - "noreload" - no one can reload
@@ -212,8 +220,11 @@ Server commands:
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
     - "paintball" - weapons and explosions leave paint decals
     - "paper" - players are flat
+    - "pinball" - running hard into a wall bounces you back instead of sliding along it
     - "piratehat" - argh, matey.
+    - "planted" - you cannot move or jump while holding a fire button
     - "plumber" - spawn with dual pipe wrenches
+    - "pogo" - every landing jumps again
     - "portal" - now you're thinking with portals
     - "pumpkin" - on Halloween, he appears.
     - "pushy" - all weapon attacks push you back like a gauss attack

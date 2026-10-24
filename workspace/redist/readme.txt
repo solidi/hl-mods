@@ -13,24 +13,35 @@ v1.2 Features:
 
 - New Mutators
     - "ammoregen" - all alive non-spectator players regenerate active weapon ammo
+    - "autorun" - you can never stop running forward, only steer and strafe
+    - "backwards" - forward is back, left is right
     - "blur" - motion blur, everything smears when it moves
     - "discomode" - classic 007 GameShark disco mode, every polygon flashes in shifting psychedelic colors (rapid flashing)
     - "drunk" - your view keeps swaying and spinning
+    - "ducked" - everyone is stuck crouching
     - "expcrowbar" - crowbar swings detonate
     - "exploder" - everyone is a walking time bomb
     - "fadetoblack" - lower health darkens vision and boosts your damage
     - "floorislava" - the ground scorches your boots
+    - "fly" - fly like noclip, but walls still block you; jump rises, duck sinks
     - "fragswap" - frag scores swap between attacker and victim
     - "goldeneye" - health and armor numbers are replaced by classic 007 curved bars that appear briefly when hurt
     - "headshot" - only a headshot final blow can kill another player
+    - "heavy" - double gravity, low jumps and hard landings
+    - "hitstun" - like GoldenEye 007, every hit freezes its victim, player or monster, for a moment
     - "linemode" - classic 007 line mode, everything washes out to white with black traced edges
     - "myfavtexture" - every wall wears the same texture
     - "negativepi" - pi is now -1
     - "nelliaschoice" - one random non-movement bind becomes lethal
     - "nobackgrounds" - classic 007 GameShark no background mode, walls, floors, ceilings and the sky vanish while players, items, doors and glass still show over a flat blue backdrop
+    - "noduck" - no one can crouch
     - "nohud" - hide all hud elements except its own status icon
+    - "nojump" - no one can jump, flip or wall climb
     - "nomouse" - alive players lose mouse input
     - "pacifist" - player-vs-player frags award +1 frag to the victim, no death increment, and no killer frag gain
+    - "pinball" - walls bounce you back
+    - "planted" - you cannot move while firing
+    - "pogo" - every landing jumps again
     - "regen" - everyone slowly regenerates health and armor
     - "revive" - first lethal player-vs-player frag per spawn revives the victim in-place with default spawn loadout, no killer frag gain, and no victim death increment
     - "rocketjump" - minimal self rocket damage for high jumps
@@ -91,6 +102,8 @@ v1.2 Features:
     - Thrown weapons no longer leave a hidden entity behind
 - Bot Patches
     - Prevent bots from firing their hook when paused
+- Default Config Changes
+    - Removed "No Limit" game options to keep servers rotating
 
 Highly-Valued Upcoming Features:
 
