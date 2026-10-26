@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-icefolder=ice_v1_1
+icefolder=ice_v1_2
 maxplayers=24
 hiDef=1
 skipDistro=0
