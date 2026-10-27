@@ -91,7 +91,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 4. Explosion / neo bomb type
 5. Jam weapon
 
-### v1.1
+### v1.2
 
 1. Mutators
     1. [x] Rising ice / lava (CrazyO)
@@ -123,9 +123,42 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [VVVVV mode/metal storm](https://www.youtube.com/watch?v=1h3nTAeNvl4) - jump flips gravity, walk on the ceiling
     1. [x] Everyone Disco
     1. [x] See Through Walls / X-Ray Vision
+    1. [ ] bouncing https://x.com/TheCanadianGTR/status/2113374239336362402
+    1. [ ] insurrection / drop in grunts
+    1. [ ] menu / required update (defer 5 minutes)
+1. visual mutators
+    1. [ ] thermal heat 
+    1. [ ] crt like 1998
+    1. [ ] text adventure - screen image is more of symbols (45:30)
+    1. [ ] ti83 / LCD
+    1. [ ] No Objects - models are not rendered, but are present.
+    1. [ ] fakelag / sleep(10) or pause frame but game keeps going (and noises)
+    1. [ ] Sunglasses Mode / Ambershades
+1. SP Mutators
+    1. [ ] Enemy Cannot Aim
+    1. [ ] Weak Enemies
+    1. [ ] Rocket enemies
+1. Voting Updates
+    1. [ ] bot options menu (rtv only)
+    1. [ ] bots vote cvar
+    1. [ ] short circuit vote loop if all that are allowed to vote have voted.
+    1. [ ] clear option in mutator vote, if it gets most or ties, everything is cancelled.
 1. Game Mechanics
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
+    1. [ ] shoot off hats
+    1. [ ] semi transparent third person fi camera close
+1. Gamemode Patches
+    1. [ ] ctf, re-roll flag positions after scoring?
+    1. [ ] all games, better to show a special location icon for flags, cold spot, instead of colored arrow? Contextual in nature.
+    1. [ ] coldspot counter, zone - make green? and zone tick, make small beep?
+        1. [ ] all cam_ icons are color coded so they pop out in the HUD.
 1. Instant Mutators
+    1. [ ] insta mutators filter run - like in kts, does it make sense to have chumtoads and assassins?
+        1. [ ] sv_mutatorfilter "instant"
+    1. [ ] incoming - A rpg_rocket launches at each player from a random spot in line of sight.
+    1. [ ] detonator - Every placed monster_satchel, monster_tripmine and monster_proxmine on the map blows up at once.
+    1. [ ] rubberband - The lowest-frag player gets max health and armor; the top player's are halved.
+    1. [ ] silverbullet - Each player's next hit that lands kills instantly with timeout.
     1. [x] accept all cookies
     1. [x] blue screen
     1. [x] no doors, ladders, buttons, func_illusion (ask ai to do it all in one swoop - no x, randomized array)
