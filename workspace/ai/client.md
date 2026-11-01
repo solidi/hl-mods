@@ -30,7 +30,8 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `hud_msg.cpp` — message handlers that live on `CHud` itself (e.g. `MsgFunc_InitHUD`).
 - `workspace/src/pm_shared/pm_shared.c` — shared movement/prediction runtime used by both client and server. See [pm_shared_system.md](pm_shared_system.md).
 - `vgui_TeamFortressViewport.{h,cpp}` — the client viewport, all VGUI menus, all VGUI message handlers. See [vgui_system.md](vgui_system.md).
-- `vgui_VoteMapWindow.cpp`, `vgui_VoteGameplayWindow.cpp`, `vgui_VoteMutatorWindow.cpp` — the three vote panels.
+- `vgui_VoteMapWindow.cpp`, `vgui_VoteGameplayWindow.cpp`, `vgui_VoteMutatorWindow.cpp` — the gameplay/mutator/map vote panels.
+- `vgui_VoteGameOptionsWindow.cpp`, `vgui_VoteServerOptionsWindow.cpp`, `vgui_VoteBotOptionsWindow.cpp` — per-row option vote panels (game/server options at intermission or RTV; bot options RTV only, see [bot_options_system.md](bot_options_system.md)).
 - `lifebar.{h,cpp}` — player overhead lifebar sprites and floating damage numbers (attacker ownership emphasis). See [lifebar.md](lifebar.md).
 - `ev_hldm.cpp` — client-side weapon firing/prediction events. New server weapons that fire visibly need an entry here, otherwise the local player sees lag.
 - `hl/hl_events.cpp` — binds `events/*.sc` scripts to `EV_Fire*` callbacks.
@@ -125,6 +126,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Cookie consent wall (`Accept All Cookies` instant mutator) | `vgui_CookiesWindow.cpp`, [vgui_system.md](vgui_system.md), [mutator_system.md §3.3.1](mutator_system.md) |
 | Blue screen of death (`bsod` instant mutator) | `vgui_BSODWindow.cpp`, [vgui_system.md](vgui_system.md), [mutator_system.md §3.3.2](mutator_system.md) |
 | Vote panels (gameplay/mutator/map sequence) | [voting_system.md](voting_system.md) |
+| Bot-options RTV panel | `vgui_VoteBotOptionsWindow.cpp`, [bot_options_system.md](bot_options_system.md) |
 | Radar overlay | [radar_system.md](radar_system.md) |
 | Banner / pickup overlays | [banner_system.md](banner_system.md) |
 | Life bars + floating damage numbers | [lifebar.md](lifebar.md) |
@@ -139,7 +141,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 
 ## Lessons Worth Repeating
 
-- **Construct furniture in the panel ctor; build dynamic content in `Open()`.** Anything sourced from a server user message (vote rosters, dynamic map list, MOTD) may not have arrived when the panel is constructed at level load. `CVoteMapPanel` is the reference pattern: empty arrays in the ctor, `BuildButtons()` from `Open()`, teardown of any prior buttons before rebuild.
+- **Construct furniture in the panel ctor; build dynamic content in `Open()`.** Anything sourced from a server user message (vote rosters, dynamic map list, MOTD) may not have arrived when the panel is constructed at level load. `CVoteMapPanel` is the reference pattern: empty arrays in the ctor, `BuildButtons()` from `Open()`, teardown of any prior buttons before rebuild. If the data can still arrive after `Open()` (manifests are streamed and paced, bot options ~5s after connect), also rebuild from `Update()` once it lands, as `CVoteBotOptionsPanel` does.
 - **Reset chunked accumulators on `seq == 0`, commit on `isLast`.** Don't trust intermediate state — a reconnect or restart can interleave a fresh stream with a partial one.
 - **HUD vs VGUI is a hard line.** Buttons / focus / scrollbars belong in VGUI panels; per-frame immediate-mode draws (radar, banner, ammo) belong in `CHudBase` subclasses. The schemes (fonts/colors) are independent.
 - **Weapon effect responsiveness comes from event callbacks, not server temp entities.** Pattern: server `PLAYBACK_EVENT_FULL` in weapon fire code, client `EV_FireXxx` in `ev_hldm.cpp`, hook in `hl_events.cpp`, plus an `events/<name>.sc` stub in `workspace/redist/events/`. See the railgun/dual-railgun implementation for a complete example.

@@ -11,7 +11,7 @@ Covers the retained-mode VGUI viewport, every menu panel mounted under it, and t
 - Owns: `CSchemeManager` (font/color schemes), `ScorePanel`, the active `CMenuPanel*`, all VGUI message handlers.
 - Display switching: `ShowVGUIMenu(MENU_*, timer)` sets the active panel; `HideVGUIMenu()` clears it.
 
-`MENU_*` IDs are defined as enum entries near the top of `vgui_TeamFortressViewport.h`. The vote panels are `MENU_VOTEGAMEPLAY`, `MENU_VOTEMAP`, `MENU_VOTEMUTATOR`, `MENU_VOTEGAMEOPTIONS`, `MENU_VOTESERVEROPTIONS`.
+`MENU_*` IDs are defined as enum entries near the top of `vgui_TeamFortressViewport.h`. The vote panels are `MENU_VOTEGAMEPLAY`, `MENU_VOTEMAP`, `MENU_VOTEMUTATOR`, `MENU_VOTEGAMEOPTIONS`, `MENU_VOTESERVEROPTIONS`, `MENU_VOTEBOTOPTIONS` (17, RTV only; not in the intermission allow-list of `ShowVGUIMenu`).
 
 ## Menu Panel Family
 
@@ -22,6 +22,7 @@ CMenuPanel (base; src/cl_dll/vgui_MenuPanel.cpp)
 ├── CVoteGameplayPanel    — vote on next game mode
 ├── CVoteGameOptionsPanel — vote per-row mode-filtered game options (`gameoptions.txt`)
 ├── CVoteServerOptionsPanel — vote per-row global server options (`serveroptions.txt`)
+├── CVoteBotOptionsPanel  — RTV-only per-row bot options (`botoptions.txt`); see [bot_options_system.md](bot_options_system.md)
 ├── CVoteMutatorPanel     — vote on next mutator (+ synthetic INSTANT MUTATORS toggle)
 ├── CVoteMapPanel         — vote on next map (dynamic; see below)
 ├── CCookiesPanel         — "Accept All Cookies" instant mutator wall (MENU_COOKIES)
@@ -64,6 +65,7 @@ Panels wired through this path:
 - `CVoteMutatorPanel`
 - `CVoteGameOptionsPanel`
 - `CVoteServerOptionsPanel`
+- `CVoteBotOptionsPanel`
 - `CMessageWindowPanel` (MOTD/text window)
 - `CCookiesPanel` (cookie wall)
 
@@ -73,6 +75,7 @@ Extra hardening for panel-specific dead zones:
 - `CVoteMutatorPanel`: wheel-forward input attached to scroll panel client + per-button subtitle/tally labels + synthetic INSTANT subtitle/tally label.
 - `CVoteGameOptionsPanel`: wheel-forward input attached to scroll panel client + row labels + wait label + per-option tally labels.
 - `CVoteServerOptionsPanel`: wheel-forward input attached to scroll panel client + row labels + wait label + per-option tally labels.
+- `CVoteBotOptionsPanel`: same attachments as `CVoteServerOptionsPanel`.
 
 Also wired for non-`CMenuPanel` extended scroll content:
 
@@ -82,7 +85,16 @@ Also wired for non-`CMenuPanel` extended scroll content:
 
 - `CVoteGameplayPanel::Update()` and `CVoteMapPanel::Update()` auto-dismiss only for mid-game RTV (`!gHUD.m_iIntermission`) and now wait about 2.0 seconds after local vote selection before hiding.
 - `CVoteGameOptionsPanel::Update()` and `CVoteServerOptionsPanel::Update()` RTV path (`flags bit0`) auto-dismiss about 2.0 seconds after the local player has voted all active rows.
+- `CVoteBotOptionsPanel` is always RTV (`flags bit0` is always set) and dismisses the same way.
 - End-of-game intermission votes remain server-driven: panels stay visible until the server closes the phase (`timer=0`), so players can continue to watch tallies.
+
+## Late Manifest Rebuild (Bot-Options Panel)
+
+Game/server option panels build rows only in `Open()`, so a panel opened before its manifest arrived stays on the "Waiting for ... manifest" placeholder. The bot manifest is streamed ~5s after connect, so `CVoteBotOptionsPanel` handles this:
+
+- `MsgFunc_VoteBotOp` records the vote's revision in `g_iBotOptionsVoteRevisionClient`.
+- `BotOptionsManifestReady()` = manifest fully received, its revision matches the vote's, and the active row count is > 0.
+- `Update()` calls `BuildRows()` whenever `m_bWaitingForManifest` disagrees with readiness, so it switches to real rows when the manifest lands and back to the placeholder if a newer revision starts replacing it.
 
 ## RANDOM Goes First (Display) / Last (Index)
 
@@ -130,7 +142,7 @@ Pre-2026, the client carried a hard-coded `sBuiltInMaps[]` array (38 maps + RAND
 
 ### Wire Format — `MapList` user message
 
-Registered in `player.cpp::LinkUserMessages()` as `REG_USER_MSG("MapList", -1)` (variable length). Sent by `CHalfLifeMultiplay::SendMapListToClient(edict_t*)` from `CHalfLifeMultiplay::InitHUD`. Chunked at 4 maps/chunk to stay under the ~192-byte message cap.
+Registered in `player.cpp::LinkUserMessages()` as `REG_USER_MSG("MapList", -1)` (variable length). Queued by `CHalfLifeMultiplay::InitHUD` and streamed by `PumpClientManifestSends()` (one paced chunk per client per 0.1s, ahead of the option manifests; see [voting_system.md → Manifest Streaming](voting_system.md#manifest-streaming-connect-time-balancing)). Chunked at 4 maps/chunk to stay under the ~192-byte message cap.
 
 Each chunk:
 
@@ -170,7 +182,7 @@ int  g_iServerMapSizes[MAX_SERVER_MAPS];
 int  g_iServerMapCount;
 ```
 
-Built by `BuildServerMapList()` (parses `mapcyclefile`, reads `\size\` info-string key, validates with `IS_MAP_VALID`, de-dupes, sorts case-insensitive). `EnsureServerMapList()` is the cached entry point used by the vote tally and `SendMapListToClient`.
+Built by `BuildServerMapList()` (parses `mapcyclefile`, reads `\size\` info-string key, validates with `IS_MAP_VALID`, de-dupes, sorts case-insensitive). `EnsureServerMapList()` is the cached entry point used by the vote tally and `PumpClientManifestSends()`.
 
 Map size is admin-annotated in `mapcycle.txt`:
 

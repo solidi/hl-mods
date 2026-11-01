@@ -5,6 +5,9 @@ Client commands:
 - "+commandmenu" - All client options menu
 - "+hook" - Deploy hook
 - "+ironsight" - Use ironsights
+- "botoptions" - type in the chat to start a bot-options vote (mid-match only)
+- "botoptions_resend" - re-request the current bot-options manifest
+- "botoptions_status" - print bot-options parser state
 - "cl_achievements [0|1|2|3]" - displays fast fragging achievements
     - "0" - off
     - "1" - voice / screen print

@@ -1,6 +1,6 @@
 # Game-Options Voting System — Spoke
 
-> Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · sibling: [server_options_system.md](server_options_system.md) · server entry [server.md](server.md)
+> Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · siblings: [server_options_system.md](server_options_system.md), [bot_options_system.md](bot_options_system.md) · server entry [server.md](server.md)
 
 Note: mutator voting now includes a synthetic `INSTANT MUTATORS` slot
 (separate from `g_szMutators[]`) that toggles `sv_instantmutators` based on
@@ -36,8 +36,8 @@ boot / mtime change
    ▼
 BuildGameOptionsList()  → g_GameOptions[]  (validated + revision++)
    │
-   ▼ (per client InitHUD or gameoptions_resend cmd)
-SendGameOptionsToClient(edict)  → MsgFunc_GameOpts chunks → g_GameOptionsClient[]
+   ▼ (per client InitHUD or gameoptions_resend cmd: queue stream cursor = 0)
+PumpClientManifestSends()  → one paced GameOpts chunk per 0.1s, after MapList → MsgFunc_GameOpts chunks → g_GameOptionsClient[]
    │
    ▼ (at intermission, after gameplay vote tally)
 VOTE_GAMEOPTIONS_TRANSITION → BuildActiveGameOptions() (filter for new g_GameMode)
@@ -63,7 +63,7 @@ VOTE_MUTATOR_TRANSITION ...
 
 Chat `gameoptions` → `Host_Say` → `GameOptionsVote()` accumulates substring matches (same threshold logic as mutator RTV). On success: `VoteForGameOptions(TRUE)` opens the panel immediately. Tally runs on a small standalone timer (`CheckGameOptionsRTV()` checked every Think frame). If any winning row had `restart=1`, the server issues a `changelevel <current>` so the new cvars take effect on a fresh round.
 
-RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutator`, and `serveroptions` RTV. While another RTV is collecting/open, `gameoptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
+RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutator`, `serveroptions`, and `botoptions` RTV. While another RTV is collecting/open, `gameoptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
 
 G9 path: if `BuildActiveGameOptions()` finds 0 matches at RTV time, the initiator gets a direct chat reply ("No game options available for the current mode") rather than spamming everyone.
 
@@ -127,14 +127,14 @@ Server stores into `m_iGameOptionsVotes[player-1][item-1]`. Clients also mirror 
 | Command | Where | Notes |
 |---------|-------|-------|
 | `voteopt <item> <option>` | client → server | Bound from each panel button. Item and option are 1-based. Sets `m_fVoteCoolDown += 1.0`. Plays `CLIENT_SOUND_GREATJOB`. |
-| `gameoptions_resend`     | client → server | Rate-limited: `m_fGameOptsResendCoolDown` (5 sec). Re-streams the manifest to the requesting client. |
+| `gameoptions_resend`     | client → server | Rate-limited: `m_fGameOptsResendCoolDown` (5 sec). Restarts the client's paced manifest stream (no burst). |
 | `gameoptions_status`     | client → server | Listenserver host or `sv_cheats 1` only. Dumps revision, parse log, item table with current cvar values. |
 | `gameoptions`            | chat (RTV)      | `GameOptionsVote()` in `client.cpp` — substring match in `Host_Say`, threshold count via existing RTV mechanism. |
 
 ## Key Files
 
 ### Server
-- `src/dlls/multiplay_gamerules.cpp` — `BuildGameOptionsList()`, `EnsureGameOptionsList()`, `SendGameOptionsToClient()`, `BuildActiveGameOptions()`, `TallyGameOptionsVote()`, `VoteForGameOptions()`, `CheckGameOptionsRTV()`, vote sequencer integration.
+- `src/dlls/multiplay_gamerules.cpp` — `BuildGameOptionsList()`, `EnsureGameOptionsList()`, `SendGameOptionsToClient()` (queues a paced resend), `PumpClientManifestSends()` (writes `GameOpts` chunks), `BuildActiveGameOptions()`, `TallyGameOptionsVote()`, `VoteForGameOptions()`, `CheckGameOptionsRTV()`, vote sequencer integration.
 - `src/dlls/gamerules.h` — `VOTE_GAMEOPTIONS_*` constants, `game_option_t` struct, all `m_iGameOptions*` / `m_iActiveGameOptions*` / RTV state on `CHalfLifeMultiplay`.
 - `src/dlls/client.cpp` — `VoteOption()`, `GameOptionsVote()` (RTV chat handler), `voteopt` / `gameoptions_resend` / `gameoptions_status` console commands.
 - `src/dlls/player.cpp::LinkUserMessages()` — `gmsgGameOpts`, `gmsgVoteOpts`, `gmsgVOptFor` registration.

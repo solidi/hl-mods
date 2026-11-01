@@ -235,7 +235,9 @@ and `/memories/repo/gravebot_hook_usage.md`.
 
 ## 7. `bot_aim_difficulty` — Master Softening Scalar
 
-CVAR-style global (not a real CVAR; a `float` tuned via console command in [dll.cpp](workspace/grave-bot-src/dlls/dll.cpp)). Default **1.0**, range **0.0–2.0**, clamped on command.
+CVAR-style global (a `float` tuned via console command in [dll.cpp](workspace/grave-bot-src/dlls/dll.cpp)). Default **1.0**, range **0.0–2.0**, clamped on command.
+
+It is also driven by the real cvar `sv_botaccuracy` (default `1`), so the RTV bot-options vote can set it (see [bot_options_system.md](bot_options_system.md)). `StartFrame()` copies any `sv_botaccuracy` change (clamped to `[0, 2]`, non-finite → 1) into `bot_aim_difficulty`, and the console command writes the value back to `sv_botaccuracy` so the two never disagree.
 
 Console command:
 ```
@@ -317,6 +319,7 @@ Registered in [dll.cpp](workspace/grave-bot-src/dlls/dll.cpp):
 - `sv_defaultbots` — number of bots at map start
 - `sv_botsmelee` — 0/1 toggle for martial-arts impulses
 - `sv_bots_hook` — 0/1 master toggle for bot grappling-hook intents (default 1)
+- `sv_botaccuracy` — 0-2 cvar mirror of `bot_aim_difficulty` (default 1); votable through `botoptions.txt`
 
 Globals exposed via `ProcessCommand`:
 - `bot_reaction_time <value>` — reaction-delay scalar (default 2.0)
@@ -387,7 +390,7 @@ Mistakes / gotchas caught during the softening pass + code review. Read these be
 - **Any new weapon filter must handle "no candidate" explicitly.** If a threat policy skips entire weapon classes (e.g. no snark/chumtoad deployables, no melee), the selector must return FALSE when nothing is left. Do not fall through to index 0 defaults.
 - **Combat entry points must fail closed on bad pointers.** `BotFindEnemy`, `BotShouldEngageEnemy`, `BotBodyTarget`, `BotFireWeapon`, and `BotShootAtEnemy` should return early when `pBot`, `pEdict`, or enemy pointers are null/stale. Do not rely solely on callers to enforce this during map-change/disconnect transitions.
 - **Build is x86 Release via MSBuild, not CMake.** `grave_bot.sln` builds with `MSBuild ... -p:Configuration=Release -p:Platform=x86`; the output DLL is auto-copied to `workspace/libs/dlls/grave_bot.dll`. Expect ~340 pre-existing C4996 (unsafe-CRT) and C4477 (format-string) warnings in `dll.cpp`; filter for new warnings only when validating changes. Intellisense reports `GAME_*` / `MUTATOR_*` identifiers as undefined in some files — they are pre-existing include-path quirks, the real compiler resolves them.
-- **Metamod + non-metamod both live in the same source.** Changes that touch CVARs, command handlers, or globals need to compile under both `#ifdef METAMOD_BUILD` and the non-metamod branch. For the `bot_aim_difficulty` scalar we defined it as a plain `float` global (not a `cvar_t`) which sidesteps the dual-registration dance — prefer this pattern for new internal tuning knobs.
+- **Metamod + non-metamod both live in the same source.** Changes that touch CVARs, command handlers, or globals need to compile under both `#ifdef METAMOD_BUILD` and the non-metamod branch. For the `bot_aim_difficulty` scalar we defined it as a plain `float` global (not a `cvar_t`) which sidesteps the dual-registration dance — prefer this pattern for new internal tuning knobs. A knob that must be votable (`botoptions.txt` applies values with `CVAR_SET_STRING`) needs a real cvar: register it in both `Meta_Attach` and `GameDLLInit`, sync it into the global from `StartFrame()`, and have the console command write the cvar back. `sv_botaccuracy` is the reference.
 
 ---
 

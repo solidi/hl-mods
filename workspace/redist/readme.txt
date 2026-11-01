@@ -102,8 +102,13 @@ v1.2 Features:
     - Thrown weapons no longer leave a hidden entity behind
 - Bot Patches
     - Prevent bots from firing their hook when paused
+    - Added "sv_botaccuracy [0-2]" so bot aim accuracy can be set and voted like any cvar
+- Voting Improvements
+    - Added rtv of bot options; type "botoptions" in chat during a match (see botoptions.txt)
+    - Vote menu configs are streamed to connecting players at a steady pace, with bot options a few seconds later
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
+    - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt
 
 Highly-Valued Upcoming Features:
 

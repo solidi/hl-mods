@@ -56,6 +56,7 @@
     "3" "RTV Mutators" "say mutators"
     "4" "RTV Game Options" "say gameoptions"
     "5" "RTV Server Options" "say serveroptions"
+    "6" "RTV Bot Options" "say botoptions"
 }
 "2" "Weapons"
 {

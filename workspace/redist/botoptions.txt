@@ -1,0 +1,61 @@
+// =============================================================================
+// botoptions.txt -- server-defined dynamic vote items for BOT-OPTIONS.
+//
+// Players open this vote mid-match by typing "botoptions" in chat (RTV). It
+// never appears in the end-of-game vote sequence.
+//
+// This file is parsed by the server the first time it is needed on a map.
+// Clients receive it a few seconds after connecting (or right away when a
+// bot-options vote opens). Each block defines one row in the bot-options vote
+// panel (global scope).
+//
+// IMPORTANT:
+//   - Do NOT use a "game" key in this file. Bot-options are global.
+//   - 2 to 5 option pairs per item.
+//   - Cvar names must be [A-Za-z0-9_]+ and already registered (the sv_bot*
+//     cvars are registered by grave_bot; rows for them are skipped when the
+//     bot plugin is not loaded).
+//   - Value strings reject: ; \n \r " \ $
+//   - Current caps: 16 items, title 63 chars, cvar 31 chars, label 23 chars,
+//     value 31 chars.
+//   - "restart" "1" restarts the current map after the vote applies.
+//
+// Wire-budget safety:
+//   Each item must fit the per-chunk user-message payload budget. Oversized
+//   rows are logged and skipped (see "botoptions_status").
+// =============================================================================
+
+"Bot Count"
+{
+    "cvar"     "sv_defaultbots"
+    "restart"  "0"
+    "Zero"    "0"
+    "Three"   "3"
+    "Six"     "6"
+    "Twelve"  "12"
+}
+
+"Bot Accuracy"
+{
+    "cvar"     "sv_botaccuracy"
+    "restart"  "0"
+    "Deadly"  "0"
+    "Default" "1"
+    "Sloppy"  "2"
+}
+
+"Bots Melee"
+{
+    "cvar"     "sv_botsmelee"
+    "restart"  "0"
+    "No"  "0"
+    "Yes" "1"
+}
+
+"Bots Hook"
+{
+    "cvar"     "sv_bots_hook"
+    "restart"  "0"
+    "No"  "0"
+    "Yes" "1"
+}

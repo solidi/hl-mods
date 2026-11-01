@@ -108,9 +108,10 @@ These user messages are the contract between server and client:
 | Message | Sender | Receiver | Purpose |
 |---------|--------|----------|---------|
 | `MOTD` | `SendMOTDToClient` | `MsgFunc_MOTD` | server message of the day, chunked |
-| `MapList` | `SendMapListToClient` | `MsgFunc_MapList` | dynamic map manifest with size annotations, chunked |
+| `MapList` | `PumpClientManifestSends` (queued in `InitHUD`) | `MsgFunc_MapList` | dynamic map manifest with size annotations, chunked |
 | `GameOpts` / `VoteOpts` / `VOptFor` | game-options parser + vote branches | `MsgFunc_GameOpts` / `MsgFunc_VoteOpts` / `MsgFunc_VOptFor` | mode-filtered per-row game-options voting |
 | `SrvOpts` / `VoteSrvOp` / `SOptFor` | server-options parser + vote branches | `MsgFunc_SrvOpts` / `MsgFunc_VoteSrvOp` / `MsgFunc_SOptFor` | global per-row server-options voting |
+| `BotOpts` / `VoteBotOp` / `BOptFor` | bot-options parser + RTV vote | `MsgFunc_BotOpts` / `MsgFunc_VoteBotOp` / `MsgFunc_BOptFor` | RTV-only per-row bot-options voting ([bot_options_system.md](bot_options_system.md)) |
 | `VoteMap` / `VoteGame` / `VoteMutator` | `Think()` + RTV vote-open branches | `MsgFunc_Vote*` | open/close vote panels (`VoteMap`/`VoteMutator` may include optional mode byte) |
 | `VoteFor` | `Vote()` in `client.cpp` | `MsgFunc_VoteFor` | broadcast a player's vote so everyone's tally updates |
 | `Acrobatics`, `Banner`, `Particle`, `FlameMsg`, `RoundTime`, `Objective`, … | various | various HUD/HUD2 hooks | gameplay overlays |
