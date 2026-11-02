@@ -45,7 +45,7 @@ VOTE_GAMEOPTIONS_TRANSITION → BuildActiveGameOptions() (filter for new g_GameM
    │
    ▼
 VOTE_GAMEOPTIONS_OPEN  → gmsgVoteOpts(rev,timer,N,idx…,flags)  → CVoteGameOptionsPanel
-   │   bots cast RANDOM_LONG per row; humans click buttons → "voteopt R O" cmd
+   │   bots (sv_botsvote 1) vote row by row 0.75-4.5s after opening (ScheduleBotVotes); humans click buttons → "voteopt R O" cmd
    │   each vote echoes via gmsgVOptFor for live tally
    │
    ▼

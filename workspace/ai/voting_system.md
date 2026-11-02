@@ -38,8 +38,8 @@ VOTE_MAPS_TRANSITION
     ▼
 VOTE_MAPS_OPEN       ──▶ gmsgVoteMap(timer)       ─────▶ CVoteMapPanel
     │ EnsureServerMapList() runs here
-    │ bots cast random votes
-    │ wait voting*1 seconds; tally; pick winner
+    │ every phase: ScheduleBotVotes(); bots pick 0.75-4.5s after opening (sv_botsvote)
+    │ wait voting*1 seconds (or close ~2s after everyone voted); tally; pick winner
     ▼
 m_iDecidedMapIndex set; ChangeLevel() honors it
 ```
@@ -62,6 +62,7 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 ### RTV gate and cooldown (gamemodes/maps/mutator/gameoptions/serveroptions/botoptions)
 
 - Chat RTV paths for `gamemodes`, `maps`, `mutator`, `gameoptions`, `serveroptions`, and `botoptions` share one lock.
+- **No RTV after the match ends.** `RTVGateBlocksCall()` first calls `RTVBlockedAfterMatch()`, which refuses every keyword RTV once `g_fGameOver` is set (the end-of-game votes own `m_iVoteCount[]`, the option matrices and the panels, so an RTV opened then would reset the open phase). The generic `vote`/`rtv` in `GameplayVote()` calls the same helper. Every `VoteFor*` RTV opener is only reachable through these guarded handlers; a new RTV must go through `RTVGateBlocksCall()` too.
 - While one of these RTVs is collecting votes or has its vote panel open, the other RTV commands are blocked.
 - Blocked callers receive explicit feedback naming which RTV currently owns the lock and how many seconds remain.
 - After an RTV ends (or its collection window expires), `mp_rtvcooldown` seconds must pass before another RTV type can be started.
@@ -74,7 +75,7 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 
 - `gamemodes` in chat starts/joins a majority RTV collection window (`rtvtime`), then opens the gameplay vote panel (`VoteForGameplayRTV`).
 - `maps` in chat starts/joins a majority RTV collection window (`rtvtime`), then opens the map vote panel (`VoteForMapRTV`).
-- `botoptions` in chat starts/joins a majority RTV collection window, then opens the bot-options panel (`VoteForBotOptions`). It is rejected during intermission.
+- `botoptions` in chat starts/joins a majority RTV collection window, then opens the bot-options panel (`VoteForBotOptions`). Like every RTV it is rejected once the match is over (see the RTV gate above).
 - **RTV votes never run into intermission.** `GoToIntermission()` calls `SettleOpenRTVVotes()` first, which force-closes and tallies every open RTV (`Check*RTV(TRUE)`): option rows apply without a map restart, a mutator RTV records `sv_instantmutators` without firing an instant mutator, and a winning gameplay/map RTV sets `m_bSkipIntermissionVoting` instead of ending the game a second time. Without this, a leftover RTV would share ballots and panels with the matching end-of-game phase (which early close can start sooner). `CheckGameplayRTV`/`CheckMapRTV` clear their `m_f*VoteTime` before tallying so the `EndMultiplayerGame()` → `GoToIntermission()` → settle path does not re-enter them.
 - The generic `vote`/`rtv` match in `GameplayVote()` ignores text that names a specific RTV (`gamemodes`, `maps`, `mutators`, `gameoptions`, `serveroptions`, `botoptions`). Add new RTV keywords to that exclusion list.
 - Spectators/observers are allowed to start and participate in RTV collection (policy change); only bots/proxies are excluded from quorum math.
@@ -116,9 +117,18 @@ The console command is literally `vote N`. `client.cpp::Vote()` is the server-si
 
 In each tally loop, when the highest count is matched, `RANDOM_LONG(0, 1)` decides whether to switch the leader. This is intentional — multi-way ties pick uniformly across all tied entries.
 
-### 4. Bots vote randomly when the panel opens
+### 4. Bots vote shortly after the panel opens (`sv_botsvote`)
 
-Each open broadcast iterates fake clients and calls `::Vote(pPlayer, RANDOM_LONG(1, count + 1))`. The `count + 1` upper bound includes the synthetic RANDOM slot, which is fine because the server resolves it just like a player's RANDOM vote.
+All bot voting is centralized in `multiplay_gamerules.cpp`. Every vote opener (the 5 end-of-game phases and the 6 RTV openers) calls `ScheduleBotVotes(BOT_VOTE_*)` after resetting its ballot; nothing else casts bot votes.
+
+- **`sv_botsvote`** (game DLL cvar, `game.cpp`, default `1`): `0` keeps bots out of every vote. Also votable from `botoptions.txt` and the listen-server dialog (`settings.scr`). Switching it to `0` mid-vote drops pending bot votes.
+- **Timing:** each bot's first pick lands at a random time between `BOT_VOTE_MIN_DELAY` (0.75s) and `BOT_VOTE_MAX_DELAY` (4.5s) after the panel opens, using the average of two rolls so most bots pick mid-window and a few are quick or slow. For short RTV windows both bounds shrink to fit within half of `mp_voting`.
+- **Option ballots** (game/server/bot options) are voted one row at a time, top to bottom, `0.25-0.7s` apart. Rows that would fall after the deadline are all cast on it, so every bot has a full ballot within 4.5s of the panel opening.
+- **Choices** match a human's panel: gameplay `RANDOM_LONG(1, TOTAL_GAME_MODES + 2)` and map `RANDOM_LONG(1, count + 1)` (last ID is RANDOM), mutator `RandomizeMutator()` (a real mutator the mode allows; bots never pick RANDOM or INSTANT MUTATORS), option rows uniform per row.
+- **Casting:** single picks go through `::Vote()` (same `VoteFor` broadcast, tally and `m_fLastVoteCastTime` stamp as a human). Row picks write the per-row matrix, stamp `m_fLastVoteCastTime` and broadcast `VOptFor` / `SOptFor` / `BOptFor`, as `VoteOption()` does for humans.
+- **`ProcessBotVotes()`** runs first in `VoteThink()`. It drops all pending bot votes once the vote they belong to is no longer open (`BotVoteKindOpen()`), so a bot never votes into a closed or later ballot. A bot that leaves is skipped, and `ClientConnected` clears a reused slot's schedule.
+- **Early close waits for bots:** `VoteEarlyCloseTime()` holds while `BotVotesPending()`, and bot picks stamp `m_fLastVoteCastTime`, so a vote never closes before the bots have voted. Worst case it closes about `4.5 + 2.0`s after opening.
+- Bots still never count toward RTV quorum (typing `rtv`/`maps`/... in chat) and are not "eligible voters" for early close; a server with only bots runs each vote its full length.
 
 ### 5. "Not enough votes" fallback
 
@@ -134,7 +144,7 @@ Every RTV vote and every end-of-game phase closes early once all eligible voters
 
 - **Eligible voters:** `RTVIsEligibleHumanVoter()` (client.cpp), the same set used for RTV quorum: connected human net clients, spectators included; bots, HLTV proxies and disconnecting clients excluded. With zero eligible humans the vote runs its full length.
 - **Voted:** gameplay/mutator/map need `m_iVoteCount[idx] >= 1`; game/server/bot options need every active row voted (`m_i*OptionsVotes[idx][k] >= 0`), matching the client's RTV auto-close rule.
-- **When:** `min(normal end, m_fLastVoteCastTime + VOTE_EARLY_CLOSE_DELAY)` (2.0s). `m_fLastVoteCastTime` is set by `Vote()`, `VoteOption()`, `VoteServerOption()` and `VoteBotOption()`, so revising a vote pushes the close out again, never past the normal end. If the last holdout disconnects, the vote closes right away.
+- **When:** `min(normal end, m_fLastVoteCastTime + VOTE_EARLY_CLOSE_DELAY)` (2.0s), and never while a bot vote is still pending (see [§4](#4-bots-vote-shortly-after-the-panel-opens-sv_botsvote)). `m_fLastVoteCastTime` is set by `Vote()`, `VoteOption()`, `VoteServerOption()`, `VoteBotOption()` and bot row picks, so revising a vote pushes the close out again, never past the normal end. If the last holdout disconnects, the vote closes right away.
 - **Notice:** `[VOTE] All votes are in. Closing the vote early.` once per vote window (`m_fEarlyCloseNoticeEnd`), only when it saves at least 1s.
 - **RTV path:** `CheckRTVVoteEarlyClose()` → `EarlyCloseRTVWindow()` pulls the RTV's `m_f*VoteTime` in to now, so its `Check*RTV()` tallies the same frame, and calls `RTVGateVoteClosedEarly()` so the shared RTV gate's vote window (and therefore the cooldown) ends with it.
 - **Intermission path:** `CheckIntermissionVoteEarlyClose()` runs at the top of the voting block in `Think()`. Phase *k* (1 gameplay … 5 map) ends at `m_flIntermissionEndTime - mp_chattime - (timeLeft - voting*k - 3k)`; closing early adds the remaining time to `m_flIntermissionVoteShift`, which pulls the whole schedule forward. The 3s transitions, later phases and post-vote `mp_chattime` keep their lengths.
@@ -143,7 +153,7 @@ Every RTV vote and every end-of-game phase closes early once all eligible voters
 
 ### `VoteThink()` must run in every mode
 
-`CHalfLifeMultiplay::VoteThink()` runs the early-close check, every `Check*RTV()` timer and `PumpClientManifestSends()`. The base `Think()` calls it each frame. `CHalfLifeTeamplay::Think` and `CHalfLifeGunGame::Think` only chain to the base `Think()` at game over, so they call `VoteThink()` themselves mid-match. Before this, no RTV vote closed mid-match in Teamplay, only the mutator RTV did in GunGame, and the manifests only streamed at intermission in both. A new mode `Think()` that does not call the base every frame must call `VoteThink()`.
+`CHalfLifeMultiplay::VoteThink()` runs delayed bot votes (`ProcessBotVotes()`), the early-close check, every `Check*RTV()` timer and `PumpClientManifestSends()`. The base `Think()` calls it each frame. `CHalfLifeTeamplay::Think` and `CHalfLifeGunGame::Think` only chain to the base `Think()` at game over, so they call `VoteThink()` themselves mid-match. Before this, no RTV vote closed mid-match in Teamplay, only the mutator RTV did in GunGame, and the manifests only streamed at intermission in both. A new mode `Think()` that does not call the base every frame must call `VoteThink()`.
 
 ## User Messages — The Server↔Client Contract
 
@@ -211,11 +221,12 @@ Selection/apply semantics:
 ## Key Files (everything voting touches)
 
 ### Server
-- `src/dlls/multiplay_gamerules.cpp` — vote phase machine in `Think()`, `VoteThink()` (per-frame RTV timers + early close + manifest pump), early close (`CheckRTVVoteEarlyClose`, `CheckIntermissionVoteEarlyClose`, `AllEligibleVotersVoted`, `VoteEarlyCloseTime`), mid-game RTV tallies (`CheckGameplayRTV`, `CheckMapRTV`, `CheckMutatorRTV`, `CheckGameOptionsRTV`, `CheckServerOptionsRTV`, `CheckBotOptionsRTV`), vote openers (`VoteForGameplayRTV`, `VoteForMapRTV`, `VoteForMutator`, `VoteForGameOptions`, `VoteForServerOptions`, `VoteForBotOptions`), `RandomizeMutator()`, `BuildServerMapList()`, `PumpClientManifestSends()` (paced manifest streaming), shared server/bot option helpers (`BuildGlobalOptionsList`, `WriteGlobalOptionsChunk`, `TallyGlobalOptionRows`), `ChangeLevel()` map override.
+- `src/dlls/multiplay_gamerules.cpp` — vote phase machine in `Think()`, `VoteThink()` (bot votes + RTV timers + early close + manifest pump), bot voting (`ScheduleBotVotes`, `ProcessBotVotes`, `BotVotesPending`, `BotVoteKindOpen`), early close (`CheckRTVVoteEarlyClose`, `CheckIntermissionVoteEarlyClose`, `AllEligibleVotersVoted`, `VoteEarlyCloseTime`), mid-game RTV tallies (`CheckGameplayRTV`, `CheckMapRTV`, `CheckMutatorRTV`, `CheckGameOptionsRTV`, `CheckServerOptionsRTV`, `CheckBotOptionsRTV`), vote openers (`VoteForGameplayRTV`, `VoteForMapRTV`, `VoteForMutator`, `VoteForGameOptions`, `VoteForServerOptions`, `VoteForBotOptions`), `RandomizeMutator()`, `BuildServerMapList()`, `PumpClientManifestSends()` (paced manifest streaming), shared server/bot option helpers (`BuildGlobalOptionsList`, `WriteGlobalOptionsChunk`, `TallyGlobalOptionRows`), `ChangeLevel()` map override.
 - `src/dlls/teamplay_gamerules.cpp`, `src/dlls/gungame_gamerules.cpp` — mode `Think()` overrides that call `VoteThink()` mid-match.
 - `src/dlls/client.cpp::Vote()` — handles the `vote N` console command, dispatches `VoteFor`, and resolves user-facing vote confirmation text from intermission or mid-game RTV vote context. Per-row option votes use `voteopt` / `votesrvopt` / `votebotopt`. All vote handlers stamp `m_fLastVoteCastTime`. Also home of `RTVIsEligibleHumanVoter()` and `RTVGateVoteClosedEarly()`.
 - `src/dlls/player.cpp::LinkUserMessages()` — vote and manifest user-message registration (`Vote*`, `MapList`, `GameOpts/VoteOpts/VOptFor`, `SrvOpts/VoteSrvOp/SOptFor`, `BotOpts/VoteBotOp/BOptFor`).
-- `src/dlls/gamerules.h` — `VOTE_*` constants, `m_iVoteCount[MAX_PLAYERS]`, `m_iVoteUnderway`, `m_iDecidedMapIndex`, dynamic-map-list externs.
+- `src/dlls/gamerules.h` — `VOTE_*` constants, `bot_vote_kind_e` (`BOT_VOTE_*`), `m_iVoteCount[MAX_PLAYERS]`, `m_iVoteUnderway`, `m_iDecidedMapIndex`, bot vote schedule members (`m_iBotVoteKind`, `m_fBotVoteNext[]`, `m_iBotVoteRow[]`, `m_fBotVoteDeadline`), dynamic-map-list externs.
+- `src/dlls/game.cpp` — `sv_botsvote` (`botsvote`) registration, next to `mp_voting` / `mp_rtvtime` / `mp_rtvcooldown`.
 
 ### Client
 - `src/cl_dll/vgui_TeamFortressViewport.{h,cpp}` — `MsgFunc_VoteGame`, `MsgFunc_VoteMutator`, `MsgFunc_VoteMap`, `MsgFunc_VoteFor`, `MsgFunc_MapList`; dynamic-map-list globals.
@@ -235,7 +246,7 @@ Selection/apply semantics:
    - Add a phase to the vote sequencer in `CHalfLifeMultiplay::Think`.
    - Register `gmsgVote<X>` in `player.cpp::LinkUserMessages()`.
    - Extend `Vote()` in `client.cpp` to format the result string for the new mode.
-   - Reset the new ballot when the panel opens, stamp `m_fLastVoteCastTime` in its vote handler, and add it to early close (a `vote_ballot_e` value in `AllEligibleVotersVoted`, plus a `case` in `CheckIntermissionVoteEarlyClose` or an `EarlyCloseRTVWindow` call in `CheckRTVVoteEarlyClose`). Run its RTV timer from `VoteThink()`, not from `Think()` directly.
+   - Reset the new ballot when the panel opens, then call `ScheduleBotVotes()` with a new `BOT_VOTE_*` kind (add it to `BotVoteKindOpen()` and the pick logic in `ProcessBotVotes()`); never cast bot votes inline. Stamp `m_fLastVoteCastTime` in its vote handler, and add it to early close (a `vote_ballot_e` value in `AllEligibleVotersVoted`, plus a `case` in `CheckIntermissionVoteEarlyClose` or an `EarlyCloseRTVWindow` call in `CheckRTVVoteEarlyClose`). Run its RTV timer from `VoteThink()`, not from `Think()` directly.
 3. **Client**:
    - Subclass `CMenuPanel` in `vgui_Vote<X>Window.cpp`. **Construct furniture in the ctor; build buttons in `Open()`.**
    - Add `MENU_VOTE<X>` to `vgui_TeamFortressViewport.h` and the `ShowVGUIMenu` switch.

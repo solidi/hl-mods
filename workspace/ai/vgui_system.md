@@ -200,7 +200,7 @@ Unknown / missing values silently default to `medium`.
 - IDs `1..g_iServerMapCount` map to real maps (server arithmetic) / `g_szClientMaps[id-1]` (client display).
 - ID `g_iServerMapCount + 1` is RANDOM. Server-side tally re-rolls into a real index when RANDOM wins.
 - `g_pGameRules->m_iVoteCount[entindex - 1]` stores each player's current vote.
-- Bots vote randomly via `RANDOM_LONG(1, g_iServerMapCount + 1)` when the menu opens.
+- Bots (when `sv_botsvote 1`) pick `RANDOM_LONG(1, g_iServerMapCount + 1)` 0.75-4.5s after the menu opens (`ScheduleBotVotes`, see [voting_system.md §4](voting_system.md#4-bots-vote-shortly-after-the-panel-opens-sv_botsvote)).
 
 ## Hooking a New Vote Panel — Cheatsheet
 

@@ -11,7 +11,7 @@ It reuses the server-options row format, parser, chunk layout and tally (shared 
 | File | `serveroptions.txt` | `botoptions.txt` |
 | Row cap | 64 (`MAX_SERVER_OPTIONS`) | **16** (`MAX_BOT_OPTIONS`) |
 | End-of-game vote phase | yes (`VOTE_SERVEROPTIONS_*`) | **never**; no `VOTE_*` constants |
-| Mid-game RTV | `serveroptions` | `botoptions` (blocked during intermission) |
+| Mid-game RTV | `serveroptions` (in-match only) | `botoptions` (in-match only) |
 | Manifest timing | streamed right after connect | held back `BOT_OPTIONS_SEND_DELAY` (5s) after connect |
 | `restart=1` | changelevel on RTV apply | changelevel on apply, except when force-closed by `GoToIntermission` |
 
@@ -38,10 +38,11 @@ Shipped default rows:
 | Bot Accuracy | `sv_botaccuracy` | Deadly 0 / Default 1 / Sloppy 2 | yes, synced into `bot_aim_difficulty` the next frame |
 | Bots Melee | `sv_botsmelee` | No 0 / Yes 1 | yes |
 | Bots Hook | `sv_bots_hook` | No 0 / Yes 1 | yes |
+| Bots Vote | `sv_botsvote` | No 0 / Yes 1 | yes; game DLL cvar, so this row loads even without grave-bot. Takes effect from the next vote panel (bots already voted in this one) |
 
 "Bots Melee" moved here from `serveroptions.txt`, so one cvar is never voted in two menus.
 
-The `sv_bot*` cvars are registered by grave-bot (`grave-bot-src/dlls/dll.cpp`). The parser requires a registered cvar (`CVAR_GET_POINTER`), so on a server without the bot plugin those rows are logged and skipped, and with zero rows the RTV replies "No bot options available."
+The `sv_bot*` cvars other than `sv_botsvote` are registered by grave-bot (`grave-bot-src/dlls/dll.cpp`); `sv_botsvote` is a game DLL cvar (`game.cpp`). The parser requires a registered cvar (`CVAR_GET_POINTER`), so on a server without the bot plugin the grave-bot rows are logged and skipped, leaving only "Bots Vote".
 
 ### `sv_botaccuracy` (grave-bot)
 
@@ -69,7 +70,7 @@ VoteForBotOptions()
    |  0 rows -> "[VOTE] No bot options available." to initiator, gate -> cooldown
    |  release held streams / restart stale ones for every human (G5)
    |  gmsgVoteBotOp(rev, timer, N, idx..., mode, flags=1) -> CVoteBotOptionsPanel
-   |  bots cast RANDOM_LONG per row (mirrored via BOptFor)
+   |  bots (sv_botsvote 1) vote row by row 0.75-4.5s after opening (ScheduleBotVotes, mirrored via BOptFor)
    |  humans click -> "votebotopt R O" -> VoteBotOption() -> BOptFor mirror
    v
 CheckBotOptionsRTV()  (Think, when m_fBotOptionsVoteTime expires)

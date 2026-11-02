@@ -47,7 +47,7 @@ VOTE_SERVEROPTIONS_TRANSITION -> BuildActiveServerOptions()
    |
    v
 VOTE_SERVEROPTIONS_OPEN -> gmsgVoteSrvOp(rev,timer,N,idx...,flags) -> CVoteServerOptionsPanel
-   |   bots cast RANDOM_LONG per row; humans click -> "votesrvopt R O"
+   |   bots (sv_botsvote 1) vote row by row 0.75-4.5s after opening (ScheduleBotVotes); humans click -> "votesrvopt R O"
    |   each pick mirrors via gmsgSOptFor for live tallies
    |
    v

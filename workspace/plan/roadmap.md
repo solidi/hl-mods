@@ -140,7 +140,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rocket enemies
 1. Voting Updates
     1. [x] bot options menu (rtv only)
-    1. [ ] bots vote cvar, add realism to their casted votes.
+    1. [x] bots vote cvar, add realism to their casted votes.
     1. [x] short circuit vote loop if all that are allowed to vote have voted.
     1. [ ] clear option in mutator vote, if it gets most or ties, everything is cancelled.
 1. Game Mechanics

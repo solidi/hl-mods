@@ -12,9 +12,9 @@
 // IMPORTANT:
 //   - Do NOT use a "game" key in this file. Bot-options are global.
 //   - 2 to 5 option pairs per item.
-//   - Cvar names must be [A-Za-z0-9_]+ and already registered (the sv_bot*
+//   - Cvar names must be [A-Za-z0-9_]+ and already registered (most sv_bot*
 //     cvars are registered by grave_bot; rows for them are skipped when the
-//     bot plugin is not loaded).
+//     bot plugin is not loaded. sv_botsvote belongs to the game itself).
 //   - Value strings reject: ; \n \r " \ $
 //   - Current caps: 16 items, title 63 chars, cvar 31 chars, label 23 chars,
 //     value 31 chars.
@@ -55,6 +55,14 @@
 "Bots Hook"
 {
     "cvar"     "sv_bots_hook"
+    "restart"  "0"
+    "No"  "0"
+    "Yes" "1"
+}
+
+"Bots Vote"
+{
+    "cvar"     "sv_botsvote"
     "restart"  "0"
     "No"  "0"
     "Yes" "1"

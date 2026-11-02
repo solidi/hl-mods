@@ -273,6 +273,7 @@ Server commands:
 - "sv_bots_hook [0|1]" - bots use the grappling hook in combat
 - "sv_botaccuracy [0-2]" - bot aim accuracy where 0 is deadly, 1 is default and 2 is sloppy (same as "bot_aim_difficulty", votable through botoptions.txt)
 - "sv_botsmelee [0|1]" - to toggle bots close combat on or off
+- "sv_botsvote [0|1]" - bots take part in every vote menu (rtv and end of game); when on, each bot votes a few seconds after the menu opens
 - "sv_breakabletime" - amount of seconds before a breakable entity respawns
 - "sv_chaosfilter" - a list of mutators that are ignored during chaos mode
 - "sv_defaultbots [0-31|-1]" - amount of bots added to server, -1 for manual mode
