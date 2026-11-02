@@ -1,10 +1,12 @@
 # Server-Options Voting System — Spoke
 
-> Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · server entry [server.md](server.md)
+> Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · sibling: [bot_options_system.md](bot_options_system.md) · server entry [server.md](server.md)
 
 A dynamic intermission vote phase for global server cvars. Items are loaded from `redist/serveroptions.txt`, sent to clients in chunked manifests, voted per-row, and applied via `CVAR_SET_STRING`.
 
 Unlike game-options, this system is global and mode-agnostic: `serveroptions.txt` does not support a `game` token.
+
+The parser, chunk writer and tally are shared with the RTV-only bot-options vote (`botoptions.txt`): `BuildGlobalOptionsList()` takes a `global_option_manifest_t` descriptor (`g_ServerOptionsManifest` / `g_BotOptionsManifest`), `WriteGlobalOptionsChunk()` writes `SrvOpts`/`BotOpts` chunks, and `TallyGlobalOptionRows()` applies winners. A fix to one applies to both; keep log text generic (`m.tag`, `m.filename`).
 
 ## File Format (`redist/serveroptions.txt`)
 
@@ -33,10 +35,11 @@ Parser notes:
 boot / mtime change
    |
    v
-BuildServerOptionsList() -> g_ServerOptions[] (validated + revision++)
+BuildServerOptionsList() -> BuildGlobalOptionsList(g_ServerOptionsManifest) -> g_ServerOptions[] (validated + revision++)
    |
-   v (per-client InitHUD or serveroptions_resend)
-SendServerOptionsToClient(edict) -> MsgFunc_SrvOpts chunks -> g_ServerOptionsClient[]
+   v (per-client InitHUD or serveroptions_resend: queue stream cursor = 0)
+PumpClientManifestSends() -> one paced SrvOpts chunk per 0.1s, after MapList + GameOpts
+   -> MsgFunc_SrvOpts chunks -> g_ServerOptionsClient[]
    |
    v (intermission, after game-options tally)
 VOTE_SERVEROPTIONS_TRANSITION -> BuildActiveServerOptions()
@@ -44,7 +47,7 @@ VOTE_SERVEROPTIONS_TRANSITION -> BuildActiveServerOptions()
    |
    v
 VOTE_SERVEROPTIONS_OPEN -> gmsgVoteSrvOp(rev,timer,N,idx...,flags) -> CVoteServerOptionsPanel
-   |   bots cast RANDOM_LONG per row; humans click -> "votesrvopt R O"
+   |   bots (sv_botsvote 1) vote row by row 0.75-4.5s after opening (ScheduleBotVotes); humans click -> "votesrvopt R O"
    |   each pick mirrors via gmsgSOptFor for live tallies
    |
    v
@@ -59,11 +62,13 @@ VOTE_MUTATOR_TRANSITION ...
 
 Chat `serveroptions` in `Host_Say` accumulates RTV threshold votes using existing logic. On threshold hit, `VoteForServerOptions(TRUE)` opens the panel immediately.
 
-RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutator`, and `gameoptions` RTV. While another RTV is collecting/open, `serveroptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
+RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutator`, `gameoptions`, and `botoptions` RTV. While another RTV is collecting/open, `serveroptions` RTV start attempts are rejected with a message naming the active RTV and remaining wait time. After RTV completion/failure, `mp_rtvcooldown` applies before any new RTV can start.
 
 RTV-specific behavior:
 - Sends `flags bit0=1` so clients auto-close about 2.0s after local player has voted all rows.
 - Uses `m_fServerOptionsVoteTime` for countdown separate from intermission sequence.
+- Closes early (RTV and end-of-game) about 2.0s after the last vote once every eligible human has voted every row; see [voting_system.md → Early Close](voting_system.md#early-close-when-everyone-has-voted).
+- If the match ends while the RTV is open, `GoToIntermission()` settles it via `CheckServerOptionsRTV(TRUE)`: tallied and applied, but `restart=1` rows do not changelevel.
 - If any winning row has `restart=1`, server issues `changelevel <current>` after apply.
 - If there are zero active rows, initiator gets direct feedback and no global spam.
 
@@ -113,7 +118,7 @@ BYTE option   // 1-based option index
 | Command | Where | Notes |
 |---------|-------|-------|
 | `votesrvopt <item> <option>` | client -> server | 1-based indices into active rows/options; updates mirrored tallies. |
-| `serveroptions_resend` | client -> server | Rate-limited resend of current manifest to requesting client. |
+| `serveroptions_resend` | client -> server | Rate-limited (5s); restarts the client's paced manifest stream (no burst). |
 | `serveroptions_status` | client -> server | Listenserver host or `sv_cheats 1` only; dumps parser/log/current values. |
 | `serveroptions` | chat RTV | Threshold-triggered RTV for server-options vote. |
 
@@ -121,7 +126,9 @@ BYTE option   // 1-based option index
 
 ### Server
 - `src/dlls/multiplay_gamerules.cpp`:
-  - `BuildServerOptionsList()`, `EnsureServerOptionsList()`, `SendServerOptionsToClient()`
+  - `BuildServerOptionsList()`, `EnsureServerOptionsList()`, `SendServerOptionsToClient()` (queues a paced resend)
+  - Shared with bot-options: `global_option_manifest_t`, `BuildGlobalOptionsList()`, `WriteGlobalOptionsChunk()`, `TallyGlobalOptionRows()`
+  - `PumpClientManifestSends()` streams `SrvOpts` chunks.
   - `BuildActiveServerOptions()`, `TallyServerOptionsVote()`, `VoteForServerOptions()`, `CheckServerOptionsRTV()`
   - Intermission state machine branches `VOTE_SERVEROPTIONS_TRANSITION` and `VOTE_SERVEROPTIONS_OPEN`.
 - `src/dlls/gamerules.h`:

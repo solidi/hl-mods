@@ -391,6 +391,8 @@ configured at [dll.cpp 1944–2001](../grave-bot-src/dlls/dll.cpp#L1944-L2001).
 | `bot_reaction_time` | 2.0 | Multiplier on `react_time_min/max`. 0 disables reaction delay. |
 | `bot_reaction_time_min <skill 1-5> <v>` | — | Edit one skill row. |
 | `bot_reaction_time_max <skill 1-5> <v>` | — | Edit one skill row. |
-| `bot_aim_difficulty` | 1.0 | Multiplier on aim tracking/jitter and re-acquire reaction delay. |
+| `bot_aim_difficulty` | 1.0 | Multiplier on aim tracking/jitter and re-acquire reaction delay. Console command; also writes `sv_botaccuracy`. |
+| `sv_botaccuracy` | 1 | Cvar mirror of `bot_aim_difficulty` (0 deadly, 1 default, 2 sloppy). `StartFrame()` copies changes into `bot_aim_difficulty`. Votable via `botoptions.txt` ([bot_options_system.md](bot_options_system.md)). |
+| `sv_botsvote` | 1 | **Game DLL** cvar (`game.cpp`), not grave-bot. `0` keeps bots out of every vote panel. When `1`, bots pick 0.75-4.5s after a panel opens, row by row on option ballots ([voting_system.md §4](voting_system.md#4-bots-vote-shortly-after-the-panel-opens-sv_botsvote)). The bot DLL has no vote logic. |
 | `botskill <1-5>` | — | Sets `default_bot_skill` for new bots (1=hardest, 5=easiest). |
 | `botpause <0/1>` | 0 | Server command (`b_botpause`). Zeroes bot movement and skips the wander/gamemode-think branch. Bots still acquire enemies, aim and fire, but never deploy the grappling hook and release any active hook — see [grappling_hook.md §7.6a](grappling_hook.md#76a-botpause-interaction). |

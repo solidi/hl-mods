@@ -66,11 +66,3 @@
 	"5 secs"    "5"
 	"10 secs"    "10"
 }
-
-"Bots Melee"
-{
-	"cvar"     "sv_botsmelee"
-	"restart"  "0"
-    "No" "0"
-    "Yes" "1"
-}

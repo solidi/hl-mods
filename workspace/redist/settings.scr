@@ -181,6 +181,13 @@ DESCRIPTION SERVER_OPTIONS
 		{ "1" }
 	}
 
+	"sv_botsvote"
+	{
+		"#Ice_BotsVote"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"_ice_hdr_mutators"
 	{
 		"==  Mutators  =="

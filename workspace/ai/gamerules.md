@@ -57,7 +57,7 @@ CGameRules                     (src/dlls/gamerules.h, .cpp)
 Every mode inherits the virtual methods below. The default behavior lives in `CGameRules` / `CHalfLifeMultiplay`; a mode overrides only what it needs to change.
 
 ### Lifecycle / Think
-- `Think()` — runs every server frame. Mutator updates, voice-mgr update, intermission timer, score / fraglimit / timelimit checks, `GoToIntermission()` trigger.
+- `Think()` — runs every server frame. Mutator updates, voice-mgr update, intermission timer, score / fraglimit / timelimit checks, `GoToIntermission()` trigger. Calls `VoteThink()` (RTV vote timers, early vote close, manifest streaming). A mode `Think()` that skips the base `Think()` mid-match must call `VoteThink()` itself, as Teamplay and GunGame do (see [voting_system.md](voting_system.md#votethink-must-run-in-every-mode)).
 - `RefreshSkillData()` — populates `gSkillData.*` from `sk_*` cvars (weapon/monster damage, charger amounts, etc.).
 - `CheckGameMode()` — polls `mp_gamemode` for changes; reinstantiates rules on change.
 

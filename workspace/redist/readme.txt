@@ -102,8 +102,21 @@ v1.2 Features:
     - Thrown weapons no longer leave a hidden entity behind
 - Bot Patches
     - Prevent bots from firing their hook when paused
+    - Added "sv_botaccuracy [0-2]" so bot aim accuracy can be set and voted like any cvar
+    - Added "sv_botsvote [0|1]" to let bots take part in votes (on by default, also in botoptions.txt)
+    - Bots now vote like players, a few seconds after a vote menu opens instead of instantly
+- Voting Improvements
+    - Added a "CLEAR" button ("No mutators, please.") under CHAOS in the mutator vote; if it ties or beats the top mutator, no mutators are played
+    - Added rtv of bot options; type "botoptions" in chat during a match (see botoptions.txt)
+    - Vote menu configs are streamed to connecting players at a steady pace, with bot options a few seconds later
+    - Votes close two seconds after everyone has voted instead of waiting for the timer, mid-game and at the end of the game
+    - Fixed rtv votes not finishing until the end of the match in Teamplay (and in GunGame, every rtv except mutators)
+    - An rtv vote still open when the match ends is now settled right away instead of overlapping the end of game votes
+    - Rtv can no longer be started during the end of game votes, where it reset the vote in progress
+    - Skipping an empty game-options or server-options vote now shortens the end of game voting as intended
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
+    - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt
 
 Highly-Valued Upcoming Features:
 
