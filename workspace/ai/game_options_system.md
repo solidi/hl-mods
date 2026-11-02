@@ -2,10 +2,11 @@
 
 > Parents: [voting_system.md](voting_system.md) · related to [vgui_system.md](vgui_system.md) · siblings: [server_options_system.md](server_options_system.md), [bot_options_system.md](bot_options_system.md) · server entry [server.md](server.md)
 
-Note: mutator voting now includes a synthetic `INSTANT MUTATORS` slot
-(separate from `g_szMutators[]`) that toggles `sv_instantmutators` based on
-top-3 placement; full indexing contract is documented in
-[voting_system.md](voting_system.md#mutator-vote-synthetic-slot).
+Note: mutator voting includes synthetic `INSTANT MUTATORS` and `CLEAR` slots
+(separate from `g_szMutators[]`); INSTANT toggles `sv_instantmutators` based
+on top-3 placement and CLEAR cancels every mutator when it ties or beats the
+leader. The full indexing contract is documented in
+[voting_system.md](voting_system.md#mutator-vote-synthetic-slots).
 
 A fourth, **dynamic** vote in the intermission sequence. Server-defined items are loaded from `redist/gameoptions.txt`, filtered against the just-decided `g_GameMode`, sent to all clients, voted per-row, and applied via `CVAR_SET_STRING`.
 

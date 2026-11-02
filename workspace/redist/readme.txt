@@ -106,6 +106,7 @@ v1.2 Features:
     - Added "sv_botsvote [0|1]" to let bots take part in votes (on by default, also in botoptions.txt)
     - Bots now vote like players, a few seconds after a vote menu opens instead of instantly
 - Voting Improvements
+    - Added a "CLEAR" button ("No mutators, please.") under CHAOS in the mutator vote; if it ties or beats the top mutator, no mutators are played
     - Added rtv of bot options; type "botoptions" in chat during a match (see botoptions.txt)
     - Vote menu configs are streamed to connecting players at a steady pace, with bot options a few seconds later
     - Votes close two seconds after everyone has voted instead of waiting for the timer, mid-game and at the end of the game

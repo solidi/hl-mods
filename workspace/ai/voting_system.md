@@ -30,7 +30,7 @@ VOTE_SERVEROPTIONS_TRANSITION
 VOTE_SERVEROPTIONS_OPEN ─▶ gmsgVoteSrvOp(rev,timer,N,idx…) ▶ CVoteServerOptionsPanel
     │ wait voting*1 seconds; tally per row; CVAR_SET_STRING winners
     ▼
-VOTE_MUTATOR_OPEN    ──▶ gmsgVoteMutator(timer)   ─────▶ CVoteMutatorPanel (plus synthetic INSTANT MUTATORS slot)
+VOTE_MUTATOR_OPEN    ──▶ gmsgVoteMutator(timer)   ─────▶ CVoteMutatorPanel (plus synthetic INSTANT MUTATORS and CLEAR slots)
     │ wait voting*1 seconds; tally; broadcast result
     ▼
 VOTE_MAPS_TRANSITION
@@ -54,7 +54,7 @@ m_iDecidedMapIndex set; ChangeLevel() honors it
 | Game-options | Per-row `CVAR_SET_STRING` of each item in `gameoptions.txt` whose `game` matches new `g_GameMode` or is `*` | `g_GameOptions[]` parsed at boot/mtime change | Each row picks the most-voted option; ties resolved with `RANDOM_LONG` |
 | Server-options | Per-row `CVAR_SET_STRING` of each item in `serveroptions.txt` (global, no mode filtering) | `g_ServerOptions[]` parsed at boot/mtime change | Each row picks the most-voted option; ties resolved with `RANDOM_LONG` |
 | Bot-options (RTV only) | Per-row `CVAR_SET_STRING` of each item in `botoptions.txt` (global, max 16 rows) | `g_BotOptions[]` parsed on first use | Each row picks the most-voted option; ties resolved with `RANDOM_LONG` |
-| Mutator  | `sv_mutatorlist` to apply on next map, plus `sv_instantmutators` toggle | `g_szMutators[]` in gamerules (+ synthetic "INSTANT MUTATORS" vote slot) | RANDOM wins → server picks one (or two) via `RandomizeMutator()` |
+| Mutator  | `sv_mutatorlist` to apply on next map, plus `sv_instantmutators` toggle | `g_szMutators[]` in gamerules (+ synthetic "INSTANT MUTATORS" and "CLEAR" vote slots) | RANDOM wins → server picks one (or two) via `RandomizeMutator()`; CLEAR tying or beating the leader → no mutators at all |
 | Map      | `m_iDecidedMapIndex` overriding the cycle's next-up | `g_szServerMaps[]` (dynamic; see [vgui_system.md](vgui_system.md#dynamic-map-list)) | Wins → server re-rolls into a real index |
 
 ## Common Conventions (RANDOM-slot convention: gameplay/mutator/map)
@@ -124,7 +124,7 @@ All bot voting is centralized in `multiplay_gamerules.cpp`. Every vote opener (t
 - **`sv_botsvote`** (game DLL cvar, `game.cpp`, default `1`): `0` keeps bots out of every vote. Also votable from `botoptions.txt` and the listen-server dialog (`settings.scr`). Switching it to `0` mid-vote drops pending bot votes.
 - **Timing:** each bot's first pick lands at a random time between `BOT_VOTE_MIN_DELAY` (0.75s) and `BOT_VOTE_MAX_DELAY` (4.5s) after the panel opens, using the average of two rolls so most bots pick mid-window and a few are quick or slow. For short RTV windows both bounds shrink to fit within half of `mp_voting`.
 - **Option ballots** (game/server/bot options) are voted one row at a time, top to bottom, `0.25-0.7s` apart. Rows that would fall after the deadline are all cast on it, so every bot has a full ballot within 4.5s of the panel opening.
-- **Choices** match a human's panel: gameplay `RANDOM_LONG(1, TOTAL_GAME_MODES + 2)` and map `RANDOM_LONG(1, count + 1)` (last ID is RANDOM), mutator `RandomizeMutator()` (a real mutator the mode allows; bots never pick RANDOM or INSTANT MUTATORS), option rows uniform per row.
+- **Choices** match a human's panel: gameplay `RANDOM_LONG(1, TOTAL_GAME_MODES + 2)` and map `RANDOM_LONG(1, count + 1)` (last ID is RANDOM), mutator `RandomizeMutator()` (a real mutator the mode allows) or CLEAR `BOT_VOTE_CLEAR_CHANCE` (5%) of the time; bots never pick RANDOM or INSTANT MUTATORS. Option rows are uniform per row.
 - **Casting:** single picks go through `::Vote()` (same `VoteFor` broadcast, tally and `m_fLastVoteCastTime` stamp as a human). Row picks write the per-row matrix, stamp `m_fLastVoteCastTime` and broadcast `VOptFor` / `SOptFor` / `BOptFor`, as `VoteOption()` does for humans.
 - **`ProcessBotVotes()`** runs first in `VoteThink()`. It drops all pending bot votes once the vote they belong to is no longer open (`BotVoteKindOpen()`), so a bot never votes into a closed or later ballot. A bot that leaves is skipped, and `ClientConnected` clears a reused slot's schedule.
 - **Early close waits for bots:** `VoteEarlyCloseTime()` holds while `BotVotesPending()`, and bot picks stamp `m_fLastVoteCastTime`, so a vote never closes before the bots have voted. Worst case it closes about `4.5 + 2.0`s after opening.
@@ -194,29 +194,31 @@ Every human client receives four dynamic manifests: `MapList`, `GameOpts`, `SrvO
 
 When adding a new streamed manifest: add cursor/seq arrays, reset them in `InitHUD`/`ClientDisconnected`, add a branch at the right priority in `PumpClientManifestSends()`, and never write chunks outside the pump.
 
-## Mutator Vote Synthetic Slot
+## Mutator Vote Synthetic Slots
 
-Mutator voting now includes one synthetic option that is **not** part of
-`g_szMutators[]`:
+The mutator vote has three synthetic options that are **not** part of
+`g_szMutators[]`. Their vote IDs are defined once in `common/const.h` and
+shared by the server tally and the client panel:
 
-- Display label: `INSTANT MUTATORS`
-- Display position: injected immediately after `CHAOS` in the mutator panel grid
-- Vote ID on wire: `MAX_MUTATORS + 2` (1-based)
-- Tally index server-side: `MAX_MUTATORS + 1` (0-based)
+| Option | Vote ID (`vote N`) | Slot (vote ID − 1) | Panel position | Subtitle |
+|---|---|---|---|---|
+| RANDOM | `MUTATOR_VOTE_RANDOM` = `MAX_MUTATORS_CL` = `MAX_MUTATORS + 1` | `MAX_MUTATORS` | row 0, left | (from `sMutators[]`) |
+| INSTANT MUTATORS | `MUTATOR_VOTE_INSTANT` = `MAX_MUTATORS + 2` | `MAX_MUTATORS + 1` | row 1, left | "swapped stats, tripmines, etc." |
+| CLEAR | `MUTATOR_VOTE_CLEAR` = `MAX_MUTATORS + 3` | `MAX_MUTATORS + 2` | row 1, right (under CHAOS) | "No mutators, please." |
 
-Server mutator tally arrays are sized `MAX_MUTATORS + 2` and interpreted as:
+`MUTATOR_VOTE_SLOTS` (= `MUTATOR_VOTE_CLEAR`) is the highest vote ID. CHAOS is row 0 right; every other mutator follows CLEAR. A `typedef` in `multiplay_gamerules.cpp` fails the build if `MAX_MUTATORS` (server) and `MAX_MUTATORS_CL` (client) stop lining up with these IDs.
 
-- `0 .. MAX_MUTATORS-1`: real mutators from `g_szMutators[]`
-- `MAX_MUTATORS`: RANDOM
-- `MAX_MUTATORS + 1`: INSTANT MUTATORS (synthetic)
+Both mutator tallies (end-of-game phase and `CheckMutatorRTV`) go through `TallyMutatorVotes()`, which counts every vote ID and ranks the top three of the real mutators, RANDOM and INSTANT MUTATORS. CLEAR is never ranked.
 
 Selection/apply semantics:
 
-- If INSTANT MUTATORS appears in the **top 3** mutator vote winners,
-    server queues `sv_instantmutators 1` for next map.
-- Otherwise, server queues `sv_instantmutators 0`.
-- INSTANT MUTATORS does not consume a `sv_mutatorlist` slot; the mutator
-    list is built from top winners filtered to real mutator indices only.
+- **CLEAR wins** when it has at least one vote and **ties or beats** the most-voted other option. Then nothing else applies: `sv_mutatorlist ""` and `sv_instantmutators 0` (end-of-game: no mutators next map; RTV: the running mutators, already cleared when the vote opened, stay cleared, and no instant mutator fires). It is announced as `[VOTE] CLEAR wins with N votes. ...`.
+- Otherwise CLEAR votes are ignored and the top three apply as before:
+    - If INSTANT MUTATORS is in the **top 3**, the server sets `sv_instantmutators 1` (RTV also fires one instant mutator now), else `0`.
+    - INSTANT MUTATORS does not consume a `sv_mutatorlist` slot; the mutator list is built from top winners filtered to real mutator indices only.
+    - A RANDOM winner is re-rolled with `RandomizeMutator()`.
+- Bots (`sv_botsvote 1`) vote CLEAR `BOT_VOTE_CLEAR_CHANCE` (5%) of the time and otherwise a `RandomizeMutator()` pick; they never vote RANDOM or INSTANT MUTATORS. Because one CLEAR vote ties a field where every mutator has one vote, raise this chance with care.
+- `Vote()` confirms CLEAR as `You voted for "CLEAR"`; the client panel outlines only CLEAR in green while it would win, mirroring the server rule.
 
 ## Key Files (everything voting touches)
 

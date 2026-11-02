@@ -23,7 +23,7 @@ CMenuPanel (base; src/cl_dll/vgui_MenuPanel.cpp)
 ├── CVoteGameOptionsPanel — vote per-row mode-filtered game options (`gameoptions.txt`)
 ├── CVoteServerOptionsPanel — vote per-row global server options (`serveroptions.txt`)
 ├── CVoteBotOptionsPanel  — RTV-only per-row bot options (`botoptions.txt`); see [bot_options_system.md](bot_options_system.md)
-├── CVoteMutatorPanel     — vote on next mutator (+ synthetic INSTANT MUTATORS toggle)
+├── CVoteMutatorPanel     — vote on next mutator (+ synthetic INSTANT MUTATORS toggle and CLEAR)
 ├── CVoteMapPanel         — vote on next map (dynamic; see below)
 ├── CCookiesPanel         — "Accept All Cookies" instant mutator wall (MENU_COOKIES)
 ├── CBSODPanel            — "bsod" instant mutator fake crash screen (MENU_BSOD)
@@ -72,7 +72,7 @@ Panels wired through this path:
 Extra hardening for panel-specific dead zones:
 
 - `CVoteMapPanel`: wheel-forward input attached to scroll panel client + per-button tally labels.
-- `CVoteMutatorPanel`: wheel-forward input attached to scroll panel client + per-button subtitle/tally labels + synthetic INSTANT subtitle/tally label.
+- `CVoteMutatorPanel`: wheel-forward input attached to scroll panel client + per-button subtitle/tally labels + synthetic INSTANT/CLEAR subtitle/tally labels.
 - `CVoteGameOptionsPanel`: wheel-forward input attached to scroll panel client + row labels + wait label + per-option tally labels.
 - `CVoteServerOptionsPanel`: wheel-forward input attached to scroll panel client + row labels + wait label + per-option tally labels.
 - `CVoteBotOptionsPanel`: same attachments as `CVoteServerOptionsPanel`.
@@ -107,16 +107,20 @@ Gameplay/mutator/map vote panels follow this convention. The full rationale live
 
 `CVoteMapPanel::BuildButtons()` is the canonical (dynamic-count) implementation; `CVoteGameplayPanel` and `CVoteMutatorPanel` constructors do the equivalent with their fixed-size arrays.
 
-## Mutator Panel Synthetic Entry
+## Mutator Panel Synthetic Entries
 
-`CVoteMutatorPanel` injects a synthetic button immediately after `CHAOS`:
+`CVoteMutatorPanel` lays out the grid two columns wide:
 
-- Label: `INSTANT MUTATORS`
-- Vote command: `vote MAX_MUTATORS_CL+1` (which maps to server vote ID `MAX_MUTATORS + 2`)
-- Not backed by `sMutators[]` / `g_szMutators[]`
+| Row | Left | Right |
+|---|---|---|
+| 0 | RANDOM (`sMutators[]` last entry) | CHAOS |
+| 1 | INSTANT ("swapped stats, tripmines, etc.") | CLEAR ("No mutators, please.") |
+| 2+ | remaining mutators in `sMutators[]` order | |
 
-UI tally/highlight treats it as an extra slot beyond the mutator array,
-while still rendering regular mutators exactly as before.
+- INSTANT and CLEAR come from the `s_MutatorSpecialSlots[]` table in `vgui_VoteMutatorWindow.cpp` (vote ID, title, subtitle) and share one creation and one update path (`m_pSpecialButtons[]`, `m_pSpecialButtonBorders[]`, `m_pSpecialVoteTallyLabels[]`, `MUTATOR_MENU_SPECIAL_SLOTS` = 2). A new synthetic button is one table row plus a vote ID in `common/const.h`.
+- Vote commands: `vote MUTATOR_VOTE_INSTANT` and `vote MUTATOR_VOTE_CLEAR` (IDs in `common/const.h`; see [voting_system.md → Mutator Vote Synthetic Slots](voting_system.md#mutator-vote-synthetic-slots)).
+- Not backed by `sMutators[]` / `g_szMutators[]`.
+- `Update()` counts every vote ID in one pass (`votes[]` slot = vote ID − 1). The green top-3 outline skips CLEAR; when CLEAR ties or beats the leader, only CLEAR is outlined, matching the server tally. The title shows `Your Vote: CLEAR`.
 
 ## Cookie Wall Panel (`CCookiesPanel`)
 

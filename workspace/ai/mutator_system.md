@@ -224,8 +224,9 @@ below).
   strings via `MutatorInfo sMutators[]` (name + description, keyed to
   `MUTATOR_* - 1`).
 - [workspace/src/cl_dll/vgui_VoteMutatorWindow.cpp](workspace/src/cl_dll/vgui_VoteMutatorWindow.cpp) —
-  intermission vote panel and synthetic `INSTANT MUTATORS` button
-  (`MUTATOR_VOTE_INSTANT = MAX_MUTATORS_CL + 1`).
+  intermission/RTV vote panel and synthetic `INSTANT MUTATORS` and `CLEAR`
+  buttons (`s_MutatorSpecialSlots[]`; vote IDs `MUTATOR_VOTE_INSTANT` /
+  `MUTATOR_VOTE_CLEAR` in `common/const.h`).
 - [workspace/src/cl_dll/vgui_CookiesWindow.cpp](workspace/src/cl_dll/vgui_CookiesWindow.cpp) —
   `CCookiesPanel` cookie consent wall for the `Accept All Cookies` instant
   mutator, opened by `TeamFortressViewport::MsgFunc_Cookies` (§3.3.1).
@@ -330,9 +331,10 @@ break the read loop; `254` is a "clear all" signal (see §4).
 - Special sentinels on the `gmsgAddMutator` wire: `254` = clear all,
   `255` = end-of-batch, `-1` (as read byte) = short-read guard.
 - Vote-only synthetic slots (only ever appear in vote payloads, never in the
-  active list):
-  - `MAX_MUTATORS` (vote id `MAX_MUTATORS + 1`) — RANDOM.
-  - `MAX_MUTATORS + 1` (vote id `MAX_MUTATORS + 2`) — INSTANT MUTATORS toggle.
+  active list). Vote IDs live in `common/const.h`:
+  - `MAX_MUTATORS` (vote id `MUTATOR_VOTE_RANDOM` = `MAX_MUTATORS + 1`) — RANDOM.
+  - `MAX_MUTATORS + 1` (vote id `MUTATOR_VOTE_INSTANT` = `MAX_MUTATORS + 2`) — INSTANT MUTATORS toggle.
+  - `MAX_MUTATORS + 2` (vote id `MUTATOR_VOTE_CLEAR` = `MAX_MUTATORS + 3`) — CLEAR ("No mutators, please."): wins when it ties or beats the most-voted other option, and then no mutators apply at all.
 
 ### Cvars (all `sv_*`, registered in `game.cpp`)
 | Cvar | Default | Purpose |
@@ -2672,17 +2674,24 @@ Grid of buttons keyed to `MAX_MUTATORS_CL`:
 - Skips button creation for the currently-disabled mutators
   (`slowmo`, `speedup`, `topsyturvy`, `itemsexplode`, `explosiveai`) so the
   panel matches `CHalfLifeMultiplay::MutatorAllowed`.
-- `RANDOM` (vote id `MAX_MUTATORS + 1`) is pinned to grid slot 0.
-- `INSTANT MUTATORS` is injected as a synthetic slot right after `CHAOS`
-  (vote id `MUTATOR_VOTE_INSTANT = MAX_MUTATORS_CL + 1`, equivalently
-  `MAX_MUTATORS + 2` on the server).
+- `RANDOM` (vote id `MUTATOR_VOTE_RANDOM` = `MAX_MUTATORS + 1`) is pinned to grid slot 0 (row 0 left); `CHAOS` is row 0 right.
+- `INSTANT MUTATORS` (vote id `MUTATOR_VOTE_INSTANT` = `MAX_MUTATORS + 2`) and
+  `CLEAR` (vote id `MUTATOR_VOTE_CLEAR` = `MAX_MUTATORS + 3`, subtitle
+  "No mutators, please.") are injected right after `CHAOS`, at row 1 left and
+  row 1 right; every other mutator follows them. Both come from the
+  `s_MutatorSpecialSlots[]` table and share one build/update path.
 - Selecting a button executes `vote N` on the client, which the shared
   `client.cpp::Vote()` handler forwards back to the server as a
   `gmsgVoteFor(client, vote)`.
 
 Server tally (`CheckMutatorRTV` and the intermission
-`VOTE_MUTATORS_OPEN → VOTE_MAPS_TRANSITION` transition) picks the top three
-votes:
+`VOTE_MUTATORS_OPEN → VOTE_MAPS_TRANSITION` transition) both call
+`TallyMutatorVotes()`, which picks the top three votes among real mutators,
+RANDOM and INSTANT (CLEAR is never ranked):
+- **CLEAR first:** if CLEAR has votes and ties or beats the most-voted other
+  option, nothing applies: `sv_mutatorlist ""` and `sv_instantmutators 0`.
+  Because a mutator vote already clears the running mutators when it opens,
+  CLEAR effectively keeps the game mutator-free.
 - If any of them is the `RANDOM` sentinel it is replaced by
   `RandomizeMutator()` (which itself invokes `MutatorAllowed`).
 - If any of them is `INSTANT` the server sets `sv_instantmutators 1`, else `0`.
@@ -3165,9 +3174,12 @@ addressed by `MUTATOR_* - 1` and must remain 1:1.
   `MsgFunc_InitHUD` (level start). Missing one causes the effect to persist
   after the mutator ends.
 - **Vote synthetic slots.** `RANDOM` is `MAX_MUTATORS + 1`; `INSTANT MUTATORS`
-  is `MAX_MUTATORS + 2`. Do not confuse them for real IDs — they never end up
+  is `MAX_MUTATORS + 2`; `CLEAR` is `MAX_MUTATORS + 3` (`MUTATOR_VOTE_*` in
+  `common/const.h`). Do not confuse them for real IDs — they never end up
   in `g_szMutators[]` and must not be pushed through
-  `sv_addmutator`/`sv_mutatorlist`.
+  `sv_addmutator`/`sv_mutatorlist`. They shift automatically when a mutator is
+  added because they are defined from `MAX_MUTATORS_CL`; a compile-time check
+  in `multiplay_gamerules.cpp` catches `MAX_MUTATORS` drifting from them.
 - **JOPE cleanup.** `MUTATOR_JOPE` writes to the client info-key `j` as a
   backup slot for the original `netname`. If a player reconnects while JOPE is
   paused (round-based), the info-key persists — the restore path handles this
