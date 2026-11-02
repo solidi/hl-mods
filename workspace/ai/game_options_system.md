@@ -67,6 +67,10 @@ RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutato
 
 G9 path: if `BuildActiveGameOptions()` finds 0 matches at RTV time, the initiator gets a direct chat reply ("No game options available for the current mode") rather than spamming everyone.
 
+Early close: in both the RTV and end-of-game paths, once every eligible human has voted every row the vote closes about 2.0s after the last vote instead of waiting out `voting`. See [voting_system.md → Early Close](voting_system.md#early-close-when-everyone-has-voted).
+
+Match end: if the match ends while the RTV is open, `GoToIntermission()` settles it via `CheckGameOptionsRTV(TRUE)`, which tallies and applies it without the `restart=1` changelevel, so it never overlaps the end-of-game game-options phase.
+
 Missing/empty/malformed behavior:
 - Missing `gameoptions.txt` is non-fatal; the parser logs a notice and leaves zero loaded rows.
 - Empty file is non-fatal and treated as no valid rows.

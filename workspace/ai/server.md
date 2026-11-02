@@ -14,7 +14,7 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 | Bot AI | `grave-bot-src/dlls/` | [gravebot.md](gravebot.md) (sub-spoke: [gravebot_combat.md](gravebot_combat.md)) |
 | Weapons / `weapon_*` entities | `weapons.{h,cpp}`, `<weapon>.cpp`, `wpn_shared/` | [weapons.md](weapons.md) |
 | Map cycle / map vote | `multiplay_gamerules.cpp::ReloadMapCycleFile`, `BuildServerMapList`, `SendMapListToClient` | this file (below); cross-cutting flow: [voting_system.md](voting_system.md) |
-| Gameplay / mutator / map vote sequencer | `CHalfLifeMultiplay::Think` (`VOTE_*` branches) | [voting_system.md](voting_system.md) |
+| Gameplay / mutator / map vote sequencer | `CHalfLifeMultiplay::Think` (`VOTE_*` branches), `VoteThink()` (RTV timers, early close, manifest pump) | [voting_system.md](voting_system.md) |
 | User-message registry | `player.cpp::LinkUserMessages()` | this file (below) |
 | Client lifecycle | `client.cpp::ClientPutInServer`, `ClientCommand`, `Vote()` | this file (below) |
 | Level transitions / intermission | `multiplay_gamerules.cpp::GoToIntermission`, `ChangeLevel` | this file (below) |

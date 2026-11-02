@@ -140,8 +140,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rocket enemies
 1. Voting Updates
     1. [x] bot options menu (rtv only)
-    1. [ ] bots vote cvar
-    1. [ ] short circuit vote loop if all that are allowed to vote have voted.
+    1. [ ] bots vote cvar, add realism to their casted votes.
+    1. [x] short circuit vote loop if all that are allowed to vote have voted.
     1. [ ] clear option in mutator vote, if it gets most or ties, everything is cancelled.
 1. Game Mechanics
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)

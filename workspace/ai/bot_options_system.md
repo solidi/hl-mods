@@ -74,10 +74,13 @@ VoteForBotOptions()
    v
 CheckBotOptionsRTV()  (Think, when m_fBotOptionsVoteTime expires)
    |  VoteBotOp timer=0 closes panels; TallyBotOptionsVote(allowRestart=TRUE)
+   |  m_fBotOptionsVoteTime is pulled in ~2.0s after the last vote once every
+   |  eligible human has voted every row (voting_system.md → Early Close)
    v
 GoToIntermission() while a bot vote is open
-      CheckBotOptionsRTV(forceClose=TRUE): close + tally now, skip restart rows,
-      so the bot panel never sits on top of the end-of-game vote panels.
+      SettleOpenRTVVotes() -> CheckBotOptionsRTV(forceClose=TRUE): close + tally
+      now, skip restart rows, so the bot panel never sits on top of the
+      end-of-game vote panels (every other open RTV is settled the same way).
 ```
 
 The panel auto-closes about 2.0s after the local player has voted every row (`flags bit0`), like the other RTV option panels.

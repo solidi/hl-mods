@@ -67,6 +67,8 @@ RTV gating: this path shares a cross-type lock with `gamemodes`, `maps`, `mutato
 RTV-specific behavior:
 - Sends `flags bit0=1` so clients auto-close about 2.0s after local player has voted all rows.
 - Uses `m_fServerOptionsVoteTime` for countdown separate from intermission sequence.
+- Closes early (RTV and end-of-game) about 2.0s after the last vote once every eligible human has voted every row; see [voting_system.md → Early Close](voting_system.md#early-close-when-everyone-has-voted).
+- If the match ends while the RTV is open, `GoToIntermission()` settles it via `CheckServerOptionsRTV(TRUE)`: tallied and applied, but `restart=1` rows do not changelevel.
 - If any winning row has `restart=1`, server issues `changelevel <current>` after apply.
 - If there are zero active rows, initiator gets direct feedback and no global spam.
 

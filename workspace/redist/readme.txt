@@ -106,6 +106,10 @@ v1.2 Features:
 - Voting Improvements
     - Added rtv of bot options; type "botoptions" in chat during a match (see botoptions.txt)
     - Vote menu configs are streamed to connecting players at a steady pace, with bot options a few seconds later
+    - Votes close two seconds after everyone has voted instead of waiting for the timer, mid-game and at the end of the game
+    - Fixed rtv votes not finishing until the end of the match in Teamplay (and in GunGame, every rtv except mutators)
+    - An rtv vote still open when the match ends is now settled right away instead of overlapping the end of game votes
+    - Skipping an empty game-options or server-options vote now shortens the end of game voting as intended
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
     - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt
