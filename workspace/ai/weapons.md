@@ -796,6 +796,8 @@ Sounds are emitted on the player edict (`ENT(m_pPlayer->pev)`), same edict/chann
 
 Tracking hornets (`hornet` / `CHornet`, [hornet.cpp](../src/dlls/hornet.cpp)) acquire targets via `Look(512)` + `BestVisibleEnemy()`, both of which consult `CHornet::IRelationship()`. That override is the single place where hornet target rules live.
 
+**Blood.** `CHornet::Spawn` sets `m_bloodColor = BLOOD_COLOR_GREEN` (palette 195, yellow alien blood, same as the agrunt and headcrab). Every blood path (hit sprays, drips, decals, gibs) reads `BloodColor()`, and a `CBaseMonster` that never sets `m_bloodColor` gets `0`, which is black in the palette. Snarks and chumtoads (`CSqueakGrenade`, `CChumtoadGrenade`, `CCaptureChumtoad`) still have this unset default.
+
 ### `CHornet::IRelationship` rules (in order)
 
 1. Same `modelindex` (other hornets) → `R_NO` (stock).
