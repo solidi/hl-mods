@@ -12,8 +12,9 @@ Spoke document for [gamerules.md](gamerules.md#mode-roster) row 16.
 Implementation lives in [`workspace/src/dlls/shidden_gamerules.cpp`](../src/dlls/shidden_gamerules.cpp)
 (round + win-state + freeze + knife one-shot), with the fart attack in
 [`workspace/src/dlls/weapons.cpp`](../src/dlls/weapons.cpp) (lines ~1168-1210)
-and the freeze counter / thaw block in
-[`workspace/src/dlls/player.cpp`](../src/dlls/player.cpp) (~line 4294).
+and the shared freeze (`Freeze` / `Thaw`) in
+[`workspace/src/dlls/combat.cpp`](../src/dlls/combat.cpp), ticked from
+`CBasePlayer::PostThink` (see [weapons.md](weapons.md) "Shared freeze").
 
 Bot AI lives in [`workspace/grave-bot-src/dlls/bot_shidden.cpp`](../grave-bot-src/dlls/bot_shidden.cpp),
 wired through `bot.cpp` (`BotShiddenPreUpdate` + `BotShiddenThink` dispatch,
@@ -74,8 +75,8 @@ At round-start the team-assignment loop also:
 1. **Late-join / non-actor** (`g_GameInProgress && !IsInArena`, or
    `!g_GameInProgress && IsRoundBased`).  Resets the player to a clean
    smelter-like profile and returns early: `fuser4 = fuser3 =
-   SHIDDEN_SMELTER`, `gravity = 1.0`, `m_iFreezeCounter = -1`,
-   `iuser4 = -1`, `"haste" = 0`.  Without this reset a player rejoining
+   SHIDDEN_SMELTER`, `gravity = 1.0`, `ClearFreeze()` (`iuser4 = -1`),
+   `"haste" = 0`.  Without this reset a player rejoining
    after being a dealter the previous round would keep `gravity = 0.70`
    and `haste = 1` while waiting on the sidelines.
 2. **Dealter** (`fuser4 == SHIDDEN_DEALTER`).  `"haste" = 1`,
@@ -113,45 +114,42 @@ for weapon paths that pre-date the multidamage tag.
 
 Key constants (named locally inside the branch):
 
-| Constant                       | Value | Meaning                                       |
-|--------------------------------|-------|-----------------------------------------------|
-| `SHIDDEN_FREEZE_TICKS`         | `50`  | Counter ticks; freeze duration = 50 * 0.1 s. |
-| `SHIDDEN_FREEZE_SHELL_MAX`     | `25`  | Cap on `pev->renderamt` (glow-shell thickness). |
+| Constant                       | Value  | Meaning                                       |
+|--------------------------------|--------|-----------------------------------------------|
+| `SHIDDEN_FREEZE_TIME`          | `5.0f` | Freeze duration in seconds.                   |
+| `SHIDDEN_FREEZE_SHELL_MAX`     | `25`   | Glow-shell thickness cap (`pev->renderamt`).  |
 
 ```cpp
-pPlayer->m_iFreezeCounter = SHIDDEN_FREEZE_TICKS;       // 5s frozen
-pPlayer->pev->renderamt   = SHIDDEN_FREEZE_SHELL_MAX;   // visual cap
-pPlayer->pev->iuser4      = pPlayer->m_iFreezeCounter;  // cross-DLL signal
-pPlayer->pev->renderfx    = kRenderFxGlowShell;
-pPlayer->pev->rendercolor = Vector(120, 220, 50);
-pPlayer->pev->flags      |= FL_FROZEN;
+pPlayer->Freeze( SHIDDEN_FREEZE_TIME, FALSE, Vector(120, 220, 50), SHIDDEN_FREEZE_SHELL_MAX ); // green fart glow
 ```
 
-The duration counter and the glow thickness used to be the same
-variable (`= 50`), which produced a very thick shell.  Splitting them
-keeps the freeze gameplay-length stable while taming the visual.
+`Freeze()` sets `FL_FROZEN`, the green glow shell and the `iuser4`
+mirror.  The shell stays at 25 until 2.5s are left, then thins with
+the remaining ticks.  An already frozen smelter (`IsFrozen()`, any
+freeze source) is not re-frozen: the dealter gets "Use your knife!".
 
-The freeze counter ticks down once per `PlayerThink` (every 0.1s).  At
-zero, the thaw block in `player.cpp` clears `renderamt`, `renderfx`,
-`rendercolor`, and `m_iFreezeCounter` and mirrors `pev->iuser4 = 0`.
+Duration and shell thickness are separate in the shared freeze.  The
+old `m_iFreezeCounter` was re-synced to `renderamt` on the first tick,
+so the 50-tick fart freeze really lasted 2.5s; it now lasts the full 5s.
 
-### Stuck-frozen recovery (player.cpp PostThink)
+The freeze runs out in `CBaseMonster::FreezeThink` (from `PostThink`),
+which calls `Thaw()`: the pre-freeze `renderfx` / `renderamt` /
+`rendercolor` come back, `FL_FROZEN` drops (unless an
+`EnableControl(FALSE)` hold is active) and `iuser4 = -1`.
 
-If an external path (gamerules `Killed()`, godmode toggle, respawn)
-resets `m_iFreezeCounter` without also dropping `FL_FROZEN`, the
-player stays glued in place forever.  A guard branch in `PostThink`
-detects `m_iFreezeCounter < 0 && (pev->flags & FL_FROZEN) && !GODMODE`
-and clears the flag, the glow render-fx, and mirrors `iuser4 = -1`.
-This catches the edge case but the per-path explicit resets are still
-the primary correctness mechanism.
+### Stale `FL_FROZEN` guard (player.cpp PostThink)
 
-### `IceExplode` glow cap (DMG_FREEZE)
+After `FreezeThink`, `PostThink` clears `FL_FROZEN` when neither a
+freeze (`m_fFrozen`) nor a control hold (`m_bControlFrozen`) is behind
+it, so a stray flag can't glue a player in place.  Every freeze path
+now goes through `Freeze()` / `Thaw()`, so this is only a backstop.
 
-Unrelated to the fart freeze but living in the same `PostThink`-touched
-region: `IceExplode` previously did `renderamt += 15` unbounded.  It is
-now capped at `60` (one stack above the shatter-kill threshold of 45),
-so repeated `DMG_FREEZE` hits no longer grow the shell without limit
-while still allowing the shatter branch to fire on overflow.
+### Ice freeze (DMG_FREEZE)
+
+Freeze gun plasma, freeze grenades and snow bombs use the same freeze
+with the blue ice shell, stacking 1.5s per hit up to 6s; a fourth quick
+hit shatters the target.  A frozen smelter from any source counts as
+frozen for the fart gate and the knife finisher.
 
 ---
 
@@ -164,11 +162,13 @@ signature:
 - Killer's active item is `WEAPON_KNIFE` (primary-fire stab, not the
   off-hand kick — `isOffhand` flag excludes `DMG_PUNCH|DMG_KICK`
   multidamage entries from `m_pActiveItem`).
-- Victim is a smelter with `m_iFreezeCounter > 0` and `IsAlive()`.
+- Victim is a smelter with `IsFrozen()` and `IsAlive()`.
 
-When all three match, the function forces `pVictim->pev->health = 0`,
-calls `Killed(...)`, sets `iuser4 = -1` so the bot DLL sees the
-clear, and emits the fart-smoke effect at the victim's origin.
+When all three match, the function thaws the victim (`Thaw()`, which
+also sets `iuser4 = -1` so the bot DLL sees the clear), forces
+`pVictim->pev->health = 0`, calls `Killed(...)`, and emits the
+fart-smoke effect at the victim's origin.  A flying knife from a
+dealter (`CFlyingKnife::SpinTouch`) does the same on a frozen smelter.
 
 Note: the same function only fires on knife primary.  Pressing fire
 with fists, or kicking the frozen target, does **not** finish — that
@@ -195,15 +195,15 @@ any gameplay that uses `FL_FROZEN`, not just Shidden.
 
 ## Cross-DLL signals (server ↔ bot)
 
-The bot DLL cannot read private `CBasePlayer` members like
-`m_iFreezeCounter`.  We mirror it onto a free entvar so the bot can
-see freeze state through the engine boundary:
+The bot DLL cannot read private `CBaseMonster` freeze state.  We
+mirror it onto a free entvar so the bot can see freeze state through
+the engine boundary:
 
 | Slot          | Owner         | Meaning                                               |
 |---------------|---------------|-------------------------------------------------------|
 | `pev->fuser4` | server        | `0` = smelter, `1` = dealter (see Teams table).       |
 | `pev->fuser3` | server        | Mirror of `fuser4` for `bot/util.cpp::UTIL_GetTeam`.  |
-| `pev->iuser4` | server → bot  | Freeze counter mirror.  `> 0` = currently frozen for that many ticks.  `0`/`-1` = clear.  Set in `FPlayerCanTakeDamage` (apply), `FPlayerTookDamage` (finisher clear), `player.cpp` PostThink thaw + stuck-recovery branches (timeout clear), `player.cpp` `Killed` (unfreeze-on-death), `player.cpp` `Spawn` (`-1` reset), and `shidden_gamerules.cpp::PlayerSpawn` late-joiner branch (`-1` reset). |
+| `pev->iuser4` | server → bot  | Freeze mirror, players only.  `> 0` = currently frozen for that many 0.1s ticks.  `-1` = clear (`0` only before the first spawn).  Written by the shared freeze in `combat.cpp`: `Freeze()` and each `FreezeThink` tick (apply / refresh), `Thaw()` and `ClearFreeze()` (`-1`).  `Thaw()` runs on timeout, in `CBasePlayer::Killed`, and in the Shidden knife finishers; `ClearFreeze()` in `CBasePlayer::Spawn` and the `PlayerSpawn` late-joiner branch. |
 
 `iuser4` was verified unused elsewhere on player entities across both
 the server (`workspace/src/dlls`) and client (`workspace/src/cl_dll`)
@@ -412,7 +412,7 @@ pitch toward the body for ~3 s:
 |--------------------------------|---------------|---------|
 | `SHIDDEN_SMELTER`              | `0`           | `fuser4` value for smelter team. |
 | `SHIDDEN_DEALTER`              | `1`           | `fuser4` value for dealter team. |
-| `SHIDDEN_FREEZE_TICKS`         | `50`          | Freeze counter ticks; duration = ticks * 0.1 s = 5 s. |
+| `SHIDDEN_FREEZE_TIME`          | `5.0f`        | Fart freeze duration in seconds. |
 | `SHIDDEN_FREEZE_SHELL_MAX`     | `25`          | Glow-shell thickness cap on `pev->renderamt`. |
 | Fart damage                    | `800`         | Smelters survive via the freeze shield; non-smelters take the raw hit. |
 | Fart radius                    | `256u`        | Gameplay-side `RadiusDamage` range. |
@@ -478,9 +478,11 @@ dealter would get a solid outline. Full matrix:
 
 | File | Section |
 |------|---------|
-| `src/dlls/shidden_gamerules.cpp` | Round + win-state (`DetermineWinner` `highest = 0`, per-team start counters, HUD bar denominator switch, `PlayerKilled` survivor-count rewrite), `FPlayerCanTakeDamage` (freeze + `iuser4` mirror, `SHIDDEN_FREEZE_TICKS` / `SHIDDEN_FREEZE_SHELL_MAX` split, `DMG_FART` trigger), `FPlayerTookDamage` (null-victim guard, knife one-shot + `iuser4` clear), `PlayerSpawn` (3 branches: late-joiner reset, dealter, smelter — each sets `haste` / `gravity` / `fuser4` / `fuser3` / `iuser4`). |
+| `src/dlls/shidden_gamerules.cpp` | Round + win-state (`DetermineWinner` `highest = 0`, per-team start counters, HUD bar denominator switch, `PlayerKilled` survivor-count rewrite), `FPlayerCanTakeDamage` (fart `Freeze()` with `SHIDDEN_FREEZE_TIME` / `SHIDDEN_FREEZE_SHELL_MAX`, `DMG_FART` trigger), `FPlayerTookDamage` (null-victim guard, knife one-shot + `Thaw()`), `PlayerSpawn` (3 branches: late-joiner reset with `ClearFreeze()`, dealter, smelter — each sets `haste` / `gravity` / `fuser4` / `fuser3`). |
 | `src/dlls/shidden_gamerules.h`   | `m_iSmeltersStart`, `m_iDealtersStart` members. |
-| `src/dlls/player.cpp`            | `Killed` (`iuser4 = 0`), `PostThink` thaw block (`rendercolor = g_vecZero`, `iuser4` mirror), `PostThink` stuck-frozen recovery branch, `Spawn` (`iuser4 = -1` reset), `ImpulseCommands` frozen impulse 205-216 gate, `IceExplode` `renderamt` cap. |
+| `src/dlls/combat.cpp`            | Shared freeze: `CBaseMonster::Freeze` / `FreezeThink` / `Thaw` / `ClearFreeze` (glow, `FL_FROZEN`, `iuser4` mirror). |
+| `src/dlls/knife.cpp`             | `CFlyingKnife::SpinTouch` frozen-smelter one-shot (`Thaw()` then kill). |
+| `src/dlls/player.cpp`            | `Killed` (`Thaw()` before `PlayerKilled`), `PostThink` (`FreezeThink()` + stale `FL_FROZEN` guard), `Spawn` (`ClearFreeze()`), `ImpulseCommands` frozen impulse 205-216 gate. |
 | `src/dlls/weapons.cpp`           | Fart attack body (`PrimaryAttack` / `SecondaryAttack` Shidden + dealter-mutator branch). |
 | `grave-bot-src/dlls/bot_shidden.cpp` | New TU — entity cache, PreUpdate (with dealter weapon-force + smelter alert-clear), Think, role dispatch. |
 | `grave-bot-src/dlls/bot.h`       | `SHIDDEN_ROLE_*` enum + 6 `i_shidden_*` / `f_shidden_*` / `p_shidden_target` fields. |

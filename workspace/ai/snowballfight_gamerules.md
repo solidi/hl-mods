@@ -69,7 +69,7 @@ In `src/dlls/glauncher.cpp`, `IsSnowballFight()` (or snowball mutator) changes l
 - grenade-like bounce physics,
 - short fuse,
 - white blast visuals,
-- radius damage with `DMG_FREEZE` so targets get frozen through shared freeze mechanics (`m_iFreezeCounter` / `FL_FROZEN`).
+- radius damage with `DMG_FREEZE` so players and monsters get frozen through the shared freeze (`IceExplode`, see [weapons.md](weapons.md) "Shared freeze").
 
 ## Spectator / Round Model
 - Inherits `CHalfLifeMultiplay` defaults.
