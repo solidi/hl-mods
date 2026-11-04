@@ -130,10 +130,13 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] thermal heat 
     1. [ ] crt like 1998
     1. [ ] text adventure - screen image is more of symbols (45:30)
-    1. [ ] ti83 / LCD
+    1. [ ] ti83 / LCD / game boy
     1. [ ] No Objects - models are not rendered, but are present.
     1. [ ] fakelag / sleep(10) or pause frame but game keeps going (and noises)
     1. [ ] Sunglasses Mode / Ambershades
+    1. [ ] cell shade / tf2 look
+1. Single Player
+    1. [x] Single player freeze effect for all monsters
 1. SP Mutators
     1. [ ] Enemy Cannot Aim
     1. [ ] Weak Enemies
@@ -153,6 +156,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] coldspot counter, zone - make green? and zone tick, make small beep?
         1. [ ] all cam_ icons are color coded so they pop out in the HUD.
 1. Instant Mutators
+    1. [ ] freezer - random half of players are frozen for maximum time just prior to shattering
     1. [ ] insta mutators filter run - like in kts, does it make sense to have chumtoads and assassins?
         1. [ ] sv_mutatorfilter "instant"
     1. [ ] incoming - A rpg_rocket launches at each player from a random spot in line of sight.
@@ -168,6 +172,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] unarm players
     1. [x] maximum ammo for current weapons in possession
     1. [x] no armor
+1. Fixes
+    1. [x] black blood of hornets?
 
 ### Unscheduled
 
@@ -356,8 +362,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Server Support
     1. [ ] mp_semiauto
         1. Wire server to client message when changed
-1. Single Player
-    1. [ ] Single player freeze effect for all monsters
 1. Client
     1. [ ] [Provide a watermark?](https://github.com/YaLTeR/OpenAG/pull/191#discussion_r1822434626)
     1. [ ] [Streaming event messaging](https://www.youtube.com/watch?v=v0m1fXOYPsA) on HUD
@@ -438,7 +442,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Integrations
     1. [ ] [Discord RPC](https://github.com/YaLTeR/discord-rpc) rpc integration while playing. Good example is here: [halflife-extended](https://github.com/bacontsu/codename-borea/commit/4dc88f3e32b0c8bd8c8fbaec8fdba805f406750f)
 1. Fixes
-    1. [ ] black blood of hornets?
     1. [ ] Player projectiles follow aiment while flipping
     1. [ ] Reduce overflow with cannons wth 20 players, make one model with all flak
     1. [ ] More parametter support for [env_snow](https://gamebanana.com/questions/21021)
@@ -471,13 +474,11 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] Rune power degradation / Power consumption of the cloak rune? 
     1. [ ] OICW weapon ([Walt](https://discord.com/channels/790549024373604353/790549024373604356/937299092554518589))
     1. [ ] Inciderary buckshot (dragons breath) from handcannon ([LambdaParrot](https://discord.com/channels/790549024373604353/790549024373604356/960733589471911977))
-    1. [ ] Ice grenade or big ice blast as reload attack for freezegun (Napoleon)
     1. [ ] Self sign the server and client dlls with [Napoleons tutorial](https://www.moddb.com/mods/flatlinea/tutorials/how-to-do-versioninfo-how-to-do-code-signing-using-self-signed-certificate)
     1. [ ] Rune that will give you unlimited snowballs, and the throw speed for the snowball will be increased (Napoleon)
     1. [ ] Multiple rune equip (Napoleon)
     1. [ ] Ice spike gun (AudioCraZ)
     1. [ ] “fight club mode” no weapons. Just fists, slides, health packs and batteries and buffs. (AudioCraZ)
-    1. [ ] "ice spike gun" (AudioCraZ)
     1. [ ] Do not drop list, nuke and vest on that list. (AudioCraZ)
     1. [ ] Russian translations (berry from moddb)
     1. [ ] Small radius device that delivers [continious damage](https://discord.com/channels/849001008645668874/900139554185547776/1035274797569015931)
@@ -525,7 +526,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Freeze Grenade](http://web.archive.org/web/20040804044629/http://www.planethalflife.com/hlprogramming/tutorial.asp?i=71) (Napoleon)
     1. [x] Freeze grenades ([AudioCraZ](https://discord.com/channels/790549024373604353/790549024373604356/959832759612899348))
     1. [x] Hand grenade blows up on contact with enemy
-    1. [ ] Freezegun secondary fire beam to explode primary plasma
+    1. [x] Freezegun secondary fire beam to explode primary plasma
+    1. [x] Ice grenade or big ice blast as reload attack for freezegun (Napoleon)
 1. Weapon ViewModel / Effects
     1. [x] Hand up effect if [taking blast damage like a tripmine](https://www.youtube.com/watch?v=pAm7fygzFGo&t=164s). Create HD model for forcegrab
     1. [x] add red, yellow, and green hev viewmodels

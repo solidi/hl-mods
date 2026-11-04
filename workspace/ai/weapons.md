@@ -204,6 +204,27 @@ Dual secondary note: the first barrel is predicted immediately; the delayed off-
 6. Secondary beam alignment intentionally uses level view angles (`v_angle`) and does not include `punchangle`, preventing rapid follow-up shots from drifting off the plasma path.
 7. Client visuals are driven by `EV_FireFreezeGunLaser` (`cl_dll/ev_hldm.cpp`) and event hook registration in `cl_dll/hl/hl_events.cpp`; shipping requires `workspace/redist/events/freezegun_laser.sc`.
 
+### Shared freeze (players and monsters)
+
+Every freeze runs through `CBaseMonster`, so players (`CBasePlayer : CBaseMonster`) and monsters share one mechanic, the same pattern as hitstun's `ApplyHitStun`. Code: `CBaseMonster::CanIceFreeze` / `Freeze` / `FreezeThink` / `Thaw` / `ClearFreeze` / `IceShatterEffect` and the free functions `IceExplode` / `IceShatter` in `combat.cpp`; constants and state in `basemonster.h`. Never freeze by poking `renderamt`, `rendercolor` or `FL_FROZEN` directly: call `Freeze()` / `Thaw()`.
+
+| Source | Call | Effect |
+|--------|------|--------|
+| Freeze gun plasma (`plasma.cpp`, 100u splash) | `RadiusDamage(... DMG_FREEZE)` → `IceExplode` | Stacks `FREEZE_HIT_TIME`, ice shell, can shatter |
+| Freeze grenade (`ggrenade.cpp`, 128u) | `IceExplode` via splash, then `Freeze(3s, no stack)` top-up | Top-up also freezes the thrower; never shatters by itself |
+| Snow bomb (`snowbomb.cpp`, 160u) | `RadiusDamage(... DMG_FREEZE)` → `IceExplode` | Same as plasma |
+| Shidden fart (`shidden_gamerules.cpp`) | `Freeze(5s, no stack, green, shell 25)` | Players only, see [shidden_gamerules.md](shidden_gamerules.md) |
+| `DMG_CONFUSE` (zapgun, finger gun) | `Confuse()` → `Freeze(1.8-2.5s, no stack, no shell)` | Players only; only re-applies when < 0.5s is left |
+
+- **Stacking.** `Freeze(flDuration, fStack, color, shellMax)` sets the end time to `left + flDuration` (stack) or `max(left, flDuration)`, capped at `FREEZE_MAX_TIME` (6s). The freeze decays in real time, so how many hits shatter depends on the time between them: each `IceExplode` hit adds `FREEZE_HIT_TIME` (1.5s), and a hit that leaves more than `FREEZE_SHATTER_TIME` (4.5s) shatters the target (4 hits in quick succession). `freezing.wav` plays when less than 0.5s was left; players also get a blue screen fade.
+- **Ice shell.** `kRenderFxGlowShell` in the freeze color, `renderamt` = 0.1s ticks left, capped by the freeze's shell max (`FREEZE_SHELL_MAX` 60 for ice, 25 for the fart), so it thins as the freeze runs out. Duration and shell thickness are independent. `renderfx` / `renderamt` / `rendercolor` from before the freeze are saved on the first `Freeze()` and restored by `Thaw()` (only when a shell was drawn).
+- **Melee finisher.** Kick, slide (both paths), shoryuken and dual wrench call `IceShatter(attacker, target)`, which shatters a target that `IsFrozen()` (any freeze, not the `EnableControl(FALSE)` hold) and returns the extra damage.
+- **Shatter.** `IceExplode` / `IceShatter` stamp `m_flIceShatterTime` and return `max(health, max_health) * 4`. `Killed()` in the same frame (`IceShatterPending()`) throws glass (`TE_BREAKMODEL`, `g_Glass`) instead of a body. Players: `EF_NODRAW`, `GIB_NEVER`. Monsters: `GIB_CLEAR` → `CallGibMonster` ignores the violence cvars → base `GibMonster` skips flesh gibs and `bodysplat.wav` and removes the monster. Subclass `GibMonster` work still runs (grunts drop their gun, controllers remove their balls). A target that survives the hit (headshot mutator, damage scaling) stays frozen and visible.
+- **Who can freeze (`CanIceFreeze`).** Needs `takedamage`, `health > 0`, no `FL_GODMODE`, no `EF_NODRAW`. Players: `IsAlive()` (includes `DEAD_FAKING`), not the armored man, `FPlayerCanTakeDamage` (has side effects in Shidden, Prop Hunt and KTS). Monsters: `FL_MONSTER`, `DEAD_NO`, not `MONSTERSTATE_SCRIPT` (TakeDamage won't kill a scripted monster), and the think must be `CBaseMonster::CallMonsterThink`, since that is what ticks the freeze. Turrets, Apache, Osprey, Nihilanth, tentacles, barnacles, rats, snarks, chumtoads and hornets use their own thinks and are not frozen. Bosses on the standard think (Gargantua, Big Momma) can be frozen and shattered. Self hits are skipped by `IceExplode` / `IceShatter`, not by `CanIceFreeze`.
+- **Players.** `CBasePlayer::PostThink` calls `FreezeThink()` (alive only). `FL_FROZEN` holds them (pmove, weapons, `ACT_FROZEN`, the impulse 205-216 gate) and is reasserted every 0.1s tick. `Thaw()` leaves `FL_FROZEN` set while `m_bControlFrozen` (`EnableControl(FALSE)`) holds the player. `pev->iuser4` mirrors the ticks left for grave_bot (`> 0` frozen, `-1` clear). `Killed()` thaws before `PlayerKilled` so mode cleanup sees the pre-freeze render state; `Spawn()` calls `ClearFreeze()`. `PostThink` also drops a stale `FL_FROZEN` that has neither a freeze nor a control hold behind it.
+- **Monsters.** `CallMonsterThink` calls `FreezeThink()` first; while `IsFrozen()` it skips `MonsterThink` (no `RunAI`, schedules, `Move()` or anim events), keeps `framerate` at 0 so the model holds the frame it was on (monsters have no freeze animation), calls `StudioFrameAdvance()` to keep `animtime` current so thawing doesn't jump frames or `Move()` a long interval, and zeroes `MOVETYPE_FLY` velocity. `Thaw()` restores the saved `framerate`. Freeze fields are in `CBaseMonster::m_SaveData`, so single player saves keep frozen monsters frozen.
+- **Removed.** `CBasePlayer::m_iFreezeCounter` / `m_fThawTime`. The counter doubled as `renderamt`, which made the Shidden freeze last 2.5s instead of 5s, made a transparent player (`renderamt` 255) shatter on the first hit, and let a kick on any `FL_FROZEN` player (including `EnableControl` holds) force a shatter.
+
 ### Fingergun Burst Secondary Pattern (authoritative confusion, rapid burst playback)
 
 `weapon_fingergun` keeps primary behavior but now adds a zapgun-style burst on secondary.
@@ -654,7 +675,7 @@ The visual flame stream is driven by the client Aurora particle system (`aurora/
 
 - **Health damage:** intentionally low (chip damage only).
 - **Contact behavior:** direct hits on living targets trigger immediate freeze explosion; non-living impacts keep grenade physics and timed fuse behavior.
-- **Control effect:** players hit by the blast get freeze stacks via `DMG_FREEZE` and enter the shared `FL_FROZEN` path (`m_iFreezeCounter`), temporarily preventing attacks/mobility until thaw ticks expire.
+- **Control effect:** targets hit by the blast (players and monsters) get a freeze stack via `DMG_FREEZE` (`IceExplode`), then `FreezeDetonate` tops every visible target, the thrower included, up to 3s through the shared freeze (see "Shared freeze" above).
 - **Cleanup:** classname `freezegrenade` is removed by `CHalfLifeMultiplay::RemoveAndFillItems` on round reset.
 
 ## Snowball Reload / Third Option (`+reload` on `weapon_snowball`)
@@ -802,7 +823,7 @@ Before the `m_hEnemy == NULL` re-acquire, `m_hEnemy` is cleared if it is no long
 
 | Mode | Side effect inside `FPlayerCanTakeDamage` |
 |------|-------------------------------------------|
-| Shidden | Fart-freeze applies `m_iFreezeCounter`, glow, sound, screen fade, center-print |
+| Shidden | Fart-freeze calls `Freeze()` (green glow, `FL_FROZEN`), sound, screen fade, center-print |
 | Prop Hunt | Subtracts `PROP_DAMAGE_PROXY` HP from props, plays pain sound, converts prop → hunter |
 | KTS | Strips the dribbler via `DropCharm` |
 

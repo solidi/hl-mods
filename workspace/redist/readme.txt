@@ -98,8 +98,11 @@ v1.2 Features:
     - Fixed ironsights server crash (thanks to albatross)
     - Fixed flak sound effects
     - Hornets no longer track teammates incorrectly nor invisible foes
+    - Hornets now bleed yellow alien blood instead of black
     - Fix rocket model orientation
     - Thrown weapons no longer leave a hidden entity behind
+    - Freeze gun plasma, freeze grenades and snow bombs now freeze monsters in an ice shell, and too many hits in a row shatter them
+    - Frozen players and monsters share the same freeze, so the Shidden fart freeze now lasts its full five seconds
 - Bot Patches
     - Prevent bots from firing their hook when paused
     - Added "sv_botaccuracy [0-2]" so bot aim accuracy can be set and voted like any cvar

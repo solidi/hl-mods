@@ -262,7 +262,7 @@ Called from `BallThink` auto-acquire, `BallTouch` slow-ball capture, and gravity
 - Returns `TRUE` only for `trigger_hurt` attackers (void/pit/kill-brush map hazards)
 - Returns `FALSE` for everything else, including when no ball exists
 - Side effect: if the victim is the current dribbler and `KtsCanPlayerStripDribbler` allows it (non-player attacker, self, or enemy-team player), calls `DropCharm(victim, ballOrigin)` — ball pops 20u and is left at **zero velocity**
-- Invoked from more than `TakeDamage`: `CBasePlayer::TraceAttack` (blood/decal `canBleed` check), `Freeze()` and `Confuse()` also call it, so the strip fires during the trace phase of kicks/punches
+- Invoked from more than `TakeDamage`: `CBasePlayer::TraceAttack` (blood/decal `canBleed` check) and `CBaseMonster::CanIceFreeze` (freeze hits, freeze grenade, `Confuse()`, the frozen-target melee finisher) also call it, so the strip fires during the trace phase of kicks/punches
 
 ### FPlayerTookDamage
 - Code: if victim is dribbling and strip allowed → `DropCharm` + push ball `180 u/s` away from attacker + `120 u/s` up

@@ -41,6 +41,7 @@ All connected players join a single team (`"survivors"`, `pev->fuser3 == 1`) and
 - `PlayerRelationship`: `GR_TEAMMATE` for all player→player pairs
 - `ShouldAutoAim`: returns `TRUE` only for `monster_*` classnames (never players) — player-fired tracking hornets therefore only seek monsters
 - Monsters can damage and kill players normally; players score frags off monsters
+- Horde monsters freeze and shatter like players under freeze gun plasma, freeze grenades and snow bombs (shared freeze, [weapons.md](weapons.md) "Shared freeze"); a shattered monster is removed through the gib path, so `MonsterKilled` scoring is unchanged
 
 ## Horde Monster Tagging
 | Field | Value | Meaning |
