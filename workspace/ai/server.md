@@ -18,6 +18,7 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 | User-message registry | `player.cpp::LinkUserMessages()` | this file (below) |
 | Client lifecycle | `client.cpp::ClientPutInServer`, `ClientCommand`, `Vote()` | this file (below) |
 | Level transitions / intermission | `multiplay_gamerules.cpp::GoToIntermission`, `ChangeLevel` | this file (below) |
+| Scoreboard awards (GoldenEye 007 style) | `awards.{h,cpp}` (`g_Awards`), driven from `StartFrame` + entity hooks | [award_system.md](award_system.md) |
 
 ## File Map (high-traffic)
 
@@ -28,6 +29,7 @@ Everything that ships in `hl.dll`. Source: `workspace/src/dlls/`. Built by `src/
 - `client.{h,cpp}` — engine callbacks (`ClientConnect`, `ClientPutInServer`, `ClientDisconnect`, `ClientCommand`, plus the `Vote()` dispatcher).
 - `cbase.cpp` — engine function table (`gFunctionTable`) wiring the SDK callbacks to our exports.
 - `weapons.{h,cpp}` and `wpn_*.cpp` — server-side weapon implementations. Pair each with a client-side prediction event in `cl_dll/ev_hldm.cpp` if the firing code needs to feel snappy.
+- `awards.{h,cpp}` — `CMultiplayAwards` (`g_Awards`): per-player stats (bots ranked as hidden rivals), the award rules and the `Awards` message. Entity code only reports events (`ShotFired`, `Headshot`, `PlayerDamaged`, `PlayerKilled`, `MonsterKilled`, `ArmorPickedUp`); keep award logic out of gamerules. See [award_system.md](award_system.md).
 
 ## Weapon Effects: Server vs Client
 
@@ -114,6 +116,7 @@ These user messages are the contract between server and client:
 | `BotOpts` / `VoteBotOp` / `BOptFor` | bot-options parser + RTV vote | `MsgFunc_BotOpts` / `MsgFunc_VoteBotOp` / `MsgFunc_BOptFor` | RTV-only per-row bot-options voting ([bot_options_system.md](bot_options_system.md)) |
 | `VoteMap` / `VoteGame` / `VoteMutator` | `Think()` + RTV vote-open branches | `MsgFunc_Vote*` | open/close vote panels (`VoteMap`/`VoteMutator` may include optional mode byte) |
 | `VoteFor` | `Vote()` in `client.cpp` | `MsgFunc_VoteFor` | broadcast a player's vote so everyone's tally updates |
+| `Awards` | `CMultiplayAwards::Refresh` (`MSG_ONE`, only on change) | `CHudScoreboard::MsgFunc_Awards` | packed SHORT: weapon of choice + two awards for the scoreboard header row ([award_system.md](award_system.md)) |
 | `Acrobatics`, `Banner`, `Particle`, `FlameMsg`, `RoundTime`, `Objective`, … | various | various HUD/HUD2 hooks | gameplay overlays |
 
 For client-side handling, jump to [client.md](client.md) and from there [vgui_system.md](vgui_system.md).

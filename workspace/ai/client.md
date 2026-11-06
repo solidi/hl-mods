@@ -136,6 +136,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | Red LED display + red HUD (`virtualboy` mutator, last screen-space pass before the HUD and one pass after it) | `mutator_virtualboy.cpp`, `cdll_int.cpp::HUD_Redraw`, `tri.cpp`, [mutator_system.md §3.32](mutator_system.md) |
 | World hidden, objects kept (`nobackgrounds` mutator, reject-all user clip plane, opaque brush entities and sprites moved to the transparent pass, fog-coloured backdrop) | `mutator_nobackgrounds.cpp`, `view.cpp::V_CalcRefdef`, `entity.cpp::HUD_AddEntity`, `GameStudioModelRenderer.cpp`, `fog.cpp`, [mutator_system.md §3.33](mutator_system.md) |
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
+| Scoreboard awards row (weapon of choice + two awards; third header row of the old scoreboard, second of the VGUI one) | `scoreboard.cpp` (`MsgFunc_Awards`, `GetAwardsText`), `vgui_ScorePanel.cpp` (`m_AwardsLabel`), [award_system.md](award_system.md) |
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |
 

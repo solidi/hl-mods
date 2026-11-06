@@ -125,7 +125,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] See Through Walls / X-Ray Vision
     1. [ ] bouncing https://x.com/TheCanadianGTR/status/2113374239336362402
     1. [ ] insurrection / drop in grunts
-    1. [ ] menu / required update (defer 5 minutes)
+    1. [ ] menu / required update / authenticate (defer 5 minutes)
 1. visual mutators
     1. [ ] thermal heat 
     1. [ ] crt like 1998
@@ -172,13 +172,14 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] unarm players
     1. [x] maximum ammo for current weapons in possession
     1. [x] no armor
+1. Scoreboard
+    1. [x] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
 1. Fixes
     1. [x] black blood of hornets?
 
 ### Unscheduled
 
 1. Use AI to
-    1. [ ] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
     1. [ ] Pick up barrel and throw
 1. Supported Systems
     1. [ ] Android support [hlsdk-xash3d](https://github.com/FWGS/hlsdk-xash3d)
