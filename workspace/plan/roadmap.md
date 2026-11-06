@@ -173,7 +173,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] maximum ammo for current weapons in possession
     1. [x] no armor
 1. Scoreboard
-    1. [x] Develop Goldeneye award system at end of 1 v 1 round + weapon of choice
+    1. [x] Develop GoldenEye award system during multiplayer, including weapon of choice + awards
 1. Fixes
     1. [x] black blood of hornets?
 
