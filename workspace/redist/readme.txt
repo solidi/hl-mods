@@ -117,6 +117,9 @@ v1.2 Features:
     - An rtv vote still open when the match ends is now settled right away instead of overlapping the end of game votes
     - Rtv can no longer be started during the end of game votes, where it reset the vote in progress
     - Skipping an empty game-options or server-options vote now shortens the end of game voting as intended
+- Scoreboard Improvements
+    - GoldenEye-like system, weapon of choice + awards during multiplayer
+    - Don't render death notices while scoreboard is showing
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
     - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt

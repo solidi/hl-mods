@@ -160,6 +160,7 @@ Most features cut across both halves via a registered user-message; if you are t
 - [bot_options_system.md](bot_options_system.md) — RTV-only (`botoptions` chat) vote for bot cvars from `botoptions.txt` (16 rows, streamed ~5s after connect); shares the server-options parser/tally. Also covers `sv_botaccuracy`.
 - [runes.md](runes.md) — rune entities, effects, spawn cycle, `drop_rune` mechanic. Server-side reference for the bot rune logic in `gravebot.md`.
 - [grappling_hook.md](grappling_hook.md) — `CHook` / `grapple_hook` projectile, lifecycle, cvars, and post-scan hardening notes. See that doc for build wiring notes.
+- [award_system.md](award_system.md) — GoldenEye 007 style scoreboard awards: server `CMultiplayAwards` (`g_Awards`) stats + rules, packed `Awards` message, old/VGUI scoreboard header rows.
 
 ### Server-side (loaded from [server.md](server.md))
 - [gamerules.md](gamerules.md) — `CGameRules` hierarchy and per-mode dispatch (the Mode Roster lives here).
