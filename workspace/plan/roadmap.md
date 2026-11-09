@@ -127,7 +127,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [ ] insurrection / drop in grunts
     1. [ ] menu / required update / authenticate (defer 5 minutes)
 1. visual mutators
-    1. [ ] thermal heat 
+    1. [x] thermal heat 
     1. [ ] crt like 1998
     1. [ ] text adventure - screen image is more of symbols (45:30)
     1. [ ] ti83 / LCD / game boy
