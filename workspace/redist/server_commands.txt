@@ -226,6 +226,7 @@ Server commands:
     - "plumber" - spawn with dual pipe wrenches
     - "pogo" - every landing jumps again
     - "portal" - now you're thinking with portals
+    - "predator" - Predator thermal vision; the view turns into banded false colour heat, cold blue walls with living players and monsters glowing red and yellow, cooling corpses, burning rockets and lukewarm items (client-side visual only)
     - "pumpkin" - on Halloween, he appears.
     - "pushy" - all weapon attacks push you back like a gauss attack
     - "railguns" - everyone spawns with dual railguns

@@ -1,4 +1,4 @@
-378
+379
 // Keep this count in sync with the total sprite declarations in this file.
 selection		320 320hud1	160	160	80	20
 
@@ -368,6 +368,7 @@ hitstun	640 gameicons4	192	128	64	64
 pinball	640 gameicons4	192	64	64	64
 planted	640 gameicons2	0	192	64	64
 pogo	640 gameicons2	192	64	64	64
+predator	640 gameicons	192	128	64	64
 
 // Cams
 cam_chumtoad	640 gameicons	192	192	64	64

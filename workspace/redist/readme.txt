@@ -42,6 +42,7 @@ v1.2 Features:
     - "pinball" - walls bounce you back
     - "planted" - you cannot move while firing
     - "pogo" - every landing jumps again
+    - "predator" - see like the Predator, cold blue walls with living players and monsters glowing hot in thermal vision
     - "regen" - everyone slowly regenerates health and armor
     - "revive" - first lethal player-vs-player frag per spawn revives the victim in-place with default spawn loadout, no killer frag gain, and no victim death increment
     - "rocketjump" - minimal self rocket damage for high jumps
