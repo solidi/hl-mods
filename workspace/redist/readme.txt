@@ -121,6 +121,8 @@ v1.2 Features:
 - Scoreboard Improvements
     - GoldenEye-like system, weapon of choice + awards during multiplayer
     - Don't render death notices while scoreboard is showing
+- Camera Improvements
+    - In thirdperson, your own player turns see-through when the camera is pushed close by walls or set to a short distance, and turns solid again as the camera pulls back; only you see it, and other effects such as glow shells and invisibility stay as they are
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
     - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt

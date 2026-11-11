@@ -2747,7 +2747,8 @@ Consumer logic in `MsgFunc_AddMut`:
 - Deduplicates by `mutatorId` — an existing node has its `startTime` /
   `timeToLive` updated in place (fixes former duplicate-alloc leak).
 - Kicks off client-only side effects:
-  - `MUTATOR_THIRDPERSON` → `CAM_ToThirdPerson()`.
+  - `MUTATOR_THIRDPERSON` → `CAM_ToThirdPerson()`. The client-only third person
+    body fade then applies ([client.md](client.md#third-person-body-fade)).
   - `MUTATOR_TINNITUS` → `gEngfuncs.pfnClientCmd("tinnitus_start\n")`.
   - `MUTATOR_CLOSEUP` → `g_IronSight = TRUE` (forces iron-sight FOV).
 - Plays `horse_neigh.wav`.
@@ -3201,7 +3202,7 @@ Newly added mutators:
 | 102 | `santahat` | S/C | Santa cosmetic + periodic `next_santa_sound` (blocked in PropHunt). |
 | 103 | `sildenafil` | C | Colour-corrector blue boost. |
 | 105 | `sleepy` | S | Every 3 seconds, applies a black HUD fade pulse (`UTIL_ScreenFade`) to active human players (non-bot, non-spectator, `deadflag == DEAD_NO`). |
-| 116 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). |
+| 116 | `thirdperson` | C | `CAM_ToThirdPerson` on add; reverts on remove/clear (blocked in most round modes). The camera's local body fade applies while it is active ([client.md](client.md#third-person-body-fade)). |
 | 118 | `tinnitus` | SC | Physinfo `prop=2` (footstep silencer) + client audio ducking + buzz loop. |
 | 119 | `toilet` | S | Player becomes toilet or camera bodygroup (blocked in PropHunt). |
 | 127 | `virtualboy` | C | Nintendo Virtual Boy display: the 3D view is redrawn as square red LED cells about 224 rows high in four shades with ordered dither, geometric edges light up as bright red wires that dim with distance, LED gaps and a visor vignette; after the HUD the whole window is turned red monochrome so the HUD matches. OpenGL 2.0 only, other renderers draw normally. Blocked in Shidden (§3.32). |

@@ -148,8 +148,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] clear option in mutator vote, if it gets most or ties, everything is cancelled.
 1. Game Mechanics
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
+    1. [x] semi transparent third person fi camera close
     1. [ ] shoot off hats
-    1. [ ] semi transparent third person fi camera close
 1. Gamemode Patches
     1. [ ] ctf, re-roll flag positions after scoring?
     1. [ ] all games, better to show a special location icon for flags, cold spot, instead of colored arrow? Contextual in nature.
