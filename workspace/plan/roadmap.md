@@ -153,8 +153,8 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
 1. Gamemode Patches
     1. [ ] ctf, re-roll flag positions after scoring?
     1. [ ] all games, better to show a special location icon for flags, cold spot, instead of colored arrow? Contextual in nature.
-    1. [ ] coldspot counter, zone - make green? and zone tick, make small beep?
-        1. [ ] all cam_ icons are color coded so they pop out in the HUD.
+    1. [x] coldspot counter, zone - make green? and zone tick, make small beep?
+        1. [x] all cam_ icons are color coded so they pop out in the HUD.
 1. Instant Mutators
     1. [ ] freezer - random half of players are frozen for maximum time just prior to shattering
     1. [ ] insta mutators filter run - like in kts, does it make sense to have chumtoads and assassins?
