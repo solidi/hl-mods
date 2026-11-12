@@ -118,6 +118,15 @@ Don't try to put a button in a HUD component, and don't draw the radar with VGUI
 
 Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/valve_english.txt` (and per-language siblings). At runtime use `gHUD.m_TextMessage.BufferedLocaliseTextString("#Foo")` to get the resolved text. If you ship a new `#`-prefixed key, update the `.txt` files.
 
+## Third Person Body Fade
+
+When the third person camera gets close to the controlled player, the player's own model turns see-through so it does not cover the fight. It turns solid again as the camera moves back. This happens when walls push the camera in, or when the camera distance is set short (`cam_idealdist`, `+camin`, `+camdistance`). Only this client sees it. Nothing is networked, and other players see the model as the server sends it.
+
+- **Distance.** `V_CalcNormalRefdef` (`view.cpp`) measures the eye to the final camera origin, after the `CAM_Think` wall pull-in and the shoulder offset trace. It calls `CAM_UpdateBodyFade`. First person, intermission and spectating call `CAM_ResetBodyFade` (solid).
+- **Curve** (`in_camera.cpp`). Solid at `CAM_FADE_SOLID_DIST` (56) and above. Down to `CAM_FADE_MIN_ALPHA` (0.3) at `CAM_FADE_CLEAR_DIST` (20) and below. The value moves toward its target at `CAM_FADE_SPEED` (4 alpha per second), using client time. Extra views in the same frame (`nextView`, portals) do not advance it. The default `cam_idealdist` of 60 stays solid, and the shortest distance (30) stays at about 0.55.
+- **Translucent pass.** `HUD_AddEntity` calls `CAM_ApplyBodyFade`. If the local player is `kRenderNormal`, its client-side `curstate` becomes `kRenderTransTexture` / 255 so the engine sorts it into the translucent list. A blended body drawn in the opaque pass would hide everything drawn after it. The server values are stored, and `HUD_Redraw` puts them back with `CAM_RestoreBodyFade` once every 3D pass of the frame is done. A restore only happens if the values still match the override, so a network refresh in between wins. Bodies that are already translucent from the server (invisibility, death fade) are not touched. Dead players (`curstate.health <= 0`) are skipped.
+- **Draw.** `CStudioModelRenderer::StudioRenderModel` asks `CAM_GetBodyFade` and sets the body pass with `IEngineStudio.StudioSetRenderamt(serverBlend * alpha)`. `serverBlend` is 255 for a solid body, otherwise the server `renderamt`. This covers the player model, the p_ weapon and hats (crate and Prop Hunt models too). The glow shell pass goes back to its normal blend, and its thickness goes back into `renderamt`. Server transparency is scaled, never replaced. On exit the entry `renderamt` is restored.
+
 ## Where Things Render
 
 | What | Where to look |
@@ -139,6 +148,7 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 | MOTD / scoreboard | `vgui_TeamFortressViewport.cpp` (`MsgFunc_MOTD`, `ScorePanel`) |
 | Scoreboard awards row (weapon of choice + two awards; third header row of the old scoreboard, second of the VGUI one) | `scoreboard.cpp` (`MsgFunc_Awards`, `GetAwardsText`), `vgui_ScorePanel.cpp` (`m_AwardsLabel`), [award_system.md](award_system.md) |
 | Weapon firing prediction | `ev_hldm.cpp` |
+| Third person body fade (own model see-through while the camera is close; local only) | `in_camera.cpp`, `view.cpp::V_CalcNormalRefdef`, `entity.cpp::HUD_AddEntity`, `StudioModelRenderer.cpp::StudioRenderModel`, `cdll_int.cpp::HUD_Redraw`, [Third Person Body Fade](#third-person-body-fade) |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |
 
 ## Lessons Worth Repeating
@@ -147,3 +157,4 @@ Strings starting with `#` (e.g. `#Title_VoteMap`) are looked up in `resource/val
 - **Reset chunked accumulators on `seq == 0`, commit on `isLast`.** Don't trust intermediate state — a reconnect or restart can interleave a fresh stream with a partial one.
 - **HUD vs VGUI is a hard line.** Buttons / focus / scrollbars belong in VGUI panels; per-frame immediate-mode draws (radar, banner, ammo) belong in `CHudBase` subclasses. The schemes (fonts/colors) are independent.
 - **Weapon effect responsiveness comes from event callbacks, not server temp entities.** Pattern: server `PLAYBACK_EVENT_FULL` in weapon fire code, client `EV_FireXxx` in `ev_hldm.cpp`, hook in `hl_events.cpp`, plus an `events/<name>.sc` stub in `workspace/redist/events/`. See the railgun/dual-railgun implementation for a complete example.
+- **Decide translucency in `HUD_AddEntity`, blend at draw time.** The engine sorts entities into the opaque and translucent lists by `curstate.rendermode` after `HUD_AddEntity`. Switching the mode inside the studio renderer is too late. Any client-side `curstate` override must be put back after the frame, because the engine may only refresh it when a packet arrives. For a glow shell entity, `renderamt` is the shell thickness, not its opacity. Use `IEngineStudio.StudioSetRenderamt` for the body pass and restore it before the shell pass (see [Third Person Body Fade](#third-person-body-fade)).
