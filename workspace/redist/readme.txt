@@ -126,6 +126,8 @@ v1.2 Features:
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
     - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt
+- HUD Improvements
+    - Moved rune, cam icons to bottom of HUD, colorize these icons
 
 Highly-Valued Upcoming Features:
 

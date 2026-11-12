@@ -209,9 +209,9 @@ engine's respawn pipeline (`VecWeaponRespawnSpot`, `CItem::Materialize`,
 spot. Keeping the entity in place guarantees it respawns where it started.
 
 The resurrect approach sidesteps the failure modes of `GiveNamedItem`:
-`CRune::RuneTouch` early-outs on missing `FL_ONGROUND`, and
 `CItem::Spawn`'s `DROP_TO_FLOOR` can `UTIL_Remove` an item that spawns
-overlapping the player. If post-dispatch detection sees the entity still
+overlapping the player, and a hidden world rune has no `SF_GIVEITEM`, so
+`CRune::RuneTouch` still needs `FL_ONGROUND` set. If post-dispatch detection sees the entity still
 alive (not `FL_KILLME`, `movetype != MOVETYPE_FOLLOW`, no `EF_NODRAW`), the
 proxy re-hides it (with `UTIL_SetOrigin(..., vuser1)` as a defensive
 restore) and queues the per-type respawn pipeline.

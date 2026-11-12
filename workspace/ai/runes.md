@@ -52,7 +52,9 @@ All rune entities share a base class `CRune` ([items.cpp `CRune::Spawn`](../src/
 - Touch handler is `CRune::RuneTouch` — validates the toucher is a player,
   defers to subclass `MyTouch(pPlayer)`, plays `rune_pickup.wav`, sends a HUD
   message, removes the entity.
-- Pickup gate: runes only process pickup while on ground (`FL_ONGROUND`).
+- Pickup gate: runes only process pickup while on ground (`FL_ONGROUND`),
+  except runes spawned by `GiveNamedItem` (`SF_GIVEITEM`), which are taken
+  on the immediate touch (§4.1).
 - Visual: `models/w_runes.mdl` with `pev->body = RUNE_* - 1` (mesh variant 0–8)
   + per-rune glow shell (`renderfx = kRenderFxGlowShell`, `renderamt = 5`,
   custom RGB).
@@ -199,14 +201,16 @@ die on top of an existing rune.
 
 ### 4.1 Granting a rune directly
 
-`RuneTouch` returns early unless the rune has `FL_ONGROUND`. A rune created
-with `GiveNamedItem("rune_*")` is still airborne when it is touched, so the
-pickup never happens and `GiveNamedItem` removes it as an orphan. Use
-`CWorldRunes::GiveRune(pPlayer, class)` instead: it creates the rune at the
-player, sets `FL_ONGROUND`, calls `Touch(pPlayer)` (normal `MyTouch`, pickup
-sound, `gmsgItemPickup`, status icon, screen fade) and removes the entity if
-it was not taken. It returns `FALSE` when the player already holds a rune;
-call `ClearRune` first to replace one.
+`RuneTouch` returns early unless the rune has `FL_ONGROUND` or the
+`SF_GIVEITEM` spawnflag. `GiveNamedItem("rune_*")` (including the `give`
+cheat) sets `SF_GIVEITEM` and touches the rune while it is still airborne, so
+the rune is given immediately. If the pickup fails (for example the player
+already holds a rune), `GiveNamedItem` removes it as an orphan.
+`CWorldRunes::GiveRune(pPlayer, class)` is the explicit helper: it creates
+the rune at the player, sets `FL_ONGROUND`, calls `Touch(pPlayer)` (normal
+`MyTouch`, pickup sound, `gmsgItemPickup`, status icon, screen fade), removes
+the entity if it was not taken, and reports success. It returns `FALSE` when
+the player already holds a rune; call `ClearRune` first to replace one.
 
 ### 4.2 JvS Jesus cloak (2026-10-16)
 

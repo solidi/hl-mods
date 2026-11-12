@@ -844,9 +844,10 @@ re-rolling.
   (`m_iHoldingChumtoad`) is skipped and keeps everything, including the
   chumtoad. Mode weapons outside the gate are not given back until respawn
   (KtS gravity gun, Prop Hunt hunter guns).
-- **Runes.** `GiveNamedItem("rune_*")` silently fails (`RuneTouch` needs
-  `FL_ONGROUND`), so `GiveRune` creates the rune, grounds it and calls
-  `Touch`. See [runes.md §4.1](runes.md#41-granting-a-rune-directly).
+- **Runes.** `GiveRune` creates the rune, grounds it, calls `Touch` and
+  reports whether the rune was taken. (`GiveNamedItem("rune_*")` also works
+  now: `RuneTouch` skips its `FL_ONGROUND` gate for `SF_GIVEITEM` runes.)
+  See [runes.md §4.1](runes.md#41-granting-a-rune-directly).
 - **JvS Jesus cloak.** Jesus's `rune_cloak` belongs to the mode: granted
   with `GiveRune` in `PlayerSpawn`, cleared (not dropped) on death, ignored
   by `drop_rune`, `randomrune` and `runeburst`, and restored by
@@ -2798,6 +2799,27 @@ timers.
 - Draws up to `max` icons (2/3/4 depending on `ScreenHeight`) using
   `SPR_DrawAdditive` and a per-icon timer bar clipped from `startTime` and
   `timeToLive`.
+- Center icon stack: `EnableIcon` routes `cam_*` and `rune_*` icons and the
+  names in `s_szCenterIcons[]` (currently `longjump`) into `m_CenterIconList`
+  instead of the left column, so they never use or show in its slots. The
+  list is a
+  FIFO queue (`MAX_CENTERICONS` 12; `DisableIcon` closes gaps).
+  `DrawCenterIcons` shows the first `MAX_CENTERICONS_VISIBLE` (3) as one row
+  centered on `ScreenWidth / 2`. Its bottom (icon, timer bar, label) sits on
+  the health / HEV / ammo baseline, lifted by the battery's `cl_hudbend`
+  offset. Queued icons beyond three appear as earlier ones are removed. Add
+  new special icons to `s_szCenterIcons[]` in `status_icons.cpp`.
+- Icon tint in the center stack comes from `StatusIconColor(name)`
+  (`cl_dll/util.cpp`), which returns `HudColor()` except for `cam_` and
+  `rune_` icons. Objective `cam_` icons keep a fixed color whatever the HUD
+  hue: green `cam_chumtoad`/
+  `cam_virus`/`cam_zone`/`cam_prop`, red `cam_buster`/`cam_danger`, yellow
+  `cam_winner`/`cam_dribble`, orange `cam_loot`, and `cam_flag` in the carried
+  flag's color (blue for a red-team carrier, red for a blue-team carrier).
+  `longjump` keeps the HUD hue. `rune_*` icons use the HUD color nearest
+  their player shell (`dlls/items.cpp`): purple `RGB_PURPLEISH` frag/strength,
+  red vampire, green protect, magenta `RGB_MAGENTAISH` regen, blue gravity,
+  yellow haste/ammo/hornet/slauncher, and white `RGB_WHITEISH` cloak (no shell).
 - Every 1 s (`m_flCheckMutators`) it prunes expired nodes:
   - `MUTATOR_THIRDPERSON` → `CAM_ToFirstPerson`.
   - `MUTATOR_TINNITUS` → `tinnitus_stop`.
