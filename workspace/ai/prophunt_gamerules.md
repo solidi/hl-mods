@@ -74,6 +74,10 @@ Props can also morph by **walking up to a live world item and pressing
 * Unsupported pickups (`item_battery`, `item_healthkit`, `rune_*`, any
   non-weapon/ammo model) fail silently — the prop hears no feedback and
   the bot moves on to the next candidate.
+* The client pickup weapon glow (`cl_weaponglow`, see
+  [client.md → Pickup Weapon Glow](client.md#pickup-weapon-glow)) is off
+  in Prop Hunt. If real weapons glowed, every disguised prop would stand
+  out. Keep it off if that filter is ever changed.
 * `PlayerUse` runs a supplemental `UTIL_FindEntityInSphere` scan of
   radius `PROP_ANCHOR_USE_RADIUS` (80u) ahead of the standard FCAP scan
   because world weapons/ammo do not advertise `FCAP_*_USE` and would never
