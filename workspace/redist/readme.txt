@@ -123,6 +123,8 @@ v1.2 Features:
     - Don't render death notices while scoreboard is showing
 - Camera Improvements
     - In thirdperson, your own player turns see-through when the camera is pushed close by walls or set to a short distance, and turns solid again as the camera pulls back; only you see it, and other effects such as glow shells and invisibility stay as they are
+- Visual Improvements
+    - Weapons lying in the world, spawned or dropped, are lit, cast a small light and show a semi-transparent spiky starburst behind them so pickups are easier to spot; the glow matches your HUD color (gold with a yellow HUD, and red, green, blue or orange with your team or sleeves); turn it off with "cl_weaponglow 0" (not shown in Prop Hunt)
 - Default Config Changes
     - Removed "No Limit" game options to keep servers rotating
     - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt

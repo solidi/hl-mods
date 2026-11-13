@@ -300,6 +300,11 @@
         "0" "On" "fog_on"
         "1" "Off" "fog_off"
     }
+    "5" "Weapon Glow"
+    {
+        "0" "On" "cl_weaponglow 1"
+        "1" "Off" "cl_weaponglow 0"
+    }
 }
 "6" "Sound"
 {

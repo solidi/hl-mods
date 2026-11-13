@@ -175,6 +175,13 @@ DESCRIPTION INFO_OPTIONS
 		{ "1" }
 	}
 
+	"cl_weaponglow"
+	{
+		"#Ice_WeaponGlow"
+		{ BOOL }
+		{ "1" }
+	}
+
 	"cl_flashonpickup"
 	{
 		"#Ice_FlashOnPickup"

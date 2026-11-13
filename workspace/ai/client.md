@@ -37,6 +37,7 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `hl/hl_events.cpp` — binds `events/*.sc` scripts to `EV_Fire*` callbacks.
 - `parsemsg.{h,cpp}` — `BEGIN_READ` / `READ_BYTE` / `READ_STRING` helpers used by every `MsgFunc_*`.
 - `particlemgr.cpp`, `particlesys.cpp`, `FlameSystem.cpp`, `particlemsg.cpp` — client particle/flame ownership, lifecycle, and toggles. See [particle_system.md](particle_system.md).
+- `weapon_glow.cpp` — glow on world pickup weapons (`cl_weaponglow`). See [Pickup Weapon Glow](#pickup-weapon-glow).
 
 ## Weapon/Sleeve Visual Resolution
 
@@ -127,6 +128,29 @@ When the third person camera gets close to the controlled player, the player's o
 - **Translucent pass.** `HUD_AddEntity` calls `CAM_ApplyBodyFade`. If the local player is `kRenderNormal`, its client-side `curstate` becomes `kRenderTransTexture` / 255 so the engine sorts it into the translucent list. A blended body drawn in the opaque pass would hide everything drawn after it. The server values are stored, and `HUD_Redraw` puts them back with `CAM_RestoreBodyFade` once every 3D pass of the frame is done. A restore only happens if the values still match the override, so a network refresh in between wins. Bodies that are already translucent from the server (invisibility, death fade) are not touched. Dead players (`curstate.health <= 0`) are skipped.
 - **Draw.** `CStudioModelRenderer::StudioRenderModel` asks `CAM_GetBodyFade` and sets the body pass with `IEngineStudio.StudioSetRenderamt(serverBlend * alpha)`. `serverBlend` is 255 for a solid body, otherwise the server `renderamt`. This covers the player model, the p_ weapon and hats (crate and Prop Hunt models too). The glow shell pass goes back to its normal blend, and its thickness goes back into `renderamt`. Server transparency is scaled, never replaced. On exit the entry `renderamt` is restored.
 
+## Pickup Weapon Glow
+
+Weapons lying in the world glow so they are easier to spot in a fight (after the Boltgun pickups). This covers map spawned weapons and dropped weapon boxes. It is client only and nothing is networked. `cl_weaponglow` (default `1`, archived) turns it on or off. Code: `weapon_glow.cpp`.
+
+- **What counts as a pickup.** `WeaponGlow_IsPickup` checks for a non-player entity with one of these models: `w_weapons.mdl`, `w_satchel.mdl`, `v_tripmine.mdl`, `w_grenade.mdl` or `w_portalgun.mdl`. It must also be `MOVETYPE_TOSS` + `SOLID_TRIGGER`, which is a landed `CBasePlayerItem` (`Materialize`) or a `CWeaponBox`. Thrown, grabbed and projectile uses of the same models are `BOUNCE` / `BOUNCEMISSILE` / `SOLID_BBOX`, so they do not glow. A weapon that is still falling (`FallInit` sets `SOLID_BBOX`) starts glowing once it lands. A victor magnet box (`NOCLIP`) does not glow.
+- **Prop Hunt is excluded.** Props disguise as `w_weapons.mdl` / `w_ammo.mdl` items, so a glow on the real pickups would give every prop away. Props are drawn through `StudioDrawPlayer` and would never glow.
+- **Model lighting** (`StudioDrawModel`). After `StudioDynamicLight`, `WeaponGlow_Lighting` raises the floor to at least 112 ambient and 96 shade. The model still keeps the map's light colour and direction.
+- **Environment light.** `WeaponGlow_Add` (called after `StudioRenderModel`) gives a pickup within 512 units a small dlight in the HUD colour (see Colour below). The radius is about 72 and pulses slowly. The dlight is keyed `0x5747 + entindex`, so the same slot is reused every frame. At most 8 are added per view, which leaves slots for muzzle flashes. None are added in the xray second view.
+- **Colour.** `WeaponGlow_Colors` looks up `HudColor()` (`util.cpp`) in `kPalettes[]`. Each entry pairs an `RGB_*` HUD colour with a starburst tint and a dlight colour:
+
+  | HUD colour | Starburst (additive) | Dlight |
+  |---|---|---|
+  | `RGB_YELLOWISH` (orange or yellow sleeves, Half-Life override, yellow team) | gold 1.00 0.78 0.35 | 160 125 55 |
+  | `RGB_REDISH` (red sleeves, red team, buster, virus) | 1.00 0.32 0.22 | 170 45 30 |
+  | `RGB_GREENISH` (green sleeves, green team, chumtoad holder) | 0.40 1.00 0.35 | 60 150 50 |
+  | `RGB_BLUEISH` (blue sleeves, the `cl_sleevemodel 1` default) | 0.35 0.72 1.00 | 55 115 180 |
+  | `RGB_ORANGEISH` (loot carrier) | 1.00 0.55 0.18 | 170 85 30 |
+  | `RGB_PURPLEISH` / `RGB_MAGENTAISH` / `RGB_WHITEISH` | 0.70 0.38 1.00 / 1.00 0.38 1.00 / 0.92 0.95 1.00 | 110 50 160 / 150 55 150 / 130 130 135 |
+
+  The last row covers the colours `HudColor()` does not return today; status icons use them. The starburst tints are lifted toward white, because a fully saturated additive tint looks muddy. The dlights are toned down to about the same brightness. A HUD colour without an entry falls back to `0.3 + 0.7 * hud` for the starburst and `0.6 * hud` for the light. If you add a new HUD colour, add a palette row. The starburst looks up the colour once per view and the dlight once per light, so a team or sleeve change shows up on the next frame. `HudColor()` only sends `con_color` and tracer commands when the colour changes, so calling it here costs nothing extra.
+- **Starburst** (`WeaponGlow_TransparentTriangles`, from `HUD_DrawTransparentTriangles` just before `XRay_TransparentTriangles`). The world space bounds of the drawn submodel come from the bone transforms (`StudioDrawnBounds`) and set the centre and size (radius 10..36). The pickup is queued once per entity, and the queue is drawn and cleared once per view. The pass uses raw GL: `#ifndef __APPLE__`, hardware only, `glPushAttrib` / `glPopAttrib`. It draws additive, depth tested and without depth writes, with no texture and with `GL_FOG` off, because additive glow under fog would add the fog colour. The camera axes come from the current modelview, so xray, portal and mirror views line up. There are three camera facing triangle fans: a soft core and two counter-rotating serrated rings. Each ring has hashed tip lengths, and the tips fade out while the valleys stay dim. The burst sits 0.4 radii behind the model centre, so the opaque weapon covers it. It fades in between 32 and 96 units from the eye and fades out between 1024 and 1536 units.
+- **Pi.** `M_PI` in this client follows the `negativepi` mutator (`hud.h`). Geometry that must stay round uses its own constant (`WEAPONGLOW_PI`).
+
 ## Where Things Render
 
 | What | Where to look |
@@ -149,6 +173,7 @@ When the third person camera gets close to the controlled player, the player's o
 | Scoreboard awards row (weapon of choice + two awards; third header row of the old scoreboard, second of the VGUI one) | `scoreboard.cpp` (`MsgFunc_Awards`, `GetAwardsText`), `vgui_ScorePanel.cpp` (`m_AwardsLabel`), [award_system.md](award_system.md) |
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Third person body fade (own model see-through while the camera is close; local only) | `in_camera.cpp`, `view.cpp::V_CalcNormalRefdef`, `entity.cpp::HUD_AddEntity`, `StudioModelRenderer.cpp::StudioRenderModel`, `cdll_int.cpp::HUD_Redraw`, [Third Person Body Fade](#third-person-body-fade) |
+| Pickup weapon glow (lit model, small dlight, serrated starburst behind world weapons; `cl_weaponglow`) | `weapon_glow.cpp`, `StudioModelRenderer.cpp::StudioDrawModel`, `tri.cpp::HUD_DrawTransparentTriangles`, [Pickup Weapon Glow](#pickup-weapon-glow) |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |
 
 ## Lessons Worth Repeating

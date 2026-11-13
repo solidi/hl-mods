@@ -858,6 +858,7 @@ If a mode has non-team roles (like CtC holder vs. chasers), make `ShouldAutoAim`
 - **Burst-on-secondary pattern (Zapgun/Fingergun):** fire one shot immediately, queue remaining shots with a short-gap think callback, and mirror delayed local playback in `CLIENT_DLL` so owner animation/audio stays in phase.
 - **Don't mutate state inside `Holster()` without also clearing `m_pPlayer->m_iWeapons*` for `ITEM_FLAG_EXHAUSTIBLE` weapons.** See `CSatchel::Holster` and `CTripmine::Holster` for the canonical pattern.
 - **Floating weapons:** `floatingweapons` cvar selects an alternate world-sequence (see `CSatchel::Spawn`, `CTripmine::Spawn`).
+- **World pickups glow on the client** (`cl_weaponglow`, [client.md → Pickup Weapon Glow](client.md#pickup-weapon-glow)). The client spots a pickup by its model plus `MOVETYPE_TOSS` + `SOLID_TRIGGER`. If you change the movetype or solid of a landed weapon or weapon box, its glow changes too. If you add a non-pickup `TOSS` + `TRIGGER` entity with a pickup model, it will glow. Use a different movetype or solid for it.
 - **Test with bots.** The Grave bot has hand-tuned weapon-use logic — see [gravebot_combat.md](gravebot_combat.md) and `/memories/repo/gravebot_combat_mechanics.md`. New weapons that don't appear in its preference tables fall through to the default melee logic.
 
 ## Checklist: adding a new `monster_*` projectile/placeable

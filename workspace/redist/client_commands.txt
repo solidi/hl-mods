@@ -64,6 +64,7 @@ Client commands:
 - "cl_voiceoverpath [string]" - folder path to custom voiceovers
 - "cl_wallclimbindicator [0|1]" - shows when wallclimb is available
 - "cl_weaponfidget [0|1]" - Weapon Fidget
+- "cl_weaponglow [0|1]" - glow, light and starburst in your HUD color on weapons lying in the world so pickups are easier to spot
 - "cl_weaponretract [0|1]" - Weapon Retract
 - "cl_weaponsway [0|1]" - Weapon Sway
 - "cl_weather [0|1]" - allow or disallow weather effects on client
