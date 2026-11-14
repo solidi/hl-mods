@@ -89,6 +89,7 @@ v1.2 Features:
     - Added console warning if an unkown mutator is applied
     - Added "sv_addinstantmutator [index]" to apply any instant mutator on demand; every index is listed in server_commands.txt
     - Instant mutators are now numbered in alphabetical order
+    - Shotguns no longer reload with "noreload" mutator
 - Gamemode Patches
     - Added scrum lockup detection in Kick the Snowball
     - Jesus now receives the cloak rune in Jesus vs Santa
@@ -130,6 +131,7 @@ v1.2 Features:
     - Moved "Bots Melee" from serveroptions.txt to the new botoptions.txt
 - HUD Improvements
     - Moved rune, cam icons to bottom of HUD, colorize these icons
+    - Halo-style ammo warnings, a fast blinking "RELOAD", "LOW AMMO" or "NO AMMO" appears at the lower left of the crosshair (lower right when left handed with "cl_righthand 0"); shown with "cl_crosshairammo 1"
 
 Highly-Valued Upcoming Features:
 
