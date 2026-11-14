@@ -38,6 +38,7 @@ engine ──▶ HUD_Frame / HUD_Redraw / HUD_VidInit / HUD_PostRunCmd
 - `parsemsg.{h,cpp}` — `BEGIN_READ` / `READ_BYTE` / `READ_STRING` helpers used by every `MsgFunc_*`.
 - `particlemgr.cpp`, `particlesys.cpp`, `FlameSystem.cpp`, `particlemsg.cpp` — client particle/flame ownership, lifecycle, and toggles. See [particle_system.md](particle_system.md).
 - `weapon_glow.cpp` — glow on world pickup weapons (`cl_weaponglow`). See [Pickup Weapon Glow](#pickup-weapon-glow).
+- `ammo.cpp` — `CHudAmmo`: weapon menu, ammo counters and the crosshair ammo overlay (`cl_crosshairammo`). See [Crosshair Ammo Overlay](#crosshair-ammo-overlay).
 
 ## Weapon/Sleeve Visual Resolution
 
@@ -151,6 +152,22 @@ Weapons lying in the world glow so they are easier to spot in a fight (after the
 - **Starburst** (`WeaponGlow_TransparentTriangles`, from `HUD_DrawTransparentTriangles` just before `XRay_TransparentTriangles`). The world space bounds of the drawn submodel come from the bone transforms (`StudioDrawnBounds`) and set the centre and size (radius 10..36). The pickup is queued once per entity, and the queue is drawn and cleared once per view. The pass uses raw GL: `#ifndef __APPLE__`, hardware only, `glPushAttrib` / `glPopAttrib`. It draws additive, depth tested and without depth writes, with no texture and with `GL_FOG` off, because additive glow under fog would add the fog colour. The camera axes come from the current modelview, so xray, portal and mirror views line up. There are three camera facing triangle fans: a soft core and two counter-rotating serrated rings. Each ring has hashed tip lengths, and the tips fade out while the valleys stay dim. The burst sits 0.4 radii behind the model centre, so the opaque weapon covers it. It fades in between 32 and 96 units from the eye and fades out between 1024 and 1536 units.
 - **Pi.** `M_PI` in this client follows the `negativepi` mutator (`hud.h`). Geometry that must stay round uses its own constant (`WEAPONGLOW_PI`).
 
+## Crosshair Ammo Overlay
+
+`cl_crosshairammo` (default `1`, archived) draws ammo state around the crosshair. It only shows when the engine `crosshair` cvar is on too, and nothing shows under the `nohud` mutator. It is client only and reads the ammo the HUD already has (`CurWeapon`, `AmmoX`). Code: `CHudAmmo::Draw` in `ammo.cpp`, and only for weapons with primary ammo (`iAmmoType > 0`).
+
+- **Brackets and bars.** `c_brackets` is drawn at the crosshair (centre minus 32, 23), and the bracket art ends about 22 px below the centre. `c_left` fills with the reserve (`CountAmmo / iMax1`) and `c_right` with the clip (`iClip / iMaxClip`). A weapon without a clip shows its reserve on both sides. At 10% reserve or less the brackets turn `RGB_REDISH`.
+- **Mutator labels.** `fastweapons`, `slowweapons`, `dealter`, `noreload` and `ricochet` stack centred text below the crosshair.
+- **Ammo warning** (`GetCrosshairAmmoWarning` / `DrawCrosshairAmmoWarning`), like the Halo: Combat Evolved reticle prompt:
+
+  | State | Clip weapon (`iClip >= 0`, `iMaxClip > 0`) | No-clip weapon | Colour |
+  |---|---|---|---|
+  | `RELOAD` | clip at or below `iMaxClip / 4` and reserve > 0 | — | `HudColor()` |
+  | `LOW AMMO` | clip low, clip > 0, and the reserve is empty (or `noreload` is on) | reserve at or below `max(1, iMax1 / 10)` | `RGB_REDISH` |
+  | `NO AMMO` | clip 0, and the reserve is empty (or `noreload` is on) | reserve 0 | `RGB_REDISH` |
+
+  `noreload` makes `DefaultReload` fail, so it never shows `RELOAD`. The text blinks fast: it is visible while `(int)(m_flTime * 8)` is even, so 4 blinks per second. It is right-aligned 4 px left of centre (lower left) and starts 26 px below centre, clear of the brackets. With `cl_righthand 0` (left-handed viewmodels) it is mirrored, left-aligned 4 px right of centre (lower right). `cl_righthand -1` only flips the knife, which has no ammo, so it stays lower left. If mutator labels are showing, the warning moves down below them so the two never overlap. Secondary ammo (`iAmmo2Type`) never shows a warning.
+
 ## Where Things Render
 
 | What | Where to look |
@@ -174,6 +191,7 @@ Weapons lying in the world glow so they are easier to spot in a fight (after the
 | Weapon firing prediction | `ev_hldm.cpp` |
 | Third person body fade (own model see-through while the camera is close; local only) | `in_camera.cpp`, `view.cpp::V_CalcNormalRefdef`, `entity.cpp::HUD_AddEntity`, `StudioModelRenderer.cpp::StudioRenderModel`, `cdll_int.cpp::HUD_Redraw`, [Third Person Body Fade](#third-person-body-fade) |
 | Pickup weapon glow (lit model, small dlight, serrated starburst behind world weapons; `cl_weaponglow`) | `weapon_glow.cpp`, `StudioModelRenderer.cpp::StudioDrawModel`, `tri.cpp::HUD_DrawTransparentTriangles`, [Pickup Weapon Glow](#pickup-weapon-glow) |
+| Crosshair ammo brackets + blinking `RELOAD` / `LOW AMMO` / `NO AMMO` warning (`cl_crosshairammo`, mirrored by `cl_righthand 0`) | `ammo.cpp::CHudAmmo::Draw`, [Crosshair Ammo Overlay](#crosshair-ammo-overlay) |
 | Weapons (full inventory + mechanics) | [weapons.md](weapons.md) |
 
 ## Lessons Worth Repeating

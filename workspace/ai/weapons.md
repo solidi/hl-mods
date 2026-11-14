@@ -100,6 +100,7 @@ Use this when a weapon needs a third fire mode on `IN_RELOAD`.
 - `pszAmmo1 = NULL` + `iMaxAmmo1 = -1` means the weapon never consumes ammo (knife, fists, wrench).
 - `ITEM_FLAG_EXHAUSTIBLE` removes the weapon from inventory when ammo is exhausted (satchel, tripmine, snark, handgrenade).
 - `ITEM_FLAG_LIMITINWORLD` caps how many copies can exist as world entities at once.
+- The client crosshair ammo warning (`RELOAD` / `LOW AMMO` / `NO AMMO`, `cl_crosshairammo`) reads `iClip`, `iMaxClip`, the reserve and `iMax1`, so a weapon's `GetItemInfo` clip and max values decide when it shows. See [client.md → Crosshair Ammo Overlay](client.md#crosshair-ammo-overlay).
 
 ### Helpers used everywhere
 

@@ -22,7 +22,7 @@ Client commands:
 - "cl_bobtilt [0|1]" - Old Bob Tilt
 - "cl_bulletsmoke [0|1]" - turn on or off bullet smoke and flare effects
 - "cl_compass [0|1]" - enables or disables compass in top middle of the HUD
-- "cl_crosshairammo [0|1]" - show ammo status in crosshairs
+- "cl_crosshairammo [0|1]" - show ammo status in crosshairs, with a fast blinking "RELOAD", "LOW AMMO" or "NO AMMO" warning at the lower left of the crosshair (lower right with "cl_righthand 0")
 - "cl_customtempents [0|1]" - allow or disallow increased temporary entities
 - "cl_flashonpickup [0|1]" - Flash HUD when picking up weapon or item
 - "cl_glasshud [0|1]" - switch elements of the hud bouncing/bobbing on or off
