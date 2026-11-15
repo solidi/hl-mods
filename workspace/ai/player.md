@@ -28,6 +28,9 @@ modulate damage, fire rate, and gravity, see [runes.md](runes.md).
 | `m_fSelacoButtonTime`   | First-tap timestamp for slide auto-detect                   | [player.h](../src/dlls/player.h) |
 | `m_fSelacoCount`        | Forward-tap counter for slide auto-detect                   | [player.h](../src/dlls/player.h) |
 | `m_fHasRune`            | Active rune (see [runes.md](runes.md))                      | [player.h](../src/dlls/player.h#L227) |
+| `m_bHolstered`          | Weapon put away with impulse 219; `m_pActiveItem` is NULL (§4.13) | [player.h](../src/dlls/player.h) |
+| `m_iHolsteredId`        | `m_iId` of the weapon to draw again (an id, so it can never dangle) | [player.h](../src/dlls/player.h) |
+| `m_flHolsterProvokeTime`| Hurting a monster blocks holster gentleness until this time | [player.h](../src/dlls/player.h) |
 
 ### `m_EFlags` bits
 
@@ -79,6 +82,7 @@ The dispatch switch in [CheatImpulseCommands L5325-5410](../src/dlls/player.cpp#
 | 215     | Force Grab        | [CBasePlayer::StartForceGrab](../src/dlls/player.cpp#L6325)    |
 | 216     | Throw Weapon      | [CBasePlayerWeapon::ThrowWeapon](../src/dlls/weapons.cpp)      |
 | 217/218 | Grapple Fire/Kill | Disabled (commented out in [player.cpp L5392-5410](../src/dlls/player.cpp#L5392-L5410)) — gated under `#if defined( GRAPPLING_HOOK )` elsewhere. |
+| 219     | Holster / draw    | `CBasePlayer::ToggleHolster` (§4.13). Default bind `MOUSE3`.    |
 
 ---
 
@@ -293,6 +297,88 @@ walls — both fixed.)
   mp5, mag60, python, rpg, railgun, sawedoff, shotgun, smg, snowball, usas,
   zapgun, glock (see `wpn_shared/`).
 - Pure server-side state — no EFLAG.
+
+### 4.13 Holster (impulse 219)
+
+Puts the weapon away so nothing is in hand, in single player and multiplayer.
+Server only ([player.cpp](../src/dlls/player.cpp) `ToggleHolster` and friends),
+except the HUD: the old weapon's state-0 `CurWeapon` does not change the
+client's selection, so `CBasePlayer::UpdateClientData` sends `CurWeapon(0, 0, 0)`
+when the holster starts (and again on a full HUD resend, `!m_fWeapon`), and
+`CHudAmmo::MsgFunc_CurWeapon` treats id 0 as "nothing in hand", clearing the
+crosshair and `m_pWeapon`. Drawing a weapon sends the usual state-1 message,
+which restores both. Id -1 (dead) is unchanged.
+
+- **Holster** (`HolsterWeapon`): needs a live, owned active weapon whose
+  `CanHolster()` passes. Refused while an off-hand move is running
+  (`CanToggleHolster`: climbing, sliding, kick/punch/forcegrab/taunt,
+  `m_fOffhandTime`), on a `func_tank`, as an observer, or for the CtC chumtoad
+  carrier. Releases a held item, calls `Holster()`, stores `m_iHolsteredId`,
+  sets `m_pActiveItem = NULL`, clears `viewmodel` / `weaponmodel`.
+  `lastinv` points at the holstered weapon (`m_pLastItem`, or `m_pLastRef` in
+  holster-mode rules).
+- **Draw** (`UnholsterWeapon`): impulse 219 again draws the holstered weapon,
+  or the first drawable weapon if it is gone (one with ammo preferred).
+  "Drawable" is `CanDrawItem`: `CanDeploy()`, or `ITEM_FLAG_SELECTONEMPTY`
+  (snowball, satchel) when only ammo is missing. Like `DefaultDeploy`, but the
+  flag never lifts the player-wide locks in `CBasePlayerWeapon::CanDeploy`
+  (fake death, taunt cancel, force grab). The switch goes through
+  `DrawWeapon`, the body of `SwitchWeapon` without its `CanDeploy()` gate, so
+  an empty snowball can be drawn and reloaded. Exhaustible weapons without the
+  flag (hand grenade, tripmine, snark, chumtoad) destroy themselves when
+  holstered empty, so the draw falls back to another weapon. Any
+  selection (`SelectItem`, `SelectNextItem`, `SelectLastItem`, `SwitchWeapon`)
+  also clears `m_bHolstered`. Pickups do **not** auto-switch while holstered
+  (`AddPlayerItem`). A force-grab steal still gives and draws the stolen gun.
+- **State hygiene**: `ItemPreFrame` clears the holster as soon as a weapon is
+  active or the inventory is empty, and the holster-mode promotion of
+  `m_pLastItem` is skipped while holstered. `Spawn` and `RemoveAllItems` reset
+  it; the three fields are saved.
+- **Off-hand moves still work.** Kick (206), punch (207), grenade (209),
+  auto-melee, wall climb, the release-punch in `PlayerUse` and the grapple
+  uppercut all fetch their weapon via `GetOffhandWeapon()`: the active weapon,
+  or while holstered an inventory weapon acting as a proxy (see
+  [weapons.md → Off-hand moves and holstered players](weapons.md#off-hand-moves-and-holstered-players)).
+  A player with no weapons at all still cannot use them. The kick end in
+  `PostThink` always clears `EFLAG_PLAYERKICK`, even with no weapon left.
+  Climb / move endings restore the view through `RestoreViewModel()`.
+  Swap dual (205) and throw weapon (216) still need a weapon in hand.
+- **Punch ownership**: a punch's cleanup is the weapon's `EndPunch` think, and a
+  holstered punch runs on an *inactive* proxy. `PunchAttack` records the owner
+  in `m_hPunchItem` (an `EHANDLE`). `RemovePlayerItem` (any item, active or not)
+  and `RemoveAllItems` call `ClearPunchAction`, which clears `EFLAG_PUNCH`
+  because `Kill()` / `Drop()` replace the pending think. `PostThink` also drops
+  `EFLAG_PUNCH` if the owning edict is freed. Otherwise a removed proxy left the
+  punch arm on screen and blocked impulse 219.
+- **Death drop**: for `GR_PLR_DROP_GUN_ACTIVE` / `GR_PLR_DROP_AMMO_ACTIVE`
+  the holstered weapon counts as the active one (`PackDeadPlayerItems`).
+- **Gentle monsters**: `CBasePlayer::IsGentle()` is TRUE while holstered,
+  alive and past `m_flHolsterProvokeTime`. `CBaseMonster::IsGentleTowards()`
+  applies it to every monster except ones a player owns (`pev->owner` or
+  `pev->euser1` is a client: snarks and chumtoads clear `pev->owner` on their
+  first bounce but keep the thrower in `euser1`; pets, player hornets), so
+  PvP is unchanged. The CtC objective toad (`monster_ctctoad`) is exempt too.
+  World-spawned mutator monsters (turrets, rats) are gentle like map monsters.
+  `EngageRelationship()` (= `IRelationship` with hostility toward a gentle
+  player turned into `R_NO`) drives `Look`, `BestVisibleEnemy`, `CDiablo::Look`
+  and hornet tracking; `PopEnemy` forgets gentle players; `CheckEnemy` releases
+  an existing lock via `bits_COND_ENEMY_DEAD` (same path as spectators, so the
+  schedule drops `m_hEnemy` at a safe point, never mid-attack). Turrets and the
+  Nihilanth drop the lock in their own think. Barnacles only grab through
+  `EngageRelationship` and let go of a gentle victim, lifted or dangling, via
+  `CBarnacle::ReleasePrey` (`BarnacleVictimReleased` + `MOVETYPE_WALK`).
+  Leeches drop a gentle target through `SwitchLeechState`. Custom targeting
+  loops must use `EngageRelationship` / `IsGentleTowards`, not raw
+  `IRelationship`. While gentle, auto-melee leaves monsters alone.
+- **Provoking**: `CBaseMonster::ProvokedBy()` calls `ProvokeMonsters()` when a
+  client damages a live `FL_MONSTER`, which blocks gentleness for
+  `HOLSTER_PROVOKE_TIME` (5 s). `CBaseMonster::TakeDamage` calls it, and so
+  must every monster `TakeDamage` override that does not chain to the base
+  (`CBaseTurret`, `CSentry`, `CNihilanth`). This also applies to an armed player who
+  holsters right after shooting. When it runs out, monsters let go again.
+- **Frozen** players (`FL_FROZEN`) cannot toggle, like the 205-216 set.
+- Binds: `config.cfg` / `kb_def.lst` `MOUSE3`, `kb_act.lst` `#Ice_Holster`,
+  command menu Combat → Actions → Holster Weapon.
 
 ---
 

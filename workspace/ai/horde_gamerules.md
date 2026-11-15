@@ -111,6 +111,10 @@ Added 2026-05 after a report that horde monsters were tracking and attacking spe
 
 Both files now `#include "player.h"` for the `CBasePlayer::IsObserver/IsSpectator` accessors. The filter is mode-agnostic but in practice only fires in horde (the only multiplayer mode with active monster AI vs. clients).
 
+### Holstered players (impulse 219)
+
+Monsters also leave a holstered player alone, in every mode and in single player: `CBaseMonster::EngageRelationship()` (used by `Look`, `BestVisibleEnemy`, `CDiablo::Look` and hornet tracking) turns hostility toward a gentle player into `R_NO`, `PopEnemy` forgets them, and `CheckEnemy` releases an existing lock through the same `bits_COND_ENEMY_DEAD` path as spectators. Hurting any monster ends gentleness for 5 s, so a holstered player who punches a horde wave is fought normally. Full rules in [player.md §4.13](player.md#413-holster-impulse-219).
+
 ## Key Constants
 ```cpp
 #define GAME_HORDE   10

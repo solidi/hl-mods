@@ -90,6 +90,7 @@ Client commands:
 - "impulse 214" - Hurricane Kick
 - "impulse 215" - Force Grab
 - "impulse 216" - Throw Explosive Weapon
+- "impulse 219" - Holster / draw weapon (MOUSE3); kick, punch and grenade still work, monsters leave you alone until you hurt one
 - "keyboard" - show default key binds on the HUD
 - "maps" - type in the chat to start a rtv of maps
 - "menu" - open the team-selection menu while spectating
