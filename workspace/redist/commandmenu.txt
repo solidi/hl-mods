@@ -159,6 +159,7 @@
     {
         "0" "Taunt" "taunt"
         "1" "Feign Death" "feign"
+        "2" "Holster Weapon" "impulse 219"
     }
     "6" "Auto Options"
     {

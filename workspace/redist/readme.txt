@@ -105,6 +105,10 @@ v1.2 Features:
     - Thrown weapons no longer leave a hidden entity behind
     - Freeze gun plasma, freeze grenades and snow bombs now freeze monsters in an ice shell, and too many hits in a row shatter them
     - Frozen players and monsters share the same freeze, so the Shidden fart freeze now lasts its full five seconds
+- New Player Mechanics
+    - Holster your weapon with "impulse 219" (MOUSE3 by default) to walk around with nothing in hand; press it again, or pick any weapon, to draw
+    - Kick, punch, off-hand grenade and wall climb still work while holstered
+    - Monsters stop fighting a holstered player in single player and multiplayer (Horde too); hurting a monster makes them fight back for five seconds
 - Bot Patches
     - Prevent bots from firing their hook when paused
     - Added "sv_botaccuracy [0-2]" so bot aim accuracy can be set and voted like any cvar

@@ -111,6 +111,10 @@ Use this when a weapon needs a third fire mode on `IN_RELOAD`.
 - `EjectBrassLate()` / `EjectShotShellLate()` — schedule shell-eject TEs via `m_flEjectBrass` / `m_flEjectShotShell`.
 - `ThrowGrenade()`, `ThrowSnowball()`, `ThrowRocket()` — used by the “off-hand grenade” (impulse 209) and several gamerules; see [player.md](player.md).
 
+### Off-hand moves and holstered players
+
+`StartKick`, `StartPunch`, `ThrowGrenade` (and the `EndKick` / `EndPunch` cleanup) are `CBasePlayerWeapon` methods, so they need a weapon instance. Callers get it from `CBasePlayer::GetOffhandWeapon()`, never by casting `m_pActiveItem`: it returns the active weapon, or, while the player is holstered (impulse 219, `m_pActiveItem == NULL`), an inventory weapon that only stands in for the empty hands. Inside these methods `m_pPlayer->m_pActiveItem != this` means "proxy": the punch uses the free-hand `EFLAG_PUNCH` overlay, `CanKick` / `CanPunch` / attack timers of the proxy are ignored, and `Holster()` / `Deploy()` / `DeployLowKey()` are never called on it. `EndPunch` only redeploys the weapon that is still in hand. See [player.md §4.13](player.md#413-holster-impulse-219).
+
 ### Prediction (`CLIENT_WEAPONS`)
 
 When `CLIENT_WEAPONS` is defined, predicted weapons save `m_flNextPrimaryAttack`, `m_flNextSecondaryAttack`, `m_flTimeWeaponIdle` as `FIELD_FLOAT` (raw, not time-relative) — see `CBasePlayerWeapon::m_SaveData` in `weapons.cpp`. Always rebuild **both DLLs** when toggling this define; mismatched builds fail silently.

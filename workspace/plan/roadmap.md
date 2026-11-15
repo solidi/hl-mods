@@ -150,6 +150,7 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
     1. [x] [Running viewweapon animation](https://github.com/bacontsu/codename-borea/commit/3c0179a138db9d17054b8c341467f21ad49e206d)
     1. [x] semi transparent third person fi camera close
     1. [x] [Reload / No Ammo indicator](https://www.youtube.com/watch?v=r5dXK9f2DGE&t=380s) from Halo Combat Evolved
+    1. [x] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. [ ] shoot off hats
 1. Gamemode Patches
     1. [ ] ctf, re-roll flag positions after scoring?
@@ -318,7 +319,6 @@ To faithfully recreate the Cold Ice 1.75 experience that works in Half-Life Gold
         1. [ ] Snark
         1. [ ] Tripmine
         1. [ ] Clusters
-    1. [ ] [Allow holstering completely](https://github.com/bacontsu/spirit-op4/commit/d63aee33fa4dc170e916b93de8fe95c70a51241a) that allows [monsters to be gentle](https://github.com/bacontsu/spirit-op4/commit/1b5f5f6bc91c101d41dd7ffe24ab0c6ebc452e33).
     1. While smoking ...
         1. [ ] your weapon takes 10x more the amount of damage
         1. [ ] but the recoil is 10x more high and the accuracy is garbage
