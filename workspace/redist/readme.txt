@@ -68,27 +68,29 @@ v1.2 Features:
     - "hotfingers" [13] - everyone throws the weapon in their hands as a live explosive
     - "kaboom" [15] - every breakable on the map breaks and explodes at once
     - "knifevolley" [16] - everyone throws a fan of five knives that vanish on impact
-    - "maxammo" [17] - your current weapon's ammo is filled to the max
-    - "noarmor" [19] - everyone loses all their armor
-    - "nukeparty" [21] - an armed nuclear proximity mine drops at everyone's feet, run!
-    - "passitleft" [22] - everyone hands the weapon in their hands to the next player
-    - "pipevolley" [25] - everyone throws a fan of five crowbars that vanish on impact
-    - "proxparty" [26] - an armed proximity mine drops at everyone's feet, run!
-    - "randomammo" [28] - everyone gets the same random ammo pickup
-    - "randomitem" [29] - everyone gets the same random item (health kit, battery or long jump)
-    - "randomrune" [30] - everyone gets the same random rune, replacing the one they held
-    - "randomweapon" [31] - everyone gets the same random weapon
-    - "remove func_*" [32] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
-    - "robinhood" [33] - the top fragger is disarmed and last place gets their guns
-    - "roulette" [34] - everyone gets a different random weapon
-    - "runeburst" [35] - everyone holding a rune drops it at once
-    - "runeshuffle" [36] - held runes rotate to the next rune holder
-    - "unarm" [40] - everyone is stripped down to their fists
-    - "wrenchvolley" [41] - everyone throws a fan of five wrenches that vanish on impact
+    - "longjump" [17] - everyone gets a long jump module until they die (was a timed mutator)
+    - "maxammo" [18] - your current weapon's ammo is filled to the max
+    - "noarmor" [20] - everyone loses all their armor
+    - "nukeparty" [22] - an armed nuclear proximity mine drops at everyone's feet, run!
+    - "passitleft" [23] - everyone hands the weapon in their hands to the next player
+    - "pipevolley" [26] - everyone throws a fan of five crowbars that vanish on impact
+    - "proxparty" [27] - an armed proximity mine drops at everyone's feet, run!
+    - "randomammo" [29] - everyone gets the same random ammo pickup
+    - "randomitem" [30] - everyone gets the same random item (health kit, battery or long jump)
+    - "randomrune" [31] - everyone gets the same random rune, replacing the one they held
+    - "randomweapon" [32] - everyone gets the same random weapon
+    - "remove func_*" [33] - one random kind of map brush entity (doors, walls, buttons, lifts, ...) disappears until the next map
+    - "robinhood" [34] - the top fragger is disarmed and last place gets their guns
+    - "roulette" [35] - everyone gets a different random weapon
+    - "runeburst" [36] - everyone holding a rune drops it at once
+    - "runeshuffle" [37] - held runes rotate to the next rune holder
+    - "unarm" [41] - everyone is stripped down to their fists
+    - "wrenchvolley" [42] - everyone throws a fan of five wrenches that vanish on impact
 - Mutator Patches
     - Added console warning if an unkown mutator is applied
     - Added "sv_addinstantmutator [index]" to apply any instant mutator on demand; every index is listed in server_commands.txt
     - Instant mutators are now numbered in alphabetical order
+    - "longjump" is now an instant mutator; it was removed from the timed mutators, so later mutator numbers shift down by one
     - Shotguns no longer reload with "noreload" mutator
 - Gamemode Patches
     - Added scrum lockup detection in Kick the Snowball
