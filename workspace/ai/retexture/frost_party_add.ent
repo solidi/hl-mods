@@ -1,0 +1,11 @@
+{
+"classname" "env_snow"
+"origin" "68 1224 -600"
+}
+{
+"classname" "trigger_mp3audio"
+"origin" "68 1224 -600"
+"health" "6"
+"message" "media/06-serenity.mp3"
+"spawnflags" "1"
+}

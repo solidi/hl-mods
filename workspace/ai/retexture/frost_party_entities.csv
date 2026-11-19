@@ -1,0 +1,9 @@
+classname,key,match,newkey,newvalue,note
+env_sprite,rendercolor,241 165 11,,241 241 241,yellow glow03 lamp halos -> white
+env_sprite,rendercolor,241 176 72,,241 241 241,orange glow -> white
+light,_light,243 142 40 200,,255 255 255 200,orange lamp light -> white
+light,_light,243 142 40 100,,255 255 255 100,orange lamp light -> white
+light,_light,255 173 8 500,,255 255 255 500,yellow light -> white
+info_texlights,~light5f,*,~light5a,,keep texlight value after ~light5f -> ~light5a swap
+info_texlights,+0~tnnl_lgt4,*,+0~tnnl_lgt3,,keep texlight value after tnnl_lgt4 -> tnnl_lgt3 swap
+info_texlights,+0~generic86,*,+0~generic86b,,keep texlight value after generic86 -> generic86b swap
