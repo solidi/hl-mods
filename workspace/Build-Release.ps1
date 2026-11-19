@@ -76,6 +76,8 @@ Remove-Item $redistDir\pak0.pak -Force -ErrorAction Ignore
 
 # Add-ons removal
 Remove-Item $redistDir\quadfrost.wad -ErrorAction Ignore
+# Defroster has no wad file.
+Remove-Item $redistDir\frost_party.wad -ErrorAction Ignore
 
 if ($verifyfiles) {
     Test-Manifest "${RootDir}\manifest" $redistDir

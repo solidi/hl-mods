@@ -107,6 +107,7 @@ try
         # Add-ons
         Compile-Map $binDir "quadfrost" $mapsDir $redistDir $wadsDir $finalCompile $noWad
         Compile-Map $binDir "defroster" $mapsDir $redistDir $wadsDir $finalCompile $noWad
+        Compile-Map $binDir "frost_party" $mapsDir $redistDir $wadsDir $finalCompile $noWad
     } else {
         Compile-Map $binDir $mapName $mapsDir $redistDir $wadsDir $finalCompile $noWad
     }

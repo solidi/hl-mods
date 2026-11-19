@@ -2,7 +2,6 @@
 
 [ ] Cold Spot should be renamed to "King of the Cold Spot" in description 
 [ ] cold_base.bsp outside area showing tunnel in sky
-[ ] Using full screen is hall of mirrors - in training2?
 
 ## Suggestions
 
@@ -37,6 +36,7 @@ Implemented
 [x] blue screen mutator
 [x] accept all cookies mutator
 [x] Broken mouse mutator
+[x] Using full screen is hall of mirrors - in training2?
 
 ## v1.1 Buglist
 

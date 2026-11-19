@@ -30,10 +30,15 @@ Thumbs.db*
 */redist/overviews/quadfrost.*
 */redist/quadfrost.wad
 */wads/quadfrost.wad
-*/redist/gfx/detail/*
 */maps/defroster/
 */redist/overviews/defroster.*
+*/maps/frost_party/
+*/wads/frost_party/
+*/redist/overviews/frost_party.*
+*/redist/frost_party.wad
+*/wads/frost_party.wad
 
+*/redist/gfx/detail/*
 */redist/halflife.wad
 */redist/decals.wad
 */wads/decals.wad

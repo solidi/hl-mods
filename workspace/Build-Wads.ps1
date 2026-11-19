@@ -49,5 +49,7 @@ Compile-Wad $binDir "glacialcore" $wadsDir $redistDir
 Compile-Wad $binDir "latenightxmas" $wadsDir $redistDir
 Compile-Wad $binDir "storm" $wadsDir $redistDir
 Compile-Wad $binDir "quadfrost" $wadsDir $redistDir
+# Defroster has no wad file.
+Compile-Wad $binDir "frost_party" $wadsDir $redistDir
 
 Set-Location -Path ${PSScriptRoot}

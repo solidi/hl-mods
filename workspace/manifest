@@ -644,6 +644,7 @@ maps\ice_pit_detail.txt
 maps\latenightxmas_detail.txt
 maps\overflow_detail.txt
 maps\quadfrost_detail.txt
+maps\frost_party.txt
 maps\snow_camp_detail.txt
 maps\snowcross_detail.txt
 maps\snowtransit_detail.txt
@@ -752,6 +753,10 @@ maps\quadfrost.bsp
 maps\quadfrost.res
 maps\quadfrost.gbw
 maps\quadfrost.txt
+maps\frost_party.bsp
+maps\frost_party.res
+maps\frost_party.gbw
+maps\frost_party.txt
 maps\thechill.bsp
 maps\thechill.res
 maps\thechill.gbw

@@ -79,7 +79,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster','frost_party') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -103,7 +103,7 @@ jobs:
     needs: [compile_tools, compile_wads]
     strategy:
       matrix:
-        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot,catacombs,stalkyard2,furrow,fences,frozen_bunker,frozenwarehouse,suspension,glupshitto,cold_base,frosty,overflow,focus,quadfrost,defroster,drift,storm]
+        map: [snowyard,snowcross,latenightxmas,datafloe,themill,canyon,snow_camp,training,doublefrost,frostfire,chillworks,snowtransit,comet,thechill,bounce2,training2,coldice,glacialcore,thetemple,depot,catacombs,stalkyard2,furrow,fences,frozen_bunker,frozenwarehouse,suspension,glupshitto,cold_base,frosty,overflow,focus,quadfrost,defroster,frost_party,drift,storm]
 
     steps:
     - uses: actions/checkout@v4
@@ -144,7 +144,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}' }" | Add-Content .\${{env.FOLDER_NAME}}\Config.ps1
-        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
+        "`$Config = @{ 'projectName' = '${{env.GAME_TITLE}}'`r`n'addons' = @('quadfrost','defroster','frost_party') }" | Add-Content .\${{env.FOLDER_NAME}}\add-ons\Config.ps1
 
     - name: Unpack Add-ons
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -163,7 +163,7 @@ jobs:
         .\${{env.FOLDER_NAME}}\Build-Sprites.ps1 -ConfigFile Config -Clean
 
     - name: Restore Add-on Redist Assets
-      if: ${{ matrix.map == 'defroster' || matrix.map == 'quadfrost' }}
+      if: ${{ matrix.map == 'defroster' || matrix.map == 'quadfrost' || matrix.map == 'frost_party' }}
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         $addonRedist = ".\${{env.FOLDER_NAME}}\add-ons\${{matrix.map}}\redist"
